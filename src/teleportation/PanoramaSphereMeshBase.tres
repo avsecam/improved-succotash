@@ -1,0 +1,10 @@
+[gd_resource type="SphereMesh" load_steps=3 format=3 uid="uid://bp34u6v5tss3w"]
+
+[ext_resource type="Texture2D" uid="uid://cn6h3ep7k2qr1" path="res://src/areas/Outside0.jpg.jpg" id="1_ym0oq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asxfg"]
+albedo_texture = ExtResource("1_ym0oq")
+
+[resource]
+material = SubResource("StandardMaterial3D_asxfg")
+flip_faces = true
