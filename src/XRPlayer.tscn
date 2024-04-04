@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdfm7qxgcoow0"]
+
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_lvx1b"]
+[ext_resource type="PackedScene" uid="uid://dbtokta8oh6ve" path="res://src/teleportation/Blink.tscn" id="2_rde5g"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_fx80c"]
+[ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uemmm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bvchu"]
+material = SubResource("StandardMaterial3D_uemmm")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 8.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euonu"]
+size = Vector3(1, 0.1, 1)
+
+[node name="XRPlayer" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("5_obqds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.729697, 0)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="UI" type="Control" parent="XROrigin3D/XRCamera3D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blink" parent="XROrigin3D/XRCamera3D/UI" instance=ExtResource("2_rde5g")]
+layout_mode = 1
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("1_04ah3")]
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" instance=ExtResource("2_lvx1b")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(0.999936, -0.00898236, 0.0068461, 0.00899957, 0.999956, -0.00248775, -0.00682346, 0.00254919, 0.999973, 0.5, 1, -0.55)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("4_fx80c")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" instance=ExtResource("2_lvx1b")]
+
+[node name="TeleportTrigger" type="Node3D" parent="XROrigin3D/RightHand"]
+script = ExtResource("5_bde84")
+
+[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/RightHand/TeleportTrigger"]
+target_position = Vector3(0, 0, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand/TeleportTrigger"]
+transform = Transform3D(1, 4.65661e-10, 3.10138e-09, 2.69938e-09, -4.33065e-08, 1, 1.39698e-09, -1, -4.44707e-08, 0, 0, -4)
+mesh = SubResource("CylinderMesh_bvchu")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_euonu")
