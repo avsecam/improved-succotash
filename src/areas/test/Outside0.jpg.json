@@ -1,0 +1,13 @@
+{
+    "area_name": "outside_0.jpg",
+    "panorama_texture_filename": "Outside0.jpg.jpg",
+    "base_rotation": -4.58366346359253,
+    "teleporter_positions": [
+        {
+            "position_x": 0.70030415058136,
+            "position_y": -0.96359884738922,
+            "position_z": -4.3394832611084,
+            "teleport_location_filename": "Outside1.jpg.json"
+        }
+    ]
+}
