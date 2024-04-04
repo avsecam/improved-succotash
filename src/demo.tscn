@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://s570ukncs83j"]
+
+[ext_resource type="Script" path="res://src/main.gd" id="1_60g26"]
+[ext_resource type="PackedScene" uid="uid://cdfm7qxgcoow0" path="res://src/XRPlayer.tscn" id="1_juuij"]
+
+[node name="Demo" type="Node3D"]
+script = ExtResource("1_60g26")
+
+[node name="XRPlayer" parent="." instance=ExtResource("1_juuij")]
