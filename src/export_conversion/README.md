@@ -1,0 +1,1 @@
+This folder contains the code for converting the JSON files from the authoring system into scenes.
