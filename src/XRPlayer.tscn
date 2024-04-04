@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdfm7qxgcoow0"]
+[gd_scene load_steps=11 format=3 uid="uid://cdfm7qxgcoow0"]
 
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
+[ext_resource type="Script" path="res://src/XRPlayer.gd" id="1_ipr7h"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_lvx1b"]
 [ext_resource type="PackedScene" uid="uid://dbtokta8oh6ve" path="res://src/teleportation/Blink.tscn" id="2_rde5g"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_fx80c"]
@@ -19,6 +20,7 @@ height = 8.0
 size = Vector3(1, 0.1, 1)
 
 [node name="XRPlayer" type="Node3D"]
+script = ExtResource("1_ipr7h")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
 

@@ -2,7 +2,7 @@ class_name Panorama
 extends Node3D
 
 
-const AREAS_DIR = "res://scripts/locomotion/areas/"
+const AREAS_DIR = "res://src/areas/"
 
 @export var data_filename: String # json filename
 var data: Dictionary
@@ -16,6 +16,8 @@ var data: Dictionary
 
 
 func _ready():
+	mesh_instance.mesh = preload("res://src/teleportation/PanoramaSphereMeshBase.tres")
+	
 	if data_filename.is_empty():
 		push_error("Panorama:data_filename must be set initially.")
 	
@@ -25,7 +27,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	self.global_position = camera.global_position
+	if camera:
+		self.global_position = camera.global_position
+	else:
+		self.global_position = Vector3(0, 0, 0)
 
 
 func update_panorama(new_data_filename: String):
@@ -54,7 +59,7 @@ func update_panorama(new_data_filename: String):
 		)
 		var teleporter_location_filename: String = data.teleporter_positions[i].teleport_location_filename
 		
-		var new_teleporter: Teleporter = preload("res://scripts/locomotion/Teleporter.tscn").instantiate()
+		var new_teleporter: Teleporter = preload("res://src/teleportation/Teleporter.tscn").instantiate()
 		new_teleporter.position = teleporter_position
 		new_teleporter.to = teleporter_location_filename
 		

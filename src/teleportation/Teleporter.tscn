@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://5iqynxjjb1jk"]
 
-[ext_resource type="Script" path="res://scripts/locomotion/Teleporter.gd" id="1_s1q3v"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="1_s1q3v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rdsro"]
 
