@@ -28,14 +28,11 @@ func _ready():
 	
 	_set_teleporters()
 	
-	if Engine.is_editor_hint():
-		# Add 360 image
-		var image = Image.load_from_file(image_filename)
-		var texture = ImageTexture.create_from_image(image)
-		((mesh_instance.mesh as SphereMesh).material as StandardMaterial3D).albedo_texture = texture
-		return
+	# Add 360 image
+	var image = Image.load_from_file(image_filename)
+	var texture = ImageTexture.create_from_image(image)
+	((mesh_instance.mesh as SphereMesh).material as StandardMaterial3D).albedo_texture = texture
 	
-	Events.player_teleport_requested_trigger.connect(_on_player_teleport_requested)
 	Events.connect("non_vr_teleporter_hovered", _on_non_vr_teleporter_hovered)
 	Events.connect("non_vr_no_teleporter_hovered", _on_non_vr_no_teleporter_hovered)
 
@@ -87,11 +84,9 @@ func _set_teleporters():
 		teleporters_container.add_child(teleporter)
 		teleporter.owner = self
 
-func _on_player_teleport_requested(new_data_filename: String):
-	update_panorama(new_data_filename)
-
 # NON VR SIGNALS
 func _on_non_vr_teleporter_hovered(teleporter: Teleporter):
+	print(teleporter)
 	teleporter.set_color(ACTIVE_COLOR)
 
 func _on_non_vr_no_teleporter_hovered():
