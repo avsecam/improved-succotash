@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dul254otipy5m"]
+[gd_scene load_steps=3 format=3 uid="uid://dul254otipy5m"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_prwr5"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_inft4"]
 
-[node name="Panorama" type="Node3D" groups=["Panorama"]]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+[node name="Panorama" type="Node3D"]
+transform = Transform3D(-0.999987, 0, -8.74217e-08, 0, 1, 0, 8.74217e-08, 0, -0.999987, 0, 0, 0)
 script = ExtResource("1_prwr5")
+teleporters_data = null
+image_filename = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 gi_mode = 0
+mesh = ExtResource("2_inft4")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
