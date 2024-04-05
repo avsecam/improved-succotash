@@ -27,10 +27,14 @@ func _physics_process(delta):
 
 	var space_state := get_world_3d().direct_space_state
 	var query := PhysicsRayQueryParameters3D.create(origin, end)
+	query.collision_mask = 0b00000000_00000000_00000000_00000001
 	var result := space_state.intersect_ray(query)
 
-	var collider: Node3D = result.get("collider")
+	var collider: Teleporter = result.get("collider")
 	if collider:
 		Events.non_vr_teleporter_hovered.emit(collider)
+		
+		if Input.is_action_just_pressed("mouse_left"):
+			Events.player_teleport_requested_trigger.emit(collider.to)
 	else:
 		Events.non_vr_no_teleporter_hovered.emit()

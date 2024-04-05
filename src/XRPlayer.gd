@@ -5,8 +5,6 @@ extends Node3D
 
 func _ready():
 	Events.start_without_vr.connect(_on_start_without_vr)
-	
-	camera.add_child(preload("res://src/areas/Outside0.jpg.tscn").instantiate())
 
 func _on_start_without_vr():
 	print("Freeing XRPlayer...")
