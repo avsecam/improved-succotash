@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://5iqynxjjb1jk"]
+[gd_scene load_steps=5 format=3 uid="uid://5iqynxjjb1jk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="1_s1q3v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rdsro"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehsxk"]
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_17ox7"]
+material = SubResource("StandardMaterial3D_ehsxk")
 
 [node name="Teleporter" type="StaticBody3D"]
 script = ExtResource("1_s1q3v")

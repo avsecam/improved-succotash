@@ -6,8 +6,6 @@
 [node name="Panorama" type="Node3D"]
 transform = Transform3D(-0.999987, 0, -8.74217e-08, 0, 1, 0, 8.74217e-08, 0, -0.999987, 0, 0, 0)
 script = ExtResource("1_prwr5")
-teleporters_data = null
-image_filename = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)

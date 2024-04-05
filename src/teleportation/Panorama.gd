@@ -4,6 +4,9 @@ extends Node3D
 
 const AREAS_DIR = "res://src/areas/"
 
+const IDLE_COLOR := Color("white")
+const ACTIVE_COLOR := Color("red")
+
 var data: Dictionary
 
 @onready var offset: Vector3 = self.position
@@ -33,11 +36,15 @@ func _ready():
 		return
 	
 	Events.player_teleport_requested_trigger.connect(_on_player_teleport_requested)
+	Events.connect("non_vr_teleporter_hovered", _on_non_vr_teleporter_hovered)
+	Events.connect("non_vr_no_teleporter_hovered", _on_non_vr_no_teleporter_hovered)
+
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
 	
+	# Don't let sphere move around relative to player camera
 	if camera:
 		self.global_position = camera.global_position
 	else:
@@ -82,3 +89,11 @@ func _set_teleporters():
 
 func _on_player_teleport_requested(new_data_filename: String):
 	update_panorama(new_data_filename)
+
+# NON VR SIGNALS
+func _on_non_vr_teleporter_hovered(teleporter: Teleporter):
+	teleporter.set_color(ACTIVE_COLOR)
+
+func _on_non_vr_no_teleporter_hovered():
+	for teleporter in teleporters_container.get_children():
+		teleporter.set_color(IDLE_COLOR)
