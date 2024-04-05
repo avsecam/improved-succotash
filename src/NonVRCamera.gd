@@ -1,6 +1,6 @@
 extends Camera3D
 
-const ROTATION_SPEED = 0.01
+const ROTATION_SPEED = 0.04
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("ui_left"):

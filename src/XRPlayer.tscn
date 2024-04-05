@@ -28,6 +28,7 @@ script = ExtResource("1_ipr7h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.729697, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="UI" type="Control" parent="XROrigin3D/XRCamera3D"]

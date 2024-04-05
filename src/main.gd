@@ -6,6 +6,8 @@ func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
 		print("OpenXR initialised successfully.")
+		
+		
 		ProjectSettings.set_setting("xr/openxr/enabled", true)
 		ProjectSettings.set_setting("xr/shaders/enabled", true)
 		
@@ -15,13 +17,3 @@ func _ready():
 	else:
 		print("OpenXR not initialized, starting in non-VR mode.")
 		Events.start_without_vr.emit()
-		
-		# Replicate VR environment with a 3D camera and panorama
-		var panorama = preload("res://src/areas/Outside0.jpg.tscn").instantiate()
-		panorama.name = "Panorama"
-		add_child(panorama)
-		
-		var non_vr_camera = preload("res://src/NonVRCamera.tscn").instantiate()
-		add_child(non_vr_camera)
-		non_vr_camera.make_current()
-
