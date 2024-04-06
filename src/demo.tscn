@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://s570ukncs83j"]
+[gd_scene load_steps=6 format=3 uid="uid://s570ukncs83j"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_60g26"]
 [ext_resource type="PackedScene" uid="uid://cdfm7qxgcoow0" path="res://src/XRPlayer.tscn" id="1_juuij"]
 [ext_resource type="Script" path="res://src/NonVR.gd" id="3_2dg2b"]
-[ext_resource type="PackedScene" uid="uid://cheu3tvaugaxa" path="res://src/areas/Outside1.jpg.tscn" id="4_onngt"]
 [ext_resource type="PackedScene" uid="uid://cc8da0pnpufyb" path="res://src/NonVRCamera.tscn" id="5_0wvvu"]
 [ext_resource type="Script" path="res://src/PanoramaContainer.gd" id="5_up2ir"]
 
@@ -19,5 +18,3 @@ script = ExtResource("3_2dg2b")
 
 [node name="PanoramaContainer" type="Node3D" parent="NonVR"]
 script = ExtResource("5_up2ir")
-
-[node name="outside_1_jpg" parent="NonVR/PanoramaContainer" instance=ExtResource("4_onngt")]

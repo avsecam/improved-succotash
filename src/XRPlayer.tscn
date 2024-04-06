@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdfm7qxgcoow0"]
+[gd_scene load_steps=12 format=3 uid="uid://cdfm7qxgcoow0"]
 
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
 [ext_resource type="Script" path="res://src/XRPlayer.gd" id="1_ipr7h"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dbtokta8oh6ve" path="res://src/teleportation/Blink.tscn" id="2_rde5g"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_fx80c"]
 [ext_resource type="Script" path="res://src/PanoramaContainer.gd" id="4_hekqp"]
-[ext_resource type="PackedScene" uid="uid://b35mk61wew5qr" path="res://src/areas/Outside0.jpg.tscn" id="4_qca6l"]
 [ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
 
@@ -46,8 +45,6 @@ layout_mode = 1
 
 [node name="PanoramaContainer" type="Node3D" parent="XROrigin3D/XRCamera3D"]
 script = ExtResource("4_hekqp")
-
-[node name="outside_0_jpg" parent="XROrigin3D/XRCamera3D/PanoramaContainer" instance=ExtResource("4_qca6l")]
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
