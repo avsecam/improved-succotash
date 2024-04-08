@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ds6cwwrxad7"]
+
+[ext_resource type="Script" path="res://src/ois/states/state_behavior.gd" id="1_p55ob"]
+
+[node name="StateBehavior" type="Node"]
+script = ExtResource("1_p55ob")

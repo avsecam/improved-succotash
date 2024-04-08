@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dm3ojuqbdvue1"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_cn4o2"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="2_opfr1"]
+[ext_resource type="PackedScene" uid="uid://c213h1okgrixo" path="res://src/ois/state_managers/raycast.tscn" id="2_t8lcl"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="3_ousrk"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="4_i0a8l"]
+[ext_resource type="PackedScene" uid="uid://yurhfdf4xm13" path="res://src/ois/states/snap_objects.tscn" id="6_ac7hg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_adclh"]
+size = Vector3(0.03, 0.03, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7xy3t"]
+size = Vector3(0.03, 0.03, 0.3)
+
+[node name="Screwdriver" instance=ExtResource("1_cn4o2")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_adclh")
+
+[node name="Raycast" parent="." index="1" instance=ExtResource("2_t8lcl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.137172)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+mesh = SubResource("BoxMesh_7xy3t")
+
+[node name="SnapPos" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.160819)
+
+[node name="StateManager" parent="." index="4" instance=ExtResource("2_opfr1")]
+receiver_group = "s"
+
+[node name="ControlRaycast" parent="StateManager/IdleState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("3_ousrk")]
+raycast = NodePath("../../../Raycast")
+
+[node name="ControlRaycast" parent="StateManager/GrabState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("3_ousrk")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="ControlRaycast" parent="StateManager/TriggerState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("3_ousrk")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="StateManager/TriggerState" index="1" instance=ExtResource("4_i0a8l")]
+
+[node name="SnapObjects" parent="StateManager/TriggerState" index="2" node_paths=PackedStringArray("snap_pos") instance=ExtResource("6_ac7hg")]
+snap_pos = NodePath("../../../SnapPos")
+
+[connection signal="grabbed" from="." to="StateManager" method="_on_actor_object_grabbed"]
+[connection signal="released" from="." to="StateManager" method="_on_actor_object_released"]
+[connection signal="body_entered" from="Raycast" to="StateManager" method="_on_receiver_collision_entered"]
+[connection signal="body_exited" from="Raycast" to="StateManager" method="_on_receiver_collision_exited"]
+
+[editable path="StateManager"]

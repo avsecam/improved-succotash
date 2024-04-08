@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cydplmlegksbk"]
+
+[ext_resource type="PackedScene" uid="uid://c5ds6cwwrxad7" path="res://src/ois/states/state_behavior.tscn" id="1_41xtd"]
+[ext_resource type="Script" path="res://src/ois/states/interact_receiver.gd" id="2_enan6"]
+
+[node name="InteractReceiver" instance=ExtResource("1_41xtd")]
+script = ExtResource("2_enan6")
+rate = 1.0

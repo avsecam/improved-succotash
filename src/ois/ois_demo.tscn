@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://6uy1vnsgjgri"]
+
+[ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_3v5i1"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_2omws"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_5i0h3"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_745ej"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_psx2g"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="6_6dykn"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_1fxrj"]
+[ext_resource type="PackedScene" uid="uid://dyq8ima5a0dpl" path="res://src/ois/xx_demo_objects/screw.tscn" id="8_0hnin"]
+[ext_resource type="PackedScene" uid="uid://dm3ojuqbdvue1" path="res://src/ois/xx_demo_objects/screwdriver.tscn" id="9_tkv8d"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vtwao"]
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ljkm"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="Environment" id="Environment_74kmf"]
+
+[node name="OISDemo" type="Node3D"]
+script = ExtResource("1_3v5i1")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 0.5)
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("2_2omws")]
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" instance=ExtResource("3_5i0h3")]
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("4_745ej")]
+
+[node name="MovementDirect" parent="XROrigin3D/LeftHand" instance=ExtResource("5_psx2g")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("6_6dykn")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" instance=ExtResource("3_5i0h3")]
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("4_745ej")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("7_1fxrj")]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_vtwao")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_3ljkm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_74kmf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 31.3408, 0)
+
+[node name="Screw" parent="." groups=["s"] instance=ExtResource("8_0hnin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437249, 1.00643, -1.45463)
+
+[node name="Screwdriver" parent="." instance=ExtResource("9_tkv8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218053, 0, -0.382871)

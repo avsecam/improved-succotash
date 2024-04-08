@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci2ih0equ4uoy"]
+
+[ext_resource type="PackedScene" uid="uid://cgvb2nfbovs56" path="res://src/ois/state_managers/state_manager.tscn" id="1_vtcyg"]
+[ext_resource type="Script" path="res://src/ois/state_managers/one_handed_tool.gd" id="2_yv5em"]
+[ext_resource type="PackedScene" uid="uid://c7jka6pr2nc0" path="res://src/ois/states/state.tscn" id="3_vs46t"]
+
+[node name="StateManager" node_paths=PackedStringArray("current_state") instance=ExtResource("1_vtcyg")]
+script = ExtResource("2_yv5em")
+current_state = NodePath("IdleState")
+
+[node name="IdleState" parent="." index="0" instance=ExtResource("3_vs46t")]
+
+[node name="GrabState" parent="." index="1" instance=ExtResource("3_vs46t")]
+
+[node name="TriggerState" parent="." index="2" instance=ExtResource("3_vs46t")]
