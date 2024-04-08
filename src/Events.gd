@@ -8,6 +8,7 @@ signal start_without_vr()
 signal no_teleporter_hovered()
 signal teleporter_hovered(teleporter: Teleporter)
 signal player_teleport_requested_trigger(new_level_filepath: String)
+signal player_rotate_requested()
 signal set_player_rotation_requested(current_rotation: Vector3, new_rotation: Vector3)
 
 

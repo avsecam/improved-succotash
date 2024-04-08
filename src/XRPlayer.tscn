@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdfm7qxgcoow0"]
+[gd_scene load_steps=14 format=3 uid="uid://cdfm7qxgcoow0"]
 
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
 [ext_resource type="Script" path="res://src/XRPlayer.gd" id="1_ipr7h"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="4_hekqp"]
 [ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
+[ext_resource type="Script" path="res://src/teleportation/RotateCamera.gd" id="9_q76cs"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h6646"]
 viewport_path = NodePath("XROrigin3D/XRCamera3D/SubViewport")
@@ -60,6 +61,7 @@ layout_mode = 1
 
 [node name="PanoramaContainer" type="Node3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+top_level = true
 script = ExtResource("4_hekqp")
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
@@ -87,6 +89,9 @@ target_position = Vector3(0, 0, -8)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand/TeleportTrigger"]
 transform = Transform3D(1, 4.65661e-10, 3.10138e-09, 2.69938e-09, -4.33065e-08, 1, 1.39698e-09, -1, -4.44707e-08, 0, 0, -4)
 mesh = SubResource("CylinderMesh_bvchu")
+
+[node name="RotateCamera" type="Node3D" parent="XROrigin3D/RightHand"]
+script = ExtResource("9_q76cs")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
