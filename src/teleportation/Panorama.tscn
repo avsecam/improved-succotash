@@ -4,7 +4,7 @@
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_inft4"]
 
 [node name="Panorama" type="Node3D"]
-transform = Transform3D(-0.999987, 0, -8.74217e-08, 0, 1, 0, 8.74217e-08, 0, -0.999987, 0, 0, 0)
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 script = ExtResource("1_prwr5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

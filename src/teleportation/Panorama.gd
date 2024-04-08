@@ -34,8 +34,10 @@ func _ready():
 	var texture = ImageTexture.create_from_image(image)
 	((mesh_instance.mesh as SphereMesh).material as StandardMaterial3D).albedo_texture = texture
 	
-	Events.connect("non_vr_teleporter_hovered", _on_non_vr_teleporter_hovered)
-	Events.connect("non_vr_no_teleporter_hovered", _on_non_vr_no_teleporter_hovered)
+	Events.connect("teleporter_hovered", _on_teleporter_hovered)
+	Events.connect("no_teleporter_hovered", _on_no_teleporter_hovered)
+	Events.connect("non_vr_teleporter_hovered", _on_teleporter_hovered)
+	Events.connect("non_vr_no_teleporter_hovered", _on_no_teleporter_hovered)
 
 
 func _physics_process(delta):
@@ -85,11 +87,11 @@ func _set_teleporters():
 		teleporters_container.add_child(teleporter)
 		teleporter.owner = self
 
-# NON VR SIGNALS
-func _on_non_vr_teleporter_hovered(teleporter: Teleporter):
-	print(teleporter)
-	teleporter.set_color(ACTIVE_COLOR)
+# TELEPORTER SIGNALS
+func _on_teleporter_hovered(teleporter: Teleporter):
+	if teleporter:
+		teleporter.set_color(ACTIVE_COLOR)
 
-func _on_non_vr_no_teleporter_hovered():
+func _on_no_teleporter_hovered():
 	for teleporter in teleporters_container.get_children():
 		teleporter.set_color(IDLE_COLOR)
