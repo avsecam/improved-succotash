@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_lvx1b"]
 [ext_resource type="PackedScene" uid="uid://dbtokta8oh6ve" path="res://src/teleportation/Blink.tscn" id="2_rde5g"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_fx80c"]
-[ext_resource type="Script" path="res://src/PanoramaContainer.gd" id="4_hekqp"]
+[ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="4_hekqp"]
 [ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
 
@@ -43,7 +43,8 @@ grow_vertical = 2
 [node name="Blink" parent="XROrigin3D/XRCamera3D/UI" instance=ExtResource("2_rde5g")]
 layout_mode = 1
 
-[node name="PanoramaContainer" type="Node3D" parent="XROrigin3D/XRCamera3D"]
+[node name="PanoramaContainer" type="Node3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 script = ExtResource("4_hekqp")
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]

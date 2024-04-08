@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://n1s1x7wws7as"]
+[gd_scene load_steps=5 format=3 uid="uid://n1s1x7wws7as"]
 
-[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_ap5af"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_mj5in"]
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_pqgqv"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sc6gt"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_51ay0"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_vcn3i"]
 
 [node name="tut2" type="Node3D"]
-transform = Transform3D(-0.999987, 0, -8.74217e-08, 0, 1, 0, 8.74217e-08, 0, -0.999987, 0, 0, 0)
-script = ExtResource("1_ap5af")
+transform = Transform3D(-4.37108e-08, 0, 0.999987, 0, 1, 0, -0.999987, 0, -4.37108e-08, 0, 0, 0)
+script = ExtResource("1_pqgqv")
 teleporters_data = [{
 "position": Vector3(-4.32912, -0.698264, 1.00999),
 "to": "Tut1"
@@ -18,7 +20,7 @@ image_filename = "res://src/areas/Tut2.jpg"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 gi_mode = 0
-mesh = ExtResource("2_mj5in")
+mesh = ExtResource("2_sc6gt")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -26,3 +28,13 @@ light_energy = 3.015
 omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Tut1" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_51ay0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.32912, -0.698264, 1.00999)
+script = ExtResource("4_vcn3i")
+to = "Tut1"
+
+[node name="Tut3" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_51ay0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24784, -0.698253, 1.31029)
+script = ExtResource("4_vcn3i")
+to = "Tut3"
