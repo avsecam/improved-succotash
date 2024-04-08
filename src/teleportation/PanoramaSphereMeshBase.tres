@@ -1,7 +1,6 @@
 [gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://bp34u6v5tss3w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asxfg"]
-albedo_color = Color(0.329412, 0.329412, 0.329412, 1)
 
 [resource]
 material = SubResource("StandardMaterial3D_asxfg")
