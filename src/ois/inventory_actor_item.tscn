@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3ynivfyki8aq"]
+
+[ext_resource type="PackedScene" uid="uid://c42wpq6ioefuj" path="res://src/inventory/inventory_item.tscn" id="1_72psc"]
+[ext_resource type="PackedScene" uid="uid://c213h1okgrixo" path="res://src/ois/state_managers/raycast.tscn" id="2_nio75"]
+[ext_resource type="PackedScene" uid="uid://c041446kxak13" path="res://src/ois/state_managers/inventory_one_handed_tool.tscn" id="3_wr3fa"]
+
+[node name="InventoryItem" instance=ExtResource("1_72psc")]
+
+[node name="Raycast" parent="." index="1" instance=ExtResource("2_nio75")]
+
+[node name="StateManager" parent="." index="6" instance=ExtResource("3_wr3fa")]
+
+[connection signal="grabbed" from="." to="StateManager" method="_on_actor_object_grabbed"]
+[connection signal="released" from="." to="StateManager" method="_on_actor_object_released"]
+[connection signal="body_entered" from="Raycast" to="StateManager" method="_on_receiver_collision_entered"]
+[connection signal="body_exited" from="Raycast" to="StateManager" method="_on_receiver_collision_exited"]
+
+[editable path="StateManager"]

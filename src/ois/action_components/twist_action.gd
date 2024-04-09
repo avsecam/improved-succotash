@@ -11,6 +11,7 @@ func initialize_action_vars():
 
 func _process(delta):
 	var interacting_current_angle = interacting_object.basis.get_euler().z
+	print(name + ": " +  interacting_object.name + " " + str(interacting_inital_angle) + " " + str(interacting_current_angle))
 	
 	var delta_angle = interacting_current_angle-interacting_inital_angle
 	# get shortest angle between two angles
@@ -28,6 +29,6 @@ func _process(delta):
 		interacting_inital_angle = interacting_current_angle
 	
 	total_progress = past_progress + (current_progress * rate);
+	
 	action_performed.emit(requirement, total_progress)
-	print(total_progress)
 	check_if_completed()
