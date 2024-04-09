@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://6ltmdc751430"]
+
+[ext_resource type="PackedScene" uid="uid://bllpyhfx1hiv7" path="res://src/inventory/player.tscn" id="1_7fmxh"]
+[ext_resource type="Script" path="res://src/inventory/world_a.gd" id="1_g2hqt"]
+[ext_resource type="PackedScene" uid="uid://dpbglt5v2jrf0" path="res://src/inventory/cube.tscn" id="3_7n38q"]
+[ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="4_3mb13"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lor2k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yr4xj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_imftx"]
+
+[node name="WorldA" type="Node3D"]
+script = ExtResource("1_g2hqt")
+
+[node name="player" parent="." instance=ExtResource("1_7fmxh")]
+
+[node name="PickableObject" parent="." instance=ExtResource("3_7n38q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.563409, -0.194066)
+second_hand_grab = 1
+
+[node name="PickableObject2" parent="." instance=ExtResource("3_7n38q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340948, 0.563409, -0.194066)
+
+[node name="PickableObject3" parent="." instance=ExtResource("3_7n38q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179142, 0.563409, -0.194066)
+
+[node name="PickableObject4" parent="." instance=ExtResource("3_7n38q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166233, 0.563409, -0.194066)
+
+[node name="PickableObject5" parent="." instance=ExtResource("3_7n38q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.343226, 0.56485, -0.195118)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.490057)
+mesh = SubResource("BoxMesh_lor2k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_yr4xj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.133813, 0.991007, 0, -0.991007, 0.133813, 0, 2.51652, 0)
+
+[node name="Shelf" parent="." instance=ExtResource("4_3mb13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000994563, 0.537479, -0.478065)
+
+[node name="Meshes2" type="Node3D" parent="Shelf"]
+transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shelf/Meshes2"]
+mesh = SubResource("BoxMesh_imftx")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Shelf/Meshes2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.2584, 0)
+mesh = SubResource("BoxMesh_imftx")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Shelf/Meshes2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1991, 0)
+mesh = SubResource("BoxMesh_imftx")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Shelf/Meshes2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -14, 0, 0.2, -1.22392e-07, 0, 7.1991, -0.40438)
+mesh = SubResource("BoxMesh_imftx")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Shelf/Meshes2"]
+transform = Transform3D(-3.27835e-08, -0.05, 0, 15, -4.37114e-08, 0, 0, 0, 1, -0.474589, 7.12, 0)
+mesh = SubResource("BoxMesh_imftx")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Shelf/Meshes2"]
+transform = Transform3D(-3.27835e-08, -0.05, 0, 15, -4.37114e-08, 0, 0, 0, 1, 0.47574, 7.12804, -2.0504e-05)
+mesh = SubResource("BoxMesh_imftx")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Shelf/Meshes2"]
+transform = Transform3D(-3.27835e-08, -0.05, 0, 15, -4.37114e-08, 0, 0, 0, 1, 0.155, 7.12, 0)
+mesh = SubResource("BoxMesh_imftx")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Shelf/Meshes2"]
+transform = Transform3D(-3.27835e-08, -0.05, 0, 15, -4.37114e-08, 0, 0, 0, 1, -0.15464, 7.12804, -2.0504e-05)
+mesh = SubResource("BoxMesh_imftx")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[editable path="player"]
+[editable path="player/XROrigin3D/LH/Slots_hand"]
+[editable path="player/XROrigin3D/LH/Slots_hand/Main/Slot"]
+[editable path="player/XROrigin3D/LH/Slots_hand/Main/Slot/HighlightRing"]
+[editable path="player/XROrigin3D/LH/Slots_hand/Main/Slot2"]
+[editable path="player/XROrigin3D/LH/Slots_hand/Main/Slot2/HighlightRing"]
+[editable path="Shelf"]
+[editable path="Shelf/Slot"]
+[editable path="Shelf/Slot/HighlightRing"]
+[editable path="Shelf/Slot2"]
+[editable path="Shelf/Slot2/HighlightRing"]
+[editable path="Shelf/Slot3"]
+[editable path="Shelf/Slot3/HighlightRing"]
+[editable path="Shelf/Slot4"]
+[editable path="Shelf/Slot4/HighlightRing"]
+[editable path="Shelf/Slot5"]
+[editable path="Shelf/Slot5/HighlightRing"]
+[editable path="Shelf/Slot6"]
+[editable path="Shelf/Slot6/HighlightRing"]

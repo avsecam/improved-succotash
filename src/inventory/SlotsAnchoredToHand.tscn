@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh1n6eeo7by8b"]
+
+[ext_resource type="Script" path="res://src/inventory/InventorySetting_Slots.gd" id="1_6gbqv"]
+[ext_resource type="PackedScene" uid="uid://crwyd7l0re2e" path="res://src/inventory/Slot.tscn" id="1_htw83"]
+
+[node name="Slots_hand" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09446, 0)
+
+[node name="Main" type="Node3D" parent="."]
+script = ExtResource("1_6gbqv")
+
+[node name="Slot" parent="Main" groups=["InventorySlot_Slots"] instance=ExtResource("1_htw83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11972, 0.23446, 0)
+
+[node name="Slot2" parent="Main" groups=["InventorySlot_Slots"] instance=ExtResource("1_htw83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107028, 0.23446, 0)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bllpyhfx1hiv7"]
+
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="1_rvkla"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="2_h2cxh"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_u4ntc"]
+[ext_resource type="PackedScene" uid="uid://dh1n6eeo7by8b" path="res://src/inventory/SlotsAnchoredToHand.tscn" id="3_c480q"]
+[ext_resource type="Script" path="res://src/inventory/SlotsAnchoredToHand_CameraManip.gd" id="4_nbyrr"]
+
+[node name="player" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="LH" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="XROrigin3D/LH" instance=ExtResource("1_rvkla")]
+
+[node name="FunctionPickup" parent="XROrigin3D/LH" instance=ExtResource("2_u4ntc")]
+
+[node name="Slots_hand" parent="XROrigin3D/LH" node_paths=PackedStringArray("camera") instance=ExtResource("3_c480q")]
+script = ExtResource("4_nbyrr")
+camera = NodePath("../../XRCamera3D")
+
+[node name="RH" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin3D/RH" instance=ExtResource("2_h2cxh")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RH" instance=ExtResource("2_u4ntc")]
+
+[editable path="XROrigin3D/LH/Slots_hand"]
+[editable path="XROrigin3D/LH/Slots_hand/Main/Slot"]
+[editable path="XROrigin3D/LH/Slots_hand/Main/Slot/HighlightRing"]
+[editable path="XROrigin3D/LH/Slots_hand/Main/Slot2"]
+[editable path="XROrigin3D/LH/Slots_hand/Main/Slot2/HighlightRing"]

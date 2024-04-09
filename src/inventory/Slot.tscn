@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://crwyd7l0re2e"]
+
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="1_l7s28"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_rr8ib"]
+[ext_resource type="Script" path="res://src/inventory/inventory_snap_zone.gd" id="3_q52uc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qdyqu"]
+
+[node name="Slot" type="Node3D"]
+
+[node name="HighlightRing" parent="." instance=ExtResource("1_l7s28")]
+
+[node name="Slot_prototype" type="Sprite3D" parent="."]
+transform = Transform3D(17.91, 0, 0, 0, 17.91, 0, 0, 0, 17.91, -0.002583, 0.00057438, -0.0229347)
+modulate = Color(0.576471, 0.933333, 0.945098, 0.160784)
+texture = SubResource("CanvasTexture_qdyqu")
+
+[node name="SnapZone" parent="." instance=ExtResource("2_rr8ib")]
+script = ExtResource("3_q52uc")
+grab_distance = 0.1
+snap_require = "Objects"
+
+[node name="Inventory Content" type="Node3D" parent="."]
+
+[connection signal="has_dropped" from="SnapZone" to="SnapZone" method="_on_has_dropped"]
+[connection signal="has_picked_up" from="SnapZone" to="SnapZone" method="_on_has_picked_up"]
+
+[editable path="HighlightRing"]
