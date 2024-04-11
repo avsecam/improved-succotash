@@ -3,15 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
 [ext_resource type="Script" path="res://src/XRPlayer.gd" id="1_ipr7h"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_lvx1b"]
-[ext_resource type="PackedScene" uid="uid://dbtokta8oh6ve" path="res://src/teleportation/Blink.tscn" id="2_rde5g"]
+[ext_resource type="PackedScene" uid="uid://c23eisv6xtkwt" path="res://src/UISubViewport.tscn" id="3_plw48"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_fx80c"]
 [ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="4_hekqp"]
 [ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
 [ext_resource type="Script" path="res://src/teleportation/RotateCamera.gd" id="9_q76cs"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_h6646"]
-viewport_path = NodePath("XROrigin3D/XRCamera3D/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_myjwc"]
+viewport_path = NodePath("UISubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uemmm"]
 
@@ -37,27 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.729697, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 current = true
+near = 0.149
 
-[node name="Sprite3D" type="Sprite3D" parent="XROrigin3D/XRCamera3D"]
+[node name="UISubViewport" parent="XROrigin3D/XRCamera3D" instance=ExtResource("3_plw48")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-sorting_offset = 10.0
-texture = SubResource("ViewportTexture_h6646")
-
-[node name="SubViewport" type="SubViewport" parent="XROrigin3D/XRCamera3D"]
-transparent_bg = true
-size = Vector2i(1152, 648)
-
-[node name="UI" type="Control" parent="XROrigin3D/XRCamera3D/SubViewport"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Blink" parent="XROrigin3D/XRCamera3D/SubViewport/UI" instance=ExtResource("2_rde5g")]
-layout_mode = 1
+texture = SubResource("ViewportTexture_myjwc")
 
 [node name="PanoramaContainer" type="Node3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)

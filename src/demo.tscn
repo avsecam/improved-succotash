@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://s570ukncs83j"]
+[gd_scene load_steps=8 format=3 uid="uid://s570ukncs83j"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_60g26"]
 [ext_resource type="PackedScene" uid="uid://cdfm7qxgcoow0" path="res://src/XRPlayer.tscn" id="1_juuij"]
 [ext_resource type="Script" path="res://src/NonVR.gd" id="3_2dg2b"]
 [ext_resource type="PackedScene" uid="uid://cc8da0pnpufyb" path="res://src/NonVRCamera.tscn" id="5_0wvvu"]
+[ext_resource type="PackedScene" uid="uid://c23eisv6xtkwt" path="res://src/UISubViewport.tscn" id="5_g56fp"]
 [ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="5_up2ir"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fqw4y"]
+viewport_path = NodePath("UISubViewport")
 
 [node name="Demo" type="Node3D"]
 script = ExtResource("1_60g26")
@@ -15,6 +19,10 @@ script = ExtResource("1_60g26")
 script = ExtResource("3_2dg2b")
 
 [node name="Camera" parent="NonVR" instance=ExtResource("5_0wvvu")]
+
+[node name="Sprite3D" parent="NonVR/Camera" instance=ExtResource("5_g56fp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+texture = SubResource("ViewportTexture_fqw4y")
 
 [node name="PanoramaContainer" type="Node3D" parent="NonVR"]
 script = ExtResource("5_up2ir")

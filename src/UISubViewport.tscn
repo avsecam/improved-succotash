@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c23eisv6xtkwt"]
+
+[ext_resource type="PackedScene" uid="uid://dbtokta8oh6ve" path="res://src/teleportation/Blink.tscn" id="1_q1vg8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ygxl7"]
+viewport_path = NodePath("UISubViewport")
+
+[node name="Sprite3D" type="Sprite3D"]
+texture = SubResource("ViewportTexture_ygxl7")
+
+[node name="UISubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="UI" type="Control" parent="UISubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Blink" parent="UISubViewport/UI" instance=ExtResource("1_q1vg8")]
+layout_mode = 1
+
+[node name="Control" type="Control" parent="UISubViewport/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_top = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UISubViewport/UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "subtitle"
