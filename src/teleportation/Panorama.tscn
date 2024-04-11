@@ -5,6 +5,7 @@
 
 [node name="Panorama" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+top_level = true
 script = ExtResource("1_prwr5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

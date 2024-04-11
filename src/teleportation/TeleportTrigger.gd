@@ -22,7 +22,7 @@ func _physics_process(delta):
 	else:
 		self.visible = false
 
-	# Check if ray is colliding with a teleporter
+	# Check if ray is colliding with a teleporter 
 	var raycast_is_colliding = raycast.is_colliding()
 	var teleporter = raycast.get_collider()
 	var raycast_mesh_material := (raycast_mesh.mesh as CylinderMesh).material as StandardMaterial3D
@@ -40,7 +40,7 @@ func _physics_process(delta):
 		and button_pressed_last_frame \
 		and not button_pressed_this_frame \
 		and raycast_is_colliding:
-			if (teleporter is Teleporter):
+			if (teleporter is Teleporter) and teleporter.enabled:
 				Events.emit_signal("player_teleport_requested_trigger", teleporter.to)
 
 	button_pressed_last_frame = button_pressed_this_frame
