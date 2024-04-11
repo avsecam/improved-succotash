@@ -14,9 +14,11 @@ signal body_exited(body)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# set raycast and laser properties
+	
 	raycast.target_position.z = -raycast_length
 	laser.mesh.size = Vector3(laser_thickness, laser_thickness, raycast_length)
 	laser.position.z = -(raycast_length/2)
+	
 
 func enable_raycast(enable):
 	raycast.enabled = enable

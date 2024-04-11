@@ -18,14 +18,23 @@ func _on_actor_object_released(pickable, by):
 		var controller : XRController3D = by.get_controller()
 		controller.button_pressed.disconnect(a)
 		controller.button_released.disconnect(b)
+		
+		var controller_sm = controller.get_node_or_null("StateManager")
+		if controller_sm != null:
+			controller_sm._on_object_released()
+
 		set_state(idle_state)
 
 func _on_actor_object_grabbed(pickable, by):
-	print("grabbed by " + by.name)
 	if by is XRToolsFunctionPickup:
 		var controller : XRController3D = by.get_controller()
 		controller.button_pressed.connect(a)
 		controller.button_released.connect(b)
+		
+		var controller_sm = controller.get_node_or_null("StateManager")
+		if controller_sm != null:
+			controller_sm._on_object_grabbed()
+
 		set_state(grab_state)
 	
 func _on_trigger_pressed():

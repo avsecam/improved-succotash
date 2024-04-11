@@ -14,6 +14,7 @@ func _ready():
 func set_state(state : OISState):
 	if (current_state != null):
 		current_state.exit_state.emit()
-	print(actor.name + ": " + current_state.name + " -> " + state.name)
+	if debug:
+		print(actor.name + ": " + current_state.name + " -> " + state.name)
 	current_state = state
 	current_state.enter_state.emit()

@@ -29,6 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.160819)
 
 [node name="StateManager" parent="." index="4" instance=ExtResource("2_opfr1")]
 receiver_group = "s"
+debug = false
 
 [node name="ControlRaycast" parent="StateManager/IdleState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("3_ousrk")]
 raycast = NodePath("../../../Raycast")

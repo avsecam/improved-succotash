@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://6uy1vnsgjgri"]
+[gd_scene load_steps=22 format=3 uid="uid://6uy1vnsgjgri"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_3v5i1"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_2omws"]
@@ -10,7 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_1fxrj"]
 [ext_resource type="Script" path="res://src/inventory/SlotsAnchoredToHand_CameraManip.gd" id="7_hsn1b"]
 [ext_resource type="PackedScene" uid="uid://dyq8ima5a0dpl" path="res://src/ois/xx_demo_objects/screw.tscn" id="8_0hnin"]
+[ext_resource type="PackedScene" uid="uid://c213h1okgrixo" path="res://src/ois/state_managers/raycast.tscn" id="9_rmh5r"]
 [ext_resource type="PackedScene" uid="uid://dm3ojuqbdvue1" path="res://src/ois/xx_demo_objects/screwdriver.tscn" id="9_tkv8d"]
+[ext_resource type="PackedScene" uid="uid://c1ssfs8hlildi" path="res://src/ois/state_managers/single_controller.tscn" id="10_pk4b7"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="11_ye2px"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="12_0fdl5"]
 [ext_resource type="PackedScene" uid="uid://buiu2cpk2t1q2" path="res://src/ois/xx_demo_objects/screwdriver_inventory.tscn" id="13_0ury6"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="13_spm3k"]
 
@@ -57,6 +61,28 @@ tracker = &"right_hand"
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" instance=ExtResource("3_5i0h3")]
 
 [node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("4_745ej")]
+
+[node name="Raycast" parent="XROrigin3D/RightHand" instance=ExtResource("9_rmh5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0216489, 0.116375)
+
+[node name="StateManager" parent="XROrigin3D/RightHand" node_paths=PackedStringArray("controller") instance=ExtResource("10_pk4b7")]
+controller = NodePath("..")
+receiver_group = "s"
+
+[node name="ControlRaycast" parent="XROrigin3D/RightHand/StateManager/IdleState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("11_ye2px")]
+raycast = NodePath("../../../Raycast")
+
+[node name="ControlRaycast" parent="XROrigin3D/RightHand/StateManager/ActiveState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("11_ye2px")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="XROrigin3D/RightHand/StateManager/ActiveState" index="1" instance=ExtResource("12_0fdl5")]
+
+[node name="ControlRaycast" parent="XROrigin3D/RightHand/StateManager/TriggerState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("11_ye2px")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="XROrigin3D/RightHand/StateManager/TriggerState" index="1" instance=ExtResource("12_0fdl5")]
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("7_1fxrj")]
 
@@ -137,7 +163,11 @@ metadata/_edit_group_ = true
 [node name="InventoryItem" parent="." instance=ExtResource("13_0ury6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106324, 0, -0.194254)
 
+[connection signal="body_entered" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_entered"]
+[connection signal="body_exited" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_exited"]
+
 [editable path="XROrigin3D/LeftHand/Slots_hand"]
+[editable path="XROrigin3D/RightHand/StateManager"]
 [editable path="Shelf"]
 [editable path="Shelf/Slot"]
 [editable path="Shelf/Slot/HighlightRing"]

@@ -9,6 +9,7 @@ func _ready():
 
 func on_enter_state():
 	if state_manager.receiver_object != null:
+		print(state_manager.current_state.name + ": " + state_manager.receiver_object.name)
 		receiver_object = state_manager.receiver_object
 		receiver_object.start_action_check(state_manager, rate)
 
