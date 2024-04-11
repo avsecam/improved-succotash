@@ -24,11 +24,9 @@ var data: Dictionary
 func _ready():
 	mesh_instance.mesh = preload ("res://src/teleportation/PanoramaSphereMeshBase.tres")
 	
-	for teleporter in teleporters_container.get_children():
-		teleporters_container.remove_child(teleporter)
-		teleporter.queue_free()
-	
-	_set_teleporters()
+	if teleporters_container.get_child_count() != teleporters_data.size():
+		print("Setting teleporters...")
+		_set_teleporters()
 	
 	# Add 360 image. Flip image horizontally to compensate for SphereMesh's Flip Faces property.
 	var image = Image.load_from_file(image_filename)
@@ -40,7 +38,6 @@ func _ready():
 	Events.connect("no_teleporter_hovered", _on_no_teleporter_hovered)
 	Events.connect("non_vr_teleporter_hovered", _on_teleporter_hovered)
 	Events.connect("non_vr_no_teleporter_hovered", _on_no_teleporter_hovered)
-
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
@@ -78,6 +75,10 @@ func update_panorama(new_data_filename: String):
 		teleporters_container.add_child(new_teleporter)
 
 func _set_teleporters():
+	for teleporter in teleporters_container.get_children():
+		teleporters_container.remove_child(teleporter)
+		teleporter.queue_free()
+	
 	for teleporter_data in teleporters_data:
 		print("Adding teleporter with data ", teleporter_data)
 		

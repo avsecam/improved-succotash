@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://g3pjxy3ganvh"]
+[gd_scene load_steps=3 format=3 uid="uid://bw6vx4eysodtj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_3swtk"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_cdeg1"]
