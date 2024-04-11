@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dd0x32yvv4umu"
+path="res://.godot/imported/Portal.obj-3d9d43e5b5c0351fe8fea4e4731fa9cf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Portal.obj-3d9d43e5b5c0351fe8fea4e4731fa9cf.mesh"]
+
+source_file="res://src/ems/blenderobjects/Portal.obj"
+dest_files=["res://.godot/imported/Portal.obj-3d9d43e5b5c0351fe8fea4e4731fa9cf.mesh", "res://.godot/imported/Portal.obj-3d9d43e5b5c0351fe8fea4e4731fa9cf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

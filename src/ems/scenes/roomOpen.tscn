@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1pxkyb7nq7fi"]
+
+[ext_resource type="PackedScene" uid="uid://cw6xpwjimqe32" path="res://blenderobjects/room.blend" id="1_sqn65"]
+[ext_resource type="PackedScene" uid="uid://dxaepsa3aa0to" path="res://scenes/roomOpenFix.tscn" id="2_m5ba3"]
+
+[node name="room" instance=ExtResource("1_sqn65")]
+
+[node name="Plane" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.54856)
+
+[node name="roomOpener" parent="." index="2" instance=ExtResource("2_m5ba3")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="3"]
