@@ -206,7 +206,7 @@ transform = Transform3D(-4.37114e-08, -0.8, 0, 1, -3.49691e-08, 0, 0, 0, 1, 0.37
 mesh = SubResource("CylinderMesh_6okml")
 
 [node name="InventoryItem" parent="." instance=ExtResource("6_hb4cl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.609959, -0.617075, -0.0758961)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.609959, -0.349034, 0.123054)
 
 [node name="StateManager" parent="InventoryItem" index="7"]
 receiver_group = "key"
