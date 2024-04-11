@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://25jihv4nk3p3"]
+[gd_scene load_steps=9 format=3 uid="uid://25jihv4nk3p3"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_5phwg"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_60yyl"]
@@ -12,9 +12,6 @@
 top_radius = 0.03
 bottom_radius = 0.03
 height = 1.0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_47exj"]
-size = Vector3(1, 0.101563, 1)
 
 [node name="tut1" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -152,13 +149,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.523223, 0.0224946)
 mesh = SubResource("CylinderMesh_imut2")
 skeleton = NodePath("../..")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.174576, 0, 0.984644, 0, 1, 0, -0.984644, 0, -0.174576, 0.235809, -0.559021, -0.0725809)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.449219, 0)
-shape = SubResource("BoxShape3D_47exj")
 
 [node name="InventoryItem3" parent="." instance=ExtResource("5_lmvtq")]
 transform = Transform3D(-0.174576, 0, 0.984644, 0, 1, 0, -0.984644, 0, -0.174576, 0.302042, -0.957458, -0.130385)

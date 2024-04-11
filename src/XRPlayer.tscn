@@ -23,7 +23,7 @@ bottom_radius = 0.01
 height = 8.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_euonu"]
-size = Vector3(20, 0.1, 20)
+size = Vector3(20, 2, 20)
 
 [node name="XRPlayer" type="Node3D"]
 script = ExtResource("1_ipr7h")
@@ -97,6 +97,7 @@ mesh = SubResource("CylinderMesh_bvchu")
 script = ExtResource("9_q76cs")
 
 [node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_euonu")
