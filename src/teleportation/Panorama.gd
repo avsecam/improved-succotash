@@ -91,7 +91,7 @@ func _set_teleporters():
 
 # TELEPORTER SIGNALS
 func _on_teleporter_hovered(teleporter: Teleporter):
-	if teleporter:
+	if teleporter and teleporter.enabled:
 		teleporter.set_color(ACTIVE_COLOR)
 
 func _on_no_teleporter_hovered():

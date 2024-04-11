@@ -34,7 +34,7 @@ func _physics_process(delta):
 	if collider:
 		Events.non_vr_teleporter_hovered.emit(collider)
 		
-		if Input.is_action_just_pressed("mouse_left"):
+		if Input.is_action_just_pressed("mouse_left") and collider.enabled:
 			Events.player_teleport_requested_trigger.emit(collider.to)
 	else:
 		Events.non_vr_no_teleporter_hovered.emit()
