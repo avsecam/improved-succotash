@@ -22,12 +22,15 @@ func convertToScene(filename: String) -> Panorama:
 	
 	var data = JSON.parse_string(json_data)
 
-	var panorama = preload ("res://src/teleportation/Panorama.tscn").instantiate()
+	var panorama: Panorama = preload ("res://src/teleportation/Panorama.tscn").instantiate()
 
 	panorama.name = data.area_name
 	
 	# Set 360 image filename
 	panorama.image_filename = (AREAS_DIR + (data.panorama_texture_filename))
+	
+	# Set base rotation
+	panorama.base_rotation = data.base_rotation
 
 	# Set teleporters
 	for teleporter_data in data.teleporter_positions:

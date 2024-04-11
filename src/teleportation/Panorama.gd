@@ -19,6 +19,8 @@ var data: Dictionary
 
 @export var image_filename: String
 
+@export var base_rotation: float = 0.0
+
 func _ready():
 	mesh_instance.mesh = preload ("res://src/teleportation/PanoramaSphereMeshBase.tres")
 	
