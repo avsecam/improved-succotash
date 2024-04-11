@@ -4,9 +4,6 @@ extends Node3D
 
 const AREAS_DIR = "res://src/areas/"
 
-const IDLE_COLOR := Color("white")
-const ACTIVE_COLOR := Color("red")
-
 var data: Dictionary
 
 @onready var offset: Vector3 = self.position
@@ -93,8 +90,8 @@ func _set_teleporters():
 # TELEPORTER SIGNALS
 func _on_teleporter_hovered(teleporter: Teleporter):
 	if teleporter and teleporter.enabled:
-		teleporter.set_color(ACTIVE_COLOR)
+		teleporter.hovered = true
 
 func _on_no_teleporter_hovered():
 	for teleporter in teleporters_container.get_children():
-		teleporter.set_color(IDLE_COLOR)
+		teleporter.hovered = false
