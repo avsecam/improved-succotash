@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://g3pjxy3ganvh"]
+[gd_scene load_steps=7 format=3 uid="uid://g3pjxy3ganvh"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_3swtk"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_cdeg1"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m4lqq"]
 [ext_resource type="PackedScene" uid="uid://car5wh5lyv77j" path="res://src/ois/xx_demo_objects/cat.tscn" id="5_mbffq"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/enable_teleporter.gd" id="5_or5ml"]
+[ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="6_f88k5"]
 
 [node name="tut2" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -49,4 +50,20 @@ requirement = 2.0
 script = ExtResource("5_or5ml")
 teleporter = NodePath("../../Teleporters/Tut3")
 
+[node name="Shelf" parent="." instance=ExtResource("6_f88k5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39846, -0.355025)
+
 [editable path="ReceiverObject"]
+[editable path="Shelf"]
+[editable path="Shelf/Slot"]
+[editable path="Shelf/Slot/HighlightRing"]
+[editable path="Shelf/Slot2"]
+[editable path="Shelf/Slot2/HighlightRing"]
+[editable path="Shelf/Slot3"]
+[editable path="Shelf/Slot3/HighlightRing"]
+[editable path="Shelf/Slot4"]
+[editable path="Shelf/Slot4/HighlightRing"]
+[editable path="Shelf/Slot5"]
+[editable path="Shelf/Slot5/HighlightRing"]
+[editable path="Shelf/Slot6"]
+[editable path="Shelf/Slot6/HighlightRing"]

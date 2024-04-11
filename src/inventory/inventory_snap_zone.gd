@@ -7,10 +7,12 @@ func _on_has_dropped():
 	# Transfer object parent from snapzone to actual slot.
 	self.get_parent().remove_child(current_inventory_obj)
 	# If object is currently in slot, remove parent before adding to World.
+	var temp_parent = current_inventory_obj.get_node("../../../..")
+	print("!!!!! " + temp_parent.get_name())
 	if current_inventory_obj.get_parent().get_name() == "Inventory Content":
 		current_inventory_obj.get_parent().remove_child(current_inventory_obj)
 	# index is set to 1 because XRUserSettings is child 0 -- will check if there's a better implementation
-	get_tree().get_root().get_child(1).add_child(current_inventory_obj)
+	temp_parent.add_child(current_inventory_obj)
 
 
 func _on_has_picked_up(picked_up_object):

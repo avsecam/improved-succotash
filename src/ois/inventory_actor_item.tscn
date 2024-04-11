@@ -8,6 +8,9 @@
 
 [node name="Raycast" parent="." index="1" instance=ExtResource("2_nio75")]
 
+[node name="ReplacementMesh" parent="." index="3"]
+visible = false
+
 [node name="StateManager" parent="." index="6" instance=ExtResource("3_wr3fa")]
 
 [connection signal="grabbed" from="." to="StateManager" method="_on_actor_object_grabbed"]

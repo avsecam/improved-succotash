@@ -11,6 +11,7 @@ script = ExtResource("2_f7576")
 [node name="MainMesh" type="Node3D" parent="." index="1"]
 
 [node name="ReplacementMesh" type="Node3D" parent="." index="2"]
+visible = false
 
 [node name="GrabPointHandLeft" parent="." index="3" instance=ExtResource("3_r4kbm")]
 
