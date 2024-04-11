@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://6uy1vnsgjgri"]
+[gd_scene load_steps=23 format=3 uid="uid://6uy1vnsgjgri"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_3v5i1"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_2omws"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="12_0fdl5"]
 [ext_resource type="PackedScene" uid="uid://buiu2cpk2t1q2" path="res://src/ois/xx_demo_objects/screwdriver_inventory.tscn" id="13_0ury6"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="13_spm3k"]
+[ext_resource type="PackedScene" uid="uid://car5wh5lyv77j" path="res://src/ois/xx_demo_objects/cat.tscn" id="18_fuox7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vtwao"]
 size = Vector2(100, 100)
@@ -63,7 +64,7 @@ tracker = &"right_hand"
 [node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("4_745ej")]
 
 [node name="Raycast" parent="XROrigin3D/RightHand" instance=ExtResource("9_rmh5r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0216489, 0.116375)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0216489, 0.116375)
 
 [node name="StateManager" parent="XROrigin3D/RightHand" node_paths=PackedStringArray("controller") instance=ExtResource("10_pk4b7")]
 controller = NodePath("..")
@@ -160,8 +161,11 @@ mesh = SubResource("BoxMesh_k4ow5")
 skeleton = NodePath("../..")
 metadata/_edit_group_ = true
 
-[node name="InventoryItem" parent="." instance=ExtResource("13_0ury6")]
+[node name="InventoryScrewdriver" parent="." instance=ExtResource("13_0ury6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106324, 0, -0.194254)
+
+[node name="ReceiverObject" parent="." groups=["s"] instance=ExtResource("18_fuox7")]
+transform = Transform3D(-0.253775, 0, 0.967263, 0, 1, 0, -0.967263, 0, -0.253775, -0.0235844, 0.606483, -0.75578)
 
 [connection signal="body_entered" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_entered"]
 [connection signal="body_exited" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_exited"]
