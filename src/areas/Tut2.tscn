@@ -1,14 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw6vx4eysodtj"]
+[gd_scene load_steps=6 format=3 uid="uid://g3pjxy3ganvh"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_3swtk"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_cdeg1"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m4lqq"]
 [ext_resource type="PackedScene" uid="uid://car5wh5lyv77j" path="res://src/ois/xx_demo_objects/cat.tscn" id="5_mbffq"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/enable_teleporter.gd" id="5_or5ml"]
-[ext_resource type="PackedScene" uid="uid://buiu2cpk2t1q2" path="res://src/ois/xx_demo_objects/screwdriver_inventory.tscn" id="6_7g6hn"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_f6saj"]
-size = Vector3(1, 0.0839844, 1)
 
 [node name="tut2" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -45,20 +41,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24784, -0.698253, 1.31029)
 enabled = false
 to = "Tut3"
 
-[node name="ReceiverObject" parent="." groups=["h"] instance=ExtResource("5_mbffq")]
+[node name="ReceiverObject" parent="." groups=["hand"] instance=ExtResource("5_mbffq")]
 transform = Transform3D(0.997722, 0, -0.0674581, 0, 1, 0, 0.0674581, 0, 0.997722, 1.11773, -0.636766, -0.132882)
+requirement = 2.0
 
 [node name="Node3D" type="Node3D" parent="ReceiverObject" node_paths=PackedStringArray("teleporter")]
 script = ExtResource("5_or5ml")
 teleporter = NodePath("../../Teleporters/Tut3")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.713279, -0.364831, 1.35095)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_f6saj")
-
-[node name="InventoryItem" parent="." instance=ExtResource("6_7g6hn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.715275, -0.322839, 1.11623)
 
 [editable path="ReceiverObject"]

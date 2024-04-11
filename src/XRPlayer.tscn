@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdfm7qxgcoow0"]
+[gd_scene load_steps=19 format=3 uid="uid://cdfm7qxgcoow0"]
 
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
 [ext_resource type="Script" path="res://src/XRPlayer.gd" id="1_ipr7h"]
@@ -9,7 +9,11 @@
 [ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="7_hxxp3"]
+[ext_resource type="PackedScene" uid="uid://c213h1okgrixo" path="res://src/ois/state_managers/raycast.tscn" id="8_6akhj"]
 [ext_resource type="Script" path="res://src/teleportation/RotateCamera.gd" id="9_q76cs"]
+[ext_resource type="PackedScene" uid="uid://c1ssfs8hlildi" path="res://src/ois/state_managers/single_controller.tscn" id="9_xo3q5"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="10_ewqir"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="11_q63rm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h6646"]
 viewport_path = NodePath("XROrigin3D/XRCamera3D/SubViewport")
@@ -75,6 +79,28 @@ tracker = &"left_hand"
 
 [node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("7_hxxp3")]
 
+[node name="Raycast" parent="XROrigin3D/LeftHand" instance=ExtResource("8_6akhj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0216489, 0.116375)
+
+[node name="StateManager" parent="XROrigin3D/LeftHand" node_paths=PackedStringArray("controller") instance=ExtResource("9_xo3q5")]
+controller = NodePath("..")
+receiver_group = "hand"
+
+[node name="ControlRaycast" parent="XROrigin3D/LeftHand/StateManager/IdleState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("10_ewqir")]
+raycast = NodePath("../../../Raycast")
+
+[node name="ControlRaycast" parent="XROrigin3D/LeftHand/StateManager/ActiveState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("10_ewqir")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="XROrigin3D/LeftHand/StateManager/ActiveState" index="1" instance=ExtResource("11_q63rm")]
+
+[node name="ControlRaycast" parent="XROrigin3D/LeftHand/StateManager/TriggerState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("10_ewqir")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="XROrigin3D/LeftHand/StateManager/TriggerState" index="1" instance=ExtResource("11_q63rm")]
+
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(0.999936, -0.00898236, 0.0068461, 0.00899957, 0.999956, -0.00248775, -0.00682346, 0.00254919, 0.999973, 0.5, 1, -0.5)
 tracker = &"right_hand"
@@ -96,7 +122,39 @@ mesh = SubResource("CylinderMesh_bvchu")
 [node name="RotateCamera" type="Node3D" parent="XROrigin3D/RightHand"]
 script = ExtResource("9_q76cs")
 
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("7_hxxp3")]
+
+[node name="Raycast" parent="XROrigin3D/RightHand" instance=ExtResource("8_6akhj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0216489, 0.116375)
+
+[node name="StateManager" parent="XROrigin3D/RightHand" node_paths=PackedStringArray("controller") instance=ExtResource("9_xo3q5")]
+controller = NodePath("..")
+receiver_group = "hand"
+
+[node name="ControlRaycast" parent="XROrigin3D/RightHand/StateManager/IdleState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("10_ewqir")]
+raycast = NodePath("../../../Raycast")
+
+[node name="ControlRaycast" parent="XROrigin3D/RightHand/StateManager/ActiveState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("10_ewqir")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="XROrigin3D/RightHand/StateManager/ActiveState" index="1" instance=ExtResource("11_q63rm")]
+
+[node name="ControlRaycast" parent="XROrigin3D/RightHand/StateManager/TriggerState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("10_ewqir")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="XROrigin3D/RightHand/StateManager/TriggerState" index="1" instance=ExtResource("11_q63rm")]
+
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_euonu")
+
+[connection signal="body_entered" from="XROrigin3D/LeftHand/Raycast" to="XROrigin3D/LeftHand/StateManager" method="_on_receiver_collision_entered"]
+[connection signal="body_exited" from="XROrigin3D/LeftHand/Raycast" to="XROrigin3D/LeftHand/StateManager" method="_on_receiver_collision_exited"]
+[connection signal="body_entered" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_entered"]
+[connection signal="body_exited" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_exited"]
+
+[editable path="XROrigin3D/LeftHand/StateManager"]
+[editable path="XROrigin3D/RightHand/StateManager"]
