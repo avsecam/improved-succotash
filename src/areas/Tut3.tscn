@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://be8ak8gwt8xf5"]
+[gd_scene load_steps=4 format=3 uid="uid://be8ak8gwt8xf5"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_5gqlq"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_b1uxs"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_h6xy2"]
-[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_tmm5t"]
 
 [node name="tut3" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -28,7 +27,6 @@ omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
 
-[node name="Tut2" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_h6xy2")]
+[node name="Tut2" parent="Teleporters" instance=ExtResource("3_h6xy2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02868, -0.787024, 1.84373)
-script = ExtResource("4_tmm5t")
 to = "Tut2"
