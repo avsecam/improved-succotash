@@ -8,8 +8,7 @@ func _ready():
 	Events.start_without_vr.connect(_on_start_without_vr)
 
 func _physics_process(_delta):
-	origin.position.x = 0
-	origin.position.z = 0
+	origin.position = Vector3()
 
 func _on_start_without_vr():
 	print("Freeing XRPlayer...")

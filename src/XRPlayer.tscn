@@ -88,6 +88,7 @@ script = ExtResource("5_bde84")
 
 [node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/RightHand/TeleportTrigger"]
 target_position = Vector3(0, 0, -8)
+collision_mask = 512
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand/TeleportTrigger"]
 transform = Transform3D(1, 4.65661e-10, 3.10138e-09, 2.69938e-09, -4.33065e-08, 1, 1.39698e-09, -1, -4.44707e-08, 0, 0, -4)
