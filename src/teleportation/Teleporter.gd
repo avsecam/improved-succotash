@@ -12,4 +12,5 @@ func _ready():
 		push_warning("Teleporter has no destination to teleport to.")
 
 func set_color(color: Color):
+	self.mesh.mesh.material = StandardMaterial3D.new()
 	(self.mesh.mesh.material as StandardMaterial3D).albedo_color = color
