@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://km3x1podaceq"
+path="res://.godot/imported/Voice 011 - nice kitty (pet it).wav-f6ec178ddae6d3505bddc9b231508f4b.sample"
+
+[deps]
+
+source_file="res://src/voice/Voice 011 - nice kitty (pet it).wav"
+dest_files=["res://.godot/imported/Voice 011 - nice kitty (pet it).wav-f6ec178ddae6d3505bddc9b231508f4b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

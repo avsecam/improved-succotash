@@ -1,4 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://beicqyim7cqbn"]
+[gd_scene load_steps=7 format=3 uid="uid://beicqyim7cqbn"]
+
+[ext_resource type="Script" path="res://src/ems/scripts/marble.gd" id="1_m42ay"]
+[ext_resource type="AudioStream" uid="uid://b46eesxdhh68f" path="res://src/voice/Voice 001 - see me.wav" id="2_4bn20"]
+[ext_resource type="AudioStream" uid="uid://w7e1qet5bvk4" path="res://src/voice/Voice 002 - look here.wav" id="3_ho5vy"]
+[ext_resource type="AudioStream" uid="uid://1siv3w3fs8ju" path="res://src/voice/Voice 004 - key.wav" id="4_7eupd"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_db57i"]
 radius = 0.25
@@ -8,10 +13,28 @@ height = 0.5
 points = PackedVector3Array(0.213184, 0.121617, 0.0458794, -0.244394, -0.0458482, -0.0225957, -0.235753, -0.0685128, -0.0453504, 0.0381797, -0.166638, 0.18209, 0.105885, -0.113145, -0.195799, -0.098597, 0.228232, 0.0230806, -0.0224624, 0.129243, -0.212554, -0.0680421, 0.0759164, 0.228005, 0.0990941, -0.22807, -0.0224645, -0.105478, -0.181336, -0.135664, -0.135556, -0.181178, 0.105931, 0.220803, -0.0455878, 0.106698, 0.213118, 0.0151914, -0.128921, 0.0990973, 0.228078, -0.0224652, 0.0914859, 0.12161, 0.197866, -0.158804, 0.0378813, -0.189069, -0.219777, 0.0758856, 0.0913354, -0.188602, 0.136032, -0.0903546, -0.151048, -0.060555, 0.189468, 0.0232579, -0.0458558, -0.24436, 0.0611408, -0.0532144, 0.235979, 0.136145, 0.12828, -0.165679, 0.228081, -0.0910574, -0.0452198, -0.0376937, 0.205208, 0.137094, -0.0303007, -0.24507, 0.0385787, -0.0300663, 0.220388, -0.113657, 0.135994, -0.180941, 0.105793, 0.0231076, -0.212735, -0.12882, 0.0760745, 0.219765, 0.0911983, -0.151493, -0.19737, -0.0224288, -0.12881, -0.0834983, -0.197107, -0.21952, -0.0909469, 0.0760821)
 
 [node name="Marble" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57681, 0, 0)
+script = ExtResource("1_m42ay")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_db57i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_grwwy")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[node name="VoicePromptTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="See Me" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_4bn20")
+
+[node name="Look Here" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ho5vy")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_7eupd")
+
+[connection signal="timeout" from="VoicePromptTimer" to="." method="_on_voice_prompt_timer_timeout"]
+[connection signal="finished" from="See Me" to="." method="_on_see_me_finished"]

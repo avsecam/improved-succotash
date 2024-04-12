@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dym4wuw8c1tn6"
+path="res://.godot/imported/Voice 003 - door lock.wav-68600c9dcf4721787d6ea7dfd59052a8.sample"
+
+[deps]
+
+source_file="res://src/voice/Voice 003 - door lock.wav"
+dest_files=["res://.godot/imported/Voice 003 - door lock.wav-68600c9dcf4721787d6ea7dfd59052a8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

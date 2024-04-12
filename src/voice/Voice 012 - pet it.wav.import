@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btqclccybf6oy"
+path="res://.godot/imported/Voice 012 - pet it.wav-d5fd241a70864742aa8ecb088b1f2a0a.sample"
+
+[deps]
+
+source_file="res://src/voice/Voice 012 - pet it.wav"
+dest_files=["res://.godot/imported/Voice 012 - pet it.wav-d5fd241a70864742aa8ecb088b1f2a0a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
