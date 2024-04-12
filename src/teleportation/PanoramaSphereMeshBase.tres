@@ -1,7 +1,0 @@
-[gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://bp34u6v5tss3w"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asxfg"]
-
-[resource]
-material = SubResource("StandardMaterial3D_asxfg")
-flip_faces = true

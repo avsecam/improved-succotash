@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tla5m1ef6mxr"]
+[gd_scene load_steps=14 format=3 uid="uid://tla5m1ef6mxr"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_5phwg"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_60yyl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/ois/feedback_components/play_animation.gd" id="6_246wt"]
 [ext_resource type="PackedScene" uid="uid://dn6d5anddqwb4" path="res://src/ois/xx_demo_objects/key_inventory.tscn" id="6_hb4cl"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="8_iqxt2"]
+[ext_resource type="PackedScene" uid="uid://beicqyim7cqbn" path="res://src/ems/scenes/marble.tscn" id="9_7nyy2"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6okml"]
 top_radius = 0.03
@@ -210,7 +211,6 @@ mesh = SubResource("CylinderMesh_6okml")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.609959, -0.349034, 0.123054)
 
 [node name="StateManager" parent="InventoryItem" index="7"]
-visible = true
 receiver_group = "key"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -220,11 +220,9 @@ libraries = {
 
 [node name="Shelf" parent="." instance=ExtResource("8_iqxt2")]
 transform = Transform3D(0.0672491, 0, 0.997736, 0, 1, 0, -0.997736, 0, 0.0672491, -0.469573, -0.668717, 0)
+visible = false
 
-[connection signal="grabbed" from="InventoryItem" to="InventoryItem/StateManager" method="_on_actor_object_grabbed"]
-[connection signal="released" from="InventoryItem" to="InventoryItem/StateManager" method="_on_actor_object_released"]
-[connection signal="body_entered" from="InventoryItem/Raycast" to="InventoryItem/StateManager" method="_on_receiver_collision_entered"]
-[connection signal="body_exited" from="InventoryItem/Raycast" to="InventoryItem/StateManager" method="_on_receiver_collision_exited"]
+[node name="Marble" parent="." instance=ExtResource("9_7nyy2")]
 
 [editable path="GateDoor/ReceiverObject"]
 [editable path="InventoryItem"]
