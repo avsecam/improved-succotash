@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://hlq12r0i77ig"]
+
+[ext_resource type="PackedScene" uid="uid://c3ynivfyki8aq" path="res://src/ois/inventory_actor_item.tscn" id="1_l6vw6"]
+[ext_resource type="ArrayMesh" uid="uid://b18yrivuwv21y" path="res://src/ois/xx_demo_objects/assets/hammer.obj" id="2_57vwp"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="3_cx8y1"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="4_t74h8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_343wi"]
+size = Vector3(1, 0.366776, 0.132538)
+
+[node name="Hammer" instance=ExtResource("1_l6vw6")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0217667, 0)
+shape = SubResource("BoxShape3D_343wi")
+
+[node name="Raycast" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175704, 0.0353245)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainMesh" index="0"]
+transform = Transform3D(-0.08, 0, -6.99382e-09, 0, 0.08, 0, 6.99382e-09, 0, -0.08, 0, 0, 0)
+mesh = ExtResource("2_57vwp")
+
+[node name="ReplacementMesh" parent="." index="3"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ReplacementMesh" index="0"]
+transform = Transform3D(-2.18557e-09, 0.0353553, 0.0353553, 0, 0.0353553, -0.0353553, -0.05, -1.54543e-09, -1.54543e-09, 0, 0, 0)
+mesh = ExtResource("2_57vwp")
+
+[node name="GrabPointHandLeft" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.130451)
+
+[node name="GrabPointHandRight" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.130451)
+
+[node name="StateManager" parent="." index="6" node_paths=PackedStringArray("current_state")]
+receiver_group = "Hammer"
+current_state = NodePath("IdleState")
+
+[node name="ControlRaycast" parent="StateManager/IdleState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("3_cx8y1")]
+raycast = NodePath("../../../Raycast")
+
+[node name="ControlRaycast" parent="StateManager/GrabState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("3_cx8y1")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="StateManager/GrabState" index="1" instance=ExtResource("4_t74h8")]
+
+[node name="ControlRaycast" parent="StateManager/TriggerState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("3_cx8y1")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="InteractReceiver" parent="StateManager/TriggerState" index="1" instance=ExtResource("4_t74h8")]
+
+[node name="ControlRaycast" parent="StateManager/InventoryState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("3_cx8y1")]
+raycast = NodePath("../../../Raycast")
+
+[editable path="StateManager"]

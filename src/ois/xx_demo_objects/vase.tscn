@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3rskx70gurpf"]
+
+[ext_resource type="PackedScene" uid="uid://pqntl142002y" path="res://src/ois/action_components/receiver_object_static.tscn" id="1_uah0g"]
+[ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="2_2bnip"]
+[ext_resource type="ArrayMesh" uid="uid://b7u2eg52ga1ni" path="res://src/ois/xx_demo_objects/assets/vase.obj" id="3_ko006"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aaf0d"]
+size = Vector3(0.252167, 0.529541, 0.254639)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7fum"]
+albedo_color = Color(0.713726, 0.580392, 0.392157, 1)
+
+[node name="Vase" groups=["Hammer"] instance=ExtResource("1_uah0g")]
+script = ExtResource("2_2bnip")
+range = 1
+requirement = 0.02
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_aaf0d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("3_ko006")
+surface_material_override/0 = SubResource("StandardMaterial3D_c7fum")
