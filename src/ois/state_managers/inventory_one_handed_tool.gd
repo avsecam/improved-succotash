@@ -10,6 +10,8 @@ extends StateManager
 var a = func(x): if (x == "trigger_click"): _on_trigger_pressed()
 var b = func(x): if (x == "trigger_click"): _on_trigger_released()
 
+var triggered = false
+
 func add_to_inventory():
 	set_state(inventory_state)
 
@@ -34,10 +36,22 @@ func _on_actor_object_grabbed(pickable, by):
 		var controller_sm = controller.get_node_or_null("StateManager")
 		if controller_sm != null:
 			controller_sm._on_object_grabbed()
-
+		
+		triggered = false
 		set_state(grab_state)
 	
 func _on_trigger_pressed():
+	# toggle trigger
+	#if triggered:
+		#triggered = false
+	#else:
+		#triggered = true
+	#
+	#if (receiver_object != null && triggered):
+		#set_state(trigger_state)
+	#else:
+		#set_state(grab_state)
+		
 	if (receiver_object != null):
 		set_state(trigger_state)
 
