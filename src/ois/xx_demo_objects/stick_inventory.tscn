@@ -1,0 +1,118 @@
+[gd_scene load_steps=16 format=3 uid="uid://0rax0xvcdxmk"]
+
+[ext_resource type="PackedScene" uid="uid://c3ynivfyki8aq" path="res://src/ois/inventory_actor_item.tscn" id="1_1yido"]
+[ext_resource type="Animation" uid="uid://dqa0h82y3qn1t" path="res://addons/godot-xr-tools/hands/animations/left/Grip 1.res" id="2_ihg1m"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="2_keylb"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="3_wdvji"]
+[ext_resource type="PackedScene" uid="uid://yurhfdf4xm13" path="res://src/ois/states/snap_objects.tscn" id="4_gcs72"]
+[ext_resource type="Animation" uid="uid://daqddcrbpam0c" path="res://addons/godot-xr-tools/hands/animations/right/Grip 1.res" id="4_nq0ea"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_srb2n"]
+size = Vector3(0.03, 0.03, 0.308325)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmyp4"]
+albedo_color = Color(0.603922, 0.396078, 0.717647, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ispch"]
+material = SubResource("StandardMaterial3D_dmyp4")
+size = Vector3(0.03, 0.03, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e56rk"]
+albedo_color = Color(0.717647, 0.376471, 0.192157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2c1ea"]
+material = SubResource("StandardMaterial3D_dmyp4")
+size = Vector3(0.03, 0.03, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2b0q"]
+albedo_color = Color(0.717647, 0.376471, 0.192157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_be2qt"]
+material = SubResource("StandardMaterial3D_i2b0q")
+size = Vector3(0.02, 0.03, 0.08)
+
+[sub_resource type="Resource" id="Resource_cr0wt"]
+script = ExtResource("3_wdvji")
+open_pose = ExtResource("2_ihg1m")
+closed_pose = ExtResource("2_ihg1m")
+
+[sub_resource type="Resource" id="Resource_g0xs6"]
+script = ExtResource("3_wdvji")
+open_pose = ExtResource("4_nq0ea")
+closed_pose = ExtResource("4_nq0ea")
+
+[node name="InventoryItem" instance=ExtResource("1_1yido")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00416259)
+shape = SubResource("BoxShape3D_srb2n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainMesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0579421)
+mesh = SubResource("BoxMesh_ispch")
+surface_material_override/0 = SubResource("StandardMaterial3D_e56rk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MainMesh" index="1"]
+transform = Transform3D(0.989218, -0.0698435, 0.128723, 0.0692596, 0.997558, 0.00901246, -0.129038, -3.56759e-09, 0.99164, -0.00795684, -0.0011648, -0.0921945)
+mesh = SubResource("BoxMesh_2c1ea")
+surface_material_override/0 = SubResource("StandardMaterial3D_e56rk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MainMesh" index="2"]
+transform = Transform3D(0.927003, 0.19528, -0.320207, -0.196822, 0.980043, 0.0278817, 0.319261, 0.0371774, 0.946937, 0.0134359, -0.00307675, -0.0420851)
+mesh = SubResource("BoxMesh_be2qt")
+surface_material_override/0 = SubResource("StandardMaterial3D_e56rk")
+
+[node name="Node3D" type="Node3D" parent="ReplacementMesh" index="0"]
+transform = Transform3D(0.424264, -7.68166e-09, -0.424264, -0.424264, -1.85452e-08, -0.424264, -7.68166e-09, 0.6, -1.85452e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ReplacementMesh/Node3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0579421)
+mesh = SubResource("BoxMesh_ispch")
+surface_material_override/0 = SubResource("StandardMaterial3D_e56rk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ReplacementMesh/Node3D" index="1"]
+transform = Transform3D(0.989218, -0.0698435, 0.128723, 0.0692596, 0.997558, 0.00901246, -0.129038, -3.56759e-09, 0.99164, -0.00795684, -0.0011648, -0.0921945)
+mesh = SubResource("BoxMesh_2c1ea")
+surface_material_override/0 = SubResource("StandardMaterial3D_e56rk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ReplacementMesh/Node3D" index="2"]
+transform = Transform3D(0.927003, 0.19528, -0.320207, -0.196822, 0.980043, 0.0278817, 0.319261, 0.0371774, 0.946937, 0.0134359, -0.00307675, -0.0420851)
+mesh = SubResource("BoxMesh_be2qt")
+surface_material_override/0 = SubResource("StandardMaterial3D_e56rk")
+
+[node name="GrabPointHandLeft" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.755716, 0.654899, 0, -0.654899, 0.755716, 0, -0.0457298, -0.0132867)
+visible = true
+hand_pose = SubResource("Resource_cr0wt")
+
+[node name="GrabPointHandRight" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 0.755716, 0.654899, 0, -0.654899, 0.755716, 0, -0.0457298, -0.0132867)
+visible = true
+hand_pose = SubResource("Resource_g0xs6")
+
+[node name="SnapPos" type="Node3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.146378)
+
+[node name="StateManager" parent="." index="7" node_paths=PackedStringArray("current_state")]
+receiver_group = "key"
+current_state = NodePath("IdleState")
+debug = false
+
+[node name="ControlRaycast" parent="StateManager/IdleState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("2_keylb")]
+raycast = NodePath("../../../Raycast")
+
+[node name="ControlRaycast" parent="StateManager/GrabState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("2_keylb")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="ControlRaycast" parent="StateManager/TriggerState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("2_keylb")]
+raycast = NodePath("../../../Raycast")
+is_enabled = true
+
+[node name="SnapObjects" parent="StateManager/TriggerState" index="1" node_paths=PackedStringArray("snap_pos") instance=ExtResource("4_gcs72")]
+snap_pos = NodePath("../../../SnapPos")
+
+[node name="ControlRaycast" parent="StateManager/InventoryState" index="0" node_paths=PackedStringArray("raycast") instance=ExtResource("2_keylb")]
+raycast = NodePath("../../../Raycast")
+
+[editable path="StateManager"]

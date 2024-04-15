@@ -1,24 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://car5wh5lyv77j"]
+[gd_scene load_steps=5 format=3 uid="uid://car5wh5lyv77j"]
 
 [ext_resource type="PackedScene" uid="uid://pqntl142002y" path="res://src/ois/action_components/receiver_object_static.tscn" id="1_ob3v0"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="2_x0t6n"]
+[ext_resource type="ArrayMesh" uid="uid://blwvpf6mnj8a4" path="res://src/ois/xx_demo_objects/assets/12221_Cat_v1_l3.obj" id="3_bjlcj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ndjy2"]
-size = Vector3(0.3, 0.3, 0.5)
+size = Vector3(0.15752, 0.312189, 0.364197)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgfhp"]
-albedo_color = Color(0.917647, 0.643137, 0.364706, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_rjrta"]
-material = SubResource("StandardMaterial3D_rgfhp")
-size = Vector3(0.3, 0.3, 0.5)
-
-[node name="ReceiverObject" instance=ExtResource("1_ob3v0")]
+[node name="Cat" instance=ExtResource("1_ob3v0")]
 script = ExtResource("2_x0t6n")
 requirement = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158457, 0.00723267)
 shape = SubResource("BoxShape3D_ndjy2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
-mesh = SubResource("BoxMesh_rjrta")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, 0, 0)
+mesh = ExtResource("3_bjlcj")

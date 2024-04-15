@@ -147,6 +147,7 @@ is_enabled = true
 [node name="InteractReceiver" parent="XROrigin3D/RightHand/StateManager/TriggerState" index="1" instance=ExtResource("11_q63rm")]
 
 [node name="Floor" type="StaticBody3D" parent="."]
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_euonu")

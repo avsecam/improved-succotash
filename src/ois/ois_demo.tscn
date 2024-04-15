@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://6uy1vnsgjgri"]
+[gd_scene load_steps=26 format=3 uid="uid://6uy1vnsgjgri"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_3v5i1"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_2omws"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://buiu2cpk2t1q2" path="res://src/ois/xx_demo_objects/screwdriver_inventory.tscn" id="13_0ury6"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="13_spm3k"]
 [ext_resource type="PackedScene" uid="uid://car5wh5lyv77j" path="res://src/ois/xx_demo_objects/cat.tscn" id="18_fuox7"]
+[ext_resource type="PackedScene" uid="uid://hlq12r0i77ig" path="res://src/ois/xx_demo_objects/hammer_inventory.tscn" id="19_aan4v"]
+[ext_resource type="PackedScene" uid="uid://d3rskx70gurpf" path="res://src/ois/xx_demo_objects/vase.tscn" id="20_us52w"]
+[ext_resource type="PackedScene" uid="uid://4jctgujwcptr" path="res://src/ois/xx_demo_objects/stick_inventory.tscn" id="21_8hpmv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vtwao"]
 size = Vector2(100, 100)
@@ -167,6 +170,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106324, 0, -0.194254)
 [node name="ReceiverObject" parent="." groups=["s"] instance=ExtResource("18_fuox7")]
 transform = Transform3D(-0.253775, 0, 0.967263, 0, 1, 0, -0.967263, 0, -0.253775, -0.0235844, 0.606483, -0.75578)
 
+[node name="Hammer" parent="." instance=ExtResource("19_aan4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67829, 0.734039, -1.20378)
+
+[node name="Vase" parent="." instance=ExtResource("20_us52w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30136, 0.477242, -3.0453)
+
+[node name="InventoryItem" parent="." instance=ExtResource("21_8hpmv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529245, 0, -0.63915)
+
 [connection signal="body_entered" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_entered"]
 [connection signal="body_exited" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_exited"]
 
@@ -185,3 +197,5 @@ transform = Transform3D(-0.253775, 0, 0.967263, 0, 1, 0, -0.967263, 0, -0.253775
 [editable path="Shelf/Slot5/HighlightRing"]
 [editable path="Shelf/Slot6"]
 [editable path="Shelf/Slot6/HighlightRing"]
+[editable path="InventoryItem"]
+[editable path="InventoryItem/StateManager"]

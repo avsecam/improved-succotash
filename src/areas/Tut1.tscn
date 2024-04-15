@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tla5m1ef6mxr"]
+[gd_scene load_steps=15 format=3 uid="uid://tla5m1ef6mxr"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_5phwg"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_60yyl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6d5anddqwb4" path="res://src/ois/xx_demo_objects/key_inventory.tscn" id="6_hb4cl"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="8_iqxt2"]
 [ext_resource type="PackedScene" uid="uid://beicqyim7cqbn" path="res://src/ems/scenes/marble.tscn" id="9_7nyy2"]
+[ext_resource type="PackedScene" uid="uid://0rax0xvcdxmk" path="res://src/ois/xx_demo_objects/stick_inventory.tscn" id="10_gp57n"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6okml"]
 top_radius = 0.03
@@ -210,9 +211,6 @@ mesh = SubResource("CylinderMesh_6okml")
 [node name="InventoryItem" parent="." instance=ExtResource("6_hb4cl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.609959, -0.349034, 0.123054)
 
-[node name="StateManager" parent="InventoryItem" index="7"]
-receiver_group = "key"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6kh8m")
@@ -223,6 +221,9 @@ transform = Transform3D(0.0672491, 0, 0.997736, 0, 1, 0, -0.997736, 0, 0.0672491
 
 [node name="Marble" parent="." instance=ExtResource("9_7nyy2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466807, 0, 1.73109)
+
+[node name="InventoryItem2" parent="." instance=ExtResource("10_gp57n")]
+transform = Transform3D(0.626277, 0, -0.7796, 0, 1, 0, 0.7796, 0, 0.626277, 0.0638373, -0.541554, -0.316158)
 
 [editable path="GateDoor/ReceiverObject"]
 [editable path="InventoryItem"]
