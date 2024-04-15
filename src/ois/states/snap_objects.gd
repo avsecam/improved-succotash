@@ -14,7 +14,9 @@ func on_enter_state():
 func _process(delta):
 	if state_manager.receiver_object != null:
 		receiver_object = state_manager.receiver_object
-		actor_object.global_position = receiver_object.get_node("SnapPos").global_position + (actor_object.global_position - snap_pos.global_position)
+		var snap_node = receiver_object.get_node_or_null("SnapPos")
+		if snap_node != null:
+			actor_object.global_position = snap_node.global_position + (actor_object.global_position - snap_pos.global_position)
 
 func on_exit_state():
 	receiver_object = null
