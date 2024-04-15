@@ -27,6 +27,6 @@ func _process(_delta):
 	delta_dist_prev = delta_dist
 	
 	total_progress = past_progress + (current_progress * rate);
-	print(total_progress)
+	#print(total_progress)
 	action_performed.emit(requirement, total_progress)
 	check_if_completed()

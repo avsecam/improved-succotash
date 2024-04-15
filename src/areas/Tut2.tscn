@@ -43,8 +43,14 @@ enabled = false
 to = "Tut3"
 
 [node name="ReceiverObject" parent="." groups=["hand"] instance=ExtResource("5_mbffq")]
-transform = Transform3D(0.997722, 0, -0.0674581, 0, 1, 0, 0.0674581, 0, 0.997722, 1.11773, -0.636766, -0.132882)
+transform = Transform3D(-0.996988, 0, 0.0775544, 0, 1, 0, -0.0775544, 0, -0.996988, 0.570629, -0.636766, 0.855366)
 requirement = 2.0
+
+[node name="CollisionShape3D" parent="ReceiverObject" index="0"]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, -1.19209e-07, 0.158457, 0.00723267)
+
+[node name="Skeleton3D" parent="ReceiverObject/cat_rigged/metarig" index="0"]
+bones/9/rotation = Quaternion(0.314632, 0.235898, 0.151421, 0.90688)
 
 [node name="Node3D" type="Node3D" parent="ReceiverObject" node_paths=PackedStringArray("teleporter")]
 script = ExtResource("5_or5ml")
@@ -54,6 +60,7 @@ teleporter = NodePath("../../Teleporters/Tut3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39846, -0.355025)
 
 [editable path="ReceiverObject"]
+[editable path="ReceiverObject/cat_rigged"]
 [editable path="Shelf"]
 [editable path="Shelf/Slot"]
 [editable path="Shelf/Slot/HighlightRing"]

@@ -8,6 +8,8 @@ var total_progress = 0
 var rate = 0
 
 signal action_performed(requirement, total_progress)
+signal action_started
+signal action_ended
 # signal action_completed
 
 func _ready():
@@ -15,7 +17,15 @@ func _ready():
 	# connect signal to feedback nodes
 	for i in get_children():
 		if i is Feedback:
-			action_performed.connect(i.show_feedback)
+			if i.action_start:
+				print(i.name + " connected with action_start")
+				action_started.connect(i.show_feedback)
+			if i.action_end:
+				print(i.name + " connected with action_end")
+				action_ended.connect(i.show_feedback)
+			if i.action_during || i.action_end:
+				# seperate in future
+				action_performed.connect(i.show_feedback)
 
 # start checking action
 func start_action_check(state_manager, rate):
@@ -23,9 +33,13 @@ func start_action_check(state_manager, rate):
 	if (rate == 0):
 		set_process(false)
 		interacting_object = null
+		action_ended.emit(requirement, total_progress)
+		print("action ended")
 	else:
 		set_process(true)
 		interacting_object = state_manager.actor_object
+		action_started.emit(requirement, total_progress)
+		print("action_started")
 		initialize_action_vars()
 
 # set which variables to initialize at the start of an action (during start_action_check)

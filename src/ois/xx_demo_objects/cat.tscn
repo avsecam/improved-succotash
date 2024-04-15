@@ -1,11 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://car5wh5lyv77j"]
+[gd_scene load_steps=11 format=3 uid="uid://car5wh5lyv77j"]
 
 [ext_resource type="PackedScene" uid="uid://pqntl142002y" path="res://src/ois/action_components/receiver_object_static.tscn" id="1_ob3v0"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="2_x0t6n"]
 [ext_resource type="ArrayMesh" uid="uid://blwvpf6mnj8a4" path="res://src/ois/xx_demo_objects/assets/12221_Cat_v1_l3.obj" id="3_bjlcj"]
+[ext_resource type="PackedScene" uid="uid://60q4bajr8gpp" path="res://src/ois/xx_demo_objects/assets/cat_rigged.glb" id="4_e7tev"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/play_animation.gd" id="5_ups26"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ndjy2"]
 size = Vector3(0.15752, 0.312189, 0.364197)
+
+[sub_resource type="Animation" id="Animation_hyl6i"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat_rigged/metarig/Skeleton3D:spine.005")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.314632, 0.235898, 0.151421, 0.90688)
+
+[sub_resource type="Animation" id="Animation_2afc7"]
+resource_name = "head_turn_away"
+length = 1.2
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat_rigged/metarig/Skeleton3D:spine.005")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.319359, 0.513185, 0.154479, 0.781529, 0.3, 1, 0.314632, 0.235898, 0.151421, 0.90688, 0.7, 1, 0.509379, -0.0135416, 0.0751377, 0.857149, 0.9, 1, 0.491874, -0.0141997, 0.075415, 0.867278)
+
+[sub_resource type="Animation" id="Animation_mvcmx"]
+resource_name = "head_turn_toward"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cat_rigged/metarig/Skeleton3D:spine.005")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.491874, -0.0141997, 0.075415, 0.867278, 0.3, 1, 0.407028, 0.393857, 0.106966, 0.817168, 0.5, 1, 0.319359, 0.513185, 0.154479, 0.781529)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_orpln"]
+_data = {
+"RESET": SubResource("Animation_hyl6i"),
+"head_turn_away": SubResource("Animation_2afc7"),
+"head_turn_toward": SubResource("Animation_mvcmx")
+}
 
 [node name="Cat" instance=ExtResource("1_ob3v0")]
 script = ExtResource("2_x0t6n")
@@ -17,4 +57,34 @@ shape = SubResource("BoxShape3D_ndjy2")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, 0, 0)
+visible = false
 mesh = ExtResource("3_bjlcj")
+
+[node name="cat_rigged" parent="." index="2" instance=ExtResource("4_e7tev")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="Skeleton3D" parent="cat_rigged/metarig" index="0"]
+bones/0/scale = Vector3(1, 1, 0.999999)
+bones/2/scale = Vector3(1, 1, 0.999999)
+bones/3/scale = Vector3(1, 1, 0.999998)
+bones/4/scale = Vector3(1, 1.00001, 0.999992)
+bones/9/position = Vector3(1.72728e-09, 0.0671607, 3.63235e-08)
+bones/9/rotation = Quaternion(0.314632, 0.235898, 0.151421, 0.90688)
+bones/9/scale = Vector3(1.00001, 1, 1.00001)
+bones/27/scale = Vector3(1, 1, 1)
+bones/31/scale = Vector3(1, 1, 1)
+bones/33/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_orpln")
+}
+
+[node name="PlayAnimation" type="Node3D" parent="." index="4" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("5_ups26")
+animation_player = NodePath("../AnimationPlayer")
+animation_name = "head_turn_toward"
+action_start = true
+action_during = false
+
+[editable path="cat_rigged"]

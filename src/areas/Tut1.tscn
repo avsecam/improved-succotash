@@ -147,6 +147,7 @@ teleporter = NodePath("../../../Teleporters/Tut2")
 script = ExtResource("6_246wt")
 animation_player = NodePath("../../../AnimationPlayer")
 animation_name = "open"
+action_completed = true
 
 [node name="GatePanel" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40599, -0.817238, -1.17075)
