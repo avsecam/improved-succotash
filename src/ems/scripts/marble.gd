@@ -20,10 +20,10 @@ func _on_voice_prompt_timer_timeout():
 	if (!alreadySeen):
 		see_me.play()
 	
-
 func _on_see_me_finished():
 	await get_tree().create_timer(1).timeout
 	print("already seen:" + str(alreadySeen))
-	if (!can_see.is_on_screen()):
+	while (!can_see.is_on_screen()):
 		look_here.play()
+		await get_tree().create_timer(10).timeout
 

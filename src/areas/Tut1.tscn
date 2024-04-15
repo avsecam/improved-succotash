@@ -220,7 +220,6 @@ libraries = {
 
 [node name="Shelf" parent="." instance=ExtResource("8_iqxt2")]
 transform = Transform3D(0.0672491, 0, 0.997736, 0, 1, 0, -0.997736, 0, 0.0672491, -0.469573, -0.668717, 0)
-visible = false
 
 [node name="Marble" parent="." instance=ExtResource("9_7nyy2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466807, 0, 1.73109)
