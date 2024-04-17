@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/ems/scripts/marble.gd" id="1_m42ay"]
 [ext_resource type="AudioStream" uid="uid://b46eesxdhh68f" path="res://src/voice/Voice 001 - see me.wav" id="2_4bn20"]
 [ext_resource type="AudioStream" uid="uid://w7e1qet5bvk4" path="res://src/voice/Voice 002 - look here.wav" id="3_ho5vy"]
-[ext_resource type="AudioStream" uid="uid://1siv3w3fs8ju" path="res://src/voice/Voice 004 - key.wav" id="4_7eupd"]
+[ext_resource type="AudioStream" uid="uid://dym4wuw8c1tn6" path="res://src/voice/Voice 003 - door lock.wav" id="4_pu8r6"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_db57i"]
 radius = 0.25
@@ -33,8 +33,8 @@ stream = ExtResource("2_4bn20")
 [node name="Look Here" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ho5vy")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_7eupd")
+[node name="Door is Locked" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_pu8r6")
 
 [connection signal="timeout" from="VoicePromptTimer" to="." method="_on_voice_prompt_timer_timeout"]
 [connection signal="finished" from="See Me" to="." method="_on_see_me_finished"]

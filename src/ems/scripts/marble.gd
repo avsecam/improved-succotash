@@ -5,6 +5,8 @@ extends Area3D
 @onready var look_here = $"Look Here"
 # Voices
 @onready var see_me = $"See Me"
+
+@onready 
 var alreadySeen = false
 
 # Called when the node enters the scene tree for the first time.
