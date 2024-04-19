@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://6uy1vnsgjgri"]
+[gd_scene load_steps=26 format=3 uid="uid://6uy1vnsgjgri"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_3v5i1"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_2omws"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://car5wh5lyv77j" path="res://src/ois/xx_demo_objects/cat.tscn" id="18_fuox7"]
 [ext_resource type="PackedScene" uid="uid://hlq12r0i77ig" path="res://src/ois/xx_demo_objects/hammer_inventory.tscn" id="19_aan4v"]
 [ext_resource type="PackedScene" uid="uid://d3rskx70gurpf" path="res://src/ois/xx_demo_objects/vase.tscn" id="20_us52w"]
+[ext_resource type="PackedScene" uid="uid://o6cvksf4tw2j" path="res://src/ois/xx_demo_objects/rope.tscn" id="21_jtsbm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vtwao"]
 size = Vector2(100, 100)
@@ -174,6 +175,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67829, 0.734039, -1.20378)
 
 [node name="Vase" parent="." instance=ExtResource("20_us52w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30136, 0.477242, -3.0453)
+
+[node name="RO_Rope" parent="." node_paths=PackedStringArray("reference_point") instance=ExtResource("21_jtsbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54606, 0.992364, -1.0878)
+reference_point = NodePath("../XROrigin3D/XRCamera3D")
+
+[node name="RO_Rope2" parent="." node_paths=PackedStringArray("reference_point") instance=ExtResource("21_jtsbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82992, 0.992364, -1.0878)
+reference_point = NodePath("Node3D")
+req_is_init_dist = true
+
+[node name="Node3D" type="Node3D" parent="RO_Rope2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.954072)
 
 [connection signal="body_entered" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_entered"]
 [connection signal="body_exited" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_exited"]
