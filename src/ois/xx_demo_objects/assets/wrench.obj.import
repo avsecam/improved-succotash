@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cw5gige2eamwi"
+path="res://.godot/imported/wrench.obj-ed7a8d79d4cd953b35c53d3ebc5451bf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wrench.obj-ed7a8d79d4cd953b35c53d3ebc5451bf.mesh"]
+
+source_file="res://src/ois/xx_demo_objects/assets/wrench.obj"
+dest_files=["res://.godot/imported/wrench.obj-ed7a8d79d4cd953b35c53d3ebc5451bf.mesh", "res://.godot/imported/wrench.obj-ed7a8d79d4cd953b35c53d3ebc5451bf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

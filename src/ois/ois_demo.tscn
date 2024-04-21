@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://6uy1vnsgjgri"]
+[gd_scene load_steps=28 format=3 uid="uid://6uy1vnsgjgri"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_3v5i1"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_2omws"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://hlq12r0i77ig" path="res://src/ois/xx_demo_objects/hammer_inventory.tscn" id="19_aan4v"]
 [ext_resource type="PackedScene" uid="uid://d3rskx70gurpf" path="res://src/ois/xx_demo_objects/vase.tscn" id="20_us52w"]
 [ext_resource type="PackedScene" uid="uid://o6cvksf4tw2j" path="res://src/ois/xx_demo_objects/rope.tscn" id="21_jtsbm"]
+[ext_resource type="PackedScene" uid="uid://dciwtgb821g07" path="res://src/ois/xx_demo_objects/bolt.tscn" id="22_b78k5"]
+[ext_resource type="PackedScene" uid="uid://wncfcxkwj85n" path="res://src/ois/xx_demo_objects/wrench_inventory.tscn" id="23_7wgox"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vtwao"]
 size = Vector2(100, 100)
@@ -187,6 +189,12 @@ req_is_init_dist = true
 
 [node name="Node3D" type="Node3D" parent="RO_Rope2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.954072)
+
+[node name="RO_Bolt" parent="." instance=ExtResource("22_b78k5")]
+transform = Transform3D(-0.982457, 0, -0.18649, 0, 1, 0, 0.18649, 0, -0.982457, -1.00928, 0.960237, -3.05497)
+
+[node name="InventoryItem" parent="." instance=ExtResource("23_7wgox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497192, 0, -3.39899)
 
 [connection signal="body_entered" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_entered"]
 [connection signal="body_exited" from="XROrigin3D/RightHand/Raycast" to="XROrigin3D/RightHand/StateManager" method="_on_receiver_collision_exited"]
