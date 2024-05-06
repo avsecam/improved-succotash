@@ -7,8 +7,9 @@ extends Control
 @onready var cb_receiver : CheckBox = $CDNewObject/FlowContainer/CBReceiver
 @onready var cb_inventory : CheckBox = $CDNewObject/FlowContainer/CBInventory
 
-@onready var editable_object_slot : Node3D = $MainContainer/LeftHalf/SubViewportContainer/SubViewport/EditableObjectSlot
-@onready var object_settings = $MainContainer/ObjectSettings
+@onready var editable_object_slot : Node3D = $MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport/EditableObjectSlot
+
+@onready var object_settings_container : TabContainer = $MainContainer/GridContainer/BoxContainer/ObjectSettings
 
 var pickable_scene = preload("res://addons/godot-xr-tools/objects/pickable.tscn")
 var receiver_scene = preload("res://src/ois/action_components/receiver_object_static.tscn")
@@ -19,11 +20,13 @@ var editable_object
 func _ready():
 	PhysicsServer3D.set_active(false) # turn off physics
 	toggle_object_settings(false)
+	object_settings_container.set_tab_hidden(3, true)
 
 func toggle_object_settings(toggle : bool):
-	for child in object_settings.get_children():
-		if child is Button:
-			child.disabled = !toggle
+	#for child in object_settings.get_children():
+		#if child is Button:
+			#child.disabled = !toggle
+	pass
 
 func add_editable_object(object):
 	if(editable_object_slot.get_child(0) != null):
@@ -69,20 +72,32 @@ func _on_btn_set_mesh_pressed():
 
 func _on_cd_new_object_confirmed():
 	var new_obj
+	object_settings_container.set_tab_disabled(0, true)
+	object_settings_container.set_tab_disabled(1, true)
+	object_settings_container.set_tab_disabled(2, true)
+	
+	object_settings_container.current_tab = 3
+	
 	if cb_actor.button_pressed:
 		print("Actor yes")
-		new_obj = actor_scene.instantiate()
-	elif cb_receiver.button_pressed:
+		#new_obj = actor_scene.instantiate()
+		object_settings_container.set_tab_disabled(0, false)
+		object_settings_container.current_tab = 0
+	if cb_receiver.button_pressed:
 		print("Receiver yes")
-		new_obj = receiver_scene.instantiate()
-	#if cb_inventory.button_pressed:
-		#print("Inventory yes")
-		
-	var new_mesh = MeshInstance3D.new()
-	new_mesh.mesh = BoxMesh.new()
-	new_obj.add_child(new_mesh)
-	new_mesh.owner = new_obj
-	add_editable_object(new_obj)
+		#new_obj = receiver_scene.instantiate()
+		object_settings_container.set_tab_disabled(1, false)
+		object_settings_container.current_tab = 1
+	if cb_inventory.button_pressed:
+		print("Inventory yes")
+		object_settings_container.set_tab_disabled(2, false)
+		object_settings_container.current_tab = 2
+	
+	#var new_mesh = MeshInstance3D.new()
+	#new_mesh.mesh = BoxMesh.new()
+	#new_obj.add_child(new_mesh)
+	#new_mesh.owner = new_obj
+	#add_editable_object(new_obj)
 	
 	# reset checkboxes
 	cb_actor.button_pressed = false

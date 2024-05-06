@@ -70,7 +70,6 @@ layout_mode = 2
 text = "Receiver Object"
 
 [node name="CBInventory" type="CheckBox" parent="CDNewObject/FlowContainer"]
-visible = false
 layout_mode = 2
 text = "Inventory object"
 
@@ -86,59 +85,100 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="LeftHalf" type="FlowContainer" parent="MainContainer"]
+[node name="GridContainer" type="GridContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="LeftHalf" type="FlowContainer" parent="MainContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
-vertical = true
 
-[node name="FlowContainer3" type="FlowContainer" parent="MainContainer/LeftHalf"]
+[node name="FlowContainer3" type="FlowContainer" parent="MainContainer/GridContainer/LeftHalf"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 
-[node name="BtnNewObject" type="Button" parent="MainContainer/LeftHalf/FlowContainer3"]
+[node name="BtnNewObject" type="Button" parent="MainContainer/GridContainer/LeftHalf/FlowContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "New Object"
 
-[node name="BtnLoadObject" type="Button" parent="MainContainer/LeftHalf/FlowContainer3"]
+[node name="BtnLoadObject" type="Button" parent="MainContainer/GridContainer/LeftHalf/FlowContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Load Object"
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MainContainer/LeftHalf"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainContainer/GridContainer/LeftHalf"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="SubViewport" type="SubViewport" parent="MainContainer/LeftHalf/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MainContainer/GridContainer/LeftHalf/SubViewportContainer"]
 handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="MainContainer/LeftHalf/SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.81668)
 script = ExtResource("2_4xt03")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainContainer/LeftHalf/SubViewportContainer/SubViewport"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.43387, 0)
 
-[node name="EditableObjectSlot" type="Node3D" parent="MainContainer/LeftHalf/SubViewportContainer/SubViewport"]
+[node name="EditableObjectSlot" type="Node3D" parent="MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport"]
 
-[node name="ObjectSettings" type="FlowContainer" parent="MainContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="MainContainer/GridContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+vertical = true
 
-[node name="BtnSetMesh" type="Button" parent="MainContainer/ObjectSettings"]
+[node name="BtnSetMesh" type="Button" parent="MainContainer/GridContainer/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Set Mesh"
 
-[node name="BtnSaveObject" type="Button" parent="MainContainer/ObjectSettings"]
+[node name="ObjectSettings" type="TabContainer" parent="MainContainer/GridContainer/BoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_vertical = 3
+tab_focus_mode = 1
+
+[node name="Actor" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings/Actor"]
+layout_mode = 2
+text = "Actor Settings"
+
+[node name="Receiver" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings/Receiver"]
+layout_mode = 2
+text = "Receiver Settings"
+
+[node name="Inventory" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings/Inventory"]
+layout_mode = 2
+text = "Inventory Settings"
+
+[node name="Other" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings/Other"]
+layout_mode = 2
+text = "Object is not and Actor, Receiver, or Inventory object"
+
+[node name="BtnSaveObject" type="Button" parent="MainContainer/GridContainer/BoxContainer"]
+layout_mode = 2
 size_flags_vertical = 0
 text = "Save Object"
 
@@ -146,7 +186,7 @@ text = "Save Object"
 [connection signal="file_selected" from="FDSaveObject" to="." method="_on_fd_save_object_file_selected"]
 [connection signal="file_selected" from="FDLoadObject" to="." method="_on_fd_load_object_file_selected"]
 [connection signal="confirmed" from="CDNewObject" to="." method="_on_cd_new_object_confirmed"]
-[connection signal="pressed" from="MainContainer/LeftHalf/FlowContainer3/BtnNewObject" to="." method="_on_btn_new_object_pressed"]
-[connection signal="pressed" from="MainContainer/LeftHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]
-[connection signal="pressed" from="MainContainer/ObjectSettings/BtnSetMesh" to="." method="_on_btn_set_mesh_pressed"]
-[connection signal="pressed" from="MainContainer/ObjectSettings/BtnSaveObject" to="." method="_on_btn_save_object_pressed"]
+[connection signal="pressed" from="MainContainer/GridContainer/LeftHalf/FlowContainer3/BtnNewObject" to="." method="_on_btn_new_object_pressed"]
+[connection signal="pressed" from="MainContainer/GridContainer/LeftHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]
+[connection signal="pressed" from="MainContainer/GridContainer/BoxContainer/BtnSetMesh" to="." method="_on_btn_set_mesh_pressed"]
+[connection signal="pressed" from="MainContainer/GridContainer/BoxContainer/BtnSaveObject" to="." method="_on_btn_save_object_pressed"]
