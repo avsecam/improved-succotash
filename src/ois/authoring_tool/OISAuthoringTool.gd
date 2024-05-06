@@ -1,10 +1,18 @@
 extends Control
 
 @onready var confirmation_dialog : ConfirmationDialog = $ConfirmationDialog
+
+@onready var cd_new_object : ConfirmationDialog = $CDNewObject
+@onready var cb_actor : CheckBox = $CDNewObject/FlowContainer/CBActor
+@onready var cb_receiver : CheckBox = $CDNewObject/FlowContainer/CBReceiver
+@onready var cb_inventory : CheckBox = $CDNewObject/FlowContainer/CBInventory
+
 @onready var editable_object_slot : Node3D = $MainContainer/LeftHalf/SubViewportContainer/SubViewport/EditableObjectSlot
 @onready var object_settings = $MainContainer/ObjectSettings
 
 var pickable_scene = preload("res://addons/godot-xr-tools/objects/pickable.tscn")
+var receiver_scene = preload("res://src/ois/action_components/receiver_object_static.tscn")
+var actor_scene = preload("res://src/ois/inventory_actor_item.tscn")
 
 var editable_object 
 
@@ -45,13 +53,7 @@ func _on_fd_load_object_file_selected(path):
 
 func _on_btn_new_object_pressed():
 	# let users set if object is/are receiver, actor, inventory objects
-	
-	var new_obj = pickable_scene.instantiate()
-	var new_mesh = MeshInstance3D.new()
-	new_mesh.mesh = BoxMesh.new()
-	new_obj.add_child(new_mesh)
-	new_mesh.owner = new_obj
-	add_editable_object(new_obj)
+	cd_new_object.popup_centered()
 
 func _on_btn_load_object_pressed():
 	$FDLoadObject.visible = true
@@ -63,3 +65,26 @@ func _on_btn_save_object_pressed():
 func _on_btn_set_mesh_pressed():
 	if editable_object != null:
 		$FDSetMesh.visible = true
+
+
+func _on_cd_new_object_confirmed():
+	var new_obj
+	if cb_actor.button_pressed:
+		print("Actor yes")
+		new_obj = actor_scene.instantiate()
+	elif cb_receiver.button_pressed:
+		print("Receiver yes")
+		new_obj = receiver_scene.instantiate()
+	#if cb_inventory.button_pressed:
+		#print("Inventory yes")
+		
+	var new_mesh = MeshInstance3D.new()
+	new_mesh.mesh = BoxMesh.new()
+	new_obj.add_child(new_mesh)
+	new_mesh.owner = new_obj
+	add_editable_object(new_obj)
+	
+	# reset checkboxes
+	cb_actor.button_pressed = false
+	cb_receiver.button_pressed = false
+	cb_inventory.button_pressed = false
