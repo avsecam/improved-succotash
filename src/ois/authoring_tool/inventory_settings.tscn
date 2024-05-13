@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://can0ls2gxyccu"]
+
+[node name="InventorySettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Inventory Settings"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Set Replacement Mesh (Inventory Version)"

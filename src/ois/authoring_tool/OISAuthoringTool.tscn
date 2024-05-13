@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu2210yvw7asq"]
+[gd_scene load_steps=5 format=3 uid="uid://bu2210yvw7asq"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/OISAuthoringTool.gd" id="1_fv4xn"]
+[ext_resource type="PackedScene" uid="uid://got673526imf" path="res://src/ois/authoring_tool/receiver_settings.tscn" id="3_15jtm"]
 [ext_resource type="PackedScene" uid="uid://c43mihg4osje5" path="res://src/ois/authoring_tool/actor_settings.tscn" id="3_xc4xx"]
+[ext_resource type="PackedScene" uid="uid://can0ls2gxyccu" path="res://src/ois/authoring_tool/inventory_settings.tscn" id="4_fwokp"]
 
 [node name="OISAuthoringTool" type="Control"]
 layout_mode = 3
@@ -143,35 +145,18 @@ text = "Set Mesh"
 [node name="ObjectSettings" type="TabContainer" parent="MainContainer/GridContainer/BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 1
 tab_focus_mode = 1
 
 [node name="ActorSettings" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings" instance=ExtResource("3_xc4xx")]
+layout_mode = 2
+
+[node name="ReceiverSettings" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings" instance=ExtResource("3_15jtm")]
 visible = false
 layout_mode = 2
 
-[node name="Actor" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings/Actor"]
-layout_mode = 2
-text = "Actor Settings"
-
-[node name="Receiver" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
+[node name="InventorySettings" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings" instance=ExtResource("4_fwokp")]
 visible = false
 layout_mode = 2
-
-[node name="Label" type="Label" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings/Receiver"]
-layout_mode = 2
-text = "Receiver Settings"
-
-[node name="Inventory" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings/Inventory"]
-layout_mode = 2
-text = "Inventory Settings"
 
 [node name="Other" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
 visible = false

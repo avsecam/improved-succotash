@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c041446kxak13"]
+[gd_scene load_steps=6 format=3 uid="uid://c041446kxak13"]
 
 [ext_resource type="PackedScene" uid="uid://cgvb2nfbovs56" path="res://src/ois/state_managers/state_manager.tscn" id="1_t4stl"]
 [ext_resource type="Script" path="res://src/ois/state_managers/inventory_one_handed_tool.gd" id="2_i0qxf"]
-[ext_resource type="Resource" uid="uid://b1a7edv5mna55" path="res://src/ois/state_managers/sm_settings/rawr.tres" id="3_16ws7"]
+[ext_resource type="Resource" uid="uid://kylgv0mv5ab6" path="res://src/ois/state_managers/sm_settings/template.tres" id="3_k8af0"]
 [ext_resource type="PackedScene" uid="uid://c7jka6pr2nc0" path="res://src/ois/states/state.tscn" id="3_t4jut"]
+[ext_resource type="PackedScene" uid="uid://c5ds6cwwrxad7" path="res://src/ois/states/state_behavior.tscn" id="5_wisr1"]
 
 [node name="StateManager" instance=ExtResource("1_t4stl")]
 script = ExtResource("2_i0qxf")
-settings = ExtResource("3_16ws7")
+settings = ExtResource("3_k8af0")
 
 [node name="IdleState" parent="." index="0" instance=ExtResource("3_t4jut")]
 
@@ -16,3 +17,9 @@ settings = ExtResource("3_16ws7")
 [node name="TriggerState" parent="." index="2" instance=ExtResource("3_t4jut")]
 
 [node name="InventoryState" parent="." index="3" instance=ExtResource("3_t4jut")]
+
+[node name="Raycast" parent="." index="4" instance=ExtResource("5_wisr1")]
+
+[node name="Snap" parent="." index="5" instance=ExtResource("5_wisr1")]
+
+[node name="Interact" parent="." index="6" instance=ExtResource("5_wisr1")]

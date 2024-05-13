@@ -16,8 +16,6 @@ func add_state(state_name : String):
 
 func remove_state(state_name : String):
 	print("settings: rm state")
-	if Engine.is_editor_hint():
-		print("in editor rm state")
 	settings.erase(state_name)
 
 func has_state(state_name : String):

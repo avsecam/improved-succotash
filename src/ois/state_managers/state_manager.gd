@@ -30,14 +30,14 @@ func set_state(state : OISState):
 
 # === handles UI ===
 func _on_tree_entered():
-	print(name + " added to tree")
+	#print(name + " added to tree")
 	if settings == null:
 		print(name + " Created new manager settings")
 		settings = StateManagerSettings.new()
-	print(settings.settings)
+	#print(settings.settings)
 
 func _on_child_entered_tree(node):
-	print(name + " add child")
+	#print(name + " add child")
 	if node is OISState:
 		states.append(node)
 		if(!settings.has_state(node.name)):
@@ -48,10 +48,10 @@ func _on_child_entered_tree(node):
 			settings.add_behavior(node.name)
 
 func _on_child_exiting_tree(node):
-	print(name + " rm child")
+	#print(name + " rm child")
 	if node is OISState:
 		states.erase(node)
 		settings.remove_state(node.name)
 	if node is StateBehavior:
 		behaviors.erase(node) 
-		# settings.remove_behavior(node.name)
+		#settings.remove_behavior(node.name)

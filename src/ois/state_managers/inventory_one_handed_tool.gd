@@ -1,3 +1,4 @@
+@tool
 extends StateManager
 
 @onready var idle_state = $IdleState

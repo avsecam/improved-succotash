@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c43mihg4osje5"]
+[gd_scene load_steps=3 format=3 uid="uid://c43mihg4osje5"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/actor_settings_editor.gd" id="1_5b03x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlj2c"]
 
 [node name="ActorSettings" type="SplitContainer"]
 anchors_preset = 15
@@ -16,13 +18,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical = true
 
+[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="BContainer" type="BoxContainer" parent="BoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="BoxContainer/ScrollContainer/BContainer"]
+layout_mode = 2
+text = "Add Behavior"
+
 [node name="ItemList" type="ItemList" parent="BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-item_count = 2
-item_0/text = "Behavior 1"
-item_1/text = "Behavior 2"
 
 [node name="Button" type="Button" parent="BoxContainer"]
 layout_mode = 2
@@ -38,33 +48,17 @@ vertical = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="SplitContainer/StateConnectionEditor"]
+[node name="Label" type="Label" parent="SplitContainer/StateConnectionEditor"]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 306.0
-offset_right = 152.0
-offset_bottom = 337.0
-text = "State 1"
-
-[node name="Button2" type="Button" parent="SplitContainer/StateConnectionEditor"]
-layout_mode = 0
-offset_left = 229.0
-offset_top = 270.0
-offset_right = 277.0
-offset_bottom = 301.0
-text = "State 2"
-
-[node name="Button3" type="Button" parent="SplitContainer/StateConnectionEditor"]
-layout_mode = 0
-offset_left = 332.0
-offset_top = 234.0
-offset_right = 394.0
-offset_bottom = 265.0
-text = "State 3"
+offset_right = 339.0
+offset_bottom = 23.0
+text = "State Transition Editor
+(To Be Implemented)"
 
 [node name="StateBehaviorEditor" type="Panel" parent="SplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mlj2c")
 
 [node name="GridContainer" type="GridContainer" parent="SplitContainer/StateBehaviorEditor"]
 visible = false

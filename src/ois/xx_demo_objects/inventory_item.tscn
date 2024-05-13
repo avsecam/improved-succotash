@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b13hnqj7ym6b6"]
+
+[ext_resource type="PackedScene" uid="uid://c3ynivfyki8aq" path="res://src/ois/inventory_actor_item.tscn" id="1_s1ri3"]
+[ext_resource type="ArrayMesh" uid="uid://cw5gige2eamwi" path="res://src/ois/xx_demo_objects/assets/wrench.obj" id="2_cr2pe"]
+[ext_resource type="Resource" uid="uid://dphdbs4s3w43l" path="res://src/ois/state_managers/sm_settings/new_resource.tres" id="3_b3y8c"]
+
+[node name="InventoryItem" instance=ExtResource("1_s1ri3")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainMesh" index="0"]
+transform = Transform3D(0.0320397, 0.498972, 2.18108e-08, 0, -2.18557e-08, 0.5, 0.498972, -0.0320397, -1.4005e-09, 0, 0, 0)
+mesh = ExtResource("2_cr2pe")
+
+[node name="StateManager" parent="." index="6"]
+settings = ExtResource("3_b3y8c")
+
+[editable path="StateManager"]

@@ -55,6 +55,7 @@ func _on_fd_save_object_file_selected(path):
 
 func _on_fd_load_object_file_selected(path):
 	add_editable_object(load(path).instantiate())
+	actor_settings.set_up(editable_object)
 
 func _on_btn_new_object_pressed():
 	# let users set if object is/are receiver, actor, inventory objects
@@ -80,12 +81,15 @@ func _on_cd_new_object_confirmed():
 	
 	object_settings_container.current_tab = 3
 	
-	if cb_actor.button_pressed:
+	if cb_actor.button_pressed && cb_inventory.button_pressed:
 		print("Actor yes")
 		new_obj = actor_scene.instantiate()
 		var sm = new_obj.get_node_or_null("StateManager")
-		var new_settings = sm_settings_res.new()
-		var new_path = "res://src/ois/state_managers/sm_settings/" + "rawr" + ".tres"
+		var new_settings = sm.settings.duplicate()
+		print(sm.settings.settings)
+		print(new_settings.settings)
+		print(new_settings.behavior_dict)
+		var new_path = "res://src/ois/state_managers/sm_settings/" + "actor" + ".tres"
 		ResourceSaver.save(new_settings, new_path)
 		sm.settings = new_settings
 		object_settings_container.set_tab_disabled(0, false)

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="StateManagerSettings" load_steps=2 format=3 uid="uid://dphdbs4s3w43l"]
+
+[ext_resource type="Script" path="res://src/ois/state_managers/sm_settings.gd" id="1_wq5bv"]
+
+[resource]
+script = ExtResource("1_wq5bv")
+settings = {
+"GrabState": {
+"Interact": true,
+"Raycast": true,
+"Snap": false
+},
+"IdleState": {
+"Interact": false,
+"Raycast": false,
+"Snap": false
+},
+"InventoryState": {
+"Interact": false,
+"Raycast": false,
+"Snap": false
+},
+"TriggerState": {
+"Interact": true,
+"Raycast": true,
+"Snap": true
+}
+}
+behavior_dict = {
+"Interact": false,
+"Raycast": false,
+"Snap": false
+}
