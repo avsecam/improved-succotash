@@ -9,13 +9,15 @@ extends Control
 
 @onready var editable_object_slot : Node3D = $MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport/EditableObjectSlot
 
+@onready var actor_settings = $MainContainer/GridContainer/BoxContainer/ObjectSettings/ActorSettings
 @onready var object_settings_container : TabContainer = $MainContainer/GridContainer/BoxContainer/ObjectSettings
 
 var pickable_scene = preload("res://addons/godot-xr-tools/objects/pickable.tscn")
 var receiver_scene = preload("res://src/ois/action_components/receiver_object_static.tscn")
 var actor_scene = preload("res://src/ois/inventory_actor_item.tscn")
+var sm_settings_res = preload("res://src/ois/state_managers/sm_settings.gd")
 
-var editable_object 
+var editable_object
 
 func _ready():
 	PhysicsServer3D.set_active(false) # turn off physics
@@ -80,9 +82,15 @@ func _on_cd_new_object_confirmed():
 	
 	if cb_actor.button_pressed:
 		print("Actor yes")
-		#new_obj = actor_scene.instantiate()
+		new_obj = actor_scene.instantiate()
+		var sm = new_obj.get_node_or_null("StateManager")
+		var new_settings = sm_settings_res.new()
+		var new_path = "res://src/ois/state_managers/sm_settings/" + "rawr" + ".tres"
+		ResourceSaver.save(new_settings, new_path)
+		sm.settings = new_settings
 		object_settings_container.set_tab_disabled(0, false)
 		object_settings_container.current_tab = 0
+		actor_settings.set_up(new_obj)
 	if cb_receiver.button_pressed:
 		print("Receiver yes")
 		#new_obj = receiver_scene.instantiate()
@@ -93,11 +101,11 @@ func _on_cd_new_object_confirmed():
 		object_settings_container.set_tab_disabled(2, false)
 		object_settings_container.current_tab = 2
 	
-	#var new_mesh = MeshInstance3D.new()
-	#new_mesh.mesh = BoxMesh.new()
-	#new_obj.add_child(new_mesh)
-	#new_mesh.owner = new_obj
-	#add_editable_object(new_obj)
+	var new_mesh = MeshInstance3D.new()
+	new_mesh.mesh = BoxMesh.new()
+	new_obj.add_child(new_mesh)
+	new_mesh.owner = new_obj
+	add_editable_object(new_obj)
 	
 	# reset checkboxes
 	cb_actor.button_pressed = false

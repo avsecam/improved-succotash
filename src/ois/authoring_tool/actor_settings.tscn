@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c43mihg4osje5"]
+[gd_scene load_steps=2 format=3 uid="uid://c43mihg4osje5"]
+
+[ext_resource type="Script" path="res://src/ois/authoring_tool/actor_settings_editor.gd" id="1_5b03x"]
 
 [node name="ActorSettings" type="SplitContainer"]
 anchors_preset = 15
@@ -6,6 +8,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5b03x")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 2
@@ -31,11 +34,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical = true
 
-[node name="Control" type="Control" parent="SplitContainer"]
+[node name="StateConnectionEditor" type="Control" parent="SplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="SplitContainer/Control"]
+[node name="Button" type="Button" parent="SplitContainer/StateConnectionEditor"]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 306.0
@@ -43,81 +46,89 @@ offset_right = 152.0
 offset_bottom = 337.0
 text = "State 1"
 
-[node name="Button2" type="Button" parent="SplitContainer/Control"]
+[node name="Button2" type="Button" parent="SplitContainer/StateConnectionEditor"]
+layout_mode = 0
 offset_left = 229.0
 offset_top = 270.0
 offset_right = 277.0
 offset_bottom = 301.0
 text = "State 2"
 
-[node name="Button3" type="Button" parent="SplitContainer/Control"]
+[node name="Button3" type="Button" parent="SplitContainer/StateConnectionEditor"]
+layout_mode = 0
 offset_left = 332.0
 offset_top = 234.0
 offset_right = 394.0
 offset_bottom = 265.0
 text = "State 3"
 
-[node name="Panel" type="Panel" parent="SplitContainer"]
+[node name="StateBehaviorEditor" type="Panel" parent="SplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="SplitContainer/Panel"]
+[node name="GridContainer" type="GridContainer" parent="SplitContainer/StateBehaviorEditor"]
+visible = false
 layout_mode = 2
 offset_right = 570.0
 offset_bottom = 107.0
 columns = 4
 
-[node name="Label4" type="Label" parent="SplitContainer/Panel/GridContainer"]
+[node name="Label4" type="Label" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 text = " "
 
-[node name="Label5" type="Label" parent="SplitContainer/Panel/GridContainer"]
+[node name="Label5" type="Label" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 text = "State 1"
 
-[node name="Label6" type="Label" parent="SplitContainer/Panel/GridContainer"]
+[node name="Label6" type="Label" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 text = "State 1"
 
-[node name="Label7" type="Label" parent="SplitContainer/Panel/GridContainer"]
+[node name="Label7" type="Label" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 text = "State 1"
 
-[node name="Label" type="Label" parent="SplitContainer/Panel/GridContainer"]
+[node name="Label" type="Label" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 text = "Raycast"
 
-[node name="CheckBox" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 
-[node name="CheckBox2" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox2" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 
-[node name="CheckBox3" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox3" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="SplitContainer/Panel/GridContainer"]
+[node name="Label2" type="Label" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 text = "Snap"
 
-[node name="CheckBox4" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox4" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 
-[node name="CheckBox5" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox5" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 
-[node name="CheckBox6" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox6" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="SplitContainer/Panel/GridContainer"]
+[node name="Label3" type="Label" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 text = "Interact"
 
-[node name="CheckBox7" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox7" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 
-[node name="CheckBox8" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox8" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
 
-[node name="CheckBox9" type="CheckBox" parent="SplitContainer/Panel/GridContainer"]
+[node name="CheckBox9" type="CheckBox" parent="SplitContainer/StateBehaviorEditor/GridContainer"]
 layout_mode = 2
+
+[node name="CBContainer" type="BoxContainer" parent="SplitContainer/StateBehaviorEditor"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

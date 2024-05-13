@@ -4,3 +4,5 @@
 
 [node name="State" type="Node"]
 script = ExtResource("1_7232c")
+
+[connection signal="renamed" from="." to="." method="_on_renamed"]

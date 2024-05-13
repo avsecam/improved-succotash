@@ -4,3 +4,5 @@
 
 [node name="StateBehavior" type="Node"]
 script = ExtResource("1_p55ob")
+
+[connection signal="renamed" from="." to="." method="_on_renamed"]
