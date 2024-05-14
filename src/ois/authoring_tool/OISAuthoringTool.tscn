@@ -1,7 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://bu2210yvw7asq"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/OISAuthoringTool.gd" id="1_fv4xn"]
-[ext_resource type="Script" path="res://src/ois/authoring_tool/subview_camera.gd" id="2_4xt03"]
+
+[sub_resource type="GDScript" id="GDScript_sc86u"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="OISAuthoringTool" type="Control"]
 layout_mode = 3
@@ -122,7 +135,7 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.81668)
-script = ExtResource("2_4xt03")
+script = SubResource("GDScript_sc86u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.43387, 0)
