@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu2210yvw7asq"]
+[gd_scene load_steps=4 format=3 uid="uid://bu2210yvw7asq"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/OISAuthoringTool.gd" id="1_fv4xn"]
+[ext_resource type="PackedScene" uid="uid://c43mihg4osje5" path="res://src/ois/authoring_tool/actor_settings.tscn" id="2_bbno4"]
 
 [sub_resource type="GDScript" id="GDScript_sc86u"]
 script/source = "extends Node
@@ -159,12 +160,8 @@ layout_mode = 2
 size_flags_vertical = 3
 tab_focus_mode = 1
 
-[node name="Actor" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
+[node name="ActorSettings" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings" instance=ExtResource("2_bbno4")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings/Actor"]
-layout_mode = 2
-text = "Actor Settings"
 
 [node name="Receiver" type="GridContainer" parent="MainContainer/GridContainer/BoxContainer/ObjectSettings"]
 visible = false

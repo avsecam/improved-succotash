@@ -17,6 +17,8 @@ var actor_scene = preload("res://src/ois/inventory_actor_item.tscn")
 
 var editable_object 
 
+@onready var actor_settings = $MainContainer/GridContainer/BoxContainer/ObjectSettings/ActorSettings
+
 func _ready():
 	PhysicsServer3D.set_active(false) # turn off physics
 	toggle_object_settings(false)
@@ -31,6 +33,9 @@ func toggle_object_settings(toggle : bool):
 func add_editable_object(object):
 	if(editable_object_slot.get_child(0) != null):
 		editable_object_slot.get_child(0).queue_free()
+	var sm = object.get_node_or_null("StateManager")
+	if sm != null:
+		sm.in_authoring_tool = true
 	editable_object_slot.add_child(object)
 	editable_object = object
 	toggle_object_settings(true)
@@ -53,7 +58,8 @@ func _on_fd_save_object_file_selected(path):
 
 func _on_fd_load_object_file_selected(path):
 	add_editable_object(load(path).instantiate())
-
+	actor_settings.set_up_actor_settings(editable_object)
+	
 func _on_btn_new_object_pressed():
 	# let users set if object is/are receiver, actor, inventory objects
 	cd_new_object.popup_centered()
