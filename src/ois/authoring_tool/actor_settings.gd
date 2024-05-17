@@ -25,13 +25,17 @@ func _ready():
 	new_behavior_selector.add_item("Interact")
 	new_behavior_selector.selected = -1
 
-
 func set_up_actor_settings(obj):
 	editable_obj = obj
 	sm = obj.get_node_or_null("StateManager")
 	if sm is StateManager:
 		if sm.settings == null:
 			sm_settings = StateManagerSettings.new()
+			for child in sm.get_children():
+				if child is OISState:
+					sm_settings.add_state(child.name)
+				elif child is StateBehavior:
+					sm_settings.add_behavior(child.name)
 		else:
 			sm_settings = sm.settings
 			print(sm_settings.state_behavior_settings)
