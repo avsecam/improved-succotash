@@ -1,6 +1,7 @@
 extends StateBehavior
+class_name SBSnap
 
-@onready var state_manager : StateManager = get_parent().get_parent()
+@onready var state_manager : StateManager = get_parent()
 @onready var actor_object = state_manager.get_parent()
 @export var snap_pos : Node3D
 var receiver_object

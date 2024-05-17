@@ -42,3 +42,8 @@ func set_state(state : OISState):
 	current_state = state
 	#current_state.enter_state.emit()
 	current_state.manage_behavior.emit(true)
+
+#func add_behavior(behavior : StateBehavior):
+	#add_child(behavior)
+	#behavior.owner = self
+	#settings.add_behavior(behavior.name)

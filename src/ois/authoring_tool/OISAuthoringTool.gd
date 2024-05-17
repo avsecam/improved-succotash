@@ -86,9 +86,10 @@ func _on_cd_new_object_confirmed():
 	
 	if cb_actor.button_pressed:
 		print("Actor yes")
-		#new_obj = actor_scene.instantiate()
+		new_obj = actor_scene.instantiate()
 		object_settings_container.set_tab_disabled(0, false)
 		object_settings_container.current_tab = 0
+		actor_settings.set_up_actor_settings(new_obj)
 	if cb_receiver.button_pressed:
 		print("Receiver yes")
 		#new_obj = receiver_scene.instantiate()
@@ -99,11 +100,11 @@ func _on_cd_new_object_confirmed():
 		object_settings_container.set_tab_disabled(2, false)
 		object_settings_container.current_tab = 2
 	
-	#var new_mesh = MeshInstance3D.new()
-	#new_mesh.mesh = BoxMesh.new()
-	#new_obj.add_child(new_mesh)
-	#new_mesh.owner = new_obj
-	#add_editable_object(new_obj)
+	var new_mesh = MeshInstance3D.new()
+	new_mesh.mesh = BoxMesh.new()
+	new_obj.add_child(new_mesh)
+	new_mesh.owner = new_obj
+	add_editable_object(new_obj)
 	
 	# reset checkboxes
 	cb_actor.button_pressed = false

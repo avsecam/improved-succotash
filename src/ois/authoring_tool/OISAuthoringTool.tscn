@@ -1,21 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu2210yvw7asq"]
+[gd_scene load_steps=3 format=3 uid="uid://bu2210yvw7asq"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/OISAuthoringTool.gd" id="1_fv4xn"]
 [ext_resource type="PackedScene" uid="uid://c43mihg4osje5" path="res://src/ois/authoring_tool/actor_settings.tscn" id="2_bbno4"]
-
-[sub_resource type="GDScript" id="GDScript_sc86u"]
-script/source = "extends Node
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [node name="OISAuthoringTool" type="Control"]
 layout_mode = 3
@@ -53,6 +39,9 @@ filters = PackedStringArray("*.tscn")
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 initial_position = 2
 size = Vector2i(250, 100)
+
+[node name="FDSaveSMSettings" type="FileDialog" parent="."]
+filters = PackedStringArray("*.tres")
 
 [node name="CDNewObject" type="ConfirmationDialog" parent="."]
 initial_position = 2
@@ -136,7 +125,6 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.81668)
-script = SubResource("GDScript_sc86u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.43387, 0)
@@ -195,6 +183,7 @@ text = "Save Object"
 [connection signal="file_selected" from="FDSetMesh" to="." method="_on_fd_set_mesh_file_selected"]
 [connection signal="file_selected" from="FDSaveObject" to="." method="_on_fd_save_object_file_selected"]
 [connection signal="file_selected" from="FDLoadObject" to="." method="_on_fd_load_object_file_selected"]
+[connection signal="file_selected" from="FDSaveSMSettings" to="." method="_on_fd_save_sm_settings_file_selected"]
 [connection signal="confirmed" from="CDNewObject" to="." method="_on_cd_new_object_confirmed"]
 [connection signal="pressed" from="MainContainer/GridContainer/LeftHalf/FlowContainer3/BtnNewObject" to="." method="_on_btn_new_object_pressed"]
 [connection signal="pressed" from="MainContainer/GridContainer/LeftHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]

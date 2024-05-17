@@ -12,3 +12,6 @@ func manage_signal(is_entering):
 		on_enter_state()
 	else:
 		on_exit_state()
+
+func change_values():
+	pass

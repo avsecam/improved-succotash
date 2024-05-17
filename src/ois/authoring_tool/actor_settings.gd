@@ -1,18 +1,40 @@
 extends SplitContainer
 
+var raycast_behavior = preload("res://src/ois/states/control_raycast.tscn")
+var snap_behavior = preload("res://src/ois/states/snap_objects.tscn")
+var interact_behavior = preload("res://src/ois/states/interact_receiver.tscn")
+
 var state_behavior_cb = preload("res://src/ois/authoring_tool/state_behavior_cb.tscn")
+
+var raycast_settings = preload("res://src/ois/authoring_tool/behavior_settings/raycast_settings.tscn")
+var snap_settings = preload("res://src/ois/authoring_tool/behavior_settings/snap_settings.tscn")
+var interact_settings = preload("res://src/ois/authoring_tool/behavior_settings/interact_settings.tscn")
 
 @onready var behavior_container = $BoxContainer/ScrollContainer/BahaviorContainer
 @onready var state_behavior_settings_container = $SplitContainer/Panel/ScrollContainer/StateBehaviorSettingsContainer
+@onready var new_behavior_selector = $BoxContainer/OptionButton
 
+var editable_obj
 var sm : StateManager
 var sm_settings : StateManagerSettings
+var sm_settings_path
+
+func _ready():
+	new_behavior_selector.add_item("Raycast")
+	new_behavior_selector.add_item("Snap")
+	new_behavior_selector.add_item("Interact")
+	new_behavior_selector.selected = -1
+
 
 func set_up_actor_settings(obj):
+	editable_obj = obj
 	sm = obj.get_node_or_null("StateManager")
 	if sm is StateManager:
-		sm_settings = sm.settings
-		print(sm_settings.state_behavior_settings)
+		if sm.settings == null:
+			sm_settings = StateManagerSettings.new()
+		else:
+			sm_settings = sm.settings
+			print(sm_settings.state_behavior_settings)
 		set_up_grid()
 
 func clear_actor_settings():
@@ -28,6 +50,12 @@ func set_up_grid():
 		var label = Label.new()
 		label.text = behavior
 		behavior_labels_container.add_child(label)
+		
+		var behavior_node = sm.get_node_or_null(behavior)
+		if behavior_node != null:
+			add_behavior_settings(behavior_node)
+		else:
+			print("Error: could not load behavior '" + behavior + "'")
 	state_behavior_settings_container.add_child(behavior_labels_container)
 	
 	for state in sm_settings.state_behavior_settings:
@@ -42,17 +70,46 @@ func set_up_grid():
 			cb.button_pressed = sm_settings.get_value(state, behavior)
 			box_cont.add_child(cb)
 			cb.change_value.connect(sm_settings.change_value)
-			#var beh
-			#if (behavior == "raycast"):
-				#beh = raycast_settings.instantiate()
-				#b_container.add(beh)
-			#elif  (behavior == "snap"):
-				#beh = snap_settings.instantiate()
-				#b_container.add(beh)
-			#elif (behavior == "interact"):
-				#beh = interact_settings.instantiate()
-				#b_container.add(beh)
 		state_behavior_settings_container.add_child(box_cont)
 
 func _on_btn_add_behavior_pressed():
-	pass # Replace with function body.
+	var behavior
+	match new_behavior_selector.get_selected_id():
+		0: #raycast
+			add_behavior_settings(create_bahavior("Raycast"))
+		1: #snap
+			add_behavior_settings(create_bahavior("Snap"))
+		2: #interact
+			add_behavior_settings(create_bahavior("Interact"))
+	new_behavior_selector.selected = -1
+
+func create_bahavior(behavior_type : String):
+	var behavior
+	
+	match behavior_type:
+		"Raycast":
+			behavior = raycast_behavior.instantiate()
+		"Snap":
+			behavior = snap_behavior.instantiate()
+		"Interact":
+			behavior = interact_behavior.instantiate()
+
+	sm.add_child(behavior)
+	sm_settings.add_behavior(behavior.name)
+	behavior.owner = editable_obj
+	return behavior
+
+func add_behavior_settings(behavior_node : StateBehavior):
+	var setting_node : StateBehaviorSettings
+	if behavior_node is SBRaycast:
+		setting_node = raycast_settings.instantiate()
+	elif behavior_node is SBSnap:
+		setting_node = snap_settings.instantiate()
+	elif behavior_node is SBInteract:
+		setting_node = interact_settings.instantiate()
+	
+	behavior_container.add_child(setting_node)
+	setting_node.set_behavior_node(behavior_node)
+
+func _on_btn_check_settings_pressed():
+	print(sm_settings.behavior_dict)

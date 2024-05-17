@@ -1,6 +1,7 @@
 extends StateBehavior
+class_name SBInteract
 
-@onready var state_manager : StateManager = get_parent().get_parent()
+@onready var state_manager : StateManager = get_parent()
 var receiver_object
 @export var rate : float = 1
 
