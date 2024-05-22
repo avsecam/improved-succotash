@@ -50,6 +50,9 @@ func _on_fd_save_object_file_selected(path):
 	var new_name = path.get_slice("/", path.get_slice_count("/")-1)
 	editable_object.name = new_name.get_slice(".", 0)
 	
+	if actor_settings.sm_settings != null:
+		actor_settings.sm.settings = actor_settings.sm_settings
+	
 	var scene = PackedScene.new()
 	scene.pack(editable_object)
 	var error = ResourceSaver.save(scene, path)

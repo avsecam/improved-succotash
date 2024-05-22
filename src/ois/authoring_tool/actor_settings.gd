@@ -17,7 +17,6 @@ var interact_settings = preload("res://src/ois/authoring_tool/behavior_settings/
 var editable_obj
 var sm : StateManager
 var sm_settings : StateManagerSettings
-var sm_settings_path
 
 func _ready():
 	new_behavior_selector.add_item("Raycast")

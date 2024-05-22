@@ -40,9 +40,6 @@ filters = PackedStringArray("*.tscn")
 initial_position = 2
 size = Vector2i(250, 100)
 
-[node name="FDSaveSMSettings" type="FileDialog" parent="."]
-filters = PackedStringArray("*.tres")
-
 [node name="CDNewObject" type="ConfirmationDialog" parent="."]
 initial_position = 2
 size = Vector2i(300, 200)
@@ -183,7 +180,6 @@ text = "Save Object"
 [connection signal="file_selected" from="FDSetMesh" to="." method="_on_fd_set_mesh_file_selected"]
 [connection signal="file_selected" from="FDSaveObject" to="." method="_on_fd_save_object_file_selected"]
 [connection signal="file_selected" from="FDLoadObject" to="." method="_on_fd_load_object_file_selected"]
-[connection signal="file_selected" from="FDSaveSMSettings" to="." method="_on_fd_save_sm_settings_file_selected"]
 [connection signal="confirmed" from="CDNewObject" to="." method="_on_cd_new_object_confirmed"]
 [connection signal="pressed" from="MainContainer/GridContainer/LeftHalf/FlowContainer3/BtnNewObject" to="." method="_on_btn_new_object_pressed"]
 [connection signal="pressed" from="MainContainer/GridContainer/LeftHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]
