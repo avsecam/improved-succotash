@@ -25,7 +25,6 @@ func _ready():
 	new_behavior_selector.selected = -1
 
 func set_up_actor_settings(obj):
-	clear_actor_settings()
 	editable_obj = obj
 	sm = obj.get_node_or_null("StateManager")
 	if sm is StateManager:
@@ -47,6 +46,16 @@ func clear_actor_settings():
 		child.queue_free()
 
 func set_up_grid():
+	clear_actor_settings()
+	set_up_behavior_container()
+	set_up_state_behavior_settings_container()
+
+func set_up_state_behavior_settings_container():
+	# Clear Container
+	for child in state_behavior_settings_container.get_children():
+		child.queue_free()
+	
+	# Setup behavior labels
 	var behavior_labels_container = VBoxContainer.new()
 	var label_blank = Label.new()
 	label_blank.text = ""
@@ -55,14 +64,9 @@ func set_up_grid():
 		var label = Label.new()
 		label.text = behavior
 		behavior_labels_container.add_child(label)
-		
-		var behavior_node = sm.get_node_or_null(behavior)
-		if behavior_node != null:
-			add_behavior_settings(behavior_node)
-		else:
-			print("Error: could not load behavior '" + behavior + "'")
 	state_behavior_settings_container.add_child(behavior_labels_container)
 	
+	# Setup columns with state name and behaviors
 	for state in sm_settings.state_behavior_settings:
 		var box_cont = VBoxContainer.new()
 		var label = Label.new()
@@ -77,7 +81,15 @@ func set_up_grid():
 			
 			# connect signals so state manager settings update according to checkbox 
 			cb.change_value.connect(sm_settings.change_value)
-		state_behavior_settings_container.add_child(box_cont)
+		state_behavior_settings_container.add_child(box_cont)	
+
+func set_up_behavior_container():
+	for behavior in sm_settings.behavior_dict:
+		var behavior_node = sm.get_node_or_null(behavior)
+		if behavior_node != null:
+			add_behavior_settings(behavior_node)
+		else:
+			print("Error: could not load behavior '" + behavior + "'")
 
 func _on_btn_add_behavior_pressed():
 	var behavior
@@ -120,7 +132,11 @@ func add_behavior_settings(behavior_node : StateBehavior):
 	
 	behavior_container.add_child(setting_node)
 	setting_node.set_behavior_node(behavior_node)
+	
 	#  connect signals so state behavior updates according to changes to behavior settings 
 
+	# update state behavior settings container
+	set_up_state_behavior_settings_container()
+	
 func _on_btn_check_settings_pressed():
 	print(sm_settings.behavior_dict)
