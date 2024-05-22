@@ -10,5 +10,4 @@ func set_values(state_name, behavior_name):
 	behavior = behavior_name
 
 func _on_toggled(toggled_on):
-	print(toggled_on)
 	change_value.emit(state, behavior, toggled_on)

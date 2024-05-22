@@ -58,6 +58,8 @@ func _on_fd_save_object_file_selected(path):
 	var error = ResourceSaver.save(scene, path)
 	if error != OK:
 		push_error("An error occurred while saving the scene to disk.")
+	else:
+		print("Saved object to %s" % path)
 
 func _on_fd_load_object_file_selected(path):
 	add_editable_object(load(path).instantiate())

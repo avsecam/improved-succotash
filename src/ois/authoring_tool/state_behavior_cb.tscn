@@ -11,3 +11,5 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_nvt7p")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
