@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://b274d6hpy4awm"]
+[gd_scene load_steps=14 format=3 uid="uid://b274d6hpy4awm"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_ynb3o"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_xs22u"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_70aq7"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="4_mx177"]
-[ext_resource type="PackedScene" uid="uid://c041446kxak13" path="res://src/ois/state_managers/inventory_one_handed_tool.tscn" id="5_2k7aw"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_fxavp"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="6_og5tu"]
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="6_vwvcn"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="7_3p0e2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08vm0"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -21,24 +22,29 @@ albedo_color = Color(0.721569, 0.403922, 0.658824, 1)
 material = SubResource("StandardMaterial3D_t0w77")
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="Resource" id="Resource_y0apq"]
+[sub_resource type="Resource" id="Resource_rmdap"]
 script = ExtResource("6_og5tu")
 state_behavior_settings = {
-"GrabState": {
-"ControlRaycast": true
+"ActiveState": {
+"ControlRaycast": true,
+"InteractReceiver": true
 },
 "IdleState": {
-"ControlRaycast": false
+"ControlRaycast": false,
+"InteractReceiver": false
 },
 "InventoryState": {
-"ControlRaycast": false
+"ControlRaycast": false,
+"InteractReceiver": false
 },
 "TriggerState": {
-"ControlRaycast": true
+"ControlRaycast": true,
+"InteractReceiver": true
 }
 }
 behavior_dict = {
-"ControlRaycast": false
+"ControlRaycast": false,
+"InteractReceiver": false
 }
 
 [node name="PickableObject" instance=ExtResource("1_ynb3o")]
@@ -63,11 +69,13 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InventoryItemComp/ReplacementMesh" index="0"]
 mesh = SubResource("BoxMesh_q3eaj")
 
-[node name="StateManager" parent="." index="5" instance=ExtResource("5_2k7aw")]
+[node name="StateManager" parent="." index="5" instance=ExtResource("5_fxavp")]
 receiver_group = "box"
-settings = SubResource("Resource_y0apq")
+settings = SubResource("Resource_rmdap")
 
-[node name="ControlRaycast" parent="StateManager" index="4" instance=ExtResource("6_vwvcn")]
+[node name="ControlRaycast" parent="StateManager" index="3" instance=ExtResource("6_vwvcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0382782)
+
+[node name="InteractReceiver" parent="StateManager" index="4" instance=ExtResource("7_3p0e2")]
 
 [editable path="InventoryItemComp"]

@@ -12,7 +12,7 @@ func _on_has_dropped():
 		current_inventory_obj.toggle_replacement_mesh()
 	# handles objects using inventory_item_comp (new)
 	elif current_inventory_item_comp != null:
-		current_inventory_item_comp.toggle_main_mesh()
+		current_inventory_item_comp.toggle_replacement_mesh()
 	
 	# Transfer object parent from snapzone to actual slot.
 	self.get_parent().remove_child(current_inventory_obj)
