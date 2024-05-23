@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b274d6hpy4awm"]
+[gd_scene load_steps=15 format=3 uid="uid://b274d6hpy4awm"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_ynb3o"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_xs22u"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="6_og5tu"]
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="6_vwvcn"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="7_3p0e2"]
+[ext_resource type="PackedScene" uid="uid://yurhfdf4xm13" path="res://src/ois/states/snap_objects.tscn" id="9_ndnuk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08vm0"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -22,29 +23,34 @@ albedo_color = Color(0.721569, 0.403922, 0.658824, 1)
 material = SubResource("StandardMaterial3D_t0w77")
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="Resource" id="Resource_rmdap"]
+[sub_resource type="Resource" id="Resource_q6f14"]
 script = ExtResource("6_og5tu")
 state_behavior_settings = {
 "ActiveState": {
 "ControlRaycast": true,
-"InteractReceiver": true
+"InteractReceiver": true,
+"SnapObjects": false
 },
 "IdleState": {
 "ControlRaycast": false,
-"InteractReceiver": false
+"InteractReceiver": false,
+"SnapObjects": false
 },
 "InventoryState": {
 "ControlRaycast": false,
-"InteractReceiver": false
+"InteractReceiver": false,
+"SnapObjects": false
 },
 "TriggerState": {
 "ControlRaycast": true,
-"InteractReceiver": true
+"InteractReceiver": true,
+"SnapObjects": true
 }
 }
 behavior_dict = {
 "ControlRaycast": false,
-"InteractReceiver": false
+"InteractReceiver": false,
+"SnapObjects": false
 }
 
 [node name="PickableObject" instance=ExtResource("1_ynb3o")]
@@ -71,11 +77,14 @@ mesh = SubResource("BoxMesh_q3eaj")
 
 [node name="StateManager" parent="." index="5" instance=ExtResource("5_fxavp")]
 receiver_group = "box"
-settings = SubResource("Resource_rmdap")
+settings = SubResource("Resource_q6f14")
 
 [node name="ControlRaycast" parent="StateManager" index="3" instance=ExtResource("6_vwvcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0382782)
 
 [node name="InteractReceiver" parent="StateManager" index="4" instance=ExtResource("7_3p0e2")]
+
+[node name="SnapObjects" parent="StateManager" index="5" instance=ExtResource("9_ndnuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.216283)
 
 [editable path="InventoryItemComp"]
