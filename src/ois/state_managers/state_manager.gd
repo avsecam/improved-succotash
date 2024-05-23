@@ -20,15 +20,18 @@ func _ready():
 			if debug:
 				print(settings.state_behavior_settings)
 			
-			await actor.ready
+			
 			#Connect state signals to behaviors as indicate in settings resoource
 			for state in settings.state_behavior_settings:
 				for behavior in settings.behavior_dict:
 					if settings.get_value(state, behavior):
-						state.manage_behaviors.connect(behavior.manage_signal)
-			
-			#Set initial state	
-			set_state(current_state)
+						var s = get_node_or_null(state)
+						var b = get_node_or_null(behavior)
+						if s != null && b!= null:
+							s.manage_behavior.connect(b.manage_signal)
+		await actor.ready
+		#Set initial state
+		set_state(current_state)
 
 func set_state(state : OISState):
 	if (current_state != null):

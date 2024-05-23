@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://src/ois/state_managers/inventory_one_handed_tool.gd" id="2_i0qxf"]
 [ext_resource type="PackedScene" uid="uid://c7jka6pr2nc0" path="res://src/ois/states/state.tscn" id="3_t4jut"]
 
-[node name="StateManager" instance=ExtResource("1_t4stl")]
+[node name="StateManager" node_paths=PackedStringArray("current_state") instance=ExtResource("1_t4stl")]
 script = ExtResource("2_i0qxf")
+current_state = NodePath("IdleState")
 
 [node name="IdleState" parent="." index="0" instance=ExtResource("3_t4jut")]
 

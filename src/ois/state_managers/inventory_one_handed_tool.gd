@@ -10,6 +10,11 @@ extends StateManager
 var a = func(x): if (x == "trigger_click"): _on_trigger_pressed()
 var b = func(x): if (x == "trigger_click"): _on_trigger_released()
 
+func _ready():
+	super()
+	actor_object.grabbed.connect(_on_actor_object_grabbed)
+	actor_object.released.connect(_on_actor_object_released)
+
 func add_to_inventory():
 	set_state(inventory_state)
 
