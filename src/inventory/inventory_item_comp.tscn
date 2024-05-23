@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://0datjcm1gsqv"]
+
+[ext_resource type="Script" path="res://src/inventory/inventory_item_comp.gd" id="1_n1jyx"]
+
+[node name="InventoryItemComp" type="Node3D"]
+script = ExtResource("1_n1jyx")
+
+[node name="ReplacementMesh" type="Node3D" parent="."]
