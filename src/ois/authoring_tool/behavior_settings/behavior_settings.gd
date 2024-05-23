@@ -7,5 +7,5 @@ var behavior_node
 
 func set_behavior_node(behavior : StateBehavior):
 	behavior_node = behavior
-	change_values.connect(behavior_node.change_values)
-	$Label.text = behavior_node.name
+	#change_values.connect(behavior_node.change_values)
+	$MarginContainer/Main/Name.text = behavior_node.name

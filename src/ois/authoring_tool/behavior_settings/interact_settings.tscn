@@ -1,5 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2joknevp3rp3"]
+[gd_scene load_steps=3 format=3 uid="uid://c2joknevp3rp3"]
 
 [ext_resource type="PackedScene" uid="uid://1a0f7h7ovttp" path="res://src/ois/authoring_tool/behavior_settings/behavior_settings.tscn" id="1_byh8v"]
+[ext_resource type="Script" path="res://src/ois/authoring_tool/behavior_settings/interact_settings.gd" id="2_8d6xq"]
 
 [node name="BehaviorSettings" instance=ExtResource("1_byh8v")]
+script = ExtResource("2_8d6xq")
+
+[node name="Rate" type="BoxContainer" parent="MarginContainer/Main" index="1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Main/Rate" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rate"
+horizontal_alignment = 2
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/Main/Rate" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+
+[node name="BtnRateConfirm" type="Button" parent="MarginContainer/Main/Rate" index="2"]
+layout_mode = 2
+text = "✓"
+
+[connection signal="pressed" from="MarginContainer/Main/Rate/BtnRateConfirm" to="." method="_on_btn_rate_confirm_pressed"]
