@@ -1,0 +1,455 @@
+[gd_scene load_steps=34 format=3 uid="uid://dlrhpy2o6d7bl"]
+
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Editor_Controller.gd" id="1_14bve"]
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Editor_UI.gd" id="2_osqi3"]
+[ext_resource type="Texture2D" uid="uid://ckpu57idcnem2" path="res://src/authoring_tools/gizmos/icons/ToolSelect.svg" id="3_si2b3"]
+[ext_resource type="Texture2D" uid="uid://cj7suqgc2um5p" path="res://src/authoring_tools/gizmos/icons/ToolMove.svg" id="4_6um7t"]
+[ext_resource type="Texture2D" uid="uid://daeew3oqaigbp" path="res://src/authoring_tools/gizmos/icons/ToolRotate.svg" id="5_xxak1"]
+[ext_resource type="Texture2D" uid="uid://b2h4ml7v2dp4e" path="res://src/authoring_tools/gizmos/icons/ToolScale.svg" id="6_4t5cb"]
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Editor_Viewport_Controller.gd" id="7_g801l"]
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Gizmo_Translate.gd" id="8_5dyt0"]
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Editor_Gizmo_Collider.gd" id="9_r6ffv"]
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Gizmo_Rotate.gd" id="10_7q7a0"]
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Gizmo_Scale.gd" id="11_hwgvj"]
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Gizmo_Select.gd" id="12_j3bd7"]
+[ext_resource type="Script" path="res://src/authoring_tools/gizmos/Editor_Camera_Controller.gd" id="13_s3g6r"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j3bs7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_colvu"]
+sky_material = SubResource("ProceduralSkyMaterial_j3bs7")
+
+[sub_resource type="Environment" id="Environment_s1fmc"]
+background_mode = 2
+sky = SubResource("Sky_colvu")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="World3D" id="World3D_5iuti"]
+environment = SubResource("Environment_s1fmc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqy85"]
+albedo_color = Color(0.945098, 0.203922, 0.321569, 1)
+
+[sub_resource type="BoxMesh" id="17"]
+material = SubResource("StandardMaterial3D_xqy85")
+size = Vector3(0.25, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="19"]
+size = Vector3(0.25, 0.25, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghaqw"]
+albedo_color = Color(0.498039, 0.768627, 0.0470588, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7wbsv"]
+material = SubResource("StandardMaterial3D_ghaqw")
+size = Vector3(0.25, 0.25, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fb02"]
+albedo_color = Color(0.168627, 0.533333, 0.921569, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_us06m"]
+material = SubResource("StandardMaterial3D_8fb02")
+size = Vector3(0.25, 0.25, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3gng"]
+albedo_color = Color(0.611765, 0.611765, 0.611765, 1)
+
+[sub_resource type="BoxMesh" id="22"]
+material = SubResource("StandardMaterial3D_f3gng")
+
+[sub_resource type="BoxShape3D" id="24"]
+
+[sub_resource type="SphereMesh" id="25"]
+radius = 0.75
+height = 1.5
+
+[sub_resource type="SphereShape3D" id="26"]
+radius = 0.75
+
+[sub_resource type="BoxMesh" id="27"]
+material = SubResource("StandardMaterial3D_xqy85")
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxShape3D" id="28"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p13oy"]
+material = SubResource("StandardMaterial3D_ghaqw")
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_idy3i"]
+material = SubResource("StandardMaterial3D_8fb02")
+size = Vector3(0.6, 0.6, 0.6)
+
+[node name="Editor_Controller" type="Node3D"]
+script = ExtResource("1_14bve")
+
+[node name="Editor_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_osqi3")
+
+[node name="Gizmo_Viewport" type="TextureRect" parent="Editor_UI"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="Gizmo_Selection" type="Panel" parent="Editor_UI"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Editor_UI/Gizmo_Selection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -60.0
+offset_right = -524.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7.335, 7.335)
+alignment = 1
+
+[node name="Button_Select" type="Button" parent="Editor_UI/Gizmo_Selection/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Editor_UI/Gizmo_Selection/HBoxContainer/Button_Select"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_si2b3")
+expand_mode = 1
+
+[node name="Button_Translate" type="Button" parent="Editor_UI/Gizmo_Selection/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Editor_UI/Gizmo_Selection/HBoxContainer/Button_Translate"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6um7t")
+expand_mode = 1
+
+[node name="Button_Rotate" type="Button" parent="Editor_UI/Gizmo_Selection/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Editor_UI/Gizmo_Selection/HBoxContainer/Button_Rotate"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_xxak1")
+expand_mode = 1
+
+[node name="Button_Scale" type="Button" parent="Editor_UI/Gizmo_Selection/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Editor_UI/Gizmo_Selection/HBoxContainer/Button_Scale"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_4t5cb")
+expand_mode = 1
+
+[node name="Editor_Viewport" type="SubViewport" parent="."]
+world_3d = SubResource("World3D_5iuti")
+transparent_bg = true
+physics_object_picking = true
+size = Vector2i(1280, 720)
+script = ExtResource("7_g801l")
+path_to_texture = NodePath("../Editor_UI/Gizmo_Viewport")
+path_to_editor_camera = NodePath("../Editor_Camera_Controller")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Editor_Viewport"]
+environment = SubResource("Environment_s1fmc")
+
+[node name="Gizmo_Camera" type="Camera3D" parent="Editor_Viewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+current = true
+fov = 70.0
+far = 100.0
+
+[node name="Gizmos" type="Node3D" parent="Editor_Viewport"]
+
+[node name="Translate" type="Node3D" parent="Editor_Viewport/Gizmos"]
+visible = false
+script = ExtResource("8_5dyt0")
+path_to_editor_viewport = NodePath("../..")
+
+[node name="Handle_X" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Translate"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -5.96046e-08)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "X"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Translate/Handle_X"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("17")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Translate/Handle_X"]
+shape = SubResource("19")
+
+[node name="Handle_Y" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Translate"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "Y"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Translate/Handle_Y"]
+transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, -5.96046e-08, 1, -5.96046e-08)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("BoxMesh_7wbsv")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Translate/Handle_Y"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("19")
+
+[node name="Handle_Z" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Translate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "Z"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Translate/Handle_Z"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("BoxMesh_us06m")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Translate/Handle_Z"]
+shape = SubResource("19")
+
+[node name="Body_Center" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Translate"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Translate/Body_Center"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("22")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Translate/Body_Center"]
+shape = SubResource("24")
+
+[node name="Rotate" type="Node3D" parent="Editor_Viewport/Gizmos"]
+visible = false
+script = ExtResource("10_7q7a0")
+path_to_editor_viewport = NodePath("../..")
+
+[node name="Handle_X" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Rotate"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -5.96046e-08)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "X"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Rotate/Handle_X"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("17")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Rotate/Handle_X"]
+shape = SubResource("19")
+
+[node name="Handle_Y" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Rotate"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "Y"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Rotate/Handle_Y"]
+transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, -5.96046e-08, 1, -5.96046e-08)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("BoxMesh_7wbsv")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Rotate/Handle_Y"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("19")
+
+[node name="Handle_Z" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Rotate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "Z"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Rotate/Handle_Z"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("BoxMesh_us06m")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Rotate/Handle_Z"]
+shape = SubResource("19")
+
+[node name="Body_Center" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Rotate"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Rotate/Body_Center"]
+mesh = SubResource("25")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Rotate/Body_Center"]
+shape = SubResource("26")
+
+[node name="Scale" type="Node3D" parent="Editor_Viewport/Gizmos"]
+visible = false
+script = ExtResource("11_hwgvj")
+path_to_editor_viewport = NodePath("../..")
+
+[node name="Handle_X" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Scale"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -5.96046e-08)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "X"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Scale/Handle_X"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("17")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Scale/Handle_X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37114e-08, 0, 1)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("27")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Scale/Handle_X"]
+shape = SubResource("19")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Scale/Handle_X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37114e-08, 0, 1)
+shape = SubResource("28")
+
+[node name="Handle_Y" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Scale"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "Y"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Scale/Handle_Y"]
+transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, -5.96046e-08, 1, -5.96046e-08)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("BoxMesh_7wbsv")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Scale/Handle_Y"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, -5.96046e-08)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("BoxMesh_p13oy")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Scale/Handle_Y"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("19")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Scale/Handle_Y"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, -5.96046e-08)
+shape = SubResource("28")
+
+[node name="Handle_Z" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Scale"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+gizmo_axis = "Z"
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Scale/Handle_Z"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("BoxMesh_us06m")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Scale/Handle_Z"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.38419e-07, 1)
+layers = 32
+cast_shadow = 0
+mesh = SubResource("BoxMesh_idy3i")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Scale/Handle_Z"]
+shape = SubResource("19")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Scale/Handle_Z"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.38419e-07, 1)
+shape = SubResource("28")
+
+[node name="Body_Center" type="StaticBody3D" parent="Editor_Viewport/Gizmos/Scale"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_r6ffv")
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Scale/Body_Center"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("22")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Editor_Viewport/Gizmos/Scale/Body_Center"]
+shape = SubResource("24")
+
+[node name="Select" type="Node3D" parent="Editor_Viewport/Gizmos"]
+script = ExtResource("12_j3bd7")
+
+[node name="Mesh" type="MeshInstance3D" parent="Editor_Viewport/Gizmos/Select"]
+layers = 32
+cast_shadow = 0
+mesh = SubResource("22")
+
+[node name="Editor_Camera_Controller" type="Node3D" parent="."]
+script = ExtResource("13_s3g6r")
+
+[node name="View_Camera" type="Camera3D" parent="Editor_Camera_Controller"]
+current = true
+fov = 70.0
+far = 100.0
