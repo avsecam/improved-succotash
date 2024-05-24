@@ -1,5 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2g7jpj85cmnw"]
+[gd_scene load_steps=3 format=3 uid="uid://b2g7jpj85cmnw"]
 
 [ext_resource type="PackedScene" uid="uid://1a0f7h7ovttp" path="res://src/ois/authoring_tool/behavior_settings/behavior_settings.tscn" id="1_rtu0x"]
+[ext_resource type="Script" path="res://src/ois/authoring_tool/behavior_settings/raycast_settings.gd" id="2_brqee"]
 
 [node name="BehaviorSettings" instance=ExtResource("1_rtu0x")]
+script = ExtResource("2_brqee")
+
+[node name="RaycastLength" type="BoxContainer" parent="MarginContainer/Main" index="1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Main/RaycastLength" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Raycast Length"
+horizontal_alignment = 2
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/Main/RaycastLength" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+step = 0.01
+
+[node name="BtnRaycastLengthConfirm" type="Button" parent="MarginContainer/Main/RaycastLength" index="2"]
+layout_mode = 2
+text = "✓"
+
+[node name="LaserThickness" type="BoxContainer" parent="MarginContainer/Main" index="2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Main/LaserThickness" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Laser Thickness"
+horizontal_alignment = 2
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/Main/LaserThickness" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+
+[node name="BtnLaserThicknessConfirm" type="Button" parent="MarginContainer/Main/LaserThickness" index="2"]
+layout_mode = 2
+text = "✓"
+
+[connection signal="pressed" from="MarginContainer/Main/RaycastLength/BtnRaycastLengthConfirm" to="." method="_on_btn_raycast_length_confirm_pressed"]
+[connection signal="pressed" from="MarginContainer/Main/LaserThickness/BtnLaserThicknessConfirm" to="." method="_on_btn_laser_thickness_confirm_pressed"]

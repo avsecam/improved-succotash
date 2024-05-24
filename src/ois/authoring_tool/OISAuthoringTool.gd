@@ -13,7 +13,8 @@ extends Control
 
 var pickable_scene = preload("res://addons/godot-xr-tools/objects/pickable.tscn")
 var receiver_scene = preload("res://src/ois/action_components/receiver_object_static.tscn")
-var actor_scene = preload("res://src/ois/inventory_actor_item.tscn")
+var actor_scene = preload("res://src/ois/actor_object.tscn")
+var sm_one_handed_tool_scene = preload("res://src/ois/state_managers/one_handed_tool.tscn")
 
 var editable_object 
 
@@ -93,6 +94,11 @@ func _on_cd_new_object_confirmed():
 		print("Actor yes")
 		new_obj = actor_scene.instantiate()
 		object_settings_container.set_tab_disabled(0, false)
+		
+		var new_sm = sm_one_handed_tool_scene.instantiate()
+		new_obj.add_child(new_sm)
+		new_sm.owner = new_obj
+		
 		object_settings_container.current_tab = 0
 		actor_settings.set_up_actor_settings(new_obj)
 	if cb_receiver.button_pressed:
@@ -115,3 +121,4 @@ func _on_cd_new_object_confirmed():
 	cb_actor.button_pressed = false
 	cb_receiver.button_pressed = false
 	cb_inventory.button_pressed = false
+	
