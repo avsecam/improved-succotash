@@ -10,6 +10,6 @@ current_state = NodePath("IdleState")
 
 [node name="IdleState" parent="." index="0" instance=ExtResource("3_vs46t")]
 
-[node name="GrabState" parent="." index="1" instance=ExtResource("3_vs46t")]
+[node name="ActiveState" parent="." index="1" instance=ExtResource("3_vs46t")]
 
 [node name="TriggerState" parent="." index="2" instance=ExtResource("3_vs46t")]

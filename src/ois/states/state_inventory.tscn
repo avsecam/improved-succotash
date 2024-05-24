@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://blpaqx7gy2i1b"]
+
+[ext_resource type="PackedScene" uid="uid://c7jka6pr2nc0" path="res://src/ois/states/state.tscn" id="1_tymko"]
+[ext_resource type="Script" path="res://src/ois/states/state_inventory.gd" id="2_x5s4x"]
+
+[node name="InventoryState" instance=ExtResource("1_tymko")]
+script = ExtResource("2_x5s4x")
