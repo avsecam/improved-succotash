@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cbqrgxhjlrxx1"]
+
+[node name="ReceiverSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="Main" type="BoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical = true
+
+[node name="LabelActionComp" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Action Component"
+
+[node name="ActionCompContainer" type="VBoxContainer" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="BtnAddActionComp" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Set Action Component"
+
+[node name="LabelFeedback" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Feedback"
+
+[node name="FeedbackContainer" type="VBoxContainer" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="ScrollContainer/Main"]
+layout_mode = 2
+tooltip_text = "Select a Behavior Type"
+
+[node name="BtnAddFeedback" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Add Feedback"
