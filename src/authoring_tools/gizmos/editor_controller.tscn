@@ -104,99 +104,51 @@ anchor_bottom = 1.0
 mouse_filter = 2
 expand_mode = 1
 
-[node name="Gizmo_Selection" type="Panel" parent="Editor_UI"]
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Editor_UI/Gizmo_Selection"]
+[node name="MarginContainer" type="MarginContainer" parent="Editor_UI"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -568.0
-offset_top = -60.0
-offset_right = -524.0
-offset_bottom = -52.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(7.335, 7.335)
+offset_top = -80.0
+offset_right = 248.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Gizmo_Selection" type="HBoxContainer" parent="Editor_UI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Button_Select" type="Button" parent="Editor_UI/Gizmo_Selection/HBoxContainer"]
+[node name="Button_Select" type="Button" parent="Editor_UI/MarginContainer/Gizmo_Selection"]
 layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3_si2b3")
+icon_alignment = 1
+expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="Editor_UI/Gizmo_Selection/HBoxContainer/Button_Select"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_si2b3")
-expand_mode = 1
-
-[node name="Button_Translate" type="Button" parent="Editor_UI/Gizmo_Selection/HBoxContainer"]
+[node name="Button_Translate" type="Button" parent="Editor_UI/MarginContainer/Gizmo_Selection"]
 layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("4_6um7t")
+icon_alignment = 1
+expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="Editor_UI/Gizmo_Selection/HBoxContainer/Button_Translate"]
-custom_minimum_size = Vector2(6, 6)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_6um7t")
-expand_mode = 1
-
-[node name="Button_Rotate" type="Button" parent="Editor_UI/Gizmo_Selection/HBoxContainer"]
+[node name="Button_Rotate" type="Button" parent="Editor_UI/MarginContainer/Gizmo_Selection"]
 layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("5_xxak1")
+icon_alignment = 1
+expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="Editor_UI/Gizmo_Selection/HBoxContainer/Button_Rotate"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_xxak1")
-expand_mode = 1
-
-[node name="Button_Scale" type="Button" parent="Editor_UI/Gizmo_Selection/HBoxContainer"]
+[node name="Button_Scale" type="Button" parent="Editor_UI/MarginContainer/Gizmo_Selection"]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Editor_UI/Gizmo_Selection/HBoxContainer/Button_Scale"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_4t5cb")
-expand_mode = 1
+size_flags_horizontal = 3
+icon = ExtResource("6_4t5cb")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Editor_Viewport" type="SubViewport" parent="."]
 world_3d = SubResource("World3D_5iuti")
