@@ -1,4 +1,4 @@
-extends Control
+extends Node3D
 
 @onready var confirmation_dialog : ConfirmationDialog = $ConfirmationDialog
 
@@ -7,9 +7,9 @@ extends Control
 @onready var cb_receiver : CheckBox = $CDNewObject/FlowContainer/CBReceiver
 @onready var cb_inventory : CheckBox = $CDNewObject/FlowContainer/CBInventory
 
-@onready var editable_object_slot : Node3D = $MainContainer/GridContainer/LeftHalf/SubViewportContainer/SubViewport/EditableObjectSlot
+@onready var editable_object_slot : Node3D = $EditableObjectSlot
 
-@onready var object_settings_container : TabContainer = $MainContainer/GridContainer/BoxContainer/ObjectSettings
+@onready var object_settings_container : TabContainer = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings
 
 var pickable_scene = preload("res://addons/godot-xr-tools/objects/pickable.tscn")
 var receiver_scene = preload("res://src/ois/action_components/receiver_object_static.tscn")
@@ -18,7 +18,7 @@ var sm_one_handed_tool_scene = preload("res://src/ois/state_managers/one_handed_
 
 var editable_object 
 
-@onready var actor_settings = $MainContainer/GridContainer/BoxContainer/ObjectSettings/ActorSettings
+@onready var actor_settings = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings
 
 func _ready():
 	PhysicsServer3D.set_active(false) # turn off physics
