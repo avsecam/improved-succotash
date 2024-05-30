@@ -20,3 +20,15 @@ func _ready():
 func on_mode_button_pressed(new_mode):
 	# Tell editor_controller to change the mode.
 	editor_controller.change_editor_mode(new_mode);
+
+func set_gizmos(select : bool, translate: bool, rotate: bool, scale : bool):
+	for child in $MarginContainer/Gizmo_Selection.get_children():
+		child.visible = false
+	if select:
+		$MarginContainer/Gizmo_Selection/Button_Select.visible = true
+	if translate:
+		$MarginContainer/Gizmo_Selection/Button_Translate.visible = true
+	if rotate:
+		$MarginContainer/Gizmo_Selection/Button_Rotate.visible = true
+	if scale:
+		$MarginContainer/Gizmo_Selection/Button_Scale.visible = true

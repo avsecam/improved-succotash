@@ -183,7 +183,8 @@ func physics_object_selected(new_object):
 	if (selected_physics_object != null):
 		# Set the collision/physics layer of the selected object to the collision/physics layer we stored in
 		# selected_object_physics_layer.
-		selected_physics_object.collision_layer = selected_object_physics_layer;
+		if ("collision_layer" in selected_physics_object):
+			selected_physics_object.collision_layer = selected_object_physics_layer;
 		
 		# If the selected physics object is a RigidBody...
 		if (selected_physics_object is RigidBody3D):
@@ -200,9 +201,10 @@ func physics_object_selected(new_object):
 	if (selected_physics_object != null):
 		# Store its collision layer in a variable named selected_object_physics_layer so we can reapply it
 		# when the object is no longer selected.
-		selected_object_physics_layer = selected_physics_object.collision_layer;
-		# Set the collision layer of the object to 0 so it is not on any layers and will not collide with anything.
-		selected_physics_object.collision_layer = 0;
+		if ("collision_layer" in selected_physics_object):
+			selected_object_physics_layer = selected_physics_object.collision_layer;
+			# Set the collision layer of the object to 0 so it is not on any layers and will not collide with anything.
+			selected_physics_object.collision_layer = 0;
 		
 		# If the selected object is a RigidBody...
 		if (selected_physics_object is RigidBody3D):

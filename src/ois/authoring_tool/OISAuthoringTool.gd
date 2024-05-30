@@ -1,5 +1,7 @@
 extends Node3D
 
+signal changed_editable_object(object)
+
 @onready var confirmation_dialog : ConfirmationDialog = $ConfirmationDialog
 
 @onready var cd_new_object : ConfirmationDialog = $CDNewObject
@@ -17,6 +19,8 @@ var actor_scene = preload("res://src/ois/actor_object.tscn")
 var sm_one_handed_tool_scene = preload("res://src/ois/state_managers/one_handed_tool.tscn")
 
 var editable_object 
+
+@onready var gizmo_controller = $Editor_Controller
 
 @onready var actor_settings = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings
 
@@ -40,6 +44,7 @@ func add_editable_object(object):
 	editable_object_slot.add_child(object)
 	editable_object = object
 	toggle_object_settings(true)
+	changed_editable_object.emit(editable_object)
 
 func _on_fd_set_mesh_file_selected(path):
 	for child in editable_object.get_children():

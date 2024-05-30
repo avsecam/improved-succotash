@@ -28,3 +28,10 @@ func _input(event):
 	# We do not need to do any additional processing because the
 	# editor viewport is exactly the same size and position as the root/main viewport, so we can just pass the input events along.
 	get_node("Editor_Viewport").push_input(event);
+
+func set_object_and_gizmos(obj, select, translate, rotate, scale):
+	$Editor_UI.set_gizmos(select, translate, rotate, scale)
+	$Editor_Viewport.physics_object_selected(obj)
+
+func set_gizmo_scale(scale : float):
+	$Editor_Viewport/Gizmos.scale = Vector3(scale, scale, scale)
