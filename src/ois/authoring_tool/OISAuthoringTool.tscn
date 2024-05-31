@@ -112,6 +112,14 @@ offset_bottom = 235.0
 size_flags_horizontal = 3
 script = ExtResource("2_wg378")
 
+[node name="Button" type="Button" parent="MainContainer/BlankHalf"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 262.0
+offset_right = 43.0
+offset_bottom = 293.0
+text = "try"
+
 [node name="Panel" type="Panel" parent="MainContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -175,11 +183,6 @@ layout_mode = 2
 layout_mode = 2
 text = "Object is not and Actor, Receiver, or Inventory object"
 
-[node name="BtnSaveObject" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Save Object"
-
 [node name="EditableObjectSlot" type="Node3D" parent="."]
 
 [node name="Editor_Controller" parent="." instance=ExtResource("3_w5ih1")]
@@ -192,5 +195,6 @@ text = "Save Object"
 [connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]
 [connection signal="custom_item_clicked" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_custom_item_clicked"]
 [connection signal="item_selected" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_item_selected"]
+[connection signal="pressed" from="MainContainer/BlankHalf/Button" to="MainContainer/BlankHalf/Tree" method="update_tree"]
 [connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSetMesh" to="." method="_on_btn_set_mesh_pressed"]
-[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSaveObject" to="." method="_on_btn_save_object_pressed"]
+[connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="MainContainer/BlankHalf/Tree" method="update_tree"]

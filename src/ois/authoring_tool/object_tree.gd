@@ -2,10 +2,18 @@ extends Tree
 
 @onready var ois_auth_tool = get_tree().get_root().get_node("OISAuthoringTool")
 @onready var gizmo = ois_auth_tool.get_node("Editor_Controller")
-@export var editable_obj : XRToolsPickable
+
+var editable_obj
 
 func _ready():
-	ois_auth_tool.changed_editable_object.connect(set_up_tree)
+	ois_auth_tool.changed_editable_object.connect(set_editable_obj)
+
+func set_editable_obj(obj):
+	editable_obj = obj
+	set_up_tree(editable_obj)
+
+func update_tree():
+	set_up_tree(editable_obj)
 
 func set_up_tree(obj):
 	clear()
