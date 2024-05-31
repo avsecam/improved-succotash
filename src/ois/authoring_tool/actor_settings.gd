@@ -1,6 +1,6 @@
 extends SplitContainer
 
-signal edited_object
+signal edited_object(new_component)
 
 var raycast_behavior = preload("res://src/ois/states/control_raycast.tscn")
 var snap_behavior = preload("res://src/ois/states/snap_objects.tscn")
@@ -121,7 +121,7 @@ func create_bahavior(behavior_type : String):
 	sm_settings.add_behavior(behavior.name)
 	behavior.owner = editable_obj
 	
-	edited_object.emit()
+	edited_object.emit(behavior)
 	
 	return behavior
 

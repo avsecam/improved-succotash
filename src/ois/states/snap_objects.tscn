@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://yurhfdf4xm13"]
+[gd_scene load_steps=5 format=3 uid="uid://yurhfdf4xm13"]
 
 [ext_resource type="PackedScene" uid="uid://c5ds6cwwrxad7" path="res://src/ois/states/state_behavior.tscn" id="1_jgu1i"]
 [ext_resource type="Script" path="res://src/ois/states/snap_objects.gd" id="2_v7krf"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8em6q"]
+albedo_color = Color(1, 0.392157, 0.298039, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mh8u3"]
+material = SubResource("StandardMaterial3D_8em6q")
+radius = 0.01
+height = 0.02
+
 [node name="SnapObjects" instance=ExtResource("1_jgu1i")]
 script = ExtResource("2_v7krf")
+
+[node name="Debug" type="MeshInstance3D" parent="." index="0"]
+mesh = SubResource("SphereMesh_mh8u3")

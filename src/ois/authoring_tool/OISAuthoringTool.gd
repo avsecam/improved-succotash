@@ -43,6 +43,8 @@ func add_editable_object(object):
 		sm.in_authoring_tool = true
 	editable_object_slot.add_child(object)
 	editable_object = object
+	
+	
 	toggle_object_settings(true)
 	changed_editable_object.emit(editable_object)
 

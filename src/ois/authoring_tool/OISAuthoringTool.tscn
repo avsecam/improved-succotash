@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu2210yvw7asq"]
+[gd_scene load_steps=7 format=3 uid="uid://bu2210yvw7asq"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/OISAuthoringTool.gd" id="1_fv4xn"]
 [ext_resource type="PackedScene" uid="uid://c43mihg4osje5" path="res://src/ois/authoring_tool/actor_settings.tscn" id="2_bbno4"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/object_tree.gd" id="2_wg378"]
 [ext_resource type="PackedScene" uid="uid://dlrhpy2o6d7bl" path="res://src/authoring_tools/gizmos/editor_controller.tscn" id="3_w5ih1"]
+[ext_resource type="Script" path="res://src/ois/authoring_tool/editable_obj_slot.gd" id="4_05tlt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2f3df"]
 bg_color = Color(0.427451, 0.427451, 0.427451, 1)
@@ -112,14 +113,6 @@ offset_bottom = 235.0
 size_flags_horizontal = 3
 script = ExtResource("2_wg378")
 
-[node name="Button" type="Button" parent="MainContainer/BlankHalf"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 262.0
-offset_right = 43.0
-offset_bottom = 293.0
-text = "try"
-
 [node name="Panel" type="Panel" parent="MainContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -184,17 +177,19 @@ layout_mode = 2
 text = "Object is not and Actor, Receiver, or Inventory object"
 
 [node name="EditableObjectSlot" type="Node3D" parent="."]
+script = ExtResource("4_05tlt")
 
 [node name="Editor_Controller" parent="." instance=ExtResource("3_w5ih1")]
 
+[connection signal="changed_editable_object" from="." to="EditableObjectSlot" method="set_editable_obj"]
 [connection signal="file_selected" from="FDSetMesh" to="." method="_on_fd_set_mesh_file_selected"]
 [connection signal="file_selected" from="FDSaveObject" to="." method="_on_fd_save_object_file_selected"]
 [connection signal="file_selected" from="FDLoadObject" to="." method="_on_fd_load_object_file_selected"]
 [connection signal="confirmed" from="CDNewObject" to="." method="_on_cd_new_object_confirmed"]
 [connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnNewObject" to="." method="_on_btn_new_object_pressed"]
 [connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]
-[connection signal="custom_item_clicked" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_custom_item_clicked"]
+[connection signal="button_clicked" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_button_clicked"]
 [connection signal="item_selected" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_item_selected"]
-[connection signal="pressed" from="MainContainer/BlankHalf/Button" to="MainContainer/BlankHalf/Tree" method="update_tree"]
 [connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSetMesh" to="." method="_on_btn_set_mesh_pressed"]
 [connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="MainContainer/BlankHalf/Tree" method="update_tree"]
+[connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="EditableObjectSlot" method="display_obj_debug"]

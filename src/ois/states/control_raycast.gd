@@ -20,6 +20,7 @@ func on_exit_state():
 	enable_raycast(false)
 
 func _ready():
+	debug_show(false)
 	# set raycast and laser properties
 	raycast.target_position.z = -raycast_length
 	laser.mesh.size = Vector3(laser_thickness, laser_thickness, raycast_length)
@@ -44,3 +45,6 @@ func _process(delta):
 		if (currently_colliding != null):
 			body_exited.emit(currently_colliding)
 			currently_colliding = null
+
+func debug_show(to_show):
+	$Debug.visible = to_show

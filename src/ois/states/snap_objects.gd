@@ -7,6 +7,7 @@ class_name SBSnap
 var receiver_object
 
 func _ready():
+	debug_show(false)
 	set_process(false)
 
 func on_enter_state():
@@ -23,3 +24,6 @@ func _process(delta):
 func on_exit_state():
 	receiver_object = null
 	set_process(false)
+
+func debug_show(to_show):
+	$Debug.visible = to_show
