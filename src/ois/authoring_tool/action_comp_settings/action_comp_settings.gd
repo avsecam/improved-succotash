@@ -3,14 +3,19 @@ class_name ActionCompSettings
 
 const export_property_usage_flag = 4102 #flag indicating exported variables
 
+var action_comp
+@onready var action_comp_label = $MarginContainer/Main/Name
 @onready var main_cont = $MarginContainer/Main
 
-func _ready():
-	var properties = get_property_list()
+func set_action_component(action_component, action_comp_name):
+	action_comp_label.text = action_comp_name
+	action_comp = action_component
+	var properties = action_comp.get_property_list()
+	#print(properties)
 	for prop in properties:
 		if prop.usage == export_property_usage_flag:
 			print(prop)
-			add_property_setting(prop, self)
+			add_property_setting(prop, action_comp)
 
 func add_property_setting(prop, obj):
 	var box_cont = BoxContainer.new()
@@ -51,4 +56,3 @@ func add_property_setting(prop, obj):
 			
 		24: #type object
 			print("obj")
-	

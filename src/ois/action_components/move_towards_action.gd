@@ -7,7 +7,7 @@ var initial_distance
 
 func _ready():
 	super()
-	if req_is_init_dist:
+	if req_is_init_dist && reference_point != null:
 		requirement = global_position.distance_to(reference_point.global_position)
 
 func initialize_action_vars():
