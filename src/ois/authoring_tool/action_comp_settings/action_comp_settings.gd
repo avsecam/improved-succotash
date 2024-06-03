@@ -30,18 +30,18 @@ func add_property_setting(prop, obj):
 			var cb = CheckBox.new()
 			cb.button_pressed = obj.get(prop.name)
 			box_cont.add_child(cb)
-			# add connection
+			cb.toggled.connect(func(x): obj.set(prop.name, x))
 		
 		2: #type int
 			var spin_box = SpinBox.new()
 			spin_box.step = 1
 			spin_box.value = obj.get(prop.name)
 			box_cont.add_child(spin_box)
-			# add connection
 			
 			var btn = Button.new()
 			btn.set_text("✓")
 			box_cont.add_child(btn)
+			btn.pressed.connect(func(): obj.set(prop.name, spin_box.value))
 			
 		3: #type float
 			var spin_box = SpinBox.new()
@@ -53,6 +53,7 @@ func add_property_setting(prop, obj):
 			var btn = Button.new()
 			btn.set_text("✓")
 			box_cont.add_child(btn)
+			btn.pressed.connect(func(): obj.set(prop.name, spin_box.value))
 		
 		4: #type string
 			var line_edit = LineEdit.new()
@@ -62,6 +63,7 @@ func add_property_setting(prop, obj):
 			var btn = Button.new()
 			btn.set_text("✓")
 			box_cont.add_child(btn)
+			btn.pressed.connect(func(): obj.set(prop.name, line_edit.text))
 			
 		24: #type object
 			print("obj")
