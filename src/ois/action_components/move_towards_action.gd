@@ -20,4 +20,4 @@ func _process(delta):
 	total_progress = past_progress + (current_progress * rate)
 	$Label3D.set_text("req: %s\ncurr: %s\ntotal: %s" % [requirement, current_progress, total_progress])
 	
-	check_if_completed()
+	super(delta)
