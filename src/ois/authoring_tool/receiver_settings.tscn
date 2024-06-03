@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbqrgxhjlrxx1"]
+[gd_scene load_steps=2 format=3 uid="uid://d1ymsx1ev8nj6"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/receiver_settings.gd" id="1_6j5sq"]
 
@@ -46,10 +46,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="OptionButton" type="OptionButton" parent="ScrollContainer/Main"]
-layout_mode = 2
-tooltip_text = "Select a Behavior Type"
-
 [node name="BtnAddFeedback" type="Button" parent="ScrollContainer/Main"]
 layout_mode = 2
 text = "Add Feedback"
@@ -63,9 +59,20 @@ file_mode = 0
 root_subfolder = "res://src/ois/action_components/"
 filters = PackedStringArray("*.gd")
 
+[node name="FDSelectFeedback" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/feedback_components/"
+filters = PackedStringArray("*.gd")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 
 [connection signal="pressed" from="ScrollContainer/Main/BtnAddActionComp" to="." method="_on_btn_add_action_comp_pressed"]
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddFeedback" to="." method="_on_btn_add_feedback_pressed"]
 [connection signal="file_selected" from="FDSelectActionComp" to="." method="_on_fd_select_action_comp_file_selected"]
+[connection signal="file_selected" from="FDSelectFeedback" to="." method="_on_fd_select_feedback_file_selected"]

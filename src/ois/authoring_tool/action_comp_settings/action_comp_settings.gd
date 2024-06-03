@@ -53,6 +53,15 @@ func add_property_setting(prop, obj):
 			var btn = Button.new()
 			btn.set_text("✓")
 			box_cont.add_child(btn)
+		
+		4: #type string
+			var line_edit = LineEdit.new()
+			line_edit.text = obj.get(prop.name)
+			box_cont.add_child(line_edit)
+			
+			var btn = Button.new()
+			btn.set_text("✓")
+			box_cont.add_child(btn)
 			
 		24: #type object
 			print("obj")
