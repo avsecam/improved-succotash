@@ -30,5 +30,4 @@ func _process(delta):
 	
 	total_progress = past_progress + (current_progress * rate);
 	print(total_progress)
-	action_performed.emit(requirement, total_progress)
-	check_if_completed()
+	super(delta)
