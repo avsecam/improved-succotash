@@ -27,6 +27,4 @@ func _process(delta):
 		hit_already = true
 		print(total_progress)
 		# print(str(actor_start_end_dist) + " / " + str(time_total) + " = " + str(current_progress))
-		action_performed.emit(requirement, total_progress)
-
-	check_if_completed()
+		super(delta)

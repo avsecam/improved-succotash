@@ -7,7 +7,7 @@ var initial_distance
 
 func _ready():
 	super()
-	if req_is_init_dist:
+	if req_is_init_dist && reference_point != null:
 		requirement = global_position.distance_to(reference_point.global_position)
 
 func initialize_action_vars():
@@ -20,4 +20,4 @@ func _process(delta):
 	total_progress = past_progress + (current_progress * rate)
 	$Label3D.set_text("req: %s\ncurr: %s\ntotal: %s" % [requirement, current_progress, total_progress])
 	
-	check_if_completed()
+	super(delta)

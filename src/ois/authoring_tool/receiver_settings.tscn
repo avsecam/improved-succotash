@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ymsx1ev8nj6"]
+
+[ext_resource type="Script" path="res://src/ois/authoring_tool/receiver_settings.gd" id="1_6j5sq"]
+
+[node name="ReceiverSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_6j5sq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="Main" type="BoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical = true
+
+[node name="LabelActionComp" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Action Component"
+
+[node name="ActionCompContainer" type="VBoxContainer" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="BtnAddActionComp" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Set Action Component"
+
+[node name="LabelFeedback" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Feedback"
+
+[node name="FeedbackContainer" type="VBoxContainer" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="BtnAddFeedback" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Add Feedback"
+
+[node name="FDSelectActionComp" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/action_components/"
+filters = PackedStringArray("*.gd")
+
+[node name="FDSelectFeedback" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/feedback_components/"
+filters = PackedStringArray("*.gd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddActionComp" to="." method="_on_btn_add_action_comp_pressed"]
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddFeedback" to="." method="_on_btn_add_feedback_pressed"]
+[connection signal="file_selected" from="FDSelectActionComp" to="." method="_on_fd_select_action_comp_file_selected"]
+[connection signal="file_selected" from="FDSelectFeedback" to="." method="_on_fd_select_feedback_file_selected"]
