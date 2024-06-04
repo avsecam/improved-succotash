@@ -4,7 +4,7 @@ extends MarginContainer
 @onready var action_comp_container = $ScrollContainer/Main/ActionCompContainer
 @onready var feedback_container = $ScrollContainer/Main/FeedbackContainer
 
-var action_comp_settings_scn = preload("res://src/ois/authoring_tool/action_comp_settings/action_comp_settings.tscn")
+var action_comp_settings_scn = preload("res://src/ois/authoring_tool/component_settings.tscn")
 var action_comp_settings
 
 func set_editable_object(obj):

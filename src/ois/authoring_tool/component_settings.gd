@@ -1,5 +1,5 @@
 extends Control
-class_name ActionCompSettings
+class_name ComponentSettings
 
 const export_property_usage_flag = 4102 #flag indicating exported variables
 
