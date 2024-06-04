@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3dq871yj75ua"]
+
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_65hih"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_1dxc0"]
+
+[node name="front closed doors (2)_jpg" type="Node3D"]
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+top_level = true
+script = ExtResource("1_65hih")
+teleporters_data = [{
+"position": Vector3(3.57586, -1.09316, 0.283812),
+"rotation": Vector3(0, 1.65, -2.05343e-07),
+"to": "FrontRight.jpg"
+}]
+image_filename = "res://src/areas/FrontClosedDoors(2).jpg.jpg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+gi_mode = 0
+mesh = ExtResource("2_1dxc0")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]
