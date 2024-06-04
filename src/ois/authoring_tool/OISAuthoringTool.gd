@@ -44,7 +44,6 @@ func add_editable_object(object):
 	editable_object_slot.add_child(object)
 	editable_object = object
 	
-	
 	toggle_object_settings(true)
 	changed_editable_object.emit(editable_object)
 
@@ -110,7 +109,7 @@ func _on_cd_new_object_confirmed():
 		actor_settings.set_up_actor_settings(new_obj)
 	if cb_receiver.button_pressed:
 		print("Receiver yes")
-		#new_obj = receiver_scene.instantiate()
+		new_obj = receiver_scene.instantiate()
 		object_settings_container.set_tab_disabled(1, false)
 		object_settings_container.current_tab = 1
 	if cb_inventory.button_pressed:
@@ -120,7 +119,8 @@ func _on_cd_new_object_confirmed():
 	
 	var new_mesh = MeshInstance3D.new()
 	new_mesh.mesh = BoxMesh.new()
-	new_obj.add_child(new_mesh)
+	new_mesh.mesh.size = Vector3(0.1, 0.1, 0.1)
+	new_obj.get_node("MainMesh").add_child(new_mesh)
 	new_mesh.owner = new_obj
 	add_editable_object(new_obj)
 	

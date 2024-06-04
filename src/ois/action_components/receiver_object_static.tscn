@@ -4,3 +4,7 @@
 
 [node name="ReceiverObject" type="StaticBody3D"]
 script = ExtResource("1_bnmsp")
+
+[node name="MainMesh" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -68,10 +68,6 @@ file_mode = 0
 root_subfolder = "res://src/ois/feedback_components/"
 filters = PackedStringArray("*.gd")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-
 [connection signal="pressed" from="ScrollContainer/Main/BtnAddActionComp" to="." method="_on_btn_add_action_comp_pressed"]
 [connection signal="pressed" from="ScrollContainer/Main/BtnAddFeedback" to="." method="_on_btn_add_feedback_pressed"]
 [connection signal="file_selected" from="FDSelectActionComp" to="." method="_on_fd_select_action_comp_file_selected"]

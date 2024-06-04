@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@onready var editable_object = $StaticBody3D
+var editable_object
 @onready var action_comp_container = $ScrollContainer/Main/ActionCompContainer
 @onready var feedback_container = $ScrollContainer/Main/FeedbackContainer
 
@@ -8,6 +8,7 @@ var action_comp_settings_scn = preload("res://src/ois/authoring_tool/component_s
 var action_comp_settings
 
 func set_editable_object(obj):
+	print("set_editable_object")
 	editable_object = obj
 
 func _on_btn_add_action_comp_pressed():
@@ -41,3 +42,7 @@ func _on_fd_select_feedback_file_selected(path):
 	new_feedback_node.owner = editable_object
 	
 	action_comp_settings.set_action_component(new_feedback_node, new_feedback_name)
+
+
+func _on_ois_authoring_tool_changed_editable_object(object):
+	pass # Replace with function body.
