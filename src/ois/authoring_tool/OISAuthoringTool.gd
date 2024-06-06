@@ -5,9 +5,9 @@ signal changed_editable_object(object)
 @onready var confirmation_dialog : ConfirmationDialog = $ConfirmationDialog
 
 @onready var cd_new_object : ConfirmationDialog = $CDNewObject
-@onready var cb_actor : CheckBox = $CDNewObject/FlowContainer/CBActor
-@onready var cb_receiver : CheckBox = $CDNewObject/FlowContainer/CBReceiver
-@onready var cb_inventory : CheckBox = $CDNewObject/FlowContainer/CBInventory
+@onready var cb_actor : CheckBox = $CDNewObject/NewObjectSettings/CBActor
+@onready var cb_receiver : CheckBox = $CDNewObject/NewObjectSettings/CBReceiver
+@onready var cb_inventory : CheckBox = $CDNewObject/NewObjectSettings/CBInventory
 
 @onready var editable_object_slot : Node3D = $EditableObjectSlot
 
@@ -74,6 +74,7 @@ func _on_fd_load_object_file_selected(path):
 	
 func _on_btn_new_object_pressed():
 	# let users set if object is/are receiver, actor, inventory objects
+	cd_new_object.reset()
 	cd_new_object.popup_centered()
 
 func _on_btn_load_object_pressed():
@@ -123,9 +124,3 @@ func _on_cd_new_object_confirmed():
 	new_obj.get_node("MainMesh").add_child(new_mesh)
 	new_mesh.owner = new_obj
 	add_editable_object(new_obj)
-	
-	# reset checkboxes
-	cb_actor.button_pressed = false
-	cb_receiver.button_pressed = false
-	cb_inventory.button_pressed = false
-	
