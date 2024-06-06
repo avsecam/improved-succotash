@@ -8,9 +8,7 @@ var interact_behavior = preload("res://src/ois/states/interact_receiver.tscn")
 
 var state_behavior_cb = preload("res://src/ois/authoring_tool/state_behavior_cb.tscn")
 
-var raycast_settings = preload("res://src/ois/authoring_tool/behavior_settings/raycast_settings.tscn")
-var snap_settings = preload("res://src/ois/authoring_tool/behavior_settings/snap_settings.tscn")
-var interact_settings = preload("res://src/ois/authoring_tool/behavior_settings/interact_settings.tscn")
+var component_settings_scn = preload("res://src/ois/authoring_tool/component_settings.tscn")
 
 @onready var behavior_container = $BoxContainer/ScrollContainer/BehaviorContainer
 @onready var state_behavior_settings_container = $SplitContainer/Panel/ScrollContainer/StateBehaviorSettingsContainer
@@ -22,8 +20,11 @@ var sm_settings : StateManagerSettings
 
 func _ready():
 	new_behavior_selector.add_item("Raycast")
+	new_behavior_selector.set_item_metadata(0, raycast_behavior)
 	new_behavior_selector.add_item("Snap")
+	new_behavior_selector.set_item_metadata(1, snap_behavior)
 	new_behavior_selector.add_item("Interact")
+	new_behavior_selector.set_item_metadata(2, interact_behavior)
 	new_behavior_selector.selected = -1
 
 func set_up_actor_settings(obj):
@@ -95,30 +96,16 @@ func set_up_behavior_container():
 
 func _on_btn_add_behavior_pressed():
 	var behavior
-	match new_behavior_selector.get_selected_id():
-		0: #raycast
-			add_behavior_settings(create_bahavior("Raycast"))
-		1: #snap
-			add_behavior_settings(create_bahavior("Snap"))
-		2: #interact
-			add_behavior_settings(create_bahavior("Interact"))
+	add_behavior_settings(create_bahavior(new_behavior_selector.get_selected_metadata()))
 	new_behavior_selector.selected = -1
 
 # Instantiates corresponding StateBehavior Scene
 # Adds to object and updates object's state manager settings
-func create_bahavior(behavior_type : String):
-	var behavior
-	
-	match behavior_type:
-		"Raycast":
-			behavior = raycast_behavior.instantiate()
-		"Snap":
-			behavior = snap_behavior.instantiate()
-		"Interact":
-			behavior = interact_behavior.instantiate()
-
+func create_bahavior(behavior_scene):
+	var behavior = behavior_scene.instantiate()
 	sm.add_child(behavior)
 	sm_settings.add_behavior(behavior.name)
+	
 	behavior.owner = editable_obj
 	
 	edited_object.emit(behavior)
@@ -127,19 +114,12 @@ func create_bahavior(behavior_type : String):
 
 # Instantiates corresponding StateBehaviorSettings Scene
 func add_behavior_settings(behavior_node : StateBehavior):
-	var setting_node : StateBehaviorSettings
-	if behavior_node is SBRaycast:
-		setting_node = raycast_settings.instantiate()
-	elif behavior_node is SBSnap:
-		setting_node = snap_settings.instantiate()
-	elif behavior_node is SBInteract:
-		setting_node = interact_settings.instantiate()
+	var comp_settings = component_settings_scn.instantiate()
+	behavior_container.add_child(comp_settings)
 	
-	behavior_container.add_child(setting_node)
-	setting_node.set_behavior_node(behavior_node)
+	behavior_container.add_child(comp_settings)
+	comp_settings.set_component(behavior_node, behavior_node.name)
 	
-	#  connect signals so state behavior updates according to changes to behavior settings 
-
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
 	
