@@ -38,10 +38,6 @@ file_mode = 0
 root_subfolder = "res://src/ois/"
 filters = PackedStringArray("*.tscn")
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-initial_position = 2
-size = Vector2i(250, 100)
-
 [node name="CDNewObject" type="ConfirmationDialog" parent="."]
 initial_position = 2
 size = Vector2i(324, 220)
@@ -192,7 +188,6 @@ script = ExtResource("4_05tlt")
 [node name="Editor_Controller" parent="." instance=ExtResource("3_w5ih1")]
 
 [connection signal="changed_editable_object" from="." to="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ReceiverSettings" method="set_editable_object"]
-[connection signal="changed_editable_object" from="." to="EditableObjectSlot" method="set_editable_obj"]
 [connection signal="file_selected" from="FDSetMesh" to="." method="_on_fd_set_mesh_file_selected"]
 [connection signal="file_selected" from="FDSaveObject" to="." method="_on_fd_save_object_file_selected"]
 [connection signal="file_selected" from="FDLoadObject" to="." method="_on_fd_load_object_file_selected"]

@@ -2,23 +2,29 @@ extends SplitContainer
 
 signal edited_object(new_component)
 
+# Preload Necessary Resources
+# State Behaviors Scenes
 var raycast_behavior = preload("res://src/ois/states/control_raycast.tscn")
 var snap_behavior = preload("res://src/ois/states/snap_objects.tscn")
 var interact_behavior = preload("res://src/ois/states/interact_receiver.tscn")
-
+# Setting GUI Scenes
 var state_behavior_cb = preload("res://src/ois/authoring_tool/state_behavior_cb.tscn")
-
 var component_settings_scn = preload("res://src/ois/authoring_tool/component_settings.tscn")
 
 @onready var behavior_container = $BoxContainer/ScrollContainer/BehaviorContainer
 @onready var state_behavior_settings_container = $SplitContainer/Panel/ScrollContainer/StateBehaviorSettingsContainer
 @onready var new_behavior_selector = $BoxContainer/OptionButton
+@onready var add_behavior_btn = $BoxContainer/BtnAddBehavior
 
 var editable_obj
 var sm : StateManager
 var sm_settings : StateManagerSettings
 
 func _ready():
+	# Disable Inputs
+	enable_inputs(false)
+
+	# Set up option button for selecting behavior
 	new_behavior_selector.add_item("Raycast")
 	new_behavior_selector.set_item_metadata(0, raycast_behavior)
 	new_behavior_selector.add_item("Snap")
@@ -27,32 +33,43 @@ func _ready():
 	new_behavior_selector.set_item_metadata(2, interact_behavior)
 	new_behavior_selector.selected = -1
 
-func set_up_actor_settings(obj):
+func set_up(obj):
+	clear()
 	editable_obj = obj
-	sm = obj.get_node_or_null("StateManager")
-	if sm is StateManager:
-		if sm.settings == null:
-			sm_settings = StateManagerSettings.new()
-			for child in sm.get_children():
-				if child is OISState:
-					sm_settings.add_state(child.name)
-				elif child is StateBehavior:
-					sm_settings.add_behavior(child.name)
-		else:
-			sm_settings = sm.settings
-		set_up_grid()
+	
+	if obj == null:
+		sm = null
+		sm_settings = null
+		enable_inputs(false)
+	else:
+		enable_inputs(true)
+		
+		sm = obj.get_node_or_null("StateManager")
+		if sm is StateManager:
+			if sm.settings == null:
+				sm_settings = StateManagerSettings.new()
+				for child in sm.get_children():
+					if child is OISState:
+						sm_settings.add_state(child.name)
+					elif child is StateBehavior:
+						sm_settings.add_behavior(child.name)
+			else:
+				sm_settings = sm.settings
+			load_behaviors_from_settings()
+			set_up_state_behavior_settings_container()
 
-func clear_actor_settings():
+# Remove all behavior and state settings
+func clear():
 	for child in state_behavior_settings_container.get_children():
 		child.queue_free()
 	for child in behavior_container.get_children():
 		child.queue_free()
 
-func set_up_grid():
-	clear_actor_settings()
-	set_up_behavior_container()
-	set_up_state_behavior_settings_container()
+func enable_inputs(is_enabled : bool):
+	new_behavior_selector.disabled = !is_enabled
+	add_behavior_btn.disabled = !is_enabled
 
+# Set up checkbox grid for setting if a behavior occurs during a state
 func set_up_state_behavior_settings_container():
 	# Clear Container
 	for child in state_behavior_settings_container.get_children():
@@ -86,7 +103,7 @@ func set_up_state_behavior_settings_container():
 			cb.change_value.connect(sm_settings.change_value)
 		state_behavior_settings_container.add_child(box_cont)	
 
-func set_up_behavior_container():
+func load_behaviors_from_settings():
 	for behavior in sm_settings.behavior_dict:
 		var behavior_node = sm.get_node_or_null(behavior)
 		if behavior_node != null:
@@ -96,12 +113,12 @@ func set_up_behavior_container():
 
 func _on_btn_add_behavior_pressed():
 	var behavior
-	add_behavior_settings(create_bahavior(new_behavior_selector.get_selected_metadata()))
+	add_behavior_settings(add_bahavior_node(new_behavior_selector.get_selected_metadata()))
 	new_behavior_selector.selected = -1
 
 # Instantiates corresponding StateBehavior Scene
 # Adds to object and updates object's state manager settings
-func create_bahavior(behavior_scene):
+func add_bahavior_node(behavior_scene):
 	var behavior = behavior_scene.instantiate()
 	sm.add_child(behavior)
 	sm_settings.add_behavior(behavior.name)

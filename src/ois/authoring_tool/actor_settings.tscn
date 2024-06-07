@@ -37,9 +37,6 @@ tooltip_text = "Select a Behavior Type"
 layout_mode = 2
 text = "Add Behavior"
 
-[node name="BtnCheckSettings" type="Button" parent="BoxContainer"]
-layout_mode = 2
-
 [node name="SplitContainer" type="SplitContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -76,4 +73,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [connection signal="pressed" from="BoxContainer/BtnAddBehavior" to="." method="_on_btn_add_behavior_pressed"]
-[connection signal="pressed" from="BoxContainer/BtnCheckSettings" to="." method="_on_btn_check_settings_pressed"]

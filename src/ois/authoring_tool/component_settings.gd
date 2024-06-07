@@ -8,6 +8,7 @@ var component
 @onready var main_cont = $MarginContainer/Main
 
 func set_component(component, component_name):
+	print(comp_label)
 	comp_label.text = component_name
 	self.component = component
 	var properties = component.get_property_list()

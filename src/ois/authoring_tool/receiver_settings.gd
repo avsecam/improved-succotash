@@ -6,9 +6,39 @@ var editable_object
 
 var component_settings_scn = preload("res://src/ois/authoring_tool/component_settings.tscn")
 
-func set_editable_object(obj):
-	print("set_editable_object")
+func _ready():
+	# Disable Inputs
+	enable_inputs(false)
+
+func set_up(obj):
+	clear()
 	editable_object = obj
+	if obj == null:
+		enable_inputs(false)
+	else:
+		enable_inputs(true)
+		
+		if editable_object is ReceiverObj:
+			var action_comp_settings = component_settings_scn.instantiate()
+			action_comp_container.add_child(action_comp_settings)
+			var action_comp_script = editable_object.get_script().get_path()
+			var action_comp_name = action_comp_script.get_slice("/", action_comp_script.get_slice_count("/")-1).get_slice(".", 0) 
+			action_comp_settings.set_component(editable_object, action_comp_name)
+		for child in editable_object.get_children():
+			if child is Feedback:
+				var new_feedback_settings = component_settings_scn.instantiate()
+				feedback_container.add_child(new_feedback_settings)
+				new_feedback_settings.set_component(child, child.name)
+
+func clear():
+	for child in action_comp_container.get_children():
+		child.queue_free()
+	for child in feedback_container.get_children():
+		child.queue_free()
+
+func enable_inputs(is_enabled : bool):
+	$ScrollContainer/Main/BtnAddActionComp.disabled = !is_enabled
+	$ScrollContainer/Main/BtnAddFeedback.disabled = !is_enabled
 
 func _on_btn_add_action_comp_pressed():
 	$FDSelectActionComp.visible = true
