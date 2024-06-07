@@ -13,6 +13,8 @@ signal changed_editable_object(object)
 @onready var cb_receiver : CheckBox = $CDNewObject/NewObjectSettings/CBReceiver
 @onready var cb_inventory : CheckBox = $CDNewObject/NewObjectSettings/CBInventory
 
+@onready var notification_panel = $NotificationPanel
+
 @onready var gizmo_controller = $Editor_Controller
 
 @onready var editable_object_slot : Node3D = $EditableObjectSlot
@@ -56,8 +58,10 @@ func _on_fd_save_object_file_selected(path):
 	var error = ResourceSaver.save(scene, path)
 	if error != OK:
 		push_error("An error occurred while saving the scene to disk.")
+		notification_panel.show_notification("An error occurred while saving the scene to disk.")
 	else:
 		print("Saved object to %s" % path)
+		notification_panel.show_notification("Saved object to %s" % path)
 
 func _on_fd_load_object_file_selected(path):
 	add_editable_object(load(path).instantiate())

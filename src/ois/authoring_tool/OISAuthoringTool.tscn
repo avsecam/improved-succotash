@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu2210yvw7asq"]
+[gd_scene load_steps=11 format=3 uid="uid://bu2210yvw7asq"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/OISAuthoringTool.gd" id="1_fv4xn"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/new_object_settings.gd" id="2_041sg"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dlrhpy2o6d7bl" path="res://src/authoring_tools/gizmos/editor_controller.tscn" id="3_w5ih1"]
 [ext_resource type="PackedScene" uid="uid://d1ymsx1ev8nj6" path="res://src/ois/authoring_tool/receiver_settings.tscn" id="4_5la0t"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/editable_obj_slot.gd" id="4_05tlt"]
+[ext_resource type="Script" path="res://src/ois/authoring_tool/notification_panel.gd" id="8_qoxph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4swux"]
+bg_color = Color(0.6, 0.6, 0.6, 0.482353)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2f3df"]
 bg_color = Color(0.427451, 0.427451, 0.427451, 1)
@@ -77,6 +81,40 @@ text = "Inventory object"
 [node name="CBReceiver" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
 layout_mode = 2
 text = "Receiver Object"
+
+[node name="NotificationPanel" type="PanelContainer" parent="."]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.5
+offset_top = -19.5
+offset_right = 302.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4swux")
+script = ExtResource("8_qoxph")
+
+[node name="MarginContainer" type="MarginContainer" parent="NotificationPanel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="NotificationPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="NotificationPanel"]
+one_shot = true
 
 [node name="MainContainer" type="SplitContainer" parent="."]
 z_index = 1
@@ -194,11 +232,13 @@ script = ExtResource("4_05tlt")
 [connection signal="confirmed" from="CDNewObject" to="." method="_on_cd_new_object_confirmed"]
 [connection signal="toggled" from="CDNewObject/NewObjectSettings/CBActor" to="CDNewObject" method="_on_cb_actor_toggled"]
 [connection signal="toggled" from="CDNewObject/NewObjectSettings/CBReceiver" to="CDNewObject" method="_on_cb_receiver_toggled"]
+[connection signal="timeout" from="NotificationPanel/Timer" to="NotificationPanel" method="_on_timer_timeout"]
 [connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnNewObject" to="." method="_on_btn_new_object_pressed"]
 [connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]
 [connection signal="button_clicked" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_button_clicked"]
 [connection signal="item_selected" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_item_selected"]
 [connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSetMesh" to="." method="_on_btn_set_mesh_pressed"]
+[connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="." method="on_object_edited"]
 [connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="MainContainer/BlankHalf/Tree" method="update_tree"]
 [connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="EditableObjectSlot" method="display_obj_debug"]
 [connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSaveObject" to="." method="_on_btn_save_object_pressed"]
