@@ -113,7 +113,8 @@ func load_behaviors_from_settings():
 
 func _on_btn_add_behavior_pressed():
 	var behavior
-	add_behavior_settings(add_bahavior_node(new_behavior_selector.get_selected_metadata()))
+	if new_behavior_selector.selected != -1:
+		add_behavior_settings(add_bahavior_node(new_behavior_selector.get_selected_metadata()))
 	new_behavior_selector.selected = -1
 
 # Instantiates corresponding StateBehavior Scene
@@ -134,11 +135,20 @@ func add_behavior_settings(behavior_node : StateBehavior):
 	var comp_settings = component_settings_scn.instantiate()
 	behavior_container.add_child(comp_settings)
 	
-	behavior_container.add_child(comp_settings)
-	comp_settings.set_component(behavior_node, behavior_node.name)
+	var del_func = func(): delete_behavior(behavior_node, comp_settings)
+	
+	comp_settings.set_component(behavior_node, behavior_node.name, del_func)
 	
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
+
+func delete_behavior(behavior_node, component_settings):
+	behavior_node.queue_free()
+	sm_settings.remove_behavior(behavior_node.name)
+	component_settings.queue_free()
 	
+	# update state behavior settings container
+	set_up_state_behavior_settings_container()
+
 func _on_btn_check_settings_pressed():
 	print(sm_settings.behavior_dict)

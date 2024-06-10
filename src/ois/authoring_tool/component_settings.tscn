@@ -23,7 +23,18 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 vertical = true
 
-[node name="Name" type="Label" parent="MarginContainer/Main"]
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer/Main"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/Main/BoxContainer"]
 layout_mode = 2
 text = "Component Name"
 horizontal_alignment = 1
+
+[node name="BtnRename" type="Button" parent="MarginContainer/Main/BoxContainer"]
+layout_mode = 2
+text = "Rename"
+
+[node name="BtnDelete" type="Button" parent="MarginContainer/Main/BoxContainer"]
+layout_mode = 2
+text = "Delete"

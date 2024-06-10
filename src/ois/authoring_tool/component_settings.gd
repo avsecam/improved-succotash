@@ -4,10 +4,12 @@ class_name ComponentSettings
 const export_property_usage_flag = 4102 #flag indicating exported variables
 
 var component
-@onready var comp_label = $MarginContainer/Main/Name
+@onready var comp_label = $MarginContainer/Main/BoxContainer/Name
 @onready var main_cont = $MarginContainer/Main
+@onready var btn_rename = $MarginContainer/Main/BoxContainer/BtnRename
+@onready var btn_delete = $MarginContainer/Main/BoxContainer/BtnDelete
 
-func set_component(component, component_name):
+func set_component(component, component_name, delete_function = null):
 	print(comp_label)
 	comp_label.text = component_name
 	self.component = component
@@ -19,6 +21,11 @@ func set_component(component, component_name):
 		if prop.usage == export_property_usage_flag:
 			print(prop)
 			add_property_setting(prop, component)
+	
+	if delete_function == null:
+		btn_delete.visible = false
+	else:
+		btn_delete.pressed.connect(delete_function)
 
 # add gui for property depending on its type
 func add_property_setting(prop, obj):

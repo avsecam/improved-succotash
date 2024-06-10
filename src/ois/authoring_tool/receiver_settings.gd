@@ -28,7 +28,7 @@ func set_up(obj):
 			if child is Feedback:
 				var new_feedback_settings = component_settings_scn.instantiate()
 				feedback_container.add_child(new_feedback_settings)
-				new_feedback_settings.set_component(child, child.name)
+				new_feedback_settings.set_component(child, child.name, func(): delete_feedback(child, new_feedback_settings))
 
 func clear():
 	for child in action_comp_container.get_children():
@@ -70,5 +70,9 @@ func _on_fd_select_feedback_file_selected(path):
 	new_feedback_node.name = new_feedback_name
 	editable_object.add_child(new_feedback_node)
 	new_feedback_node.owner = editable_object
-	
-	new_feedback_settings.set_component(new_feedback_node, new_feedback_name)
+
+	new_feedback_settings.set_component(new_feedback_node, new_feedback_name, func(): delete_feedback(new_feedback_node, new_feedback_settings))
+
+func delete_feedback(feedback_node, component_settings):
+	feedback_node.queue_free()
+	component_settings.queue_free()
