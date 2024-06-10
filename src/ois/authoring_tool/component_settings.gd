@@ -4,12 +4,17 @@ class_name ComponentSettings
 const export_property_usage_flag = 4102 #flag indicating exported variables
 
 var component
-@onready var comp_label = $MarginContainer/Main/BoxContainer/Name
+@onready var comp_label = $MarginContainer/Main/BoxContainer/RenameStartCont/Name
 @onready var main_cont = $MarginContainer/Main
-@onready var btn_rename = $MarginContainer/Main/BoxContainer/BtnRename
 @onready var btn_delete = $MarginContainer/Main/BoxContainer/BtnDelete
 
-func set_component(component, component_name, delete_function = null):
+@onready var btn_rename = $MarginContainer/Main/BoxContainer/RenameInProgressCont/BtnRename
+@onready var btn_rename_start = $MarginContainer/Main/BoxContainer/RenameStartCont/BtnStartRename
+@onready var rename_in_progress_cont = $MarginContainer/Main/BoxContainer/RenameInProgressCont
+@onready var rename_start_cont = $MarginContainer/Main/BoxContainer/RenameStartCont
+@onready var new_name_input = $MarginContainer/Main/BoxContainer/RenameInProgressCont/EditNewName
+
+func set_component(component, component_name, delete_function = null, rename_function = null):
 	print(comp_label)
 	comp_label.text = component_name
 	self.component = component
@@ -22,10 +27,30 @@ func set_component(component, component_name, delete_function = null):
 			print(prop)
 			add_property_setting(prop, component)
 	
+	# Connect delete and rename functions
 	if delete_function == null:
 		btn_delete.visible = false
 	else:
 		btn_delete.pressed.connect(delete_function)
+	
+	rename_in_progress_cont.visible = false
+	if rename_function == null:
+		btn_rename_start.visible = false
+	else:
+		btn_rename.pressed.connect(func():
+			rename_function.call(new_name_input.text)
+			rename_component_settings()
+			)
+
+func _on_btn_start_rename_pressed():
+	rename_start_cont.visible = false
+	rename_in_progress_cont.visible = true
+	new_name_input.text = component.name
+
+func rename_component_settings():
+	comp_label.text = component.name
+	rename_in_progress_cont.visible = false
+	rename_start_cont.visible = true
 
 # add gui for property depending on its type
 func add_property_setting(prop, obj):
@@ -78,3 +103,4 @@ func add_property_setting(prop, obj):
 			
 		24: #type object
 			print("obj")
+

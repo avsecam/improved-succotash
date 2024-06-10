@@ -26,15 +26,35 @@ vertical = true
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer/Main"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="MarginContainer/Main/BoxContainer"]
+[node name="RenameStartCont" type="BoxContainer" parent="MarginContainer/Main/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="MarginContainer/Main/BoxContainer/RenameStartCont"]
 layout_mode = 2
 text = "Component Name"
 horizontal_alignment = 1
 
-[node name="BtnRename" type="Button" parent="MarginContainer/Main/BoxContainer"]
+[node name="BtnStartRename" type="Button" parent="MarginContainer/Main/BoxContainer/RenameStartCont"]
+layout_mode = 2
+text = "Rename"
+
+[node name="RenameInProgressCont" type="BoxContainer" parent="MarginContainer/Main/BoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EditNewName" type="LineEdit" parent="MarginContainer/Main/BoxContainer/RenameInProgressCont"]
+custom_minimum_size = Vector2(142, 0)
+layout_mode = 2
+
+[node name="BtnRename" type="Button" parent="MarginContainer/Main/BoxContainer/RenameInProgressCont"]
 layout_mode = 2
 text = "Rename"
 
 [node name="BtnDelete" type="Button" parent="MarginContainer/Main/BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 text = "Delete"
+
+[connection signal="pressed" from="MarginContainer/Main/BoxContainer/RenameStartCont/BtnStartRename" to="." method="_on_btn_start_rename_pressed"]

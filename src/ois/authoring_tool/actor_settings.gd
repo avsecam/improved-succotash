@@ -136,8 +136,9 @@ func add_behavior_settings(behavior_node : StateBehavior):
 	behavior_container.add_child(comp_settings)
 	
 	var del_func = func(): delete_behavior(behavior_node, comp_settings)
+	var rename_func = func(new_name): rename_behavior(behavior_node, new_name)
 	
-	comp_settings.set_component(behavior_node, behavior_node.name, del_func)
+	comp_settings.set_component(behavior_node, behavior_node.name, del_func, rename_func)
 	
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
@@ -150,5 +151,9 @@ func delete_behavior(behavior_node, component_settings):
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
 
-func _on_btn_check_settings_pressed():
-	print(sm_settings.behavior_dict)
+func rename_behavior(behavior_node, new_name):
+	sm_settings.rename_behavior(behavior_node.name, new_name)
+	behavior_node.name = new_name
+	
+	# update state behavior settings container
+	set_up_state_behavior_settings_container()
