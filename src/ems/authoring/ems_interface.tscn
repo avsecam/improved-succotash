@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ri1hhv3wn15"]
+
+[ext_resource type="Script" path="res://src/ems/authoring/ems_interface.gd" id="1_puduc"]
+[ext_resource type="Script" path="res://src/ems/authoring/add_event_pop_up.gd" id="2_klpca"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_puduc")
+
+[node name="add_event_pop_up" type="ConfirmationDialog" parent="."]
+title = "Add Event"
+position = Vector2i(0, 36)
+size = Vector2i(200, 134)
+unresizable = true
+content_scale_size = Vector2i(3, 3)
+script = ExtResource("2_klpca")
+
+[node name="Container" type="VBoxContainer" parent="add_event_pop_up"]
+clip_contents = true
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 85.0
+
+[node name="Label" type="Label" parent="add_event_pop_up/Container"]
+layout_mode = 2
+text = "Name"
+
+[node name="TextEdit" type="TextEdit" parent="add_event_pop_up/Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Text"
+placeholder_text = "Insert Name Here
+"
+
+[node name="control_panel" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 29.0
+offset_top = 29.0
+offset_right = 1127.0
+offset_bottom = 613.0
+
+[node name="add_event" type="Button" parent="control_panel"]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 531.0
+offset_right = 555.0
+offset_bottom = 562.0
+text = "Add Event"
+
+[node name="scrollbar" type="ScrollContainer" parent="control_panel"]
+layout_mode = 2
+offset_left = 64.0
+offset_top = 57.0
+offset_right = 183.0
+offset_bottom = 139.0
+
+[node name="event_buttons_container" type="VBoxContainer" parent="control_panel/scrollbar"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="confirmed" from="add_event_pop_up" to="." method="_on_add_event_pop_up_confirmed"]
+[connection signal="pressed" from="control_panel/add_event" to="." method="_on_add_event_pressed"]
