@@ -29,7 +29,7 @@ var inventory_component_scene = preload("res://src/inventory/inventory_item_comp
 
 func _ready():
 	PhysicsServer3D.set_active(false) # turn off physics
-	object_settings_container.set_tab_hidden(3, true)
+	get_tree().debug_collisions_hint = true
 
 func add_editable_object(object):
 	if(editable_object_slot.get_child(0) != null):
@@ -41,10 +41,15 @@ func add_editable_object(object):
 	changed_editable_object.emit(editable_object)
 
 func _on_fd_set_mesh_file_selected(path):
-	for child in editable_object.get_children():
-		if child is MeshInstance3D:
-			child.mesh = load(path)
-			break
+	var main_mesh = editable_object.get_node_or_null("MainMesh")
+	if main_mesh != null:
+		if main_mesh.get_child(0) is MeshInstance3D:
+			main_mesh.get_child(0).mesh = load(path)
+		else:
+			var new_mesh = MeshInstance3D.new()
+			new_mesh.mesh = load(path)
+			main_mesh.add_child(new_mesh)
+			new_mesh.owner = editable_object
 
 func _on_fd_save_object_file_selected(path):
 	var new_name = path.get_slice("/", path.get_slice_count("/")-1)
@@ -65,29 +70,26 @@ func _on_fd_save_object_file_selected(path):
 
 func _on_fd_load_object_file_selected(path):
 	add_editable_object(load(path).instantiate())
-	object_settings_container.current_tab = 3
+	object_settings_container.current_tab = 0
 	
 	if editable_object.get_node_or_null("StateManager") != null:
 		actor_settings.set_up(editable_object)
-		object_settings_container.set_tab_disabled(0, false)
-		object_settings_container.current_tab = 0
+		object_settings_container.set_tab_disabled(1, false)
 	else:
 		actor_settings.set_up(null)
-		object_settings_container.set_tab_disabled(0, true)
+		object_settings_container.set_tab_disabled(1, true)
 
 	if editable_object is ReceiverObj:
 		receiver_settings.set_up(editable_object)
-		object_settings_container.set_tab_disabled(1, false)
-		object_settings_container.current_tab = 1
+		object_settings_container.set_tab_disabled(2, false)
 	else:
 		receiver_settings.set_up(null)
-		object_settings_container.set_tab_disabled(1, true)
+		object_settings_container.set_tab_disabled(2, true)
 
 	if editable_object.get_node_or_null("InventoryItemComp") != null:
-		object_settings_container.set_tab_disabled(2, false)
-		object_settings_container.current_tab = 2
+		object_settings_container.set_tab_disabled(3, false)
 	else:
-		object_settings_container.set_tab_disabled(2, true)
+		object_settings_container.set_tab_disabled(3, true)
 		
 func _on_btn_new_object_pressed():
 	# let users set if object is/are receiver, actor, inventory objects
@@ -109,7 +111,7 @@ func _on_btn_set_mesh_pressed():
 func _on_cd_new_object_confirmed():
 	var new_obj
 
-	object_settings_container.current_tab = 3
+	object_settings_container.current_tab = 0
 	
 	if cb_actor.button_pressed:
 		print("Actor yes")
@@ -120,22 +122,20 @@ func _on_cd_new_object_confirmed():
 		new_obj.add_child(new_sm)
 		new_sm.owner = new_obj
 		
-		object_settings_container.set_tab_disabled(0, false)
-		object_settings_container.current_tab = 0
+		object_settings_container.set_tab_disabled(1, false)
 		actor_settings.set_up(new_obj)
 	else:
 		actor_settings.set_up(null)
-		object_settings_container.set_tab_disabled(0, true)
+		object_settings_container.set_tab_disabled(1, true)
 	
 	if cb_receiver.button_pressed:
 		print("Receiver yes")
 		new_obj = receiver_scene.instantiate()
 		receiver_settings.set_up(new_obj)
-		object_settings_container.set_tab_disabled(1, false)
-		object_settings_container.current_tab = 1
+		object_settings_container.set_tab_disabled(2, false)
 	else:
 		receiver_settings.set_up(null)
-		object_settings_container.set_tab_disabled(1, true)
+		object_settings_container.set_tab_disabled(2, true)
 		
 	if cb_inventory.button_pressed:
 		print("Inventory yes")
@@ -143,10 +143,9 @@ func _on_cd_new_object_confirmed():
 		new_obj.add_child(new_inventory_comp)
 		new_inventory_comp.owner = new_obj
 		
-		object_settings_container.set_tab_disabled(2, false)
-		object_settings_container.current_tab = 2
+		object_settings_container.set_tab_disabled(3, false)
 	else:
-		object_settings_container.set_tab_disabled(2, true)
+		object_settings_container.set_tab_disabled(3, true)
 	
 	var new_mesh = MeshInstance3D.new()
 	new_mesh.mesh = BoxMesh.new()

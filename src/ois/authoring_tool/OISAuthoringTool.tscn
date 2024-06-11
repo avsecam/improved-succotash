@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bu2210yvw7asq"]
+[gd_scene load_steps=12 format=3 uid="uid://bu2210yvw7asq"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/OISAuthoringTool.gd" id="1_fv4xn"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/new_object_settings.gd" id="2_041sg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dlrhpy2o6d7bl" path="res://src/authoring_tools/gizmos/editor_controller.tscn" id="3_w5ih1"]
 [ext_resource type="PackedScene" uid="uid://d1ymsx1ev8nj6" path="res://src/ois/authoring_tool/receiver_settings.tscn" id="4_5la0t"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/editable_obj_slot.gd" id="4_05tlt"]
+[ext_resource type="Script" path="res://src/ois/authoring_tool/general_settings.gd" id="5_oxnpq"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/notification_panel.gd" id="8_qoxph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4swux"]
@@ -180,18 +181,42 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 16
 vertical = true
 
-[node name="BtnSetMesh" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-text = "Set Mesh"
-
 [node name="ObjectSettings" type="TabContainer" parent="MainContainer/Panel/MarginContainer/BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 tab_focus_mode = 1
 
+[node name="GeneralSettings" type="MarginContainer" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("5_oxnpq")
+
+[node name="BoxContainer" type="BoxContainer" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings"]
+layout_mode = 2
+theme_override_constants/separation = 8
+vertical = true
+
+[node name="BtnSetMesh" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Set Mesh"
+
+[node name="OptionBtnCollisionShape" type="OptionButton" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer"]
+layout_mode = 2
+
+[node name="BtnSetCollisionShape" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Set Collision Shape
+"
+
 [node name="ActorSettings" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings" instance=ExtResource("2_bbno4")]
+visible = false
 layout_mode = 2
 
 [node name="ReceiverSettings" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings" instance=ExtResource("4_5la0t")]
@@ -205,14 +230,6 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/Inventory"]
 layout_mode = 2
 text = "Inventory Settings"
-
-[node name="Other" type="GridContainer" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings"]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/Other"]
-layout_mode = 2
-text = "Object is not and Actor, Receiver, or Inventory object"
 
 [node name="BtnSaveObject" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer"]
 layout_mode = 2
@@ -237,7 +254,8 @@ script = ExtResource("4_05tlt")
 [connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]
 [connection signal="button_clicked" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_button_clicked"]
 [connection signal="item_selected" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_item_selected"]
-[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSetMesh" to="." method="_on_btn_set_mesh_pressed"]
+[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer/BtnSetMesh" to="." method="_on_btn_set_mesh_pressed"]
+[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer/BtnSetCollisionShape" to="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings" method="_on_btn_set_collision_shape_pressed"]
 [connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="." method="on_object_edited"]
 [connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="MainContainer/BlankHalf/Tree" method="update_tree"]
 [connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="EditableObjectSlot" method="display_obj_debug"]

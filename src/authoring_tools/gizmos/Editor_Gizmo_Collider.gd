@@ -8,5 +8,7 @@ func _ready():
 	collision_shape = get_node("CollisionShape");
 func activate():
 	collision_shape.disabled = false;
+	visible = true
 func deactivate():
 	collision_shape.disabled = true;
+	visible = false
