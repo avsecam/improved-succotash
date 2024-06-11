@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dxea7t4cr8v2n"]
+[gd_scene load_steps=2 format=3 uid="uid://dxea7t4cr8v2n"]
+
+[ext_resource type="Script" path="res://src/ems/authoring/event_properties.gd" id="1_rcve2"]
 
 [node name="event" type="Node"]
+script = ExtResource("1_rcve2")

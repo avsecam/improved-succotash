@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7jq58q38i6hx"]
+
+[ext_resource type="Script" path="res://src/ems/authoring/event_button_signal.gd" id="1_h87i1"]
+
+[node name="EventButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_h87i1")
+
+[connection signal="event_button_pressed" from="." to="." method="_on_event_button_pressed"]
