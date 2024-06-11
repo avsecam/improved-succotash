@@ -18,3 +18,4 @@ func set_scene(full_filepath : String):
 	var new_level: Panorama = load(full_filepath).instantiate()
 	self.rotation.y = new_level.base_rotation
 	add_child(new_level)
+	return new_level
