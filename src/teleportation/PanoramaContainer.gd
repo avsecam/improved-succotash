@@ -12,3 +12,9 @@ func _on_player_teleport_requested(new_level_filepath: String):
 	var new_level: Panorama = load("res://src/areas/" + new_level_filepath + ".tscn").instantiate()
 	self.rotation.y = new_level.base_rotation
 	add_child(new_level)
+
+func set_scene(full_filepath : String):
+	get_child(0).queue_free()
+	var new_level: Panorama = load(full_filepath).instantiate()
+	self.rotation.y = new_level.base_rotation
+	add_child(new_level)

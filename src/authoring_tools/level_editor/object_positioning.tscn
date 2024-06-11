@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdprbwq50lwr8"]
+
+[ext_resource type="Script" path="res://src/authoring_tools/level_editor/object_positioning.gd" id="1_k7cdm"]
+[ext_resource type="Script" path="res://src/NonVR.gd" id="2_4a5et"]
+[ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="4_odegr"]
+[ext_resource type="PackedScene" uid="uid://dlrhpy2o6d7bl" path="res://src/authoring_tools/gizmos/editor_controller.tscn" id="5_d3iyj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ii3y"]
+size = Vector3(20, 0.1, 20)
+
+[node name="ObjectPositioning" type="Node3D"]
+script = ExtResource("1_k7cdm")
+
+[node name="NonVR" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("2_4a5et")
+camera = NodePath("../Editor_Controller/Editor_Camera_Controller/View_Camera")
+
+[node name="PanoramaContainer" type="Node3D" parent="NonVR"]
+script = ExtResource("4_odegr")
+
+[node name="Editor_Controller" parent="." instance=ExtResource("5_d3iyj")]
+
+[node name="Editor_Camera_Controller" parent="Editor_Controller" index="2"]
+is_panorama_camera = true
+NORMAL_COLLISION_LAYER = 7
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+vertical = true
+
+[node name="BtnLoadArea" type="Button" parent="Control/FlowContainer"]
+layout_mode = 2
+text = "Load Area"
+
+[node name="BtnAddObject" type="Button" parent="Control/FlowContainer"]
+layout_mode = 2
+text = "Add Object"
+
+[node name="CheckButton" type="CheckButton" parent="Control/FlowContainer"]
+layout_mode = 2
+text = "Gravity On"
+
+[node name="FDLoadArea" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(500, 400)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/areas/"
+filters = PackedStringArray("*.tscn")
+
+[node name="FDAddItem" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(500, 400)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/objects/"
+filters = PackedStringArray("*.tscn")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_0ii3y")
+
+[connection signal="pressed" from="Control/FlowContainer/BtnLoadArea" to="." method="_on_btn_load_area_pressed"]
+[connection signal="pressed" from="Control/FlowContainer/BtnAddObject" to="." method="_on_btn_add_object_pressed"]
+[connection signal="toggled" from="Control/FlowContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="file_selected" from="FDLoadArea" to="." method="_on_fd_load_area_file_selected"]
+[connection signal="file_selected" from="FDAddItem" to="." method="_on_fd_add_item_file_selected"]
+
+[editable path="Editor_Controller"]
