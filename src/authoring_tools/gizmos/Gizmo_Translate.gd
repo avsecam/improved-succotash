@@ -5,6 +5,12 @@ extends Node3D
 # A variable to hold the Editor_Viewport node.
 var editor_viewport;
 
+# Initialize UI variables
+var x_coord
+var y_coord
+var z_coord
+var apply_button
+
 # A variable to hold the currently active axis.
 # NOTE: we are making this a exported variable so we can check its value from the remote debugger.
 @export_enum ("ALL", "X", "Y", "Z", "NONE") var active_gizmo_axis: String
@@ -22,7 +28,9 @@ var left_button_down = false;
 func _ready():
 	# Get the Editor_Viewport node using path_to_editor_viewport and assign it to editor_viewport.
 	editor_viewport = get_node(path_to_editor_viewport);
-	
+	x_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/X_edit/X_coord")
+	y_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Y_edit/Y_coord")
+	z_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Z_edit/Z_coord")
 	# Make the gizmo disabled by default.
 	update(false);
 	
@@ -78,6 +86,10 @@ func _input(event):
 						# Then reset current_position on the X and Y axis to the position stored in prior_position.
 						current_position.x = prior_position.x;
 						current_position.y = prior_position.y;
+						
+					x_coord.set_value(current_position.x)
+					y_coord.set_value(current_position.y)
+					z_coord.set_value(current_position.z)
 					
 					# Set the selected object's position to current_position.
 					editor_viewport.selected_physics_object.global_transform.origin = current_position;
@@ -104,5 +116,6 @@ func update(is_active):
 func axis_set(new_axis):
 	# Set active_gizmo_axis to the passed in axis, new_axis.
 	active_gizmo_axis = new_axis;
+
 
 
