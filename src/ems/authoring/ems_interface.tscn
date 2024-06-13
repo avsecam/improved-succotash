@@ -78,5 +78,48 @@ text = "Events:"
 
 [node name="event_container" type="Node" parent="."]
 
+[node name="event_editing_pop_up" type="ConfirmationDialog" parent="."]
+title = "Edit Properties"
+size = Vector2i(316, 416)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="event_editing_pop_up"]
+custom_minimum_size = Vector2(300, 200)
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 308.0
+offset_bottom = 367.0
+
+[node name="Label" type="Label" parent="event_editing_pop_up/VBoxContainer"]
+layout_mode = 2
+text = "Prerequisites"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="event_editing_pop_up/VBoxContainer"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+
+[node name="event_prerequisite_container" type="VBoxContainer" parent="event_editing_pop_up/VBoxContainer/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(180, 100)
+layout_mode = 2
+
+[node name="State" type="Label" parent="event_editing_pop_up/VBoxContainer"]
+layout_mode = 2
+text = "States
+"
+
+[node name="event_initialized" type="CheckButton" parent="event_editing_pop_up/VBoxContainer"]
+layout_mode = 2
+text = "Initalized"
+
+[node name="event_ongoing" type="CheckButton" parent="event_editing_pop_up/VBoxContainer"]
+layout_mode = 2
+text = "Waiting"
+
+[node name="event_finished" type="CheckButton" parent="event_editing_pop_up/VBoxContainer"]
+layout_mode = 2
+text = "Finished"
+
 [connection signal="confirmed" from="add_event_pop_up" to="." method="_on_add_event_pop_up_confirmed"]
 [connection signal="pressed" from="control_panel/add_event" to="." method="_on_add_event_pressed"]
+[connection signal="about_to_popup" from="event_editing_pop_up" to="." method="_on_event_editing_pop_up_about_to_popup"]
+[connection signal="confirmed" from="event_editing_pop_up" to="." method="_on_event_editing_pop_up_confirmed"]

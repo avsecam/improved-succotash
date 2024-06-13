@@ -1,6 +1,7 @@
 extends Node
 
 var conditions = []
-var intialize = false
-var recurring = false
-var final = false
+var state
+
+func set_state(s):
+	state = s
