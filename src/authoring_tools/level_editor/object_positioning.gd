@@ -45,6 +45,7 @@ func _on_btn_overwrite_save_pressed():
 	$CDOverwriteSave/Label.text = "You will be overwriting %s. Are you sure you with to proceed?" % current_area_path
 
 func _on_cd_overwrite_save_confirmed():
+	$Editor_Controller/Editor_Viewport.physics_object_selected(null)
 	var scene = PackedScene.new()
 	scene.pack(current_area)
 	var error = ResourceSaver.save(scene, current_area_path)
@@ -59,6 +60,7 @@ func _on_btn_save_as_pressed():
 	$FDSaveArea.visible = true
 
 func _on_fd_save_area_file_selected(path):
+	$Editor_Controller/Editor_Viewport.physics_object_selected(null)
 	var scene = PackedScene.new()
 	scene.pack(current_area)
 	var error = ResourceSaver.save(scene, path)
