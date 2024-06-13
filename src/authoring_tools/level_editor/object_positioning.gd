@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var gizmo = $Editor_Controller
+@onready var camera_controller = $Editor_Controller/Editor_Camera_Controller
 @onready var panorama_container = $NonVR/PanoramaContainer
 var current_area : Panorama = null
 var current_area_path : String
@@ -11,8 +12,11 @@ var current_area_path : String
 func _ready():
 	$FDLoadArea.visible = false
 	$FDAddItem.visible = false
-	_on_check_button_toggled(false)
+	_on_btn_gravity_on_toggled(false)
+	_on_btn_view_floor_toggled(false)
+	_on_btn_fixed_view_toggled(true)
 	gizmo.set_gizmo_scale(0.1)
+	
 	if panorama_container.get_child_count() > 0:
 		current_area = panorama_container.get_child(0)
 		current_area_path = current_area.scene_file_path
@@ -35,9 +39,6 @@ func _on_fd_add_item_file_selected(path):
 		current_area.add_child(new_obj)
 		new_obj.owner = current_area
 		new_obj.global_position = new_obj_initial_pos.global_position
-
-func _on_check_button_toggled(toggled_on):
-	PhysicsServer3D.set_active(toggled_on)
 
 func _on_btn_overwrite_save_pressed():
 	$CDOverwriteSave.visible = true
@@ -68,3 +69,11 @@ func _on_fd_save_area_file_selected(path):
 		print("Saved object to %s" % path)
 		notification_panel.show_notification("Saved object to %s" % path)
 
+func _on_btn_fixed_view_toggled(toggled_on):
+	camera_controller.is_panorama_camera = toggled_on
+
+func _on_btn_gravity_on_toggled(toggled_on):
+	PhysicsServer3D.set_active(toggled_on)
+
+func _on_btn_view_floor_toggled(toggled_on):
+	$Floor/MeshInstance3D.visible = toggled_on

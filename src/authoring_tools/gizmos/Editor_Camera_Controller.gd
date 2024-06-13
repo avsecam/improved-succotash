@@ -2,6 +2,7 @@ extends Node3D
 
 # integrate with panorama camera
 @export var is_panorama_camera = false
+@onready var init_pos = global_position
 const ROTATION_SPEED = 0.04
 
 # A variable to hold the Editor_Controller node.
@@ -37,6 +38,7 @@ var send_raycast = false;
 
 
 func _ready():
+	print(init_pos)
 	# Get the Editor_Contoller node and assign it to editor_controller.
 	# 
 	# NOTE: using get_parent assumes that the parent of this node is Editor_Controller.
@@ -74,6 +76,7 @@ func _process(delta):
 
 func process_movement(delta):
 	if (is_panorama_camera):
+		global_transform.origin = init_pos
 		if Input.is_action_pressed("ui_left"):
 			self.rotate_y(ROTATION_SPEED)
 		if Input.is_action_pressed("ui_right"):

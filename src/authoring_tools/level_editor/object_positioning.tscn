@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdprbwq50lwr8"]
+[gd_scene load_steps=11 format=3 uid="uid://bdprbwq50lwr8"]
 
 [ext_resource type="Script" path="res://src/authoring_tools/level_editor/object_positioning.gd" id="1_k7cdm"]
 [ext_resource type="Script" path="res://src/NonVR.gd" id="2_4a5et"]
@@ -16,6 +16,9 @@ size = Vector3(0.05, 0.05, 0.05)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ii3y"]
 size = Vector3(20, 0.1, 20)
 
+[sub_resource type="BoxMesh" id="BoxMesh_2kn3x"]
+size = Vector3(20, 0.1, 20)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvym0"]
 bg_color = Color(0.6, 0.6, 0.6, 0.482353)
 
@@ -31,7 +34,20 @@ script = ExtResource("4_odegr")
 
 [node name="Editor_Controller" parent="." instance=ExtResource("5_d3iyj")]
 
+[node name="Editor_UI" parent="Editor_Controller" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="X_coord" parent="Editor_Controller/Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/X_edit" index="1"]
+value = 0.0
+
+[node name="Y_coord" parent="Editor_Controller/Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Y_edit" index="1"]
+value = 0.0
+
+[node name="Z_coord" parent="Editor_Controller/Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Z_edit" index="1"]
+value = 0.0
+
 [node name="Editor_Camera_Controller" parent="Editor_Controller" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 is_panorama_camera = true
 NORMAL_COLLISION_LAYER = 7
 
@@ -55,9 +71,18 @@ text = "Load Area"
 layout_mode = 2
 text = "Add Object"
 
-[node name="CheckButton" type="CheckButton" parent="TopControls"]
+[node name="BtnGravityOn" type="CheckButton" parent="TopControls"]
 layout_mode = 2
 text = "Gravity On"
+
+[node name="BtnFixedView" type="CheckButton" parent="TopControls"]
+layout_mode = 2
+button_pressed = true
+text = "Fixed Panorama View"
+
+[node name="BtnViewFloor" type="CheckButton" parent="TopControls"]
+layout_mode = 2
+text = "View Floor"
 
 [node name="BottomControls" type="FlowContainer" parent="."]
 anchors_preset = 3
@@ -84,6 +109,10 @@ text = "Save As..."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_0ii3y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+visible = false
+mesh = SubResource("BoxMesh_2kn3x")
 
 [node name="FDLoadArea" type="FileDialog" parent="."]
 title = "Open a File"
@@ -155,7 +184,10 @@ one_shot = true
 
 [connection signal="pressed" from="TopControls/BtnLoadArea" to="." method="_on_btn_load_area_pressed"]
 [connection signal="pressed" from="TopControls/BtnAddObject" to="." method="_on_btn_add_object_pressed"]
-[connection signal="toggled" from="TopControls/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="TopControls/BtnGravityOn" to="." method="_on_btn_gravity_on_toggled"]
+[connection signal="pressed" from="TopControls/BtnFixedView" to="." method="_on_btn_fixed_view_pressed"]
+[connection signal="toggled" from="TopControls/BtnFixedView" to="." method="_on_btn_fixed_view_toggled"]
+[connection signal="toggled" from="TopControls/BtnViewFloor" to="." method="_on_btn_view_floor_toggled"]
 [connection signal="pressed" from="BottomControls/BtnOverwriteSave" to="." method="_on_btn_overwrite_save_pressed"]
 [connection signal="pressed" from="BottomControls/BtnSaveAs" to="." method="_on_btn_save_as_pressed"]
 [connection signal="file_selected" from="FDLoadArea" to="." method="_on_fd_load_area_file_selected"]
