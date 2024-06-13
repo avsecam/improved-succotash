@@ -107,17 +107,15 @@ layout_mode = 2
 text = "States
 "
 
-[node name="event_initialized" type="CheckButton" parent="event_editing_pop_up/VBoxContainer"]
+[node name="event_state_menu" type="OptionButton" parent="event_editing_pop_up/VBoxContainer"]
 layout_mode = 2
-text = "Initalized"
-
-[node name="event_ongoing" type="CheckButton" parent="event_editing_pop_up/VBoxContainer"]
-layout_mode = 2
-text = "Waiting"
-
-[node name="event_finished" type="CheckButton" parent="event_editing_pop_up/VBoxContainer"]
-layout_mode = 2
-text = "Finished"
+item_count = 3
+popup/item_0/text = "Initalized"
+popup/item_0/id = 0
+popup/item_1/text = "Ongoing"
+popup/item_1/id = 1
+popup/item_2/text = "Finished"
+popup/item_2/id = 2
 
 [connection signal="confirmed" from="add_event_pop_up" to="." method="_on_add_event_pop_up_confirmed"]
 [connection signal="pressed" from="control_panel/add_event" to="." method="_on_add_event_pressed"]

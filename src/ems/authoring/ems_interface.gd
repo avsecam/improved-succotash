@@ -62,6 +62,7 @@ func _on_event_button_pressed(name):
 @onready var event_initialized = $event_editing_pop_up/VBoxContainer/event_initialized
 @onready var event_ongoing = $event_editing_pop_up/VBoxContainer/event_ongoing
 @onready var event_finished = $event_editing_pop_up/VBoxContainer/event_finished
+@onready var event_state_menu = $event_editing_pop_up/VBoxContainer/event_state_menu
 
 func _on_event_editing_pop_up_confirmed():
 	save_event_prerequisites()
@@ -83,25 +84,23 @@ func load_event_prerequisite():
 			event.button_pressed = true
 
 func save_event_state():
-	if event_initialized.button_pressed == true:
+	if event_state_menu.selected == 0:
 		current_event.set_state("initialized")
-	if event_ongoing.button_pressed == true:
+	if event_state_menu.selected == 1:
 		current_event.set_state("ongoing")
-	if event_finished.button_pressed  == true:
+	if event_state_menu.selected == 2:
 		current_event.set_state("finished")
 
 func load_object_state():
 	if current_event.state == "initialized":
-		event_initialized.button_pressed = true
+		event_state_menu.selected = 0
 	if current_event.state == "ongoing":
-		event_ongoing.button_pressed = true
+		event_state_menu.selected = 1
 	if current_event.state == "finished":
-		event_finished.button_pressed = true
+		event_state_menu.selected = 2
 
 func reset_event_editing_state():
-	event_initialized.button_pressed = false
-	event_ongoing.button_pressed = false
-	event_finished.button_pressed = false
+	event_state_menu.selected = -1
 	
 	var event_prereq_children = event_prerequisite_container.get_children()
 	for event in event_prereq_children:
