@@ -26,6 +26,7 @@ func _on_btn_load_area_pressed():
 	$FDLoadArea.visible = true
 
 func _on_fd_load_area_file_selected(path):
+	$Editor_Controller/Editor_Viewport.physics_object_selected(null)
 	current_area = panorama_container.set_scene(path)
 	if current_area != null:
 		current_area_path = path
@@ -79,3 +80,8 @@ func _on_btn_gravity_on_toggled(toggled_on):
 
 func _on_btn_view_floor_toggled(toggled_on):
 	$Floor/MeshInstance3D.visible = toggled_on
+
+
+func _on_btn_delete_obj_pressed():
+	$Editor_Controller/Editor_Viewport.selected_physics_object.queue_free()
+	$Editor_Controller/Editor_Viewport.physics_object_selected(null)

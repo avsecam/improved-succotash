@@ -105,6 +105,20 @@ text = "Overwrite Save"
 layout_mode = 2
 text = "Save As..."
 
+[node name="BtnDeleteObj" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -329.0
+offset_top = -62.0
+offset_right = -289.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Del"
+
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
@@ -190,6 +204,7 @@ one_shot = true
 [connection signal="toggled" from="TopControls/BtnViewFloor" to="." method="_on_btn_view_floor_toggled"]
 [connection signal="pressed" from="BottomControls/BtnOverwriteSave" to="." method="_on_btn_overwrite_save_pressed"]
 [connection signal="pressed" from="BottomControls/BtnSaveAs" to="." method="_on_btn_save_as_pressed"]
+[connection signal="pressed" from="BtnDeleteObj" to="." method="_on_btn_delete_obj_pressed"]
 [connection signal="file_selected" from="FDLoadArea" to="." method="_on_fd_load_area_file_selected"]
 [connection signal="file_selected" from="FDSaveArea" to="." method="_on_fd_save_area_file_selected"]
 [connection signal="file_selected" from="FDAddItem" to="." method="_on_fd_add_item_file_selected"]
