@@ -1,8 +1,12 @@
 extends MarginContainer
 
+@export var actor_receiver_settings : ActorReceiverSettings
+
 var editable_object
 @onready var action_comp_container = $ScrollContainer/Main/ActionCompContainer
 @onready var feedback_container = $ScrollContainer/Main/FeedbackContainer
+@onready var receiver_group_option_btn = $ScrollContainer/Main/ReceiverGroupOptionButton
+@onready var receiver_group_container = $ScrollContainer/Main/ReceiverGroupContainer
 
 var component_settings_scn = preload("res://src/ois/authoring_tool/component_settings.tscn")
 
@@ -17,6 +21,7 @@ func set_up(obj):
 		enable_inputs(false)
 	else:
 		enable_inputs(true)
+		setup_receiver_option_btn()
 		
 		if editable_object is ReceiverObj:
 			var action_comp_settings = component_settings_scn.instantiate()
@@ -24,6 +29,14 @@ func set_up(obj):
 			var action_comp_script = editable_object.get_script().get_path()
 			var action_comp_name = action_comp_script.get_slice("/", action_comp_script.get_slice_count("/")-1).get_slice(".", 0) 
 			action_comp_settings.set_component(editable_object, action_comp_name)
+			for group in editable_object.get_groups():
+				var new_receiver_group = component_settings_scn.instantiate()
+				receiver_group_container.add_child(new_receiver_group)				
+				var del_func = func():
+					editable_object.remove_from_group(group)
+					new_receiver_group.queue_free()
+				new_receiver_group.set_component(null, group, del_func)
+			
 		for child in editable_object.get_children():
 			if child is Feedback:
 				var new_feedback_settings = component_settings_scn.instantiate()
@@ -35,6 +48,8 @@ func set_up(obj):
 				new_feedback_settings.set_component(child, child.name, del_func, rename_func)
 
 func clear():
+	for child in receiver_group_container.get_children():
+		child.queue_free()
 	for child in action_comp_container.get_children():
 		child.queue_free()
 	for child in feedback_container.get_children():
@@ -88,3 +103,25 @@ func delete_feedback(feedback_node, component_settings):
 
 func rename_feedback(feedback_node, new_name):
 	feedback_node.name = new_name
+
+func _on_btn_add_receiver_group_pressed():
+	if receiver_group_option_btn.selected != -1:
+		var receiver_group = receiver_group_option_btn.get_item_text(receiver_group_option_btn.get_selected_id())
+		
+		var new_receiver_group = component_settings_scn.instantiate()
+		receiver_group_container.add_child(new_receiver_group)
+		
+		var del_func = func():
+			editable_object.remove_from_group(receiver_group)
+			new_receiver_group.queue_free()
+
+		new_receiver_group.set_component(null, receiver_group, del_func)
+		
+		editable_object.add_to_group(receiver_group, true)
+		receiver_group_option_btn.selected = -1
+
+func setup_receiver_option_btn():
+	receiver_group_option_btn.clear()
+	for i in actor_receiver_settings.receiver_groups:
+		receiver_group_option_btn.add_item(i)
+	receiver_group_option_btn.selected = -1

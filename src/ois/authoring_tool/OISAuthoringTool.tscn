@@ -260,3 +260,4 @@ script = ExtResource("4_05tlt")
 [connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="MainContainer/BlankHalf/Tree" method="update_tree"]
 [connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="EditableObjectSlot" method="display_obj_debug"]
 [connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSaveObject" to="." method="_on_btn_save_object_pressed"]
+[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSaveObject" to="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" method="set_receiver_group"]

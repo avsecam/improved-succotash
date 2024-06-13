@@ -2,6 +2,8 @@ extends SplitContainer
 
 signal edited_object(new_component)
 
+@export var actor_receiver_settings : ActorReceiverSettings
+
 # Preload Necessary Resources
 # State Behaviors Scenes
 var raycast_behavior = preload("res://src/ois/states/control_raycast.tscn")
@@ -15,6 +17,7 @@ var component_settings_scn = preload("res://src/ois/authoring_tool/component_set
 @onready var state_behavior_settings_container = $SplitContainer/Panel/ScrollContainer/StateBehaviorSettingsContainer
 @onready var new_behavior_selector = $BoxContainer/OptionButton
 @onready var add_behavior_btn = $BoxContainer/BtnAddBehavior
+@onready var receiver_input = $BoxContainer/ReceiverGroup/LineEdit
 
 var editable_obj
 var sm : StateManager
@@ -46,6 +49,8 @@ func set_up(obj):
 		
 		sm = obj.get_node_or_null("StateManager")
 		if sm is StateManager:
+			receiver_input.text = sm.receiver_group
+			
 			if sm.settings == null:
 				sm_settings = StateManagerSettings.new()
 				for child in sm.get_children():
@@ -68,6 +73,9 @@ func clear():
 func enable_inputs(is_enabled : bool):
 	new_behavior_selector.disabled = !is_enabled
 	add_behavior_btn.disabled = !is_enabled
+	receiver_input.text = ""
+	receiver_input.editable = is_enabled
+	
 
 # Set up checkbox grid for setting if a behavior occurs during a state
 func set_up_state_behavior_settings_container():
@@ -101,7 +109,7 @@ func set_up_state_behavior_settings_container():
 			
 			# connect signals so state manager settings update according to checkbox 
 			cb.change_value.connect(sm_settings.change_value)
-		state_behavior_settings_container.add_child(box_cont)	
+		state_behavior_settings_container.add_child(box_cont)
 
 func load_behaviors_from_settings():
 	for behavior in sm_settings.behavior_dict:
@@ -157,3 +165,13 @@ func rename_behavior(behavior_node, new_name):
 	
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
+	
+func set_receiver_group():
+	if receiver_input.text != "":
+		sm.receiver_group = receiver_input.text
+		actor_receiver_settings.add_receiver_group(sm.receiver_group)
+		actor_receiver_settings.save()
+
+
+func _on_line_edit_text_changed(new_text):
+	$BoxContainer/ReceiverGroupWarning.visible = actor_receiver_settings.check_group_exists(new_text)

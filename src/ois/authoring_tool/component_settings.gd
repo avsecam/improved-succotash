@@ -15,17 +15,17 @@ var component
 @onready var new_name_input = $MarginContainer/Main/BoxContainer/RenameInProgressCont/EditNewName
 
 func set_component(component, component_name, delete_function = null, rename_function = null):
-	print(comp_label)
 	comp_label.text = component_name
-	self.component = component
-	var properties = component.get_property_list()
-	#print(properties)
-	
-	# creates gui for exported properties
-	for prop in properties:
-		if prop.usage == export_property_usage_flag:
-			print(prop)
-			add_property_setting(prop, component)
+	if component != null:
+		self.component = component
+		var properties = component.get_property_list()
+		#print(properties)
+		
+		# creates gui for exported properties
+		for prop in properties:
+			if prop.usage == export_property_usage_flag:
+				print(prop)
+				add_property_setting(prop, component)
 	
 	# Connect delete and rename functions
 	if delete_function == null:
