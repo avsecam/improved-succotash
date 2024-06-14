@@ -4,8 +4,10 @@ extends Control
 @onready var add_event_pop_up = $add_event_pop_up
 @onready var add_event_text_edit = $add_event_pop_up/add_event_pop_up_container/TextEdit
 @onready var event_container = $event_container
-@onready var event_prerequisite_container = $event_editing_pop_up/VBoxContainer/ScrollContainer/event_prerequisite_container
+@onready var edit_event_prerequisite_container = $event_editing_pop_up/VBoxContainer/ScrollContainer/event_prerequisite_container
 @onready var event_editing_pop_up = $event_editing_pop_up
+@onready var add_event_prerequisite_container = $add_event_pop_up/add_event_pop_up_container/ScrollContainer/event_prerequisite_container
+
 var current_event
 
 const EVENT_TEMPLATE = preload("res://src/ems/authoring/event_template.tscn")
@@ -14,6 +16,7 @@ const EVENT_PREREQ_CHECK_BOX = preload("res://src/ems/authoring/event_prereq_che
 
 func _on_add_event_pressed():
 	add_event_pop_up.popup_centered()
+	reset_event_adding_state()
 
 func _on_add_event_pop_up_confirmed():
 	var button = EVENT_BUTTON.instantiate()
@@ -26,16 +29,24 @@ func _on_add_event_pop_up_confirmed():
 	var event = EVENT_TEMPLATE.instantiate()
 	event.name = add_event_text_edit.text
 	event_container.add_child(event)
+	current_event = event
 	
-	var event_prereq = EVENT_PREREQ_CHECK_BOX.instantiate()
-	event_prereq.name = add_event_text_edit.text
-	event_prereq.text = add_event_text_edit.text
-	event_prerequisite_container.add_child(event_prereq)
+	var edit_event_prereq = EVENT_PREREQ_CHECK_BOX.instantiate()
+	edit_event_prereq.name = add_event_text_edit.text
+	edit_event_prereq.text = add_event_text_edit.text
+	edit_event_prerequisite_container.add_child(edit_event_prereq)
+	
+	var add_event_prereq = EVENT_PREREQ_CHECK_BOX.instantiate()
+	add_event_prereq.name = add_event_text_edit.text
+	add_event_prereq.text = add_event_text_edit.text
+	add_event_prerequisite_container.add_child(add_event_prereq)
+	
+	save_add_event_prerequisites()
 	
 func _on_event_button_pressed(name):
 	var button_children = event_button_container.get_children()
 	var event_children = event_container.get_children()
-	var event_prereq_children = event_prerequisite_container.get_children()
+	var event_prereq_children = edit_event_prerequisite_container.get_children()
 	
 	var button
 	var event
@@ -65,12 +76,20 @@ func _on_event_button_pressed(name):
 @onready var event_state_menu = $event_editing_pop_up/VBoxContainer/event_state_menu
 
 func _on_event_editing_pop_up_confirmed():
-	save_event_prerequisites()
+	save_edit_event_prerequisites()
 	save_event_state()
 	reset_event_editing_state()
 
-func save_event_prerequisites():
-	var event_prereq_children = event_prerequisite_container.get_children()
+func save_add_event_prerequisites():
+	var event_prereq_children = add_event_prerequisite_container.get_children()
+	for event in event_prereq_children:
+		if event.button_pressed == true:
+			current_event.conditions.append(event)
+		if event.button_pressed == false and current_event.conditions.has(event):
+			current_event.conditions.erase(event)
+
+func save_edit_event_prerequisites():
+	var event_prereq_children = edit_event_prerequisite_container.get_children()
 	for event in event_prereq_children:
 		if event.button_pressed == true:
 			current_event.conditions.append(event)
@@ -78,7 +97,6 @@ func save_event_prerequisites():
 			current_event.conditions.erase(event)
 
 func load_event_prerequisite():
-	var event_prereq_children = event_prerequisite_container.get_children()
 	for event in current_event.conditions:
 		if current_event.conditions.has(event):
 			event.button_pressed = true
@@ -102,6 +120,22 @@ func load_object_state():
 func reset_event_editing_state():
 	event_state_menu.selected = -1
 	
-	var event_prereq_children = event_prerequisite_container.get_children()
+	var event_prereq_children = edit_event_prerequisite_container.get_children()
 	for event in event_prereq_children:
 		event.button_pressed = false
+
+func reset_event_adding_state():
+	var event_prereq_children = add_event_prerequisite_container.get_children()
+	for event in event_prereq_children:
+		event.button_pressed = false
+		
+func check_event_prerequisites() -> bool:
+	for event in current_event.conditions:
+		if event.state != "finished":
+			return false
+	return true
+
+func initialize_event():
+	var conditions_complete = check_event_prerequisites()
+	if conditions_complete:
+		current_event.set_state("finished")

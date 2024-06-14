@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3ri1hhv3wn15"]
+[gd_scene load_steps=4 format=3 uid="uid://c3ri1hhv3wn15"]
 
 [ext_resource type="Script" path="res://src/ems/authoring/ems_interface.gd" id="1_puduc"]
 [ext_resource type="Script" path="res://src/ems/authoring/event_template.gd" id="2_klpca"]
+[ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="3_ag86a"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,8 +15,7 @@ script = ExtResource("1_puduc")
 
 [node name="add_event_pop_up" type="ConfirmationDialog" parent="."]
 title = "Add Event"
-position = Vector2i(0, 36)
-size = Vector2i(200, 134)
+size = Vector2i(300, 365)
 unresizable = true
 content_scale_size = Vector2i(3, 3)
 script = ExtResource("2_klpca")
@@ -24,8 +24,8 @@ script = ExtResource("2_klpca")
 clip_contents = true
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 192.0
-offset_bottom = 85.0
+offset_right = 292.0
+offset_bottom = 316.0
 
 [node name="Label" type="Label" parent="add_event_pop_up/add_event_pop_up_container"]
 layout_mode = 2
@@ -37,6 +37,27 @@ layout_mode = 2
 text = "Text"
 placeholder_text = "Insert Name Here
 "
+
+[node name="label_prerequisites" type="Label" parent="add_event_pop_up/add_event_pop_up_container"]
+layout_mode = 2
+text = "Prerequisites"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="add_event_pop_up/add_event_pop_up_container"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+
+[node name="event_prerequisite_container" type="VBoxContainer" parent="add_event_pop_up/add_event_pop_up_container/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(180, 100)
+layout_mode = 2
+
+[node name="player_entered" type="CheckBox" parent="add_event_pop_up/add_event_pop_up_container/ScrollContainer/event_prerequisite_container"]
+layout_mode = 2
+text = "Player Entered the Scene"
+
+[node name="player_looked_at" type="CheckBox" parent="add_event_pop_up/add_event_pop_up_container/ScrollContainer/event_prerequisite_container"]
+layout_mode = 2
+text = "Player Looked at Object"
 
 [node name="control_panel" type="Panel" parent="."]
 clip_contents = true
@@ -78,18 +99,22 @@ text = "Events:"
 
 [node name="event_container" type="Node" parent="."]
 
+[node name="player_entered" parent="event_container" instance=ExtResource("3_ag86a")]
+
+[node name="player_looked_at" parent="event_container" instance=ExtResource("3_ag86a")]
+
 [node name="event_editing_pop_up" type="ConfirmationDialog" parent="."]
 title = "Edit Properties"
-size = Vector2i(316, 416)
+size = Vector2i(316, 346)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="event_editing_pop_up"]
 custom_minimum_size = Vector2(300, 200)
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 308.0
-offset_bottom = 367.0
+offset_bottom = 297.0
 
-[node name="Label" type="Label" parent="event_editing_pop_up/VBoxContainer"]
+[node name="label_prerequisites" type="Label" parent="event_editing_pop_up/VBoxContainer"]
 layout_mode = 2
 text = "Prerequisites"
 
@@ -102,7 +127,15 @@ clip_contents = true
 custom_minimum_size = Vector2(180, 100)
 layout_mode = 2
 
-[node name="State" type="Label" parent="event_editing_pop_up/VBoxContainer"]
+[node name="player_entered" type="CheckBox" parent="event_editing_pop_up/VBoxContainer/ScrollContainer/event_prerequisite_container"]
+layout_mode = 2
+text = "Player Entered the Scene"
+
+[node name="player_looked_at" type="CheckBox" parent="event_editing_pop_up/VBoxContainer/ScrollContainer/event_prerequisite_container"]
+layout_mode = 2
+text = "Player Looked at Object"
+
+[node name="label_state" type="Label" parent="event_editing_pop_up/VBoxContainer"]
 layout_mode = 2
 text = "States
 "
