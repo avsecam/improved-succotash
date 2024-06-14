@@ -6,7 +6,7 @@ signal changed_editable_object(object)
 @onready var object_settings_container : TabContainer = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings
 @onready var actor_settings = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings
 @onready var receiver_settings = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ReceiverSettings
-# @onready var inventory_settings
+@onready var inventory_settings = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/InventorySettings
 # New Object Settings
 @onready var cd_new_object : ConfirmationDialog = $CDNewObject
 @onready var cb_actor : CheckBox = $CDNewObject/NewObjectSettings/CBActor
@@ -26,7 +26,7 @@ var receiver_scene = preload("res://src/ois/action_components/receiver_object_st
 var actor_scene = preload("res://src/ois/actor_object.tscn")
 var sm_one_handed_tool_scene = preload("res://src/ois/state_managers/one_handed_tool.tscn")
 var sm_two_handed_tool_scene = preload("res://src/ois/state_managers/two_handed_tool.tscn")
-var inventory_component_scene = preload("res://src/inventory/inventory_item_comp.tscn")
+var inventory_component_scene = preload("res://src/inventory/inventory_item_comp_editor.tscn")
 
 func _ready():
 	PhysicsServer3D.set_active(false) # turn off physics
@@ -88,8 +88,10 @@ func _on_fd_load_object_file_selected(path):
 		object_settings_container.set_tab_disabled(2, true)
 
 	if editable_object.get_node_or_null("InventoryItemComp") != null:
+		inventory_settings.set_up(editable_object)
 		object_settings_container.set_tab_disabled(3, false)
 	else:
+		inventory_settings.set_up(null)
 		object_settings_container.set_tab_disabled(3, true)
 		
 func _on_btn_new_object_pressed():
@@ -148,8 +150,10 @@ func _on_cd_new_object_confirmed():
 		new_obj.add_child(new_inventory_comp)
 		new_inventory_comp.owner = new_obj
 		
+		inventory_settings.set_up(new_obj)
 		object_settings_container.set_tab_disabled(3, false)
 	else:
+		inventory_settings.set_up(null)
 		object_settings_container.set_tab_disabled(3, true)
 	
 	var new_mesh = MeshInstance3D.new()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bu2210yvw7asq"]
+[gd_scene load_steps=13 format=3 uid="uid://bu2210yvw7asq"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/OISAuthoringTool.gd" id="1_fv4xn"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/new_object_settings.gd" id="2_041sg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ymsx1ev8nj6" path="res://src/ois/authoring_tool/receiver_settings.tscn" id="4_5la0t"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/editable_obj_slot.gd" id="4_05tlt"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/general_settings.gd" id="5_oxnpq"]
+[ext_resource type="PackedScene" uid="uid://gb7s0yjwlwtb" path="res://src/ois/authoring_tool/inventory_settings.tscn" id="8_f5grk"]
 [ext_resource type="Script" path="res://src/ois/authoring_tool/notification_panel.gd" id="8_qoxph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4swux"]
@@ -220,13 +221,9 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="Inventory" type="GridContainer" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings"]
+[node name="InventorySettings" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings" instance=ExtResource("8_f5grk")]
 visible = false
 layout_mode = 2
-
-[node name="Label" type="Label" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/Inventory"]
-layout_mode = 2
-text = "Inventory Settings"
 
 [node name="BtnSaveObject" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer"]
 layout_mode = 2
