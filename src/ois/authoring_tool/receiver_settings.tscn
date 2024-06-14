@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1ymsx1ev8nj6"]
+[gd_scene load_steps=3 format=3 uid="uid://d1ymsx1ev8nj6"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/receiver_settings.gd" id="1_6j5sq"]
+[ext_resource type="Resource" uid="uid://c3qmn6g42t8tv" path="res://src/ois/authoring_tool/actor_receiver_settings.tres" id="2_djna3"]
 
 [node name="ReceiverSettings" type="MarginContainer"]
 anchors_preset = 15
@@ -13,6 +14,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_6j5sq")
+actor_receiver_settings = ExtResource("2_djna3")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
@@ -22,6 +24,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical = true
+
+[node name="LabelReceiverGroups" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Receiver Groups"
+
+[node name="ReceiverGroupContainer" type="BoxContainer" parent="ScrollContainer/Main"]
+layout_mode = 2
+vertical = true
+
+[node name="ReceiverGroupOptionButton" type="OptionButton" parent="ScrollContainer/Main"]
+layout_mode = 2
+
+[node name="BtnAddReceiverGroup" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Add Receiver Group"
 
 [node name="LabelActionComp" type="Label" parent="ScrollContainer/Main"]
 layout_mode = 2
@@ -68,6 +85,7 @@ file_mode = 0
 root_subfolder = "res://src/ois/feedback_components/"
 filters = PackedStringArray("*.gd")
 
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddReceiverGroup" to="." method="_on_btn_add_receiver_group_pressed"]
 [connection signal="pressed" from="ScrollContainer/Main/BtnAddActionComp" to="." method="_on_btn_add_action_comp_pressed"]
 [connection signal="pressed" from="ScrollContainer/Main/BtnAddFeedback" to="." method="_on_btn_add_feedback_pressed"]
 [connection signal="file_selected" from="FDSelectActionComp" to="." method="_on_fd_select_action_comp_file_selected"]

@@ -49,11 +49,11 @@ func has_behavior(behavior_name : String):
 	return behavior_dict.has(behavior_name)
 
 func rename_behavior(old_name : String, new_name : String):
-	print("sm settings: change behavior name %s --> %s" %[old_name, new_name])
 	if has_behavior(old_name) && old_name != new_name:
+		print("sm settings: change behavior name %s --> %s" %[old_name, new_name])
 		# fix behavior list template for new states
 		behavior_dict.erase(old_name)
-		behavior_dict[old_name] = false
+		behavior_dict[new_name] = false
 		
 		# change behavior name for previous states
 		for state in state_behavior_settings:

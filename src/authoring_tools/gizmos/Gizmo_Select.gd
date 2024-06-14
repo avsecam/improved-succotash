@@ -2,6 +2,7 @@ extends Node3D
 
 func _ready():
 	# Make the gizmo disabled by default.
+	print("REINITIALIZE")
 	update(false);
 
 func update(is_active):

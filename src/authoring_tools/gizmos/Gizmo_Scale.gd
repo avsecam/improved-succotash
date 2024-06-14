@@ -5,6 +5,12 @@ extends Node3D
 # A variable to hold the Editor_Viewport node.
 var editor_viewport;
 
+# Initialize UI variables
+var x_coord
+var y_coord
+var z_coord
+var apply_button
+
 # A variable to hold the currently active axis.
 # NOTE: we are making this a exported variable so we can check its value from the remote debugger.
 @export_enum ("ALL", "X", "Y", "Z", "NONE") var active_gizmo_axis: String
@@ -20,8 +26,12 @@ var left_button_down = false;
 
 func _ready():
 	# Get the Editor_Viewport node using path_to_editor_viewport and assign it to editor_viewport.
-	editor_viewport = get_node(path_to_editor_viewport);
 	
+	
+	editor_viewport = get_node(path_to_editor_viewport);
+	x_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/X_edit/X_coord")
+	y_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Y_edit/Y_coord")
+	z_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Z_edit/Z_coord")
 	# Make the gizmo disabled by default.
 	update(false);
 	
@@ -51,6 +61,8 @@ func _input(event):
 					var prior_scale = editor_viewport.selected_physics_object.scale;
 					# Make a new variable called current_scale and assign it to prior_scale.
 					var current_scale = prior_scale;
+					
+					
 					
 					# Assign the relative position of the mouse (event.relative) multiplied by SCALE_SPEED to a variable called mouse_delta.
 					var mouse_delta = event.relative * SCALE_SPEED;
@@ -90,9 +102,31 @@ func _input(event):
 						# Then reset current_scale on the X and Y axis to the scale stored in prior_scale.
 						current_scale.x = prior_scale.x;
 						current_scale.y = prior_scale.y;
+						
+					#x_coord.get_line_edit().text = str(current_scale.x)
+					#y_coord.get_line_edit().text = str(current_scale.y)
+					#z_coord.get_line_edit().text = str(current_scale.z) 
+					
+					x_coord.set_value(current_scale.x)
+					y_coord.set_value(current_scale.y)
+					z_coord.set_value(current_scale.z)
 					
 					# Set the select object's scale to current_scale.
-					editor_viewport.selected_physics_object.scale = current_scale;
+					# Sets size of collision shapes instead of scaling them
+					if editor_viewport.selected_physics_object is CollisionShape3D:
+						var collision_shape = editor_viewport.selected_physics_object
+						if collision_shape.shape is BoxShape3D:
+							for axis in range(3):
+								collision_shape.shape.size[axis] = clampf(collision_shape.shape.size[axis] * current_scale[axis], 0.001, 1000)
+						
+						elif collision_shape.shape is CapsuleShape3D or collision_shape.shape is CylinderShape3D:
+							collision_shape.shape.height = clampf(collision_shape.shape.height * current_scale.y, 0.001, 1000)
+							collision_shape.shape.radius = clampf(collision_shape.shape.radius * current_scale.x, 0.001, 1000)
+							
+						elif collision_shape.shape is SphereShape3D:
+							collision_shape.shape.radius = clampf(collision_shape.shape.radius * current_scale.x, 0.001, 1000)
+					else:
+						editor_viewport.selected_physics_object.scale = current_scale;
 
 
 func update(is_active):
@@ -109,6 +143,17 @@ func update(is_active):
 			# Tell the gizmo collider to become deactive.
 			child.deactivate();
 	
+	# Accomodates properties of collision shapes
+	if is_active:
+		if editor_viewport.selected_physics_object is CollisionShape3D:
+			var collision_shape = editor_viewport.selected_physics_object
+			if collision_shape.shape is CapsuleShape3D or collision_shape.shape is CylinderShape3D:
+				$Handle_Z.deactivate()
+			elif collision_shape.shape is SphereShape3D:
+				$Handle_Z.deactivate()
+				$Handle_Y.deactivate()
+
+	
 	# Based on is_active, change the visiblity of the scale gizmo.
 	visible = is_active;
 
@@ -116,3 +161,4 @@ func update(is_active):
 func axis_set(new_axis):
 	# Set active_gizmo_axis to the passed in axis, new_axis.
 	active_gizmo_axis = new_axis;
+

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c43mihg4osje5"]
+[gd_scene load_steps=4 format=3 uid="uid://c43mihg4osje5"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/actor_settings.gd" id="1_0vygj"]
+[ext_resource type="Resource" uid="uid://c3qmn6g42t8tv" path="res://src/ois/authoring_tool/actor_receiver_settings.tres" id="2_1t8ys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocagi"]
 bg_color = Color(0.6, 0.6, 0.6, 0.639216)
@@ -12,12 +13,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0vygj")
+actor_receiver_settings = ExtResource("2_1t8ys")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical = true
+
+[node name="ReceiverGroup" type="BoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="BoxContainer/ReceiverGroup"]
+layout_mode = 2
+text = "Receiver Group"
+
+[node name="LineEdit" type="LineEdit" parent="BoxContainer/ReceiverGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReceiverGroupWarning" type="Label" parent="BoxContainer"]
+visible = false
+layout_mode = 2
+text = "*this group is already in use"
+clip_text = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer"]
 layout_mode = 2
@@ -37,9 +57,6 @@ tooltip_text = "Select a Behavior Type"
 layout_mode = 2
 text = "Add Behavior"
 
-[node name="BtnCheckSettings" type="Button" parent="BoxContainer"]
-layout_mode = 2
-
 [node name="SplitContainer" type="SplitContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -52,8 +69,8 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="SplitContainer/StateTransitionContainer"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 203.0
+offset_bottom = 49.0
 text = "State Transition Container
 (To be Implemented)"
 
@@ -75,5 +92,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[connection signal="text_changed" from="BoxContainer/ReceiverGroup/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="BoxContainer/BtnAddBehavior" to="." method="_on_btn_add_behavior_pressed"]
-[connection signal="pressed" from="BoxContainer/BtnCheckSettings" to="." method="_on_btn_check_settings_pressed"]

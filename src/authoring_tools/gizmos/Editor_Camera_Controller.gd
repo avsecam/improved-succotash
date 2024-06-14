@@ -1,5 +1,10 @@
 extends Node3D
 
+# integrate with panorama camera
+@export var is_panorama_camera = false
+@onready var init_pos = global_position
+const ROTATION_SPEED = 0.04
+
 # A variable to hold the Editor_Controller node.
 var editor_controller;
 
@@ -10,7 +15,7 @@ signal physics_object_selected(object);
 # A variable to hold the collision layer all of the 'normal' nodes are on. Anything on this layer will be selectable.
 # See (https://godotengine.org/qa/17896/collision-layer-and-masks-in-gdscript) for details on how
 # to convert a collision layer into a integer!
-const NORMAL_COLLISION_LAYER = 1;
+@export_flags_3d_physics var NORMAL_COLLISION_LAYER : int = 1
 
 # A variable to hold the speed the camera moves at when the control key is held down.
 const CONTROL_SPEED = 2;
@@ -33,6 +38,7 @@ var send_raycast = false;
 
 
 func _ready():
+	print(init_pos)
 	# Get the Editor_Contoller node and assign it to editor_controller.
 	# 
 	# NOTE: using get_parent assumes that the parent of this node is Editor_Controller.
@@ -69,42 +75,49 @@ func _process(delta):
 
 
 func process_movement(delta):
-	# Make two new variables. One to store the direction the player intends to go (movement_vector) and another
-	# to store how fast the camera should move at.
-	var movement_vector = Vector3(0, 0, 0);
-	var movement_speed = MOVE_SPEED;
-	
-	# If the "editor_move_forward" action is pressed/down, set movement_vector's Z axis to 1, while if the
-	# "editor_move_backward" action is pressed/down, set movement_vector's Z axis to -1.
-	if (Input.is_action_pressed("editor_move_forward") == true):
-		movement_vector.z = 1;
-	elif (Input.is_action_pressed("editor_move_backward") == true):
-		movement_vector.z -= 1;
-	
-	# If the "editor_move_right" action is pressed/down, set movement_vector's X axis to 1, while if the
-	# "editor_move_left" action is pressed/down, set movement_vector's X axis to -1.
-	if (Input.is_action_pressed("editor_move_right") == true):
-		movement_vector.x = 1;
-	elif (Input.is_action_pressed("editor_move_left") == true):
-		movement_vector.x = -1;
-	
-	# If the shift key is pressed/held, then set movement_speed to SHIFT_SPEED, while if the control key is pressed/held, set
-	# movement_speed to CONTROL_SPEED.
-	if (Input.is_key_pressed(KEY_SHIFT)):
-		movement_speed = SHIFT_SPEED;
-	elif (Input.is_key_pressed(KEY_ALT)):
-		movement_speed = CONTROL_SPEED;
-	
-	# This will move everything forward according to the direction the view_camera is looking (the camera's negative Z axis)
-	# multipled by movement_vector's Z axis, mutlipled by movement_speed and delta.
-	#
-	# This will move the camera forwards/backwards according to where the camera is facing!
-	global_transform.origin += -view_camera.global_transform.basis.z * movement_vector.z * movement_speed * delta;
-	# Likewise, this will move everything right/left according to the direction the view_camera is facing (the camera's X axis)
-	# multipled by movement_vector's X axis, mutlipled by movement_speed and delta.
-	#
-	# This will move the camera right/left according to where the camera is facing!
-	global_transform.origin += view_camera.global_transform.basis.x * movement_vector.x * movement_speed * delta;
+	if (is_panorama_camera):
+		global_transform.origin = init_pos
+		if Input.is_action_pressed("ui_left"):
+			self.rotate_y(ROTATION_SPEED)
+		if Input.is_action_pressed("ui_right"):
+			self.rotate_y(-ROTATION_SPEED)
+	else:
+		# Make two new variables. One to store the direction the player intends to go (movement_vector) and another
+		# to store how fast the camera should move at.
+		var movement_vector = Vector3(0, 0, 0);
+		var movement_speed = MOVE_SPEED;
+		
+		# If the "editor_move_forward" action is pressed/down, set movement_vector's Z axis to 1, while if the
+		# "editor_move_backward" action is pressed/down, set movement_vector's Z axis to -1.
+		if (Input.is_action_pressed("editor_move_forward") == true):
+			movement_vector.z = 1;
+		elif (Input.is_action_pressed("editor_move_backward") == true):
+			movement_vector.z -= 1;
+		
+		# If the "editor_move_right" action is pressed/down, set movement_vector's X axis to 1, while if the
+		# "editor_move_left" action is pressed/down, set movement_vector's X axis to -1.
+		if (Input.is_action_pressed("editor_move_right") == true):
+			movement_vector.x = 1;
+		elif (Input.is_action_pressed("editor_move_left") == true):
+			movement_vector.x = -1;
+		
+		# If the shift key is pressed/held, then set movement_speed to SHIFT_SPEED, while if the control key is pressed/held, set
+		# movement_speed to CONTROL_SPEED.
+		if (Input.is_key_pressed(KEY_SHIFT)):
+			movement_speed = SHIFT_SPEED;
+		elif (Input.is_key_pressed(KEY_ALT)):
+			movement_speed = CONTROL_SPEED;
+		
+		# This will move everything forward according to the direction the view_camera is looking (the camera's negative Z axis)
+		# multipled by movement_vector's Z axis, mutlipled by movement_speed and delta.
+		#
+		# This will move the camera forwards/backwards according to where the camera is facing!
+		global_transform.origin += -view_camera.global_transform.basis.z * movement_vector.z * movement_speed * delta;
+		# Likewise, this will move everything right/left according to the direction the view_camera is facing (the camera's X axis)
+		# multipled by movement_vector's X axis, mutlipled by movement_speed and delta.
+		#
+		# This will move the camera right/left according to where the camera is facing!
+		global_transform.origin += view_camera.global_transform.basis.x * movement_vector.x * movement_speed * delta;
 
 
 func _unhandled_input(event):

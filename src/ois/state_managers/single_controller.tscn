@@ -12,4 +12,6 @@ current_state = NodePath("ActiveState")
 
 [node name="ActiveState" parent="." index="1" instance=ExtResource("3_wcl1b")]
 
-[node name="TriggerState" parent="." index="2" instance=ExtResource("3_wcl1b")]
+[node name="ActiveCollidingState" parent="." index="2" instance=ExtResource("3_wcl1b")]
+
+[node name="TriggerState" parent="." index="3" instance=ExtResource("3_wcl1b")]

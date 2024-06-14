@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8xbduu0rwhm5"]
-
-[ext_resource type="PackedScene" uid="uid://1a0f7h7ovttp" path="res://src/ois/authoring_tool/behavior_settings/behavior_settings.tscn" id="1_vrhq1"]
-
-[node name="BehaviorSettings" instance=ExtResource("1_vrhq1")]
