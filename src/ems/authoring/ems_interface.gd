@@ -129,13 +129,3 @@ func reset_event_adding_state():
 	for event in event_prereq_children:
 		event.button_pressed = false
 		
-func check_event_prerequisites() -> bool:
-	for event in current_event.conditions:
-		if event.state != "finished":
-			return false
-	return true
-
-func initialize_event():
-	var conditions_complete = check_event_prerequisites()
-	if conditions_complete:
-		current_event.set_state("finished")
