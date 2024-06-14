@@ -15,6 +15,10 @@ extends ConfirmationDialog
 # To simplify implementation and given escape room context,
 # don't allow an inventory item that is not an actor object
 
+func _ready():
+	actor_type_selector.add_item("One-Handed Tool")
+	actor_type_selector.add_item("Two-Handed Tool")
+
 func _on_cb_actor_toggled(toggled_on):
 	if toggled_on:
 		actor_type_selector.disabled = false
@@ -52,7 +56,7 @@ func _on_cb_receiver_toggled(toggled_on):
 func reset():
 	get_ok_button().disabled = true
 	cb_inventory.disabled = true
-	
+	actor_type_selector.selected = -1
 	# reset checkboxes
 	cb_actor.button_pressed = false
 	cb_receiver.button_pressed = false

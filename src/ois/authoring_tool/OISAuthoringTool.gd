@@ -25,6 +25,7 @@ var pickable_scene = preload("res://addons/godot-xr-tools/objects/pickable.tscn"
 var receiver_scene = preload("res://src/ois/action_components/receiver_object_static.tscn")
 var actor_scene = preload("res://src/ois/actor_object.tscn")
 var sm_one_handed_tool_scene = preload("res://src/ois/state_managers/one_handed_tool.tscn")
+var sm_two_handed_tool_scene = preload("res://src/ois/state_managers/two_handed_tool.tscn")
 var inventory_component_scene = preload("res://src/inventory/inventory_item_comp.tscn")
 
 func _ready():
@@ -117,7 +118,11 @@ func _on_cd_new_object_confirmed():
 		print("Actor yes")
 		new_obj = actor_scene.instantiate()
 		
-		var new_sm = sm_one_handed_tool_scene.instantiate()
+		var new_sm
+		if cd_new_object.actor_type_selector.selected == 0:
+			new_sm = sm_one_handed_tool_scene.instantiate()
+		else:
+			new_sm = sm_two_handed_tool_scene.instantiate()
 		new_sm.in_authoring_tool = true
 		new_obj.add_child(new_sm)
 		new_sm.owner = new_obj

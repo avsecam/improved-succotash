@@ -71,9 +71,6 @@ text = "Actor Object"
 
 [node name="ActorTypeSelector" type="OptionButton" parent="CDNewObject/NewObjectSettings"]
 layout_mode = 2
-item_count = 1
-popup/item_0/text = "trial"
-popup/item_0/id = 0
 
 [node name="CBInventory" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
 layout_mode = 2
