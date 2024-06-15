@@ -32,14 +32,8 @@ func add_editable_object(object):
 
 func _on_fd_set_mesh_file_selected(path):
 	var main_mesh = editable_object.get_node_or_null("MainMesh")
-	if main_mesh != null:
-		if main_mesh.get_child(0) is MeshInstance3D:
-			main_mesh.get_child(0).mesh = load(path)
-		else:
-			var new_mesh = MeshInstance3D.new()
-			new_mesh.mesh = load(path)
-			main_mesh.add_child(new_mesh)
-			new_mesh.owner = editable_object
+	if main_mesh != null && main_mesh is MeshInstance3D:
+		main_mesh.mesh = load(path)
 
 func _on_fd_save_object_file_selected(path):
 	var new_name = path.get_slice("/", path.get_slice_count("/")-1)

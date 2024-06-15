@@ -17,7 +17,7 @@ var pickable_scene = preload("res://src/ois/pickable_template.tscn")
 #var actor_scene = preload("res://src/ois/actor_object.tscn")
 var sm_one_handed_tool_scene = preload("res://src/ois/state_managers/one_handed_tool.tscn")
 var sm_two_handed_tool_scene = preload("res://src/ois/state_managers/two_handed_tool.tscn")
-var inventory_component_scene = preload("res://src/inventory/inventory_item_comp_editor.tscn")
+var inventory_component_scene = preload("res://src/inventory/inventory_item_comp.tscn")
 
 # Create object given checkbox settings
 # Configure checkbox settings given implementation restrictions and considerations

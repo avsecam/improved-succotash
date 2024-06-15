@@ -1,11 +1,10 @@
 @tool
-extends Node3D
+extends MeshInstance3D
 
 var inventory_state_scene = preload("res://src/ois/states/state_inventory.tscn")
 var inventory_state
 
 @onready var main_mesh = get_parent().get_node_or_null("MainMesh")
-@onready var replacement_mesh = $ReplacementMesh
 
 @onready var state_manager = get_parent().get_node_or_null("StateManager")
 
@@ -20,12 +19,12 @@ func _ready():
 func toggle_replacement_mesh() -> void:
 	print(self.name+" | Toggled replacement mesh OFF.")	
 	main_mesh.visible = true
-	replacement_mesh.visible = false
+	visible = false
 	
 func toggle_main_mesh() -> void:
 	print(self.name+" | Toggled main mesh OFF.")	
 	main_mesh.visible = false
-	replacement_mesh.visible = true
+	visible = true
 	if state_manager != null && inventory_state != null:
 		inventory_state.add_to_inventory()
 

@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_rii42")
-receiver_groups = Array[String]([])
+receiver_groups = Array[String](["wrench"])
