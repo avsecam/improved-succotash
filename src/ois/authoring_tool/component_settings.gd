@@ -100,7 +100,25 @@ func add_property_setting(prop, obj):
 			btn.set_text("✓")
 			box_cont.add_child(btn)
 			btn.pressed.connect(func(): obj.set(prop.name, line_edit.text))
+		
+		9: #type Vector3
+			var spin_box_x = SpinBox.new()
+			var spin_box_y = SpinBox.new()
+			var spin_box_z = SpinBox.new()
 			
+			spin_box_x.value = obj.get(prop.name).x
+			spin_box_y.value = obj.get(prop.name).y
+			spin_box_z.value = obj.get(prop.name).z
+			
+			box_cont.add_child(spin_box_x)
+			box_cont.add_child(spin_box_y)
+			box_cont.add_child(spin_box_z)
+			
+			var btn = Button.new()
+			btn.set_text("✓")
+			box_cont.add_child(btn)
+			btn.pressed.connect(func(): obj.set(prop.name, Vector3(spin_box_x.value, spin_box_y.value, spin_box_z.value))) 
+		
 		24: #type object
 			print("obj")
 
