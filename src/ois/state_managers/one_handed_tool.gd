@@ -54,6 +54,7 @@ func _on_trigger_released():
 		set_state(active_state)
 
 func _on_receiver_collision_entered(receiver):
+	print("colliison " + receiver.name)
 	if receiver.is_in_group(receiver_group):
 		receiver_object = receiver
 		set_state(current_state)
