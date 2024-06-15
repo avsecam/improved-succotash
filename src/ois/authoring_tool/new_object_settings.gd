@@ -106,6 +106,7 @@ func add_placeholder_mesh(owner, parent):
 	
 func add_placeholder_collider(owner, parent):
 	var new_collision_shape = CollisionShape3D.new()
+	new_collision_shape.name = "CollisionShape3D"
 	new_collision_shape.shape = BoxShape3D.new()
 	new_collision_shape.shape.size = Vector3(0.1, 0.1, 0.1)
 	parent.add_child(new_collision_shape)
