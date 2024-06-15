@@ -158,6 +158,7 @@ func delete_behavior(behavior_node, component_settings):
 	
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
+	edited_object.emit(null)
 
 func rename_behavior(behavior_node, new_name):
 	sm_settings.rename_behavior(behavior_node.name, new_name)
@@ -165,6 +166,7 @@ func rename_behavior(behavior_node, new_name):
 	
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
+	edited_object.emit(null)
 	
 func set_receiver_group():
 	if receiver_input.text != "":

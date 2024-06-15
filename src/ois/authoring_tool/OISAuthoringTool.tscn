@@ -167,8 +167,8 @@ text = "Load Object"
 [node name="Tree" type="Tree" parent="MainContainer/BlankHalf"]
 layout_mode = 2
 offset_top = 35.0
-offset_right = 274.0
-offset_bottom = 235.0
+offset_right = 246.0
+offset_bottom = 394.0
 size_flags_horizontal = 3
 script = ExtResource("2_wg378")
 
@@ -254,6 +254,7 @@ script = ExtResource("4_05tlt")
 [node name="Editor_Controller" parent="." instance=ExtResource("3_w5ih1")]
 
 [connection signal="changed_editable_object" from="." to="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ReceiverSettings" method="set_editable_object"]
+[connection signal="changed_editable_object" from="." to="EditableObjectSlot" method="set_editable_obj"]
 [connection signal="file_selected" from="FDSetMesh" to="." method="_on_fd_set_mesh_file_selected"]
 [connection signal="file_selected" from="FDSaveObject" to="." method="_on_fd_save_object_file_selected"]
 [connection signal="file_selected" from="FDLoadObject" to="." method="_on_fd_load_object_file_selected"]

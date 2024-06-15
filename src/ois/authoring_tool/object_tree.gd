@@ -15,6 +15,7 @@ func set_editable_obj(obj):
 	set_up_tree(editable_obj)
 
 func update_tree(new_component):
+	print("update_tree")
 	set_up_tree(editable_obj)
 
 func set_up_tree(obj):
@@ -22,14 +23,15 @@ func set_up_tree(obj):
 	var root = create_item()
 	hide_root = true
 
-	# only checks first two layers of children for now
+	set_up_tree_layers(obj, root)
+
+func set_up_tree_layers(obj, tree_parent):
 	for child in obj.get_children():
-		if (child is Node3D) && !child.is_in_group("OISAuth_NoTransform"):
-			var child_item = add_tree_item(root, child)
-			if child is StateManager:
-				for c in child.get_children():
-					if (c is Node3D) && !c.is_in_group("OISAuth_NoTransform"):
-						add_tree_item(child_item, c)
+		if (child is Node3D) && !(child is Feedback) && !child.is_in_group("OISAuth_NoTransform"):
+			var child_item = add_tree_item(tree_parent, child)
+			
+			if !(child is StateBehavior) && !(child is XRToolsGrabPointHand) && child.get_child_count() > 0:
+				set_up_tree_layers(child, child_item)
 
 func add_tree_item(tree_parent, node):
 	var tree_item = create_item(tree_parent)
