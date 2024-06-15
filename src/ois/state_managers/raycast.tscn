@@ -14,6 +14,7 @@ script = ExtResource("1_d14ur")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -1)
+collide_with_areas = true
 
 [node name="Laser" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_4nl5l")
