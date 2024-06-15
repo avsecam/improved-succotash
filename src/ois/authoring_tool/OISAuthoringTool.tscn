@@ -46,7 +46,7 @@ filters = PackedStringArray("*.tscn")
 
 [node name="CDNewObject" type="ConfirmationDialog" parent="."]
 initial_position = 2
-size = Vector2i(324, 220)
+size = Vector2i(326, 341)
 script = ExtResource("2_041sg")
 
 [node name="NewObjectSettings" type="BoxContainer" parent="CDNewObject"]
@@ -54,9 +54,9 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -154.0
+offset_left = -155.0
 offset_top = 8.0
-offset_right = 154.0
+offset_right = 155.0
 offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -65,6 +65,27 @@ vertical = true
 [node name="Label" type="Label" parent="CDNewObject/NewObjectSettings"]
 layout_mode = 2
 text = "Select Object Type"
+
+[node name="CBPickable" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "Pickable Object"
+
+[node name="CBStaticBody" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "StaticBody3D Object"
+
+[node name="CBRigidBody" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "RigidBody3D Object"
+
+[node name="Label2" type="Label" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "____________________________________________"
+horizontal_alignment = 1
+
+[node name="CBReceiver" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "Receiver Object"
 
 [node name="CBActor" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
 layout_mode = 2
@@ -76,10 +97,6 @@ layout_mode = 2
 [node name="CBInventory" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
 layout_mode = 2
 text = "Inventory object"
-
-[node name="CBReceiver" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
-layout_mode = 2
-text = "Receiver Object"
 
 [node name="NotificationPanel" type="PanelContainer" parent="."]
 z_index = 10
@@ -241,8 +258,11 @@ script = ExtResource("4_05tlt")
 [connection signal="file_selected" from="FDSaveObject" to="." method="_on_fd_save_object_file_selected"]
 [connection signal="file_selected" from="FDLoadObject" to="." method="_on_fd_load_object_file_selected"]
 [connection signal="confirmed" from="CDNewObject" to="." method="_on_cd_new_object_confirmed"]
+[connection signal="confirmed" from="CDNewObject" to="CDNewObject" method="_on_confirmed"]
+[connection signal="toggled" from="CDNewObject/NewObjectSettings/CBPickable" to="CDNewObject" method="_on_cb_pickable_toggled"]
+[connection signal="toggled" from="CDNewObject/NewObjectSettings/CBStaticBody" to="CDNewObject" method="_on_cb_static_body_toggled"]
+[connection signal="toggled" from="CDNewObject/NewObjectSettings/CBRigidBody" to="CDNewObject" method="_on_cb_rigid_body_toggled"]
 [connection signal="toggled" from="CDNewObject/NewObjectSettings/CBActor" to="CDNewObject" method="_on_cb_actor_toggled"]
-[connection signal="toggled" from="CDNewObject/NewObjectSettings/CBReceiver" to="CDNewObject" method="_on_cb_receiver_toggled"]
 [connection signal="timeout" from="NotificationPanel/Timer" to="NotificationPanel" method="_on_timer_timeout"]
 [connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnNewObject" to="." method="_on_btn_new_object_pressed"]
 [connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]

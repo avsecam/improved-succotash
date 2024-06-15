@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1ymsx1ev8nj6"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/receiver_settings.gd" id="1_6j5sq"]
-[ext_resource type="Resource" uid="uid://c3qmn6g42t8tv" path="res://src/ois/authoring_tool/actor_receiver_settings.tres" id="2_djna3"]
+[ext_resource type="Resource" uid="uid://i7huviwkuuvr" path="res://src/ois/authoring_tool/actor_receiver_settings.tres" id="2_djna3"]
 
 [node name="ReceiverSettings" type="MarginContainer"]
 anchors_preset = 15

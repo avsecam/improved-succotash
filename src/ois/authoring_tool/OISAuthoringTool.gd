@@ -7,11 +7,8 @@ signal changed_editable_object(object)
 @onready var actor_settings = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings
 @onready var receiver_settings = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ReceiverSettings
 @onready var inventory_settings = $MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/InventorySettings
-# New Object Settings
+
 @onready var cd_new_object : ConfirmationDialog = $CDNewObject
-@onready var cb_actor : CheckBox = $CDNewObject/NewObjectSettings/CBActor
-@onready var cb_receiver : CheckBox = $CDNewObject/NewObjectSettings/CBReceiver
-@onready var cb_inventory : CheckBox = $CDNewObject/NewObjectSettings/CBInventory
 
 @onready var notification_panel = $NotificationPanel
 
@@ -19,14 +16,6 @@ signal changed_editable_object(object)
 
 @onready var editable_object_slot : Node3D = $EditableObjectSlot
 var editable_object 
-
-# Preload Scenes for creating objects
-var pickable_scene = preload("res://addons/godot-xr-tools/objects/pickable.tscn")
-var receiver_scene = preload("res://src/ois/action_components/receiver_object_static.tscn")
-var actor_scene = preload("res://src/ois/actor_object.tscn")
-var sm_one_handed_tool_scene = preload("res://src/ois/state_managers/one_handed_tool.tscn")
-var sm_two_handed_tool_scene = preload("res://src/ois/state_managers/two_handed_tool.tscn")
-var inventory_component_scene = preload("res://src/inventory/inventory_item_comp_editor.tscn")
 
 func _ready():
 	PhysicsServer3D.set_active(false) # turn off physics
@@ -80,7 +69,7 @@ func _on_fd_load_object_file_selected(path):
 		actor_settings.set_up(null)
 		object_settings_container.set_tab_disabled(1, true)
 
-	if editable_object is ReceiverObj:
+	if editable_object is ReceiverObj || editable_object.get_node_or_null("ReceiverComp") != null:
 		receiver_settings.set_up(editable_object)
 		object_settings_container.set_tab_disabled(2, false)
 	else:
@@ -110,55 +99,24 @@ func _on_btn_set_mesh_pressed():
 	if editable_object != null:
 		$FDSetMesh.visible = true
 
-
-func _on_cd_new_object_confirmed():
-	var new_obj
-
-	object_settings_container.current_tab = 0
+func set_up_object_settings(obj, is_actor: bool, is_receiver: bool, is_inventory : bool):
+	object_settings_container.set_tab_disabled(1, !is_actor)
+	object_settings_container.set_tab_disabled(2, !is_receiver)
+	object_settings_container.set_tab_disabled(3, !is_inventory)
 	
-	if cb_actor.button_pressed:
-		print("Actor yes")
-		new_obj = actor_scene.instantiate()
-		
-		var new_sm
-		if cd_new_object.actor_type_selector.selected == 0:
-			new_sm = sm_one_handed_tool_scene.instantiate()
-		else:
-			new_sm = sm_two_handed_tool_scene.instantiate()
-		new_sm.in_authoring_tool = true
-		new_obj.add_child(new_sm)
-		new_sm.owner = new_obj
-		
-		object_settings_container.set_tab_disabled(1, false)
-		actor_settings.set_up(new_obj)
+	if is_actor:
+		actor_settings.set_up(obj)
 	else:
 		actor_settings.set_up(null)
-		object_settings_container.set_tab_disabled(1, true)
 	
-	if cb_receiver.button_pressed:
-		print("Receiver yes")
-		new_obj = receiver_scene.instantiate()
-		receiver_settings.set_up(new_obj)
-		object_settings_container.set_tab_disabled(2, false)
+	if is_receiver:
+		receiver_settings.set_up(obj)
 	else:
 		receiver_settings.set_up(null)
-		object_settings_container.set_tab_disabled(2, true)
 		
-	if cb_inventory.button_pressed:
-		print("Inventory yes")
-		var new_inventory_comp = inventory_component_scene.instantiate()
-		new_obj.add_child(new_inventory_comp)
-		new_inventory_comp.owner = new_obj
-		
-		inventory_settings.set_up(new_obj)
-		object_settings_container.set_tab_disabled(3, false)
+	if is_inventory:
+		inventory_settings.set_up(obj)
 	else:
 		inventory_settings.set_up(null)
-		object_settings_container.set_tab_disabled(3, true)
-	
-	var new_mesh = MeshInstance3D.new()
-	new_mesh.mesh = BoxMesh.new()
-	new_mesh.mesh.size = Vector3(0.1, 0.1, 0.1)
-	new_obj.get_node("MainMesh").add_child(new_mesh)
-	new_mesh.owner = new_obj
-	add_editable_object(new_obj)
+
+	add_editable_object(obj)
