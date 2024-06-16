@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://caow2k4cyy48e"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_joiq4"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_k548u"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_xo0xf"]
+[ext_resource type="PackedScene" uid="uid://v2rfmhs1ltk4" path="res://src/ois/state_managers/two_handed_tool.tscn" id="5_5js14"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_geld6"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_m2qge"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="10_2esxo"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="12_mv8tp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvk2i"]
+size = Vector3(0.236487, 0.192542, 0.0254272)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsug6"]
+albedo_color = Color(0.533333, 0.858824, 0.952941, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xnhu3"]
+material = SubResource("StandardMaterial3D_fsug6")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Resource" id="Resource_ave31"]
+script = ExtResource("7_geld6")
+state_behavior_settings = {
+"Active1State": {
+"ControlRaycast": true,
+"InteractReceiver": false,
+"InteractReceiverHalf": true
+},
+"Active2State": {
+"ControlRaycast": true,
+"InteractReceiver": true,
+"InteractReceiverHalf": false
+},
+"IdleState": {
+"ControlRaycast": false,
+"InteractReceiver": false,
+"InteractReceiverHalf": false
+},
+"Trigger1State": {
+"ControlRaycast": true,
+"InteractReceiver": false,
+"InteractReceiverHalf": true
+},
+"Trigger2State": {
+"ControlRaycast": true,
+"InteractReceiver": true,
+"InteractReceiverHalf": false
+}
+}
+behavior_dict = {
+"ControlRaycast": false,
+"InteractReceiver": false,
+"InteractReceiverHalf": false
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_vs0dd"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="ai_rag_clean" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_joiq4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fvk2i")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.45342, 0, 0, 0, -2.00193, 0, 0, 0, 0.136513, 0, 0, 0)
+mesh = SubResource("BoxMesh_xnhu3")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_k548u")]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 0, 0.12, 0)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_xo0xf")]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 0, 0.12, 0)
+
+[node name="StateManager" parent="." instance=ExtResource("5_5js14")]
+receiver_group = "rag_clean"
+settings = SubResource("Resource_ave31")
+
+[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_m2qge")]
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_2esxo")]
+
+[node name="InteractReceiverHalf" parent="StateManager" instance=ExtResource("10_2esxo")]
+rate = 0.5
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("12_mv8tp")]
+transform = Transform3D(2.45342, 0, 0, 0, -2.00193, 0, 0, 0, 0.136513, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_vs0dd")
