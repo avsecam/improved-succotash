@@ -107,10 +107,6 @@ func _input(event):
 					#y_coord.get_line_edit().text = str(current_scale.y)
 					#z_coord.get_line_edit().text = str(current_scale.z) 
 					
-					x_coord.set_value(current_scale.x)
-					y_coord.set_value(current_scale.y)
-					z_coord.set_value(current_scale.z)
-					
 					# Set the select object's scale to current_scale.
 					# Sets size of collision shapes instead of scaling them
 					if editor_viewport.selected_physics_object is CollisionShape3D:
@@ -118,15 +114,34 @@ func _input(event):
 						if collision_shape.shape is BoxShape3D:
 							for axis in range(3):
 								collision_shape.shape.size[axis] = clampf(collision_shape.shape.size[axis] * current_scale[axis], 0.001, 1000)
+							
+							x_coord.set_value(collision_shape.shape.size.x)
+							y_coord.set_value(collision_shape.shape.size.y)
+							z_coord.set_value(collision_shape.shape.size.z)
 						
 						elif collision_shape.shape is CapsuleShape3D or collision_shape.shape is CylinderShape3D:
 							collision_shape.shape.height = clampf(collision_shape.shape.height * current_scale.y, 0.001, 1000)
 							collision_shape.shape.radius = clampf(collision_shape.shape.radius * current_scale.x, 0.001, 1000)
 							
+							y_coord.set_value(collision_shape.shape.height)
+							x_coord.set_value(collision_shape.shape.radius)
+							z_coord.set_value(0)
+							z_coord.editable = false
+							
 						elif collision_shape.shape is SphereShape3D:
 							collision_shape.shape.radius = clampf(collision_shape.shape.radius * current_scale.x, 0.001, 1000)
+							
+							x_coord.set_value(collision_shape.shape.radius)
+							y_coord.set_value(0)
+							y_coord.editable = false
+							z_coord.set_value(0)
+							z_coord.editable = false
+					
 					else:
 						editor_viewport.selected_physics_object.scale = current_scale;
+						x_coord.set_value(current_scale.x)
+						y_coord.set_value(current_scale.y)
+						z_coord.set_value(current_scale.z)
 
 
 func update(is_active):

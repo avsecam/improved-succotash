@@ -59,6 +59,9 @@ func _on_confirmed():
 	# Set up base object
 	if cb_pickable.button_pressed:
 		new_obj = pickable_scene.instantiate()
+		var collision_shape = new_obj.get_node("CollisionShape3D")
+		collision_shape.shape = BoxShape3D.new()
+		collision_shape.shape.size = Vector3(0.1, 0.1, 0.1)
 	else:
 		if cb_staticbody.button_pressed:
 			new_obj = StaticBody3D.new()

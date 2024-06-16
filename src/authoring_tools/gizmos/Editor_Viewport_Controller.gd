@@ -238,18 +238,42 @@ func physics_object_selected(new_object):
 		current_gizmo.update(false);
 		
 func update_xyz_ui():
-	if (editor_controller.editor_mode == "TRANSLATE"):
-		x_coord.set_value(selected_physics_object.global_transform.origin.x)
-		y_coord.set_value(selected_physics_object.global_transform.origin.y)
-		z_coord.set_value(selected_physics_object.global_transform.origin.z)
-	elif (editor_controller.editor_mode == "ROTATE"):
-		x_coord.set_value(selected_physics_object.rotation_degrees.x)
-		y_coord.set_value(selected_physics_object.rotation_degrees.y)
-		z_coord.set_value(selected_physics_object.rotation_degrees.z)
-	elif (editor_controller.editor_mode == "SCALE"):
-		x_coord.set_value(selected_physics_object.scale.x)
-		y_coord.set_value(selected_physics_object.scale.y)
-		z_coord.set_value(selected_physics_object.scale.z)
+	if selected_physics_object != null:
+		x_coord.editable = true
+		y_coord.editable = true
+		z_coord.editable = true
+		
+		if (editor_controller.editor_mode == "TRANSLATE"):
+			x_coord.set_value(selected_physics_object.global_transform.origin.x)
+			y_coord.set_value(selected_physics_object.global_transform.origin.y)
+			z_coord.set_value(selected_physics_object.global_transform.origin.z)
+		elif (editor_controller.editor_mode == "ROTATE"):
+			x_coord.set_value(selected_physics_object.rotation_degrees.x)
+			y_coord.set_value(selected_physics_object.rotation_degrees.y)
+			z_coord.set_value(selected_physics_object.rotation_degrees.z)
+		elif (editor_controller.editor_mode == "SCALE"):
+			if selected_physics_object is CollisionShape3D:
+				if selected_physics_object.shape is BoxShape3D:
+					x_coord.set_value(selected_physics_object.shape.size.x)
+					y_coord.set_value(selected_physics_object.shape.size.y)
+					z_coord.set_value(selected_physics_object.shape.size.z)
+				
+				elif selected_physics_object.shape is CapsuleShape3D or selected_physics_object.shape is CylinderShape3D:
+					y_coord.set_value(selected_physics_object.shape.height)
+					x_coord.set_value(selected_physics_object.shape.radius)
+					z_coord.set_value(0)
+					z_coord.editable = false
+					
+				elif selected_physics_object.shape is SphereShape3D:
+					x_coord.set_value(selected_physics_object.shape.radius)
+					y_coord.set_value(0)
+					y_coord.editable = false
+					z_coord.set_value(0)
+					z_coord.editable = false
+			else:
+				x_coord.set_value(selected_physics_object.scale.x)
+				y_coord.set_value(selected_physics_object.scale.y)
+				z_coord.set_value(selected_physics_object.scale.z)
 		
 func _apply_value():
 	if (editor_controller.editor_mode == "TRANSLATE"):
@@ -261,7 +285,23 @@ func _apply_value():
 		selected_physics_object.rotation_degrees.y = y_coord.value
 		selected_physics_object.rotation_degrees.z = z_coord.value
 	elif (editor_controller.editor_mode == "SCALE"):
-		selected_physics_object.scale.x = x_coord.value
-		selected_physics_object.scale.y = y_coord.value
-		selected_physics_object.scale.z = z_coord.value
+		if selected_physics_object is CollisionShape3D:
+			if selected_physics_object.shape is BoxShape3D:
+				selected_physics_object.shape.size.x = x_coord.value
+				selected_physics_object.shape.size.y = y_coord.value
+				selected_physics_object.shape.size.z = z_coord.value
+			
+			elif selected_physics_object.shape is CapsuleShape3D or selected_physics_object.shape is CylinderShape3D:
+				selected_physics_object.shape.height = y_coord.value
+				selected_physics_object.shape.radius = x_coord.value
+				
+			elif selected_physics_object.shape is SphereShape3D:
+				selected_physics_object.shape.radius = x_coord.value
+			
+		else:
+			selected_physics_object.scale.x = x_coord.value
+			selected_physics_object.scale.y = y_coord.value
+			selected_physics_object.scale.z = z_coord.value
 
+		# Set the select object's scale to current_scale.
+					# Sets size of collision shapes instead of scaling them
