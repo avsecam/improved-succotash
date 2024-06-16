@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp1q8nwr6rcp"]
+
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_o70h2"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_woles"]
+
+[node name="tut3_jpg" type="Node3D"]
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+top_level = true
+script = ExtResource("1_o70h2")
+teleporters_data = [{
+"position": Vector3(-3.72115, -0.909994, 1.83992),
+"to": "Tut2.jpg"
+}, {
+"position": Vector3(-0.798186, -0.609234, -4.38653),
+"to": "Img2024032114013000113PureShot.jpg"
+}]
+image_filename = "res://src/areas/Tut3.jpg.jpg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+gi_mode = 0
+mesh = ExtResource("2_woles")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]

@@ -4,7 +4,8 @@ extends Node3D
 func _ready():
 	Events.connect("player_teleport_requested_trigger", _on_player_teleport_requested)
 	
-	var start_scene = preload("res://src/areas/FrontRight.jpg.tscn").instantiate()
+	# res://src/areas/<area_name>.tscn
+	var start_scene = preload("res://src/areas/Tut1.jpg.tscn").instantiate()
 	add_child(start_scene)
 
 func _on_player_teleport_requested(new_level_filepath: String):

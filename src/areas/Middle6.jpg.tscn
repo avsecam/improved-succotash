@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj2eod0vqq0c7"]
+[gd_scene load_steps=3 format=3 uid="uid://csewis5qwamcf"]
 
-[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_gefv6"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_nnkf3"]
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_iymuu"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_ps4ry"]
 
 [node name="middle6_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
-script = ExtResource("1_gefv6")
+script = ExtResource("1_iymuu")
 teleporters_data = [{
 "position": Vector3(4.35413, -1.00756, -0.528521),
 "to": "Middle5.jpg"
@@ -15,11 +15,12 @@ teleporters_data = [{
 "to": "Middle7.jpg"
 }]
 image_filename = "res://src/areas/Middle6.jpg.jpg"
+base_rotation = 1.36
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 gi_mode = 0
-mesh = ExtResource("2_nnkf3")
+mesh = ExtResource("2_ps4ry")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
