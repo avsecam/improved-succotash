@@ -92,6 +92,12 @@ func _on_receiver_collision_entered(receiver):
 	if receiver.is_in_group(receiver_group):
 		receiver_object = receiver
 		set_state(current_state)
+	else:
+		for child in receiver.get_children():
+			if child.is_in_group(receiver_group):
+				receiver_object = child
+				set_state(current_state)
+				break
 
 func _on_receiver_collision_exited(receiver):
 	if (current_state == active1_state || current_state == active2_state):
