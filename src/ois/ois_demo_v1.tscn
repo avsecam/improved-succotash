@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dh1n6eeo7by8b" path="res://src/inventory/SlotsAnchoredToHand.tscn" id="6_8xdnn"]
 [ext_resource type="Script" path="res://src/inventory/SlotsAnchoredToHand_CameraManip.gd" id="7_56vny"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="8_w2nsv"]
-[ext_resource type="PackedScene" uid="uid://c213h1okgrixo" path="res://src/ois/state_managers/raycast.tscn" id="9_8c147"]
 [ext_resource type="PackedScene" uid="uid://b274d6hpy4awm" path="res://src/ois/inventory_actor_item_new.tscn" id="12_gao03"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="13_vat80"]
 [ext_resource type="PackedScene" uid="uid://dyq8ima5a0dpl" path="res://src/ois/xx_demo_objects/screw.tscn" id="14_irog0"]
+[ext_resource type="PackedScene" uid="uid://dxl4wsqjnn6b2" path="res://src/ois/pickable_receiver.tscn" id="14_n46oj"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="16_f5dhw"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vtwao"]
@@ -57,9 +57,6 @@ tracker = &"right_hand"
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" instance=ExtResource("3_17ekq")]
 
 [node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("4_8jqqx")]
-
-[node name="Raycast" parent="XROrigin3D/RightHand" instance=ExtResource("9_8c147")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0216489, 0.116375)
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("13_vat80")]
 
@@ -136,6 +133,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191641, 0.351377, -0.27701
 
 [node name="Screw" parent="." groups=["box"] instance=ExtResource("14_irog0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437249, 1.00643, -1.45463)
+
+[node name="PickableObject2" parent="." instance=ExtResource("14_n46oj")]
 
 [editable path="XROrigin3D/LeftHand/Slots_hand"]
 [editable path="Shelf"]

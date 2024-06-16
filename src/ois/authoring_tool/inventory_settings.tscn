@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://gb7s0yjwlwtb"]
+
+[ext_resource type="Script" path="res://src/ois/authoring_tool/inventory_settings.gd" id="1_h8y3n"]
+
+[node name="InventorySettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_h8y3n")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 2
+vertical = true
+
+[node name="Label" type="Label" parent="BoxContainer"]
+layout_mode = 2
+tooltip_text = "What is seen when item is in inventory slot"
+mouse_filter = 1
+text = "Set Replacement Mesh"
+
+[node name="BtnLoadMesh" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Load Mesh"
+
+[node name="BtnDuplicateMainMesh" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Duplicate MainMesh"
+
+[node name="FDLoadMesh" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/"
+filters = PackedStringArray("*.obj")
+
+[connection signal="pressed" from="BoxContainer/BtnLoadMesh" to="." method="_on_btn_load_mesh_pressed"]
+[connection signal="pressed" from="BoxContainer/BtnDuplicateMainMesh" to="." method="_on_btn_duplicate_main_mesh_pressed"]
+[connection signal="file_selected" from="FDLoadMesh" to="." method="_on_fd_load_mesh_file_selected"]

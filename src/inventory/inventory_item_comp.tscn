@@ -2,7 +2,5 @@
 
 [ext_resource type="Script" path="res://src/inventory/inventory_item_comp.gd" id="1_n1jyx"]
 
-[node name="InventoryItemComp" type="Node3D"]
+[node name="InventoryItemComp" type="MeshInstance3D"]
 script = ExtResource("1_n1jyx")
-
-[node name="ReplacementMesh" type="Node3D" parent="."]

@@ -1,6 +1,6 @@
 #@tool
 extends StateBehavior
-class_name SBRaycast
+class_name SBRaycastVisibility
 
 @onready var raycast = $RayCast3D
 @onready var laser = $Laser
@@ -28,7 +28,7 @@ func on_exit_state():
 	enable_raycast(false)
 
 func _ready():
-	debug_show(false)
+	#debug_show(false)
 	# set raycast and laser properties
 	
 	set_raycast_size(raycast_length, laser_thickness)
@@ -37,19 +37,16 @@ func _ready():
 	if parent is StateManager:
 		body_entered.connect(parent._on_receiver_collision_entered)
 		body_exited.connect(parent._on_receiver_collision_exited)
-	enable_raycast(false)
 
+	enable_raycast(false)
+	
 func set_raycast_size(raycast_length, laser_thickness):
-	print("set raycast size")
 	print(raycast)
 	raycast.target_position.z = -raycast_length
 	laser.mesh.size = Vector3(laser_thickness, laser_thickness, raycast_length)
 	laser.position.z = -(raycast_length/2)
-	
-	enable_raycast(true)
 
 func enable_raycast(enable):
-	raycast.enabled = enable
 	laser.visible = enable
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,5 +60,5 @@ func _process(delta):
 			body_exited.emit(currently_colliding)
 			currently_colliding = null
 
-func debug_show(to_show):
-	$Debug.visible = to_show
+#func debug_show(to_show):
+	#$Debug.visible = to_show

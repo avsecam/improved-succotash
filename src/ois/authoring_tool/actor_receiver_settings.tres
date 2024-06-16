@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ActorReceiverSettings" load_steps=2 format=3 uid="uid://i7huviwkuuvr"]
+
+[ext_resource type="Script" path="res://src/ois/authoring_tool/actor_receiver_settings.gd" id="1_rii42"]
+
+[resource]
+script = ExtResource("1_rii42")
+receiver_groups = Array[String](["wrench"])

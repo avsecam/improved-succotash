@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Villa Escudero"
-run/main_scene="res://src/demo.tscn"
+run/main_scene="res://src/authoring_tools/gizmos/editor_controller.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
