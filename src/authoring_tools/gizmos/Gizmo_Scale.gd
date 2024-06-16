@@ -18,7 +18,7 @@ var apply_button
 # The speed the scale gizmo changes the scale of the selected object.
 # You may need to tweak this based on the sensitivity of your mouse and/or how fast you want
 # the gizmo to scale the object.
-const SCALE_SPEED = 0.1;
+const SCALE_SPEED = 0.05;
 
 # A variable to store whether the left mouse button is down or not.
 var left_button_down = false;

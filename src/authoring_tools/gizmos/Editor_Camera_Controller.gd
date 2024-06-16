@@ -18,11 +18,11 @@ signal physics_object_selected(object);
 @export_flags_3d_physics var NORMAL_COLLISION_LAYER : int = 1
 
 # A variable to hold the speed the camera moves at when the control key is held down.
-const CONTROL_SPEED = 2;
+const CONTROL_SPEED = 0.2;
 # A variable to hold the speed the camera moves at normally.
-const MOVE_SPEED = 10;
+const MOVE_SPEED = 2;
 # A variable to hold the speed the camera moves at when the shift key is held down.
-const SHIFT_SPEED = 20;
+const SHIFT_SPEED = 10;
 
 # A variable to store how sensitive the mouse is. You may need to change this depending on the sensitivity of your mouse.
 const MOUSE_SENSITIVTY = 0.05;
