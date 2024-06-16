@@ -5,6 +5,8 @@ extends MarginContainer
 var editable_object
 var receiver_comp
 
+@onready var collision_shape_selector = $ScrollContainer/Main/OptionBtnCollisionShape
+
 @onready var action_comp_container = $ScrollContainer/Main/ActionCompContainer
 @onready var feedback_container = $ScrollContainer/Main/FeedbackContainer
 @onready var receiver_group_option_btn = $ScrollContainer/Main/ReceiverGroupOptionButton
@@ -17,6 +19,14 @@ var component_settings_scn = preload("res://src/ois/authoring_tool/component_set
 func _ready():
 	# Disable Inputs
 	enable_inputs(false)
+	collision_shape_selector.add_item("BoxShape3D")
+	collision_shape_selector.set_item_metadata(0, BoxShape3D)
+	collision_shape_selector.add_item("SphereShape3D")
+	collision_shape_selector.set_item_metadata(1, SphereShape3D)
+	collision_shape_selector.add_item("CylinderShape3D")
+	collision_shape_selector.set_item_metadata(2, CylinderShape3D)
+	collision_shape_selector.add_item("CapsuleShape3D")
+	collision_shape_selector.set_item_metadata(3, CapsuleShape3D)
 
 func set_up(obj):
 	clear()
@@ -133,3 +143,16 @@ func setup_receiver_option_btn():
 	for i in actor_receiver_settings.receiver_groups:
 		receiver_group_option_btn.add_item(i)
 	receiver_group_option_btn.selected = -1
+
+
+func _on_btn_set_collision_shape_pressed():
+	var col_shape = receiver_comp.get_node_or_null("CollisionShape3D") as CollisionShape3D
+	if col_shape != null:
+		col_shape.shape = collision_shape_selector.get_selected_metadata().new()
+
+
+func _on_btn_copy_main_collision_shape_pressed():
+	var col_shape = receiver_comp.get_node_or_null("CollisionShape3D") as CollisionShape3D
+	var main_col_shape = editable_object.get_node_or_null("CollisionShape3D") as CollisionShape3D
+	if col_shape != null && main_col_shape != null && col_shape != main_col_shape:
+		col_shape.shape = main_col_shape.shape.duplicate()

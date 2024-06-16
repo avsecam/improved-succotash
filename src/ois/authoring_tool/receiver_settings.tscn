@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1ymsx1ev8nj6"]
 
 [ext_resource type="Script" path="res://src/ois/authoring_tool/receiver_settings.gd" id="1_6j5sq"]
-[ext_resource type="Resource" uid="uid://i7huviwkuuvr" path="res://src/ois/authoring_tool/actor_receiver_settings.tres" id="2_djna3"]
+[ext_resource type="Resource" uid="uid://bho771c1nkghx" path="res://src/ois/authoring_tool/actor_receiver_settings.tres" id="2_djna3"]
 
 [node name="ReceiverSettings" type="MarginContainer"]
 anchors_preset = 15
@@ -24,6 +24,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical = true
+
+[node name="OptionBtnCollisionShape" type="OptionButton" parent="ScrollContainer/Main"]
+layout_mode = 2
+
+[node name="BtnSetCollisionShape" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Set Collision Shape
+"
+
+[node name="BtnCopyMainCollisionShape" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Copy Main Collision Shape
+"
 
 [node name="LabelReceiverGroups" type="Label" parent="ScrollContainer/Main"]
 layout_mode = 2
@@ -85,6 +102,8 @@ file_mode = 0
 root_subfolder = "res://src/ois/feedback_components/"
 filters = PackedStringArray("*.gd")
 
+[connection signal="pressed" from="ScrollContainer/Main/BtnSetCollisionShape" to="." method="_on_btn_set_collision_shape_pressed"]
+[connection signal="pressed" from="ScrollContainer/Main/BtnCopyMainCollisionShape" to="." method="_on_btn_copy_main_collision_shape_pressed"]
 [connection signal="pressed" from="ScrollContainer/Main/BtnAddReceiverGroup" to="." method="_on_btn_add_receiver_group_pressed"]
 [connection signal="pressed" from="ScrollContainer/Main/BtnAddActionComp" to="." method="_on_btn_add_action_comp_pressed"]
 [connection signal="pressed" from="ScrollContainer/Main/BtnAddFeedback" to="." method="_on_btn_add_feedback_pressed"]
