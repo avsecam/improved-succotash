@@ -28,7 +28,7 @@ func on_exit_state():
 	enable_raycast(false)
 
 func _ready():
-	#debug_show(false)
+	debug_show(false)
 	# set raycast and laser properties
 	
 	set_raycast_size(raycast_length, laser_thickness)
@@ -40,10 +40,13 @@ func _ready():
 	enable_raycast(false)
 
 func set_raycast_size(raycast_length, laser_thickness):
+	print("set raycast size")
 	print(raycast)
 	raycast.target_position.z = -raycast_length
 	laser.mesh.size = Vector3(laser_thickness, laser_thickness, raycast_length)
 	laser.position.z = -(raycast_length/2)
+	
+	enable_raycast(true)
 
 func enable_raycast(enable):
 	raycast.enabled = enable
@@ -60,5 +63,5 @@ func _process(delta):
 			body_exited.emit(currently_colliding)
 			currently_colliding = null
 
-#func debug_show(to_show):
-	#$Debug.visible = to_show
+func debug_show(to_show):
+	$Debug.visible = to_show
