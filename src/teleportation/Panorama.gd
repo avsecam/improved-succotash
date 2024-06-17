@@ -32,10 +32,17 @@ func _ready():
 	_set_teleporters()
 	
 	# Add 360 image. Flip image horizontally to compensate for SphereMesh's Flip Faces property.
-	var image = Image.load_from_file(image_filename)
+	#var image = Image.load_from_file(image_filename)
+	#image.flip_x()
+	#var texture = ImageTexture.create_from_image(image)
+	#((mesh_instance.mesh as SphereMesh).material as StandardMaterial3D).albedo_texture = texture
+	
+	# Changed into this code to allow for exported projects to access the filesystem.
+	print("Loaded "+image_filename)
+	var image : Image = load(image_filename).get_image()
 	image.flip_x()
-	var texture = ImageTexture.create_from_image(image)
-	((mesh_instance.mesh as SphereMesh).material as StandardMaterial3D).albedo_texture = texture
+	var texture_panorama = ImageTexture.create_from_image(image)
+	((mesh_instance.mesh as SphereMesh).material as StandardMaterial3D).albedo_texture = texture_panorama
 	
 	Events.connect("teleporter_hovered", _on_teleporter_hovered)
 	Events.connect("no_teleporter_hovered", _on_no_teleporter_hovered)
