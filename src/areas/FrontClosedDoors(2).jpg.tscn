@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_sn1pm"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_odmpp"]
 [ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="5_m6sj0"]
-[ext_resource type="Script" path="res://src/ems/authoring/event_template.gd" id="6_g14tc"]
+[ext_resource type="Script" path="res://src/ems/scripts/hard_script_tutorial_A1/quest_start.gd" id="6_oavgj"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="7_1n316"]
 
 [node name="front closed doors (2)_jpg" type="Node3D"]
@@ -42,7 +42,7 @@ to = "FrontRight.jpg"
 [node name="Events" type="Node" parent="."]
 
 [node name="quest_start" parent="Events" instance=ExtResource("5_m6sj0")]
-script = ExtResource("6_g14tc")
+script = ExtResource("6_oavgj")
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("7_1n316")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.76432, -1.2484, -2.17354)
