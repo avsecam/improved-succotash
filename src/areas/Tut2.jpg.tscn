@@ -70,5 +70,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.24602, -2.08465, -0.2
 wait_time = 3.0
 
 [connection signal="finished" from="MarbleSpirit_Normal/AudioStreamPlayer3D" to="Events/pick_up_key" method="_on_audio_stream_player_3d_finished"]
+[connection signal="finished" from="MarbleSpirit_Normal/AudioStreamPlayer3D" to="Events/earth_spirit" method="_on_audio_stream_player_3d_finished"]
 [connection signal="timeout" from="MarbleSpirit_Normal/Timer" to="Events/pick_up_key" method="_on_timer_timeout"]
 [connection signal="timeout" from="MarbleSpirit_Normal/Timer" to="Events/earth_spirit" method="_on_timer_timeout"]

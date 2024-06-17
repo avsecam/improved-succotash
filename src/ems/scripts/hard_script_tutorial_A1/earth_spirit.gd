@@ -32,4 +32,8 @@ func _on_timer_timeout():
 func _on_key_in_inventory():
 	#Make a signal that the key is in inventory
 	Events.earth_spirit = true
-	next.enabled = true
+
+
+func _on_audio_stream_player_3d_finished():
+	if !Events.earth_spirit and Events.pick_up_key:
+		audio_stream_player.stream = ongoing

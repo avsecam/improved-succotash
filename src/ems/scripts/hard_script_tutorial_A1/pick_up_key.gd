@@ -5,6 +5,7 @@ extends Node
 const initialize = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked.ogg")
 const ongoing = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_04_GoKey.ogg")
 
+@onready var earth_spirit = $"../earth_spirit"
 
 func _ready():
 	if !Events.pick_up_key:
@@ -24,10 +25,13 @@ func _on_timer_timeout():
 		var length = audio_stream_player.stream.get_length()
 		timer.wait_time = length + 3
 		audio_stream_player.play()
+		earth_spirit.start_event() #remove
+		_on_key_pick_up() #remove
 
 func _on_key_pick_up():
 	#Make a signal that the key is picked up already
 	Events.pick_up_key = true
 
 func _on_audio_stream_player_3d_finished():
-	audio_stream_player.stream = ongoing
+	if !Events.pick_up_key:
+		audio_stream_player.stream = ongoing
