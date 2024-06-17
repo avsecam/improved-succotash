@@ -29,5 +29,7 @@ omni_range = 16.12
 
 [node name="Tut2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_j5in4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.312646, -0.519902, -4.4586)
+collision_layer = 512
+collision_mask = 0
 script = ExtResource("4_br0jg")
 to = "Tut2.jpg"

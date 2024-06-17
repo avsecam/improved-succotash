@@ -27,7 +27,7 @@ func _physics_process(delta):
 
 	var space_state := get_world_3d().direct_space_state
 	var query := PhysicsRayQueryParameters3D.create(origin, end)
-	query.collision_mask = 0b00000000_00000000_00000000_00000001
+	query.collision_mask = 0b00000000_00000000_00000010_00000000
 	var result := space_state.intersect_ray(query)
 
 	var collider: Teleporter = result.get("collider")
