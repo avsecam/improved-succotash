@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh5kxq7fcqxoq"]
+
+[ext_resource type="AudioStream" uid="uid://06hg2hhohlkn" path="res://src/ems/BGM/01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3) v1 Full Loopable.wav" id="1_wtgh1"]
+[ext_resource type="Script" path="res://src/ems/BGM/bgm.gd" id="2_xtncl"]
+
+[node name="background_player" type="AudioStreamPlayer"]
+stream = ExtResource("1_wtgh1")
+autoplay = true
+script = ExtResource("2_xtncl")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
