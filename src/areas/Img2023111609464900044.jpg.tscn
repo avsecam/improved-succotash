@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcaiojb2sbtoy"]
+[gd_scene load_steps=7 format=3 uid="uid://bcaiojb2sbtoy"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_re8ad"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vh8x2"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m8ruw"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_c77ko"]
 [ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="5_o47xd"]
+[ext_resource type="Script" path="res://src/ems/scripts/hard_script_tutorial_A1/fire spirit.gd" id="6_bvmc5"]
 
 [node name="IMG_20231116_094649_00_044_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -50,3 +51,4 @@ to = "Left00.jpg"
 [node name="Events" type="Node" parent="."]
 
 [node name="fire_spirit_help" parent="Events" instance=ExtResource("5_o47xd")]
+script = ExtResource("6_bvmc5")
