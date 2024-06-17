@@ -1,5 +1,7 @@
 extends MarginContainer
 
+signal edited_object(new_component)
+
 @export var actor_receiver_settings : ActorReceiverSettings
 
 var editable_object
@@ -54,33 +56,11 @@ func set_up(obj):
 		
 		for child in editable_object.get_children():
 			if child is Area3D:
-				var new_cont1 = VBoxContainer.new()
-				var new_cont2 = VBoxContainer.new()
-				var new_cont3 = VBoxContainer.new()
-				
-				action_comp_container.add_child(new_cont1)
-				receiver_group_container.add_child(new_cont2)
-				feedback_container.add_child(new_cont3)
-				
-				receiver_components[child] = [new_cont1, new_cont2, new_cont3]
-				receiver_comp_selector.add_item(child.name)
-				receiver_comp_selector.set_item_metadata(receiver_comp_selector.item_count-1, child)
-				has_collision_child = true
-		
+				create_new_receiver_component(child, child.name)
+				has_collision_child = true		
 		if !has_collision_child && !(editable_object is XRToolsPickable):
-			var new_cont1 = VBoxContainer.new()
-			var new_cont2 = VBoxContainer.new()
-			var new_cont3 = VBoxContainer.new()
+			create_new_receiver_component(editable_object, "Editable Object")
 			
-			action_comp_container.add_child(new_cont1)
-			receiver_group_container.add_child(new_cont2)
-			feedback_container.add_child(new_cont3)
-			
-			receiver_components[editable_object] = [new_cont1, new_cont2, new_cont3]
-			receiver_comp_selector.add_item("Editable Object")
-			receiver_comp_selector.set_item_metadata(receiver_comp_selector.item_count-1, editable_object)
-
-		
 		for receiver_comp in receiver_components.keys():
 			if receiver_comp is ReceiverObj:
 				var action_comp_settings = component_settings_scn.instantiate()
@@ -221,3 +201,37 @@ func _on_option_btn_receiver_component_item_selected(index):
 	
 	for comp in receiver_components[current_receiver_comp]:
 		comp.visible = true
+
+
+func _on_btn_add_new_receiver_component_pressed():
+	var new_receiver_area = Area3D.new()
+	editable_object.add_child(new_receiver_area)
+	new_receiver_area.name = "ReceiverComp"
+	new_receiver_area.owner = editable_object
+	
+	create_new_receiver_component(new_receiver_area, new_receiver_area.name)
+	
+	add_placeholder_collider(editable_object, new_receiver_area)
+	
+	edited_object.emit(new_receiver_area)
+
+func create_new_receiver_component(new_comp, new_comp_name):
+	var new_cont1 = VBoxContainer.new()
+	var new_cont2 = VBoxContainer.new()
+	var new_cont3 = VBoxContainer.new()
+	
+	action_comp_container.add_child(new_cont1)
+	receiver_group_container.add_child(new_cont2)
+	feedback_container.add_child(new_cont3)
+	
+	receiver_components[new_comp] = [new_cont1, new_cont2, new_cont3]
+	receiver_comp_selector.add_item(new_comp_name)
+	receiver_comp_selector.set_item_metadata(receiver_comp_selector.item_count-1, new_comp)
+
+func add_placeholder_collider(owner, parent):
+	var new_collision_shape = CollisionShape3D.new()
+	new_collision_shape.name = "CollisionShape3D"
+	new_collision_shape.shape = BoxShape3D.new()
+	new_collision_shape.shape.size = Vector3(0.1, 0.1, 0.1)
+	parent.add_child(new_collision_shape)
+	new_collision_shape.owner = owner

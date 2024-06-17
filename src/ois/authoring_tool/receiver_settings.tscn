@@ -29,15 +29,23 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical = true
 
+[node name="BtnAddNewReceiverComponent" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Add New Receiver Component"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/Main"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_j15fn")
+
 [node name="LabelSetReceiverComponent" type="Label" parent="ScrollContainer/Main"]
 layout_mode = 2
-text = "Receiver Component"
-horizontal_alignment = 1
+text = "Select Current Receiver Component"
 
 [node name="OptionBtnReceiverComponent" type="OptionButton" parent="ScrollContainer/Main"]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="ScrollContainer/Main"]
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/Main"]
 layout_mode = 2
 theme_override_constants/separation = 16
 theme_override_styles/separator = SubResource("StyleBoxLine_j15fn")
@@ -123,6 +131,7 @@ file_mode = 0
 root_subfolder = "res://src/ois/feedback_components/"
 filters = PackedStringArray("*.gd")
 
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddNewReceiverComponent" to="." method="_on_btn_add_new_receiver_component_pressed"]
 [connection signal="item_selected" from="ScrollContainer/Main/OptionBtnReceiverComponent" to="." method="_on_option_btn_receiver_component_item_selected"]
 [connection signal="pressed" from="ScrollContainer/Main/BtnSetCollisionShape" to="." method="_on_btn_set_collision_shape_pressed"]
 [connection signal="pressed" from="ScrollContainer/Main/BtnCopyMainCollisionShape" to="." method="_on_btn_copy_main_collision_shape_pressed"]
