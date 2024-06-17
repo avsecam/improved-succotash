@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5fxbmw5m37nf"]
+[gd_scene load_steps=5 format=3 uid="uid://b5fxbmw5m37nf"]
 
 [ext_resource type="Script" path="res://src/inventory/InventorySetting_Shelf.gd" id="1_d0fkd"]
 [ext_resource type="PackedScene" uid="uid://crwyd7l0re2e" path="res://src/inventory/Slot.tscn" id="1_y7af2"]
+[ext_resource type="PackedScene" uid="uid://b5nbl607no0d" path="res://src/inventory/earthshelf/EarthSpirit_InventoryShelf.gltf" id="3_j37q6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_imftx"]
 
@@ -10,6 +11,7 @@ script = ExtResource("1_d0fkd")
 
 [node name="Meshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 0.25, 0, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
 mesh = SubResource("BoxMesh_imftx")
@@ -59,22 +61,25 @@ skeleton = NodePath("../..")
 metadata/_edit_group_ = true
 
 [node name="Slot" parent="." groups=["InventorySlot_Shelf"] instance=ExtResource("1_y7af2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.316838, 0.550774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.316838, 0.938614, -0.32798)
 
 [node name="Slot2" parent="." groups=["InventorySlot_Shelf"] instance=ExtResource("1_y7af2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0359834, 0.938614, -0.32798)
 
 [node name="Slot3" parent="." groups=["InventorySlot_Shelf"] instance=ExtResource("1_y7af2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.320727, 0.550774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.381901, 0.938614, -0.32798)
 
 [node name="Slot4" parent="." groups=["InventorySlot_Shelf"] instance=ExtResource("1_y7af2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322372, 0.173658, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322372, 0.561498, -0.32798)
 
 [node name="Slot5" parent="." groups=["InventorySlot_Shelf"] instance=ExtResource("1_y7af2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171107, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0359834, 0.558947, -0.32798)
 
 [node name="Slot6" parent="." groups=["InventorySlot_Shelf"] instance=ExtResource("1_y7af2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.322462, 0.172783, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.383636, 0.560623, -0.32798)
+
+[node name="EarthSpirit_InventoryShelf" parent="." instance=ExtResource("3_j37q6")]
+transform = Transform3D(-0.07, 0, -1.05697e-08, 0, 0.07, 0, 1.05697e-08, 0, -0.07, -1.05042, 0, -0.389565)
 
 [connection signal="body_entered" from="Slot/SnapZone" to="." method="_on_snap_zone_body_entered"]
 [connection signal="body_exited" from="Slot/SnapZone" to="." method="_on_snap_zone_body_exited"]
