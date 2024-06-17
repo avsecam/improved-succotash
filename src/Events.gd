@@ -16,3 +16,13 @@ signal set_player_rotation_requested(current_rotation: Vector3, new_rotation: Ve
 signal non_vr_teleporter_hovered(teleporter: Teleporter)
 signal non_vr_no_teleporter_hovered()
 signal non_vr_teleporter_clicked(to: String) # filename of scene to teleport to
+
+#EVENT FLAGS
+var look_at_me = false
+var pick_up_key = false
+var open_door = false
+var pet_cat = false
+var get_picture = false
+var quest_start = false
+var talk_about_calandra = false
+var fire_spirit_help = false
