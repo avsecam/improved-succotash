@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://chv4vbtfalvx7"]
+
+[ext_resource type="PackedScene" uid="uid://yj8qo4f7g65m" path="res://src/ois/xx_demo_objects/lock.tscn" id="1_csde4"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/enable_teleporter.gd" id="2_6svvk"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/play_animation.gd" id="3_wppv5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6okml"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 1.0
+
+[node name="GateDoor" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.494336, -0.817238, -1.17075)
+
+[node name="Bar" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_6okml")
+skeleton = NodePath("../..")
+
+[node name="Bar2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242706, 0, 0)
+mesh = SubResource("CylinderMesh_6okml")
+skeleton = NodePath("../..")
+
+[node name="Bar3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.514255, 0, 0)
+mesh = SubResource("CylinderMesh_6okml")
+skeleton = NodePath("../..")
+
+[node name="Bar4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.756961, 0, 0)
+mesh = SubResource("CylinderMesh_6okml")
+skeleton = NodePath("../..")
+
+[node name="Bar5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.379009, 0.496263, 0)
+mesh = SubResource("CylinderMesh_6okml")
+
+[node name="Bar6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.379009, -0.517872, 0)
+mesh = SubResource("CylinderMesh_6okml")
+
+[node name="ReceiverObject" parent="." groups=["key"] instance=ExtResource("1_csde4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.678218, 0.023062, 0.000329588)
+requirement = 2.0
+
+[node name="EnableTeleporter" type="Node3D" parent="ReceiverObject" node_paths=PackedStringArray("teleporter")]
+script = ExtResource("2_6svvk")
+teleporter = NodePath("")
+
+[node name="PlayAnimation" type="Node3D" parent="ReceiverObject" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("3_wppv5")
+animation_player = NodePath("")
+animation_name = "open"
+
+[editable path="ReceiverObject"]
