@@ -4,3 +4,12 @@
 
 [node name="event" type="Node"]
 script = ExtResource("1_rcve2")
+
+[node name="initialize_audio" type="AudioStreamPlayer3D" parent="."]
+
+[node name="ongoing_audio" type="AudioStreamPlayer3D" parent="."]
+
+[node name="wait_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]

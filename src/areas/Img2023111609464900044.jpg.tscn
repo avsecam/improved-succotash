@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcaiojb2sbtoy"]
+[gd_scene load_steps=6 format=3 uid="uid://bcaiojb2sbtoy"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_re8ad"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vh8x2"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m8ruw"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_c77ko"]
+[ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="5_o47xd"]
 
 [node name="IMG_20231116_094649_00_044_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -16,6 +19,7 @@ teleporters_data = [{
 }]
 image_filename = "res://src/areas/Img2023111609464900044.jpg.jpg"
 base_rotation = 3.02
+outside = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -28,3 +32,21 @@ light_energy = 3.015
 omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Middle7_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m8ruw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.536096, -1.65172, 4.15192)
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("4_c77ko")
+to = "Middle7.jpg"
+
+[node name="Left00_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m8ruw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31949, -1.05138, -0.700588)
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("4_c77ko")
+to = "Left00.jpg"
+
+[node name="Events" type="Node" parent="."]
+
+[node name="fire_spirit_help" parent="Events" instance=ExtResource("5_o47xd")]

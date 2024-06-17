@@ -20,6 +20,7 @@ var data: Dictionary
 @export var image_filename: String
 
 @export var base_rotation: float = 0.0
+@export var outside:bool = true
 
 func _ready():
 	mesh_instance.mesh = preload ("res://src/teleportation/PanoramaSphereMeshBase.tres")
@@ -40,6 +41,8 @@ func _ready():
 	Events.connect("no_teleporter_hovered", _on_no_teleporter_hovered)
 	Events.connect("non_vr_teleporter_hovered", _on_teleporter_hovered)
 	Events.connect("non_vr_no_teleporter_hovered", _on_no_teleporter_hovered)
+	
+	Bgm.set_outside(outside)
 
 
 func _physics_process(delta):

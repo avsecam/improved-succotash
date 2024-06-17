@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6g8tyipdbknu"]
+[gd_scene load_steps=5 format=3 uid="uid://c6g8tyipdbknu"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_xhj0w"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_hb6pg"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_0ef5i"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_4wf6l"]
 
 [node name="middle5_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -16,6 +18,7 @@ teleporters_data = [{
 }]
 image_filename = "res://src/areas/Middle5.jpg.jpg"
 base_rotation = 1.62
+outside = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -28,3 +31,17 @@ light_energy = 3.015
 omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Middle6_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_0ef5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2808, -1.26871, -0.563157)
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("4_4wf6l")
+to = "Middle6.jpg"
+
+[node name="Middle4_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_0ef5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18172, -1.22544, 1.12311)
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("4_4wf6l")
+to = "Middle4.jpg"
