@@ -34,3 +34,4 @@ func _on_gate_open():
 func _on_audio_stream_player_3d_finished():
 	if !Events.open_gate:
 		audio_stream_player.stream = ongoing
+		_on_gate_open()

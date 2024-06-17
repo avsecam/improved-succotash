@@ -5,8 +5,9 @@ extends Node
 const initialize = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_13_TheAsk.ogg")
 const ongoing = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_14_WhatAdventure.ogg")
 
-func _on_gate_open():
-	#make a signal when gate is open
+func _on_pet_cat():
+	start_event()
+	#make a signal that the event
 	pass
 
 func start_event():
@@ -30,9 +31,8 @@ func _on_timer_timeout():
 		_on_get_picture()
 
 func _on_get_picture():
-	#Make a signal when the cat was petted
+	#Make a signal when the picture is taken
 	Events.get_picture = true
-
 
 func _on_audio_stream_player_3d_finished():
 	if !Events.get_picture and Events.pet_cat:
