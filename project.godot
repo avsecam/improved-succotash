@@ -95,6 +95,10 @@ editor_move_down={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_10="teleporter"
+
 [xr]
 
 openxr/enabled=true
