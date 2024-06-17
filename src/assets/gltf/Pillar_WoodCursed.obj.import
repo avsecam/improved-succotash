@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bl0ah3ngtdmfl"
+path="res://.godot/imported/Pillar_WoodCursed.obj-a606dcfad95f360fa2770ffebbbf7205.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pillar_WoodCursed.obj-a606dcfad95f360fa2770ffebbbf7205.mesh"]
+
+source_file="res://src/assets/gltf/Pillar_WoodCursed.obj"
+dest_files=["res://.godot/imported/Pillar_WoodCursed.obj-a606dcfad95f360fa2770ffebbbf7205.mesh", "res://.godot/imported/Pillar_WoodCursed.obj-a606dcfad95f360fa2770ffebbbf7205.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

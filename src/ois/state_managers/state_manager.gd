@@ -1,5 +1,8 @@
+@tool
 extends Node3D
 class_name StateManager
+
+@export var init_settings : bool = false
 
 @export var receiver_group : String = ""
 @export var current_state : OISState
@@ -45,6 +48,17 @@ func set_state(state : OISState):
 	current_state = state
 	#current_state.enter_state.emit()
 	current_state.manage_behavior.emit(true)
+
+func _process(delta):
+	if Engine.is_editor_hint():
+		if init_settings:
+			settings = StateManagerSettings.new()
+			for child in get_children():
+				if child is OISState:
+					settings.add_state(child.name)
+				elif child is StateBehavior:
+					settings.add_behavior(child.name)
+			init_settings = false
 
 #func add_behavior(behavior : StateBehavior):
 	#add_child(behavior)

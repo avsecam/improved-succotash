@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://duj32o8a4muyj"]
+[gd_scene load_steps=10 format=3 uid="uid://duj32o8a4muyj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mp4ii"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_beq4h"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_bku23"]
+[ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="5_tgm0d"]
+[ext_resource type="PackedScene" uid="uid://ca4gkutkkdpdh" path="res://src/objects/table.tscn" id="6_723qf"]
+[ext_resource type="PackedScene" uid="uid://c3jgibvrtohcn" path="res://src/objects/ir_metal_polish.tscn" id="7_wkmdd"]
+[ext_resource type="PackedScene" uid="uid://bfcqb2gkhtvro" path="res://src/objects/ai_glass_cleaner.tscn" id="8_weka5"]
+[ext_resource type="PackedScene" uid="uid://biwht2hlg2442" path="res://src/objects/ai_rag_oiled.tscn" id="9_wjh8m"]
 
 [node name="left00_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -35,3 +40,24 @@ collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_bku23")
 to = "Img2023111609464900044.jpg"
+
+[node name="Shelf" parent="." instance=ExtResource("5_tgm0d")]
+transform = Transform3D(-0.910352, 0, 0.413835, 0, 1, 0, -0.413835, 0, -0.910352, -0.4894, -1, 0.81728)
+
+[node name="table2" parent="." instance=ExtResource("6_723qf")]
+transform = Transform3D(0.255378, 0, -0.966841, 0, 1, 0, 0.966841, 0, 0.255378, -0.65149, -1, -1.05172)
+
+[node name="table" parent="." instance=ExtResource("6_723qf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40934, -1, -0.0432475)
+
+[node name="ir_metal_polish" parent="." instance=ExtResource("7_wkmdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39137, -0.582989, -0.133751)
+
+[node name="ai_glass_cleaner" parent="." instance=ExtResource("8_weka5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38506, -0.582989, 0.172014)
+
+[node name="ai_rag_oiled" parent="." instance=ExtResource("9_wjh8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.816088, -0.582989, -0.983493)
+
+[node name="ai_rag_oiled2" parent="." instance=ExtResource("9_wjh8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44355, -0.582989, -1.1273)

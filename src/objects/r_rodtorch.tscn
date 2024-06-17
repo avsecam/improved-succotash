@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwvmbqbnl2n50"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_daphw"]
+[ext_resource type="ArrayMesh" uid="uid://b8fwknanak2bc" path="res://src/objects/assets/RodTorch.obj" id="2_mqebv"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_e5h3a"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_8i6qw"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="6_e5n5r"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/lighten_override_material.gd" id="6_ejg8p"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dvf60"]
+height = 1.78252
+radius = 0.0750986
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fojbo"]
+resource_name = "Material.001"
+transparency = 1
+albedo_color = Color(0.258824, 0.152941, 0.0470588, 1)
+metallic = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y680"]
+resource_name = "Material.003"
+transparency = 1
+albedo_color = Color(0.262745, 0.133333, 0.027451, 1)
+metallic = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1bq8"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="r_rodtorch" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_daphw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0998081, 0)
+shape = SubResource("CylinderShape3D_dvf60")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
+mesh = ExtResource("2_mqebv")
+surface_material_override/2 = SubResource("StandardMaterial3D_fojbo")
+surface_material_override/3 = SubResource("StandardMaterial3D_5y680")
+
+[node name="MainMesh2" type="MeshInstance3D" parent="MainMesh"]
+mesh = ExtResource("2_mqebv")
+skeleton = NodePath("../..")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_e5h3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, -0.08)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("5_8i6qw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, -0.08)
+
+[node name="ReceiverComp" type="Area3D" parent="." groups=["rag_oiled"]]
+script = ExtResource("6_e5n5r")
+requirement = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiverComp"]
+shape = SubResource("BoxShape3D_l1bq8")
+
+[node name="Node3D" type="Node3D" parent="ReceiverComp" node_paths=PackedStringArray("mesh")]
+script = ExtResource("6_ejg8p")
+mesh = NodePath("../../MainMesh")
+surface_index = 3
+
+[node name="Node3D2" type="Node3D" parent="ReceiverComp" node_paths=PackedStringArray("mesh")]
+script = ExtResource("6_ejg8p")
+mesh = NodePath("../../MainMesh")
+surface_index = 2

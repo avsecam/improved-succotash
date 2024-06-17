@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://pqntl142002y"]
-
-[ext_resource type="Script" path="res://src/ois/action_components/receiver_object.gd" id="1_bnmsp"]
+[gd_scene format=3 uid="uid://pqntl142002y"]
 
 [node name="ReceiverObject" type="StaticBody3D"]
-script = ExtResource("1_bnmsp")
 
 [node name="MainMesh" type="Node3D" parent="."]
 

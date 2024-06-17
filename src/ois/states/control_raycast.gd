@@ -2,11 +2,19 @@
 extends StateBehavior
 class_name SBRaycast
 
-@export var raycast_length = 1.0
-@export var laser_thickness = 0.002
-
 @onready var raycast = $RayCast3D
 @onready var laser = $Laser
+
+@export var raycast_length = 1.0:
+	set(value):
+		raycast_length = value
+		if raycast != null:
+			set_raycast_size(raycast_length, laser_thickness)
+@export var laser_thickness = 0.002:
+	set(value):
+		laser_thickness = value
+		if raycast != null:
+			set_raycast_size(raycast_length, laser_thickness)
 
 var currently_colliding
 
@@ -22,15 +30,24 @@ func on_exit_state():
 func _ready():
 	debug_show(false)
 	# set raycast and laser properties
-	raycast.target_position.z = -raycast_length
-	laser.mesh.size = Vector3(laser_thickness, laser_thickness, raycast_length)
-	laser.position.z = -(raycast_length/2)
+	
+	set_raycast_size(raycast_length, laser_thickness)
 	
 	var parent = get_parent()
 	if parent is StateManager:
 		body_entered.connect(parent._on_receiver_collision_entered)
 		body_exited.connect(parent._on_receiver_collision_exited)
+	enable_raycast(false)
+
+func set_raycast_size(raycast_length, laser_thickness):
+	print("set raycast size")
+	print(raycast)
+	raycast.target_position.z = -raycast_length
+	laser.mesh.size = Vector3(laser_thickness, laser_thickness, raycast_length)
+	laser.position.z = -(raycast_length/2)
 	
+	enable_raycast(true)
+
 func enable_raycast(enable):
 	raycast.enabled = enable
 	laser.visible = enable

@@ -2,56 +2,82 @@ extends SplitContainer
 
 signal edited_object(new_component)
 
+@export var actor_receiver_settings : ActorReceiverSettings
+
+# Preload Necessary Resources
+# State Behaviors Scenes
 var raycast_behavior = preload("res://src/ois/states/control_raycast.tscn")
 var snap_behavior = preload("res://src/ois/states/snap_objects.tscn")
 var interact_behavior = preload("res://src/ois/states/interact_receiver.tscn")
-
+# Setting GUI Scenes
 var state_behavior_cb = preload("res://src/ois/authoring_tool/state_behavior_cb.tscn")
-
-var raycast_settings = preload("res://src/ois/authoring_tool/behavior_settings/raycast_settings.tscn")
-var snap_settings = preload("res://src/ois/authoring_tool/behavior_settings/snap_settings.tscn")
-var interact_settings = preload("res://src/ois/authoring_tool/behavior_settings/interact_settings.tscn")
+var component_settings_scn = preload("res://src/ois/authoring_tool/component_settings.tscn")
 
 @onready var behavior_container = $BoxContainer/ScrollContainer/BehaviorContainer
 @onready var state_behavior_settings_container = $SplitContainer/Panel/ScrollContainer/StateBehaviorSettingsContainer
 @onready var new_behavior_selector = $BoxContainer/OptionButton
+@onready var add_behavior_btn = $BoxContainer/BtnAddBehavior
+@onready var receiver_input = $BoxContainer/ReceiverGroup/LineEdit
 
 var editable_obj
 var sm : StateManager
 var sm_settings : StateManagerSettings
 
 func _ready():
+	# Disable Inputs
+	enable_inputs(false)
+
+	# Set up option button for selecting behavior
 	new_behavior_selector.add_item("Raycast")
+	new_behavior_selector.set_item_metadata(0, raycast_behavior)
 	new_behavior_selector.add_item("Snap")
+	new_behavior_selector.set_item_metadata(1, snap_behavior)
 	new_behavior_selector.add_item("Interact")
+	new_behavior_selector.set_item_metadata(2, interact_behavior)
 	new_behavior_selector.selected = -1
 
-func set_up_actor_settings(obj):
+func set_up(obj):
+	clear()
 	editable_obj = obj
-	sm = obj.get_node_or_null("StateManager")
-	if sm is StateManager:
-		if sm.settings == null:
-			sm_settings = StateManagerSettings.new()
-			for child in sm.get_children():
-				if child is OISState:
-					sm_settings.add_state(child.name)
-				elif child is StateBehavior:
-					sm_settings.add_behavior(child.name)
-		else:
-			sm_settings = sm.settings
-		set_up_grid()
+	
+	if obj == null:
+		sm = null
+		sm_settings = null
+		enable_inputs(false)
+	else:
+		enable_inputs(true)
+		
+		sm = obj.get_node_or_null("StateManager")
+		if sm is StateManager:
+			receiver_input.text = sm.receiver_group
+			
+			if sm.settings == null:
+				sm_settings = StateManagerSettings.new()
+				for child in sm.get_children():
+					if child is OISState:
+						sm_settings.add_state(child.name)
+					elif child is StateBehavior:
+						sm_settings.add_behavior(child.name)
+			else:
+				sm_settings = sm.settings
+			load_behaviors_from_settings()
+			set_up_state_behavior_settings_container()
 
-func clear_actor_settings():
+# Remove all behavior and state settings
+func clear():
 	for child in state_behavior_settings_container.get_children():
 		child.queue_free()
 	for child in behavior_container.get_children():
 		child.queue_free()
 
-func set_up_grid():
-	clear_actor_settings()
-	set_up_behavior_container()
-	set_up_state_behavior_settings_container()
+func enable_inputs(is_enabled : bool):
+	new_behavior_selector.disabled = !is_enabled
+	add_behavior_btn.disabled = !is_enabled
+	receiver_input.text = ""
+	receiver_input.editable = is_enabled
+	
 
+# Set up checkbox grid for setting if a behavior occurs during a state
 func set_up_state_behavior_settings_container():
 	# Clear Container
 	for child in state_behavior_settings_container.get_children():
@@ -83,9 +109,9 @@ func set_up_state_behavior_settings_container():
 			
 			# connect signals so state manager settings update according to checkbox 
 			cb.change_value.connect(sm_settings.change_value)
-		state_behavior_settings_container.add_child(box_cont)	
+		state_behavior_settings_container.add_child(box_cont)
 
-func set_up_behavior_container():
+func load_behaviors_from_settings():
 	for behavior in sm_settings.behavior_dict:
 		var behavior_node = sm.get_node_or_null(behavior)
 		if behavior_node != null:
@@ -95,30 +121,17 @@ func set_up_behavior_container():
 
 func _on_btn_add_behavior_pressed():
 	var behavior
-	match new_behavior_selector.get_selected_id():
-		0: #raycast
-			add_behavior_settings(create_bahavior("Raycast"))
-		1: #snap
-			add_behavior_settings(create_bahavior("Snap"))
-		2: #interact
-			add_behavior_settings(create_bahavior("Interact"))
+	if new_behavior_selector.selected != -1:
+		add_behavior_settings(add_bahavior_node(new_behavior_selector.get_selected_metadata()))
 	new_behavior_selector.selected = -1
 
 # Instantiates corresponding StateBehavior Scene
 # Adds to object and updates object's state manager settings
-func create_bahavior(behavior_type : String):
-	var behavior
-	
-	match behavior_type:
-		"Raycast":
-			behavior = raycast_behavior.instantiate()
-		"Snap":
-			behavior = snap_behavior.instantiate()
-		"Interact":
-			behavior = interact_behavior.instantiate()
-
+func add_bahavior_node(behavior_scene):
+	var behavior = behavior_scene.instantiate()
 	sm.add_child(behavior)
 	sm_settings.add_behavior(behavior.name)
+	
 	behavior.owner = editable_obj
 	
 	edited_object.emit(behavior)
@@ -127,21 +140,40 @@ func create_bahavior(behavior_type : String):
 
 # Instantiates corresponding StateBehaviorSettings Scene
 func add_behavior_settings(behavior_node : StateBehavior):
-	var setting_node : StateBehaviorSettings
-	if behavior_node is SBRaycast:
-		setting_node = raycast_settings.instantiate()
-	elif behavior_node is SBSnap:
-		setting_node = snap_settings.instantiate()
-	elif behavior_node is SBInteract:
-		setting_node = interact_settings.instantiate()
+	var comp_settings = component_settings_scn.instantiate()
+	behavior_container.add_child(comp_settings)
 	
-	behavior_container.add_child(setting_node)
-	setting_node.set_behavior_node(behavior_node)
+	var del_func = func(): delete_behavior(behavior_node, comp_settings)
+	var rename_func = func(new_name): rename_behavior(behavior_node, new_name)
 	
-	#  connect signals so state behavior updates according to changes to behavior settings 
-
+	comp_settings.set_component(behavior_node, behavior_node.name, del_func, rename_func)
+	
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
+
+func delete_behavior(behavior_node, component_settings):
+	behavior_node.queue_free()
+	sm_settings.remove_behavior(behavior_node.name)
+	component_settings.queue_free()
 	
-func _on_btn_check_settings_pressed():
-	print(sm_settings.behavior_dict)
+	# update state behavior settings container
+	set_up_state_behavior_settings_container()
+	edited_object.emit(null)
+
+func rename_behavior(behavior_node, new_name):
+	sm_settings.rename_behavior(behavior_node.name, new_name)
+	behavior_node.name = new_name
+	
+	# update state behavior settings container
+	set_up_state_behavior_settings_container()
+	edited_object.emit(null)
+	
+func set_receiver_group():
+	if receiver_input.text != "":
+		sm.receiver_group = receiver_input.text
+		actor_receiver_settings.add_receiver_group(sm.receiver_group)
+		actor_receiver_settings.save()
+
+
+func _on_line_edit_text_changed(new_text):
+	$BoxContainer/ReceiverGroupWarning.visible = actor_receiver_settings.check_group_exists(new_text)
