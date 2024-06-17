@@ -20,7 +20,8 @@ signal non_vr_teleporter_clicked(to: String) # filename of scene to teleport to
 #EVENT FLAGS
 var look_at_me = false
 var pick_up_key = false
-var open_door = false
+var earth_spirit = false
+var open_gate = false
 var pet_cat = false
 var get_picture = false
 var quest_start = false

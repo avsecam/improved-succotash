@@ -5,6 +5,7 @@ extends Node
 const initialize = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_01_HelloMe.ogg")
 const ongoing = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_02_HeyHere.ogg")
 @onready var timer = $"../../MarbleSpirit_Normal/Timer"
+@onready var next = $"../../Teleporters/Tut2_jpg"
 
 func _ready():
 	if !Events.look_at_me:
@@ -19,10 +20,8 @@ func initialize_event():
 	var length = audio_stream_player.stream.get_length()
 	timer.wait_time = length + 3
 	
-
 func _on_audio_stream_player_3d_finished():
 	audio_stream_player.stream = ongoing
-
 
 func _on_timer_timeout():
 	if !Events.look_at_me:

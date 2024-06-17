@@ -5,6 +5,7 @@ extends Node
 const initialize = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked.ogg")
 const ongoing = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_04_GoKey.ogg")
 
+
 func _ready():
 	if !Events.pick_up_key:
 		timer.start()
@@ -24,10 +25,9 @@ func _on_timer_timeout():
 		timer.wait_time = length + 3
 		audio_stream_player.play()
 
-func _on_key_in_inventory():
-	#Make a signal from the inventory/key to check if key is in the inventory
-	Events.look_at_me = true
-
+func _on_key_pick_up():
+	#Make a signal that the key is picked up already
+	Events.pick_up_key = true
 
 func _on_audio_stream_player_3d_finished():
 	audio_stream_player.stream = ongoing
