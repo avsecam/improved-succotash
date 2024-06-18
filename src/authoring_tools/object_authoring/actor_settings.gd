@@ -10,8 +10,8 @@ var raycast_behavior = preload("res://src/ois/states/control_raycast.tscn")
 var snap_behavior = preload("res://src/ois/states/snap_objects.tscn")
 var interact_behavior = preload("res://src/ois/states/interact_receiver.tscn")
 # Setting GUI Scenes
-var state_behavior_cb = preload("res://src/ois/authoring_tool/state_behavior_cb.tscn")
-var component_settings_scn = preload("res://src/ois/authoring_tool/component_settings.tscn")
+var state_behavior_cb = preload("res://src/authoring_tools/object_authoring/state_behavior_cb.tscn")
+var component_settings_scn = preload("res://src/authoring_tools/object_authoring/component_settings.tscn")
 
 @onready var behavior_container = $BoxContainer/ScrollContainer/BehaviorContainer
 @onready var state_behavior_settings_container = $SplitContainer/Panel/ScrollContainer/StateBehaviorSettingsContainer

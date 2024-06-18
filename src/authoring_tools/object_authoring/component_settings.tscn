@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcmqjb14b0vh"]
 
-[ext_resource type="Script" path="res://src/ois/authoring_tool/component_settings.gd" id="1_yighx"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/component_settings.gd" id="1_davm6"]
 
 [node name="ComponentSettings" type="PanelContainer"]
 anchors_preset = 15
@@ -10,7 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-script = ExtResource("1_yighx")
+script = ExtResource("1_davm6")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

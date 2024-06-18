@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://gb7s0yjwlwtb"]
 
-[ext_resource type="Script" path="res://src/ois/authoring_tool/inventory_settings.gd" id="1_h8y3n"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/inventory_settings.gd" id="1_h8y3n"]
 
 [node name="InventorySettings" type="MarginContainer"]
 anchors_preset = 15

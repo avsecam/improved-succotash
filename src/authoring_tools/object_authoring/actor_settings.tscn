@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c43mihg4osje5"]
 
-[ext_resource type="Script" path="res://src/ois/authoring_tool/actor_settings.gd" id="1_0vygj"]
-[ext_resource type="Resource" uid="uid://i7huviwkuuvr" path="res://src/ois/authoring_tool/actor_receiver_settings.tres" id="2_1t8ys"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/actor_settings.gd" id="1_0vygj"]
+[ext_resource type="Resource" uid="uid://i7huviwkuuvr" path="res://src/authoring_tools/object_authoring/actor_receiver_settings.tres" id="2_1t8ys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocagi"]
 bg_color = Color(0.6, 0.6, 0.6, 0.639216)

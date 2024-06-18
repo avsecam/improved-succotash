@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dyddt6ihfp2jd"]
 
-[ext_resource type="Script" path="res://src/ois/authoring_tool/state_behavior_cb.gd" id="1_nvt7p"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/state_behavior_cb.gd" id="1_nvt7p"]
 
 [node name="StateBehaviorCb" type="CheckBox"]
 anchors_preset = 15

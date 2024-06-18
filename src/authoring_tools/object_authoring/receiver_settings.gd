@@ -16,7 +16,7 @@ var current_receiver_comp
 @onready var receiver_group_option_btn = $ScrollContainer/Main/ReceiverGroupOptionButton
 @onready var receiver_group_container = $ScrollContainer/Main/ReceiverGroupContainer
 
-var component_settings_scn = preload("res://src/ois/authoring_tool/component_settings.tscn")
+var component_settings_scn = preload("res://src/authoring_tools/object_authoring/component_settings.tscn")
 
 # Can only handle objects that are receiver or have one node named "ReceiverComp"
 
