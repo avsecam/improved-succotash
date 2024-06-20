@@ -11,18 +11,19 @@ extends Node
 func _ready():
 	if !Events.look_at_me:
 		timer.start()
-		initialize_event()
+		#initialize_event()
 
 func _on_visible_on_screen_notifier_3d_screen_entered():
 	Events.look_at_me = true
 
 func initialize_event():
-	audio_stream_player.stream = initialize
+	#audio_stream_player.stream = initialize
 	var length = audio_stream_player.stream.get_length()
 	timer.wait_time = length + timer_time
 	
 func _on_audio_stream_player_3d_finished():
-	audio_stream_player.stream = ongoing
+	#audio_stream_player.stream = ongoing
+	pass
 
 func _on_timer_timeout():
 	if !Events.look_at_me:

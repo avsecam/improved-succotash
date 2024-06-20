@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnw6y1i0lf3nc"]
+
+[ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="1_cbsja"]
+[ext_resource type="AudioStream" uid="uid://bjhlaqaw10ygi" path="res://src/assets/audio/a1/VE_VO_A1_ASST_01_HeyUp.ogg" id="2_805th"]
+
+[node name="event_container" type="Node"]
+
+[node name="event 1" parent="." instance=ExtResource("1_cbsja")]
+
+[node name="initialize_audio" parent="event 1" index="0"]
+stream = ExtResource("2_805th")
+
+[node name="event 2" parent="." instance=ExtResource("1_cbsja")]
+
+[node name="event 3" parent="." instance=ExtResource("1_cbsja")]
+
+[editable path="event 1"]

@@ -4,8 +4,8 @@ extends Node
 @onready var ongoing_audio_player = $ongoing_audio
 
 @onready var object = get_parent()
-@export var initialize_audio:AudioStream
-@export var ongoing_audio:AudioStream
+@export var initialize_audio:AudioStreamPlayer3D = initialze_audio_player
+@export var ongoing_audio:AudioStreamPlayer3D = ongoing_audio_player
 @onready var timer = $wait_timer
 @export var timer_time = 3
 

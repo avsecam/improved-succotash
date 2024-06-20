@@ -1,24 +1,17 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://0gs8kweu3gg4"]
 
-[ext_resource type="PackedScene" path="res://src/ems/authoring/event_template.tscn" id="1_sv33v"]
-[ext_resource type="Script" path="res://src/ems/authoring/event_properties.gd" id="2_j6tuq"]
+[ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="1_sv33v"]
+[ext_resource type="AudioStream" uid="uid://bjhlaqaw10ygi" path="res://src/assets/audio/a1/VE_VO_A1_ASST_01_HeyUp.ogg" id="2_qxdks"]
 
 [node name="event_container" type="Node"]
 
-[node name="Text" type="Node" parent="." instance=ExtResource("1_sv33v")]
-script = ExtResource("2_j6tuq")
-initialize_audio = null
-ongoing_audio = null
-timer_time = 3
+[node name="Text" parent="." instance=ExtResource("1_sv33v")]
 
-[node name="Text2" type="Node" parent="." instance=ExtResource("1_sv33v")]
-script = ExtResource("2_j6tuq")
-initialize_audio = null
-ongoing_audio = null
-timer_time = 3
+[node name="initialize_audio" parent="Text" index="0"]
+stream = ExtResource("2_qxdks")
 
-[node name="Text23" type="Node" parent="." instance=ExtResource("1_sv33v")]
-script = ExtResource("2_j6tuq")
-initialize_audio = null
-ongoing_audio = null
-timer_time = 3
+[node name="Text2" parent="." instance=ExtResource("1_sv33v")]
+
+[node name="Text23" parent="." instance=ExtResource("1_sv33v")]
+
+[editable path="Text"]

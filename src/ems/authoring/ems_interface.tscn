@@ -105,9 +105,41 @@ ok_button_text = "Open"
 file_mode = 0
 root_subfolder = "res://src/ems/events/"
 
+[node name="edit_event" type="ConfirmationDialog" parent="."]
+initial_position = 1
+size = Vector2i(200, 138)
+
+[node name="add_event_pop_up_container" type="VBoxContainer" parent="edit_event"]
+clip_contents = true
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 89.0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="edit_event/add_event_pop_up_container"]
+layout_mode = 2
+
+[node name="initial_sound_label" type="Label" parent="edit_event/add_event_pop_up_container/VBoxContainer"]
+layout_mode = 2
+text = "Initial Sound"
+
+[node name="initial_sound_edit" type="Button" parent="edit_event/add_event_pop_up_container/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Edit"
+
+[node name="initial_sound_FD" type="FileDialog" parent="edit_event"]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(500, 500)
+ok_button_text = "Open"
+file_mode = 0
+
 [connection signal="confirmed" from="add_event_pop_up" to="." method="_on_add_event_pop_up_confirmed"]
 [connection signal="pressed" from="control_panel/add_event" to="." method="_on_add_event_pressed"]
 [connection signal="pressed" from="control_panel/save_event" to="." method="_on_save_event_pressed"]
 [connection signal="pressed" from="control_panel/load_event" to="." method="_on_load_event_pressed"]
 [connection signal="file_selected" from="SaveEventFile" to="." method="_on_save_event_file_file_selected"]
 [connection signal="file_selected" from="LoadEventFile" to="." method="_on_load_event_file_file_selected"]
+[connection signal="pressed" from="edit_event/add_event_pop_up_container/VBoxContainer/initial_sound_edit" to="." method="_on_initial_sound_edit_pressed"]
+[connection signal="file_selected" from="edit_event/initial_sound_FD" to="." method="_on_initial_sound_fd_file_selected"]

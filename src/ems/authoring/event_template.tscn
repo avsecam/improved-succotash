@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" path="res://src/ems/authoring/event_properties.gd" id="1_rcve2"]
 
-[node name="look_at_event" type="Node"]
+[node name="look_at_event" type="Node" node_paths=PackedStringArray("initialize_audio")]
 script = ExtResource("1_rcve2")
+initialize_audio = NodePath("initialize_audio")
 
 [node name="initialize_audio" type="AudioStreamPlayer3D" parent="."]
 

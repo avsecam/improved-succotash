@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://x3qpsddij1jh"]
+
+[ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="1_ddw46"]
+[ext_resource type="AudioStream" uid="uid://bjhlaqaw10ygi" path="res://src/assets/audio/a1/VE_VO_A1_ASST_01_HeyUp.ogg" id="2_ayjfm"]
+
+[node name="event_container" type="Node"]
+
+[node name="Text" parent="." instance=ExtResource("1_ddw46")]
+
+[node name="initialize_audio" parent="Text" index="0"]
+stream = ExtResource("2_ayjfm")
+
+[editable path="Text"]

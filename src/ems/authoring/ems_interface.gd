@@ -42,6 +42,9 @@ func _on_event_button_pressed(name):
 		if child.name == name:
 			event = child
 			selected_event = child
+	selected_event = event
+	
+	$edit_event.visible = true
 
 func _on_save_event_pressed():
 	$SaveEventFile.visible = true
@@ -64,3 +67,11 @@ func _on_load_event_file_file_selected(path):
 	var events = get_node("event_container")
 	events.queue_free()
 	var loaded_events
+
+
+func _on_initial_sound_edit_pressed():
+	$edit_event/initial_sound_FD.visible = true
+
+
+func _on_initial_sound_fd_file_selected(path):
+	selected_event.initialize_audio.stream = load(path)

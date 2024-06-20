@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi3fvbqrhct07"]
+
+[ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="1_3anqp"]
+
+[node name="event_container" type="Node"]
+
+[node name="Event 1" parent="." node_paths=PackedStringArray("ongoing_audio") instance=ExtResource("1_3anqp")]
+ongoing_audio = NodePath("ongoing_audio")
+
+[node name="Event 2" parent="." instance=ExtResource("1_3anqp")]
+
+[node name="Event 3" parent="." instance=ExtResource("1_3anqp")]
+
+[node name="Event 4" parent="." instance=ExtResource("1_3anqp")]
+
+[node name="Event 5" parent="." instance=ExtResource("1_3anqp")]
+
+[editable path="Event 1"]

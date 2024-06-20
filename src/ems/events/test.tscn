@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqly001ocdcke"]
+
+[ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="1_ynuvs"]
+
+[node name="event_container" type="Node"]
+
+[node name="Text" parent="." instance=ExtResource("1_ynuvs")]
+
+[editable path="Text"]
