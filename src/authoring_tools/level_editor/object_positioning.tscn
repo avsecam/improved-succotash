@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/NonVR.gd" id="2_4a5et"]
 [ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="4_odegr"]
 [ext_resource type="PackedScene" uid="uid://dlrhpy2o6d7bl" path="res://src/authoring_tools/gizmos/editor_controller.tscn" id="5_d3iyj"]
-[ext_resource type="Script" path="res://src/ois/authoring_tool/notification_panel.gd" id="5_wkdsu"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/notification_panel.gd" id="5_wkdsu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qaoca"]
 albedo_color = Color(0.937255, 0.309804, 1, 1)

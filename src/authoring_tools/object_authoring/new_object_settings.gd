@@ -13,8 +13,6 @@ extends ConfirmationDialog
 
 # Preload Scenes for creating objects
 var pickable_scene = preload("res://src/ois/pickable_template.tscn")
-#var receiver_scene = preload("res://src/ois/action_components/receiver_object_static.tscn")
-#var actor_scene = preload("res://src/ois/actor_object.tscn")
 var sm_one_handed_tool_scene = preload("res://src/ois/state_managers/one_handed_tool.tscn")
 var sm_two_handed_tool_scene = preload("res://src/ois/state_managers/two_handed_tool.tscn")
 var inventory_component_scene = preload("res://src/inventory/inventory_item_comp.tscn")
