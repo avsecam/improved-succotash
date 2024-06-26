@@ -196,6 +196,17 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="NotificationPanel"]
 one_shot = true
 
+[node name="CDProceedWithoutSaving" type="ConfirmationDialog" parent="."]
+initial_position = 1
+size = Vector2i(539, 100)
+
+[node name="Label" type="Label" parent="CDProceedWithoutSaving"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 531.0
+offset_bottom = 51.0
+text = "Are you sure you wish to proceed without saving the current scene?"
+
 [connection signal="pressed" from="TopControls/BtnLoadArea" to="." method="_on_btn_load_area_pressed"]
 [connection signal="pressed" from="TopControls/BtnAddObject" to="." method="_on_btn_add_object_pressed"]
 [connection signal="toggled" from="TopControls/BtnGravityOn" to="." method="_on_btn_gravity_on_toggled"]
