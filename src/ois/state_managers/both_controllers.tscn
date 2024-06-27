@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8nbvwk1jrs0l"]
+
+[ext_resource type="PackedScene" uid="uid://cgvb2nfbovs56" path="res://src/ois/state_managers/state_manager.tscn" id="1_4cvik"]
+[ext_resource type="Script" path="res://src/ois/state_managers/both_controllers.gd" id="2_0axuf"]
+[ext_resource type="PackedScene" uid="uid://c7jka6pr2nc0" path="res://src/ois/states/state.tscn" id="2_7bgtr"]
+
+[node name="StateManager" node_paths=PackedStringArray("current_state") instance=ExtResource("1_4cvik")]
+script = ExtResource("2_0axuf")
+current_state = NodePath("IdleState")
+
+[node name="IdleState" parent="." index="0" instance=ExtResource("2_7bgtr")]
+
+[node name="ActiveColliding1State" parent="." index="1" instance=ExtResource("2_7bgtr")]
+
+[node name="ActiveColliding2State" parent="." index="2" instance=ExtResource("2_7bgtr")]
+
+[node name="ActiveColliding1TriggerState" parent="." index="3" instance=ExtResource("2_7bgtr")]
+
+[node name="Trigger1State" parent="." index="4" instance=ExtResource("2_7bgtr")]
+
+[node name="Trigger2State" parent="." index="5" instance=ExtResource("2_7bgtr")]

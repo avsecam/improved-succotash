@@ -6,6 +6,7 @@
 
 [node name="StateManager" node_paths=PackedStringArray("current_state") instance=ExtResource("1_uhlde")]
 script = ExtResource("2_dlemj")
+receiver_group = "single_controller"
 current_state = NodePath("ActiveState")
 
 [node name="IdleState" parent="." index="0" instance=ExtResource("3_wcl1b")]

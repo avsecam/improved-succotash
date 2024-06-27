@@ -1,18 +1,55 @@
-[gd_scene load_steps=18 format=3 uid="uid://t00fxnyqc54j"]
+[gd_scene load_steps=24 format=3 uid="uid://t00fxnyqc54j"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_585la"]
+[ext_resource type="PackedScene" uid="uid://b8nbvwk1jrs0l" path="res://src/ois/state_managers/both_controllers.tscn" id="2_b83ug"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_i5jns"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_17ekq"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="3_vi5fd"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_8jqqx"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="4_mybaj"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_korep"]
 [ext_resource type="PackedScene" uid="uid://dh1n6eeo7by8b" path="res://src/inventory/SlotsAnchoredToHand.tscn" id="6_8xdnn"]
 [ext_resource type="Script" path="res://src/inventory/SlotsAnchoredToHand_CameraManip.gd" id="7_56vny"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="8_w2nsv"]
+[ext_resource type="PackedScene" uid="uid://sa5ggfgvh67s" path="res://src/ois/xx_demo_objects/single_controller_implementation.tscn" id="11_m1clw"]
 [ext_resource type="PackedScene" uid="uid://b274d6hpy4awm" path="res://src/ois/xx_demo_objects/inventory_actor_item_new.tscn" id="12_gao03"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="13_vat80"]
-[ext_resource type="PackedScene" path="res://src/ois/xx_demo_objects/screw.tscn" id="14_irog0"]
+[ext_resource type="PackedScene" uid="uid://dyq8ima5a0dpl" path="res://src/ois/xx_demo_objects/screw.tscn" id="14_irog0"]
 [ext_resource type="PackedScene" uid="uid://dxl4wsqjnn6b2" path="res://src/ois/xx_demo_objects/pickable_receiver.tscn" id="14_n46oj"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="16_f5dhw"]
+
+[sub_resource type="Resource" id="Resource_ouiax"]
+script = ExtResource("3_vi5fd")
+state_behavior_settings = {
+"ActiveColliding1State": {
+"InteractReceiverFull": false,
+"InteractReceiverHalf": false
+},
+"ActiveColliding1TriggerState": {
+"InteractReceiverFull": false,
+"InteractReceiverHalf": true
+},
+"ActiveColliding2State": {
+"InteractReceiverFull": false,
+"InteractReceiverHalf": false
+},
+"IdleState": {
+"InteractReceiverFull": false,
+"InteractReceiverHalf": false
+},
+"Trigger1State": {
+"InteractReceiverFull": false,
+"InteractReceiverHalf": true
+},
+"Trigger2State": {
+"InteractReceiverFull": true,
+"InteractReceiverHalf": false
+}
+}
+behavior_dict = {
+"InteractReceiverFull": false,
+"InteractReceiverHalf": false
+}
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vtwao"]
 size = Vector2(100, 100)
@@ -24,10 +61,25 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_k4ow5"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nu0uj"]
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="OISDemo" type="Node3D"]
 script = ExtResource("1_585la")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="StateManagerBoth" parent="XROrigin3D" node_paths=PackedStringArray("left_sm", "right_sm") instance=ExtResource("2_b83ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
+left_sm = NodePath("../LeftHand/StateManager")
+right_sm = NodePath("../RightHand/StateManager")
+receiver_group = "both_controllers"
+settings = SubResource("Resource_ouiax")
+
+[node name="InteractReceiverFull" parent="XROrigin3D/StateManagerBoth" instance=ExtResource("4_mybaj")]
+
+[node name="InteractReceiverHalf" parent="XROrigin3D/StateManagerBoth" instance=ExtResource("4_mybaj")]
+rate = 0.5
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
@@ -48,9 +100,19 @@ tracker = &"left_hand"
 script = ExtResource("7_56vny")
 camera = NodePath("../../XRCamera3D")
 
+[node name="StateManager" parent="XROrigin3D/LeftHand" instance=ExtResource("11_m1clw")]
+
+[node name="ControlRaycastVisibility" parent="XROrigin3D/LeftHand/StateManager" index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0323803, -0.0467715, 0.104004)
+
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
 tracker = &"right_hand"
+
+[node name="StateManager" parent="XROrigin3D/RightHand" instance=ExtResource("11_m1clw")]
+
+[node name="ControlRaycastVisibility" parent="XROrigin3D/RightHand/StateManager" index="4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0185912, -0.0418301, 0.104004)
 
 [node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("8_w2nsv")]
 
@@ -131,12 +193,20 @@ metadata/_edit_group_ = true
 [node name="PickableObject" parent="." instance=ExtResource("12_gao03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191641, 0.351377, -0.277019)
 
-[node name="Screw" parent="." groups=["box"] instance=ExtResource("14_irog0")]
+[node name="Screw" parent="." groups=["both_controllers", "box"] instance=ExtResource("14_irog0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437249, 1.00643, -1.45463)
+
+[node name="CollisionShape3D" parent="Screw" index="7"]
+shape = SubResource("BoxShape3D_nu0uj")
 
 [node name="PickableObject2" parent="." instance=ExtResource("14_n46oj")]
 
+[node name="Screw2" parent="." groups=["single_controller"] instance=ExtResource("14_irog0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.292294, 1.00643, -1.45463)
+
 [editable path="XROrigin3D/LeftHand/Slots_hand"]
+[editable path="XROrigin3D/LeftHand/StateManager"]
+[editable path="XROrigin3D/RightHand/StateManager"]
 [editable path="Shelf"]
 [editable path="Shelf/Slot"]
 [editable path="Shelf/Slot/HighlightRing"]
@@ -150,3 +220,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437249, 1.00643, -1.45463)
 [editable path="Shelf/Slot5/HighlightRing"]
 [editable path="Shelf/Slot6"]
 [editable path="Shelf/Slot6/HighlightRing"]
+[editable path="Screw"]
