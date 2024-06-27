@@ -1,5 +1,13 @@
 extends SplitContainer
 
+## Actor Settings GUI
+##
+## This tool allows one to easily set properties of actor objects
+## Particularly, it allows one to configure the following:
+## - StateBehavior: Add, edit, or delete StateBehaviors 
+##   which allow the actor object to perform certain functions (e.g., raycast, snap, interact)
+## - StateBehaviorSettings: Indicate what StateBehavior happens at what State
+
 signal edited_object(new_component)
 
 @export var actor_receiver_settings : ActorReceiverSettings
@@ -36,6 +44,7 @@ func _ready():
 	new_behavior_selector.set_item_metadata(2, interact_behavior)
 	new_behavior_selector.selected = -1
 
+## Set up Actor settings
 func set_up(obj):
 	clear()
 	editable_obj = obj
@@ -51,6 +60,7 @@ func set_up(obj):
 		if sm is StateManager:
 			receiver_input.text = sm.receiver_group
 			
+			# If there is no assigned StateBehaviorSettings, create one based on object's children
 			if sm.settings == null:
 				sm_settings = StateManagerSettings.new()
 				for child in sm.get_children():
@@ -63,21 +73,22 @@ func set_up(obj):
 			load_behaviors_from_settings()
 			set_up_state_behavior_settings_container()
 
-# Remove all behavior and state settings
+## Remove all behavior and state settings
 func clear():
 	for child in state_behavior_settings_container.get_children():
 		child.queue_free()
 	for child in behavior_container.get_children():
 		child.queue_free()
 
+## Enable/Disable input fields and buttons
 func enable_inputs(is_enabled : bool):
 	new_behavior_selector.disabled = !is_enabled
 	add_behavior_btn.disabled = !is_enabled
 	receiver_input.text = ""
 	receiver_input.editable = is_enabled
 	
-
-# Set up checkbox grid for setting if a behavior occurs during a state
+## Set up checkbox grid for setting up StateBehaviorSettings 
+## (i.e., control if a behavior occurs during a state)
 func set_up_state_behavior_settings_container():
 	# Clear Container
 	for child in state_behavior_settings_container.get_children():
@@ -111,6 +122,8 @@ func set_up_state_behavior_settings_container():
 			cb.change_value.connect(sm_settings.change_value)
 		state_behavior_settings_container.add_child(box_cont)
 
+## Based on assinged StateBehaviorSettings, load GUI for behavior
+## if it exists as child of the StateManager
 func load_behaviors_from_settings():
 	for behavior in sm_settings.behavior_dict:
 		var behavior_node = sm.get_node_or_null(behavior)
@@ -125,8 +138,8 @@ func _on_btn_add_behavior_pressed():
 		add_behavior_settings(add_bahavior_node(new_behavior_selector.get_selected_metadata()))
 	new_behavior_selector.selected = -1
 
-# Instantiates corresponding StateBehavior Scene
-# Adds to object and updates object's state manager settings
+## Instantiates corresponding StateBehavior node (actual StateBehavior)
+## Adds to object and updates object's state manager settings
 func add_bahavior_node(behavior_scene):
 	var behavior = behavior_scene.instantiate()
 	sm.add_child(behavior)
@@ -138,7 +151,7 @@ func add_bahavior_node(behavior_scene):
 	
 	return behavior
 
-# Instantiates corresponding StateBehaviorSettings Scene
+## Instantiates component node to represent corresponding StateBehavior (only for GUI)
 func add_behavior_settings(behavior_node : StateBehavior):
 	var comp_settings = component_settings_scn.instantiate()
 	behavior_container.add_child(comp_settings)
@@ -151,6 +164,8 @@ func add_behavior_settings(behavior_node : StateBehavior):
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
 
+## Deletes corresponding StateBehavior and component instances (actual behavior and GUI component nodes)
+## Updates object's state manager settings
 func delete_behavior(behavior_node, component_settings):
 	behavior_node.queue_free()
 	sm_settings.remove_behavior(behavior_node.name)
@@ -160,6 +175,8 @@ func delete_behavior(behavior_node, component_settings):
 	set_up_state_behavior_settings_container()
 	edited_object.emit(null)
 
+## Renames corresponding StateBehavior and component instances (actual behavior and GUI component nodes)
+## Updates object's state manager settings
 func rename_behavior(behavior_node, new_name):
 	sm_settings.rename_behavior(behavior_node.name, new_name)
 	behavior_node.name = new_name
@@ -167,13 +184,15 @@ func rename_behavior(behavior_node, new_name):
 	# update state behavior settings container
 	set_up_state_behavior_settings_container()
 	edited_object.emit(null)
-	
+
+## Sets actor's receiver group and adds group name ActorReceiverSettings resource (for easy receiver assignment in GUI)
 func set_receiver_group():
 	if receiver_input.text != "":
 		sm.receiver_group = receiver_input.text
 		actor_receiver_settings.add_receiver_group(sm.receiver_group)
 		actor_receiver_settings.save()
 
-
+## Shows warning if inputted receiver group is already registerd in the ActorReceiverSettings resource
+## (to avoid cases where actors unintentionally have the same receiver groups)
 func _on_line_edit_text_changed(new_text):
 	$BoxContainer/ReceiverGroupWarning.visible = actor_receiver_settings.check_group_exists(new_text)
