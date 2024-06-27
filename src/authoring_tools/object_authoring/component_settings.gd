@@ -1,6 +1,12 @@
 extends Control
 class_name ComponentSettings
 
+## Component Settings GUI
+##
+## Given an object, it creates component for it with input fields depending its on exported properties
+## Input fields depend on the type of property it is (e.g., checkbox for boolean, spin box for float/int)
+## Changes to input field change value of corresponding object
+
 const export_property_usage_flag = 4102 #flag indicating exported variables
 
 var component
@@ -14,6 +20,8 @@ var component
 @onready var rename_start_cont = $MarginContainer/Main/BoxContainer/RenameStartCont
 @onready var new_name_input = $MarginContainer/Main/BoxContainer/RenameInProgressCont/EditNewName
 
+## Set object that component represents
+## Optionally setting delete and rename functions for said object
 func set_component(component, component_name, delete_function = null, rename_function = null):
 	comp_label.text = component_name
 	if component != null:
@@ -42,17 +50,19 @@ func set_component(component, component_name, delete_function = null, rename_fun
 			rename_component_settings()
 			)
 
+## Enable input fields for renaming component
 func _on_btn_start_rename_pressed():
 	rename_start_cont.visible = false
 	rename_in_progress_cont.visible = true
 	new_name_input.text = component.name
 
+## Rename component given inputted text and disable input fields for renaming component
 func rename_component_settings():
 	comp_label.text = component.name
 	rename_in_progress_cont.visible = false
 	rename_start_cont.visible = true
 
-# add gui for property depending on its type
+## Add input fields for property depending on its type
 func add_property_setting(prop, obj):
 	var box_cont = BoxContainer.new()
 	main_cont.add_child(box_cont)
@@ -121,4 +131,5 @@ func add_property_setting(prop, obj):
 		
 		24: #type object
 			print("obj")
+			# TODO: Figure out how to assign object at runtime
 

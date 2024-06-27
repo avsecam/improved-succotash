@@ -1,5 +1,9 @@
 extends CheckBox
 
+## StateBahavior Checkbox
+##
+## Used to set up StateBehaviorSettings (indicate what StateBehavior happens at what State) in ActorSettings
+
 var state : String = ""
 var behavior : String = ""
 
