@@ -1,0 +1,121 @@
+[gd_scene load_steps=19 format=3 uid="uid://b75o22duvvecj"]
+
+[ext_resource type="PackedScene" uid="uid://bu0yac1i41kpr" path="res://src/ois/pickable_template.tscn" id="1_t6la0"]
+[ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="2_ls1r3"]
+[ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="3_kdvdn"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="4_5wgt4"]
+[ext_resource type="Script" path="res://src/ois/action_components/lever_action.gd" id="4_cmx17"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="5_ux3l2"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="6_tys6r"]
+[ext_resource type="PackedScene" uid="uid://cpv285u8vgjeg" path="res://src/ois/states/control_collision_detection.tscn" id="7_essp5"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/rotate_self.gd" id="9_y20dp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3jko5"]
+size = Vector3(0.02, 0.02, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6qt8"]
+albedo_color = Color(0, 0.223529, 0.352941, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4fdq3"]
+material = SubResource("StandardMaterial3D_u6qt8")
+size = Vector3(0.02, 0.02, 0.8)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hru67"]
+radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j56rl"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.203922)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2tenc"]
+material = SubResource("StandardMaterial3D_j56rl")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="Resource" id="Resource_88usr"]
+script = ExtResource("5_ux3l2")
+state_behavior_settings = {
+"ActiveState": {
+"ControlCollisionDetection": true,
+"InteractReceiver": true
+},
+"IdleState": {
+"ControlCollisionDetection": false,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlCollisionDetection": true,
+"InteractReceiver": true
+}
+}
+behavior_dict = {
+"ControlCollisionDetection": false,
+"InteractReceiver": false
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjcyo"]
+size = Vector3(0.04, 0.06, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_44oco"]
+size = Vector3(0.01, 0.06, 0.06)
+
+[node name="PickableObject" instance=ExtResource("1_t6la0")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_3jko5")
+
+[node name="MainMesh" parent="." index="1"]
+mesh = SubResource("BoxMesh_4fdq3")
+
+[node name="GrabPointHandLeft" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.636536, 0.771247, 0, -0.771247, 0.636536, 0, -0.0575697, 0.159002)
+visible = true
+
+[node name="GrabPointHandRight" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.636536, 0.771247, 0, -0.771247, 0.636536, 0, -0.0575697, 0.159002)
+visible = true
+
+[node name="Crank" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0602924, 0, 0.149088)
+
+[node name="InteractableHandle" parent="Crank" index="0" instance=ExtResource("2_ls1r3")]
+release_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Crank/InteractableHandle" index="0"]
+shape = SubResource("SphereShape3D_hru67")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Crank/InteractableHandle" index="1"]
+mesh = SubResource("SphereMesh_2tenc")
+
+[node name="GrabPointRedirect" parent="Crank/InteractableHandle" index="2" instance=ExtResource("3_kdvdn")]
+
+[node name="StateManager" parent="Crank/InteractableHandle" index="3" instance=ExtResource("4_5wgt4")]
+receiver_group = "crank"
+settings = SubResource("Resource_88usr")
+
+[node name="InteractReceiver" parent="Crank/InteractableHandle/StateManager" index="3" instance=ExtResource("6_tys6r")]
+
+[node name="ControlCollisionDetection" parent="Crank/InteractableHandle/StateManager" index="4" instance=ExtResource("7_essp5")]
+collision_mesh_radius = 0.05
+
+[node name="Area3D" parent="Crank/InteractableHandle/StateManager/ControlCollisionDetection" index="1"]
+collision_mask = 17
+
+[node name="ReceiverComp" type="Area3D" parent="." index="5" groups=["crank"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0277578, 0, 0.149088)
+collision_layer = 17
+script = ExtResource("4_cmx17")
+requirement = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiverComp" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000586793, 0, 0)
+shape = SubResource("BoxShape3D_yjcyo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ReceiverComp" index="1"]
+mesh = SubResource("BoxMesh_44oco")
+
+[node name="RotateSelf" type="Node3D" parent="ReceiverComp" index="2"]
+script = ExtResource("9_y20dp")
+axis = Vector3(1, 0, 0)
+
+[editable path="Crank/InteractableHandle/StateManager/ControlCollisionDetection"]

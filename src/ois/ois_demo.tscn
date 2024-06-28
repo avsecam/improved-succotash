@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://t00fxnyqc54j"]
+[gd_scene load_steps=26 format=3 uid="uid://t00fxnyqc54j"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_585la"]
 [ext_resource type="PackedScene" uid="uid://b8nbvwk1jrs0l" path="res://src/ois/state_managers/both_controllers.tscn" id="2_b83ug"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dyq8ima5a0dpl" path="res://src/ois/xx_demo_objects/screw.tscn" id="14_irog0"]
 [ext_resource type="PackedScene" uid="uid://dxl4wsqjnn6b2" path="res://src/ois/xx_demo_objects/pickable_receiver.tscn" id="14_n46oj"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="16_f5dhw"]
+[ext_resource type="PackedScene" uid="uid://b75o22duvvecj" path="res://src/ois/xx_demo_objects/fishing_rod.tscn" id="19_6t2dj"]
 
 [sub_resource type="Resource" id="Resource_ouiax"]
 script = ExtResource("3_vi5fd")
@@ -202,6 +203,9 @@ shape = SubResource("BoxShape3D_nu0uj")
 
 [node name="Screw2" parent="." groups=["single_controller"] instance=ExtResource("14_irog0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.292294, 1.00643, -1.45463)
+
+[node name="PickableObject3" parent="." instance=ExtResource("19_6t2dj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405915, 0.249256, -1.31348)
 
 [editable path="XROrigin3D/LeftHand/Slots_hand"]
 [editable path="XROrigin3D/LeftHand/StateManager"]
