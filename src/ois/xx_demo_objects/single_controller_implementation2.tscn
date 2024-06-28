@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://f4gburm5ud0h"]
+
+[ext_resource type="PackedScene" uid="uid://c1ssfs8hlildi" path="res://src/ois/state_managers/single_controller.tscn" id="1_2bulc"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="2_we12r"]
+[ext_resource type="PackedScene" uid="uid://cpv285u8vgjeg" path="res://src/ois/states/control_collision_detection.tscn" id="4_hst45"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="4_m0uy5"]
+[ext_resource type="PackedScene" uid="uid://dct1hcihtc4lj" path="res://src/ois/states/hide_selected_node.tscn" id="5_crgdl"]
+
+[sub_resource type="Resource" id="Resource_svidl"]
+script = ExtResource("2_we12r")
+state_behavior_settings = {
+"ActiveCollidingState": {
+"ControlCollisionDetection": true,
+"HideSelectedNode": false,
+"InteractReceiver": false
+},
+"ActiveState": {
+"ControlCollisionDetection": true,
+"HideSelectedNode": true,
+"InteractReceiver": false
+},
+"IdleState": {
+"ControlCollisionDetection": false,
+"HideSelectedNode": true,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlCollisionDetection": true,
+"HideSelectedNode": false,
+"InteractReceiver": true
+}
+}
+behavior_dict = {
+"ControlCollisionDetection": false,
+"HideSelectedNode": false,
+"InteractReceiver": false
+}
+
+[node name="StateManager" instance=ExtResource("1_2bulc")]
+settings = SubResource("Resource_svidl")
+
+[node name="InteractReceiver" parent="." index="4" instance=ExtResource("4_m0uy5")]
+
+[node name="ControlCollisionDetection" parent="." index="5" instance=ExtResource("4_hst45")]
+
+[node name="HideSelectedNode" parent="." index="6" node_paths=PackedStringArray("node") instance=ExtResource("5_crgdl")]
+node = NodePath("../ControlCollisionDetection")

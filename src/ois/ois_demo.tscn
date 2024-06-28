@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://t00fxnyqc54j"]
+[gd_scene load_steps=25 format=3 uid="uid://t00fxnyqc54j"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_585la"]
 [ext_resource type="PackedScene" uid="uid://b8nbvwk1jrs0l" path="res://src/ois/state_managers/both_controllers.tscn" id="2_b83ug"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="8_w2nsv"]
 [ext_resource type="PackedScene" uid="uid://sa5ggfgvh67s" path="res://src/ois/xx_demo_objects/single_controller_implementation.tscn" id="11_m1clw"]
 [ext_resource type="PackedScene" uid="uid://b274d6hpy4awm" path="res://src/ois/xx_demo_objects/inventory_actor_item_new.tscn" id="12_gao03"]
+[ext_resource type="PackedScene" uid="uid://f4gburm5ud0h" path="res://src/ois/xx_demo_objects/single_controller_implementation2.tscn" id="13_cngbw"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="13_vat80"]
 [ext_resource type="PackedScene" uid="uid://dyq8ima5a0dpl" path="res://src/ois/xx_demo_objects/screw.tscn" id="14_irog0"]
 [ext_resource type="PackedScene" uid="uid://dxl4wsqjnn6b2" path="res://src/ois/xx_demo_objects/pickable_receiver.tscn" id="14_n46oj"]
@@ -109,16 +110,14 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.032
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
 tracker = &"right_hand"
 
-[node name="StateManager" parent="XROrigin3D/RightHand" instance=ExtResource("11_m1clw")]
-
-[node name="ControlRaycastVisibility" parent="XROrigin3D/RightHand/StateManager" index="4"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0185912, -0.0418301, 0.104004)
-
 [node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("8_w2nsv")]
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" instance=ExtResource("3_17ekq")]
 
 [node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("4_8jqqx")]
+
+[node name="StateManager" parent="XROrigin3D/RightHand" instance=ExtResource("13_cngbw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0754395, 0, 0.0894452)
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("13_vat80")]
 
@@ -206,7 +205,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.292294, 1.00643, -1.45463)
 
 [editable path="XROrigin3D/LeftHand/Slots_hand"]
 [editable path="XROrigin3D/LeftHand/StateManager"]
-[editable path="XROrigin3D/RightHand/StateManager"]
 [editable path="Shelf"]
 [editable path="Shelf/Slot"]
 [editable path="Shelf/Slot/HighlightRing"]

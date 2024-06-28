@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dct1hcihtc4lj"]
+
+[ext_resource type="PackedScene" uid="uid://c5ds6cwwrxad7" path="res://src/ois/states/state_behavior.tscn" id="1_f7auk"]
+[ext_resource type="Script" path="res://src/ois/states/hide_selected_node.gd" id="2_e6tio"]
+
+[node name="HideSelectedNode" instance=ExtResource("1_f7auk")]
+script = ExtResource("2_e6tio")
