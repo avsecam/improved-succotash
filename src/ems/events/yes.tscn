@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://src/ems/authoring/event_template.tscn" id="1_sv33v"]
+[ext_resource type="Script" path="res://src/ems/authoring/event_properties.gd" id="2_j6tuq"]
+
+[node name="event_container" type="Node"]
+
+[node name="Text" type="Node" parent="." instance=ExtResource("1_sv33v")]
+script = ExtResource("2_j6tuq")
+initialize_audio = null
+ongoing_audio = null
+timer_time = 3
+
+[node name="Text2" type="Node" parent="." instance=ExtResource("1_sv33v")]
+script = ExtResource("2_j6tuq")
+initialize_audio = null
+ongoing_audio = null
+timer_time = 3
+
+[node name="Text23" type="Node" parent="." instance=ExtResource("1_sv33v")]
+script = ExtResource("2_j6tuq")
+initialize_audio = null
+ongoing_audio = null
+timer_time = 3

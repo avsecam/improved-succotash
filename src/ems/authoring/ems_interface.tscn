@@ -54,6 +54,14 @@ offset_right = 246.0
 offset_bottom = 555.0
 text = "Add Event"
 
+[node name="save_event" type="Button" parent="control_panel"]
+layout_mode = 0
+offset_left = 968.0
+offset_top = 528.0
+offset_right = 1067.0
+offset_bottom = 559.0
+text = "Save Events"
+
 [node name="scrollbar" type="ScrollContainer" parent="control_panel"]
 layout_mode = 2
 offset_left = 64.0
@@ -76,7 +84,30 @@ offset_right = 117.0
 offset_bottom = 61.0
 text = "Events:"
 
+[node name="load_event" type="Button" parent="control_panel"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 523.0
+offset_right = 367.0
+offset_bottom = 554.0
+text = "Load Events"
+
 [node name="event_container" type="Node" parent="."]
+
+[node name="SaveEventFile" type="FileDialog" parent="."]
+ok_button_text = "Save"
+root_subfolder = "res://src/ems/events/"
+filters = PackedStringArray("*.tscn")
+
+[node name="LoadEventFile" type="FileDialog" parent="."]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ems/events/"
 
 [connection signal="confirmed" from="add_event_pop_up" to="." method="_on_add_event_pop_up_confirmed"]
 [connection signal="pressed" from="control_panel/add_event" to="." method="_on_add_event_pressed"]
+[connection signal="pressed" from="control_panel/save_event" to="." method="_on_save_event_pressed"]
+[connection signal="pressed" from="control_panel/load_event" to="." method="_on_load_event_pressed"]
+[connection signal="file_selected" from="SaveEventFile" to="." method="_on_save_event_file_file_selected"]
+[connection signal="file_selected" from="LoadEventFile" to="." method="_on_load_event_file_file_selected"]

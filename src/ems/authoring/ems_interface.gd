@@ -5,6 +5,13 @@ extends Control
 @onready var add_event_text_edit = $add_event_pop_up/add_event_pop_up_container/TextEdit
 @onready var event_container = $event_container
 
+@onready var get_initial_audio = $edit_look_at_event/GetInitialAudio
+@onready var get_ongoing_audio = $edit_look_at_event/GetOngoingAudio
+@onready var edit_look_at_event = $edit_look_at_event
+
+@onready var events = $event_container
+var selected_event
+
 var EVENT_TEMPLATE = preload("res://src/ems/authoring/event_template.tscn")
 const EVENT_BUTTON = preload("res://src/ems/authoring/event_button.tscn")
 
@@ -31,9 +38,29 @@ func _on_event_button_pressed(name):
 	for child in button_children:
 		if child.name == name:
 			button = child
-			print("Found Button Child")
-	for child in button_children:
+	for child in event_children:
 		if child.name == name:
 			event = child
-			print("Found Event Child")
-	
+			selected_event = child
+
+func _on_save_event_pressed():
+	$SaveEventFile.visible = true
+
+func _on_save_event_file_file_selected(path):
+	var scene = PackedScene.new()
+	for child in events.get_children():
+		child.set_owner(events)
+	scene.pack(events)
+	var error = ResourceSaver.save(scene, path)
+	if error != OK:
+		print("An error occurred while saving the scene to disk.")
+	else:
+		print("Saved object to %s" % path)
+
+func _on_load_event_pressed():
+	$LoadEventFile.visible = true
+
+func _on_load_event_file_file_selected(path):
+	var events = get_node("event_container")
+	events.queue_free()
+	var loaded_events
