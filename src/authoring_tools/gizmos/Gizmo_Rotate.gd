@@ -5,6 +5,12 @@ extends Node3D
 # A variable to hold the Editor_Viewport node.
 var editor_viewport;
 
+# Initialize UI variables
+var x_coord
+var y_coord
+var z_coord
+var apply_button
+
 # A variable to hold the currently active axis.
 # NOTE: we are making this a exported variable so we can check its value from the remote debugger.
 @export_enum ("ALL", "X", "Y", "Z", "NONE") var active_gizmo_axis: String
@@ -23,7 +29,10 @@ const ROTATION_SPEED = 1;
 func _ready():
 	# Get the Editor_Viewport node using path_to_editor_viewport and assign it to editor_viewport.
 	editor_viewport = get_node(path_to_editor_viewport);
-	
+	x_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/X_edit/X_coord")
+	y_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Y_edit/Y_coord")
+	z_coord = editor_viewport.get_node("../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Z_edit/Z_coord")
+
 	# Make the gizmo disabled by default.
 	update(false);
 	
@@ -103,6 +112,10 @@ func _input(event):
 							# Then reset current_rotation on the X and Y axis to the rotation stored in prior_rotation.
 							current_rotation.x = prior_rotation.x;
 							current_rotation.y = prior_rotation.y;
+							
+						x_coord.set_value(current_rotation.x)
+						y_coord.set_value(current_rotation.y)
+						z_coord.set_value(current_rotation.z)
 						
 						# Set the rotation of the selected object to current_rotation.
 						editor_viewport.selected_physics_object.rotation_degrees = current_rotation;
@@ -132,5 +145,6 @@ func update(is_active):
 func axis_set(new_axis):
 	# Set active_gizmo_axis to the passed in axis, new_axis.
 	active_gizmo_axis = new_axis;
+	
 
 

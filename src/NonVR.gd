@@ -1,12 +1,13 @@
 extends Node3D
 
-
-@onready var camera: Camera3D = $Camera
+@export var camera: Camera3D
 
 
 func _ready():
 	Events.start_with_vr.connect(_on_start_with_vr)
 	Events.start_without_vr.connect(_on_start_without_vr)
+	if camera == null:
+		camera = $Camera
 
 func _on_start_with_vr():
 	print("Freeing NonVR scene...")
@@ -30,11 +31,12 @@ func _physics_process(delta):
 	query.collision_mask = 0b00000000_00000000_00000010_00000000
 	var result := space_state.intersect_ray(query)
 
-	var collider: Teleporter = result.get("collider")
-	if collider:
-		Events.non_vr_teleporter_hovered.emit(collider)
-		
-		if Input.is_action_just_pressed("mouse_left") and collider.enabled:
-			Events.player_teleport_requested_trigger.emit(collider.to)
-	else:
-		Events.non_vr_no_teleporter_hovered.emit()
+	if result.get("collider") is Teleporter:
+		var collider: Teleporter = result.get("collider")
+		if collider:
+			Events.non_vr_teleporter_hovered.emit(collider)
+			
+			if Input.is_action_just_pressed("mouse_left") and collider.enabled:
+				Events.player_teleport_requested_trigger.emit(collider.to)
+		else:
+			Events.non_vr_no_teleporter_hovered.emit()
