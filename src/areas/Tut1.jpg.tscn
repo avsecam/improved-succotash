@@ -36,13 +36,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.312646, -0.519902, -4.4586)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_br0jg")
-enabled = false
 to = "Tut2.jpg"
 
 [node name="Events" type="Node" parent="."]
 
 [node name="look_at_me" parent="Events" instance=ExtResource("5_5qobl")]
 script = ExtResource("6_01r7p")
+initialize_audio = Object(AudioStreamPlayer3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"stream":null,"attenuation_model":0,"volume_db":0.0,"unit_size":10.0,"max_db":3.0,"pitch_scale":1.0,"autoplay":false,"stream_paused":false,"max_distance":0.0,"max_polyphony":1,"panning_strength":1.0,"bus":&"Master","area_mask":1,"emission_angle_enabled":false,"emission_angle_degrees":45.0,"emission_angle_filter_attenuation_db":-12.0,"attenuation_filter_cutoff_hz":5000.0,"attenuation_filter_db":-24.0,"doppler_tracking":0,"script":null)
+
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("6_y6uk4")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.307552, -2.33241, 2.10051)
