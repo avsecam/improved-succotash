@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://s570ukncs83j"]
+[gd_scene load_steps=7 format=3 uid="uid://s570ukncs83j"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_60g26"]
 [ext_resource type="PackedScene" uid="uid://cdfm7qxgcoow0" path="res://src/XRPlayer.tscn" id="1_juuij"]
@@ -6,10 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://cc8da0pnpufyb" path="res://src/NonVRCamera.tscn" id="5_0wvvu"]
 [ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="5_up2ir"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_b6fhd"]
+viewport_path = NodePath("XROrigin3D/XRCamera3D/SubViewport")
+
 [node name="Demo" type="Node3D"]
 script = ExtResource("1_60g26")
 
 [node name="XRPlayer" parent="." instance=ExtResource("1_juuij")]
+
+[node name="Sprite3D" parent="XRPlayer/XROrigin3D/XRCamera3D" index="0"]
+texture = SubResource("ViewportTexture_b6fhd")
 
 [node name="NonVR" type="Node3D" parent="."]
 script = ExtResource("3_2dg2b")
@@ -18,3 +24,5 @@ script = ExtResource("3_2dg2b")
 
 [node name="PanoramaContainer" type="Node3D" parent="NonVR"]
 script = ExtResource("5_up2ir")
+
+[editable path="XRPlayer"]

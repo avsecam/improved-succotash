@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://car5wh5lyv77j"]
+[gd_scene load_steps=6 format=3 uid="uid://car5wh5lyv77j"]
 
 [ext_resource type="PackedScene" uid="uid://pqntl142002y" path="res://src/ois/action_components/receiver_object_static.tscn" id="1_ob3v0"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="2_x0t6n"]
@@ -7,14 +7,22 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ndjy2"]
 size = Vector3(0.15752, 0.312189, 0.364197)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6831k"]
+size = Vector3(0.169006, 0.301514, 0.650879)
+
 [node name="Cat" instance=ExtResource("1_ob3v0")]
+collision_layer = 5242881
 script = ExtResource("2_x0t6n")
 requirement = 5.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158457, 0.00723267)
 shape = SubResource("BoxShape3D_ndjy2")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, 0, 0)
 mesh = ExtResource("3_bjlcj")
+
+[node name="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0279236, 0.228638, -0.0656738)
+shape = SubResource("BoxShape3D_6831k")

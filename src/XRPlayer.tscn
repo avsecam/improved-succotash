@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdfm7qxgcoow0"]
+[gd_scene load_steps=16 format=3 uid="uid://cdfm7qxgcoow0"]
 
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
 [ext_resource type="Script" path="res://src/XRPlayer.gd" id="1_ipr7h"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
 [ext_resource type="Script" path="res://src/teleportation/RotateCamera.gd" id="9_q76cs"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="10_376g4"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h6646"]
 viewport_path = NodePath("XROrigin3D/XRCamera3D/SubViewport")
@@ -20,6 +21,9 @@ material = SubResource("StandardMaterial3D_uemmm")
 top_radius = 0.01
 bottom_radius = 0.01
 height = 8.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vprdk"]
+albedo_color = Color(0.223529, 0.803922, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_euonu"]
 size = Vector3(20, 0.1, 20)
@@ -93,6 +97,10 @@ mesh = SubResource("CylinderMesh_bvchu")
 
 [node name="RotateCamera" type="Node3D" parent="XROrigin3D/RightHand"]
 script = ExtResource("9_q76cs")
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("10_376g4")]
+show_target = true
+target_material = SubResource("StandardMaterial3D_vprdk")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
