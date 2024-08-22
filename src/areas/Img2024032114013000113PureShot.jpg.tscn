@@ -38,7 +38,6 @@ to = "FrontClosedDoors(2).jpg"
 [node name="Events" type="Node" parent="."]
 
 [node name="open_door" parent="Events" instance=ExtResource("5_cy3es")]
+script = null
 
-[node name="pet_cat" parent="Events" instance=ExtResource("5_cy3es")]
-
-[node name="get_picture" parent="Events" instance=ExtResource("5_cy3es")]
+[editable path="Events/open_door"]

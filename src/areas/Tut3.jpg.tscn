@@ -40,10 +40,14 @@ to = "Tut2.jpg"
 
 [node name="Img2024032114013000113PureShot_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_er8cq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.798186, -0.609234, -4.38653)
+visible = false
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_40mqo")
+enabled = false
 to = "Img2024032114013000113PureShot.jpg"
 
 [node name="Cat" parent="." instance=ExtResource("5_wp8np")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0178787, -0.36377, -1.03323)
+
+[connection signal="cat_event_done" from="Cat" to="." method="_on_cat_cat_event_done"]

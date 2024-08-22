@@ -26,3 +26,10 @@ mesh = ExtResource("3_bjlcj")
 [node name="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0279236, 0.228638, -0.0656738)
 shape = SubResource("BoxShape3D_6831k")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
+
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

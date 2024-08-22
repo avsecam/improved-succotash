@@ -107,3 +107,9 @@ func _on_teleporter_hovered(teleporter: Teleporter):
 func _on_no_teleporter_hovered():
 	for teleporter in teleporters_container.get_children():
 		teleporter.set_color(IDLE_COLOR)
+
+@onready var next_tele = $Teleporters/Img2024032114013000113PureShot_jpg
+
+func _on_cat_cat_event_done():
+	next_tele.enabled = true
+	next_tele.visible = true
