@@ -5,7 +5,6 @@ extends Node
 const initialize = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_08_TheresIt.ogg")
 const ongoing = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_09_ItsIt.ogg")
 const done = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_10_GreatGo.ogg")
-@onready var pet_cat = $"../pet_cat"
 
 func _ready():
 	if !Events.open_gate:

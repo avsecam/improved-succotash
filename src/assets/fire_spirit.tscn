@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcdqwquh4lrv3"]
+
+[ext_resource type="PackedScene" uid="uid://d0uqd1br6o2tl" path="res://src/ems/new_objects822/A1/_FireSpirit_Normal.glb" id="1_5nctu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mbqno"]
+radius = 5.7915
+height = 22.6711
+
+[node name="FireSpirit_RigidBody3D" type="RigidBody3D"]
+collision_layer = 5242881
+
+[node name="_FireSpirit_Normal" parent="." instance=ExtResource("1_5nctu")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 1.06664, 0)
+shape = SubResource("CapsuleShape3D_mbqno")
