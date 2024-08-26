@@ -7,9 +7,11 @@ signal start_without_vr()
 # TELEPORT TRIGGER
 signal no_teleporter_hovered()
 signal teleporter_hovered(teleporter: Teleporter)
-signal player_teleport_requested_trigger(new_level_filepath: String)
+signal player_teleport_requested_trigger(teleporter: Teleporter)
 signal player_rotate_requested()
 signal set_player_rotation_requested(current_rotation: Vector3, new_rotation: Vector3)
+
+signal xr_camera_moved(pos: Vector3, rot: Vector3)
 
 
 # NON VR SIGNALS FOR TESTING WITHOUT A HEADSET
