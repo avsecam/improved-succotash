@@ -10,11 +10,14 @@
 script = ExtResource("1_60g26")
 
 [node name="XRPlayer" parent="." instance=ExtResource("1_juuij")]
+unique_name_in_owner = true
 
 [node name="NonVR" type="Node3D" parent="."]
 script = ExtResource("3_2dg2b")
 
 [node name="Camera" parent="NonVR" instance=ExtResource("5_0wvvu")]
 
-[node name="PanoramaContainer" type="Node3D" parent="NonVR"]
+[node name="LevelContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+top_level = true
 script = ExtResource("5_up2ir")
