@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnjeh5p3iuss5"]
+
+[ext_resource type="Script" path="res://src/teleportation/ThreeDScene.gd" id="1_8fa52"]
+
+[node name="ThreeDScene" type="Node3D"]
+script = ExtResource("1_8fa52")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]
