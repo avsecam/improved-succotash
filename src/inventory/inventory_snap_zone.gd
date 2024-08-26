@@ -20,7 +20,7 @@ func _on_has_dropped():
 	if current_inventory_obj.get_parent().get_name() == "Inventory Content":
 		current_inventory_obj.get_parent().remove_child(current_inventory_obj)
 	# index is set to 1 because XRUserSettings is child 0 -- will check if there's a better implementation
-	get_tree().get_root().get_child(1).add_child(current_inventory_obj)
+	get_tree().get_root().get_node("/root/XRToolsUserSettings").add_child(current_inventory_obj)
 	
 	#current_inventory_obj = null
 	current_inventory_item_comp = null

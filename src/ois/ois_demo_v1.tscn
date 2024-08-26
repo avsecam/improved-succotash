@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://t00fxnyqc54j"]
+[gd_scene load_steps=17 format=3 uid="uid://t00fxnyqc54j"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_585la"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_i5jns"]
@@ -21,8 +21,6 @@ size = Vector2(100, 100)
 size = Vector3(100, 1, 100)
 
 [sub_resource type="Environment" id="Environment_74kmf"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_k4ow5"]
 
 [node name="OISDemo" type="Node3D"]
 script = ExtResource("1_585la")
@@ -78,76 +76,13 @@ environment = SubResource("Environment_74kmf")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 31.3408, 0)
 
-[node name="Shelf" parent="." instance=ExtResource("16_f5dhw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000994563, 0.537479, -3.63298)
-
-[node name="Meshes2" type="Node3D" parent="Shelf"]
-transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 0.25, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Shelf/Meshes2"]
-mesh = SubResource("BoxMesh_k4ow5")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Shelf/Meshes2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.2584, 0)
-mesh = SubResource("BoxMesh_k4ow5")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Shelf/Meshes2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1991, 0)
-mesh = SubResource("BoxMesh_k4ow5")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Shelf/Meshes2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -14, 0, 0.2, -1.22392e-07, 0, 7.1991, -0.40438)
-mesh = SubResource("BoxMesh_k4ow5")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Shelf/Meshes2"]
-transform = Transform3D(-3.27835e-08, -0.05, 0, 15, -4.37114e-08, 0, 0, 0, 1, -0.474589, 7.12, 0)
-mesh = SubResource("BoxMesh_k4ow5")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Shelf/Meshes2"]
-transform = Transform3D(-3.27835e-08, -0.05, 0, 15, -4.37114e-08, 0, 0, 0, 1, 0.47574, 7.12804, -2.0504e-05)
-mesh = SubResource("BoxMesh_k4ow5")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Shelf/Meshes2"]
-transform = Transform3D(-3.27835e-08, -0.05, 0, 15, -4.37114e-08, 0, 0, 0, 1, 0.155, 7.12, 0)
-mesh = SubResource("BoxMesh_k4ow5")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Shelf/Meshes2"]
-transform = Transform3D(-3.27835e-08, -0.05, 0, 15, -4.37114e-08, 0, 0, 0, 1, -0.15464, 7.12804, -2.0504e-05)
-mesh = SubResource("BoxMesh_k4ow5")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
 [node name="PickableObject" parent="." instance=ExtResource("12_gao03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191641, 0.351377, -0.277019)
 
 [node name="Screw" parent="." groups=["box"] instance=ExtResource("14_irog0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437249, 1.00643, -1.45463)
 
+[node name="Shelf" parent="." instance=ExtResource("16_f5dhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603972, -4.42553)
+
 [editable path="XROrigin3D/LeftHand/Slots_hand"]
-[editable path="Shelf"]
-[editable path="Shelf/Slot"]
-[editable path="Shelf/Slot/HighlightRing"]
-[editable path="Shelf/Slot2"]
-[editable path="Shelf/Slot2/HighlightRing"]
-[editable path="Shelf/Slot3"]
-[editable path="Shelf/Slot3/HighlightRing"]
-[editable path="Shelf/Slot4"]
-[editable path="Shelf/Slot4/HighlightRing"]
-[editable path="Shelf/Slot5"]
-[editable path="Shelf/Slot5/HighlightRing"]
-[editable path="Shelf/Slot6"]
-[editable path="Shelf/Slot6/HighlightRing"]

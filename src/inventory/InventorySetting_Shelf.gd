@@ -24,16 +24,21 @@ func _check_inventory_status():
 			var object = null
 			inventory_array.append(object)
 	print("Inventory system item count:" + str(inventory_array.size()))
+	for i in inventory_array:
+		if i != null:
+			print("Slot: "+i.name)
+		else:
+			print("No object in Slot")
 					
 
 func _on_snap_zone_body_entered(target: Node3D) -> void:
 	# Call method when something enters or exits the inventory system.
 	# Check current state of the array
-	print("Snapzone body entered CALLED")
+	#print("Snapzone body entered CALLED")
 	_check_inventory_status()
 
 func _on_snap_zone_body_exited(target: Node3D) -> void:
 	# Call method when something enters or exits the inventory system.
 	# Check current state of the array
-	print("Snapzone body exited CALLED")
+	#print("Snapzone body exited CALLED")
 	_check_inventory_status()
