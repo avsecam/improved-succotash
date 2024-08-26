@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdfm7qxgcoow0"]
+[gd_scene load_steps=13 format=3 uid="uid://cdfm7qxgcoow0"]
 
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
 [ext_resource type="Script" path="res://src/XRPlayer.gd" id="1_ipr7h"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_lvx1b"]
 [ext_resource type="PackedScene" uid="uid://dbtokta8oh6ve" path="res://src/teleportation/Blink.tscn" id="2_rde5g"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_fx80c"]
-[ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="4_hekqp"]
 [ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
 [ext_resource type="Script" path="res://src/teleportation/RotateCamera.gd" id="9_q76cs"]
@@ -59,11 +58,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Blink" parent="XROrigin3D/XRCamera3D/SubViewport/UI" instance=ExtResource("2_rde5g")]
 layout_mode = 1
 
-[node name="PanoramaContainer" type="Node3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-top_level = true
-script = ExtResource("4_hekqp")
-
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
@@ -85,7 +79,7 @@ script = ExtResource("5_bde84")
 
 [node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/RightHand/TeleportTrigger"]
 target_position = Vector3(0, 0, -8)
-collision_mask = 512
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand/TeleportTrigger"]
 transform = Transform3D(1, 4.65661e-10, 3.10138e-09, 2.69938e-09, -4.33065e-08, 1, 1.39698e-09, -1, -4.44707e-08, 0, 0, -4)
