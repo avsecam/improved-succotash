@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmn6op3t4pdhk"]
+[gd_scene load_steps=9 format=3 uid="uid://bdx78gwhigpw0"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_wauyu"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
@@ -13,11 +13,14 @@
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_wauyu")
+image_filename = "res://src/areas/Tut1.jpg.jpg"
 teleporters_data = [{
 "position": Vector3(0.312646, -0.519902, -4.4586),
 "to": "Tut2.jpg"
+}, {
+"position": Vector3(0.31, -0.5, -2),
+"to": "TestScene.obj"
 }]
-image_filename = "res://src/areas/Tut1.jpg.jpg"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -33,10 +36,16 @@ omni_range = 16.12
 
 [node name="Tut2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_j5in4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.312646, -0.519902, -4.4586)
-collision_layer = 512
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_br0jg")
 to = "Tut2.jpg"
+
+[node name="TeleportSpot" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_j5in4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31, -0.5, -2)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_br0jg")
 
 [node name="Events" type="Node" parent="."]
 

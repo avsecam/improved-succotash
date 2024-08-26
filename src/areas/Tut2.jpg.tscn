@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch34gbnsyxf34"]
+[gd_scene load_steps=10 format=3 uid="uid://c5ka2sp1lp2it"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c85dj"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_l78c2"]
-[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_orxck"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_7f5y1"]
 [ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="5_6cacq"]
 [ext_resource type="Script" path="res://src/ems/scripts/hard_script_tutorial_A1/pick_up_key.gd" id="6_0jy2i"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="6_voo00"]
@@ -14,6 +14,7 @@
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_c85dj")
+image_filename = "res://src/areas/Tut2.jpg.jpg"
 teleporters_data = [{
 "position": Vector3(3.87506, -0.875421, 2.11298),
 "to": "Tut3.jpg"
@@ -21,7 +22,6 @@ teleporters_data = [{
 "position": Vector3(-4.17026, -0.831239, 1.47139),
 "to": "Tut1.jpg"
 }]
-image_filename = "res://src/areas/Tut2.jpg.jpg"
 base_rotation = 1.41
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -38,16 +38,12 @@ omni_range = 16.12
 
 [node name="Tut3_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_l78c2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87506, -0.875421, 2.11298)
-collision_layer = 512
-collision_mask = 0
-script = ExtResource("4_orxck")
+script = ExtResource("4_7f5y1")
 to = "Tut3.jpg"
 
 [node name="Tut1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_l78c2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17026, -0.831239, 1.47139)
-collision_layer = 512
-collision_mask = 0
-script = ExtResource("4_orxck")
+script = ExtResource("4_7f5y1")
 to = "Tut1.jpg"
 
 [node name="Events" type="Node" parent="."]
