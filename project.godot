@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Villa Escudero"
-run/main_scene="res://src/ois/ois_demo_v1.tscn"
+run/main_scene="res://src/demo.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-InventoryPersistence="res://src/inventory/inventory_persistence.gd"
 Events="*res://src/Events.gd"
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
+InventoryPersistence="*res://src/inventory/inventory_persistence.gd"
 Bgm="*res://src/ems/BGM/bgm.tscn"
 
 [editor_plugins]

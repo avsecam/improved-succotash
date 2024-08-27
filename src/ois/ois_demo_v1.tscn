@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://t00fxnyqc54j"]
+[gd_scene load_steps=22 format=3 uid="uid://t00fxnyqc54j"]
 
 [ext_resource type="Script" path="res://src/ois/ois_demo.gd" id="1_585la"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_i5jns"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b274d6hpy4awm" path="res://src/ois/inventory_actor_item_new.tscn" id="12_gao03"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="13_vat80"]
 [ext_resource type="PackedScene" uid="uid://dyq8ima5a0dpl" path="res://src/ois/xx_demo_objects/screw.tscn" id="14_irog0"]
+[ext_resource type="PackedScene" uid="uid://dqwembgyjy0ps" path="res://src/dialogue/dialogue_container.tscn" id="14_j21ra"]
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="16_f5dhw"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vtwao"]
@@ -21,6 +22,24 @@ size = Vector2(100, 100)
 size = Vector3(100, 1, 100)
 
 [sub_resource type="Environment" id="Environment_74kmf"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_e61o1"]
+resource_local_to_scene = true
+size = Vector2(320, 180)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nqx6g"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj2ta"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_nqx6g")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_32o3p"]
+resource_local_to_scene = true
+size = Vector3(320, 180, 0.02)
 
 [node name="OISDemo" type="Node3D"]
 script = ExtResource("1_585la")
@@ -43,6 +62,7 @@ tracker = &"left_hand"
 [node name="MovementDirect" parent="XROrigin3D/LeftHand" instance=ExtResource("5_korep")]
 
 [node name="Slots_hand" parent="XROrigin3D/LeftHand" node_paths=PackedStringArray("camera") instance=ExtResource("6_8xdnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.044, 0)
 script = ExtResource("7_56vny")
 camera = NodePath("../../XRCamera3D")
 
@@ -85,4 +105,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437249, 1.00643, -1.45463)
 [node name="Shelf" parent="." instance=ExtResource("16_f5dhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603972, -4.42553)
 
+[node name="Dialogue Container" parent="." instance=ExtResource("14_j21ra")]
+
+[node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_e61o1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dj2ta")
+
+[node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_32o3p")
+
 [editable path="XROrigin3D/LeftHand/Slots_hand"]
+[editable path="Dialogue Container"]
+[editable path="Dialogue Container/Viewport2Din3D"]

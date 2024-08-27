@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqwembgyjy0ps"]
+
+[ext_resource type="Script" path="res://src/ois/dialogueUI_CameraPosManip.gd" id="1_7wyou"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_6xfk6"]
+[ext_resource type="PackedScene" uid="uid://ck8mkrfww3nnh" path="res://src/dialogue/dialogue_ui.tscn" id="3_g0iqv"]
+[ext_resource type="Script" path="res://src/dialogue/npc_name_update.gd" id="4_bn0qi"]
+[ext_resource type="Script" path="res://src/dialogue/npc_dialogue_update.gd" id="5_gsw1h"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_xjc5q"]
+resource_local_to_scene = true
+size = Vector2(320, 180)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p7yak"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao15q"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_p7yak")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8r8on"]
+resource_local_to_scene = true
+size = Vector3(320, 180, 0.02)
+
+[node name="Dialogue Container" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+script = ExtResource("1_7wyou")
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("2_6xfk6")]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 1.372, 0)
+screen_size = Vector2(320, 180)
+collision_layer = 0
+scene = ExtResource("3_g0iqv")
+viewport_size = Vector2(640, 360)
+unshaded = true
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(640, 360)
+
+[node name="Dialogue UI" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("3_g0iqv")]
+
+[node name="NPCName" parent="Viewport2Din3D/Viewport/Dialogue UI/ColorRect" index="0"]
+script = ExtResource("4_bn0qi")
+
+[node name="Dialogue" parent="Viewport2Din3D/Viewport/Dialogue UI/ColorRect" index="1"]
+text = "[center] <dialogue> [/center]"
+script = ExtResource("5_gsw1h")
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_xjc5q")
+surface_material_override/0 = SubResource("StandardMaterial3D_ao15q")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+collision_layer = 0
+screen_size = Vector2(320, 180)
+viewport_size = Vector2(640, 360)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_8r8on")
+
+[editable path="Viewport2Din3D"]
+[editable path="Viewport2Din3D/Viewport/Dialogue UI"]

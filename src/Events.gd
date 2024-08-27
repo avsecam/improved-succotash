@@ -1,5 +1,9 @@
 extends Node
 
+@onready var camera = $"../Demo/XRPlayer/XROrigin3D/XRCamera3D"
+
+func _ready():
+	print(camera.name)
 
 signal start_with_vr()
 signal start_without_vr()
@@ -16,6 +20,10 @@ signal set_player_rotation_requested(current_rotation: Vector3, new_rotation: Ve
 signal non_vr_teleporter_hovered(teleporter: Teleporter)
 signal non_vr_no_teleporter_hovered()
 signal non_vr_teleporter_clicked(to: String) # filename of scene to teleport to
+
+#DIALOGUE SIGNALS
+signal update_npc_name(npcx: String)
+signal update_npc_line(line: String)
 
 #EVENT FLAGS
 var look_at_me = false

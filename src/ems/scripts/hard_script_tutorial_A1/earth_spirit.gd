@@ -6,6 +6,10 @@ const initialize = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_05
 const ongoing = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_06_SinceYou.ogg")
 @onready var next = $"../../Teleporters/Tut3_jpg"
 
+var line1 = "ASADADSASDASDASD"
+var line2 = "askd;asdk;asldka;sdadl;"
+var npc1 = "Marble NPC"
+
 func _on_key_pick_up():
 	#make a signal when key is picked up
 	pass

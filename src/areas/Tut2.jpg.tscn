@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch34gbnsyxf34"]
+[gd_scene load_steps=15 format=3 uid="uid://ch34gbnsyxf34"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c85dj"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
@@ -9,6 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="6_voo00"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="7_7ryso"]
 [ext_resource type="Script" path="res://src/ems/scripts/hard_script_tutorial_A1/earth_spirit.gd" id="7_jbdq0"]
+[ext_resource type="PackedScene" uid="uid://dqwembgyjy0ps" path="res://src/dialogue/dialogue_container.tscn" id="10_dex5y"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_d78eu"]
+resource_local_to_scene = true
+size = Vector2(320, 180)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1nx7p"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyxgx"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_1nx7p")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2prly"]
+resource_local_to_scene = true
+size = Vector3(320, 180, 0.02)
 
 [node name="tut2_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -69,6 +88,19 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.24602, -2.08465, -0.2
 [node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
 wait_time = 3.0
 
+[node name="Dialogue Container" parent="." instance=ExtResource("10_dex5y")]
+
+[node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_d78eu")
+surface_material_override/0 = SubResource("StandardMaterial3D_vyxgx")
+
+[node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_2prly")
+
 [connection signal="finished" from="MarbleSpirit_Normal/AudioStreamPlayer3D" to="Events/pick_up_key" method="_on_audio_stream_player_3d_finished"]
 [connection signal="timeout" from="MarbleSpirit_Normal/Timer" to="Events/pick_up_key" method="_on_timer_timeout"]
 [connection signal="timeout" from="MarbleSpirit_Normal/Timer" to="Events/earth_spirit" method="_on_timer_timeout"]
+
+[editable path="Dialogue Container"]
+[editable path="Dialogue Container/Viewport2Din3D"]
+[editable path="Dialogue Container/Viewport2Din3D/Viewport/Dialogue UI"]

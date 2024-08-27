@@ -4,12 +4,20 @@ extends Node
 @onready var timer = $"../../MarbleSpirit_Normal/Timer"
 const initialize = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked.ogg")
 const ongoing = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_04_GoKey.ogg")
+@onready var xrcamera = $"../../MarbleSpirit_Normal/Timer"
 
+var npc1 = "Marble Spirit"
+var line0 = "The gate up ahead is locked, you'll need this to open it!"
+var line1 = "Go on! Pick up the key!"
 
 func _ready():
+	
 	if !Events.pick_up_key:
 		timer.start()
 		initialize_event()
+		await Engine.get_main_loop().process_frame
+		Events.update_npc_name.emit(npc1)
+		Events.update_npc_line.emit(line0)
 	else:
 		#make the key disappear
 		pass
@@ -31,3 +39,5 @@ func _on_key_pick_up():
 
 func _on_audio_stream_player_3d_finished():
 	audio_stream_player.stream = ongoing
+	Events.update_npc_line.emit(line1)
+	Events.update_npc_name.emit(npc1)

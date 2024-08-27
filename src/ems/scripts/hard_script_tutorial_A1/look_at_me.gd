@@ -7,10 +7,16 @@ const ongoing = preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_02_He
 @onready var timer = $"../../MarbleSpirit_Normal/Timer"
 @onready var next = $"../../Teleporters/Tut2_jpg"
 
+var line1 = "Hello! Are you a visitor? Can you see me?"
+var npc1 = "Marble NPC"
+
 func _ready():
 	if !Events.look_at_me:
 		timer.start()
 		initialize_event()
+		Events.update_npc_line.emit(line1)
+		Events.update_npc_name.emit(npc1)
+		
 
 func _on_visible_on_screen_notifier_3d_screen_entered():
 	Events.look_at_me = true
