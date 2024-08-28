@@ -7,9 +7,8 @@ const ongoing = preload("res://src/assets/audio/a1/VE_VO_A1_MRBLSPRT_06_TheBack.
 @onready var timer = $"../MarbleSpirit_Normal/Timer"
 
 func _ready():
-	if !Events.fire_spirit_help:
-		timer.start()
-		initialize_event()
+	timer.start()
+	initialize_event()
 
 func initialize_event():
 	audio_stream_player.stream = initialize

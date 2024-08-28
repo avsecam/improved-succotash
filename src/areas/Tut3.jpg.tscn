@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp1q8nwr6rcp"]
 
-[ext_resource type="Script" path="res://src/areas/tut3cat_tutorial.gd" id="1_e3rc2"]
+[ext_resource type="Script" path="res://src/ems/scripts/hard_script_tutorial_A1/tut3cat_tutorial.gd" id="1_e3rc2"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_woles"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_er8cq"]
 [ext_resource type="PackedScene" uid="uid://car5wh5lyv77j" path="res://src/ois/xx_demo_objects/cat.tscn" id="5_wp8np"]

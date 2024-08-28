@@ -26,7 +26,7 @@ signal update_npc_name(npcx: String)
 signal update_npc_line(line: String)
 
 #EVENT FLAGS
-var look_at_me = false
+var look_at_me = {"start":0,"ongoing":1,"done":2}
 var pick_up_key = false
 var earth_spirit = false
 var open_gate = false

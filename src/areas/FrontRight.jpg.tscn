@@ -66,6 +66,8 @@ wait_time = 3.0
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
 
+[connection signal="finished" from="MarbleSpirit_Normal/AudioStreamPlayer3D" to="FireSpirit_RigidBody3D" method="_on_audio_stream_player_3d_finished"]
+[connection signal="timeout" from="MarbleSpirit_Normal/Timer" to="FireSpirit_RigidBody3D" method="_on_timer_timeout"]
 [connection signal="screen_entered" from="MarbleSpirit_Normal/VisibleOnScreenNotifier3D" to="FireSpirit_RigidBody3D" method="_on_visible_on_screen_notifier_3d_screen_entered"]
 
 [editable path="FireSpirit_RigidBody3D"]
