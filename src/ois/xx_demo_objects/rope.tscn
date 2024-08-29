@@ -18,7 +18,7 @@ bottom_radius = 0.05
 script = ExtResource("2_4ifcx")
 req_is_init_dist = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_r2n7d")
 

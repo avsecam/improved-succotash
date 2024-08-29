@@ -27,14 +27,14 @@ size = Vector3(100, 1, 100)
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nqx6g"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6n3n3"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj2ta"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oagxg"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_nqx6g")
+albedo_texture = SubResource("ViewportTexture_6n3n3")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_32o3p"]
@@ -109,7 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603972, -4.42553)
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_e61o1")
-surface_material_override/0 = SubResource("StandardMaterial3D_dj2ta")
+surface_material_override/0 = SubResource("StandardMaterial3D_oagxg")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_32o3p")
@@ -117,3 +117,4 @@ shape = SubResource("BoxShape3D_32o3p")
 [editable path="XROrigin3D/LeftHand/Slots_hand"]
 [editable path="Dialogue Container"]
 [editable path="Dialogue Container/Viewport2Din3D"]
+[editable path="Dialogue Container/Viewport2Din3D/Viewport/Dialogue UI"]
