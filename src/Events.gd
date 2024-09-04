@@ -2,9 +2,6 @@ extends Node
 
 @onready var camera = $"../Demo/XRPlayer/XROrigin3D/XRCamera3D"
 
-func _ready():
-	print(camera.name)
-
 signal start_with_vr()
 signal start_without_vr()
 
@@ -26,12 +23,33 @@ signal update_npc_name(npcx: String)
 signal update_npc_line(line: String)
 
 #EVENT FLAGS
-var look_at_me = false
-var pick_up_key = false
-var earth_spirit = false
-var open_gate = false
-var pet_cat = false
-var get_picture = false
-var quest_start = false
-var talk_about_calandra = false
-var fire_spirit_help = false
+var current_bgm
+
+var event_library : Dictionary = {}
+var ongoing_events : Array = []
+var finished_events : Array = []
+
+func _ready():
+	event_library = load_data("res://src/ems/eventsystem_new/EventLibrary.json")
+	print(event_library)
+	print(camera.name)
+
+func load_data(file_location: String) -> Dictionary:
+	var output_dictionary : Dictionary = {}
+	
+	var json_as_text = FileAccess.get_file_as_string(file_location)
+	var json_as_array = JSON.parse_string(json_as_text)
+	
+	for key in json_as_array:
+		output_dictionary[key["Event_Name"]] = {
+			"Event_Category" : key["Event_Category"],
+			"Oneshot" : key["Oneshot"],
+			"Event_Prerequisites" : key["Event_Prerequisites"],
+			"Event_Completion_Flags" : key["Event_Completion_Flags"],
+			"Event_Audio" : key["Event_Audio"],
+			"Loop_Audio" : key["Loop_Audio"],
+			"Loop_Interval" : key["Loop_Interval"]
+		}
+	return output_dictionary
+	
+

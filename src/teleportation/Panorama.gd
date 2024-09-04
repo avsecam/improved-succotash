@@ -49,7 +49,7 @@ func _ready():
 	Events.connect("non_vr_teleporter_hovered", _on_teleporter_hovered)
 	Events.connect("non_vr_no_teleporter_hovered", _on_no_teleporter_hovered)
 	
-	Bgm.set_outside(outside)
+
 
 
 func _physics_process(delta):

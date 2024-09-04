@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://medk4ica5c1g"
+path="res://.godot/imported/02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable.wav-a8f4d688dbf021361a16867fb29f4880.sample"
+
+[deps]
+
+source_file="res://src/assets/audio/02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable.wav"
+dest_files=["res://.godot/imported/02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable.wav-a8f4d688dbf021361a16867fb29f4880.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
