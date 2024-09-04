@@ -1,6 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b274d6hpy4awm"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_ynb3o"]
+[ext_resource type="ArrayMesh" uid="uid://c03xphnqy1of6" path="res://src/assets/key.obj" id="2_28twy"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_xs22u"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_70aq7"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="4_mx177"]
@@ -11,9 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://yurhfdf4xm13" path="res://src/ois/states/snap_objects.tscn" id="9_ndnuk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08vm0"]
-size = Vector3(0.1, 0.1, 0.1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ylmsk"]
 size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0w77"]
@@ -61,7 +59,8 @@ shape = SubResource("BoxShape3D_08vm0")
 [node name="MainMesh" type="Node3D" parent="." index="1"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MainMesh" index="0"]
-mesh = SubResource("BoxMesh_ylmsk")
+transform = Transform3D(-0.00975735, 0, -0.155783, 0, 0.156088, 0, 0.155783, 0, -0.00975735, 0, 0, 0)
+mesh = ExtResource("2_28twy")
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("2_xs22u")]
 

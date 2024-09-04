@@ -1,77 +1,121 @@
 [
-    {
-        "Event_Name": "BGMPlayerOutside",
-        "Event_Category": "BGM",
-        "Oneshot": false,
-        "Event_Prerequisites": [],
-        "Event_Completion_Flags": [],
-        "Event_Audio": "01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3) v1 Full Loopable",
-        "Loop_Audio": true,
-        "Loop_Interval": 0
-    },
-    {
-        "Event_Name": "BGMPlayerInA1",
-        "Event_Category": "BGM",
-        "Oneshot": false,
-        "Event_Prerequisites": [],
-        "Event_Completion_Flags": [],
-        "Event_Audio": "02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable",
-        "Loop_Audio": true,
-        "Loop_Interval": 0
-    },
-    {
-        "Event_Name": "DialogueLookAtMe",
-        "Event_Category": "DIALOGUE",
-        "Oneshot": true,
-        "Event_Prerequisites": [],
-        "Event_Completion_Flags": [
-            "DialogueLookAtMe_Done"
-        ],
-        "Event_Audio": "VE_VO_ZT_MRBLSPRT_01_HelloMe",
-        "Loop_Audio": false,
-        "Loop_Interval": 0
-    },
-    {
-        "Event_Name": "ActionLookAtMarbleSpirit",
-        "Event_Category": "ACTION",
-        "Oneshot": true,
-        "Event_Prerequisites": [
-            "DialogueLookAtMe_Done"
-        ],
-        "Event_Completion_Flags": [
-            "ActionLookAtMarbleSpirit_Done",
-            "WaypointToTut2_Open"
-        ],
-        "Event_Audio": "VE_VO_ZT_MRBLSPRT_02_HeyHere",
-        "Loop_Audio": true,
-        "Loop_Interval": 3
-    },
-    {
-        "Event_Name": "DialogueGateIsLocked",
-        "Event_Category": "DIALOGUE",
-        "Oneshot": true,
-        "Event_Prerequisites": [
-            "ActionLookAtMarbleSpirit_Done"
-        ],
-        "Event_Completion_Flags": [
-            "DialogueGateIsLocked_Done"
-        ],
-        "Event_Audio": "VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked",
-        "Loop_Audio": false,
-        "Loop_Interval": 0
-    },
-    {
-        "Event_Name": "ActionPickUpKey",
-        "Event_Category": "ACTION",
-        "Oneshot": true,
-        "Event_Prerequisites": [
-            "DialogueGateIsLocked_Done"
-        ],
-        "Event_Completion_Flags": [
-            "ActionPickUpKey_Done"
-        ],
-        "Event_Audio": "VE_VO_ZT_MRBLSPRT_04_GoKey",
-        "Loop_Audio": true,
-        "Loop_Interval": 3
-    }
+	{
+		"Event_Name": "BGMPlayerOutside",
+		"Event_Category": "BGM",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3) v1 Full Loopable",
+		"Loop_Audio": true,
+		"Loop_Interval": 0
+	},
+	{
+		"Event_Name": "BGMPlayerInA1",
+		"Event_Category": "BGM",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable",
+		"Loop_Audio": true,
+		"Loop_Interval": 0
+	},
+	{
+		"Event_Name": "DialogueLookAtMe",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueLookAtMe_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_01_HelloMe",
+		"Loop_Audio": false,
+		"Loop_Interval": 0
+	},
+	{
+		"Event_Name": "ActionLookAtMarbleSpirit",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueLookAtMe_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionLookAtMarbleSpirit_Done",
+			"WaypointToTut2_Open"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_02_HeyHere",
+		"Loop_Audio": true,
+		"Loop_Interval": 3
+	},
+	{
+		"Event_Name": "DialogueGateIsLocked",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionLookAtMarbleSpirit_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueGateIsLocked_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked",
+		"Loop_Audio": false,
+		"Loop_Interval": 0
+	},
+	{
+		"Event_Name": "ActionPickUpKey",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueGateIsLocked_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPickUpKey_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_04_GoKey",
+		"Loop_Audio": true,
+		"Loop_Interval": 3
+	},
+	{
+		"Event_Name": "DialogueKindPerson",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPickUpKey_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueKindPerson_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_05_YoureYou",
+		"Loop_Audio": false,
+		"Loop_Interval": 0
+	},
+	{
+		"Event_Name": "ActionPutKeyInventory",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueKindPerson_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPutKeyInvetory_Done",
+			"KeyInInventory"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_06_SinceYou",
+		"Loop_Audio": true,
+		"Loop_Interval": 3
+	},
+	{
+		"Event_Name": "ActionFollowMarbleSpirit",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPutKeyInvetory_Done",
+			"KeyInInventory"
+		],
+		"Event_Completion_Flags": [
+			"ActionFollowMarbleSpirit_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_07_Now_Me",
+		"Loop_Audio": true,
+		"Loop_Interval": 3
+	}
 ]

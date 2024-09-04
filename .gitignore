@@ -4,4 +4,4 @@
 
 .vscode/settings.json
 *.TMP
-src/teleportation/PanoramaSphereMeshBase.tres
+.src/teleportation/PanoramaSphereMeshBase.tres

@@ -6,15 +6,22 @@ extends Node
 	"02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable" : preload("res://src/assets/audio/02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable.wav")
 }
 
-@export var dialogue_locations : Dictionary = {
-	"VE_VO_ZT_MRBLSPRT_01_HelloMe" : preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_01_HelloMe.ogg"),
-	"VE_VO_ZT_MRBLSPRT_02_HeyHere" : preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_02_HeyHere.ogg"),
-	"VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked" : preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked.ogg"),
-	"VE_VO_ZT_MRBLSPRT_04_GoKey" : preload("res://src/assets/audio/tutorial/VE_VO_ZT_MRBLSPRT_04_GoKey.ogg")
-}
+@export var dialogue_locations : Dictionary = {}
 
 @onready var bgm_player := $BGMPlayer
 @onready var dialogue_player := $DialoguePlayer
+
+
+func _ready():
+	for file in DirAccess.get_files_at("res://src/assets/audio/tutorial/"):
+		if(file.get_extension() != "import"):
+			dialogue_locations[file.get_basename()] = load("res://src/assets/audio/tutorial/" + file)
+	
+	for file in DirAccess.get_files_at("res://src/assets/audio/a1/"):
+		if(file.get_extension() != "import"):
+			dialogue_locations[file.get_basename()] = load("res://src/assets/audio/a1/" + file)
+	
+	print (dialogue_locations)
 
 func play_bgm(bgm_key):
 	bgm_player.stream = bgm_locations[bgm_key]
