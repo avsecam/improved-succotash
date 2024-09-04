@@ -41,11 +41,12 @@ collision_mask = 0
 script = ExtResource("4_br0jg")
 to = "Tut2.jpg"
 
-[node name="TeleportSpot" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_j5in4")]
+[node name="TestScene_obj" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_j5in4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31, -0.5, -2)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_br0jg")
+to = "TestScene.obj"
 
 [node name="Events" type="Node" parent="."]
 

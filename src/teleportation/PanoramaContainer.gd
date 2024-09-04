@@ -34,7 +34,8 @@ func _on_player_teleport_requested(teleporter: Teleporter):
 			origin.position = first_teleport_spot.position
 			origin.position.y = 1.7
 		else:
-			origin.global_position = Vector3()
+			origin.position = Vector3()
+			origin.position.y = -0.65
 	else:
 		if get_child(0) is Panorama:
 			return

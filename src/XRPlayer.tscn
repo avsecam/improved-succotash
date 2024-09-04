@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdfm7qxgcoow0"]
+[gd_scene load_steps=14 format=3 uid="uid://cdfm7qxgcoow0"]
 
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_04ah3"]
 [ext_resource type="Script" path="res://src/XRPlayer.gd" id="1_ipr7h"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_fx80c"]
 [ext_resource type="Script" path="res://src/teleportation/TeleportTrigger.gd" id="5_bde84"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_obqds"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="7_hxxp3"]
 [ext_resource type="Script" path="res://src/teleportation/RotateCamera.gd" id="9_q76cs"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h6646"]
@@ -21,7 +22,7 @@ bottom_radius = 0.01
 height = 8.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_euonu"]
-size = Vector3(20, 0.1, 20)
+size = Vector3(20, 2, 20)
 
 [node name="XRPlayer" type="Node3D"]
 script = ExtResource("1_ipr7h")
@@ -66,6 +67,8 @@ tracker = &"left_hand"
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand" instance=ExtResource("2_lvx1b")]
 
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("7_hxxp3")]
+
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(0.999936, -0.00898236, 0.0068461, 0.00899957, 0.999956, -0.00248775, -0.00682346, 0.00254919, 0.999973, 0.5, 1, -0.5)
 tracker = &"right_hand"
@@ -89,6 +92,7 @@ mesh = SubResource("CylinderMesh_bvchu")
 script = ExtResource("9_q76cs")
 
 [node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_euonu")
