@@ -1,10 +1,7 @@
 extends Node
 
 
-@export var bgm_locations : Dictionary = {
-	"01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3) v1 Full Loopable" : preload("res://src/assets/audio/01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3) v1 Full Loopable.wav"),
-	"02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable" : preload("res://src/assets/audio/02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable.wav")
-}
+@export var bgm_locations : Dictionary = {}
 
 @export var dialogue_locations : Dictionary = {}
 
@@ -13,6 +10,10 @@ extends Node
 
 
 func _ready():
+	for file in DirAccess.get_files_at("res://src/assets/audio/music/"):
+		if(file.get_extension() != "import"):
+			bgm_locations[file.get_basename()] = load("res://src/assets/audio/music/" + file)
+	
 	for file in DirAccess.get_files_at("res://src/assets/audio/tutorial/"):
 		if(file.get_extension() != "import"):
 			dialogue_locations[file.get_basename()] = load("res://src/assets/audio/tutorial/" + file)
