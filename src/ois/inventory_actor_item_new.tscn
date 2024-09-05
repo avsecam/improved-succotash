@@ -68,9 +68,6 @@ mesh = ExtResource("2_28twy")
 
 [node name="InventoryItemComp" parent="." index="4" instance=ExtResource("4_mx177")]
 
-[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
-visible = false
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InventoryItemComp/ReplacementMesh" index="0"]
 mesh = SubResource("BoxMesh_q3eaj")
 

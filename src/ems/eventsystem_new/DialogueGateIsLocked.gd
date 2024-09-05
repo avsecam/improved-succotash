@@ -2,7 +2,6 @@ extends Event
 
 @onready var key = $"../../TheKey"
 
-
 func _on_event_started():
 	key.visible = false
 	play_event_audio()

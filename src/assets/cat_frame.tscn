@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8pm2xvsgr7t6"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_fxbib"]
+[ext_resource type="PackedScene" uid="uid://dxwnid71oi0ah" path="res://src/assets/Image_TwoCats.glb" id="2_igva1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wns7y"]
+size = Vector3(0.123962, 0.422729, 0.42334)
+
+[node name="Frame" type="RigidBody3D"]
+script = ExtResource("1_fxbib")
+
+[node name="Image_TwoCats" parent="." instance=ExtResource("2_igva1")]
+transform = Transform3D(1, -5.96046e-08, -4.47035e-08, 0, 1, 0, 7.45058e-09, 1.49012e-08, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0325623, -0.00738525, -0.000732422)
+shape = SubResource("BoxShape3D_wns7y")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ch34gbnsyxf34"]
+[gd_scene load_steps=23 format=3 uid="uid://ch34gbnsyxf34"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c85dj"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
@@ -16,19 +16,20 @@
 [ext_resource type="PackedScene" uid="uid://dn6d5anddqwb4" path="res://src/ois/xx_demo_objects/key_inventory.tscn" id="11_3ww2d"]
 [ext_resource type="PackedScene" uid="uid://b274d6hpy4awm" path="res://src/ois/inventory_actor_item_new.tscn" id="11_dc6ke"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionFollowMarbleSpirit.gd" id="11_emehb"]
+[ext_resource type="ArrayMesh" uid="uid://c03xphnqy1of6" path="res://src/assets/key.obj" id="17_u751f"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_d78eu"]
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_42nw1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_uyil7"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehtxu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lseh4"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_42nw1")
+albedo_texture = SubResource("ViewportTexture_uyil7")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2prly"]
@@ -121,7 +122,7 @@ wait_time = 3.0
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_d78eu")
-surface_material_override/0 = SubResource("StandardMaterial3D_ehtxu")
+surface_material_override/0 = SubResource("StandardMaterial3D_lseh4")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_2prly")
@@ -140,8 +141,20 @@ mesh = SubResource("BoxMesh_ylmsk")
 [node name="GrabPointHandLeft" parent="InventoryItem" index="5"]
 transform = Transform3D(1, 0, 0, 0, 0.999611, 0.0279042, 0, -0.0279042, 0.999611, 0.996872, 0.928898, 0)
 
+[node name="ReplacementMesh" parent="InventoryItem/InventoryItemComp" index="0"]
+visible = false
+
+[node name="StateManager" parent="InventoryItem" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="TheKey" parent="." instance=ExtResource("11_dc6ke")]
 transform = Transform3D(0.984109, 0, 0, 0, 0.984109, 0, 0, 0, 0.984109, 0.67218, -0.264099, -0.0093748)
+
+[node name="ReplacementMesh" parent="TheKey/InventoryItemComp" index="0"]
+visible = false
+
+[node name="MeshInstance3D" parent="TheKey/InventoryItemComp/ReplacementMesh" index="0"]
+mesh = ExtResource("17_u751f")
 
 [connection signal="inventory_updated" from="Shelf" to="Events/ActionPutKeyInventory" method="_on_shelf_inventory_updated"]
 [connection signal="picked_up" from="TheKey" to="Events/ActionPickUpKey" method="_on_the_key_picked_up"]
@@ -152,3 +165,5 @@ transform = Transform3D(0.984109, 0, 0, 0, 0.984109, 0, 0, 0, 0.984109, 0.67218,
 [editable path="InventoryItem"]
 [editable path="InventoryItem/InventoryItemComp"]
 [editable path="InventoryItem/StateManager"]
+[editable path="TheKey"]
+[editable path="TheKey/InventoryItemComp"]
