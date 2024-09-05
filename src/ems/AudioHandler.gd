@@ -29,9 +29,13 @@ func play_bgm(bgm_key):
 	bgm_player.play()
 
 func play_dialogue(dialogue_key, dialogue_source):
-	dialogue_player = dialogue_source
-	dialogue_player.stream = dialogue_locations[dialogue_key]
-	dialogue_player.play()
+	#dialogue_player = dialogue_source
+	#dialogue_player.stream = dialogue_locations[dialogue_key]
+	#dialogue_player.play()
+	dialogue_source.stream = dialogue_locations[dialogue_key]
+	dialogue_source.play()
+	await dialogue_source.finished
+	dialogue_player.emit_signal("finished")
 
 
 func _on_bgm_player_finished():
