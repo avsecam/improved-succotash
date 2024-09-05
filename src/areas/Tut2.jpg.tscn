@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://ch34gbnsyxf34"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c85dj"]
-[ext_resource type="SphereMesh" uid="uid://dulklkldpk4be" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_l78c2"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_orxck"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_rfskg"]
@@ -21,14 +21,14 @@
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cr3f0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_42nw1"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0tib"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehtxu"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_cr3f0")
+albedo_texture = SubResource("ViewportTexture_42nw1")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2prly"]
@@ -105,11 +105,11 @@ script = ExtResource("11_emehb")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="Shelf" parent="." instance=ExtResource("6_voo00")]
-transform = Transform3D(-0.0734821, 0, 0.997296, 0, 1, 0, -0.997296, 0, -0.0734821, -0.506446, -0.710465, 0.157633)
+transform = Transform3D(0.949183, 0, 0.314721, 0, 1, 0, -0.314721, 0, 0.949183, -0.175701, -0.79799, -0.313155)
 visible = false
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("7_7ryso")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.24602, -2.08465, -0.232951)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.7623, 0.522637, -0.0044553)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
@@ -121,7 +121,7 @@ wait_time = 3.0
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_d78eu")
-surface_material_override/0 = SubResource("StandardMaterial3D_y0tib")
+surface_material_override/0 = SubResource("StandardMaterial3D_ehtxu")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_2prly")
@@ -142,7 +142,6 @@ transform = Transform3D(1, 0, 0, 0, 0.999611, 0.0279042, 0, -0.0279042, 0.999611
 
 [node name="TheKey" parent="." instance=ExtResource("11_dc6ke")]
 transform = Transform3D(0.984109, 0, 0, 0, 0.984109, 0, 0, 0, 0.984109, 0.67218, -0.264099, -0.0093748)
-visible = false
 
 [connection signal="inventory_updated" from="Shelf" to="Events/ActionPutKeyInventory" method="_on_shelf_inventory_updated"]
 [connection signal="picked_up" from="TheKey" to="Events/ActionPickUpKey" method="_on_the_key_picked_up"]

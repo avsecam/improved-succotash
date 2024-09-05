@@ -16,4 +16,14 @@ refraction_scale = 1.0
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Marble" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_rp3u5")
+
+[node name="Plane" parent="." index="1"]
+transform = Transform3D(-0.165195, 0, 0, 0, 0.656079, 0, 0, 0, 0.656079, -0.0438846, 0, 0.0168927)
+
+[node name="Sphere" parent="." index="2"]
+transform = Transform3D(-0.0502951, 0, 0, 0, -0.0502951, 0, 0, 0, -0.0502951, 0.260299, 0, -0.0531245)
+
+[node name="Sphere_001" parent="." index="3"]
+transform = Transform3D(-0.0255763, 0, 0, 0, -0.0255763, 0, 0, 0, -0.0255763, 0.22937, 0, 0.346641)

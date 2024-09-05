@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cmn6op3t4pdhk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_wauyu"]
-[ext_resource type="SphereMesh" uid="uid://dulklkldpk4be" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_j5in4"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_br0jg"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_75ivk"]
@@ -16,14 +16,14 @@
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_klvx6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8o1h2"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xyckm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apgjh"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_klvx6")
+albedo_texture = SubResource("ViewportTexture_8o1h2")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rofwt"]
@@ -74,7 +74,7 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 script = ExtResource("8_psgse")
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("6_y6uk4")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.307552, -2.33241, 2.10051)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.307552, -0.0116689, 2.10051)
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
 
@@ -91,7 +91,7 @@ wait_time = 3.0
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_2n6ty")
-surface_material_override/0 = SubResource("StandardMaterial3D_xyckm")
+surface_material_override/0 = SubResource("StandardMaterial3D_apgjh")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_rofwt")

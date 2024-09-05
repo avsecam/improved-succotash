@@ -112,10 +112,111 @@
 			"KeyInInventory"
 		],
 		"Event_Completion_Flags": [
-			"ActionFollowMarbleSpirit_Done"
+			"ActionFollowMarbleSpirit_Done",
+			"WaypointToTut3_Open"
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_07_Now_Me",
 		"Loop_Audio": true,
 		"Loop_Interval": 3
+	},
+	{
+		"Event_Name": "DialogueIntroduceCat",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionFollowMarbleSpirit_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueIntroduceCat_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_11_HeyIt",
+		"Loop_Audio": false,
+		"Loop_Interval": 0
+	},
+	{
+		"Event_Name": "ActionPetTheCat",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueIntroduceCat_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPetTheCat_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_12_DontCat",
+		"Loop_Audio": true,
+		"Loop_Interval": 3
+	},
+	{
+		"Event_Name": "ActionGetCatPicture",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPetTheCat_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionGetCatPicture_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_13_TheAsk",
+		"Loop_Audio": true,
+		"Loop_Interval": 3
+	},
+	{
+		"Event_Name": "DialogueItWillAnAdventure",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionGetCatPicture_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueItWillAnAdventure_Done",
+			"WaypointToGate_Open"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_14_WhatAdventure",
+		"Loop_Audio": false,
+		"Loop_Interval": 0
+	},
+	{
+		"Event_Name": "DialogueTheresTheGate",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueItWillAnAdventure_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueTheresTheGate_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_08_TheresIt",
+		"Loop_Audio": false,
+		"Loop_Interval": 0
+	},
+	{
+		"Event_Name": "ActionUseTheKey",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPickUpKey_Done",
+			"DialogueTheresTheGate_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionUseTheKey_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_09_ItsIt",
+		"Loop_Audio": true,
+		"Loop_Interval": 3
+	},
+	{
+		"Event_Name": "DialogueLetsGo",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionUseTheKey_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueLetsGo_Done"
+		],
+		"Event_Audio": "VE_VO_ZT_MRBLSPRT_10_GreatGo",
+		"Loop_Audio": false,
+		"Loop_Interval": 0
 	}
 ]

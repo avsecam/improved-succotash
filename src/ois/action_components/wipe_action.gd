@@ -16,7 +16,6 @@ var cat_petted = false
 var event_done = false
 @onready var audio_stream_player = $AudioStreamPlayer3D
 @onready var timer = $Timer
-signal cat_event_done
 
 func _ready():
 	if !cat_petted:
