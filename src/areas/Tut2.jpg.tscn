@@ -21,14 +21,14 @@
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fliow"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_e3gow"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4701k"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5xpn"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_fliow")
+albedo_texture = SubResource("ViewportTexture_e3gow")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2prly"]
@@ -103,6 +103,7 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="Shelf" parent="." instance=ExtResource("6_voo00")]
 transform = Transform3D(0.949183, 0, 0.314721, 0, 1, 0, -0.314721, 0, 0.949183, -0.175701, -0.79799, -0.313155)
+visible = false
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("7_7ryso")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.7623, 0.522637, -0.0044553)
@@ -114,13 +115,14 @@ transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_d78eu")
-surface_material_override/0 = SubResource("StandardMaterial3D_4701k")
+surface_material_override/0 = SubResource("StandardMaterial3D_r5xpn")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_2prly")
 
 [node name="TheKey" parent="." instance=ExtResource("11_dc6ke")]
 transform = Transform3D(0.984109, 0, 0, 0, 0.984109, 0, 0, 0, 0.984109, 0.67218, -0.264099, -0.0093748)
+visible = false
 
 [node name="MeshInstance3D" parent="TheKey/InventoryItemComp/ReplacementMesh" index="0"]
 mesh = ExtResource("17_u751f")
