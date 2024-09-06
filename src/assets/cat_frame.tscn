@@ -7,6 +7,8 @@
 size = Vector3(0.123962, 0.422729, 0.42334)
 
 [node name="Frame" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
 script = ExtResource("1_fxbib")
 
 [node name="Image_TwoCats" parent="." instance=ExtResource("2_igva1")]

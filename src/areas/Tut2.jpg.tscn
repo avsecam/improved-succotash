@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ch34gbnsyxf34"]
+[gd_scene load_steps=20 format=3 uid="uid://ch34gbnsyxf34"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c85dj"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
@@ -15,20 +15,19 @@
 [ext_resource type="PackedScene" uid="uid://dqwembgyjy0ps" path="res://src/dialogue/dialogue_container.tscn" id="10_dex5y"]
 [ext_resource type="PackedScene" uid="uid://b274d6hpy4awm" path="res://src/ois/inventory_actor_item_new.tscn" id="11_dc6ke"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionFollowMarbleSpirit.gd" id="11_emehb"]
-[ext_resource type="ArrayMesh" uid="uid://c03xphnqy1of6" path="res://src/assets/key.obj" id="17_u751f"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_d78eu"]
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_e3gow"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_scxbe"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5xpn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qcsd"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_e3gow")
+albedo_texture = SubResource("ViewportTexture_scxbe")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2prly"]
@@ -115,7 +114,7 @@ transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_d78eu")
-surface_material_override/0 = SubResource("StandardMaterial3D_r5xpn")
+surface_material_override/0 = SubResource("StandardMaterial3D_2qcsd")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_2prly")
@@ -123,9 +122,6 @@ shape = SubResource("BoxShape3D_2prly")
 [node name="TheKey" parent="." instance=ExtResource("11_dc6ke")]
 transform = Transform3D(0.984109, 0, 0, 0, 0.984109, 0, 0, 0, 0.984109, 0.67218, -0.264099, -0.0093748)
 visible = false
-
-[node name="MeshInstance3D" parent="TheKey/InventoryItemComp/ReplacementMesh" index="0"]
-mesh = ExtResource("17_u751f")
 
 [connection signal="inventory_updated" from="Shelf" to="Events/ActionPutKeyInventory" method="_on_shelf_inventory_updated"]
 [connection signal="picked_up" from="TheKey" to="Events/ActionPickUpKey" method="_on_the_key_picked_up"]
