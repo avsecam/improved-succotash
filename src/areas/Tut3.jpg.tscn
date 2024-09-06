@@ -80,9 +80,6 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.196117, -1.34824)
 script = ExtResource("10_u1cf4")
 
-[node name="CollisionShape3D2" parent="Cat" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158457, 0.00723267)
-
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("10_sdn00")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.59122, 0, 0)
 
