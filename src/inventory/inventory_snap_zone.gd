@@ -41,3 +41,5 @@ func _on_has_picked_up(picked_up_object):
 	# Add as child of node to ensure better movement
 	current_inventory_obj.get_parent().remove_child(current_inventory_obj)
 	self.get_parent().get_node("Inventory Content").add_child(current_inventory_obj)
+	current_inventory_obj._grab_driver.get_parent().remove_child(current_inventory_obj._grab_driver)
+	self.get_parent().get_node("Inventory Content").add_child(current_inventory_obj._grab_driver)
