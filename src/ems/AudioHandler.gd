@@ -2,7 +2,7 @@ extends Node
 
 
 @export var bgm_locations : Dictionary = {}
-
+@export var sfx_locations : Dictionary = {}
 @export var dialogue_locations : Dictionary = {}
 
 @onready var bgm_player := $BGMPlayer
@@ -22,7 +22,10 @@ func _ready():
 		if(file.get_extension() != "import"):
 			dialogue_locations[file.get_basename()] = load("res://src/assets/audio/a1/" + file)
 	
-	print (dialogue_locations)
+	for file in DirAccess.get_files_at("res://src/assets/audio/sfx/"):
+		if(file.get_extension() != "import"):
+			sfx_locations[file.get_basename()] = load("res://src/assets/audio/sfx/" + file)
+
 
 func play_bgm(bgm_key):
 	bgm_player.stream = bgm_locations[bgm_key]
@@ -37,6 +40,7 @@ func play_dialogue(dialogue_key, dialogue_source):
 	await dialogue_source.finished
 	dialogue_player.emit_signal("finished")
 
-
+func play_sfx(sfx_key, sfx_source):
+	pass
 func _on_bgm_player_finished():
 	bgm_player.playing = true

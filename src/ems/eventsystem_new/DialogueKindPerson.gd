@@ -1,6 +1,6 @@
 extends Event
 
-@onready var shelf = $"../../Shelf"
+@onready var shelf = get_node("/root/Demo/Shelf")
 
 func _on_event_started():
 	shelf.visible = false
