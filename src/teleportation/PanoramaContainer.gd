@@ -4,6 +4,8 @@ extends Node3D
 @onready var camera := XRHelpers.get_xr_camera(%XRPlayer)
 @onready var origin := XRHelpers.get_xr_origin(%XRPlayer)
 
+@onready var nonvr := %NonVR
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.connect("player_teleport_requested_trigger", _on_player_teleport_requested)
@@ -45,14 +47,32 @@ func _on_player_teleport_requested(teleporter: Teleporter):
 			print(origin.global_position)
 
 func _on_non_vr_teleporter_clicked(teleporter: Teleporter):
-	var new_level: Level = load("res://src/areas/" + teleporter.to + ".tscn").instantiate()
-	if new_level is ThreeDScene:
-		assert(false, "Teleporting to 3D scenes is not yet supported on Non-VR.")
-		return
+	self.position.y = 0
+	if teleporter.to:
+		var new_level: Level = load("res://src/areas/" + teleporter.to + ".tscn").instantiate()
+		
+		get_child(0).queue_free()
+		self.rotation.y = new_level.base_rotation
+		add_child(new_level)
+		
+		if new_level is ThreeDScene:
+			# Set player position to the first teleport_spot
+			var first_teleport_spot: Dictionary
+			for i in new_level.teleporters_data.size():
+				if new_level.teleporters_data[i].get("to") == null:
+					first_teleport_spot = new_level.teleporters_data[i]
+			nonvr.position = first_teleport_spot.position
+			nonvr.position.y = 1.7
+		else:
+			nonvr.position = Vector3()
+	else:
+		if get_child(0) is Panorama:
+			printerr("Teleporter has no set teleport location.")
+			return
+		else:
+			nonvr.position = teleporter.position
+			nonvr.position.y = 1.7
 	
-	get_child(0).queue_free()
-	self.rotation.y = new_level.base_rotation
-	add_child(new_level)
 
 func _on_xr_camera_moved(pos, rot):
 	if get_child_count() > 0:
