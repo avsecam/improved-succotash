@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cugw4p6gtkcgj"]
+[gd_scene load_steps=9 format=3 uid="uid://cugw4p6gtkcgj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_sr5a4"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_2x5we"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_wv65e"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_o0hno"]
+[ext_resource type="PackedScene" uid="uid://bmsbv1o4xfbv2" path="res://src/assets/A MAIN/RodTorch_Silver.glb" id="5_llqkt"]
+[ext_resource type="PackedScene" path="res://src/assets/A3/Table.glb" id="6_y5mxn"]
+[ext_resource type="PackedScene" uid="uid://d0cisarr5khbt" path="res://src/assets/A MAIN/Cube_SpottedCat.glb" id="7_he6vx"]
+[ext_resource type="PackedScene" uid="uid://ck66ebvhwdf1w" path="res://src/assets/A MAIN/Cube_CalicoCat.glb" id="8_qgf0q"]
 
 [node name="middle2_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_sr5a4")
+image_filename = "res://src/areas/Middle2.jpg.jpg"
 teleporters_data = [{
 "position": Vector3(-4.14913, -1.73507, 0.162727),
 "to": "Middle3.jpg"
@@ -16,7 +21,6 @@ teleporters_data = [{
 "position": Vector3(4.29756, -1.31181, -0.247907),
 "to": "Middle1.jpg"
 }]
-image_filename = "res://src/areas/Middle2.jpg.jpg"
 base_rotation = -1.6
 outside = false
 
@@ -34,14 +38,26 @@ omni_range = 16.12
 
 [node name="Middle3_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_wv65e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14913, -1.73507, 0.162727)
-collision_layer = 512
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_o0hno")
 to = "Middle3.jpg"
 
 [node name="Middle1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_wv65e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29756, -1.31181, -0.247907)
-collision_layer = 512
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_o0hno")
 to = "Middle1.jpg"
+
+[node name="RodTorch_Silver" parent="." instance=ExtResource("5_llqkt")]
+transform = Transform3D(0.0165582, -0.199313, 8.71226e-09, 7.9927e-16, -8.74228e-09, -0.2, 0.199313, 0.0165582, -7.2378e-10, 0.463628, -0.110417, 1.15701)
+
+[node name="Table2" parent="." instance=ExtResource("6_y5mxn")]
+transform = Transform3D(0.0425071, 0, -0.1646, 0, 0.17, 0, 0.1646, 0, 0.0425071, -0.13056, -0.631254, 1.21168)
+
+[node name="Cube_SpottedCat" parent="." instance=ExtResource("7_he6vx")]
+transform = Transform3D(0.198057, 0, 0.0278104, 0, 0.2, 0, -0.0278104, 0, 0.198057, -0.473559, -0.66671, -1.51438)
+
+[node name="Cube_CalicoCat" parent="." instance=ExtResource("8_qgf0q")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.080724, -0.66671, -1.64659)

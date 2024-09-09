@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 Events="*res://src/Events.gd"
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
-InventoryPersistence="*res://src/inventory/inventory_persistence.gd"
+InventoryPersistence="res://src/inventory/inventory_persistence.gd"
 Bgm="*res://src/ems/BGM/bgm.tscn"
 
 [input]

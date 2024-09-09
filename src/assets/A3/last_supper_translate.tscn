@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkm01s5yc0ncr"]
+
+[ext_resource type="PackedScene" uid="uid://b7bmxfms8cpe5" path="res://src/assets/A3/Last_Supper.glb" id="1_eeeu4"]
+
+[node name="Last_Supper" instance=ExtResource("1_eeeu4")]
+
+[node name="The_Last_Supper" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, -7.24372)

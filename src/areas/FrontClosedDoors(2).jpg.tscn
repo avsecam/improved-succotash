@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dabdb8lld82qf"]
+[gd_scene load_steps=11 format=3 uid="uid://dabdb8lld82qf"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_jx6tk"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_g18x4"]
@@ -7,16 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://dxea7t4cr8v2n" path="res://src/ems/authoring/event_template.tscn" id="5_m6sj0"]
 [ext_resource type="Script" path="res://src/ems/scripts/hard_script_tutorial_A1/quest_start.gd" id="6_oavgj"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="7_1n316"]
+[ext_resource type="PackedScene" uid="uid://bmsbv1o4xfbv2" path="res://src/assets/A MAIN/RodTorch_Silver.glb" id="8_pob6a"]
+[ext_resource type="PackedScene" path="res://src/assets/A3/Table.glb" id="9_vsrf3"]
+[ext_resource type="PackedScene" uid="uid://brdphoietd5j0" path="res://src/assets/A3/Rag.glb" id="10_uepss"]
 
 [node name="front closed doors (2)_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_jx6tk")
+image_filename = "res://src/areas/FrontClosedDoors(2).jpg.jpg"
 teleporters_data = [{
 "position": Vector3(3.57586, -1.09316, 0.283812),
 "to": "FrontRight.jpg"
 }]
-image_filename = "res://src/areas/FrontClosedDoors(2).jpg.jpg"
 base_rotation = 0.74
 outside = false
 
@@ -34,7 +37,7 @@ omni_range = 16.12
 
 [node name="FrontRight_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_sn1pm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57586, -1.09316, 0.283812)
-collision_layer = 512
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_odmpp")
 to = "FrontRight.jpg"
@@ -50,6 +53,15 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.76432, -1.2484, -2.1
 [node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+
+[node name="RodTorch_Silver" parent="." instance=ExtResource("8_pob6a")]
+transform = Transform3D(0.155467, 0.125818, -5.49968e-09, 0, -8.74228e-09, -0.2, -0.125818, 0.155467, -6.79566e-09, 0.339043, -0.128664, -1.03297)
+
+[node name="Table2" parent="." instance=ExtResource("9_vsrf3")]
+transform = Transform3D(0.112169, 0, 0.127742, 0, 0.17, 0, -0.127742, 0, 0.112169, 0.718517, -0.6495, -0.572481)
+
+[node name="Rag" parent="." instance=ExtResource("10_uepss")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.197434, -0.148733, -0.933539)
 
 [connection signal="timeout" from="MarbleSpirit_Normal/Timer" to="Events/quest_start" method="_on_timer_timeout"]
 [connection signal="finished" from="MarbleSpirit_Normal/AudioStreamPlayer3D" to="Events/quest_start" method="_on_audio_stream_player_3d_finished"]
