@@ -7,14 +7,13 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.connect("player_teleport_requested_trigger", _on_player_teleport_requested)
+	Events.connect("non_vr_teleporter_clicked", _on_non_vr_teleporter_clicked)
 	
 	Events.connect("xr_camera_moved", _on_xr_camera_moved)
 	
 	# res://src/areas/<area_name>.tscn
 	var start_scene = preload("res://src/areas/tut1.jpg.tscn").instantiate()
 	add_child(start_scene)
-
-#func _physics_process(_delta):
 
 func _on_player_teleport_requested(teleporter: Teleporter):
 	if teleporter.to:
@@ -44,6 +43,16 @@ func _on_player_teleport_requested(teleporter: Teleporter):
 			origin.position = teleporter.position
 			origin.position.y = 1.7
 			print(origin.global_position)
+
+func _on_non_vr_teleporter_clicked(teleporter: Teleporter):
+	var new_level: Level = load("res://src/areas/" + teleporter.to + ".tscn").instantiate()
+	if new_level is ThreeDScene:
+		assert(false, "Teleporting to 3D scenes is not yet supported on Non-VR.")
+		return
+	
+	get_child(0).queue_free()
+	self.rotation.y = new_level.base_rotation
+	add_child(new_level)
 
 func _on_xr_camera_moved(pos, rot):
 	if get_child_count() > 0:

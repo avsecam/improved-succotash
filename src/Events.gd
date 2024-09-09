@@ -17,7 +17,7 @@ signal xr_camera_moved(pos: Vector3, rot: Vector3)
 # NON VR SIGNALS FOR TESTING WITHOUT A HEADSET
 signal non_vr_teleporter_hovered(teleporter: Teleporter)
 signal non_vr_no_teleporter_hovered()
-signal non_vr_teleporter_clicked(to: String) # filename of scene to teleport to
+signal non_vr_teleporter_clicked(teleporter: Teleporter)
 
 #EVENT FLAGS
 var look_at_me = false
