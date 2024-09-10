@@ -84,34 +84,34 @@ _data = {
 "Thumb": ExtResource("37_cvcky")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tpmmd"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a0xq7"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n5a3h"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i25g8"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_katuy"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_vv408"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bd3f5"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ui5hd"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ygrj5"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_67in3"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_nj5g4"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_k7vk5"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_tpmmd")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_a0xq7")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_n5a3h")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_i25g8")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_katuy")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_vv408")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_bd3f5")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_ui5hd")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_ygrj5")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_67in3")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1", &"output", 0, &"Grip"]
 
@@ -149,7 +149,7 @@ root_node = NodePath("../Hand_Nails_low_R")
 libraries = {
 "": SubResource("AnimationLibrary_reqae")
 }
-tree_root = SubResource("AnimationNodeBlendTree_nj5g4")
+tree_root = SubResource("AnimationNodeBlendTree_k7vk5")
 
 [node name="NonVR" type="Node3D" parent="."]
 script = ExtResource("3_2dg2b")
@@ -161,8 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71311, 0)
 script = ExtResource("5_up2ir")
 
 [node name="Shelf" parent="." instance=ExtResource("41_68dhh")]
-transform = Transform3D(-0.0787376, 0, 0.996895, 0, 1, 0, -0.996895, 0, -0.0787376, -0.516758, 0.93145, -0.00430068)
-visible = false
+transform = Transform3D(-0.0787376, 0, 0.996895, 0, 1, 0, -0.996895, 0, -0.0787376, -0.538612, 0.93145, -0.00430068)
 
 [editable path="XRPlayer"]
 [editable path="XRPlayer/XROrigin3D/RightHand/RightHand"]

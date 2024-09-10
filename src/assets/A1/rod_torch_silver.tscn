@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://devjdmqi5833t"]
+
+[ext_resource type="PackedScene" uid="uid://bmsbv1o4xfbv2" path="res://src/assets/A MAIN/RodTorch_Silver.glb" id="1_27adp"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_body.gd" id="2_hv3qo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cs6dy"]
+height = 3.471
+radius = 0.25
+
+[node name="RodTorch_Silver" instance=ExtResource("1_27adp")]
+script = ExtResource("2_hv3qo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74948, 0)
+shape = SubResource("CylinderShape3D_cs6dy")
