@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://u3okxetcvpo4"]
+
+[ext_resource type="PackedScene" uid="uid://5mnbubbg0n8o" path="res://src/assets/A3/Table.glb" id="1_tyh3c"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_body.gd" id="2_ebg3a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0b4ol"]
+size = Vector3(0.770935, 0.763428, 1.79712)
+
+[node name="Table2" instance=ExtResource("1_tyh3c")]
+script = ExtResource("2_ebg3a")
+
+[node name="Table_001" parent="Table" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00228882, 0.397583, -0.500366)
+shape = SubResource("BoxShape3D_0b4ol")

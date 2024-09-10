@@ -1,17 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://t4312pkmm888"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mhqlv"]
-[ext_resource type="SphereMesh" uid="uid://dms81gtuoqhrc" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_o3s15"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_o3s15"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_13dui"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_ux752"]
-[ext_resource type="PackedScene" uid="uid://bcdqwquh4lrv3" path="res://src/assets/fire_spirit.tscn" id="5_fo4fw"]
-[ext_resource type="Script" path="res://src/ems/scripts/hard_script_tutorial_A1/fire_spirit.gd" id="6_o64m5"]
-[ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="7_to2uf"]
+[ext_resource type="PackedScene" uid="uid://qmbwmomhp1kd" path="res://src/assets/gltf/FireSpirit_Normal.gltf" id="5_1nkw4"]
+[ext_resource type="PackedScene" uid="uid://5mnbubbg0n8o" path="res://src/assets/A3/Table.glb" id="7_mpis1"]
+[ext_resource type="PackedScene" uid="uid://brdphoietd5j0" path="res://src/assets/A3/Rag.glb" id="8_o7h4a"]
 
 [node name="front right_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_mhqlv")
+image_filename = "res://src/areas/FrontRight.jpg.jpg"
 teleporters_data = [{
 "position": Vector3(-1.1332, -1.83253, -3.6634),
 "to": "FrontClosedDoors(2).jpg"
@@ -19,7 +20,6 @@ teleporters_data = [{
 "position": Vector3(-0.262456, -1.44031, 4.25521),
 "to": "Middle0.jpg"
 }]
-image_filename = "res://src/areas/FrontRight.jpg.jpg"
 base_rotation = -3.11
 outside = false
 
@@ -37,37 +37,23 @@ omni_range = 16.12
 
 [node name="FrontClosedDoors(2)_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_13dui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1332, -1.83253, -3.6634)
-collision_layer = 512
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_ux752")
 to = "FrontClosedDoors(2).jpg"
 
 [node name="Middle0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_13dui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262456, -1.44031, 4.25521)
-collision_layer = 512
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_ux752")
 to = "Middle0.jpg"
 
-[node name="FireSpirit_RigidBody3D" parent="." instance=ExtResource("5_fo4fw")]
-transform = Transform3D(-0.870588, 0, -0.492013, 0, 1, 0, 0.492013, 0, -0.870588, 1.67925, -1.07033, -2.80699)
-script = ExtResource("6_o64m5")
+[node name="FireSpirit_Normal" parent="." instance=ExtResource("5_1nkw4")]
+transform = Transform3D(0.0943506, 0, 0.0331354, 0, 0.1, 0, -0.0331354, 0, 0.0943506, -2.7574, -1.29469, 0.956397)
 
-[node name="_FireSpirit_Normal" parent="FireSpirit_RigidBody3D" index="0"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+[node name="Table2" parent="." instance=ExtResource("7_mpis1")]
+transform = Transform3D(0.13383, 0, -0.104831, 0, 0.17, 0, 0.104831, 0, 0.13383, 0.283595, -0.6495, 1.02689)
 
-[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("7_to2uf")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.80933, -1.01379, 0.827727)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
-
-[node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
-wait_time = 3.0
-
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
-
-[connection signal="finished" from="MarbleSpirit_Normal/AudioStreamPlayer3D" to="FireSpirit_RigidBody3D" method="_on_audio_stream_player_3d_finished"]
-[connection signal="timeout" from="MarbleSpirit_Normal/Timer" to="FireSpirit_RigidBody3D" method="_on_timer_timeout"]
-[connection signal="screen_entered" from="MarbleSpirit_Normal/VisibleOnScreenNotifier3D" to="FireSpirit_RigidBody3D" method="_on_visible_on_screen_notifier_3d_screen_entered"]
-
-[editable path="FireSpirit_RigidBody3D"]
+[node name="Rag" parent="." instance=ExtResource("8_o7h4a")]
+transform = Transform3D(0.00280327, 0, -0.0499214, 0, 0.05, 0, 0.0499214, 0, 0.00280327, 0.461667, -0.148733, 0.7778)
