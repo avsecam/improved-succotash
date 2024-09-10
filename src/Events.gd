@@ -26,15 +26,16 @@ signal update_npc_line(line: String)
 var current_bgm
 
 var event_library : Dictionary = {}
+var quest_library : Dictionary = {}
 var ongoing_events : Array = []
 var finished_events : Array = []
 
 func _ready():
-	event_library = load_data("res://src/ems/eventsystem_new/EventLibrary.json")
+	event_library = load_event_data("res://src/ems/eventsystem_new/EventLibrary.json")
 	print(event_library)
 	print(camera.name)
 
-func load_data(file_location: String) -> Dictionary:
+func load_event_data(file_location: String) -> Dictionary:
 	var output_dictionary : Dictionary = {}
 	
 	var json_as_text = FileAccess.get_file_as_string(file_location)
@@ -53,3 +54,15 @@ func load_data(file_location: String) -> Dictionary:
 	return output_dictionary
 	
 
+func load_quest_data(file_location: String) -> Dictionary:
+	var output_dictionary : Dictionary = {}
+	
+	var json_as_text = FileAccess.get_file_as_string(file_location)
+	var json_as_array = JSON.parse_string(json_as_text)
+	
+	for key in json_as_array:
+		output_dictionary[key["Quest_Name"]] = {
+			"Quest_Description" : key["Quest_Description"],
+			"Quest_Completion_Requirements" : key["Quest_Completion_Requirements"]
+		}
+	return output_dictionary
