@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b1vanpkcki3cd"
+path="res://.godot/imported/Final_Ifugao hunter.obj-4c06bb49301cb4392da95f289b0ab1da.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Final_Ifugao hunter.obj-4c06bb49301cb4392da95f289b0ab1da.mesh"]
+
+source_file="res://src/assets/Other/Final_Ifugao hunter.obj"
+dest_files=["res://.godot/imported/Final_Ifugao hunter.obj-4c06bb49301cb4392da95f289b0ab1da.mesh", "res://.godot/imported/Final_Ifugao hunter.obj-4c06bb49301cb4392da95f289b0ab1da.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

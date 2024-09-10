@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_wv65e"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_o0hno"]
 [ext_resource type="PackedScene" uid="uid://bmsbv1o4xfbv2" path="res://src/assets/A MAIN/RodTorch_Silver.glb" id="5_llqkt"]
-[ext_resource type="PackedScene" path="res://src/assets/A3/Table.glb" id="6_y5mxn"]
+[ext_resource type="PackedScene" uid="uid://5mnbubbg0n8o" path="res://src/assets/A3/Table.glb" id="6_y5mxn"]
 [ext_resource type="PackedScene" uid="uid://d0cisarr5khbt" path="res://src/assets/A MAIN/Cube_SpottedCat.glb" id="7_he6vx"]
 [ext_resource type="PackedScene" uid="uid://ck66ebvhwdf1w" path="res://src/assets/A MAIN/Cube_CalicoCat.glb" id="8_qgf0q"]
 

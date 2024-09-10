@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://djrpt4c7yljv5"
+path="res://.godot/imported/Ifugao_Hunter_Statue_Woman_3.obj-c7eba5e5ef0b3419f3e31d737d00bb42.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Ifugao_Hunter_Statue_Woman_3.obj-c7eba5e5ef0b3419f3e31d737d00bb42.mesh"]
+
+source_file="res://src/assets/Other/Ifugao_Hunter_Statue_Woman_3.obj"
+dest_files=["res://.godot/imported/Ifugao_Hunter_Statue_Woman_3.obj-c7eba5e5ef0b3419f3e31d737d00bb42.mesh", "res://.godot/imported/Ifugao_Hunter_Statue_Woman_3.obj-c7eba5e5ef0b3419f3e31d737d00bb42.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
