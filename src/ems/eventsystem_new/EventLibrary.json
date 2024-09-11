@@ -96,7 +96,7 @@
 			"DialogueKindPerson_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionPutKeyInvetory_Done",
+			"ActionPutKeyInventory_Done",
 			"KeyInInventory"
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_06_SinceYou",
@@ -108,7 +108,7 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionPutKeyInvetory_Done",
+			"ActionPutKeyInventory_Done",
 			"KeyInInventory"
 		],
 		"Event_Completion_Flags": [

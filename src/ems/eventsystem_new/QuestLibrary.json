@@ -1,38 +1,38 @@
 [
-    {
-        "Quest_Name": "QuestMeetTheMarbleSpirit",
-        "Quest_Description": {
-            "Name": "Meet the Marble Spirit",
-            "Description": "You hear a voice coming from behind you, you should check it out!"
-        },
-        "Quest_Completion_Requirements": [
-            "ActionLookAtMarbleSpirit_Done"
-        ]
-    },
-    {
-        "Quest_Name": "QuestOpenTheFrontGate",
-        "Quest_Description": {
-            "Name": "Open the Front Gate",
-            "Description": "The front gate appears to be locked, you should find a way to open it."
-        },
-        "Quest_Completion_Requirements": [
-            "ActionPickUpKey_Done",
-            "ActionPutKeyInventory_Done",
-            "ActionUseTheKey_Done"
-        ]
-    },
-    {
-        "Quest_Name": "QuestPolishRodsCleanWindows",
-        "Quest_Description": {
-            "Name": "Polish the Rods and Clean the Display Windows",
-            "Description": "You don't even work here, but might as well help the Assistant out!"
-        },
-        "Quest_Completion_Requirements": [
-            "ActionPolishRod1_Done",
-            "ActionPolishRod2_Done",
-            "ActionCleanWindow1_Done",
-            "ActionCleanWindow2_Done",
-            "ActionCleanWindow3_Done"
-        ]
-    }
+	{
+		"Quest_Name": "QuestMeetTheMarbleSpirit",
+		"Quest_Description": {
+			"Name": "Meet the Marble Spirit",
+			"Description": "You hear a voice coming from behind you, you should check it out!"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionLookAtMarbleSpirit_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestOpenTheFrontGate",
+		"Quest_Description": {
+			"Name": "Open the Front Gate",
+			"Description": "The front gate appears to be locked, you should find a way to open it."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPickUpKey_Done",
+			"ActionPutKeyInventory_Done",
+			"ActionUseTheKey_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestPolishRodsCleanWindows",
+		"Quest_Description": {
+			"Name": "Polish the Rods and Clean the Display Windows",
+			"Description": "You don't even work here, but might as well help the Assistant out!"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPolishRod1_Done",
+			"ActionPolishRod2_Done",
+			"ActionCleanWindow1_Done",
+			"ActionCleanWindow2_Done",
+			"ActionCleanWindow3_Done"
+		]
+	}
 ]

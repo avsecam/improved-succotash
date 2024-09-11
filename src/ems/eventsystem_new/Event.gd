@@ -35,6 +35,7 @@ func _ready() -> void:
 	
 	event_started.connect(_on_event_started)
 	event_ended.connect(get_parent()._on_event_ended)
+	event_ended.connect(get_tree().get_root().get_node("/root/Demo/Quests").update_active_quests)
 	
 	get_tree().process_frame.connect(start_event, CONNECT_ONE_SHOT)
 	
