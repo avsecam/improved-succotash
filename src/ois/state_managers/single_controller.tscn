@@ -1,15 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1ssfs8hlildi"]
+[gd_scene load_steps=3 format=3 uid="uid://c1ssfs8hlildi"]
 
 [ext_resource type="PackedScene" uid="uid://cgvb2nfbovs56" path="res://src/ois/state_managers/state_manager.tscn" id="1_uhlde"]
 [ext_resource type="Script" path="res://src/ois/state_managers/single_controller.gd" id="2_dlemj"]
-[ext_resource type="PackedScene" uid="uid://c7jka6pr2nc0" path="res://src/ois/states/state.tscn" id="3_wcl1b"]
 
 [node name="StateManager" node_paths=PackedStringArray("current_state") instance=ExtResource("1_uhlde")]
 script = ExtResource("2_dlemj")
-current_state = NodePath("ActiveState")
-
-[node name="IdleState" parent="." index="0" instance=ExtResource("3_wcl1b")]
-
-[node name="ActiveState" parent="." index="1" instance=ExtResource("3_wcl1b")]
-
-[node name="TriggerState" parent="." index="2" instance=ExtResource("3_wcl1b")]
+current_state = NodePath("")

@@ -14,6 +14,7 @@ size = Vector3(0.169006, 0.301514, 0.650879)
 [node name="Cat" instance=ExtResource("1_ob3v0")]
 collision_layer = 5242881
 script = ExtResource("2_fa6f3")
+requirement = 2.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158457, 0.00723267)
@@ -27,5 +28,5 @@ mesh = ExtResource("3_bjlcj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0279236, 0.228638, -0.0656738)
 shape = SubResource("BoxShape3D_6831k")
 
-[node name="FeedbackComponent" type="Node3D" parent="." index="4"]
+[node name="Node3D" type="Node3D" parent="." index="4"]
 script = ExtResource("4_b2y50")

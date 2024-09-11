@@ -19,14 +19,14 @@
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_t305n"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xck02"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecf2i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g326"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_t305n")
+albedo_texture = SubResource("ViewportTexture_xck02")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2prly"]
@@ -109,7 +109,7 @@ transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_d78eu")
-surface_material_override/0 = SubResource("StandardMaterial3D_ecf2i")
+surface_material_override/0 = SubResource("StandardMaterial3D_2g326")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_2prly")
@@ -117,6 +117,9 @@ shape = SubResource("BoxShape3D_2prly")
 [node name="TheKey" parent="." instance=ExtResource("11_dc6ke")]
 transform = Transform3D(0.984109, 0, 0, 0, 0.984109, 0, 0, 0, 0.984109, 0.67218, -0.264099, -0.0093748)
 visible = false
+
+[node name="InteractReceiver" parent="TheKey/StateManager" index="4" node_paths=PackedStringArray("state_manager")]
+state_manager = NodePath("..")
 
 [connection signal="picked_up" from="TheKey" to="Events/ActionPickUpKey" method="_on_the_key_picked_up"]
 

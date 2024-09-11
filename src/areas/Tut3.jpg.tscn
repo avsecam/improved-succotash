@@ -75,9 +75,6 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 script = ExtResource("10_15fw5")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="Cat" parent="." instance=ExtResource("9_txq0y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.97587, -0.696743)
-
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("10_sdn00")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.59122, 0, 0)
 
@@ -85,9 +82,11 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.59122, 0, 0)
 
 [node name="Frame" parent="." instance=ExtResource("13_0t0m7")]
 transform = Transform3D(0.0525451, 0, -0.998619, 0, 1, 0, 0.998619, 0, 0.0525451, -0.0483281, -0.698536, -0.338452)
-visible = false
+
+[node name="Cat" parent="." groups=["hand"] instance=ExtResource("9_txq0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.865179, -0.764935)
 
 [connection signal="picked_up" from="Frame" to="Events/ActionGetCatPicture" method="_on_frame_picked_up"]
 
-[editable path="Cat"]
 [editable path="MarbleSpirit_Normal"]
+[editable path="Cat"]
