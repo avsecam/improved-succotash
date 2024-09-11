@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dabdb8lld82qf"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_jx6tk"]
-[ext_resource type="SphereMesh" uid="uid://dulklkldpk4be" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_g18x4"]
+[ext_resource type="SphereMesh" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_g18x4"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_sn1pm"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_odmpp"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="7_1n316"]
@@ -51,7 +51,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.76432, 0.345402, -2.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.197, 0.0114626, -0.934)
 
 [node name="Table2" parent="." instance=ExtResource("8_x2x13")]
-transform = Transform3D(-0.803857, 0, -0.594823, 0, 1, 0, 0.594823, 0, -0.803857, 0.340273, -0.961189, -1.21931)
+transform = Transform3D(-0.803857, 0, -0.594823, 0, 1, 0, 0.594823, 0, -0.803857, 0.340273, -0.972769, -1.21931)
 
 [node name="RodTorch_Silver2" parent="." instance=ExtResource("8_h2046")]
 transform = Transform3D(0.155467, 0.125818, -5.49968e-09, 0, -8.74228e-09, -0.2, -0.125818, 0.155467, -6.79566e-09, 0.638, -0.136255, -0.883646)
