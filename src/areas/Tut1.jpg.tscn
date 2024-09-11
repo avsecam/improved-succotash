@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cmn6op3t4pdhk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_wauyu"]
-[ext_resource type="SphereMesh" uid="uid://dulklkldpk4be" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
+[ext_resource type="SphereMesh" uid="uid://r872pb7ih8bp" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_j5in4"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_br0jg"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_75ivk"]
@@ -16,14 +16,14 @@
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_m2jmg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_k3vm6"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwbkr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83pbc"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_m2jmg")
+albedo_texture = SubResource("ViewportTexture_k3vm6")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rofwt"]
@@ -91,7 +91,7 @@ wait_time = 3.0
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_2n6ty")
-surface_material_override/0 = SubResource("StandardMaterial3D_wwbkr")
+surface_material_override/0 = SubResource("StandardMaterial3D_83pbc")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_rofwt")
