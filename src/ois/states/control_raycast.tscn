@@ -21,6 +21,7 @@ laser_thickness = 0.002
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="0"]
 target_position = Vector3(0, 0, -1)
+collide_with_areas = true
 
 [node name="Laser" type="MeshInstance3D" parent="." index="1"]
 mesh = SubResource("BoxMesh_sxon8")

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpv285u8vgjeg"]
+
+[ext_resource type="PackedScene" uid="uid://c5ds6cwwrxad7" path="res://src/ois/states/state_behavior.tscn" id="1_g87dk"]
+[ext_resource type="Script" path="res://src/ois/states/control_collision_detection.gd" id="2_6hpqr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3ct0"]
+albedo_color = Color(0.137255, 1, 0.231373, 0.486275)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrjbj"]
+material = SubResource("StandardMaterial3D_p3ct0")
+size = Vector3(0.002, 0.002, 0.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yry55"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyfml"]
+transparency = 1
+albedo_color = Color(0.137255, 1, 0.231373, 0.211765)
+
+[sub_resource type="SphereMesh" id="SphereMesh_j6deu"]
+material = SubResource("StandardMaterial3D_tyfml")
+radius = 0.1
+height = 0.2
+
+[node name="ControlCollisionDetection" instance=ExtResource("1_g87dk")]
+script = ExtResource("2_6hpqr")
+collision_mesh_radius = 0.1
+laser_thickness = 0.002
+
+[node name="Laser" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_qrjbj")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("SphereShape3D_yry55")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+mesh = SubResource("SphereMesh_j6deu")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

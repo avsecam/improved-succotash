@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://gs6cceyv2nc6"]
+
+[ext_resource type="PackedScene" uid="uid://c5ds6cwwrxad7" path="res://src/ois/states/state_behavior.tscn" id="1_y50em"]
+[ext_resource type="Script" path="res://src/ois/states/control_raycast_visibility.gd" id="2_ktolf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3ct0"]
+albedo_color = Color(0.137255, 1, 0.231373, 0.486275)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sxon8"]
+material = SubResource("StandardMaterial3D_p3ct0")
+size = Vector3(0.02, 0.02, 0.02)
+
+[node name="ControlRaycastVisibility" instance=ExtResource("1_y50em")]
+script = ExtResource("2_ktolf")
+raycast_length = 1.0
+laser_thickness = 0.002
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="0"]
+target_position = Vector3(0, 0, -1)
+
+[node name="Laser" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_sxon8")

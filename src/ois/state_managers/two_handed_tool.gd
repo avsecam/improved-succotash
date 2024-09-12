@@ -1,15 +1,20 @@
-@tool
 extends StateManager
-class_name SMOneHandedTool
+class_name SMTwoHandedTool
 
 @onready var idle_state = $IdleState
-@onready var active_state = $ActiveState
-@onready var trigger_state = $TriggerState
+@onready var active1_state = $Active1State
+@onready var active2_state = $Active2State
+@onready var trigger1_state = $Trigger1State
+@onready var trigger2_state = $Trigger2State
 
 @onready var actor_object = get_parent()
 
+var active_controllers = []
+
 var a = func(x): if (x == "trigger_click"): _on_trigger_pressed()
 var b = func(x): if (x == "trigger_click"): _on_trigger_released()
+
+#TODO pickable signals seems to register twice
 
 func _ready():
 	super()
@@ -21,41 +26,69 @@ func _on_actor_object_released(pickable, by):
 		var controller : XRController3D = by.get_controller()
 		controller.button_pressed.disconnect(a)
 		controller.button_released.disconnect(b)
+		active_controllers.erase(controller)
 		
 		var controller_sm = controller.get_node_or_null("StateManager")
 		if controller_sm != null:
 			controller_sm._on_object_released()
 
-		set_state(idle_state)
+		#match current_state:
+			#active1_state:
+				#if active_controllers.size() == 0:
+					#set_state(idle_state)
+			#active2_state:
+				#if active_controllers.size() == 1:
+					#set_state(active1_state)
+		
+		if active_controllers.size() == 0:
+			set_state(idle_state)
+		elif active_controllers.size() == 1:
+			if current_state == trigger1_state || current_state == trigger2_state:
+				set_state(trigger1_state)
+			else:
+				set_state(active1_state)
+
 
 func _on_actor_object_grabbed(pickable, by):
 	if by is XRToolsFunctionPickup:
 		var controller : XRController3D = by.get_controller()
 		controller.button_pressed.connect(a)
 		controller.button_released.connect(b)
+		if !active_controllers.has(controller):
+			active_controllers.append(controller)
 		
 		var controller_sm = controller.get_node_or_null("StateManager")
 		if controller_sm != null:
 			controller_sm._on_object_grabbed()
+		
+		match current_state:
+			idle_state:
+				set_state(active1_state)
+			active1_state:
+				if active_controllers.size() == 2:
+					set_state(active2_state)
 
-		set_state(active_state)
-	
 func _on_trigger_pressed():
 	if (receiver_object != null):
-		set_state(trigger_state)
-
-	# other option
-	# set_state(trigger_state)
-		# have state check if receiver exists?
-		# or make another state trigger w/o obj
+		match current_state:
+			active1_state:
+				set_state(trigger1_state)
+			active2_state:
+				set_state(trigger1_state)
+			trigger1_state:
+				set_state(trigger2_state)
 
 func _on_trigger_released():
-	if (current_state == trigger_state):
-		receiver_object = null
-		set_state(active_state)
+	match current_state:
+		trigger1_state:
+			if active_controllers.size() == 2:
+				set_state(active2_state)
+			elif active_controllers.size() == 1:
+				set_state(active1_state)
+		trigger2_state:
+			set_state(trigger1_state)
 
 func _on_receiver_collision_entered(receiver):
-	print("colliison " + receiver.name)
 	if receiver.is_in_group(receiver_group):
 		receiver_object = receiver
 		set_state(current_state)
@@ -67,6 +100,6 @@ func _on_receiver_collision_entered(receiver):
 				break
 
 func _on_receiver_collision_exited(receiver):
-	if (current_state == active_state):
+	if (current_state == active1_state || current_state == active2_state):
 		receiver_object = null
-		set_state(active_state)
+		set_state(current_state)

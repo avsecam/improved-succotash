@@ -1,0 +1,142 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ymsx1ev8nj6"]
+
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/receiver_settings.gd" id="1_6j5sq"]
+[ext_resource type="Resource" uid="uid://i7huviwkuuvr" path="res://src/authoring_tools/object_authoring/actor_receiver_settings.tres" id="2_djna3"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_j15fn"]
+color = Color(0.670588, 0.670588, 0.670588, 1)
+thickness = 2
+
+[node name="ReceiverSettings" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_6j5sq")
+actor_receiver_settings = ExtResource("2_djna3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="Main" type="BoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical = true
+
+[node name="BtnAddNewReceiverComponent" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Add New Receiver Component"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/Main"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_j15fn")
+
+[node name="LabelSetReceiverComponent" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Select Current Receiver Component"
+
+[node name="OptionBtnReceiverComponent" type="OptionButton" parent="ScrollContainer/Main"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/Main"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_j15fn")
+
+[node name="LabelSetCollisionShape" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Collision Shape"
+
+[node name="OptionBtnCollisionShape" type="OptionButton" parent="ScrollContainer/Main"]
+layout_mode = 2
+
+[node name="BtnSetCollisionShape" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Set Collision Shape
+"
+
+[node name="BtnCopyMainCollisionShape" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Copy Main Collision Shape
+"
+
+[node name="LabelActionComp" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Action Component"
+
+[node name="ActionCompContainer" type="VBoxContainer" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="BtnAddActionComp" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Set Action Component"
+
+[node name="LabelReceiverGroups" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Receiver Groups"
+
+[node name="ReceiverGroupContainer" type="BoxContainer" parent="ScrollContainer/Main"]
+layout_mode = 2
+vertical = true
+
+[node name="ReceiverGroupOptionButton" type="OptionButton" parent="ScrollContainer/Main"]
+layout_mode = 2
+
+[node name="BtnAddReceiverGroup" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Add Receiver Group"
+
+[node name="LabelFeedback" type="Label" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Feedback"
+
+[node name="FeedbackContainer" type="VBoxContainer" parent="ScrollContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="BtnAddFeedback" type="Button" parent="ScrollContainer/Main"]
+layout_mode = 2
+text = "Add Feedback"
+
+[node name="FDSelectActionComp" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/action_components/"
+filters = PackedStringArray("*.gd")
+
+[node name="FDSelectFeedback" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/feedback_components/"
+filters = PackedStringArray("*.gd")
+
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddNewReceiverComponent" to="." method="_on_btn_add_new_receiver_component_pressed"]
+[connection signal="item_selected" from="ScrollContainer/Main/OptionBtnReceiverComponent" to="." method="_on_option_btn_receiver_component_item_selected"]
+[connection signal="pressed" from="ScrollContainer/Main/BtnSetCollisionShape" to="." method="_on_btn_set_collision_shape_pressed"]
+[connection signal="pressed" from="ScrollContainer/Main/BtnCopyMainCollisionShape" to="." method="_on_btn_copy_main_collision_shape_pressed"]
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddActionComp" to="." method="_on_btn_add_action_comp_pressed"]
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddReceiverGroup" to="." method="_on_btn_add_receiver_group_pressed"]
+[connection signal="pressed" from="ScrollContainer/Main/BtnAddFeedback" to="." method="_on_btn_add_feedback_pressed"]
+[connection signal="file_selected" from="FDSelectActionComp" to="." method="_on_fd_select_action_comp_file_selected"]
+[connection signal="file_selected" from="FDSelectFeedback" to="." method="_on_fd_select_feedback_file_selected"]

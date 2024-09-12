@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://sa5ggfgvh67s"]
+
+[ext_resource type="PackedScene" uid="uid://c1ssfs8hlildi" path="res://src/ois/state_managers/single_controller.tscn" id="1_10kl7"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="2_ixori"]
+[ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="2_ts5yc"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="3_ubq3o"]
+
+[sub_resource type="Resource" id="Resource_wtum0"]
+script = ExtResource("2_ixori")
+state_behavior_settings = {
+"ActiveCollidingState": {
+"ControlRaycastVisibility": true,
+"InteractReceiver": false
+},
+"ActiveState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"IdleState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlRaycastVisibility": true,
+"InteractReceiver": true
+}
+}
+behavior_dict = {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+}
+
+[node name="StateManager" instance=ExtResource("1_10kl7")]
+settings = SubResource("Resource_wtum0")
+
+[node name="ControlRaycastVisibility" parent="." index="4" instance=ExtResource("2_ts5yc")]
+
+[node name="InteractReceiver" parent="." index="5" instance=ExtResource("3_ubq3o")]

@@ -1,0 +1,278 @@
+[gd_scene load_steps=13 format=3 uid="uid://bu2210yvw7asq"]
+
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/OISAuthoringTool.gd" id="1_fv4xn"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/new_object_settings.gd" id="2_041sg"]
+[ext_resource type="PackedScene" uid="uid://c43mihg4osje5" path="res://src/authoring_tools/object_authoring/actor_settings.tscn" id="2_bbno4"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/object_tree.gd" id="2_wg378"]
+[ext_resource type="PackedScene" uid="uid://dlrhpy2o6d7bl" path="res://src/authoring_tools/gizmos/editor_controller.tscn" id="3_w5ih1"]
+[ext_resource type="PackedScene" uid="uid://d1ymsx1ev8nj6" path="res://src/authoring_tools/object_authoring/receiver_settings.tscn" id="4_5la0t"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/editable_obj_slot.gd" id="4_05tlt"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/general_settings.gd" id="5_oxnpq"]
+[ext_resource type="PackedScene" uid="uid://gb7s0yjwlwtb" path="res://src/authoring_tools/object_authoring/inventory_settings.tscn" id="8_f5grk"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/notification_panel.gd" id="8_qoxph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4swux"]
+bg_color = Color(0.6, 0.6, 0.6, 0.482353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2f3df"]
+bg_color = Color(0.427451, 0.427451, 0.427451, 1)
+
+[node name="OISAuthoringTool" type="Node3D"]
+script = ExtResource("1_fv4xn")
+
+[node name="FDSetMesh" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/"
+filters = PackedStringArray("*.obj")
+
+[node name="FDSaveObject" type="FileDialog" parent="."]
+initial_position = 2
+size = Vector2i(500, 400)
+root_subfolder = "res://src/ois/"
+filters = PackedStringArray("*.tscn")
+
+[node name="FDLoadObject" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/"
+filters = PackedStringArray("*.tscn")
+
+[node name="CDNewObject" type="ConfirmationDialog" parent="."]
+initial_position = 2
+size = Vector2i(326, 341)
+script = ExtResource("2_041sg")
+
+[node name="NewObjectSettings" type="BoxContainer" parent="CDNewObject"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = 8.0
+offset_right = 155.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="Label" type="Label" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "Select Object Type"
+
+[node name="CBPickable" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "Pickable Object"
+
+[node name="CBStaticBody" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "StaticBody3D Object"
+
+[node name="CBRigidBody" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "RigidBody3D Object"
+
+[node name="Label2" type="Label" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "____________________________________________"
+horizontal_alignment = 1
+
+[node name="CBReceiver" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "Receiver Object"
+
+[node name="CBActor" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "Actor Object"
+
+[node name="ActorTypeSelector" type="OptionButton" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+
+[node name="CBInventory" type="CheckBox" parent="CDNewObject/NewObjectSettings"]
+layout_mode = 2
+text = "Inventory object"
+
+[node name="NotificationPanel" type="PanelContainer" parent="."]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.5
+offset_top = -19.5
+offset_right = 302.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4swux")
+script = ExtResource("8_qoxph")
+
+[node name="MarginContainer" type="MarginContainer" parent="NotificationPanel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="NotificationPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="NotificationPanel"]
+one_shot = true
+
+[node name="MainContainer" type="SplitContainer" parent="."]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlankHalf" type="Control" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="FlowContainer3" type="FlowContainer" parent="MainContainer/BlankHalf"]
+layout_mode = 2
+offset_right = 570.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+
+[node name="BtnNewObject" type="Button" parent="MainContainer/BlankHalf/FlowContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "New Object"
+
+[node name="BtnLoadObject" type="Button" parent="MainContainer/BlankHalf/FlowContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load Object"
+
+[node name="Tree" type="Tree" parent="MainContainer/BlankHalf"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 246.0
+offset_bottom = 394.0
+size_flags_horizontal = 3
+script = ExtResource("2_wg378")
+
+[node name="Panel" type="Panel" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2f3df")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="BoxContainer" type="BoxContainer" parent="MainContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+vertical = true
+
+[node name="ObjectSettings" type="TabContainer" parent="MainContainer/Panel/MarginContainer/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_focus_mode = 1
+
+[node name="GeneralSettings" type="MarginContainer" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("5_oxnpq")
+
+[node name="BoxContainer" type="BoxContainer" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings"]
+layout_mode = 2
+theme_override_constants/separation = 8
+vertical = true
+
+[node name="BtnSetMesh" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Set Mesh"
+
+[node name="OptionBtnCollisionShape" type="OptionButton" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer"]
+layout_mode = 2
+
+[node name="BtnSetCollisionShape" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Set Collision Shape
+"
+
+[node name="ActorSettings" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings" instance=ExtResource("2_bbno4")]
+visible = false
+layout_mode = 2
+
+[node name="ReceiverSettings" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings" instance=ExtResource("4_5la0t")]
+visible = false
+layout_mode = 2
+
+[node name="InventorySettings" parent="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings" instance=ExtResource("8_f5grk")]
+visible = false
+layout_mode = 2
+
+[node name="BtnSaveObject" type="Button" parent="MainContainer/Panel/MarginContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Save Object"
+
+[node name="EditableObjectSlot" type="Node3D" parent="."]
+script = ExtResource("4_05tlt")
+
+[node name="Editor_Controller" parent="." instance=ExtResource("3_w5ih1")]
+
+[connection signal="changed_editable_object" from="." to="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ReceiverSettings" method="set_editable_object"]
+[connection signal="changed_editable_object" from="." to="EditableObjectSlot" method="set_editable_obj"]
+[connection signal="file_selected" from="FDSetMesh" to="." method="_on_fd_set_mesh_file_selected"]
+[connection signal="file_selected" from="FDSaveObject" to="." method="_on_fd_save_object_file_selected"]
+[connection signal="file_selected" from="FDLoadObject" to="." method="_on_fd_load_object_file_selected"]
+[connection signal="confirmed" from="CDNewObject" to="." method="_on_cd_new_object_confirmed"]
+[connection signal="confirmed" from="CDNewObject" to="CDNewObject" method="_on_confirmed"]
+[connection signal="toggled" from="CDNewObject/NewObjectSettings/CBPickable" to="CDNewObject" method="_on_cb_pickable_toggled"]
+[connection signal="toggled" from="CDNewObject/NewObjectSettings/CBStaticBody" to="CDNewObject" method="_on_cb_static_body_toggled"]
+[connection signal="toggled" from="CDNewObject/NewObjectSettings/CBRigidBody" to="CDNewObject" method="_on_cb_rigid_body_toggled"]
+[connection signal="toggled" from="CDNewObject/NewObjectSettings/CBActor" to="CDNewObject" method="_on_cb_actor_toggled"]
+[connection signal="timeout" from="NotificationPanel/Timer" to="NotificationPanel" method="_on_timer_timeout"]
+[connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnNewObject" to="." method="_on_btn_new_object_pressed"]
+[connection signal="pressed" from="MainContainer/BlankHalf/FlowContainer3/BtnLoadObject" to="." method="_on_btn_load_object_pressed"]
+[connection signal="button_clicked" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_button_clicked"]
+[connection signal="item_selected" from="MainContainer/BlankHalf/Tree" to="MainContainer/BlankHalf/Tree" method="_on_item_selected"]
+[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer/BtnSetMesh" to="." method="_on_btn_set_mesh_pressed"]
+[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings/BoxContainer/BtnSetCollisionShape" to="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/GeneralSettings" method="_on_btn_set_collision_shape_pressed"]
+[connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="." method="on_object_edited"]
+[connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="MainContainer/BlankHalf/Tree" method="update_tree"]
+[connection signal="edited_object" from="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" to="EditableObjectSlot" method="display_obj_debug"]
+[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSaveObject" to="." method="_on_btn_save_object_pressed"]
+[connection signal="pressed" from="MainContainer/Panel/MarginContainer/BoxContainer/BtnSaveObject" to="MainContainer/Panel/MarginContainer/BoxContainer/ObjectSettings/ActorSettings" method="set_receiver_group"]

@@ -17,7 +17,7 @@ func _process(_delta):
 	var interacting_current_pos = interacting_object.position
 	
 	var delta_dist = interacting_inital_pos.distance_to(interacting_current_pos)
-	print(str(interacting_inital_pos) + " - " + str(interacting_current_pos) + " = " + str(delta_dist))
+	#print(str(interacting_inital_pos) + " - " + str(interacting_current_pos) + " = " + str(delta_dist))
 	var current_progress = total_delta_dist + delta_dist
 		
 	if(delta_dist < (delta_dist_prev-buffer)):
