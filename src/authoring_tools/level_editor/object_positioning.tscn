@@ -1,0 +1,216 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdprbwq50lwr8"]
+
+[ext_resource type="Script" path="res://src/authoring_tools/level_editor/object_positioning.gd" id="1_k7cdm"]
+[ext_resource type="Script" path="res://src/NonVR.gd" id="2_4a5et"]
+[ext_resource type="Script" path="res://src/teleportation/PanoramaContainer.gd" id="4_odegr"]
+[ext_resource type="PackedScene" uid="uid://dlrhpy2o6d7bl" path="res://src/authoring_tools/gizmos/editor_controller.tscn" id="5_d3iyj"]
+[ext_resource type="Script" path="res://src/authoring_tools/object_authoring/notification_panel.gd" id="5_wkdsu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qaoca"]
+albedo_color = Color(0.937255, 0.309804, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q2bbi"]
+material = SubResource("StandardMaterial3D_qaoca")
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ii3y"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2kn3x"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvym0"]
+bg_color = Color(0.6, 0.6, 0.6, 0.482353)
+
+[node name="ObjectPositioning" type="Node3D"]
+script = ExtResource("1_k7cdm")
+
+[node name="NonVR" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("2_4a5et")
+camera = NodePath("../Editor_Controller/Editor_Camera_Controller/View_Camera")
+
+[node name="PanoramaContainer" type="Node3D" parent="NonVR"]
+script = ExtResource("4_odegr")
+
+[node name="Editor_Controller" parent="." instance=ExtResource("5_d3iyj")]
+
+[node name="Editor_UI" parent="Editor_Controller" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Editor_Camera_Controller" parent="Editor_Controller" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+is_panorama_camera = true
+NORMAL_COLLISION_LAYER = 7
+
+[node name="NewObjInitialPos" type="Node3D" parent="Editor_Controller/Editor_Camera_Controller/View_Camera" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.971039)
+
+[node name="DebugView" type="MeshInstance3D" parent="Editor_Controller/Editor_Camera_Controller/View_Camera/NewObjInitialPos"]
+visible = false
+mesh = SubResource("BoxMesh_q2bbi")
+
+[node name="TopControls" type="FlowContainer" parent="."]
+offset_right = 319.0
+offset_bottom = 40.0
+vertical = true
+
+[node name="BtnLoadArea" type="Button" parent="TopControls"]
+layout_mode = 2
+text = "Load Area"
+
+[node name="BtnAddObject" type="Button" parent="TopControls"]
+layout_mode = 2
+text = "Add Object"
+
+[node name="BtnGravityOn" type="CheckButton" parent="TopControls"]
+layout_mode = 2
+text = "Gravity On"
+
+[node name="BtnFixedView" type="CheckButton" parent="TopControls"]
+layout_mode = 2
+button_pressed = true
+text = "Fixed Panorama View"
+
+[node name="BtnViewFloor" type="CheckButton" parent="TopControls"]
+layout_mode = 2
+text = "View Floor"
+
+[node name="BottomControls" type="FlowContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+vertical = true
+
+[node name="BtnOverwriteSave" type="Button" parent="BottomControls"]
+layout_mode = 2
+text = "Overwrite Save"
+
+[node name="BtnSaveAs" type="Button" parent="BottomControls"]
+layout_mode = 2
+text = "Save As..."
+
+[node name="BtnDeleteObj" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -329.0
+offset_top = -62.0
+offset_right = -289.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Del"
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_0ii3y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+visible = false
+mesh = SubResource("BoxMesh_2kn3x")
+
+[node name="FDLoadArea" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/areas/"
+filters = PackedStringArray("*.tscn")
+
+[node name="FDSaveArea" type="FileDialog" parent="."]
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Save"
+root_subfolder = "res://src/areas/"
+filters = PackedStringArray("*.tscn")
+
+[node name="FDAddItem" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 400)
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "res://src/ois/"
+filters = PackedStringArray("*.tscn")
+
+[node name="CDOverwriteSave" type="ConfirmationDialog" parent="."]
+initial_position = 1
+
+[node name="Label" type="Label" parent="CDOverwriteSave"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 51.0
+
+[node name="NotificationPanel" type="PanelContainer" parent="."]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.5
+offset_top = -19.5
+offset_right = 302.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_jvym0")
+script = ExtResource("5_wkdsu")
+
+[node name="MarginContainer" type="MarginContainer" parent="NotificationPanel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="NotificationPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="NotificationPanel"]
+one_shot = true
+
+[node name="CDProceedWithoutSaving" type="ConfirmationDialog" parent="."]
+initial_position = 1
+size = Vector2i(539, 100)
+
+[node name="Label" type="Label" parent="CDProceedWithoutSaving"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 531.0
+offset_bottom = 51.0
+text = "Are you sure you wish to proceed without saving the current scene?"
+
+[connection signal="pressed" from="TopControls/BtnLoadArea" to="." method="_on_btn_load_area_pressed"]
+[connection signal="pressed" from="TopControls/BtnAddObject" to="." method="_on_btn_add_object_pressed"]
+[connection signal="toggled" from="TopControls/BtnGravityOn" to="." method="_on_btn_gravity_on_toggled"]
+[connection signal="pressed" from="TopControls/BtnFixedView" to="." method="_on_btn_fixed_view_pressed"]
+[connection signal="toggled" from="TopControls/BtnFixedView" to="." method="_on_btn_fixed_view_toggled"]
+[connection signal="toggled" from="TopControls/BtnViewFloor" to="." method="_on_btn_view_floor_toggled"]
+[connection signal="pressed" from="BottomControls/BtnOverwriteSave" to="." method="_on_btn_overwrite_save_pressed"]
+[connection signal="pressed" from="BottomControls/BtnSaveAs" to="." method="_on_btn_save_as_pressed"]
+[connection signal="pressed" from="BtnDeleteObj" to="." method="_on_btn_delete_obj_pressed"]
+[connection signal="file_selected" from="FDLoadArea" to="." method="_on_fd_load_area_file_selected"]
+[connection signal="file_selected" from="FDSaveArea" to="." method="_on_fd_save_area_file_selected"]
+[connection signal="file_selected" from="FDAddItem" to="." method="_on_fd_add_item_file_selected"]
+[connection signal="confirmed" from="CDOverwriteSave" to="." method="_on_cd_overwrite_save_confirmed"]
+[connection signal="timeout" from="NotificationPanel/Timer" to="NotificationPanel" method="_on_timer_timeout"]
+
+[editable path="Editor_Controller"]

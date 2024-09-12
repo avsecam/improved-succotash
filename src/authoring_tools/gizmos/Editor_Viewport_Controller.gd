@@ -39,6 +39,10 @@ var gizmo_select;
 # A variable to hold the currently active gizmo.
 var current_gizmo;
 
+@onready var x_coord = $"../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/X_edit/X_coord"
+@onready var y_coord = $"../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Y_edit/Y_coord"
+@onready var z_coord = $"../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Z_edit/Z_coord"
+@onready var apply_button = $"../Editor_UI/MarginContainer2/Manual_Value_Input/Apply"
 
 func _ready():
 	# Get the Editor_Contoller node and assign it to editor_controller.
@@ -77,6 +81,8 @@ func _ready():
 	gizmo_rotate = gizmos_holder.get_node("Rotate");
 	gizmo_scale = gizmos_holder.get_node("Scale");
 	gizmo_select = gizmos_holder.get_node("Select");
+
+	apply_button.pressed.connect(self._apply_value)
 	
 	# Make the current gizmo the select gizmo by default.
 	current_gizmo = gizmo_select;
@@ -99,17 +105,23 @@ func update_gizmos():
 	# Based on the current editor mode, change current_gizmo to the proper gizmo.
 	if (editor_controller.editor_mode == "TRANSLATE"):
 		current_gizmo = gizmo_translate;
+		$"../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Selected_Gizmo".text = "Translate"
 	elif (editor_controller.editor_mode == "ROTATE"):
 		current_gizmo = gizmo_rotate;
+		$"../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Selected_Gizmo".text = "Rotate (degrees)"
 	elif (editor_controller.editor_mode == "SCALE"):
 		current_gizmo = gizmo_scale;
+		$"../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Selected_Gizmo".text = "Scale"
 	elif (editor_controller.editor_mode == "SELECT"):
 		current_gizmo = gizmo_select;
+		$"../Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Selected_Gizmo".text = "Select"
 	
 	# If there is a selected object...
 	if (selected_physics_object != null):
 		# Tell the current gizmo to update/enable itself!
 		current_gizmo.update(true);
+	
+	update_xyz_ui()
 
 
 func _process(delta):
@@ -192,7 +204,9 @@ func physics_object_selected(new_object):
 			# the physics world again. If we do not have this, it will just stay floating in the air until another
 			# physics object collides with it.
 			selected_physics_object.apply_impulse(Vector3(0,0,0), Vector3(0, 0.01, 0));
-	
+		
+		update_xyz_ui()
+			
 	# Assign selected_physics_object to the newly selected physics object.
 	# NOTE: if no physics object was selected, then new_object will be null.
 	selected_physics_object = new_object;
@@ -216,9 +230,78 @@ func physics_object_selected(new_object):
 		
 		# Tell the current gizmo to update/enable itself.
 		current_gizmo.update(true);
+		update_xyz_ui()
 	
 	# If selected_physics_object is null...
 	else:
 		# Then nothing is currently selected and so we should disable the current gizmo.
 		current_gizmo.update(false);
+		
+func update_xyz_ui():
+	if selected_physics_object != null:
+		x_coord.editable = true
+		y_coord.editable = true
+		z_coord.editable = true
+		
+		if (editor_controller.editor_mode == "TRANSLATE"):
+			x_coord.set_value(selected_physics_object.global_transform.origin.x)
+			y_coord.set_value(selected_physics_object.global_transform.origin.y)
+			z_coord.set_value(selected_physics_object.global_transform.origin.z)
+		elif (editor_controller.editor_mode == "ROTATE"):
+			x_coord.set_value(selected_physics_object.rotation_degrees.x)
+			y_coord.set_value(selected_physics_object.rotation_degrees.y)
+			z_coord.set_value(selected_physics_object.rotation_degrees.z)
+		elif (editor_controller.editor_mode == "SCALE"):
+			if selected_physics_object is CollisionShape3D:
+				if selected_physics_object.shape is BoxShape3D:
+					x_coord.set_value(selected_physics_object.shape.size.x)
+					y_coord.set_value(selected_physics_object.shape.size.y)
+					z_coord.set_value(selected_physics_object.shape.size.z)
+				
+				elif selected_physics_object.shape is CapsuleShape3D or selected_physics_object.shape is CylinderShape3D:
+					y_coord.set_value(selected_physics_object.shape.height)
+					x_coord.set_value(selected_physics_object.shape.radius)
+					z_coord.set_value(0)
+					z_coord.editable = false
+					
+				elif selected_physics_object.shape is SphereShape3D:
+					x_coord.set_value(selected_physics_object.shape.radius)
+					y_coord.set_value(0)
+					y_coord.editable = false
+					z_coord.set_value(0)
+					z_coord.editable = false
+			else:
+				x_coord.set_value(selected_physics_object.scale.x)
+				y_coord.set_value(selected_physics_object.scale.y)
+				z_coord.set_value(selected_physics_object.scale.z)
+		
+func _apply_value():
+	if (editor_controller.editor_mode == "TRANSLATE"):
+		selected_physics_object.global_transform.origin.x = x_coord.value
+		selected_physics_object.global_transform.origin.y = y_coord.value
+		selected_physics_object.global_transform.origin.z = z_coord.value
+	elif (editor_controller.editor_mode == "ROTATE"):
+		selected_physics_object.rotation_degrees.x = x_coord.value
+		selected_physics_object.rotation_degrees.y = y_coord.value
+		selected_physics_object.rotation_degrees.z = z_coord.value
+	elif (editor_controller.editor_mode == "SCALE"):
+		if selected_physics_object is CollisionShape3D:
+			if selected_physics_object.shape is BoxShape3D:
+				selected_physics_object.shape.size.x = x_coord.value
+				selected_physics_object.shape.size.y = y_coord.value
+				selected_physics_object.shape.size.z = z_coord.value
+			
+			elif selected_physics_object.shape is CapsuleShape3D or selected_physics_object.shape is CylinderShape3D:
+				selected_physics_object.shape.height = y_coord.value
+				selected_physics_object.shape.radius = x_coord.value
+				
+			elif selected_physics_object.shape is SphereShape3D:
+				selected_physics_object.shape.radius = x_coord.value
+			
+		else:
+			selected_physics_object.scale.x = x_coord.value
+			selected_physics_object.scale.y = y_coord.value
+			selected_physics_object.scale.z = z_coord.value
 
+		# Set the select object's scale to current_scale.
+					# Sets size of collision shapes instead of scaling them

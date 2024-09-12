@@ -98,11 +98,87 @@ mouse_filter = 2
 script = ExtResource("2_osqi3")
 
 [node name="Gizmo_Viewport" type="TextureRect" parent="Editor_UI"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Editor_UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -198.0
+offset_right = 250.0
+offset_bottom = -78.0
+grow_vertical = 0
+
+[node name="Manual_Value_Input" type="HBoxContainer" parent="Editor_UI/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Editor_UI/MarginContainer2/Manual_Value_Input"]
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Selected_Gizmo" type="Label" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer"]
+layout_mode = 2
+text = "--"
+
+[node name="X_edit" type="HBoxContainer" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/X_edit"]
+layout_mode = 2
+text = "X"
+
+[node name="X_coord" type="SpinBox" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/X_edit"]
+custom_minimum_size = Vector2(170, 40)
+layout_mode = 2
+min_value = -1e+08
+max_value = 1e+08
+step = 0.001
+
+[node name="Y_edit" type="HBoxContainer" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Y_edit"]
+layout_mode = 2
+text = "Y
+"
+
+[node name="Y_coord" type="SpinBox" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Y_edit"]
+custom_minimum_size = Vector2(170, 40)
+layout_mode = 2
+min_value = -1e+08
+max_value = 1e+08
+step = 0.001
+
+[node name="Z_edit" type="HBoxContainer" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Z_edit"]
+layout_mode = 2
+text = "Z
+"
+
+[node name="Z_coord" type="SpinBox" parent="Editor_UI/MarginContainer2/Manual_Value_Input/VBoxContainer/Z_edit"]
+custom_minimum_size = Vector2(170, 40)
+layout_mode = 2
+min_value = -1e+08
+max_value = 1e+08
+step = 0.001
+
+[node name="Apply" type="Button" parent="Editor_UI/MarginContainer2/Manual_Value_Input"]
+layout_mode = 2
+text = "Apply
+"
 
 [node name="MarginContainer" type="MarginContainer" parent="Editor_UI"]
 layout_mode = 1
@@ -110,7 +186,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -80.0
-offset_right = 248.0
+offset_right = 250.0
 grow_vertical = 0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16

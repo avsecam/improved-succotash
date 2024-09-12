@@ -20,6 +20,7 @@ func change_editor_mode(new_mode):
 	editor_mode = new_mode;
 	# Then emit the on_editor_mode_change signal so anything connected to the signal knows the mode has changed.
 	on_editor_mode_change.emit()
+	
 
 func _input(event):
 	# NOTE: Because Viewport nodes cannot process input events on their own, as generally you need to make adjustments, we
