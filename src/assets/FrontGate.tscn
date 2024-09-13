@@ -25,6 +25,6 @@ action_during = false
 action_completed = true
 
 [node name="SnapPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0358558, 0.151222, -0.0157837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00667394, 0.221676, -0.0204303)
 
 [editable path="MainMesh"]

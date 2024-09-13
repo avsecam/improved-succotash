@@ -30,6 +30,13 @@ var quest_library : Dictionary = {}
 var ongoing_events : Array = []
 var finished_events : Array = []
 
+var locked_teleporters : Dictionary = {
+	"Tut2_jpg" : "WaypointToTut2_Open",
+	"Tut3_jpg" : "WaypointToTut3_Open",
+	"Img2024032114013000113PureShot_jpg" : "WaypointToGate_Open",
+	"FrontClosedDoors(2)_jpg" : "WaypointToA_Open"
+}
+
 func _ready():
 	event_library = load_event_data("res://src/ems/eventsystem_new/EventLibrary.json")
 	quest_library = load_quest_data("res://src/ems/eventsystem_new/QuestLibrary.json")

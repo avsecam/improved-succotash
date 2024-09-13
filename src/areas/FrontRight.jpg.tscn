@@ -12,7 +12,6 @@
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_mhqlv")
-image_filename = "res://src/areas/FrontRight.jpg.jpg"
 teleporters_data = [{
 "position": Vector3(-1.1332, -1.83253, -3.6634),
 "to": "FrontClosedDoors(2).jpg"
@@ -20,6 +19,7 @@ teleporters_data = [{
 "position": Vector3(-0.262456, -1.44031, 4.25521),
 "to": "Middle0.jpg"
 }]
+image_filename = "res://src/areas/FrontRight.jpg.jpg"
 base_rotation = -3.11
 outside = false
 
@@ -37,14 +37,14 @@ omni_range = 16.12
 
 [node name="FrontClosedDoors(2)_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_13dui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1332, -1.83253, -3.6634)
-collision_layer = 2
+collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_ux752")
 to = "FrontClosedDoors(2).jpg"
 
 [node name="Middle0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_13dui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262456, -1.44031, 4.25521)
-collision_layer = 2
+collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_ux752")
 to = "Middle0.jpg"

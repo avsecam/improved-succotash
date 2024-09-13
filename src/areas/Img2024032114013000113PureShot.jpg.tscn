@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://byrn0ecm7im4"]
+[gd_scene load_steps=12 format=3 uid="uid://byrn0ecm7im4"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_rnf2q"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_cddsf"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_hl1kc"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_0uq5q"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_4wqw8"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="5_isxt8"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueTheresTheGate.gd" id="6_omv4r"]
 [ext_resource type="PackedScene" uid="uid://cngv8u5svmr5n" path="res://src/assets/FrontGate.tscn" id="6_uwjbx"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="7_6nomp"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionUseTheKey.gd" id="7_p1p22"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLetsGo.gd" id="9_jtllp"]
 
 [node name="IMG_20240321_140130_00_113_PureShot_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -37,6 +42,22 @@ script = ExtResource("4_0uq5q")
 to = "FrontClosedDoors(2).jpg"
 
 [node name="Events" type="Node" parent="."]
+script = ExtResource("5_4wqw8")
+
+[node name="BGMPlayerOutside" type="Node" parent="Events"]
+script = ExtResource("5_isxt8")
+
+[node name="DialogueTheresTheGate" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("6_omv4r")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionUseTheKey" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("7_p1p22")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="DialogueLetsGo" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("9_jtllp")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("7_6nomp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -2, 2.00003)
@@ -46,5 +67,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -2, 2.00003)
 [node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
 
 [node name="FrontGate" parent="." instance=ExtResource("6_uwjbx")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.795326, -0.950442)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.942846, -1.02286)
 requirement = 0.25
+
+[connection signal="action_completed" from="FrontGate" to="Events/ActionUseTheKey" method="_on_front_gate_action_completed"]
+
+[editable path="FrontGate"]
+[editable path="FrontGate/MainMesh"]
