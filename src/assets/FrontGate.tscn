@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cngv8u5svmr5n"]
+
+[ext_resource type="PackedScene" uid="uid://i5bb6qimkglk" path="res://src/assets/Gate.tscn" id="1_k7kax"]
+[ext_resource type="Script" path="res://src/ois/action_components/twist_action.gd" id="1_wtq2c"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/play_animation.gd" id="3_r45ar"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sblwv"]
+size = Vector3(0.0665649, 0.0796387, 0.0480713)
+
+[node name="FrontGate" type="StaticBody3D" groups=["front_gate_key"]]
+script = ExtResource("1_wtq2c")
+requirement = 0.5
+
+[node name="MainMesh" parent="." instance=ExtResource("1_k7kax")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284142, 0.153987, -0.0148154)
+shape = SubResource("BoxShape3D_sblwv")
+
+[node name="GateLockInteracted" type="Node3D" parent="." node_paths=PackedStringArray("animation_player")]
+script = ExtResource("3_r45ar")
+animation_player = NodePath("../MainMesh/AnimationPlayer")
+animation_name = "OpenGate"
+action_during = false
+action_completed = true
+
+[node name="SnapPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0358558, 0.151222, -0.0157837)
+
+[editable path="MainMesh"]
