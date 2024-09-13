@@ -14,7 +14,8 @@ var in_authoring_tool : bool = false
 var receiver_object
 @onready var actor = get_parent()
 
-func _ready():	
+func _ready():
+	print("Yo fellas")
 	if !in_authoring_tool:
 		if settings == null:
 			print("State Manager Error: No state manager settings")

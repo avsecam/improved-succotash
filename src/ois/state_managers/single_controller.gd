@@ -53,6 +53,7 @@ func _on_receiver_collision_entered(receiver):
 	
 	if (current_state == active_state):
 		if receiver.is_in_group(receiver_group):
+			print(receiver)
 			receiver_object = receiver
 			set_state(active_colliding_state)
 

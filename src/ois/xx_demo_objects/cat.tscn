@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://car5wh5lyv77j"]
+
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="1_ob3v0"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="2_fa6f3"]
+[ext_resource type="ArrayMesh" uid="uid://blwvpf6mnj8a4" path="res://src/ois/xx_demo_objects/assets/12221_Cat_v1_l3.obj" id="3_bjlcj"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/feedback.gd" id="4_b2y50"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ndjy2"]
+size = Vector3(0.15752, 0.312189, 0.364197)
+
+[node name="Cat" instance=ExtResource("1_ob3v0")]
+script = ExtResource("2_fa6f3")
+requirement = 2.0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158457, 0.00723267)
+shape = SubResource("BoxShape3D_ndjy2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, 0, 0)
+mesh = ExtResource("3_bjlcj")
+
+[node name="Node3D" type="Node3D" parent="." index="2"]
+script = ExtResource("4_b2y50")

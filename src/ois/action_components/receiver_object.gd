@@ -20,8 +20,10 @@ func _ready():
 			if i.action_start:
 				action_started.connect(i.show_feedback)
 			if i.action_end:
+				print("feedback connected")
 				action_ended.connect(i.show_feedback)
 			if i.action_during:
+				print("feedback connected")
 				action_in_progress.connect(i.show_feedback)
 			if i.action_completed:
 				action_completed.connect(i.show_feedback)

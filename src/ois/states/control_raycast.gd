@@ -37,7 +37,7 @@ func _ready():
 	if parent is StateManager:
 		body_entered.connect(parent._on_receiver_collision_entered)
 		body_exited.connect(parent._on_receiver_collision_exited)
-	enable_raycast(false)
+	#enable_raycast(false)
 
 func set_raycast_size(raycast_length, laser_thickness):
 	print("set raycast size")

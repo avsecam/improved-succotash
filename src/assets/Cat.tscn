@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cafkw3ouy22un"]
+
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="1_d5tku"]
+[ext_resource type="ArrayMesh" uid="uid://blwvpf6mnj8a4" path="res://src/ois/xx_demo_objects/assets/12221_Cat_v1_l3.obj" id="2_p7sww"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/cat_petted.gd" id="3_biran"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78w81"]
+size = Vector3(0.2, 0.376196, 0.402344)
+
+[node name="Cat" type="StaticBody3D" groups=["single_controller"]]
+script = ExtResource("1_d5tku")
+requirement = 2.0
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, 0, 0)
+mesh = ExtResource("2_p7sww")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0160159, 0.193899, 0.0371173)
+shape = SubResource("BoxShape3D_78w81")
+
+[node name="CatPetted" type="Node3D" parent="."]
+script = ExtResource("3_biran")

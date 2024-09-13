@@ -33,7 +33,7 @@ var finished_events : Array = []
 func _ready():
 	event_library = load_event_data("res://src/ems/eventsystem_new/EventLibrary.json")
 	quest_library = load_quest_data("res://src/ems/eventsystem_new/QuestLibrary.json")
-	print(event_library)
+	#print(event_library)
 	#print(camera.name)
 
 func load_event_data(file_location: String) -> Dictionary:

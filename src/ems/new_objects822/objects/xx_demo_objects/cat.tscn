@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://car5wh5lyv77j"]
+[gd_scene load_steps=6 format=3 uid="uid://car5wh5lyv77j"]
 
-[ext_resource type="PackedScene" uid="uid://pqntl142002y" path="res://src/ois/action_components/receiver_object_static.tscn" id="1_ob3v0"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="1_ob3v0"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="2_x0t6n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ndjy2"]
@@ -13,9 +13,6 @@ albedo_color = Color(0.917647, 0.643137, 0.364706, 1)
 material = SubResource("StandardMaterial3D_rgfhp")
 size = Vector3(0.3, 0.3, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8g1gr"]
-size = Vector3(0.308533, 0.293571, 0.500061)
-
 [node name="ReceiverObject" instance=ExtResource("1_ob3v0")]
 script = ExtResource("2_x0t6n")
 requirement = 5.0
@@ -25,7 +22,3 @@ shape = SubResource("BoxShape3D_ndjy2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 mesh = SubResource("BoxMesh_rjrta")
-
-[node name="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00790405, 0.00178909, 0.00448608)
-shape = SubResource("BoxShape3D_8g1gr")
