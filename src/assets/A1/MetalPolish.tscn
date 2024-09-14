@@ -1,0 +1,104 @@
+[gd_scene load_steps=16 format=3 uid="uid://b3foujhryuk5l"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_1khwu"]
+[ext_resource type="PackedScene" uid="uid://djavywnjh1ved" path="res://src/assets/A1/container_metal_polish_1.tscn" id="2_2ditd"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_5hfc1"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_8ujjy"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_fwk6t"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_5xr34"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_xjcry"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="9_wnrsd"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="10_ldbyb"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="10_omg34"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/play_animation.gd" id="10_pgvew"]
+[ext_resource type="Script" path="res://src/assets/A1/MetalPolishControl.gd" id="11_wli4l"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a47f3"]
+height = 0.05
+radius = 0.0602997
+
+[sub_resource type="Resource" id="Resource_irib8"]
+script = ExtResource("7_5xr34")
+state_behavior_settings = {
+"ActiveState": {
+"ControlRaycast": true,
+"InteractReceiver": true
+},
+"IdleState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+}
+behavior_dict = {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c6xk5"]
+height = 0.0685084
+radius = 0.0987807
+
+[node name="MetalPolish" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_1khwu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.01451, -0.0461102, 0)
+shape = SubResource("CylinderShape3D_a47f3")
+
+[node name="MainMesh" parent="." instance=ExtResource("2_2ditd")]
+transform = Transform3D(-2.18557e-09, -0.05, 0, 0.05, -2.18557e-09, 0, 0, 0, 0.05, -0.0183472, -0.0443144, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_5hfc1")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0.112976)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_8ujjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.10903)
+
+[node name="StateManager" parent="." instance=ExtResource("5_fwk6t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.01451, -0.0461102, 0)
+receiver_group = "wax"
+settings = SubResource("Resource_irib8")
+
+[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_xjcry")]
+raycast_length = 0.1
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_ldbyb")]
+
+[node name="ReceiverComp" type="Area3D" parent="." groups=["single_controller"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01451, -0.0461102, 0)
+script = ExtResource("9_wnrsd")
+requirement = 0.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiverComp"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_c6xk5")
+
+[node name="Node3D" type="Node3D" parent="ReceiverComp" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("10_pgvew")
+animation_player = NodePath("../../MainMesh/AnimationPlayer")
+animation_name = "open_lid"
+action_during = false
+action_completed = true
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("10_omg34")]
+
+[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
+visible = false
+
+[node name="MainMesh2" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_2ditd")]
+transform = Transform3D(-2.18557e-09, -0.05, 0, 0.05, -2.18557e-09, 0, 0, 0, 0.05, -0.0183472, -0.0443144, 0)
+
+[node name="MetalPolishControl" type="Node3D" parent="."]
+script = ExtResource("11_wli4l")
+
+[connection signal="action_completed" from="ReceiverComp" to="MetalPolishControl" method="_on_receiver_comp_action_completed"]
+
+[editable path="MainMesh"]
+[editable path="InventoryItemComp"]

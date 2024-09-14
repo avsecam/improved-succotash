@@ -338,7 +338,7 @@
             "DialogueHeyNewbie_Done",
             "DialoguePolishRodsCleanWindows_Done"
         ],
-        "Event_Completion_Flags": "[\"ActionPolishRod1_Done]",
+        "Event_Completion_Flags": ["ActionPolishRod1_Done"],
         "Event_Audio": "",
         "Loop_Audio": false,
         "Loop_Interval": 0
@@ -351,7 +351,7 @@
             "DialogueHeyNewbie_Done",
             "DialoguePolishRodsCleanWindows_Done"
         ],
-        "Event_Completion_Flags": "[\"ActionPolishRod2_Done]",
+        "Event_Completion_Flags": ["ActionPolishRod2_Done"],
         "Event_Audio": "",
         "Loop_Audio": false,
         "Loop_Interval": 0
