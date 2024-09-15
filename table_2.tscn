@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddqwl2dxoffos"]
+
+[ext_resource type="PackedScene" uid="uid://5mnbubbg0n8o" path="res://src/assets/A3/Table.glb" id="1_1htmq"]
+
+[node name="Table2" instance=ExtResource("1_1htmq")]

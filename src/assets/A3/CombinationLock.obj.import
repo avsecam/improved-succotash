@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dm4oixr48ros3"
+path="res://.godot/imported/CombinationLock.obj-12f682f3851c62f1938f3072f0c97c16.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CombinationLock.obj-12f682f3851c62f1938f3072f0c97c16.mesh"]
+
+source_file="res://src/assets/A3/CombinationLock.obj"
+dest_files=["res://.godot/imported/CombinationLock.obj-12f682f3851c62f1938f3072f0c97c16.mesh", "res://.godot/imported/CombinationLock.obj-12f682f3851c62f1938f3072f0c97c16.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

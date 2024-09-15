@@ -6,7 +6,7 @@
 radius = 5.7915
 height = 22.6711
 
-[node name="FireSpirit_RigidBody3D" type="RigidBody3D"]
+[node name="FireSpirit_RigidBody3D" type="StaticBody3D"]
 collision_layer = 5242881
 
 [node name="_FireSpirit_Normal" parent="." instance=ExtResource("1_5nctu")]
