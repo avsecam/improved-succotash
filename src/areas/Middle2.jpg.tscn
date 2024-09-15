@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cugw4p6gtkcgj"]
+[gd_scene load_steps=7 format=3 uid="uid://cugw4p6gtkcgj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_sr5a4"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_2x5we"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_wv65e"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_o0hno"]
+[ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="5_micfp"]
+[ext_resource type="PackedScene" uid="uid://cf7200jemvmw6" path="res://src/assets/A1/RodSilverTorch.tscn" id="6_m7j6p"]
 
 [node name="middle2_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -45,3 +47,12 @@ collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_o0hno")
 to = "Middle1.jpg"
+
+[node name="Table" parent="." instance=ExtResource("5_micfp")]
+transform = Transform3D(0.101004, 0, -0.994886, 0, 1, 0, 0.994886, 0, 0.101004, -0.407911, -1.4138, -0.900982)
+
+[node name="RodSilverTorch" parent="." instance=ExtResource("6_m7j6p")]
+transform = Transform3D(0.0338181, -0.999428, 0, 0.999428, 0.033818, 0, 0, 0, 1, 0, -0.314911, -1.06952)
+
+[editable path="Table"]
+[editable path="Table/Table2"]
