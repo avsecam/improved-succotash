@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cukf7q8w3tifn"
 path.s3tc="res://.godot/imported/Basket_Rags_Basket_weave_001_NORM.jpg-f4c9a0dc1c5a6071f6b2f63ce6c57c2a.s3tc.ctex"
+path.etc2="res://.godot/imported/Basket_Rags_Basket_weave_001_NORM.jpg-f4c9a0dc1c5a6071f6b2f63ce6c57c2a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A1/Basket_Rags_Basket_weave_001_NORM.jpg"
-dest_files=["res://.godot/imported/Basket_Rags_Basket_weave_001_NORM.jpg-f4c9a0dc1c5a6071f6b2f63ce6c57c2a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Basket_Rags_Basket_weave_001_NORM.jpg-f4c9a0dc1c5a6071f6b2f63ce6c57c2a.s3tc.ctex", "res://.godot/imported/Basket_Rags_Basket_weave_001_NORM.jpg-f4c9a0dc1c5a6071f6b2f63ce6c57c2a.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl1uoi8clsh4y"
 path.s3tc="res://.godot/imported/Table_IndoorShort_Table_IndoorShort Diffuse.png-e198deff7d2caaadb7adad4695d64a10.s3tc.ctex"
+path.etc2="res://.godot/imported/Table_IndoorShort_Table_IndoorShort Diffuse.png-e198deff7d2caaadb7adad4695d64a10.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A1/Table_IndoorShort_Table_IndoorShort Diffuse.png"
-dest_files=["res://.godot/imported/Table_IndoorShort_Table_IndoorShort Diffuse.png-e198deff7d2caaadb7adad4695d64a10.s3tc.ctex"]
+dest_files=["res://.godot/imported/Table_IndoorShort_Table_IndoorShort Diffuse.png-e198deff7d2caaadb7adad4695d64a10.s3tc.ctex", "res://.godot/imported/Table_IndoorShort_Table_IndoorShort Diffuse.png-e198deff7d2caaadb7adad4695d64a10.etc2.ctex"]
 
 [params]
 

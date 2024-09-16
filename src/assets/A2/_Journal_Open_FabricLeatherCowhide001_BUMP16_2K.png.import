@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1r4uuvim3nld"
 path.s3tc="res://.godot/imported/_Journal_Open_FabricLeatherCowhide001_BUMP16_2K.png-87abd429abf0da8171ca126989e075f2.s3tc.ctex"
+path.etc2="res://.godot/imported/_Journal_Open_FabricLeatherCowhide001_BUMP16_2K.png-87abd429abf0da8171ca126989e075f2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A2/_Journal_Open_FabricLeatherCowhide001_BUMP16_2K.png"
-dest_files=["res://.godot/imported/_Journal_Open_FabricLeatherCowhide001_BUMP16_2K.png-87abd429abf0da8171ca126989e075f2.s3tc.ctex"]
+dest_files=["res://.godot/imported/_Journal_Open_FabricLeatherCowhide001_BUMP16_2K.png-87abd429abf0da8171ca126989e075f2.s3tc.ctex", "res://.godot/imported/_Journal_Open_FabricLeatherCowhide001_BUMP16_2K.png-87abd429abf0da8171ca126989e075f2.etc2.ctex"]
 
 [params]
 

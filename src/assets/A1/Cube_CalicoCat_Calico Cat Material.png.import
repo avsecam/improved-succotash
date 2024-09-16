@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx0v6b6xsovex"
 path.s3tc="res://.godot/imported/Cube_CalicoCat_Calico Cat Material.png-bb964dc30b54fc20b985b68e01cdd535.s3tc.ctex"
+path.etc2="res://.godot/imported/Cube_CalicoCat_Calico Cat Material.png-bb964dc30b54fc20b985b68e01cdd535.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A1/Cube_CalicoCat_Calico Cat Material.png"
-dest_files=["res://.godot/imported/Cube_CalicoCat_Calico Cat Material.png-bb964dc30b54fc20b985b68e01cdd535.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cube_CalicoCat_Calico Cat Material.png-bb964dc30b54fc20b985b68e01cdd535.s3tc.ctex", "res://.godot/imported/Cube_CalicoCat_Calico Cat Material.png-bb964dc30b54fc20b985b68e01cdd535.etc2.ctex"]
 
 [params]
 

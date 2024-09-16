@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4noqyhi8222r"
 path.s3tc="res://.godot/imported/Cat_diffuse.jpg-6a56e9b6a76c336a755f4bcd0583cd95.s3tc.ctex"
+path.etc2="res://.godot/imported/Cat_diffuse.jpg-6a56e9b6a76c336a755f4bcd0583cd95.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/ois/xx_demo_objects/assets/Cat_diffuse.jpg"
-dest_files=["res://.godot/imported/Cat_diffuse.jpg-6a56e9b6a76c336a755f4bcd0583cd95.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cat_diffuse.jpg-6a56e9b6a76c336a755f4bcd0583cd95.s3tc.ctex", "res://.godot/imported/Cat_diffuse.jpg-6a56e9b6a76c336a755f4bcd0583cd95.etc2.ctex"]
 
 [params]
 

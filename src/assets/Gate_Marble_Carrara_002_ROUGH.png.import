@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnxk2mna4dl4a"
 path.s3tc="res://.godot/imported/Gate_Marble_Carrara_002_ROUGH.png-01b0b0082f9de4efbbed00681e0034ef.s3tc.ctex"
+path.etc2="res://.godot/imported/Gate_Marble_Carrara_002_ROUGH.png-01b0b0082f9de4efbbed00681e0034ef.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/Gate_Marble_Carrara_002_ROUGH.png"
-dest_files=["res://.godot/imported/Gate_Marble_Carrara_002_ROUGH.png-01b0b0082f9de4efbbed00681e0034ef.s3tc.ctex"]
+dest_files=["res://.godot/imported/Gate_Marble_Carrara_002_ROUGH.png-01b0b0082f9de4efbbed00681e0034ef.s3tc.ctex", "res://.godot/imported/Gate_Marble_Carrara_002_ROUGH.png-01b0b0082f9de4efbbed00681e0034ef.etc2.ctex"]
 
 [params]
 

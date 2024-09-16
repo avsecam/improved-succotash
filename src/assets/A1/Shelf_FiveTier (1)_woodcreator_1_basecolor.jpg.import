@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvied0268l8wx"
 path.s3tc="res://.godot/imported/Shelf_FiveTier (1)_woodcreator_1_basecolor.jpg-50c258707671cacec8a61b9fcf96233c.s3tc.ctex"
+path.etc2="res://.godot/imported/Shelf_FiveTier (1)_woodcreator_1_basecolor.jpg-50c258707671cacec8a61b9fcf96233c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A1/Shelf_FiveTier (1)_woodcreator_1_basecolor.jpg"
-dest_files=["res://.godot/imported/Shelf_FiveTier (1)_woodcreator_1_basecolor.jpg-50c258707671cacec8a61b9fcf96233c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Shelf_FiveTier (1)_woodcreator_1_basecolor.jpg-50c258707671cacec8a61b9fcf96233c.s3tc.ctex", "res://.godot/imported/Shelf_FiveTier (1)_woodcreator_1_basecolor.jpg-50c258707671cacec8a61b9fcf96233c.etc2.ctex"]
 
 [params]
 

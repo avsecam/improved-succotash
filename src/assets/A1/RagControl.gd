@@ -33,3 +33,5 @@ func oiled_rag() -> void:
 func _on_wax_receiver_action_completed(requirement, total_progress):
 	if not Events.finished_events.has("ActionOiledRag_Done"):
 		oiled_rag()
+	else:
+		print("I'm wasting rags")

@@ -48,14 +48,15 @@ func _on_trigger_released():
 			set_state(active_state)
 
 func _on_receiver_collision_entered(receiver):
-	is_colliding = true
-	body_entered.emit(self, receiver)
+	if is_instance_valid(receiver):
+		is_colliding = true
+		body_entered.emit(self, receiver)
 	
-	if (current_state == active_state):
-		if receiver.is_in_group(receiver_group):
-			print(receiver)
-			receiver_object = receiver
-			set_state(active_colliding_state)
+		if (current_state == active_state):
+			if receiver.is_in_group(receiver_group):
+				print(receiver)
+				receiver_object = receiver
+				set_state(active_colliding_state)
 
 func _on_receiver_collision_exited(receiver):
 	# To make interaction reqs less strenous, don't automatically transition out of interacting state

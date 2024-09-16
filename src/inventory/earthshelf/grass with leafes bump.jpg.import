@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://857ji6l0hoee"
 path.s3tc="res://.godot/imported/grass with leafes bump.jpg-8f7ddb1d0528f6f6207fe0ffa1364029.s3tc.ctex"
+path.etc2="res://.godot/imported/grass with leafes bump.jpg-8f7ddb1d0528f6f6207fe0ffa1364029.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/inventory/earthshelf/grass with leafes bump.jpg"
-dest_files=["res://.godot/imported/grass with leafes bump.jpg-8f7ddb1d0528f6f6207fe0ffa1364029.s3tc.ctex"]
+dest_files=["res://.godot/imported/grass with leafes bump.jpg-8f7ddb1d0528f6f6207fe0ffa1364029.s3tc.ctex", "res://.godot/imported/grass with leafes bump.jpg-8f7ddb1d0528f6f6207fe0ffa1364029.etc2.ctex"]
 
 [params]
 

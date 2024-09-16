@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddna7ehsrnk8e"
 path.s3tc="res://.godot/imported/EarthSpirit_InventoryShelf Merged_EarthSpirit Roughness.png-2c0c03475998c660d936433ef4c72088.s3tc.ctex"
+path.etc2="res://.godot/imported/EarthSpirit_InventoryShelf Merged_EarthSpirit Roughness.png-2c0c03475998c660d936433ef4c72088.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A3/EarthSpirit_InventoryShelf Merged_EarthSpirit Roughness.png"
-dest_files=["res://.godot/imported/EarthSpirit_InventoryShelf Merged_EarthSpirit Roughness.png-2c0c03475998c660d936433ef4c72088.s3tc.ctex"]
+dest_files=["res://.godot/imported/EarthSpirit_InventoryShelf Merged_EarthSpirit Roughness.png-2c0c03475998c660d936433ef4c72088.s3tc.ctex", "res://.godot/imported/EarthSpirit_InventoryShelf Merged_EarthSpirit Roughness.png-2c0c03475998c660d936433ef4c72088.etc2.ctex"]
 
 [params]
 

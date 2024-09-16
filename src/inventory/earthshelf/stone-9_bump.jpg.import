@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7rfkgedprm1s"
 path.s3tc="res://.godot/imported/stone-9_bump.jpg-42d9573d7248ae7091732ce61dcae5ef.s3tc.ctex"
+path.etc2="res://.godot/imported/stone-9_bump.jpg-42d9573d7248ae7091732ce61dcae5ef.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/inventory/earthshelf/stone-9_bump.jpg"
-dest_files=["res://.godot/imported/stone-9_bump.jpg-42d9573d7248ae7091732ce61dcae5ef.s3tc.ctex"]
+dest_files=["res://.godot/imported/stone-9_bump.jpg-42d9573d7248ae7091732ce61dcae5ef.s3tc.ctex", "res://.godot/imported/stone-9_bump.jpg-42d9573d7248ae7091732ce61dcae5ef.etc2.ctex"]
 
 [params]
 

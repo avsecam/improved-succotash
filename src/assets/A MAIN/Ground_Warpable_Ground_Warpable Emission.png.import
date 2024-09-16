@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://co17lwdck6pvy"
 path.s3tc="res://.godot/imported/Ground_Warpable_Ground_Warpable Emission.png-80daed33dfe9dd7467c2352229f099b9.s3tc.ctex"
+path.etc2="res://.godot/imported/Ground_Warpable_Ground_Warpable Emission.png-80daed33dfe9dd7467c2352229f099b9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A MAIN/Ground_Warpable_Ground_Warpable Emission.png"
-dest_files=["res://.godot/imported/Ground_Warpable_Ground_Warpable Emission.png-80daed33dfe9dd7467c2352229f099b9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ground_Warpable_Ground_Warpable Emission.png-80daed33dfe9dd7467c2352229f099b9.s3tc.ctex", "res://.godot/imported/Ground_Warpable_Ground_Warpable Emission.png-80daed33dfe9dd7467c2352229f099b9.etc2.ctex"]
 
 [params]
 

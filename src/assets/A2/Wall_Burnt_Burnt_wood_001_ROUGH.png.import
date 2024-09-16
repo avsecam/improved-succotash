@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfp6ov87gpisc"
 path.s3tc="res://.godot/imported/Wall_Burnt_Burnt_wood_001_ROUGH.png-3f2f70055f9155211e09d96d423dd911.s3tc.ctex"
+path.etc2="res://.godot/imported/Wall_Burnt_Burnt_wood_001_ROUGH.png-3f2f70055f9155211e09d96d423dd911.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A2/Wall_Burnt_Burnt_wood_001_ROUGH.png"
-dest_files=["res://.godot/imported/Wall_Burnt_Burnt_wood_001_ROUGH.png-3f2f70055f9155211e09d96d423dd911.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wall_Burnt_Burnt_wood_001_ROUGH.png-3f2f70055f9155211e09d96d423dd911.s3tc.ctex", "res://.godot/imported/Wall_Burnt_Burnt_wood_001_ROUGH.png-3f2f70055f9155211e09d96d423dd911.etc2.ctex"]
 
 [params]
 

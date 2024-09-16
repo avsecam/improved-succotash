@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcdqwquh4lrv3"]
 
-[ext_resource type="PackedScene" uid="uid://d0uqd1br6o2tl" path="res://src/ems/new_objects822/A1/_FireSpirit_Normal.glb" id="1_5nctu"]
+[ext_resource type="PackedScene" uid="uid://nju2eeyoiree" path="res://src/assets/A1/_FireSpirit_Normal.glb" id="1_5nctu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mbqno"]
 radius = 5.7915

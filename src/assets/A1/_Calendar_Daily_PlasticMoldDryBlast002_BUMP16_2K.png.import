@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfws1rro6pdya"
 path.s3tc="res://.godot/imported/_Calendar_Daily_PlasticMoldDryBlast002_BUMP16_2K.png-7a5e976e6da518c078173ec0b5c800c5.s3tc.ctex"
+path.etc2="res://.godot/imported/_Calendar_Daily_PlasticMoldDryBlast002_BUMP16_2K.png-7a5e976e6da518c078173ec0b5c800c5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A1/_Calendar_Daily_PlasticMoldDryBlast002_BUMP16_2K.png"
-dest_files=["res://.godot/imported/_Calendar_Daily_PlasticMoldDryBlast002_BUMP16_2K.png-7a5e976e6da518c078173ec0b5c800c5.s3tc.ctex"]
+dest_files=["res://.godot/imported/_Calendar_Daily_PlasticMoldDryBlast002_BUMP16_2K.png-7a5e976e6da518c078173ec0b5c800c5.s3tc.ctex", "res://.godot/imported/_Calendar_Daily_PlasticMoldDryBlast002_BUMP16_2K.png-7a5e976e6da518c078173ec0b5c800c5.etc2.ctex"]
 
 [params]
 

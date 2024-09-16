@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://1utkahkv3asv"
 path.s3tc="res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_Metallic_512-Poliigon_PlasterPainted_7664_Roughness_512.png-3f0384675035fcc100cc42bcfcb636f3.s3tc.ctex"
+path.etc2="res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_Metallic_512-Poliigon_PlasterPainted_7664_Roughness_512.png-3f0384675035fcc100cc42bcfcb636f3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A2/_Journal_Open_Poliigon_PlasterPainted_7664_Metallic_512-Poliigon_PlasterPainted_7664_Roughness_512.png"
-dest_files=["res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_Metallic_512-Poliigon_PlasterPainted_7664_Roughness_512.png-3f0384675035fcc100cc42bcfcb636f3.s3tc.ctex"]
+dest_files=["res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_Metallic_512-Poliigon_PlasterPainted_7664_Roughness_512.png-3f0384675035fcc100cc42bcfcb636f3.s3tc.ctex", "res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_Metallic_512-Poliigon_PlasterPainted_7664_Roughness_512.png-3f0384675035fcc100cc42bcfcb636f3.etc2.ctex"]
 
 [params]
 

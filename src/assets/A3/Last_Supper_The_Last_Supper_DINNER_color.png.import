@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bynqfiarbmp4i"
 path.s3tc="res://.godot/imported/Last_Supper_The_Last_Supper_DINNER_color.png-c6122836b5b48c9c73d3b56db3eba09a.s3tc.ctex"
+path.etc2="res://.godot/imported/Last_Supper_The_Last_Supper_DINNER_color.png-c6122836b5b48c9c73d3b56db3eba09a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A3/Last_Supper_The_Last_Supper_DINNER_color.png"
-dest_files=["res://.godot/imported/Last_Supper_The_Last_Supper_DINNER_color.png-c6122836b5b48c9c73d3b56db3eba09a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Last_Supper_The_Last_Supper_DINNER_color.png-c6122836b5b48c9c73d3b56db3eba09a.s3tc.ctex", "res://.godot/imported/Last_Supper_The_Last_Supper_DINNER_color.png-c6122836b5b48c9c73d3b56db3eba09a.etc2.ctex"]
 
 [params]
 

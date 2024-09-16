@@ -6,7 +6,7 @@
 script = ExtResource("1_gg60t")
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -0.15
+volume_db = -0.5
 
 [node name="DialoguePlayer" type="AudioStreamPlayer3D" parent="."]
 

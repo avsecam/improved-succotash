@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://t4312pkmm888"]
+[gd_scene load_steps=18 format=3 uid="uid://t4312pkmm888"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mhqlv"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_o3s15"]
+[ext_resource type="SphereMesh" uid="uid://r872pb7ih8bp" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_o3s15"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_13dui"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_ux752"]
 [ext_resource type="PackedScene" uid="uid://bcdqwquh4lrv3" path="res://src/assets/fire_spirit.tscn" id="5_1nkw4"]
@@ -11,10 +11,12 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionUsePolishOnRod.gd" id="8_kr3pa"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPolishRod1.gd" id="9_lqomg"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtFireSpirit.gd" id="10_3oxq7"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutRag1Inventory.gd" id="11_1526x"]
 [ext_resource type="PackedScene" uid="uid://cicew6koqq028" path="res://src/assets/A1/Rag.tscn" id="13_yl0jx"]
 [ext_resource type="PackedScene" uid="uid://cf7200jemvmw6" path="res://src/assets/A1/RodSilverTorch.tscn" id="14_6aeui"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="15_0pk1a"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="15_rw727"]
+[ext_resource type="PackedScene" uid="uid://b3foujhryuk5l" path="res://src/assets/A1/MetalPolish.tscn" id="16_fh0wu"]
 
 [node name="front right_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -71,13 +73,16 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 script = ExtResource("8_kr3pa")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="ActionPolishRod1" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+[node name="ActionPolishRod1" type="Node" parent="Events"]
 script = ExtResource("9_lqomg")
-event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="ActionLookAtFireSpirit" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("10_3oxq7")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionPutRag1Inventory" type="Node" parent="Events" node_paths=PackedStringArray("rag")]
+script = ExtResource("11_1526x")
+rag = NodePath("../../Rag")
 
 [node name="FireSpirit_Normal" parent="." instance=ExtResource("5_1nkw4")]
 transform = Transform3D(0.0943506, 0, 0.0331354, 0, 0.1, 0, -0.0331354, 0, 0.0943506, -2.03491, -0.637481, 1.52635)
@@ -94,6 +99,9 @@ transform = Transform3D(-0.0129561, -0.627408, -0.778583, 0.999787, -0.0206457, 
 action_during = false
 action_completed = true
 
+[node name="PolishReceiver" parent="RodSilverTorch" index="6"]
+requirement = 0.5
+
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("15_rw727")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.83897, -0.424407, -2.15276)
 
@@ -101,6 +109,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.83897, -0.424407, -2
 
 [node name="Table" parent="." instance=ExtResource("15_0pk1a")]
 transform = Transform3D(0.947568, 0, 0.319555, 0, 1, 0, -0.319555, 0, 0.947568, -0.749454, -1.59297, 1.08575)
+
+[node name="MetalPolish" parent="." instance=ExtResource("16_fh0wu")]
+transform = Transform3D(0.206751, -0.978394, 0, 0.978394, 0.206751, 0, 0, 0, 1, -0.710767, -0.435484, 0.5831)
+visible = false
 
 [connection signal="action_completed" from="RodSilverTorch/OiledRagReceiver" to="Events/ActionPolishRod1" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch/CleanRagReceiver" to="Events/ActionUseNormalRagOnly" method="_on_clean_rag_receiver_action_completed"]
@@ -112,3 +124,7 @@ transform = Transform3D(0.947568, 0, 0.319555, 0, 1, 0, -0.319555, 0, 0.947568, 
 [editable path="Rag/InventoryItemComp/ReplacementMesh/MainMesh"]
 [editable path="RodSilverTorch"]
 [editable path="MarbleSpirit_Normal"]
+[editable path="MetalPolish"]
+[editable path="MetalPolish/MainMesh"]
+[editable path="MetalPolish/InventoryItemComp"]
+[editable path="MetalPolish/InventoryItemComp/ReplacementMesh/MainMesh2"]

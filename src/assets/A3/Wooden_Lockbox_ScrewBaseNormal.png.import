@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bll5hmlktmi3f"
 path.s3tc="res://.godot/imported/Wooden_Lockbox_ScrewBaseNormal.png-3e68d86ce8c314684062186020e64719.s3tc.ctex"
+path.etc2="res://.godot/imported/Wooden_Lockbox_ScrewBaseNormal.png-3e68d86ce8c314684062186020e64719.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A3/Wooden_Lockbox_ScrewBaseNormal.png"
-dest_files=["res://.godot/imported/Wooden_Lockbox_ScrewBaseNormal.png-3e68d86ce8c314684062186020e64719.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wooden_Lockbox_ScrewBaseNormal.png-3e68d86ce8c314684062186020e64719.s3tc.ctex", "res://.godot/imported/Wooden_Lockbox_ScrewBaseNormal.png-3e68d86ce8c314684062186020e64719.etc2.ctex"]
 
 [params]
 

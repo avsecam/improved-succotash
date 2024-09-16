@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d12lefveeyi6m"
 path.s3tc="res://.godot/imported/Journal_Open_FabricLeatherCowhide001_GLOSS_2K.png-60222cffb321bf499e23e3910859921e.s3tc.ctex"
+path.etc2="res://.godot/imported/Journal_Open_FabricLeatherCowhide001_GLOSS_2K.png-60222cffb321bf499e23e3910859921e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A3/Journal_Open_FabricLeatherCowhide001_GLOSS_2K.png"
-dest_files=["res://.godot/imported/Journal_Open_FabricLeatherCowhide001_GLOSS_2K.png-60222cffb321bf499e23e3910859921e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Journal_Open_FabricLeatherCowhide001_GLOSS_2K.png-60222cffb321bf499e23e3910859921e.s3tc.ctex", "res://.godot/imported/Journal_Open_FabricLeatherCowhide001_GLOSS_2K.png-60222cffb321bf499e23e3910859921e.etc2.ctex"]
 
 [params]
 

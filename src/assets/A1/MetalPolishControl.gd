@@ -1,22 +1,23 @@
 extends Node3D
 
-@onready var container_lid := $"../MainMesh/Container_MetalPolishLid"
-@onready var container_lid_inv := $"../InventoryItemComp/ReplacementMesh/MainMesh2/Container_MetalPolishLid"
-@onready var control_raycast := $"../StateManager/ControlRaycast"
-@onready var animation_player := $"../MainMesh/AnimationPlayer"
+@export var container_lid : MeshInstance3D
+@export var container_lid_inv : MeshInstance3D
+@export var control_raycast : Node3D
+@export var animation_player : AnimationPlayer
 
 @export var lid_opened = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if lid_opened:
-		open_lid()
-		print("lid_opened")
-	else:
-		close_lid()
-		print("lid_closed")
+	#if lid_opened:
+		#open_lid()
+		#print("lid_opened")
+	#else:
+		#close_lid()
+		#print("lid_closed")
+	pass
 
 func open_lid():
-	animation_player.play("open_lid")
+	#animation_player.play("open_lid")
 	await animation_player.animation_finished
 	container_lid.visible = false
 	container_lid_inv.visible = false
@@ -34,4 +35,5 @@ func close_lid():
 
 
 func _on_receiver_comp_action_completed(requirement, total_progress):
+	print("opening lid")
 	open_lid()

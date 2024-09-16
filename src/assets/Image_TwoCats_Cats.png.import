@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0qs58bk52tdc"
 path.s3tc="res://.godot/imported/Image_TwoCats_Cats.png-2b0f166d6dd75f98ced2765e731fb392.s3tc.ctex"
+path.etc2="res://.godot/imported/Image_TwoCats_Cats.png-2b0f166d6dd75f98ced2765e731fb392.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/Image_TwoCats_Cats.png"
-dest_files=["res://.godot/imported/Image_TwoCats_Cats.png-2b0f166d6dd75f98ced2765e731fb392.s3tc.ctex"]
+dest_files=["res://.godot/imported/Image_TwoCats_Cats.png-2b0f166d6dd75f98ced2765e731fb392.s3tc.ctex", "res://.godot/imported/Image_TwoCats_Cats.png-2b0f166d6dd75f98ced2765e731fb392.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjt6wd7lnndrj"
 path.s3tc="res://.godot/imported/Rag_Oiled_BakedMaterial.png-36422db1d4aa659ce73e2c35b648b3b2.s3tc.ctex"
+path.etc2="res://.godot/imported/Rag_Oiled_BakedMaterial.png-36422db1d4aa659ce73e2c35b648b3b2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A1/Rag_Oiled_BakedMaterial.png"
-dest_files=["res://.godot/imported/Rag_Oiled_BakedMaterial.png-36422db1d4aa659ce73e2c35b648b3b2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rag_Oiled_BakedMaterial.png-36422db1d4aa659ce73e2c35b648b3b2.s3tc.ctex", "res://.godot/imported/Rag_Oiled_BakedMaterial.png-36422db1d4aa659ce73e2c35b648b3b2.etc2.ctex"]
 
 [params]
 

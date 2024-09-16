@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddpi3h3maxdw1"
 path.s3tc="res://.godot/imported/_ChurchDoor_Cursed_ground_0027_roughness_1k.png-5bf0bac6f4e065eedc24eab3e3a9019a.s3tc.ctex"
+path.etc2="res://.godot/imported/_ChurchDoor_Cursed_ground_0027_roughness_1k.png-5bf0bac6f4e065eedc24eab3e3a9019a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A2/_ChurchDoor_Cursed_ground_0027_roughness_1k.png"
-dest_files=["res://.godot/imported/_ChurchDoor_Cursed_ground_0027_roughness_1k.png-5bf0bac6f4e065eedc24eab3e3a9019a.s3tc.ctex"]
+dest_files=["res://.godot/imported/_ChurchDoor_Cursed_ground_0027_roughness_1k.png-5bf0bac6f4e065eedc24eab3e3a9019a.s3tc.ctex", "res://.godot/imported/_ChurchDoor_Cursed_ground_0027_roughness_1k.png-5bf0bac6f4e065eedc24eab3e3a9019a.etc2.ctex"]
 
 [params]
 

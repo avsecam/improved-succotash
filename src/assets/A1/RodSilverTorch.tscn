@@ -48,8 +48,9 @@ requirement = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0106279, -0.000454701)
 shape = SubResource("BoxShape3D_rybv3")
 
-[node name="PolishedRod" type="Node3D" parent="OiledRagReceiver"]
+[node name="PolishedRod" type="Node3D" parent="OiledRagReceiver" node_paths=PackedStringArray("dirt")]
 script = ExtResource("6_ksqfy")
+dirt = NodePath("../../Node3D")
 action_during = false
 action_completed = true
 

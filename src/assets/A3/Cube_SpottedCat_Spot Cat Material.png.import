@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4u4myifx4loa"
 path.s3tc="res://.godot/imported/Cube_SpottedCat_Spot Cat Material.png-92ffff1f2a10fe85343a30ce409519f0.s3tc.ctex"
+path.etc2="res://.godot/imported/Cube_SpottedCat_Spot Cat Material.png-92ffff1f2a10fe85343a30ce409519f0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A3/Cube_SpottedCat_Spot Cat Material.png"
-dest_files=["res://.godot/imported/Cube_SpottedCat_Spot Cat Material.png-92ffff1f2a10fe85343a30ce409519f0.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cube_SpottedCat_Spot Cat Material.png-92ffff1f2a10fe85343a30ce409519f0.s3tc.ctex", "res://.godot/imported/Cube_SpottedCat_Spot Cat Material.png-92ffff1f2a10fe85343a30ce409519f0.etc2.ctex"]
 
 [params]
 

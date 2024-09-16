@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://be74w60qn6hwm"
 path.s3tc="res://.godot/imported/Floor_Cursed_burned_ground_01_rough_8k.png-c1d0ce11e6631632e219c157864f572c.s3tc.ctex"
+path.etc2="res://.godot/imported/Floor_Cursed_burned_ground_01_rough_8k.png-c1d0ce11e6631632e219c157864f572c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A2/Floor_Cursed_burned_ground_01_rough_8k.png"
-dest_files=["res://.godot/imported/Floor_Cursed_burned_ground_01_rough_8k.png-c1d0ce11e6631632e219c157864f572c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Floor_Cursed_burned_ground_01_rough_8k.png-c1d0ce11e6631632e219c157864f572c.s3tc.ctex", "res://.godot/imported/Floor_Cursed_burned_ground_01_rough_8k.png-c1d0ce11e6631632e219c157864f572c.etc2.ctex"]
 
 [params]
 

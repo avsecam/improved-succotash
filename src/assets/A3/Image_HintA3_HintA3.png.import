@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx458bylgenel"
 path.s3tc="res://.godot/imported/Image_HintA3_HintA3.png-0433739c20158b2c8b389c363530b97f.s3tc.ctex"
+path.etc2="res://.godot/imported/Image_HintA3_HintA3.png-0433739c20158b2c8b389c363530b97f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A3/Image_HintA3_HintA3.png"
-dest_files=["res://.godot/imported/Image_HintA3_HintA3.png-0433739c20158b2c8b389c363530b97f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Image_HintA3_HintA3.png-0433739c20158b2c8b389c363530b97f.s3tc.ctex", "res://.godot/imported/Image_HintA3_HintA3.png-0433739c20158b2c8b389c363530b97f.etc2.ctex"]
 
 [params]
 

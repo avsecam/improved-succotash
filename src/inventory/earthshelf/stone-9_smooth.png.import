@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkycssk8rwq3y"
 path.s3tc="res://.godot/imported/stone-9_smooth.png-fb723c43eca83d4ee83e8e3702ea26ab.s3tc.ctex"
+path.etc2="res://.godot/imported/stone-9_smooth.png-fb723c43eca83d4ee83e8e3702ea26ab.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/inventory/earthshelf/stone-9_smooth.png"
-dest_files=["res://.godot/imported/stone-9_smooth.png-fb723c43eca83d4ee83e8e3702ea26ab.s3tc.ctex"]
+dest_files=["res://.godot/imported/stone-9_smooth.png-fb723c43eca83d4ee83e8e3702ea26ab.s3tc.ctex", "res://.godot/imported/stone-9_smooth.png-fb723c43eca83d4ee83e8e3702ea26ab.etc2.ctex"]
 
 [params]
 

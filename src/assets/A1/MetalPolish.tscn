@@ -67,7 +67,7 @@ receiver_group = "wax"
 settings = SubResource("Resource_irib8")
 
 [node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_xjcry")]
-raycast_length = 0.1
+raycast_length = 0.2
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_ldbyb")]
 
@@ -95,10 +95,15 @@ visible = false
 [node name="MainMesh2" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_2ditd")]
 transform = Transform3D(-2.18557e-09, -0.05, 0, 0.05, -2.18557e-09, 0, 0, 0, 0.05, -0.0183472, -0.0443144, 0)
 
-[node name="MetalPolishControl" type="Node3D" parent="."]
+[node name="MetalPolishControl" type="Node3D" parent="." node_paths=PackedStringArray("container_lid", "container_lid_inv", "control_raycast", "animation_player")]
 script = ExtResource("11_wli4l")
+container_lid = NodePath("../MainMesh/Container_MetalPolishLid")
+container_lid_inv = NodePath("../InventoryItemComp/ReplacementMesh/MainMesh2/Container_MetalPolishLid")
+control_raycast = NodePath("../StateManager/ControlRaycast")
+animation_player = NodePath("../MainMesh/AnimationPlayer")
 
 [connection signal="action_completed" from="ReceiverComp" to="MetalPolishControl" method="_on_receiver_comp_action_completed"]
 
 [editable path="MainMesh"]
 [editable path="InventoryItemComp"]
+[editable path="InventoryItemComp/ReplacementMesh/MainMesh2"]

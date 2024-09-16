@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci7cjgcghbbvm"
 path.s3tc="res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_BaseColor.jpg-b24ed01916c1561c870225afc3a5b94c.s3tc.ctex"
+path.etc2="res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_BaseColor.jpg-b24ed01916c1561c870225afc3a5b94c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A1/_Journal_Open_Poliigon_PlasterPainted_7664_BaseColor.jpg"
-dest_files=["res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_BaseColor.jpg-b24ed01916c1561c870225afc3a5b94c.s3tc.ctex"]
+dest_files=["res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_BaseColor.jpg-b24ed01916c1561c870225afc3a5b94c.s3tc.ctex", "res://.godot/imported/_Journal_Open_Poliigon_PlasterPainted_7664_BaseColor.jpg-b24ed01916c1561c870225afc3a5b94c.etc2.ctex"]
 
 [params]
 

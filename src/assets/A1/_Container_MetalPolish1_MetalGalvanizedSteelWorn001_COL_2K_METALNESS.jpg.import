@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://n0gx2o1jrkn1"
 path.s3tc="res://.godot/imported/_Container_MetalPolish1_MetalGalvanizedSteelWorn001_COL_2K_METALNESS.jpg-ff5be206ea17f01f6da92c9b3362b508.s3tc.ctex"
+path.etc2="res://.godot/imported/_Container_MetalPolish1_MetalGalvanizedSteelWorn001_COL_2K_METALNESS.jpg-ff5be206ea17f01f6da92c9b3362b508.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A1/_Container_MetalPolish1_MetalGalvanizedSteelWorn001_COL_2K_METALNESS.jpg"
-dest_files=["res://.godot/imported/_Container_MetalPolish1_MetalGalvanizedSteelWorn001_COL_2K_METALNESS.jpg-ff5be206ea17f01f6da92c9b3362b508.s3tc.ctex"]
+dest_files=["res://.godot/imported/_Container_MetalPolish1_MetalGalvanizedSteelWorn001_COL_2K_METALNESS.jpg-ff5be206ea17f01f6da92c9b3362b508.s3tc.ctex", "res://.godot/imported/_Container_MetalPolish1_MetalGalvanizedSteelWorn001_COL_2K_METALNESS.jpg-ff5be206ea17f01f6da92c9b3362b508.etc2.ctex"]
 
 [params]
 

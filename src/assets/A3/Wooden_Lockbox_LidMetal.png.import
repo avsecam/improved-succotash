@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxsx0hi20eqwl"
 path.s3tc="res://.godot/imported/Wooden_Lockbox_LidMetal.png-2dd5ddd2c62a2722d4295ebe7d995bd7.s3tc.ctex"
+path.etc2="res://.godot/imported/Wooden_Lockbox_LidMetal.png-2dd5ddd2c62a2722d4295ebe7d995bd7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://src/assets/A3/Wooden_Lockbox_LidMetal.png"
-dest_files=["res://.godot/imported/Wooden_Lockbox_LidMetal.png-2dd5ddd2c62a2722d4295ebe7d995bd7.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wooden_Lockbox_LidMetal.png-2dd5ddd2c62a2722d4295ebe7d995bd7.s3tc.ctex", "res://.godot/imported/Wooden_Lockbox_LidMetal.png-2dd5ddd2c62a2722d4295ebe7d995bd7.etc2.ctex"]
 
 [params]
 
