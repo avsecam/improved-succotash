@@ -19,14 +19,14 @@
 resource_local_to_scene = true
 size = Vector2(320, 180)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4yy0c"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_41w07"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44lb5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aumyc"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_4yy0c")
+albedo_texture = SubResource("ViewportTexture_41w07")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2prly"]
@@ -110,13 +110,14 @@ visible = false
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_d78eu")
-surface_material_override/0 = SubResource("StandardMaterial3D_44lb5")
+surface_material_override/0 = SubResource("StandardMaterial3D_aumyc")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_2prly")
 
 [node name="TheKey" parent="." instance=ExtResource("14_cd1k7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.538239, 0.195615, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695461, 0.189739, 0.312119)
+gravity_scale = 0.1
 
 [connection signal="picked_up" from="TheKey" to="Events/ActionPickUpKey" method="_on_the_key_picked_up"]
 

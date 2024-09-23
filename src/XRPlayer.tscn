@@ -76,6 +76,8 @@ tracker = &"left_hand"
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand" instance=ExtResource("2_lvx1b")]
 
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("10_376g4")]
+
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(0.999936, -0.00898236, 0.0068461, 0.00899957, 0.999956, -0.00248775, -0.00682346, 0.00254919, 0.999973, 0.5, 1, -0.5)
 tracker = &"right_hand"
@@ -99,7 +101,7 @@ mesh = SubResource("CylinderMesh_bvchu")
 script = ExtResource("9_q76cs")
 
 [node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("10_376g4")]
-show_target = true
+target_radius = 0.005
 target_material = SubResource("StandardMaterial3D_vprdk")
 
 [node name="Floor" type="StaticBody3D" parent="."]
