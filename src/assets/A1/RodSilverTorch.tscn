@@ -42,7 +42,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.333843, 0.0987935
 [node name="OiledRagReceiver" type="Area3D" parent="." groups=["oiled_rag"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0988292)
 script = ExtResource("5_binet")
-requirement = 2.0
+requirement = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OiledRagReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0106279, -0.000454701)

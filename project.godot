@@ -104,6 +104,10 @@ editor_move_down={
 
 3d_physics/layer_10="teleporter"
 
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
+
 [xr]
 
 openxr/enabled=true

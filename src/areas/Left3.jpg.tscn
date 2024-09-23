@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cydj3t1ciqth0"]
+
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_a53kg"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4it3t"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_titsp"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_ih3hf"]
+
+[node name="left3_jpg" type="Node3D"]
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+top_level = true
+script = ExtResource("1_a53kg")
+image_filename = "res://src/areas/Left3.jpg.jpg"
+teleporters_data = [{
+"position": Vector3(2.011, -2.33663, -3.28006),
+"rotation": Vector3(5.96047e-08, 0.549998, 1.44329e-06),
+"to": "Left4.jpg"
+}, {
+"position": Vector3(-3.1357, -2.45099, -2.10311),
+"rotation": Vector3(5.96046e-08, -0.980002, 1.03775e-06),
+"to": "Left5Vase.jpg"
+}]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+gi_mode = 0
+mesh = ExtResource("2_4it3t")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Left4_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_titsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.011, -2.33663, -3.28006)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_ih3hf")
+to = "Left4.jpg"
+
+[node name="Left5Vase_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_titsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1357, -2.45099, -2.10311)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_ih3hf")
+to = "Left5Vase.jpg"

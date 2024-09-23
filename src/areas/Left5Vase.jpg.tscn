@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cllqjja2ycguh"]
+
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mooij"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4pfgi"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_2ebv4"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_6582x"]
+[ext_resource type="PackedScene" uid="uid://ce67keuetbnla" path="res://src/assets/B MAIN/Sunken_Amphora.glb" id="5_h30vh"]
+
+[node name="left5 vase_jpg" type="Node3D"]
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+top_level = true
+script = ExtResource("1_mooij")
+image_filename = "res://src/areas/Left5Vase.jpg.jpg"
+teleporters_data = [{
+"position": Vector3(-4.03446, -1.90015, -0.613012),
+"rotation": Vector3(0, -1.42, -5.26353e-08),
+"to": "Left3.jpg"
+}, {
+"position": Vector3(-2.29149, -1.65273, -2.83364),
+"rotation": Vector3(0, -0.680003, 1.01802e-06),
+"to": "Left4.jpg"
+}, {
+"position": Vector3(4.36626, -1.09527, -0.00350138),
+"rotation": Vector3(0, 1.56999, 2.56195e-07),
+"to": "Left7.jpg"
+}]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+gi_mode = 0
+mesh = ExtResource("2_4pfgi")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Left3_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_2ebv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03446, -1.90015, -0.613012)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_6582x")
+to = "Left3.jpg"
+
+[node name="Left4_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_2ebv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29149, -1.65273, -2.83364)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_6582x")
+to = "Left4.jpg"
+
+[node name="Left7_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_2ebv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36626, -1.09527, -0.00350138)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_6582x")
+to = "Left7.jpg"
+
+[node name="Sunken_Amphora" parent="." instance=ExtResource("5_h30vh")]
+transform = Transform3D(0.259898, 0, -0.965636, 0, 1, 0, 0.965636, 0, 0.259898, -0.565081, 0, -0.598157)

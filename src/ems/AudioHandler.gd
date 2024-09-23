@@ -10,21 +10,27 @@ extends Node
 
 
 func _ready():
-	for file in DirAccess.get_files_at("res://src/assets/audio/music/"):
-		if(file.get_extension() != "import"):
-			bgm_locations[file.get_basename()] = load("res://src/assets/audio/music/" + file)
+	for key in Events.event_library:
+		var audio_name = Events.event_library[key]["Event_Audio"]
+		if Events.event_library[key]["Event_Category"] == "BGM":
+			bgm_locations[audio_name] = load("res://src/assets/audio/music/" + audio_name + ".wav")
+		else:
+			if audio_name.contains("_ZT_"):
+				dialogue_locations[audio_name] = load("res://src/assets/audio/tutorial/" + audio_name + ".ogg")
+			if audio_name.contains("_A1_"):
+				dialogue_locations[audio_name] = load("res://src/assets/audio/a1/" + audio_name + ".ogg")
 	
-	for file in DirAccess.get_files_at("res://src/assets/audio/tutorial/"):
-		if(file.get_extension() != "import"):
-			dialogue_locations[file.get_basename()] = load("res://src/assets/audio/tutorial/" + file)
-	
-	for file in DirAccess.get_files_at("res://src/assets/audio/a1/"):
-		if(file.get_extension() != "import"):
-			dialogue_locations[file.get_basename()] = load("res://src/assets/audio/a1/" + file)
-	
-	for file in DirAccess.get_files_at("res://src/assets/audio/sfx/"):
-		if(file.get_extension() != "import"):
-			sfx_locations[file.get_basename()] = load("res://src/assets/audio/sfx/" + file)
+	#for file in DirAccess.get_files_at("res://src/assets/audio/tutorial/"):
+		#if(file.get_extension() != "import"):
+			#dialogue_locations[file.get_basename()] = load("res://src/assets/audio/tutorial/" + file)
+	#
+	#for file in DirAccess.get_files_at("res://src/assets/audio/a1/"):
+		#if(file.get_extension() != "import"):
+			#dialogue_locations[file.get_basename()] = load("res://src/assets/audio/a1/" + file)
+	#
+	#for file in DirAccess.get_files_at("res://src/assets/audio/sfx/"):
+		#if(file.get_extension() != "import"):
+			#sfx_locations[file.get_basename()] = load("res://src/assets/audio/sfx/" + file)
 
 
 func play_bgm(bgm_key):
