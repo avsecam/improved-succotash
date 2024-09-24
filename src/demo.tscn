@@ -89,34 +89,34 @@ _data = {
 "Thumb": ExtResource("37_g3kif")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wdvkx"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pni6l"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5xvof"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2wwa7"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_goas6"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_wss8g"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2vlsh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h735u"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_11ine"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_8j8ec"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_337h4"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2pg0s"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_wdvkx")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_pni6l")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_5xvof")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_2wwa7")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_goas6")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_wss8g")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_2vlsh")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_h735u")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_11ine")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_8j8ec")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1", &"output", 0, &"Grip"]
 
@@ -166,13 +166,16 @@ transform = Transform3D(1, 9.44056e-10, 4.65661e-10, 8.40373e-10, 1, -2.32831e-1
 libraries = {
 "": SubResource("AnimationLibrary_reqae")
 }
-tree_root = SubResource("AnimationNodeBlendTree_337h4")
+tree_root = SubResource("AnimationNodeBlendTree_2pg0s")
 
 [node name="FunctionPointer" parent="XRPlayer/XROrigin3D/RightHand" index="4"]
 laser_hit_material = SubResource("StandardMaterial3D_cmris")
 
 [node name="StateManager" parent="XRPlayer/XROrigin3D/RightHand" index="5" instance=ExtResource("38_mrxce")]
 transform = Transform3D(-4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, 0.00782657, -0.0595013, 0.100529)
+
+[node name="CollisionShape3D" parent="XRPlayer/Floor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.470605, 0)
 
 [node name="NonVR" type="Node3D" parent="."]
 script = ExtResource("3_2dg2b")
