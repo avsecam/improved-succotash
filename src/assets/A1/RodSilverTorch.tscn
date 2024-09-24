@@ -14,13 +14,13 @@
 size = Vector3(0.05, 0.7, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rybv3"]
-size = Vector3(0.05, 0.7, 0.05)
+size = Vector3(0.05, 0.702771, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h4nwc"]
-size = Vector3(0.05, 0.7, 0.05)
+size = Vector3(0.025, 0.703, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kaf2"]
-size = Vector3(0.05, 0.7, 0.05)
+size = Vector3(0.025, 0.703, 0.05)
 
 [node name="RodSilverTorch" type="RigidBody3D"]
 collision_layer = 4
@@ -45,7 +45,7 @@ script = ExtResource("5_binet")
 requirement = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OiledRagReceiver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0106279, -0.000454701)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00924242, -0.000454701)
 shape = SubResource("BoxShape3D_rybv3")
 
 [node name="PolishedRod" type="Node3D" parent="OiledRagReceiver" node_paths=PackedStringArray("dirt")]
@@ -60,35 +60,37 @@ script = ExtResource("5_binet")
 requirement = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CleanRagReceiver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0151886, 0.00160395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103745, -0.0309793)
 shape = SubResource("BoxShape3D_h4nwc")
 
 [node name="RagNeedsPolish" type="Node3D" parent="CleanRagReceiver"]
 script = ExtResource("7_b7td8")
 
 [node name="PolishReceiver" type="Area3D" parent="." groups=["wax"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0936024)
 script = ExtResource("5_binet")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PolishReceiver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00769043, 0.102264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00912477, 0.032094)
 shape = SubResource("BoxShape3D_1kaf2")
 
 [node name="ApplyPolishToRag" type="Node3D" parent="PolishReceiver"]
 script = ExtResource("8_jrppw")
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0968389)
 
 [node name="Stain_Full" parent="Node3D" instance=ExtResource("8_je048")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.0237901, 0, 0.0996234)
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.0237901, 0, 0.00373639)
 
 [node name="Stain_Full5" parent="Node3D" instance=ExtResource("8_je048")]
-transform = Transform3D(0.00803421, 0, 0.00595412, 0, 0.01, 0, -0.00595412, 0, 0.00803421, 0.0219452, 0.068552, 0.0836822)
+transform = Transform3D(0.00803421, 0, 0.00595412, 0, 0.01, 0, -0.00595412, 0, 0.00803421, 0.0219452, 0.068552, -0.0122048)
 
 [node name="Stain_Full2" parent="Node3D" instance=ExtResource("8_je048")]
-transform = Transform3D(-0.00340363, 0, -0.00940294, 0, 0.01, 0, 0.00940294, 0, -0.00340363, -0.00870189, 0.046253, 0.121785)
+transform = Transform3D(-0.00340363, 0, -0.00940294, 0, 0.01, 0, 0.00940294, 0, -0.00340363, -0.00870189, 0.046253, 0.025898)
 
 [node name="Stain_Full3" parent="Node3D" instance=ExtResource("8_je048")]
-transform = Transform3D(0.00835434, 0, -0.00549592, 0, 0.01, 0, 0.00549592, 0, 0.00835434, 0.0237615, -0.0271463, 0.109141)
+transform = Transform3D(0.00835434, 0, -0.00549592, 0, 0.01, 0, 0.00549592, 0, 0.00835434, 0.0237615, -0.0271463, 0.013254)
 
 [node name="Stain_Full4" parent="Node3D" instance=ExtResource("8_je048")]
-transform = Transform3D(0.00291404, 0, -0.009566, 0, 0.01, 0, 0.009566, 0, 0.00291404, -0.0124589, -0.0694465, 0.0771316)
+transform = Transform3D(0.00291404, 0, -0.009566, 0, 0.01, 0, 0.009566, 0, 0.00291404, -0.0124589, -0.0694465, -0.0187554)

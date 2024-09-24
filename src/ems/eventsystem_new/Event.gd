@@ -30,8 +30,11 @@ func _ready() -> void:
 			return
 	elif oneshot:
 		if (event_name + "_Done") in Events.finished_events:
+			print(event_name + " Cleared from Events")
 			queue_free()
 			return
+	
+	print(event_name + " Connecting Signals")
 	
 	event_started.connect(_on_event_started)
 	event_ended.connect(get_parent()._on_event_ended)

@@ -13,3 +13,5 @@ current_state = NodePath("IdleState")
 [node name="ActiveState" parent="." index="1" instance=ExtResource("3_vs46t")]
 
 [node name="TriggerState" parent="." index="2" instance=ExtResource("3_vs46t")]
+
+[node name="ActiveCollidingState" parent="." index="3" instance=ExtResource("3_vs46t")]

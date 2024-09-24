@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cicew6koqq028"]
+[gd_scene load_steps=19 format=3 uid="uid://cicew6koqq028"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_66iak"]
 [ext_resource type="PackedScene" uid="uid://cygfkcuxna1en" path="res://src/assets/A1/Rag.glb" id="2_2n3tu"]
@@ -6,41 +6,52 @@
 [ext_resource type="PackedScene" uid="uid://cyy2j8ioc40oj" path="res://src/assets/A1/rag_oiled.tscn" id="3_i2thj"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_qd7nr"]
 [ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_u3ew8"]
-[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="7_mjn6x"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_s2rum"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="8_i4qr8"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="8_j5s6s"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="8_jf20s"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/waxed.gd" id="9_2d4jf"]
+[ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="9_76bp8"]
 [ext_resource type="Script" path="res://src/assets/A1/RagControl.gd" id="13_iwv4s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_07xwo"]
 size = Vector3(0.2, 0.0641602, 0.2)
 
-[sub_resource type="Resource" id="Resource_8ocb5"]
+[sub_resource type="Resource" id="Resource_tmajd"]
 script = ExtResource("7_s2rum")
 state_behavior_settings = {
-"ActiveState": {
-"ControlRaycast": true,
+"ActiveCollidingState": {
+"ControlRaycastVisibility": true,
 "InteractReceiver": true
 },
+"ActiveState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
 "IdleState": {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 },
 "InventoryState": {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 },
 "TriggerState": {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 }
 }
 behavior_dict = {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3ct0"]
+albedo_color = Color(0.137255, 1, 0.231373, 0.486275)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5bnt"]
+material = SubResource("StandardMaterial3D_p3ct0")
+size = Vector3(0.02, 0.02, 0.02)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dowu4"]
 size = Vector3(0.2, 0.05, 0.2)
@@ -72,13 +83,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0248512, 0.0523981, -0.0995
 
 [node name="StateManager" parent="." instance=ExtResource("5_u3ew8")]
 receiver_group = "clean_rag"
-settings = SubResource("Resource_8ocb5")
-
-[node name="ControlRaycast" parent="StateManager" instance=ExtResource("7_mjn6x")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-raycast_length = 0.25
+settings = SubResource("Resource_tmajd")
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("8_j5s6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0462698, 0, 0)
+
+[node name="ControlRaycastVisibility" parent="StateManager" instance=ExtResource("9_76bp8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0413412, 0, 0)
+raycast_length = 0.5
+
+[node name="Laser" parent="StateManager/ControlRaycastVisibility" index="1"]
+mesh = SubResource("BoxMesh_w5bnt")
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("8_i4qr8")]
 
@@ -111,5 +126,6 @@ script = ExtResource("13_iwv4s")
 [connection signal="action_completed" from="WaxReceiver" to="RagControl" method="_on_wax_receiver_action_completed"]
 
 [editable path="MainMesh/CleanRag"]
+[editable path="StateManager/ControlRaycastVisibility"]
 [editable path="InventoryItemComp"]
 [editable path="InventoryItemComp/ReplacementMesh/MainMesh"]

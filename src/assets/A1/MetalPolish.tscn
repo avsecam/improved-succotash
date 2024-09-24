@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3foujhryuk5l"]
+[gd_scene load_steps=18 format=3 uid="uid://b3foujhryuk5l"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_1khwu"]
 [ext_resource type="PackedScene" uid="uid://djavywnjh1ved" path="res://src/assets/A1/container_metal_polish_1.tscn" id="2_2ditd"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_8ujjy"]
 [ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_fwk6t"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_5xr34"]
-[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_xjcry"]
-[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="9_wnrsd"]
+[ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="8_w3i8i"]
+[ext_resource type="Script" path="res://src/ois/action_components/twist_action.gd" id="9_ofbja"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="10_ldbyb"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="10_omg34"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/play_animation.gd" id="10_pgvew"]
@@ -17,26 +17,41 @@
 height = 0.05
 radius = 0.0602997
 
-[sub_resource type="Resource" id="Resource_irib8"]
+[sub_resource type="Resource" id="Resource_ddu5p"]
 script = ExtResource("7_5xr34")
 state_behavior_settings = {
-"ActiveState": {
-"ControlRaycast": true,
+"ActiveCollidingState": {
+"ControlRaycastVisibility": true,
 "InteractReceiver": true
 },
+"ActiveState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
 "IdleState": {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"InventoryState": {
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 },
 "TriggerState": {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 }
 }
 behavior_dict = {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3ct0"]
+albedo_color = Color(0.137255, 1, 0.231373, 0.486275)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1b6bh"]
+material = SubResource("StandardMaterial3D_p3ct0")
+size = Vector3(0.02, 0.02, 0.02)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c6xk5"]
 height = 0.0685084
@@ -64,17 +79,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.10903)
 [node name="StateManager" parent="." instance=ExtResource("5_fwk6t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.01451, -0.0461102, 0)
 receiver_group = "wax"
-settings = SubResource("Resource_irib8")
-
-[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_xjcry")]
-raycast_length = 0.2
+settings = SubResource("Resource_ddu5p")
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_ldbyb")]
 
+[node name="ControlRaycastVisibility" parent="StateManager" instance=ExtResource("8_w3i8i")]
+
+[node name="Laser" parent="StateManager/ControlRaycastVisibility" index="1"]
+mesh = SubResource("BoxMesh_1b6bh")
+
 [node name="ReceiverComp" type="Area3D" parent="." groups=["single_controller"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01451, -0.0461102, 0)
-script = ExtResource("9_wnrsd")
-requirement = 0.5
+script = ExtResource("9_ofbja")
+requirement = 0.25
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiverComp"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -99,11 +116,12 @@ transform = Transform3D(-2.18557e-09, -0.05, 0, 0.05, -2.18557e-09, 0, 0, 0, 0.0
 script = ExtResource("11_wli4l")
 container_lid = NodePath("../MainMesh/Container_MetalPolishLid")
 container_lid_inv = NodePath("../InventoryItemComp/ReplacementMesh/MainMesh2/Container_MetalPolishLid")
-control_raycast = NodePath("../StateManager/ControlRaycast")
+control_raycast = NodePath("../StateManager/ControlRaycastVisibility")
 animation_player = NodePath("../MainMesh/AnimationPlayer")
 
 [connection signal="action_completed" from="ReceiverComp" to="MetalPolishControl" method="_on_receiver_comp_action_completed"]
 
 [editable path="MainMesh"]
+[editable path="StateManager/ControlRaycastVisibility"]
 [editable path="InventoryItemComp"]
 [editable path="InventoryItemComp/ReplacementMesh/MainMesh2"]
