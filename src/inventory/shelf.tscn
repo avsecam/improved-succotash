@@ -1,8 +1,170 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5fxbmw5m37nf"]
+[gd_scene load_steps=17 format=3 uid="uid://b5fxbmw5m37nf"]
 
 [ext_resource type="Script" path="res://src/inventory/InventorySetting_Shelf.gd" id="1_d0fkd"]
 [ext_resource type="PackedScene" uid="uid://crwyd7l0re2e" path="res://src/inventory/Slot.tscn" id="1_y7af2"]
 [ext_resource type="PackedScene" uid="uid://b5nbl607no0d" path="res://src/inventory/earthshelf/EarthSpirit_InventoryShelf.gltf" id="3_j37q6"]
+[ext_resource type="Script" path="res://src/inventory/InventoryController.gd" id="4_6vrg0"]
+
+[sub_resource type="Animation" id="Animation_xlq58"]
+resource_name = "open_inventory"
+length = 0.25
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryController")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [false],
+"method": &"inventory_visible"
+}, {
+"args": [true],
+"method": &"inventory_visible"
+}, {
+"args": [true],
+"method": &"inventory_visible"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kldme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5w8ui"]
+resource_name = "close_inventory"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryController")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [true],
+"method": &"inventory_visible"
+}, {
+"args": [false],
+"method": &"inventory_visible"
+}, {
+"args": [false],
+"method": &"inventory_visible"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t63t8"]
+_data = {
+"RESET": SubResource("Animation_kldme"),
+"close_inventory": SubResource("Animation_5w8ui"),
+"open_inventory": SubResource("Animation_xlq58")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tb1v"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.709804, 0.709804, 0.709804, 0.52549)
+
+[sub_resource type="Curve" id="Curve_o80hy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7f1xt"]
+curve = SubResource("Curve_o80hy")
+
+[sub_resource type="Curve" id="Curve_oidi8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.637127, 0.539425), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_54msb"]
+curve = SubResource("Curve_oidi8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phkbu"]
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+inherit_velocity_ratio = -0.74
+radial_velocity_min = 1.0
+radial_velocity_max = 5.0
+radial_velocity_curve = SubResource("CurveTexture_54msb")
+damping_max = 40.984
+alpha_curve = SubResource("CurveTexture_7f1xt")
+
+[sub_resource type="SphereMesh" id="SphereMesh_8qwgk"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_doxiw"]
+radius = 0.330525
 
 [node name="Shelf" type="Node3D"]
 script = ExtResource("1_d0fkd")
@@ -28,6 +190,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.383636, 0.560623, -0.32798)
 [node name="EarthSpirit_InventoryShelf" parent="." instance=ExtResource("3_j37q6")]
 transform = Transform3D(-0.07, 0, -1.05697e-08, 0, 0.07, 0, 1.05697e-08, 0, -0.07, -1.05042, 0, -0.389565)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t63t8")
+}
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.761823, -0.345615)
+material_override = SubResource("StandardMaterial3D_2tb1v")
+emitting = false
+amount = 200
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-0.502124, -0.290164, -0.324262, 1.00425, 0.580329, 0.648523)
+process_material = SubResource("ParticleProcessMaterial_phkbu")
+draw_pass_1 = SubResource("SphereMesh_8qwgk")
+
+[node name="InventoryController" type="Area3D" parent="."]
+collision_layer = 5242881
+script = ExtResource("4_6vrg0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InventoryController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04584, -0.0131117, -0.224287)
+shape = SubResource("SphereShape3D_doxiw")
+
 [connection signal="body_entered" from="Slot/SnapZone" to="." method="_on_snap_zone_body_entered"]
 [connection signal="body_exited" from="Slot/SnapZone" to="." method="_on_snap_zone_body_exited"]
 [connection signal="body_entered" from="Slot2/SnapZone" to="." method="_on_snap_zone_body_entered"]
@@ -40,6 +228,7 @@ transform = Transform3D(-0.07, 0, -1.05697e-08, 0, 0.07, 0, 1.05697e-08, 0, -0.0
 [connection signal="body_exited" from="Slot5/SnapZone" to="." method="_on_snap_zone_body_exited"]
 [connection signal="body_entered" from="Slot6/SnapZone" to="." method="_on_snap_zone_body_entered"]
 [connection signal="body_exited" from="Slot6/SnapZone" to="." method="_on_snap_zone_body_exited"]
+[connection signal="pointer_event" from="InventoryController" to="InventoryController" method="_on_pointer_event"]
 
 [editable path="Slot"]
 [editable path="Slot/HighlightRing"]
@@ -53,3 +242,4 @@ transform = Transform3D(-0.07, 0, -1.05697e-08, 0, 0.07, 0, 1.05697e-08, 0, -0.0
 [editable path="Slot5/HighlightRing"]
 [editable path="Slot6"]
 [editable path="Slot6/HighlightRing"]
+[editable path="EarthSpirit_InventoryShelf"]

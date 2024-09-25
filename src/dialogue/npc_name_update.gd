@@ -11,5 +11,5 @@ func _on_update_npc_name(npcx):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#Events.update_npc_line.connect(_on_update_npc_name)
+	Events.update_npc_line.connect(_on_update_npc_name)
 	pass

@@ -46,3 +46,4 @@ func _on_snap_zone_body_exited(target: Node3D) -> void:
 	#print("Snapzone body exited CALLED")
 	emit_signal("inventory_updated")
 	_check_inventory_status()
+ 

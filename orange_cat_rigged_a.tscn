@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1y4n3jlp7jg1"]
+
+[ext_resource type="PackedScene" uid="uid://cdxd6tr53gu7m" path="res://src/assets/Orange_cat-rigged_A.glb" id="1_v27mj"]
+
+[node name="Orange_cat-rigged_A" instance=ExtResource("1_v27mj")]
+
+[node name="Armature" parent="Ginger Cat (rigged with IK)" index="0"]
+transform = Transform3D(9.60624, 0, 0, 0, 9.60624, 0, 0, 0, 9.60624, -0.0318433, 0.00996891, 0.00704938)
+
+[node name="Skeleton3D" parent="Ginger Cat (rigged with IK)/Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000145286, -0.000960335, 0.000567913)

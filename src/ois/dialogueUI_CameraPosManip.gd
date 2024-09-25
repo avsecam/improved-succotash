@@ -3,28 +3,29 @@ extends Node3D
 
 var camera
 
-@export var object_follow_speed = 4.0
-@export var object_distance = 0.75
-var object_height = -3
+@export var object_follow_speed := 4.0
+@export var object_distance := 0.75
+@export var object_height : float 
 var image_rotate
 
+@onready var dialogue_box := $"Viewport2Din3D/Viewport/Dialogue UI"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print(camera.name)
-	if self.get_parent().get_parent().get_parent().name == "NonVR":
-		camera = self.get_parent().get_parent().get_parent()
+	pass # Replace with function body.
+
+func initialize_dialogue_container(mode: String) -> void:
+	if mode == "NonVR":
+		camera = get_tree().get_root().get_node("Demo/NonVR/Camera")
 		print(camera.name)
-	else:
-		camera = self.get_parent().get_parent().get_parent().get_node("XRCamera3D")
+	elif mode == "VR":
+		camera = get_tree().get_root().get_node("Demo/XRPlayer/XROrigin3D/XRCamera3D")
 		if self.get_node("Viewport2Din3D/Viewport").get_child(1) != null:
 			self.get_node("Viewport2Din3D/Viewport").get_child(1).visible = false
 		print(camera.name)
 		
 		image_rotate = self.get_parent().global_rotation.y
-	pass # Replace with function body.
-	
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

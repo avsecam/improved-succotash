@@ -19,8 +19,7 @@ signal non_vr_no_teleporter_hovered()
 signal non_vr_teleporter_clicked(to: String) # filename of scene to teleport to
 
 #DIALOGUE SIGNALS
-signal update_npc_name(npcx: String)
-signal update_npc_line(line: String)
+signal update_dialogue_box(name: String, dialogue: String)
 
 #EVENT FLAGS
 var current_bgm
@@ -57,7 +56,8 @@ func load_event_data(file_location: String) -> Dictionary:
 			"Event_Completion_Flags" : key["Event_Completion_Flags"],
 			"Event_Audio" : key["Event_Audio"],
 			"Loop_Audio" : key["Loop_Audio"],
-			"Loop_Interval" : key["Loop_Interval"]
+			"Loop_Interval" : key["Loop_Interval"],
+			"Event_Text" : key["Event_Text"]
 		}
 	return output_dictionary
 	

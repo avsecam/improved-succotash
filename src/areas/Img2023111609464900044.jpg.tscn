@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bcaiojb2sbtoy"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_re8ad"]
-[ext_resource type="SphereMesh" uid="uid://r872pb7ih8bp" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vh8x2"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vh8x2"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m8ruw"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_c77ko"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="5_28qyy"]
@@ -75,9 +75,6 @@ transform = Transform3D(0.999325, 0, -0.0367485, 0, 1, 0, 0.0367485, 0, 0.999325
 [node name="Rag" parent="." instance=ExtResource("7_lovlb")]
 transform = Transform3D(0.0135034, -0.110438, 0.993791, 0.992608, 0.121367, 0, -0.120613, 0.986445, 0.111261, -1.09694, -0.245621, 0.0217835)
 
-[node name="ControlRaycast" parent="Rag/StateManager" index="3"]
-raycast_length = 5.0
-
 [node name="dirt" parent="." instance=ExtResource("7_y0fml")]
 transform = Transform3D(-0.136459, 0, -0.990646, 0, 1, 0, 0.990646, 0, -0.136459, 0.120501, -0.0896844, -2.38281)
 requirement = 0.25
@@ -99,6 +96,7 @@ requirement = 0.25
 
 [editable path="Rag"]
 [editable path="Rag/MainMesh/CleanRag"]
+[editable path="Rag/StateManager/ControlRaycastVisibility"]
 [editable path="Rag/InventoryItemComp"]
 [editable path="Rag/InventoryItemComp/ReplacementMesh/MainMesh"]
 [editable path="dirt"]
