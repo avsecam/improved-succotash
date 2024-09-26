@@ -2,12 +2,22 @@ extends Node
 
 
 @export var bgm_locations : Dictionary = {}
-@export var sfx_locations : Dictionary = {}
 @export var dialogue_locations : Dictionary = {}
+
+@export var sfx_locations : Dictionary = {
+	"Char_MrblSprt" : preload("res://src/assets/audio/sfx/VE_SFX_UI_MrblSprt.ogg"),
+	"Char_Cat" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Cat.ogg"),
+	"UI_Confirm" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Confirm.ogg"),
+	"UI_Fail" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Fail.ogg"),
+	"UI_Return" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Return.ogg"),
+	"UI_Success" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Success.ogg"),
+	"UI_Tele_Hover" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Teleport_Hover.ogg"),
+	"UI_Tele_Confirm" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Teleport_Confirm.ogg")
+}
 
 @onready var bgm_player := $BGMPlayer
 @onready var dialogue_player := $DialoguePlayer
-
+@onready var sfx_player := $SFXPlayer
 
 func _ready():
 	for key in Events.event_library:
@@ -37,6 +47,7 @@ func play_bgm(bgm_key):
 	bgm_player.stream = bgm_locations[bgm_key]
 	bgm_player.play()
 
+
 func play_dialogue(dialogue_key, dialogue_source):
 	dialogue_player = dialogue_source
 	#dialogue_player.stream = dialogue_locations[dialogue_key]
@@ -46,7 +57,27 @@ func play_dialogue(dialogue_key, dialogue_source):
 	await dialogue_source.finished
 	dialogue_player.emit_signal("finished")
 
+
 func play_sfx(sfx_key, sfx_source):
-	pass
+	if !sfx_source == null:
+		if !sfx_source.playing or !sfx_source.stream == sfx_locations[sfx_key]:
+			print("playing sfx")
+			sfx_source.stream = sfx_locations[sfx_key]
+			sfx_source.play()
+			await sfx_source.finished
+			sfx_player.emit_signal("finished")
+		else:
+			return
+	else:
+		if !sfx_player.playing or !sfx_player.stream == sfx_locations[sfx_key]:
+			print("playing sfx")
+			sfx_player.stream = sfx_locations[sfx_key]
+			sfx_player.play()
+			await sfx_player.finished
+			sfx_player.emit_signal("finished")
+		else:
+			return
+
+
 func _on_bgm_player_finished():
 	bgm_player.playing = true

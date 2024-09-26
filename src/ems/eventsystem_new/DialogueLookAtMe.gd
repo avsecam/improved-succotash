@@ -1,6 +1,5 @@
 extends Event
 
-@onready var quests = get_tree().get_root().get_node("/root/Demo/Quests")
 
 func _on_event_started():
 	play_event_audio()

@@ -9,6 +9,7 @@ func _ready():
 	add_child(start_scene)
 
 func _on_player_teleport_requested(new_level_filepath: String):
+	AudioHandler.play_sfx("UI_Tele_Confirm", null)
 	get_child(0).queue_free()
 	var new_level: Panorama = load("res://src/areas/" + new_level_filepath + ".tscn").instantiate()
 	self.rotation.y = new_level.base_rotation

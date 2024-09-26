@@ -6,6 +6,8 @@ signal event_ended()
 
 signal event_audio_done()
 
+@onready var quests = get_tree().get_root().get_node("/root/Demo/Quests")
+
 var event_name : String
 var event_category : String
 var oneshot : bool

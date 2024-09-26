@@ -1,7 +1,7 @@
 extends Event
 
 @onready var key = $"../../TheKey"
-@onready var quests = get_tree().get_root().get_node("/root/Demo/Quests")
+
 
 func _on_event_started():
 	key.visible = false

@@ -12,6 +12,8 @@ const RAY_COLOR_COLLIDING: Color = Color("red")
 
 @onready var button_pressed_last_frame: bool = false
 
+var hovering_on_telporter := false
+
 
 func _physics_process(delta):
 	var button_pressed_this_frame := controller.is_button_pressed("trigger_click")
@@ -29,11 +31,15 @@ func _physics_process(delta):
 	
 	if raycast_is_colliding:
 		raycast_mesh_material.albedo_color = RAY_COLOR_COLLIDING
-		if button_pressed_this_frame:
+		if !hovering_on_telporter:
+		#if button_pressed_this_frame:
 			Events.emit_signal("teleporter_hovered", teleporter)
+			hovering_on_telporter = true
 	else:
-		raycast_mesh_material.albedo_color = RAY_COLOR_DEFAULT
-		Events.emit_signal("no_teleporter_hovered")
+		if hovering_on_telporter:
+			raycast_mesh_material.albedo_color = RAY_COLOR_DEFAULT
+			Events.emit_signal("no_teleporter_hovered")
+			hovering_on_telporter = false
 
 #	# Request teleport when trigger is released while targeting a teleporter
 	if controller.get_is_active() \

@@ -101,8 +101,10 @@ func _set_teleporters():
 
 # TELEPORTER SIGNALS
 func _on_teleporter_hovered(teleporter: Teleporter):
+	print (teleporter)
 	if teleporter and teleporter.enabled:
 		teleporter.set_color(ACTIVE_COLOR)
+		AudioHandler.play_sfx("UI_Tele_Hover", null)
 
 func _on_no_teleporter_hovered():
 	for teleporter in teleporters_container.get_children():

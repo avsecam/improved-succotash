@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1nfdxx4l4avm"]
+[gd_scene load_steps=6 format=3 uid="uid://c1nfdxx4l4avm"]
 
 [ext_resource type="PackedScene" uid="uid://7o3tjw1re0k8" path="res://src/assets/MarbleSpirit_Normal.gltf" id="1_10rmh"]
 
@@ -12,18 +12,232 @@ clearcoat_roughness = 0.0
 refraction_enabled = true
 refraction_scale = 1.0
 
+[sub_resource type="Animation" id="Animation_ypwtd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marble:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plane:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0438846, 0, 0.0168927)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sphere:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.260299, 0, -0.0531245)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sphere_001:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.22937, 0, 0.346641)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marble:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.300842, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Plane:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-8.74228e-08, 2.37946, 3.14159)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sphere:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.300842, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sphere_001:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.300842, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qn44v"]
+resource_name = "marble_spirit_idle"
+length = 1.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marble:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25, 0.75, 1.05, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.399018, -0.506072), Vector3(0, 0.418093, -0.724072), Vector3(0, -0.408877, 0.230846), Vector3(0, 0.262768, 0.272499)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plane:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.75, 1.05, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0438846, -0.399018, -0.489179), Vector3(-0.0438846, 0.418093, -0.707179), Vector3(-0.0438846, -0.408877, 0.247738), Vector3(-0.0438846, 0.262768, 0.289392)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sphere:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.75, 1.05, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.260299, -0.399018, -0.559197), Vector3(0.260299, 0.418093, -0.777197), Vector3(0.260299, -0.408877, 0.177721), Vector3(0.260299, 0.262768, 0.219375)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sphere_001:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25, 0.75, 1.05, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.22937, -0.399018, -0.159431), Vector3(0.22937, 0.418093, -0.377431), Vector3(0.22937, -0.408877, 0.577487), Vector3(0.22937, 0.262768, 0.61914)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marble:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.300842, 0), Vector3(0, 0.481344, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Plane:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-8.74228e-08, 2.37946, 3.14159), Vector3(0, 3.12239, 3.14159)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sphere:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.300842, 0), Vector3(0, 0.481344, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sphere_001:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.300842, 0), Vector3(0, 0.481344, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pjfnd"]
+_data = {
+"RESET": SubResource("Animation_ypwtd"),
+"marble_spirit_idle": SubResource("Animation_qn44v")
+}
+
 [node name="MarbleSpirit_Normal" instance=ExtResource("1_10rmh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.243024, 0, -0.0586456, 0, 0.25, 0, 0.0586456, 0, 0.243024, 0, 0.0271107, 0.0417523)
 
 [node name="Marble" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_rp3u5")
 
 [node name="Plane" parent="." index="1"]
-transform = Transform3D(-0.165195, 0, 0, 0, 0.656079, 0, 0, 0, 0.656079, -0.0438846, 0, 0.0168927)
+transform = Transform3D(-0.119496, -1.24276e-06, -0.453, -4.18798e-07, 0.656079, -5.73562e-08, -0.114061, -1.10695e-06, 0.474584, -0.0438846, 0, 0.0168927)
 
 [node name="Sphere" parent="." index="2"]
-transform = Transform3D(-0.0502951, 0, 0, 0, -0.0502951, 0, 0, 0, -0.0502951, 0.260299, 0, -0.0531245)
+transform = Transform3D(-0.0480362, 0, 0.0149037, 0, -0.0502951, 0, -0.0149037, 0, -0.0480362, 0.260299, 0, -0.0531245)
 
 [node name="Sphere_001" parent="." index="3"]
-transform = Transform3D(-0.0255763, 0, 0, 0, -0.0255763, 0, 0, 0, -0.0255763, 0.22937, 0, 0.346641)
+transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888, 0, -0.0244276, 0.22937, 0, 0.346641)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_pjfnd")
+}
+autoplay = "marble_spirit_idle"
+speed_scale = 0.5
