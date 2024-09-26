@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cir0n0eicga7v"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_gxcwj"]
+[ext_resource type="PackedScene" uid="uid://crm7asbjemq3y" path="res://src/ems/QuestTrackerUI.tscn" id="2_06p30"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_o71d4"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2yf01"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rklc3"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_2yf01")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixvcl"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
+
+[node name="QuestTracker" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_gxcwj")]
+viewport_size = Vector2(1152, 648)
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(1152, 648)
+
+[node name="Control" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_06p30")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_o71d4")
+surface_material_override/0 = SubResource("StandardMaterial3D_rklc3")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+viewport_size = Vector2(1152, 648)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_ixvcl")
+
+[editable path="Viewport2Din3D"]
+[editable path="Viewport2Din3D/Viewport/Control"]

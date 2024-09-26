@@ -71,6 +71,7 @@ func load_quest_data(file_location: String) -> Dictionary:
 	for key in json_as_array:
 		output_dictionary[key["Quest_Name"]] = {
 			"Quest_Description" : key["Quest_Description"],
-			"Quest_Completion_Requirements" : key["Quest_Completion_Requirements"]
+			"Quest_Completion_Requirements" : key["Quest_Completion_Requirements"],
+			"Quest_Completion_Tracker" : key ["Quest_Completion_Tracker"]
 		}
 	return output_dictionary

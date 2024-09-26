@@ -7,7 +7,12 @@
 		},
 		"Quest_Completion_Requirements": [
 			"ActionLookAtMarbleSpirit_Done"
-		]
+		],
+		"Quest_Completion_Tracker": {
+			"Look at the Marble Spirit": [
+				"ActionLookAtMarbleSpirit_Done"
+			]
+		}
 	},
 	{
 		"Quest_Name": "QuestOpenTheFrontGate",
@@ -19,7 +24,18 @@
 			"ActionPickUpKey_Done",
 			"ActionPutKeyInventory_Done",
 			"ActionUseTheKey_Done"
-		]
+		],
+		"Quest_Completion_Tracker": {
+			"Pick up the Key": [
+				"ActionPickUpKey_Done"
+			],
+			"Put the Key in the Inventory": [
+				"ActionPutKeyInventory_Done"
+			],
+			"Open the Gate using the Key": [
+				"ActionUseTheKey_Done"
+			]
+		}
 	},
 	{
 		"Quest_Name": "QuestPolishRodsCleanWindows",
@@ -33,6 +49,23 @@
 			"ActionCleanWindow1_Done",
 			"ActionCleanWindow2_Done",
 			"ActionCleanWindow3_Done"
-		]
+		],
+		"Quest_Completion_Tracker": {
+			"Polish the Rods": [
+				"ActionPolishRod1_Done",
+				"ActionPolishRod2_Done"
+			],
+			"Clean the Display Windows": [
+				"ActionCleanWindow1_Done",
+				"ActionCleanWindow2_Done",
+				"ActionCleanWindow3_Done"
+			]
+		}
+	},
+	{
+		"Quest_Name": "QuestFindTheCat",
+		"Quest_Description": "",
+		"Quest_Completion_Requirements": "",
+		"Quest_Completion_Tracker": ""
 	}
 ]

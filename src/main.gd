@@ -2,6 +2,7 @@ extends Node3D
 
 var xr_interface: XRInterface
 @onready var dialogue_container := $"Dialogue Container"
+@onready var quest_tracker := $QuestTracker
 
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
@@ -12,9 +13,12 @@ func _ready():
 		get_viewport().use_xr = true
 		Events.start_with_vr.emit()
 		dialogue_container.initialize_dialogue_container("VR")
+		quest_tracker.initialize_quest_container("VR")
+		
 	else:
 		ProjectSettings.set_setting("xr/openxr/enabled", false)
 		ProjectSettings.set_setting("xr/shaders/enabled", false)
 		print("OpenXR not initialized, starting in non-VR mode.")
 		Events.start_without_vr.emit()
 		dialogue_container.initialize_dialogue_container("NonVR")
+		quest_tracker.initialize_quest_container("NonVR")

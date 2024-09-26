@@ -7,6 +7,7 @@ signal quest_ended()
 var quest_name : String
 var quest_description : Dictionary
 var quest_completion_requirements : Array
+var quest_completion_tracker : Dictionary
 @export_range (0.0, 1.0) var quest_progress : float
 
 
@@ -19,22 +20,21 @@ func initialize_quest() -> void:
 	if Events.quest_library.has(quest_name):
 		quest_description = Events.quest_library[quest_name]["Quest_Description"]
 		quest_completion_requirements = Events.quest_library[quest_name]["Quest_Completion_Requirements"]
+		quest_completion_tracker = Events.quest_library[quest_name]["Quest_Completion_Tracker"]
 		print("Quest " + quest_name + " Started")
 	else:
 		print("Quest " + quest_name + " Not Found")
 	
 	update_quest()
+	emit_signal("quest_started", name)
 
 func update_quest() -> void:
 	var iterator : int = 0
-	for reqs in quest_completion_requirements:
-		if reqs in Events.finished_events:
-			iterator += 1
-	
-	print(iterator)
-	print(quest_completion_requirements.size())
-	quest_progress = float(iterator) / float(quest_completion_requirements.size())
-	print(quest_progress)
+	for reqs in quest_completion_tracker:
+		for acts in quest_completion_tracker[reqs]:
+			if acts in Events.finished_events:
+				iterator += 1
+
 	print(quest_description["Name"] + " " + str(snapped((quest_progress * 100), 0.01)) + "% Complete")
 	if quest_progress >= 1.0:
 		end_quest()
