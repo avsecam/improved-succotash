@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1nfdxx4l4avm"]
+[gd_scene load_steps=15 format=3 uid="uid://c1nfdxx4l4avm"]
 
 [ext_resource type="PackedScene" uid="uid://7o3tjw1re0k8" path="res://src/assets/MarbleSpirit_Normal.gltf" id="1_10rmh"]
 
@@ -110,6 +110,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0, -0.300842, 0)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GPUParticles3D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.423326, -0.518358)]
+}
 
 [sub_resource type="Animation" id="Animation_qn44v"]
 resource_name = "marble_spirit_idle"
@@ -212,6 +224,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0, -0.300842, 0), Vector3(0, 0.481344, 0)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GPUParticles3D:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.25, 0.75, 1.05, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.423326, -0.518358), Vector3(0, 0.459198, -0.725749), Vector3(0, -0.368476, 0.232692), Vector3(0, 0.285097, 0.260944)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pjfnd"]
 _data = {
@@ -219,8 +243,55 @@ _data = {
 "marble_spirit_idle": SubResource("Animation_qn44v")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpvev"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Curve" id="Curve_iovpn"]
+_data = [Vector2(0, 0.521378), 0.0, 0.0, 0, 0, Vector2(0.903614, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dgv0i"]
+curve = SubResource("Curve_iovpn")
+
+[sub_resource type="Curve" id="Curve_f8eiu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_ivuby"]
+curve = SubResource("Curve_f8eiu")
+
+[sub_resource type="Curve" id="Curve_pqs13"]
+_data = [Vector2(0, 0.4519), 0.0, 0.0, 0, 0, Vector2(0.379518, 0.0350357), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5m8h1"]
+curve = SubResource("Curve_pqs13")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bmtkp"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+angle_min = -34.4
+angle_max = 6.3
+spread = 21.0
+radial_velocity_max = 0.5
+radial_velocity_curve = SubResource("CurveTexture_5m8h1")
+gravity = Vector3(0, -3, 0)
+color = Color(1, 0.964706, 0.00784314, 1)
+alpha_curve = SubResource("CurveTexture_dgv0i")
+emission_curve = SubResource("CurveTexture_ivuby")
+hue_variation_min = -0.16
+hue_variation_max = 0.16
+sub_emitter_keep_velocity = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_qfgce"]
+radius = 0.01
+height = 0.02
+
 [node name="MarbleSpirit_Normal" instance=ExtResource("1_10rmh")]
-transform = Transform3D(0.243024, 0, -0.0586456, 0, 0.25, 0, 0.0586456, 0, 0.243024, 0, 0.0271107, 0.0417523)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0271107, 0.0417523)
 
 [node name="Marble" parent="." index="0"]
 transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
@@ -241,3 +312,16 @@ libraries = {
 }
 autoplay = "marble_spirit_idle"
 speed_scale = 0.5
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.423326, -0.518358)
+visible = false
+material_override = SubResource("StandardMaterial3D_dpvev")
+amount = 15
+speed_scale = 0.5
+explosiveness = 0.14
+randomness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-0.844039, -0.994975, -0.914026, 1.68808, 1.98995, 1.82805)
+process_material = SubResource("ParticleProcessMaterial_bmtkp")
+draw_pass_1 = SubResource("SphereMesh_qfgce")

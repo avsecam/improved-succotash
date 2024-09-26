@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bcaiojb2sbtoy"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_re8ad"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vh8x2"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vh8x2"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m8ruw"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_c77ko"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="5_28qyy"]

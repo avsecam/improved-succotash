@@ -10,7 +10,7 @@ func check_waypoints() -> void:
 	for child in teleporters.get_children():
 		if child.name in Events.locked_teleporters:
 			if Events.locked_teleporters[child.name] in Events.finished_events:
-				child.enabled = true
+				child.enable_teleporter()
 				print("enabled " + child.name)
 			else:
 				child.enabled = false

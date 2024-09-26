@@ -18,5 +18,11 @@ func _process(_delta):
 	if not enabled:
 		self.mesh.mesh.material.albedo_color = Color(Color.DARK_SLATE_GRAY)
 
+
+func enable_teleporter():
+	if !enabled:
+		enabled = true
+		self.mesh.mesh.material.albedo_color = Color(Color.WHITE)
+
 func set_color(color: Color):
 	(self.mesh.mesh.material as StandardMaterial3D).albedo_color = color

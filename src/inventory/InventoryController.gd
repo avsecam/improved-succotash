@@ -34,6 +34,7 @@ func inventory_visible(b : bool) -> void:
 		leaves.visible = true
 		branch.visible = true
 		back.visible = true
+		slots_enabled(true)
 	else:
 		slot1.visible = false
 		slot2.visible = false
@@ -44,6 +45,34 @@ func inventory_visible(b : bool) -> void:
 		leaves.visible = false
 		branch.visible = false
 		back.visible = false
+		slots_enabled(false)
+
+
+func slots_enabled(b : bool) -> void:
+	slot1.get_node("SnapZone").enabled = b
+	slot2.get_node("SnapZone").enabled = b
+	slot3.get_node("SnapZone").enabled = b
+	slot4.get_node("SnapZone").enabled = b
+	slot5.get_node("SnapZone").enabled = b
+	slot6.get_node("SnapZone").enabled = b
+	for child in slot1.get_node("Inventory Content").get_children():
+		if child.is_class("XRToolsPickable"):
+			child.enabled = b
+	for child in slot2.get_node("Inventory Content").get_children():
+		if child.is_class("XRToolsPickable"):
+			child.enabled = b
+	for child in slot3.get_node("Inventory Content").get_children():
+		if child.is_class("XRToolsPickable"):
+			child.enabled = b
+	for child in slot4.get_node("Inventory Content").get_children():
+		if child.is_class("XRToolsPickable"):
+			child.enabled = b
+	for child in slot5.get_node("Inventory Content").get_children():
+		if child.is_class("XRToolsPickable"):
+			child.enabled = b
+	for child in slot6.get_node("Inventory Content").get_children():
+		if child.is_class("XRToolsPickable"):
+			child.enabled = b
 
 func _on_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
