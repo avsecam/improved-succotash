@@ -133,7 +133,7 @@ size = Vector2(320, 180)
 [sub_resource type="ViewportTexture" id="ViewportTexture_l4r7r"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vykfu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44wpa"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
@@ -151,7 +151,7 @@ size = Vector2(3, 2)
 [sub_resource type="ViewportTexture" id="ViewportTexture_tltvk"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucvfn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24pjx"]
 transparency = 1
 cull_mode = 2
 albedo_texture = SubResource("ViewportTexture_tltvk")
@@ -241,7 +241,7 @@ object_height = -0.5
 
 [node name="Screen" parent="Dialogue Container/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_vfv5b")
-surface_material_override/0 = SubResource("StandardMaterial3D_vykfu")
+surface_material_override/0 = SubResource("StandardMaterial3D_44wpa")
 
 [node name="CollisionShape3D" parent="Dialogue Container/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_gcmh5")
@@ -257,7 +257,7 @@ collision_layer = 0
 
 [node name="Screen" parent="QuestTracker/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_mpsjl")
-surface_material_override/0 = SubResource("StandardMaterial3D_ucvfn")
+surface_material_override/0 = SubResource("StandardMaterial3D_24pjx")
 
 [node name="StaticBody3D" parent="QuestTracker/Viewport2Din3D" index="2"]
 collision_layer = 0
