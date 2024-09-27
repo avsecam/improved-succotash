@@ -21,6 +21,10 @@ signal non_vr_teleporter_clicked(to: String) # filename of scene to teleport to
 #DIALOGUE SIGNALS
 signal update_dialogue_box(name: String, dialogue: String)
 
+
+var current_mode : String
+
+
 #EVENT FLAGS
 var current_bgm
 

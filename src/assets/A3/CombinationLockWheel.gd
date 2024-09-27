@@ -7,7 +7,8 @@ extends Node3D
 @onready var move_down_hitbox := $MoveDown/CollisionShape3D
 
 func _ready():
-	wheel_hitboxes_active(false)
+	pass
+	#wheel_hitboxes_active(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

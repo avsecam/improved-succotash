@@ -14,6 +14,7 @@ func _ready():
 		Events.start_with_vr.emit()
 		dialogue_container.initialize_dialogue_container("VR")
 		quest_tracker.initialize_quest_container("VR")
+		Events.current_mode = "VR"
 		
 	else:
 		ProjectSettings.set_setting("xr/openxr/enabled", false)
@@ -22,3 +23,4 @@ func _ready():
 		Events.start_without_vr.emit()
 		dialogue_container.initialize_dialogue_container("NonVR")
 		quest_tracker.initialize_quest_container("NonVR")
+		Events.current_mode = "NonVR"
