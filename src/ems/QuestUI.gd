@@ -24,7 +24,7 @@ func initialize_quest_ui(qn : String, qa : Dictionary) -> void:
 	for acts in quest_actions:
 		var new_action = Label.new()
 		if quest_actions[acts].size() > 1:
-			new_action.set_text("- " + acts + str(quest_actions[acts].size() + "x"))
+			new_action.set_text("- " + acts + str(quest_actions[acts].size()) + "x")
 		else:
 			new_action.set_text("- " + acts)
 		print("added quest")

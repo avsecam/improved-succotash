@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://b46kanoqam1fw"]
+
+[ext_resource type="PackedScene" uid="uid://brdb2u3kbypcy" path="res://src/assets/A3/CombinationLock.glb" id="1_tin3a"]
+[ext_resource type="PackedScene" uid="uid://di3dyh85gmqir" path="res://src/assets/A3/CombinationLockWheel.tscn" id="2_o44rh"]
+
+[sub_resource type="Animation" id="Animation_r8ap5"]
+resource_name = "open_lock"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hoop metal lock_001:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.7, 1.67, 0), Vector3(-1.7, 3.32222, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qs1f7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hoop metal lock_001:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.7, 1.67, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mo1r"]
+_data = {
+"RESET": SubResource("Animation_qs1f7"),
+"open_lock": SubResource("Animation_r8ap5")
+}
+
+[node name="CombinationLock" instance=ExtResource("1_tin3a")]
+
+[node name="hoop metal lock" parent="." index="0"]
+transform = Transform3D(-1.44635e-08, 0, 0.330886, 0, 0.330886, 0, -0.330886, 0, -1.44635e-08, -1.7, 1.67, 0)
+
+[node name="hoop metal lock_001" parent="." index="1"]
+transform = Transform3D(-1.44635e-08, 0, 0.330886, 0, 0.330886, 0, -0.330886, 0, -1.44635e-08, -1.7, 1.67, 0)
+
+[node name="CombinationLock Wheel" parent="." index="2" instance=ExtResource("2_o44rh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.771014, 0, 0)
+
+[node name="CombinationLock Wheel2" parent="." index="3" instance=ExtResource("2_o44rh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.154202, 0, 0)
+
+[node name="CombinationLock Wheel3" parent="." index="4" instance=ExtResource("2_o44rh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.462609, 0, 0)
+
+[node name="CombinationLock Wheel4" parent="." index="5" instance=ExtResource("2_o44rh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07942, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_7mo1r")
+}
