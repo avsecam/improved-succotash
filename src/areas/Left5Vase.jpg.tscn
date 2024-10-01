@@ -1,29 +1,29 @@
 [gd_scene load_steps=6 format=3 uid="uid://cllqjja2ycguh"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mooij"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4pfgi"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4pfgi"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_2ebv4"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_6582x"]
-[ext_resource type="PackedScene" uid="uid://ce67keuetbnla" path="res://src/assets/B MAIN/Sunken_Amphora.glb" id="5_h30vh"]
+[ext_resource type="PackedScene" uid="uid://dy8ypbtknmce5" path="res://src/assets/B MAIN/Sunken_Amphora.glb" id="5_h30vh"]
 
 [node name="left5 vase_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_mooij")
-image_filename = "res://src/areas/Left5Vase.jpg.jpg"
 teleporters_data = [{
-"position": Vector3(-4.03446, -1.90015, -0.613012),
+"position": Vector3(1.862, -1.9, -2.126),
 "rotation": Vector3(0, -1.42, -5.26353e-08),
 "to": "Left3.jpg"
 }, {
-"position": Vector3(-2.29149, -1.65273, -2.83364),
+"position": Vector3(4.14, -1.653, -2.834),
 "rotation": Vector3(0, -0.680003, 1.01802e-06),
 "to": "Left4.jpg"
 }, {
-"position": Vector3(4.36626, -1.09527, -0.00350138),
+"position": Vector3(-4.558, -1.095, -0.004),
 "rotation": Vector3(0, 1.56999, 2.56195e-07),
 "to": "Left7.jpg"
 }]
+image_filename = "res://src/areas/Left5Vase.jpg.jpg"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -38,22 +38,22 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Left3_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_2ebv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03446, -1.90015, -0.613012)
-collision_layer = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86244, -1.90015, -2.12608)
+collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_6582x")
 to = "Left3.jpg"
 
 [node name="Left4_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_2ebv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29149, -1.65273, -2.83364)
-collision_layer = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14037, -1.65273, -0.594545)
+collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_6582x")
 to = "Left4.jpg"
 
 [node name="Left7_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_2ebv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36626, -1.09527, -0.00350138)
-collision_layer = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.55835, -1.09527, -0.00350138)
+collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_6582x")
 to = "Left7.jpg"
