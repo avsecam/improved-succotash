@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dourul1r7llia"]
+[gd_scene load_steps=7 format=3 uid="uid://dourul1r7llia"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c6ty8"]
+[ext_resource type="Texture2D" uid="uid://hw11qu03ko3y" path="res://src/areas/Left10Cheetah.jpg" id="2_6aebe"]
 [ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lh1r4"]
-[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_uo6u4"]
-[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_v0ri3"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_xv7wg"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="5_4tbfq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1tn5"]
+albedo_texture = ExtResource("2_6aebe")
 
 [node name="left10 cheetah_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -14,14 +18,15 @@ teleporters_data = [{
 "rotation": Vector3(2.98023e-08, 1.37, -5.53472e-07),
 "to": "Left11.jpg"
 }, {
-"position": Vector3(-4.19223, -1.60966, 0.290574),
+"position": Vector3(-4.192, -1.61, 1.422),
 "rotation": Vector3(-5.96046e-08, -1.64, -5.76205e-07),
 "to": "Left7.jpg"
 }]
-image_filename = "res://src/areas/Left10Cheetah.jpg.jpg"
+image_filename = "res://src/areas/Left10Cheetah.jpg"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(-9.16684, 0, -3.99613, 0, 10, 0, 3.99613, 0, -9.16684, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_e1tn5")
 gi_mode = 0
 mesh = ExtResource("2_lh1r4")
 skeleton = NodePath("../../..")
@@ -32,16 +37,16 @@ omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
 
-[node name="Left11_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_uo6u4")]
+[node name="Left11_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("4_xv7wg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25474, -1.18209, -0.866007)
 collision_layer = 512
 collision_mask = 0
-script = ExtResource("4_v0ri3")
+script = ExtResource("5_4tbfq")
 to = "Left11.jpg"
 
-[node name="Left7_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_uo6u4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19223, -1.60966, 0.290574)
+[node name="Left7_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("4_xv7wg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19223, -1.60966, 1.42186)
 collision_layer = 512
 collision_mask = 0
-script = ExtResource("4_v0ri3")
+script = ExtResource("5_4tbfq")
 to = "Left7.jpg"
