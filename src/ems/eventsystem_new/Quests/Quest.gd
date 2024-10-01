@@ -2,6 +2,7 @@ extends Node
 class_name Quest
 
 signal quest_started()
+signal quest_updated()
 signal quest_ended()
 
 var quest_name : String
@@ -32,9 +33,11 @@ func update_quest() -> void:
 	var iterator : int = 0
 	for reqs in quest_completion_tracker:
 		for acts in quest_completion_tracker[reqs]:
+			print(acts)
 			if acts in Events.finished_events:
 				iterator += 1
-
+	emit_signal("quest_updated", name)
+	quest_progress = float(iterator) / float(quest_completion_requirements.size())
 	print(quest_description["Name"] + " " + str(snapped((quest_progress * 100), 0.01)) + "% Complete")
 	if quest_progress >= 1.0:
 		end_quest()
@@ -45,4 +48,4 @@ func end_quest() -> void:
 	queue_free()
 	print(Events.finished_events)
 	await tree_exited
-	emit_signal("quest_ended")
+	emit_signal("quest_ended", name)

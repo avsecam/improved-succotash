@@ -93,6 +93,9 @@ requirement = 0.25
 transform = Transform3D(-0.136459, 0, -0.990646, 0, 1, 0, 0.990646, 0, -0.136459, -1.22031, -0.0896844, -2.38281)
 requirement = 0.25
 
+[connection signal="tree_exiting" from="Events/ActionCleanWindow1" to="dirt" method="_associated_event_done"]
+[connection signal="tree_exiting" from="Events/ActionCleanWindow2" to="dirt2" method="_associated_event_done"]
+[connection signal="tree_exiting" from="Events/ActionCleanWindow3" to="dirt3" method="_associated_event_done"]
 [connection signal="action_completed" from="dirt" to="Events/ActionCleanWindow1" method="_on_dirt_action_completed"]
 [connection signal="action_completed" from="dirt2" to="Events/ActionCleanWindow2" method="_on_dirt_2_action_completed"]
 [connection signal="action_completed" from="dirt3" to="Events/ActionCleanWindow3" method="_on_dirt_3_action_completed"]

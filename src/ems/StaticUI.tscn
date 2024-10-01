@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://da6q3x5g6dvh7"]
+
+[ext_resource type="PackedScene" uid="uid://crm7asbjemq3y" path="res://src/ems/QuestTrackerUI.tscn" id="1_fjk30"]
+[ext_resource type="PackedScene" uid="uid://ck8mkrfww3nnh" path="res://src/dialogue/dialogue_ui.tscn" id="2_ss8wf"]
+
+[node name="StaticUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestTrackerUI" parent="." instance=ExtResource("1_fjk30")]
+layout_mode = 1
+
+[node name="Dialogue UI" parent="." instance=ExtResource("2_ss8wf")]
+layout_mode = 1

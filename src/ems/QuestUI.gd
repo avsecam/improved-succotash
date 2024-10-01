@@ -24,9 +24,32 @@ func initialize_quest_ui(qn : String, qa : Dictionary) -> void:
 	for acts in quest_actions:
 		var new_action = Label.new()
 		if quest_actions[acts].size() > 1:
-			new_action.set_text("- " + acts + str(quest_actions[acts].size()) + "x")
+			new_action.set_text("- " + acts + " " + str(quest_actions[acts].size()) + "x : 0/" + str(quest_actions[acts].size()))
 		else:
 			new_action.set_text("- " + acts)
 		print("added quest")
+		quest_actions_container.add_child(new_action)
+
+
+func update_quest_ui() -> void:
+	for child in quest_actions_container.get_children():
+		child.queue_free()
+	
+	for acts in quest_actions:
+		var new_action = Label.new()
+		if quest_actions[acts].size() > 1:
+			var iterator : int = 0
+			for a in quest_actions[acts]:
+				if a in Events.finished_events:
+					iterator += 1
+			if iterator < quest_actions[acts].size():
+				new_action.set_text("- " + acts + " " + str(quest_actions[acts].size()) + "x : " + str(iterator) + "/" + str(quest_actions[acts].size()))
+			elif iterator >= quest_actions[acts].size():
+				new_action.set_text("- " + acts + str(quest_actions[acts].size()) + "x : ✓")
+		else:
+			if quest_actions[acts][0] in Events.finished_events:
+				new_action.set_text("- " + acts + " : ✓")
+			else: 
+				new_action.set_text("- " + acts)
 		quest_actions_container.add_child(new_action)
 

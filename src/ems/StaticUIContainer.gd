@@ -1,6 +1,5 @@
 extends Node3D
 
-
 var camera
 
 @export var object_follow_speed := 4.0
@@ -8,14 +7,15 @@ var camera
 @export var object_height : float 
 var image_rotate
 
-@onready var dialogue_box := $"Viewport2Din3D/Viewport/Dialogue UI"
+@onready var quest_tracker_ui := $"Viewport2Din3D/Viewport/StaticUI/QuestTrackerUI"
+@onready var dialogue_box := $"Viewport2Din3D/Viewport/StaticUI/Dialogue UI"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print(camera.name)
 	pass # Replace with function body.
 
-func initialize_dialogue_container(mode: String) -> void:
+func initialize_static_ui_container(mode: String) -> void:
 	if mode == "NonVR":
 		camera = get_tree().get_root().get_node("Demo/NonVR/Camera")
 		print(camera.name)
@@ -48,4 +48,3 @@ func _physics_process(delta):
 	self.rotation.y = camera.global_rotation.y - self.get_parent().global_rotation.y
 	#print("Dialogue UI POSITION:"+str(self.transform.origin))
 	#print("CAMERA GLOBALTRANSFORM:"+str(point))
-	

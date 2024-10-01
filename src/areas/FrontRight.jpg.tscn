@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://t4312pkmm888"]
+[gd_scene load_steps=17 format=3 uid="uid://t4312pkmm888"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mhqlv"]
 [ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_o3s15"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://cf7200jemvmw6" path="res://src/assets/A1/RodSilverTorch.tscn" id="14_6aeui"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="15_0pk1a"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="15_rw727"]
-[ext_resource type="PackedScene" uid="uid://b3foujhryuk5l" path="res://src/assets/A1/MetalPolish.tscn" id="16_fh0wu"]
 
 [node name="front right_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -95,6 +94,9 @@ transform = Transform3D(0.00765572, -0.627495, -0.778583, 0.999926, 0.0121995, 0
 [node name="RodSilverTorch" parent="." instance=ExtResource("14_6aeui")]
 transform = Transform3D(-0.0129561, -0.627408, -0.778583, 0.999787, -0.0206457, 0, -0.0160744, -0.778417, 0.627542, -0.661552, -0.426256, 0.89667)
 
+[node name="CleanRagReceiver" parent="RodSilverTorch" index="5"]
+requirement = 0.1
+
 [node name="RagNeedsPolish" parent="RodSilverTorch/CleanRagReceiver" index="1"]
 action_during = false
 action_completed = true
@@ -102,24 +104,31 @@ action_completed = true
 [node name="PolishReceiver" parent="RodSilverTorch" index="6"]
 requirement = 0.5
 
+[node name="ApplyPolishToRag" parent="RodSilverTorch/PolishReceiver" index="1"]
+action_during = false
+action_completed = true
+
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("15_rw727")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.42563, -0.424407, -1.47719)
 
 [node name="Marble" parent="MarbleSpirit_Normal" index="0"]
 transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
 
+[node name="Plane" parent="MarbleSpirit_Normal" index="1"]
+transform = Transform3D(-0.119496, -1.24276e-06, -0.453, -4.18798e-07, 0.656079, -5.73562e-08, -0.114061, -1.10695e-06, 0.474584, -0.0438846, 0, 0.0168927)
+
 [node name="Sphere" parent="MarbleSpirit_Normal" index="2"]
 transform = Transform3D(-0.0480362, 0, 0.0149037, 0, -0.0502951, 0, -0.0149037, 0, -0.0480362, 0.260299, 0, -0.0531245)
+
+[node name="Sphere_001" parent="MarbleSpirit_Normal" index="3"]
+transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888, 0, -0.0244276, 0.22937, 0, 0.346641)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
 [node name="Table" parent="." instance=ExtResource("15_0pk1a")]
 transform = Transform3D(0.947568, 0, 0.319555, 0, 1, 0, -0.319555, 0, 0.947568, -0.749454, -1.59297, 1.08575)
 
-[node name="MetalPolish" parent="." instance=ExtResource("16_fh0wu")]
-transform = Transform3D(0.206751, -0.978394, 0, 0.978394, 0.206751, 0, 0, 0, 1, -0.710767, -0.435484, 0.5831)
-visible = false
-
+[connection signal="tree_exiting" from="Events/ActionPolishRod1" to="RodSilverTorch" method="_associated_event_finished"]
 [connection signal="action_completed" from="RodSilverTorch/OiledRagReceiver" to="Events/ActionPolishRod1" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch/CleanRagReceiver" to="Events/ActionUseNormalRagOnly" method="_on_clean_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch/PolishReceiver" to="Events/ActionUsePolishOnRod" method="_on_polish_receiver_action_completed"]
@@ -131,8 +140,3 @@ visible = false
 [editable path="Rag/InventoryItemComp/ReplacementMesh/MainMesh"]
 [editable path="RodSilverTorch"]
 [editable path="MarbleSpirit_Normal"]
-[editable path="MetalPolish"]
-[editable path="MetalPolish/MainMesh"]
-[editable path="MetalPolish/StateManager/ControlRaycastVisibility"]
-[editable path="MetalPolish/InventoryItemComp"]
-[editable path="MetalPolish/InventoryItemComp/ReplacementMesh/MainMesh2"]

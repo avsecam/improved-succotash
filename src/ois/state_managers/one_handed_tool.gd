@@ -56,16 +56,17 @@ func _on_trigger_released():
 		set_state(active_state)
 
 func _on_receiver_collision_entered(receiver):
-	print("collision " + receiver.name)
-	if receiver.is_in_group(receiver_group):
-		receiver_object = receiver
-		set_state(active_colliding_state)
-	else:
-		for child in receiver.get_children():
-			if child.is_in_group(receiver_group):
-				receiver_object = child
-				set_state(active_colliding_state)
-				break
+	if is_instance_valid(receiver):
+		print("collision " + receiver.name)
+		if receiver.is_in_group(receiver_group):
+			receiver_object = receiver
+			set_state(active_colliding_state)
+		else:
+			for child in receiver.get_children():
+				if child.is_in_group(receiver_group):
+					receiver_object = child
+					set_state(active_colliding_state)
+					break
 
 
 func _on_receiver_collision_exited(receiver):

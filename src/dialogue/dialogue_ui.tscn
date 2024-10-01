@@ -4,12 +4,12 @@
 
 [node name="Dialogue UI" type="CenterContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(720, 220)
+custom_minimum_size = Vector2(720, 200)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -220.0
+offset_top = -200.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -17,9 +17,9 @@ size_flags_vertical = 3
 script = ExtResource("1_f4y6f")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(720, 220)
+custom_minimum_size = Vector2(720, 200)
 layout_mode = 2
-color = Color(0.101961, 0.101961, 0.101961, 0.694118)
+color = Color(0, 0, 0, 0.588235)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -27,15 +27,15 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(600, 180)
+custom_minimum_size = Vector2(600, 160)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
 [node name="NPCName" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 34)
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
 text = "[center] [b][i]NPC_NAME[/i][/b] [/center]"
 fit_content = true
@@ -46,7 +46,7 @@ layout_mode = 2
 
 [node name="Dialogue" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
-text = "[center] Random dialogue test.. 1 2 3 4 5 6  BLABLALBLASLJKALAJL;KASW09-2834092834;AKSDJLSCKJASL;KJASD;LKJASljhkasdkljsdjalksdjskldjkl90343904823409238940jklsdfskfdkfjskldjsfkldklsfjsdfkljklsfkjlsfdjklsjklfdD [/center]"
+text = "[center] Random dialogue test.. 1 2 3 4 5 6  B"
 fit_content = true
