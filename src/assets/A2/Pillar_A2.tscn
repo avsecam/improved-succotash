@@ -11,7 +11,7 @@ radius = 2.02379
 
 [node name="Pillar_A2" type="StaticBody3D" groups=["holy_water"]]
 script = ExtResource("1_84fym")
-requirement = 2.0
+requirement = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.62167, 0)
@@ -21,7 +21,8 @@ shape = SubResource("CylinderShape3D_uydu6")
 script = ExtResource("4_8m4wg")
 cursed_mesh = NodePath("../MainMesh/CursedMesh")
 cleansed_mesh = NodePath("../MainMesh/CleansedMesh")
-action_during = false
+action_start = true
+action_end = true
 action_completed = true
 
 [node name="MainMesh" type="Node3D" parent="."]
@@ -34,3 +35,5 @@ skeleton = NodePath("../..")
 visible = false
 mesh = ExtResource("3_mvbov")
 skeleton = NodePath("../..")
+
+[connection signal="action_started" from="." to="Feedback" method="_on_pillar_a_2_action_started"]

@@ -25,6 +25,6 @@ func _process(delta):
 		var current_progress = actor_start_end_dist/time_total #results in meters/second
 		total_progress += (current_progress * rate)
 		hit_already = true
-		print(total_progress)
-		# print(str(actor_start_end_dist) + " / " + str(time_total) + " = " + str(current_progress))
+		print("total progress: " + str(total_progress))
+		print(str(actor_start_end_dist) + " / " + str(time_total) + " = " + str(current_progress))
 		super(delta)

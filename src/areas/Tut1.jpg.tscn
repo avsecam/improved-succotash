@@ -69,7 +69,9 @@ autoplay = true
 wait_time = 3.0
 
 [node name="Pillar_A2" parent="." instance=ExtResource("10_665w6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23585, 0, 0.579386)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.963728, -1.17143, -0.139656)
 
 [node name="holy_water" parent="." instance=ExtResource("11_qnbyy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.947981, 0, 0.642178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.438495, 0, 0.642178)
+
+[editable path="Pillar_A2"]
