@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cohmpqxch6sjx"]
+
+[ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="1_84fym"]
+[ext_resource type="ArrayMesh" uid="uid://m2oh1jabrc3l" path="res://src/assets/A2/pillar_cursed_mesh.tres" id="2_7gmrk"]
+[ext_resource type="ArrayMesh" uid="uid://ciejfwcbnjm1s" path="res://src/assets/A2/pillar_not_cursed.tres" id="3_mvbov"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/object_cleansed.gd" id="4_8m4wg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uydu6"]
+height = 11.2547
+radius = 2.02379
+
+[node name="Pillar_A2" type="StaticBody3D" groups=["holy_water"]]
+script = ExtResource("1_84fym")
+requirement = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.62167, 0)
+shape = SubResource("CylinderShape3D_uydu6")
+
+[node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("cursed_mesh", "cleansed_mesh")]
+script = ExtResource("4_8m4wg")
+cursed_mesh = NodePath("../MainMesh/CursedMesh")
+cleansed_mesh = NodePath("../MainMesh/CleansedMesh")
+action_during = false
+action_completed = true
+
+[node name="MainMesh" type="Node3D" parent="."]
+
+[node name="CursedMesh" type="MeshInstance3D" parent="MainMesh"]
+mesh = ExtResource("2_7gmrk")
+skeleton = NodePath("../..")
+
+[node name="CleansedMesh" type="MeshInstance3D" parent="MainMesh"]
+visible = false
+mesh = ExtResource("3_mvbov")
+skeleton = NodePath("../..")

@@ -15,7 +15,7 @@ teleporters_data = [{
 "rotation": Vector3(0, -1.42, -5.26353e-08),
 "to": "Left3.jpg"
 }, {
-"position": Vector3(4.14, -1.653, -2.834),
+"position": Vector3(4.14, -1.653, -0.595),
 "rotation": Vector3(0, -0.680003, 1.01802e-06),
 "to": "Left4.jpg"
 }, {

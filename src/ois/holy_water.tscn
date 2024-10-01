@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://bq46582kommvy"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_gv6nh"]
+[ext_resource type="ArrayMesh" uid="uid://dmidj4rpanrjt" path="res://src/assets/A2/Bottle_HolyWater.tres" id="2_0lqo0"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_2xrvk"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_08wjh"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_uoch3"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_rte4t"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_dppkb"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="8_mj7qo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6bgc"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Resource" id="Resource_gyark"]
+script = ExtResource("7_rte4t")
+state_behavior_settings = {
+"ActiveCollidingState": {
+"ControlRaycast": true,
+"InteractReceiver": true
+},
+"ActiveState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"IdleState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+}
+behavior_dict = {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+
+[node name="holy_water" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_gv6nh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_o6bgc")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.18557e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.18557e-09, 0, 0, 0)
+mesh = ExtResource("2_0lqo0")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_2xrvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0364313, 0.0507384, -0.113379)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_08wjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0421172, 0.0375126, -0.128848)
+
+[node name="StateManager" parent="." instance=ExtResource("5_uoch3")]
+receiver_group = "holy_water"
+settings = SubResource("Resource_gyark")
+
+[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_dppkb")]
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("8_mj7qo")]
