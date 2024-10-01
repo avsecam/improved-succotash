@@ -1,4 +1,5 @@
 extends ReceiverObj
+class_name WipeAction
 
 var interacting_inital_pos
 var delta_dist_prev = 0

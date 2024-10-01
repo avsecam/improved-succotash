@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cf7200jemvmw6"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_3x3ag"]
+[ext_resource type="Script" path="res://src/assets/A1/RodSilverTorch.gd" id="1_ufdq7"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_8uwmy"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_lynog"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="5_binet"]
@@ -26,7 +26,7 @@ size = Vector3(0.025, 0.703, 0.05)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
-script = ExtResource("1_3x3ag")
+script = ExtResource("1_ufdq7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00986283, 0.0987935)
@@ -57,7 +57,6 @@ action_completed = true
 [node name="CleanRagReceiver" type="Area3D" parent="." groups=["clean_rag"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0977108)
 script = ExtResource("5_binet")
-requirement = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CleanRagReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103745, -0.0309793)

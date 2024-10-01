@@ -12,3 +12,4 @@ func _on_clean_rag_receiver_action_completed(requirement, total_progress):
 			play_event_audio()
 	else:
 		play_event_audio()
+
