@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bq46582kommvy"]
+[gd_scene load_steps=12 format=3 uid="uid://bq46582kommvy"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_gv6nh"]
 [ext_resource type="ArrayMesh" uid="uid://dmidj4rpanrjt" path="res://src/assets/A2/Bottle_HolyWater.tres" id="2_0lqo0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_rte4t"]
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_dppkb"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="8_mj7qo"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="9_bajfv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6bgc"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -20,8 +21,8 @@ state_behavior_settings = {
 "InteractReceiver": true
 },
 "ActiveState": {
-"ControlRaycast": false,
-"InteractReceiver": false
+"ControlRaycast": true,
+"InteractReceiver": true
 },
 "IdleState": {
 "ControlRaycast": false,
@@ -48,6 +49,7 @@ shape = SubResource("BoxShape3D_o6bgc")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.18557e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.18557e-09, 0, 0, 0)
+visible = false
 mesh = ExtResource("2_0lqo0")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_2xrvk")]
@@ -61,5 +63,19 @@ receiver_group = "holy_water"
 settings = SubResource("Resource_gyark")
 
 [node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_dppkb")]
+raycast_length = 3.0
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("8_mj7qo")]
+rate = 3.0
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("9_bajfv")]
+
+[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MainMesh" type="MeshInstance3D" parent="InventoryItemComp/ReplacementMesh" index="0"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+mesh = ExtResource("2_0lqo0")
+skeleton = NodePath("../../../MainMesh")
+
+[editable path="InventoryItemComp"]

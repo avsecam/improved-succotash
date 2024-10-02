@@ -1,130 +1,130 @@
 [
-    {
-        "Quest_Name": "QuestMeetTheMarbleSpirit",
-        "Quest_Description": {
-            "Name": "Meet the Marble Spirit",
-            "Description": "You hear a voice coming from behind you, you should check it out!"
-        },
-        "Quest_Completion_Requirements": [
-            "ActionLookAtMarbleSpirit_Done"
-        ],
-        "Quest_Completion_Tracker": {
-            "Look at the Marble Spirit": [
-                "ActionLookAtMarbleSpirit_Done"
-            ]
-        }
-    },
-    {
-        "Quest_Name": "QuestOpenTheFrontGate",
-        "Quest_Description": {
-            "Name": "Open the Front Gate",
-            "Description": "The front gate appears to be locked, you should find a way to open it."
-        },
-        "Quest_Completion_Requirements": [
-            "ActionPickUpKey_Done",
-            "ActionPutKeyInventory_Done",
-            "ActionUseTheKey_Done"
-        ],
-        "Quest_Completion_Tracker": {
-            "Pick up the Key": [
-                "ActionPickUpKey_Done"
-            ],
-            "Put the Key in the Inventory": [
-                "ActionPutKeyInventory_Done"
-            ],
-            "Open the Gate using the Key": [
-                "ActionUseTheKey_Done"
-            ]
-        }
-    },
-    {
-        "Quest_Name": "QuestPolishRodsCleanWindows",
-        "Quest_Description": {
-            "Name": "Polish the Rods and Clean the Display Windows",
-            "Description": "You don't even work here, but might as well help the Assistant out!"
-        },
-        "Quest_Completion_Requirements": [
-            "ActionPolishRod1_Done",
-            "ActionPolishRod2_Done",
-            "ActionCleanWindow1_Done",
-            "ActionCleanWindow2_Done",
-            "ActionCleanWindow3_Done"
-        ],
-        "Quest_Completion_Tracker": {
-            "Polish the Rods": [
-                "ActionPolishRod1_Done",
-                "ActionPolishRod2_Done"
-            ],
-            "Clean the Display Windows": [
-                "ActionCleanWindow1_Done",
-                "ActionCleanWindow2_Done",
-                "ActionCleanWindow3_Done"
-            ]
-        }
-    },
-    {
-        "Quest_Name": "QuestPurifyTheMuseum",
-        "Quest_Description": {
-            "Name": "Purify the Museum",
-            "Description": "Several areas in the Museum have some lingering malice around them, You have to purify them somehow"
-        },
-        "Quest_Completion_Requirements": [
-            "ActionPurifyWoodenPillar_Done",
-            "ActionPurifyFloor_Done",
-            "ActionPurifyDoor_Done"
-        ],
-        "Quest_Completion_Tracker": {
-            "Purify the Wooden Pillar": [
-                "ActionPurifyWoodenPillar_Done"
-            ],
-            "Purify the Floor": [
-                "ActionPurifyFloor_Done"
-            ],
-            "Purify the Door": [
-                "ActionPurifyDoor_Done"
-            ]
-        }
-    },
-    {
-        "Quest_Name": "QuestFindAndPlaceRelic",
-        "Quest_Description": {
-            "Name": "Find and Place the Relic",
-            "Description": "There seems to be a spot on the wall that is missing something. Find the Icon of Turumba and place it."
-        },
-        "Quest_Completion_Requirements": [
-            "ActionPickUpRelic_Done",
-            "ActionPlaceRelicOnUndamagedPart_Done"
-        ],
-        "Quest_Completion_Tracker": {
-            "Pick up the Relic": [
-                "ActionPickUpRelic_Done"
-            ],
-            "Place the Relic": [
-                "ActionPlaceRelicOnUndamagedPart_Done"
-            ]
-        }
-    },
-    {
-        "Quest_Name": "QuestDestroyTheDistortionCrystal",
-        "Quest_Description": {
-            "Name": "Destroy the Source of the Magical Distortion",
-            "Description": "The Distortion appears to be caused by a distortion crystal, you need to find a way to smash it."
-        },
-        "Quest_Completion_Requirements": [
-            "ActionUnlockLockbox_Done",
-            "ActionPickUpHammer_Done",
-            "ActionSmashDistortionCrystal_Done"
-        ],
-        "Quest_Completion_Tracker": {
-            "Unlock the Wooden lockbox": [
-                "ActionUnlockLockbox_Done"
-            ],
-            "Pick up the Hammer": [
-                "ActionPickUpHammer_Done"
-            ],
-            "Smash the Distortion Crystal": [
-                "ActionSmashDistortionCrystal_Done"
-            ]
-        }
-    }
+	{
+		"Quest_Name": "QuestMeetTheMarbleSpirit",
+		"Quest_Description": {
+			"Name": "Meet the Marble Spirit",
+			"Description": "You hear a voice coming from behind you, you should check it out!"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionLookAtMarbleSpirit_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Look at the Marble Spirit": [
+				"ActionLookAtMarbleSpirit_Done"
+			]
+		}
+	},
+	{
+		"Quest_Name": "QuestOpenTheFrontGate",
+		"Quest_Description": {
+			"Name": "Open the Front Gate",
+			"Description": "The front gate appears to be locked, you should find a way to open it."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPickUpKey_Done",
+			"ActionPutKeyInventory_Done",
+			"ActionUseTheKey_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Pick up the Key": [
+				"ActionPickUpKey_Done"
+			],
+			"Put the Key in the Inventory": [
+				"ActionPutKeyInventory_Done"
+			],
+			"Open the Gate using the Key": [
+				"ActionUseTheKey_Done"
+			]
+		}
+	},
+	{
+		"Quest_Name": "QuestPolishRodsCleanWindows",
+		"Quest_Description": {
+			"Name": "Polish the Rods and Clean the Display Windows",
+			"Description": "You don't even work here, but might as well help the Assistant out!"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPolishRod1_Done",
+			"ActionPolishRod2_Done",
+			"ActionCleanWindow1_Done",
+			"ActionCleanWindow2_Done",
+			"ActionCleanWindow3_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Polish the Rods": [
+				"ActionPolishRod1_Done",
+				"ActionPolishRod2_Done"
+			],
+			"Clean the Display Windows": [
+				"ActionCleanWindow1_Done",
+				"ActionCleanWindow2_Done",
+				"ActionCleanWindow3_Done"
+			]
+		}
+	},
+	{
+		"Quest_Name": "QuestPurifyTheMuseum",
+		"Quest_Description": {
+			"Name": "Purify the Museum",
+			"Description": "Several areas in the Museum have some lingering malice around them, You have to purify them somehow"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPurifyWoodenPillar_Done",
+			"ActionPurifyFloor_Done",
+			"ActionPurifyDoor_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Purify the Wooden Pillar": [
+				"ActionPurifyWoodenPillar_Done"
+			],
+			"Purify the Floor": [
+				"ActionPurifyFloor_Done"
+			],
+			"Purify the Door": [
+				"ActionPurifyDoor_Done"
+			]
+		}
+	},
+	{
+		"Quest_Name": "QuestFindAndPlaceRelic",
+		"Quest_Description": {
+			"Name": "Find and Place the Relic",
+			"Description": "There seems to be a spot on the wall that is missing something. Find the Icon of Turumba and place it."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPickUpRelic_Done",
+			"ActionPlaceRelicOnUndamagedPart_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Pick up the Relic": [
+				"ActionPickUpRelic_Done"
+			],
+			"Place the Relic": [
+				"ActionPlaceRelicOnUndamagedPart_Done"
+			]
+		}
+	},
+	{
+		"Quest_Name": "QuestDestroyTheDistortionCrystal",
+		"Quest_Description": {
+			"Name": "Destroy the Source of the Magical Distortion",
+			"Description": "The Distortion appears to be caused by a distortion crystal, you need to find a way to smash it."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionUnlockLockbox_Done",
+			"ActionPickUpHammer_Done",
+			"ActionSmashDistortionCrystal_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Unlock the Wooden lockbox": [
+				"ActionUnlockLockbox_Done"
+			],
+			"Pick up the Hammer": [
+				"ActionPickUpHammer_Done"
+			],
+			"Smash the Distortion Crystal": [
+				"ActionSmashDistortionCrystal_Done"
+			]
+		}
+	}
 ]
