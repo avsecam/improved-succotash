@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7cqp34qrg2v"]
+
+[ext_resource type="PackedScene" uid="uid://tutpcs3x7iuh" path="res://src/assets/WoodenLockboxModel.tscn" id="1_kihpu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qfutu"]
+size = Vector3(4.5, 1, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ampeu"]
+size = Vector3(4.5, 1, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_srxqx"]
+size = Vector3(0.7, 3, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5f2q"]
+size = Vector3(0.7, 3, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpe8k"]
+size = Vector3(4.5, 3, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ev0ek"]
+size = Vector3(4.5, 3, 0.7)
+
+[node name="WoodenLockbox" type="StaticBody3D"]
+
+[node name="Wooden_Lockbox" parent="." instance=ExtResource("1_kihpu")]
+
+[node name="Lock" parent="Wooden_Lockbox" index="4"]
+transform = Transform3D(1.55029e-08, 9.81835e-09, 0.130048, -0.130048, -5.68458e-09, 1.55029e-08, 5.68458e-09, -0.130048, 9.81835e-09, 2.31295, 2.60739, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34896, 0)
+shape = SubResource("BoxShape3D_qfutu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ampeu")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15667, 1.30145, 0)
+shape = SubResource("BoxShape3D_srxqx")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02671, 1.30145, 0)
+shape = SubResource("BoxShape3D_d5f2q")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101048, 1.30145, 4.28548)
+shape = SubResource("BoxShape3D_fpe8k")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101048, 1.30145, -4.28522)
+shape = SubResource("BoxShape3D_ev0ek")
+
+[editable path="Wooden_Lockbox"]

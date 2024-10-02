@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8ns3j4owietc"]
+[gd_scene load_steps=7 format=3 uid="uid://b8ns3j4owietc"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_h3x0h"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7mw8v"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7mw8v"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_4acli"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_veu0d"]
 [ext_resource type="PackedScene" uid="uid://biu5s21f5r0vy" path="res://src/assets/A2/Image_Mary.glb" id="5_eejvg"]
 [ext_resource type="PackedScene" uid="uid://dmldurhnt6d6o" path="res://src/assets/A3/Image_HintA3.glb" id="6_l603j"]
-[ext_resource type="PackedScene" uid="uid://b5fxbmw5m37nf" path="res://src/inventory/shelf.tscn" id="7_ovcpe"]
 
 [node name="left11_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -54,6 +53,3 @@ transform = Transform3D(0.620372, 1.3657, -5.96967e-08, 3.17637e-22, -6.55671e-0
 
 [node name="Image_HintA3" parent="." instance=ExtResource("6_l603j")]
 transform = Transform3D(0.0697565, 0, 0.997564, 0, 1, 0, -0.997564, 0, 0.0697565, -0.558775, 0.537856, 1.4497)
-
-[node name="Shelf" parent="." instance=ExtResource("7_ovcpe")]
-transform = Transform3D(0.99997, 0, -0.00776677, 0, 1, 0, 0.00776677, 0, 0.99997, 0.0553184, -0.639559, -0.676006)
