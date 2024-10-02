@@ -10,11 +10,11 @@ transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_m0431")
 teleporters_data = [{
-"position": Vector3(4.178, -1.981, -0.165),
+"position": Vector3(4.113, -1.57, -0.596),
 "rotation": Vector3(0, -1.53, 2.81252e-06),
 "to": "Back2.jpg"
 }, {
-"position": Vector3(-4.363, -1.398, -0.895),
+"position": Vector3(-3.935, -1.57, -0.326),
 "rotation": Vector3(8.94069e-08, 1.35999, 1.63648e-06),
 "to": "Back0.jpg"
 }]
@@ -33,14 +33,14 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Back2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_imrrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1777, -1.98149, -0.164857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11325, -1.57, -0.596)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_dfro5")
 to = "Back2.jpg"
 
 [node name="Back0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_imrrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36302, -1.39806, -0.895363)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93529, -1.57, -0.326)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_dfro5")
