@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dourul1r7llia"]
+[gd_scene load_steps=8 format=3 uid="uid://dourul1r7llia"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c6ty8"]
 [ext_resource type="Texture2D" uid="uid://hw11qu03ko3y" path="res://src/areas/Left10Cheetah.jpg" id="2_6aebe"]
 [ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lh1r4"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_xv7wg"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="5_4tbfq"]
+[ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="6_xqftd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1tn5"]
 albedo_texture = ExtResource("2_6aebe")
@@ -50,3 +51,6 @@ collision_layer = 512
 collision_mask = 0
 script = ExtResource("5_4tbfq")
 to = "Left7.jpg"
+
+[node name="Pillar_A2" parent="." instance=ExtResource("6_xqftd")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.784532, -4.63739, -2.94599)
