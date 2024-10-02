@@ -25,7 +25,7 @@ size = Vector3(4.5, 3, 0.7)
 [node name="Wooden_Lockbox" parent="." instance=ExtResource("1_kihpu")]
 
 [node name="Lock" parent="Wooden_Lockbox" index="4"]
-transform = Transform3D(1.55029e-08, 9.81835e-09, 0.130048, -0.130048, -5.68458e-09, 1.55029e-08, 5.68458e-09, -0.130048, 9.81835e-09, 2.31295, 2.60739, 0)
+transform = Transform3D(1.55046e-08, -4.70772e-07, 0.130048, -0.130048, -4.70773e-07, 1.55029e-08, 4.70772e-07, -0.130048, -4.70773e-07, 2.31295, 2.60739, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34896, 0)

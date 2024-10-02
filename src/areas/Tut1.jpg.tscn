@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmn6op3t4pdhk"]
+[gd_scene load_steps=10 format=3 uid="uid://cmn6op3t4pdhk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_wauyu"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_j5in4"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_br0jg"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_75ivk"]
@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="6_y6uk4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtMarbleSpirit.gd" id="7_siu0w"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="8_psgse"]
-[ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="10_665w6"]
-[ext_resource type="PackedScene" uid="uid://bq46582kommvy" path="res://src/ois/holy_water.tscn" id="11_qnbyy"]
-[ext_resource type="PackedScene" uid="uid://dydpr1syelc2g" path="res://src/assets/A2/cursed_floor.tscn" id="12_4vcsi"]
 
 [node name="tut1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -68,14 +65,3 @@ autoplay = true
 
 [node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
 wait_time = 3.0
-
-[node name="Pillar_A2" parent="." instance=ExtResource("10_665w6")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.963728, -1.17143, -0.139656)
-
-[node name="holy_water" parent="." instance=ExtResource("11_qnbyy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.438495, 0, 0.642178)
-
-[node name="cursed_floor" parent="." instance=ExtResource("12_4vcsi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51848, -0.224885, 0.00598188)
-
-[editable path="Pillar_A2"]
