@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmn6op3t4pdhk"]
+[gd_scene load_steps=13 format=3 uid="uid://cmn6op3t4pdhk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_wauyu"]
 [ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="8_psgse"]
 [ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="10_665w6"]
 [ext_resource type="PackedScene" uid="uid://bq46582kommvy" path="res://src/ois/holy_water.tscn" id="11_qnbyy"]
+[ext_resource type="PackedScene" uid="uid://dydpr1syelc2g" path="res://src/assets/A2/cursed_floor.tscn" id="12_4vcsi"]
 
 [node name="tut1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -73,5 +74,8 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.963728, -1.17143, 
 
 [node name="holy_water" parent="." instance=ExtResource("11_qnbyy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.438495, 0, 0.642178)
+
+[node name="cursed_floor" parent="." instance=ExtResource("12_4vcsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51848, -0.224885, 0.00598188)
 
 [editable path="Pillar_A2"]

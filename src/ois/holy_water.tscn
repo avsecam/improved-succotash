@@ -63,6 +63,7 @@ receiver_group = "holy_water"
 settings = SubResource("Resource_gyark")
 
 [node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_dppkb")]
+raycast_length = 3.0
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("8_mj7qo")]
 rate = 3.0
