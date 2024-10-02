@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4d17e1dw4scb"]
+
+[ext_resource type="PackedScene" uid="uid://c7yetaagg4vc6" path="res://src/assets/A3/Hammer.glb" id="1_2g325"]
+
+[node name="Hammer" instance=ExtResource("1_2g325")]
+
+[node name="Hammer" parent="." index="0"]
+transform = Transform3D(0, 0, 0.242187, 0, 0.242187, 0, -0.242187, 0, 0, 0, 0, 0)
