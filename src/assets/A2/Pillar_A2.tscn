@@ -7,7 +7,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uydu6"]
 height = 11.2547
-radius = 2.02379
+radius = 0.922291
 
 [node name="Pillar_A2" type="StaticBody3D" groups=["holy_water"]]
 script = ExtResource("1_84fym")
