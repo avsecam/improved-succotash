@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=8 format=3 uid="uid://duj32o8a4muyj"]
-=======
-[gd_scene load_steps=9 format=3 uid="uid://duj32o8a4muyj"]
->>>>>>> 804fc90df2f1b4817f95aa518ff20d60a9a19da9
+[gd_scene load_steps=9 format=3 uid="uid://d38rik2xqhbcv"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mp4ii"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
@@ -10,10 +6,7 @@
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_bku23"]
 [ext_resource type="PackedScene" uid="uid://c6tegpjwepp73" path="res://src/assets/A1/Shelf_FiveTier (1).glb" id="5_4sx8c"]
 [ext_resource type="PackedScene" uid="uid://b3foujhryuk5l" path="res://src/assets/A1/MetalPolish.tscn" id="6_v50rv"]
-<<<<<<< HEAD
-=======
 [ext_resource type="PackedScene" uid="uid://bq46582kommvy" path="res://src/ois/holy_water.tscn" id="7_u38j7"]
->>>>>>> 804fc90df2f1b4817f95aa518ff20d60a9a19da9
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7d0gm"]
 size = Vector3(2.55133, 4.33917, 3.49219)
@@ -69,12 +62,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116035, 1.64776, -0.0611534
 shape = SubResource("BoxShape3D_7d0gm")
 
 [node name="MetalPolish" parent="." instance=ExtResource("6_v50rv")]
-<<<<<<< HEAD
-transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 0, 1, -2.68702, 0.368546, 1.95213)
-=======
-transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 0, 1, -2.37189, -0.960845, 1.4719)
+transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 0, 1, -2.37189, 0.272187, 1.73521)
 
 [node name="holy_water" parent="." instance=ExtResource("7_u38j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14651, -1.75174, -3.82812)
 gravity_scale = 0.1
->>>>>>> 804fc90df2f1b4817f95aa518ff20d60a9a19da9

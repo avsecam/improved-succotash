@@ -20,9 +20,10 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
 
 [node name="CombinationLockInterface" parent="." instance=ExtResource("2_1ssna")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -0.865958)
-visible = false
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0213313, 0)
+aabb = AABB(-0.205874, -0.272192, -0.156644, 0.411748, 0.544384, 0.313289)
 
 [connection signal="pointer_event" from="." to="." method="_on_pointer_event"]
 [connection signal="lock_solved" from="CombinationLockInterface" to="." method="_on_combination_lock_interface_lock_solved"]
