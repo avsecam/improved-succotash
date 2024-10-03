@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d38rik2xqhbcv"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mp4ii"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_beq4h"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_bku23"]
 [ext_resource type="PackedScene" uid="uid://c6tegpjwepp73" path="res://src/assets/A1/Shelf_FiveTier (1).glb" id="5_4sx8c"]
@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116035, 1.64776, -0.0611534
 shape = SubResource("BoxShape3D_7d0gm")
 
 [node name="MetalPolish" parent="." instance=ExtResource("6_v50rv")]
-transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 0, 1, -2.37189, 0.272187, 1.73521)
+transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 0, 1, -2.7012, 0.272187, 1.80344)
 
 [node name="holy_water" parent="." instance=ExtResource("7_u38j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14651, -1.75174, -3.82812)

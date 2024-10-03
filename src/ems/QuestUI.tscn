@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfv6y502r3p0d"]
+[gd_scene load_steps=4 format=3 uid="uid://dfv6y502r3p0d"]
 
 [ext_resource type="Script" path="res://src/ems/QuestUI.gd" id="1_uoiul"]
+[ext_resource type="FontFile" uid="uid://d4hdsg83n0hj1" path="res://src/assets/Fonts/Poppins/Poppins-SemiBold.ttf" id="2_tbakd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0o4va"]
+font = ExtResource("2_tbakd")
 font_size = 20
 
 [node name="QuestUI" type="VBoxContainer"]
@@ -10,6 +12,7 @@ script = ExtResource("1_uoiul")
 
 [node name="QuestName" type="Label" parent="."]
 layout_mode = 2
+text = "HELLO THIS IS A QUEST NAME"
 label_settings = SubResource("LabelSettings_0o4va")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

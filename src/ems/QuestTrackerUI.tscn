@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://crm7asbjemq3y"]
+[gd_scene load_steps=6 format=3 uid="uid://crm7asbjemq3y"]
 
 [ext_resource type="Script" path="res://src/ems/QuestTrackerUI.gd" id="1_dldru"]
+[ext_resource type="FontFile" uid="uid://d4hdsg83n0hj1" path="res://src/assets/Fonts/Poppins/Poppins-SemiBold.ttf" id="2_1jg5c"]
+[ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="3_bppa3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_drwf0"]
+font = ExtResource("2_1jg5c")
 font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_tew1i"]
+font = ExtResource("3_bppa3")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -32,7 +38,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -68.0
+offset_bottom = -148.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -46,6 +52,8 @@ label_settings = SubResource("LabelSettings_drwf0")
 
 [node name="QuestDescription" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+text = "This is a Quest Description"
+label_settings = SubResource("LabelSettings_tew1i")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc5s2fvkfs3cf"]
+
+[ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="1_ibbqr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbetl"]
+font = ExtResource("1_ibbqr")
+
+[node name="QuestActionLabel" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_cbetl")
