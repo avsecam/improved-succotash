@@ -1,10 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://86ntuf0j6gis"]
+[gd_scene load_steps=5 format=3 uid="uid://86ntuf0j6gis"]
+
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_24fbd"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_175fc"]
+albedo_color = Color(0, 0, 0, 0)
+
 [node name="SpecialRoom_PowerPLant" type="Node3D"]
+script = ExtResource("1_24fbd")
+image_filename = "res://src/areas/Tut1.jpg.jpg"
 
 [node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5, 8, 5)
@@ -152,3 +161,17 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.18557e-07, 0.12, -1.74846e-07, 0, -5.24537e-09, -4, -5, -5.24537e-09, 7.64274e-15, 9.99785, 6.07263, -0.129785)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+visible = false
+gi_mode = 0
+mesh = ExtResource("2_7ohg7")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_175fc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]

@@ -1,0 +1,9 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=3 uid="uid://edcql2vdxbtk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehsxk"]
+
+[resource]
+material = SubResource("StandardMaterial3D_ehsxk")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.025
