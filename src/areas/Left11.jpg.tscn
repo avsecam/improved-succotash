@@ -1,22 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://b8ns3j4owietc"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_h3x0h"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7mw8v"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7mw8v"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_4acli"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_veu0d"]
 [ext_resource type="PackedScene" uid="uid://biu5s21f5r0vy" path="res://src/assets/A2/Image_Mary.glb" id="5_eejvg"]
 [ext_resource type="PackedScene" uid="uid://dmldurhnt6d6o" path="res://src/assets/A3/Image_HintA3.glb" id="6_l603j"]
 
 [node name="left11_jpg" type="Node3D"]
-transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+transform = Transform3D(0.998428, 0, 0.0558206, 0, 1, 0, -0.0558206, 0, 0.998428, 0, 0, 0)
 top_level = true
 script = ExtResource("1_h3x0h")
 teleporters_data = [{
-"position": Vector3(3.63091, -2.37506, 1.20002),
+"position": Vector3(-3.924, -2.416, 1.2),
 "rotation": Vector3(-5.96046e-08, 1.88999, 7.6225e-07),
 "to": "Back0.jpg"
 }, {
-"position": Vector3(-4.18218, -1.48331, 0.757586),
+"position": Vector3(3.91, -1.483, 0.758),
 "rotation": Vector3(0, -1.75, 4.89179e-08),
 "to": "Left10Cheetah.jpg"
 }]
@@ -35,14 +35,14 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Back0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_4acli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63091, -2.37506, 1.20002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9238, -2.41618, 1.20002)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_veu0d")
 to = "Back0.jpg"
 
 [node name="Left10Cheetah_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_4acli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18218, -1.48331, 0.757586)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91012, -1.48331, 0.757586)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_veu0d")
