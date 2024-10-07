@@ -12,7 +12,11 @@
 			"Look at the Marble Spirit": [
 				"ActionLookAtMarbleSpirit_Done"
 			]
-		}
+		},
+		"Quest_Completion_Flags": [
+			"QuestMeetTheMarbleSpirit_Done",
+			"WaypointToTut2_Open"
+		]
 	},
 	{
 		"Quest_Name": "QuestOpenTheFrontGate",
@@ -35,7 +39,11 @@
 			"Open the Gate using the Key": [
 				"ActionUseTheKey_Done"
 			]
-		}
+		},
+		"Quest_Completion_Flags": [
+			"QuestOpenTheFrontGate_Done",
+			"WaypointToA_Open"
+		]
 	},
 	{
 		"Quest_Name": "QuestPolishRodsCleanWindows",
@@ -60,7 +68,10 @@
 				"ActionCleanWindow2_Done",
 				"ActionCleanWindow3_Done"
 			]
-		}
+		},
+		"Quest_Completion_Flags": [
+			"QuestPolishRodsCleanWindows_Done"
+		]
 	},
 	{
 		"Quest_Name": "QuestPurifyTheMuseum",
@@ -83,7 +94,10 @@
 			"Purify the Door": [
 				"ActionPurifyDoor_Done"
 			]
-		}
+		},
+		"Quest_Completion_Flags": [
+			"QuestPurifyTheMuseum_Done"
+		]
 	},
 	{
 		"Quest_Name": "QuestFindAndPlaceRelic",
@@ -102,7 +116,10 @@
 			"Place the Relic": [
 				"ActionPlaceRelicOnUndamagedPart_Done"
 			]
-		}
+		},
+		"Quest_Completion_Flags": [
+			"QuestFindAndPlaceRelic_Done"
+		]
 	},
 	{
 		"Quest_Name": "QuestDestroyTheDistortionCrystal",
@@ -125,6 +142,74 @@
 			"Smash the Distortion Crystal": [
 				"ActionSmashDistortionCrystal_Done"
 			]
-		}
+		},
+		"Quest_Completion_Flags": [
+			"QuestDestroyTheDistortionCrystal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestPlaceAllTheCatIcons",
+		"Quest_Description": {
+			"Name": "Find and Place all the Cat Icons",
+			"Decription": "The Cat Icons aren't on their pedestals. Find them all and put them in their proper places"
+		},
+		"Quest_Completion_Requirements": "",
+		"Quest_Completion_Tracker": {
+			"Find the Cat Icons": [
+				"ActionGetCatIcon1_Done",
+				"ActionGetCatIcon2_Done",
+				"ActionGetCatIcon3_Done"
+			],
+			"Place the Cat Icons": [
+				"ActionPlaceCatIcon1_Done",
+				"ActionPlaceCatIcon2_Done",
+				"ActionPlaceCatIcon3_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestPlaceAllTheCatIcons_Done",
+			"WaypointToB_Open"
+		]
+	},
+	{
+		"Quest_Name": "QuestShutDownPowerPlant",
+		"Quest_Description": {
+			"Name": "Shut down the power plant",
+			"Description": "Follow the instructions and shut down the power plant."
+		},
+		"Quest_Completion_Requirements": "",
+		"Quest_Completion_Tracker": {
+			"Shut down the power plant switch": [
+				"ActionInteractPPlantSwitch_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestShutDownPowerPlant_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestCookLunch",
+		"Quest_Description": {
+			"Name": "Cook Lunch",
+			"Description": "It's time to prepare some meals for lunch."
+		},
+		"Quest_Completion_Requirements": "",
+		"Quest_Completion_Tracker": {
+			"Prepare the ingredients": [
+				"ActionChopGarlic_Done",
+				"ActionChopOnion_Done",
+				"ActionChopKalabasa_Done"
+			],
+			"Skewer two whole chickens": [
+				"ActionSkewerChicken1_Done",
+				"ActionSkewerChicken2_Done"
+			],
+			"Roast the chicken": [
+				"ActionRoastChicken_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestCookLunch_Done"
+		]
 	}
 ]

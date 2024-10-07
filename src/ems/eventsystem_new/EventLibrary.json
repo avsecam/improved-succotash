@@ -45,8 +45,7 @@
 			"DialogueLookAtMe_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionLookAtMarbleSpirit_Done",
-			"WaypointToTut2_Open"
+			"ActionLookAtMarbleSpirit_Done"
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_02_HeyHere",
 		"Loop_Audio": true,
@@ -267,8 +266,7 @@
 			"ActionUseTheKey_Done"
 		],
 		"Event_Completion_Flags": [
-			"DialogueLetsGo_Done",
-			"WaypointToA_Open"
+			"DialogueLetsGo_Done"
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_10_GreatGo",
 		"Loop_Audio": false,
@@ -305,7 +303,7 @@
 		],
 		"Event_Completion_Flags": [
 			"DialoguePolishRodsCleanWindows_Done",
-			"WaypointToA1Quest_Open"
+			"WaypointToAQuest_Open"
 		],
 		"Event_Audio": "VE_VO_A1_MRBLSPRT_01_ComeWindows",
 		"Loop_Audio": false,
@@ -414,8 +412,7 @@
 			"QuestPolishRodsCleanWindows_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionInteractWithFireSpirit_Done",
-			"WaypointToA2_Open"
+			"ActionInteractWithFireSpirit_Done"
 		],
 		"Event_Audio": "VE_VO_A1_MRBLSPRT_06_TheBack",
 		"Loop_Audio": false,
@@ -549,8 +546,7 @@
 		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionInteractWithFireSpirit_Done",
-			"WaypointToA2_Open"
+			"ActionInteractWithFireSpirit_Done"
 		],
 		"Event_Completion_Flags": [
 			"DialogueChurchHasStood_Done"
@@ -669,8 +665,8 @@
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,
-		"Loop_Interval": "",
-		"Event_Text": ""
+		"Loop_Interval": 0,
+		"Event_Text": {}
 	},
 	{
 		"Event_Name": "ActionPlaceRelicOnUndamagedPart",
@@ -681,8 +677,7 @@
 			"ActionPickUpRelic_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionPlaceRelicOnUndamagedPart_Done",
-			"WaypointToA3_Open"
+			"ActionPlaceRelicOnUndamagedPart_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,
@@ -694,8 +689,7 @@
 		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"QuestFindAndPlaceRelic_Done",
-			"WaypointToA3_Open"
+			"QuestFindAndPlaceRelic_Done"
 		],
 		"Event_Completion_Flags": [
 			"DialogueWhatIsThis_Done"
@@ -746,8 +740,7 @@
 			"DialogueWhatIsThis_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionSmashDistortionCrystal_Done",
-			"WaypointToB_Open"
+			"ActionSmashDistortionCrystal_Done"
 		],
 		"Event_Audio": "VE_VO_A3_MRBLSPRT_02_WeSource",
 		"Loop_Audio": true,
@@ -756,5 +749,95 @@
 			"npc_name": "Marble Spirit",
 			"dialogue": "We should be able to erase the distortion by destroying its source!"
 		}
+	},
+	{
+		"Event_Name": "ActionGetCatIcon1",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"QuestPolishRodsCleanWindows_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionGetCatIcon1_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionGetCatIcon2",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"QuestFindAndPlaceRelic_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionGetCatIcon2_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionGetCatIcon3",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"QuestDestroyTheDistortionCrystal_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionGetCatIcon3_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPlaceCatIcon1",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionGetCatIcon1_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPlaceCatIcon1_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPlaceCatIcon2",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionGetCatIcon2_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPlaceCatIcon2_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPlaceCatIcon3",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionGetCatIcon3_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPlaceCatIcon3_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
 	}
 ]
