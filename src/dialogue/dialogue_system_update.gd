@@ -15,7 +15,7 @@ func _process(delta):
 
 
 func _update_dialogue(npc_name : String, dialogue : String) -> void:
-	npc_name_field.set_text("[center][b][i]" + npc_name)
+	npc_name_field.set_text("[b][i]" + npc_name)
 	dialogue_field.set_text("[center]"+dialogue+"[/center]")
 
 

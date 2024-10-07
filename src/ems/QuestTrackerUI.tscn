@@ -7,9 +7,13 @@
 [sub_resource type="LabelSettings" id="LabelSettings_drwf0"]
 font = ExtResource("2_1jg5c")
 font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tew1i"]
 font = ExtResource("3_bppa3")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3

@@ -24,7 +24,6 @@ teleporters_data = [{
 }]
 image_filename = "res://src/areas/Left00.jpg.jpg"
 base_rotation = 1.31
-outside = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -53,7 +52,7 @@ script = ExtResource("4_bku23")
 to = "Left1.jpg"
 
 [node name="Shelf_FiveTier (1)" parent="." instance=ExtResource("5_4sx8c")]
-transform = Transform3D(0.47874, 0, 0.144249, 0, 0.5, 0, -0.144249, 0, 0.47874, -2.9178, -1.95605, 1.75068)
+transform = Transform3D(0.47874, 0, 0.144249, 0, 0.5, 0, -0.144249, 0, 0.47874, -2.09469, -2.45315, 1.09475)
 
 [node name="Area3D" type="Area3D" parent="Shelf_FiveTier (1)"]
 
@@ -62,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116035, 1.64776, -0.0611534
 shape = SubResource("BoxShape3D_7d0gm")
 
 [node name="MetalPolish" parent="." instance=ExtResource("6_v50rv")]
-transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 0, 1, -2.7012, 0.272187, 1.80344)
+transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 0, 1, -1.91261, -0.449503, 1.14752)
 
 [node name="holy_water" parent="." instance=ExtResource("7_u38j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14651, -1.75174, -3.82812)

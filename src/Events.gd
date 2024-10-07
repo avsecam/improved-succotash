@@ -37,7 +37,8 @@ var locked_teleporters : Dictionary = {
 	"Tut2_jpg" : "WaypointToTut2_Open",
 	"Tut3_jpg" : "WaypointToTut3_Open",
 	"Img2024032114013000113PureShot_jpg" : "WaypointToGate_Open",
-	"FrontClosedDoors(2)_jpg" : "WaypointToA_Open"
+	"FrontClosedDoors(2)_jpg" : "WaypointToA_Open",
+	"FrontRight_jpg" : "WaypointToAQuest_Open"
 }
 
 func _ready():
@@ -76,6 +77,7 @@ func load_quest_data(file_location: String) -> Dictionary:
 		output_dictionary[key["Quest_Name"]] = {
 			"Quest_Description" : key["Quest_Description"],
 			"Quest_Completion_Requirements" : key["Quest_Completion_Requirements"],
-			"Quest_Completion_Tracker" : key ["Quest_Completion_Tracker"]
+			"Quest_Completion_Tracker" : key ["Quest_Completion_Tracker"],
+			"Quest_Completion_Flags" : key ["Quest_Completion_Flags"]
 		}
 	return output_dictionary

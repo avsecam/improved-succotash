@@ -37,7 +37,7 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 12
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
-text = "[center] [b][i]NPC_NAME[/i][/b] [/center]"
+text = "[b][i]NPC_NAME[/i][/b] "
 fit_content = true
 
 [node name="ColorRect2" type="ColorRect" parent="MarginContainer/VBoxContainer"]
@@ -46,7 +46,7 @@ layout_mode = 2
 
 [node name="Dialogue" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[center] Random dialogue test.. 1 2 3 4 5 6  B"
 fit_content = true

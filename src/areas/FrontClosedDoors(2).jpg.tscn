@@ -20,7 +20,6 @@ teleporters_data = [{
 }]
 image_filename = "res://src/areas/FrontClosedDoors(2).jpg.jpg"
 base_rotation = 0.74
-outside = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
