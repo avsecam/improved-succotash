@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmn6op3t4pdhk"]
+[gd_scene load_steps=13 format=3 uid="uid://cmn6op3t4pdhk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_wauyu"]
-[ext_resource type="SphereMesh" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_j5in4"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_br0jg"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_75ivk"]
@@ -10,13 +10,28 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtMarbleSpirit.gd" id="7_siu0w"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="8_psgse"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rdsro"]
+height = 0.1
+radius = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehsxk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_17ox7"]
+material = SubResource("StandardMaterial3D_ehsxk")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.025
+
 [node name="tut1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
 top_level = true
 script = ExtResource("1_wauyu")
 teleporters_data = [{
-"position": Vector3(0.312646, -0.519902, -4.4586),
+"position": Vector3(0.313, -0.52, -4.459),
 "to": "Tut2.jpg"
+}, {
+"position": Vector3(-4, -1, 0),
+"to": "Left00.jpg"
 }]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
 
@@ -32,12 +47,22 @@ omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
 
-[node name="Tut2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_j5in4")]
+[node name="Tut2_jpg" parent="Teleporters" instance=ExtResource("3_j5in4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.312646, -0.519902, -4.4586)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_br0jg")
 to = "Tut2.jpg"
+
+[node name="CollisionShape3D" parent="Teleporters/Tut2_jpg" index="0"]
+shape = SubResource("CylinderShape3D_rdsro")
+
+[node name="MeshInstance3D" parent="Teleporters/Tut2_jpg/CollisionShape3D" index="0"]
+mesh = SubResource("CylinderMesh_17ox7")
+
+[node name="FastTravel" parent="Teleporters" instance=ExtResource("3_j5in4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 0)
+to = "Left00.jpg"
 
 [node name="Events" type="Node" parent="."]
 script = ExtResource("5_75ivk")
@@ -65,3 +90,5 @@ autoplay = true
 
 [node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
 wait_time = 3.0
+
+[editable path="Teleporters/Tut2_jpg"]
