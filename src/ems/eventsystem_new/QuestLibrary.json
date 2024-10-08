@@ -153,7 +153,7 @@
 			"Name": "Find and Place all the Cat Icons",
 			"Decription": "The Cat Icons aren't on their pedestals. Find them all and put them in their proper places"
 		},
-		"Quest_Completion_Requirements": "",
+		"Quest_Completion_Requirements": [],
 		"Quest_Completion_Tracker": {
 			"Find the Cat Icons": [
 				"ActionGetCatIcon1_Done",
@@ -177,7 +177,7 @@
 			"Name": "Shut down the power plant",
 			"Description": "Follow the instructions and shut down the power plant."
 		},
-		"Quest_Completion_Requirements": "",
+		"Quest_Completion_Requirements": [],
 		"Quest_Completion_Tracker": {
 			"Shut down the power plant switch": [
 				"ActionInteractPPlantSwitch_Done"
@@ -193,7 +193,7 @@
 			"Name": "Cook Lunch",
 			"Description": "It's time to prepare some meals for lunch."
 		},
-		"Quest_Completion_Requirements": "",
+		"Quest_Completion_Requirements": [],
 		"Quest_Completion_Tracker": {
 			"Prepare the ingredients": [
 				"ActionChopGarlic_Done",
@@ -210,6 +210,38 @@
 		},
 		"Quest_Completion_Flags": [
 			"QuestCookLunch_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestRetrievePainting",
+		"Quest_Description": {
+			"Name": "Retrieve the missing painting",
+			"Description": "Locate the missing painting."
+		},
+		"Quest_Completion_Requirements": [],
+		"Quest_Completion_Tracker": {
+			"Locate the missing painting": [
+				"ActionLookAtCanvasPainting_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestRetrievePainting_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestRetrievePaintingUpdate",
+		"Quest_Description": {
+			"Name": "Paint on the canvas",
+			"Description": "Since there's no painting, might as well make a new one."
+		},
+		"Quest_Completion_Requirements": [],
+		"Quest_Completion_Tracker": {
+			"Make a new painting": [
+				"ActionPaintOnCanvas_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestRetrievePaintingUpdate_Done"
 		]
 	}
 ]

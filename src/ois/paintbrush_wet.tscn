@@ -1,0 +1,61 @@
+[gd_scene load_steps=14 format=3 uid="uid://bp1lf47qx0h6r"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_0iarn"]
+[ext_resource type="PackedScene" uid="uid://dflb5lts2qo2k" path="res://src/assets/B3/Paintbrush_Wet.glb" id="2_cj0jx"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_mdi1g"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_bmxwm"]
+[ext_resource type="Animation" uid="uid://nq3xh1olqipq" path="res://addons/godot-xr-tools/hands/animations/left/Grip Shaft.res" id="4_pwl8b"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_2lper"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_it54x"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_3k45w"]
+[ext_resource type="Animation" uid="uid://c8dghcftg1thx" path="res://addons/godot-xr-tools/hands/animations/right/Grip Shaft.res" id="7_g0o13"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tqsp"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Resource" id="Resource_iksls"]
+script = ExtResource("5_it54x")
+open_pose = ExtResource("4_pwl8b")
+closed_pose = ExtResource("4_pwl8b")
+
+[sub_resource type="Resource" id="Resource_hydpj"]
+script = ExtResource("5_it54x")
+open_pose = ExtResource("7_g0o13")
+closed_pose = ExtResource("7_g0o13")
+
+[sub_resource type="Resource" id="Resource_a7yg0"]
+script = ExtResource("7_3k45w")
+state_behavior_settings = {
+"ActiveCollidingState": {},
+"ActiveState": {},
+"IdleState": {},
+"TriggerState": {}
+}
+behavior_dict = {}
+
+[node name="paintbrush_wet" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_0iarn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5tqsp")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Paintbrush_Wet" parent="MainMesh" instance=ExtResource("2_cj0jx")]
+transform = Transform3D(0.2, 0, 0, 0, 0.148248, 0.134248, 0, -0.134248, 0.148248, 0, 0, 0.0963801)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_mdi1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158828, -0.083499)
+visible = true
+hand_pose = SubResource("Resource_iksls")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_bmxwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158828, -0.083499)
+visible = true
+hand_pose = SubResource("Resource_hydpj")
+
+[node name="StateManager" parent="." instance=ExtResource("5_2lper")]
+settings = SubResource("Resource_a7yg0")
