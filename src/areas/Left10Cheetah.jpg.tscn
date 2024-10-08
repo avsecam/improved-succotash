@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c6ty8"]
 [ext_resource type="Texture2D" uid="uid://hw11qu03ko3y" path="res://src/areas/Left10Cheetah.jpg" id="2_6aebe"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lh1r4"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lh1r4"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_xv7wg"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="5_4tbfq"]
 [ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="6_xqftd"]
@@ -11,15 +11,15 @@
 albedo_texture = ExtResource("2_6aebe")
 
 [node name="left10 cheetah_jpg" type="Node3D"]
-transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+transform = Transform3D(0.121868, 0, -0.992533, 0, 1, 0, 0.992533, 0, 0.121868, 0, 0, 0)
 top_level = true
 script = ExtResource("1_c6ty8")
 teleporters_data = [{
-"position": Vector3(-3.635, -1.182, 2.119),
+"position": Vector3(-3.698, -2.2, 2.092),
 "rotation": Vector3(2.98023e-08, 1.37, -5.53472e-07),
 "to": "Left11.jpg"
 }, {
-"position": Vector3(3.372, -1.61, -1.775),
+"position": Vector3(3.453, -1.61, -1.969),
 "rotation": Vector3(-5.96046e-08, -1.64, -5.76205e-07),
 "to": "Left7.jpg"
 }]
@@ -39,18 +39,18 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Left11_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("4_xv7wg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63482, -1.25419, 2.11888)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.698, -2.2, 2.092)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("5_4tbfq")
 to = "Left11.jpg"
 
 [node name="Left7_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("4_xv7wg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37196, -1.61, -1.77464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45318, -1.61, -1.96926)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("5_4tbfq")
 to = "Left7.jpg"
 
 [node name="Pillar_A2" parent="." instance=ExtResource("6_xqftd")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.784532, -4.63739, -2.94599)
+transform = Transform3D(0.8, 0, -2.98023e-08, 0, 0.8, 0, 2.98023e-08, 0, 0.8, -1.69378, -4.63739, -3.36228)
