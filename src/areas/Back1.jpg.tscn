@@ -37,14 +37,14 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Back2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_imrrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68812, -1.57, -0.038945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.113, -1.57, 0.15)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_dfro5")
 to = "Back2.jpg"
 
 [node name="Back0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_imrrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98452, -1.57, -0.792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.688, -1.57, -0.792)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_dfro5")

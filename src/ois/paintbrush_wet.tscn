@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bp1lf47qx0h6r"]
+[gd_scene load_steps=18 format=3 uid="uid://bp1lf47qx0h6r"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_0iarn"]
 [ext_resource type="PackedScene" uid="uid://dflb5lts2qo2k" path="res://src/assets/B3/Paintbrush_Wet.glb" id="2_cj0jx"]
@@ -9,9 +9,18 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_it54x"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_3k45w"]
 [ext_resource type="Animation" uid="uid://c8dghcftg1thx" path="res://addons/godot-xr-tools/hands/animations/right/Grip Shaft.res" id="7_g0o13"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="10_v4whg"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="11_tgy3l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5tqsp"]
-size = Vector3(0.1, 0.1, 0.1)
+size = Vector3(0.0605225, 0.447339, 0.0384613)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ladb"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aahsv"]
+material = SubResource("StandardMaterial3D_8ladb")
 
 [sub_resource type="Resource" id="Resource_iksls"]
 script = ExtResource("5_it54x")
@@ -40,22 +49,32 @@ freeze_mode = 1
 script = ExtResource("1_0iarn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.773906, 0.6333, 0, -0.6333, 0.773906, -0.00196533, 0.173669, -0.0358819)
 shape = SubResource("BoxShape3D_5tqsp")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.065, 0, 0, 0, 0.329192, 0.0316245, 0, -0.268808, 0.0387285, 0, 0.160043, -0.0290666)
+mesh = SubResource("BoxMesh_aahsv")
+metadata/_edit_group_ = true
 
 [node name="Paintbrush_Wet" parent="MainMesh" instance=ExtResource("2_cj0jx")]
-transform = Transform3D(0.2, 0, 0, 0, 0.148248, 0.134248, 0, -0.134248, 0.148248, 0, 0, 0.0963801)
+transform = Transform3D(3.07692, 0, 0, 0, 0.470582, 0.00233255, 0, -0.0198268, 3.99995, 0, -0.478371, -0.081161)
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_mdi1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158828, -0.083499)
-visible = true
 hand_pose = SubResource("Resource_iksls")
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_bmxwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158828, -0.083499)
-visible = true
 hand_pose = SubResource("Resource_hydpj")
 
 [node name="StateManager" parent="." instance=ExtResource("5_2lper")]
+receiver_group = "paintbrush_wet"
 settings = SubResource("Resource_a7yg0")
+
+[node name="ControlRaycast" parent="StateManager" instance=ExtResource("11_tgy3l")]
+transform = Transform3D(1, 0, 0, 0, 0.65145, -0.758692, 0, 0.758692, 0.65145, 0, 0.287482, -0.138853)
+raycast_length = 0.1
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_v4whg")]
+rate = 0.3

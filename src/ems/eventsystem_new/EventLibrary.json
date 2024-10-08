@@ -1309,9 +1309,7 @@
 		"Event_Name": "ActionPaintOnCanvas",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionLookAtCanvasPainting_Done"
-		],
+		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [
 			"ActionPaintOnCanvas_Done"
 		],

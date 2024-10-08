@@ -49,7 +49,6 @@ shape = SubResource("BoxShape3D_o6bgc")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.18557e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.18557e-09, 0, 0, 0)
-visible = false
 mesh = ExtResource("2_0lqo0")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_2xrvk")]
@@ -72,6 +71,7 @@ rate = 3.0
 
 [node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
 
 [node name="MainMesh" type="MeshInstance3D" parent="InventoryItemComp/ReplacementMesh" index="0"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
