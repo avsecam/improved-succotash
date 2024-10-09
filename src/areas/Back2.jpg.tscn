@@ -1,20 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://82klwlalqnpu"]
+[gd_scene load_steps=8 format=3 uid="uid://82klwlalqnpu"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_y8rwp"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v810u"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v810u"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m7bfe"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_nxs0m"]
+[ext_resource type="PackedScene" uid="uid://dkk6tk5kycbf" path="res://src/assets/B3/Easel_Normal.glb" id="5_3dyau"]
+[ext_resource type="PackedScene" uid="uid://53ykoonvqw7h" path="res://src/assets/B3/Table.glb" id="6_autiu"]
+[ext_resource type="PackedScene" uid="uid://6cyd8lbfqd2p" path="res://src/assets/B MAIN/Bowl_PainterWater.glb" id="7_06841"]
 
 [node name="back2_jpg" type="Node3D"]
-transform = Transform3D(0.104527, 0, -0.994509, 0, 1, 0, 0.994509, 0, 0.104527, 0, 0, 0)
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0.000283733, -0.000304431, -3.05474e-05)
 top_level = true
 script = ExtResource("1_y8rwp")
 teleporters_data = [{
-"position": Vector3(-3.6, -2.563, 1.493),
+"position": Vector3(-1.979, -2.563, 0.696),
 "rotation": Vector3(-2.98023e-08, -1.89, 1.8351e-06),
 "to": "Rights0.jpg"
 }, {
-"position": Vector3(3.239, -2.563, -0.917),
+"position": Vector3(2.574, -1.398, -0.581),
 "rotation": Vector3(0, 1.29999, 1.47676e-06),
 "to": "Back1.jpg"
 }]
@@ -33,15 +36,24 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Rights0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m7bfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, -2.563, 1.493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97879, -2.563, 0.695774)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_nxs0m")
 to = "Rights0.jpg"
 
 [node name="Back1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m7bfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.239, -2.563, -0.917)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57359, -1.398, -0.581028)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_nxs0m")
 to = "Back1.jpg"
+
+[node name="Easel_Normal" parent="." instance=ExtResource("5_3dyau")]
+transform = Transform3D(0.149617, 0, 0.0107089, 0, 0.15, 0, -0.0107089, 0, 0.149617, -0.0424517, -1.07857, -1.36313)
+
+[node name="Table2" parent="." instance=ExtResource("6_autiu")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.095, -0.699802, -0.769158, -0.249996)
+
+[node name="Bowl_PainterWater" parent="." instance=ExtResource("7_06841")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.548757, -0.188381, -0.304477)

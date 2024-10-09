@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cugw4p6gtkcgj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_sr5a4"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_2x5we"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_2x5we"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_wv65e"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_o0hno"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="5_micfp"]
@@ -25,7 +25,6 @@ teleporters_data = [{
 }]
 image_filename = "res://src/areas/Middle2.jpg.jpg"
 base_rotation = -1.6
-outside = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)

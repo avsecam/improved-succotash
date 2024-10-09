@@ -1,20 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp4k0aaycdk82"]
+[gd_scene load_steps=9 format=3 uid="uid://dp4k0aaycdk82"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_m0431"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_gi23s"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_gi23s"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_imrrv"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_dfro5"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_rx201"]
+[ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="6_3qbi0"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialoguePaintingsTransfer.gd" id="6_g0vcf"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialoguePaintingsReminder.gd" id="7_84dmd"]
 
 [node name="back1_jpg" type="Node3D"]
 transform = Transform3D(0.71933, 0, -0.694649, 0, 1, 0, 0.694649, 0, 0.71933, 0, 0, 0)
 top_level = true
 script = ExtResource("1_m0431")
 teleporters_data = [{
-"position": Vector3(-4.235, -1.57, -0.191),
-"rotation": Vector3(0, 0, 0),
+"position": Vector3(4.113, -1.57, 0.15),
+"rotation": Vector3(0, -1.53, 2.81252e-06),
 "to": "Back2.jpg"
 }, {
-"position": Vector3(4.086, -1.57, -1.027),
+"position": Vector3(-3.688, -1.57, -0.792),
 "rotation": Vector3(8.94069e-08, 1.35999, 1.63648e-06),
 "to": "Back0.jpg"
 }]
@@ -33,15 +37,39 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Back2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_imrrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.235, -1.57, -0.191)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68812, -1.57, -0.038945)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_dfro5")
 to = "Back2.jpg"
 
 [node name="Back0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_imrrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.086, -1.57, -1.027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98452, -1.57, -0.792)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_dfro5")
 to = "Back0.jpg"
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_rx201")
+
+[node name="DialoguePaintingsTransfer" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("6_g0vcf")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="DialoguePaintingsReminder" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("7_84dmd")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("6_3qbi0")]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -0.307552, -0.0116689, 1.4901)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
+volume_db = 7.619
+autoplay = true
+
+[node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
+wait_time = 3.0

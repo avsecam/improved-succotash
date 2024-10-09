@@ -839,5 +839,485 @@
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {}
+	},
+	{
+		"Event_Name": "DialoguePowerPlantInstructions",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialoguePowerPlantInstructions_Done"
+		],
+		"Event_Audio": "VE_VO_B1_ASST_01_FinallyUp",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "Finally, you're here! We've received instructions to shut down the power plant. Hurry up!"
+		}
+	},
+	{
+		"Event_Name": "DialogueMarblePPlantReminder",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": "[\"DialoguePowerPlantInstructions_Done\"］",
+		"Event_Completion_Flags": [
+			"DialogueMarblePPlantReminder_Done"
+		],
+		"Event_Audio": "VE_VO_B1_MRBLSPRT_01_ThisRight",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "This power plant looks really old. You were asked to shut it down, right?"
+		}
+	},
+	{
+		"Event_Name": "ActionLookAtWaterSpiritB1",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": "[\"DialogueMarblePPlantReminder_Done\"］",
+		"Event_Completion_Flags": [
+			"ActionLookAtWaterSpiritB1_Done"
+		],
+		"Event_Audio": "VE_VO_A1_MRBLSPRT_02_WhatsHere",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "What's an elemental spirit doing here?"
+		}
+	},
+	{
+		"Event_Name": "DialogueDonPlacidoEscuderoDam",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueDonPlacidoEscuderoDam_Done"
+		],
+		"Event_Audio": "VE_VO_B1_ASST_02_OriginallyDown",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "Originally a dam built in 1872 for irrigation purposes, the Don Placido Escudero dam was rebuilt two more times\n - once in 1904 out of sturdier materials by Don Placido Escudero and Doña Claudia Marasigan, \nand then again in 1937 by Don Arsenio Escudero and Doña Rosario Adap not only for irrigation but also for a hydroelectric power plant that began operation in the same year. \nThe Arsenio Escudero Hydroelectric Power Plant was upgraded in the 1990's, and continued to provide power for Villa Escudero up to 2023 before it was shut down."
+		}
+	},
+	{
+		"Event_Name": "ActionInteractWaterSpiritB1",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionLookAtWaterSpiritB1_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionLookAtWaterSpiritB1_Done"
+		],
+		"Event_Audio": "VE_VO_B1_MRBLSPRT_02_HiSearch",
+		"Loop_Audio": false,
+		"Loop_Interval": "",
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Hi, water spirit! How are you? ... Of course! Thank you! \nHey, the water spirit said it wants to help us look for the lost cat. Let's return to the museum and continue the search!"
+		}
+	},
+	{
+		"Event_Name": "ActionInteractPPlantSwitchUnfinished",
+		"Event_Category": "ACTION",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "VE_VO_B1_MRBLSPRT_03_StopMacho",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Stop trying to be so macho!"
+		}
+	},
+	{
+		"Event_Name": "ActionInteractPPlantSwitch",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": "[\"DialogueMarblePPlantReminder_Done\"］",
+		"Event_Completion_Flags": [
+			"ActionInteractPPlantSwitch_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "DialogueLunchFoodPrep",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueLunchFoodPrep_Done"
+		],
+		"Event_Audio": "VE_VO_B2_ASST_01_GoodPreparations",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "Good, you're here! It's almost time for lunch. Please help with food preparations!"
+		}
+	},
+	{
+		"Event_Name": "DialogueLunchGetCooking",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueLunchFoodPrep_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueLunchGetCooking_Done"
+		],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_01_WhatCooking",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "What are you waiting for? Let's get cooking!"
+		}
+	},
+	{
+		"Event_Name": "DialogueLunchFoodEnjoy",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueLunchFoodEnjoy_Done"
+		],
+		"Event_Audio": "VE_VO_B2_ASST_02_iCulture",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "I heard that many of our guests really enjoyed the food that is served here. \nAcharang papaya, kalabasa soup, and lechon manok - these are but a few of the family heirloom recipes that me and the others were taught how to cook. \nMealtime in Villa Escudero is sure to include all this food on the menu... as a testament to Filipino culinary culture."
+		}
+	},
+	{
+		"Event_Name": "ActionPickUpKnife",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueLunchFoodEnjoy_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPickUpKnife_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionChopGarlic",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPickUpKnife_Done",
+			"DialogueLunchFoodEnjoy_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionChopGarlic_Done"
+		],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_02_ChopGarlicMore",
+		"Loop_Audio": true,
+		"Loop_Interval": 5,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Chop the garlic up some more!"
+		}
+	},
+	{
+		"Event_Name": "ActionChopOnion",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPickUpKnife_Done",
+			"ActionChopGarlic_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionChopOnion_Done"
+		],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_03_ChopMore",
+		"Loop_Audio": true,
+		"Loop_Interval": 5,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Chop it up some more!"
+		}
+	},
+	{
+		"Event_Name": "ActionChopKalabasa",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPickUpKnife_Done",
+			"ActionChopOnion_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionChopKalabasa_Done"
+		],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_03_ChopMore",
+		"Loop_Audio": true,
+		"Loop_Interval": 5,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Chop it up some more!"
+		}
+	},
+	{
+		"Event_Name": "ActionPickUpPole",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionChopGarlic_Done",
+			"ActionChopOnion_Done",
+			"ActionChopKalabasa_Done",
+			"ActionRoastChicken_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPickUpPole_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPoleOnlyRoast",
+		"Event_Category": "ACTION",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_04_ShouldntFirst",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Shouldn't you skewer both chickens first?"
+		}
+	},
+	{
+		"Event_Name": "ActionOneChickenPoleRoast",
+		"Event_Category": "ACTION",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_04_ShouldntFirst",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Shouldn't you skewer both chickens first?"
+		}
+	},
+	{
+		"Event_Name": "ActionSabaBananaNoFire",
+		"Event_Category": "ACTION",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_05_LightFirst",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Light a fire first!"
+		}
+	},
+	{
+		"Event_Name": "ActionSabaBananaNoOil",
+		"Event_Category": "ACTION",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_06_YouFried",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "You put the bananas there after they're deep-fried!"
+		}
+	},
+	{
+		"Event_Name": "ActionInteractFriedSaba",
+		"Event_Category": "ACTION",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "VE_VO_B2_MRBLSPRT_07_StopYourself",
+		"Loop_Audio": false,
+		"Loop_Interval": "",
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Stop! You'll burn yourself!"
+		}
+	},
+	{
+		"Event_Name": "ActionCookingFinished",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionChopGarlic_Done",
+			"ActionChopOnion_Done",
+			"ActionChopKalabasa_Done",
+			"ActionRoastChicken_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionCookingFinished_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionSkewerChicken1",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionSkewerChicken1_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionSkewerChicken2",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionSkewerChicken2_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionRoastChicken",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionSkewerChicken1_Done",
+			"ActionSkewerChicken2_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionRoastChicken_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "DialoguePaintingsTransfer",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialoguePaintingsTransfer_Done"
+		],
+		"Event_Audio": "VE_VO_B3_ASST_01_WeIt",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "We transferred the paintings here as instructed, but I was just told that one of the paintings is still on the artist's easel! Please find it!"
+		}
+	},
+	{
+		"Event_Name": "DialoguePaintingsReminder",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialoguePaintingsTransfer_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialoguePaintingsReminder_Done"
+		],
+		"Event_Audio": "VE_VO_B3_MRBLSPRT_01_TheresRight",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "There's lots of paintings here, but we're looking for one that's on an easel and not on a wall, right?"
+		}
+	},
+	{
+		"Event_Name": "DialogueLookAtCanvasPainting",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialoguePaintingsReminder_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueLookAtCanvasPainting_Done"
+		],
+		"Event_Audio": "VE_VO_B3_MRBLSPRT_03_iNow",
+		"Loop_Audio": false,
+		"Loop_Interval": "",
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "I thought we're looking for a painting, but this is a blank canvas! What do we do now?"
+		}
+	},
+	{
+		"Event_Name": "ActionLookAtCanvasPainting",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueLookAtCanvasPainting_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionLookAtCanvasPainting_Done"
+		],
+		"Event_Audio": "VE_VO_B3_MRBLSPRT_02_UhSomething",
+		"Loop_Audio": true,
+		"Loop_Interval": 5,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Uh... Maybe we should paint something?"
+		}
+	},
+	{
+		"Event_Name": "DialogueAssistantPaintings",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueAssistantPaintings_Done"
+		],
+		"Event_Audio": "VE_VO_B3_ASST_02_The1980s",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "The portraits you see here were made by various amateur painters from the CALABARZON region. \nThey have been housed in the Arsenio Escudero and Rosario Adap museum since the collection was donated to the Escudero family in the 1980's."
+		}
+	},
+	{
+		"Event_Name": "ActionPaintOnCanvas",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionLookAtCanvasPainting_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPaintOnCanvas_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
 	}
 ]
