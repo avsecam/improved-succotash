@@ -1309,9 +1309,26 @@
 		"Event_Name": "ActionPaintOnCanvas",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
-		"Event_Prerequisites": [],
+		"Event_Prerequisites": [
+			"ActionLookAtCanvasPainting_Done"
+		],
 		"Event_Completion_Flags": [
 			"ActionPaintOnCanvas_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionInteractPaintedCanvas",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPaintOnCanvas_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionInteractPaintedCanvas_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,
