@@ -13,11 +13,11 @@ size = Vector3(0.121753, 2.00969, 1.38489)
 resource_name = "FlyUpAnimation"
 tracks/0/type = "position_3d"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.5, 0, 0, 0.7, 1, -0.5, 0.75, 0, 1, 1, -0.5, 2, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.657, 0.34, -0.797)
 tracks/1/type = "scale_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -32,7 +32,7 @@ _data = {
 }
 
 [node name="canvas_paint" type="StaticBody3D" groups=["paintbrush_wet"]]
-transform = Transform3D(1, 0, 0, 0, 0, 0, 0, 0, 0, -0.5, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 0, 0, 0, 0, 0, -0.657, 0.34, -0.797)
 script = ExtResource("1_xapy4")
 requirement = 1.0
 
