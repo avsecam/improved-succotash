@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmn6op3t4pdhk"]
+[gd_scene load_steps=15 format=3 uid="uid://cmn6op3t4pdhk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_wauyu"]
 [ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vjhar"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLookAtMe.gd" id="6_3f53r"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPaintOnCanvas.gd" id="6_6v8ju"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="6_y6uk4"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionInteractPaintedCanvas.gd" id="7_i35vu"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtMarbleSpirit.gd" id="7_siu0w"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="8_psgse"]
 [ext_resource type="PackedScene" uid="uid://dkk6tk5kycbf" path="res://src/assets/B3/Easel_Normal.glb" id="12_3dfcn"]
@@ -59,6 +60,9 @@ script = ExtResource("5_75ivk")
 [node name="ActionPaintOnCanvas" type="Node" parent="Events"]
 script = ExtResource("6_6v8ju")
 
+[node name="ActionInteractPaintedCanvas" type="Node" parent="Events"]
+script = ExtResource("7_i35vu")
+
 [node name="DialogueLookAtMe" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("6_3f53r")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
@@ -94,3 +98,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.828196, 0, -0.0334816)
 
 [connection signal="action_completed" from="canvas_paint" to="Events/ActionPaintOnCanvas" method="_on_canvas_paint_action_completed"]
 [connection signal="action_ended" from="canvas_paint" to="Events/ActionPaintOnCanvas" method="_on_canvas_paint_action_ended"]
+[connection signal="canvas_disappear_signal" from="canvas_paint" to="Events/ActionInteractPaintedCanvas" method="_on_canvas_paint_canvas_disappear_signal"]
