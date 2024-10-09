@@ -1,109 +1,129 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb2op0b3b07lb"]
+[gd_scene load_steps=5 format=3 uid="uid://bb2op0b3b07lb"]
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_7hb37"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_17tsy"]
+
 [node name="SpecialRoom_Kitchen" type="Node3D"]
+script = ExtResource("1_7hb37")
+image_filename = "res://src/areas/Tut1.jpg.jpg"
 
-[node name="Walls" type="Node3D" parent="."]
+[node name="Environment" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45209, -1.43378, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Walls"]
+[node name="Walls" type="Node3D" parent="Environment"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, 1.5)
 light_energy = 3.0
 light_bake_mode = 1
 spot_angle = 80.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Walls"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="Environment/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, -1.5)
 light_energy = 3.0
 light_bake_mode = 1
 spot_angle = 80.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(6, 0, 0, 0, 0.12, 0, 0, 0, 7, 0, 0, 0)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(6, 0, 0, 0, 0.12, 0, 0, 0, 7, 0, 3.0008, 0)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(6, 0, 0, 0, -5.24537e-09, -3, 0, 0.12, -1.31134e-07, -0.00541377, 1.48662, -3.44387)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(6, 0, 0, 0, -5.24537e-09, -3, 0, 0.12, -1.31134e-07, -0.00541377, 1.48662, 3.4346)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, -3, 0, 0.7, -1.31134e-07, 0, 1.487, -3.5)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, -3, 0, 0.7, -1.31134e-07, 0, 1.487, 3.5)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(-3.0598e-07, 0.12, -1.31134e-07, 0, -5.24537e-09, -3, -7, -5.24537e-09, 5.73206e-15, -2.96261, 1.48662, -0.00587314)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(-2.18557e-07, 0.12, -1.31134e-07, 0, -5.24537e-09, -3, -5, -5.24537e-09, 5.73206e-15, 2.97881, 1.48662, 0.92435)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(-4.0433e-08, 0.12, -1.31134e-07, 0, -5.24537e-09, -3, -0.925, -5.24537e-09, 5.73206e-15, 2.97881, 1.48662, -2.96944)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Walls"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Environment/Walls"]
 transform = Transform3D(-1.31134e-07, 0.12, -2.18557e-08, 0, -5.24537e-09, -0.5, -3, -5.24537e-09, 9.55343e-16, 2.97881, 2.73465, -1.17226)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Counter" type="Node3D" parent="."]
+[node name="Counter" type="Node3D" parent="Environment"]
 
-[node name="Counter Island" type="MeshInstance3D" parent="Counter"]
+[node name="Counter Island" type="MeshInstance3D" parent="Environment/Counter"]
 transform = Transform3D(0.89, 0, 0, 0, 0.925, 0, 0, 0, 2.045, -0.636571, 0.367582, 0.528255)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Counter" type="MeshInstance3D" parent="Counter"]
+[node name="Counter" type="MeshInstance3D" parent="Environment/Counter"]
 transform = Transform3D(-3.89031e-08, 0, 2.29, 0, 0.925, 0, -0.89, 0, -1.00099e-07, -1.73852, 0.367582, 2.92455)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Counter A" type="MeshInstance3D" parent="Counter"]
+[node name="Counter A" type="MeshInstance3D" parent="Environment/Counter"]
 transform = Transform3D(-0.89, 0, -4.99796e-07, 0, 0.925, 0, 1.34386e-07, 0, -3.31, -2.43393, 0.367582, 1.01251)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Cabinet" type="MeshInstance3D" parent="Counter"]
+[node name="Cabinet" type="MeshInstance3D" parent="Environment/Counter"]
 transform = Transform3D(-2.75382e-08, 0, 2.29, 0, 0.7, 0, -0.63, 0, -1.00099e-07, -1.73852, 2.34897, 3.0613)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Cabinet2" type="MeshInstance3D" parent="Counter"]
+[node name="Cabinet2" type="MeshInstance3D" parent="Environment/Counter"]
 transform = Transform3D(-0.63, 0, -5.58684e-07, 0, 0.7, 0, 9.51274e-08, 0, -3.7, -2.58288, 2.34897, 1.23887)
 mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Fridge" type="MeshInstance3D" parent="."]
+[node name="Fridge" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.89, 0, 0, 0, -4.0433e-08, -2.045, 0, 0.925, -8.93898e-08, -2.32131, 1.1354, -1.30209)
 mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
 
-[node name="Fridge2" type="MeshInstance3D" parent="."]
+[node name="Fridge2" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.89, 0, 0, 0, -2.35226e-08, -1.16819, 0, 0.538134, -5.10631e-08, -2.32808, 0.682634, -2.16759)
 mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
 
-[node name="Table2" parent="." instance=ExtResource("1_6subo")]
+[node name="Table2" parent="Environment" instance=ExtResource("1_6subo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04538, 0, 1.30367)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_17tsy")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]
