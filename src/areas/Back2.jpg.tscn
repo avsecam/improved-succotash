@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://82klwlalqnpu"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_y8rwp"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v810u"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v810u"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m7bfe"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_nxs0m"]
 [ext_resource type="PackedScene" uid="uid://dkk6tk5kycbf" path="res://src/assets/B3/Easel_Normal.glb" id="5_3dyau"]
@@ -36,14 +36,14 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Rights0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m7bfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97879, -2.563, 0.695774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.979, -2.563, 0.696)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_nxs0m")
 to = "Rights0.jpg"
 
 [node name="Back1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m7bfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57359, -1.398, -0.581028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.574, -1.398, -0.581)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_nxs0m")
@@ -51,9 +51,12 @@ to = "Back1.jpg"
 
 [node name="Easel_Normal" parent="." instance=ExtResource("5_3dyau")]
 transform = Transform3D(0.149617, 0, 0.0107089, 0, 0.15, 0, -0.0107089, 0, 0.149617, -0.0424517, -1.07857, -1.36313)
+visible = false
 
 [node name="Table2" parent="." instance=ExtResource("6_autiu")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.095, -0.699802, -0.769158, -0.249996)
+visible = false
 
 [node name="Bowl_PainterWater" parent="." instance=ExtResource("7_06841")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.548757, -0.188381, -0.304477)
+visible = false

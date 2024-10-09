@@ -19,7 +19,7 @@ teleporters_data = [{
 "to": "Tut2.jpg"
 }, {
 "position": Vector3(4, -1, 0),
-"to": "Left11.jpg"
+"to": "special_room_powerplant_room"
 }]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
 
@@ -42,12 +42,12 @@ collision_mask = 0
 script = ExtResource("4_br0jg")
 to = "Tut2.jpg"
 
-[node name="Left00_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_j5in4")]
+[node name="Left11_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_j5in4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 0)
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("4_br0jg")
-to = "Left11.jpg"
+to = "special_room_powerplant_room"
 
 [node name="Events" type="Node" parent="."]
 script = ExtResource("5_75ivk")

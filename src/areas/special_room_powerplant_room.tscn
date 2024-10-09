@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://86ntuf0j6gis"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_24fbd"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
@@ -78,12 +78,12 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, -9.94517)
+transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, -2.29979)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, 10.0324)
+transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, 2.29785)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
@@ -118,12 +118,12 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(-8.74228e-07, 0.12, -3.49691e-07, 0, -5.24537e-09, -8, -20, -5.24537e-09, 1.52855e-14, -9.94378, 4.05917, -0.0213208)
+transform = Transform3D(-8.74228e-07, 0.12, -3.49691e-07, 0, -5.24537e-09, -8, -20, -5.24537e-09, 1.52855e-14, -3.66666, 4.05917, -0.0213208)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(-5.37869e-07, 0.705, -1.91674e-07, 0, -3.08165e-08, -4.385, -12.305, -3.08165e-08, 8.37836e-15, -5.31559, 2.15106, -0.0213208)
+transform = Transform3D(-5.37869e-07, 0.705, -1.91674e-07, 0, -3.08165e-08, -4.385, -12.305, -3.08165e-08, 8.37836e-15, 4.79241, 2.15106, -0.0213208)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
