@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggd70"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkkoe"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdcgs"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r3xr8"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Test" type="StaticBody3D"]
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ggd70")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qkkoe")
+
+[node name="ReceiverComp" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiverComp"]
+shape = SubResource("BoxShape3D_gdcgs")
+
+[node name="ReceiverComp2" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiverComp2"]
+shape = SubResource("BoxShape3D_r3xr8")

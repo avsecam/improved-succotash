@@ -1,25 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://3am51gfstlnf"]
+[gd_scene load_steps=9 format=3 uid="uid://3am51gfstlnf"]
 
-[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="1_tmlh7"]
+[ext_resource type="Script" path="res://src/ois/canvas_paint.gd" id="1_xapy4"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/paint_canvas.gd" id="2_2xon5"]
 [ext_resource type="PackedScene" uid="uid://bdhvky1pve6it" path="res://src/assets/B3/Canvas_Blank.glb" id="2_t62s0"]
 [ext_resource type="PackedScene" uid="uid://c8kio1tdeedvw" path="res://src/assets/B3/Canvas_Ahrt.glb" id="3_c3cnv"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="5_qnv5a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fl3oe"]
 size = Vector3(0.121753, 2.00969, 1.38489)
 
+[sub_resource type="Animation" id="Animation_ojenf"]
+resource_name = "FlyUpAnimation"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.5, 0, 0, 0.7, 1, -0.5, 0.75, 0, 1, 1, -0.5, 2, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.1, 1, 1.1, 1.1, 1.1, 0.3, 1, 0.5, 0.5, 0.5, 0.9, 1, 1, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fro3h"]
+_data = {
+"FlyUpAnimation": SubResource("Animation_ojenf")
+}
+
 [node name="canvas_paint" type="StaticBody3D" groups=["paintbrush_wet"]]
-script = ExtResource("1_tmlh7")
+transform = Transform3D(1, 0, 0, 0, 0, 0, 0, 0, 0, -0.5, 2, 0)
+script = ExtResource("1_xapy4")
 requirement = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0512573, -0.00555417, 0.0025177)
 shape = SubResource("BoxShape3D_fl3oe")
 
-[node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("canvas_blank", "canvas_ahrt")]
+[node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("canvas_blank", "canvas_ahrt", "interact_area_hitbox")]
 script = ExtResource("2_2xon5")
 canvas_blank = NodePath("../MainMesh/Canvas_Blank")
 canvas_ahrt = NodePath("../MainMesh/Canvas_Ahrt")
+interact_area_hitbox = NodePath("../InteractArea/CollisionShape3D")
 action_start = true
 action_during = false
 
@@ -30,4 +55,18 @@ action_during = false
 [node name="Canvas_Ahrt" parent="MainMesh" instance=ExtResource("3_c3cnv")]
 visible = false
 
+[node name="InteractArea" type="Area3D" parent="."]
+collision_layer = 5242881
+script = ExtResource("5_qnv5a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+transform = Transform3D(1.67, 0, 0, 0, 1.075, 0, 0, 0, 1.075, -0.0510961, 0, 0)
+shape = SubResource("BoxShape3D_fl3oe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fro3h")
+}
+
 [connection signal="action_ended" from="." to="Feedback" method="_on_canvas_paint_action_ended"]
+[connection signal="pointer_event" from="InteractArea" to="." method="_on_interact_area_pointer_event"]

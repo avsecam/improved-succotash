@@ -238,6 +238,9 @@
 		"Quest_Completion_Tracker": {
 			"Make a new painting": [
 				"ActionPaintOnCanvas_Done"
+			],
+			"Retrieve canvas": [
+				"ActionInteractPaintedCanvas_Done"
 			]
 		},
 		"Quest_Completion_Flags": [
