@@ -8,6 +8,7 @@
 size = Vector3(0.2, 0.376196, 0.402344)
 
 [node name="Cat" type="StaticBody3D" groups=["single_controller"]]
+collision_layer = 5242881
 script = ExtResource("1_d5tku")
 requirement = 2.0
 

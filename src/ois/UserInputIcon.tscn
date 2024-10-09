@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://b7et6bo7evtr4"]
+
+[ext_resource type="Texture2D" uid="uid://bwxqywmcd8gkr" path="res://src/assets/Action Icons/Wave Down.png" id="1_2mguy"]
+[ext_resource type="Texture2D" uid="uid://cy1hkrpl4j0e7" path="res://src/assets/Action Icons/Wave Up.png" id="2_ro11s"]
+[ext_resource type="Texture2D" uid="uid://cqksu0450bbur" path="res://src/assets/Action Icons/Middle (Click) .png" id="3_6gh8n"]
+[ext_resource type="Texture2D" uid="uid://b8ns2bsitboe8" path="res://src/assets/Action Icons/Middle (Idle) .png" id="4_vui8s"]
+[ext_resource type="Texture2D" uid="uid://d2hbasdcdd36l" path="res://src/assets/Action Icons/Index Middle (Click).png" id="5_pbjfk"]
+[ext_resource type="Texture2D" uid="uid://dqvy4qouqmtsk" path="res://src/assets/Action Icons/Index Middle (Idle).png" id="6_7hcui"]
+[ext_resource type="Texture2D" uid="uid://cmox0mvbwfx06" path="res://src/assets/Action Icons/Rotate (Middle).png" id="7_kr31b"]
+[ext_resource type="Texture2D" uid="uid://denqd7ebemu4a" path="res://src/assets/Action Icons/Rotate (Left).png" id="8_warqo"]
+[ext_resource type="Texture2D" uid="uid://byanhvauv15s1" path="res://src/assets/Action Icons/Rotate (Right).png" id="9_vwtxt"]
+[ext_resource type="Texture2D" uid="uid://dpah82i1nd151" path="res://src/assets/Action Icons/Index (Click).png" id="10_ksiet"]
+[ext_resource type="Texture2D" uid="uid://bb1ws6a0cf4sm" path="res://src/assets/Action Icons/Index (Idle).png" id="11_ik3on"]
+[ext_resource type="Texture2D" uid="uid://ch4hnes5j7wqx" path="res://src/assets/Action Icons/Wave (Left).png" id="12_f0hpf"]
+[ext_resource type="Texture2D" uid="uid://kblmvlkomsp3" path="res://src/assets/Action Icons/Wave (Right).png" id="13_0kugs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qg3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2mguy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ro11s")
+}],
+"loop": true,
+"name": &"hammer",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6gh8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vui8s")
+}],
+"loop": true,
+"name": &"middle_click",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pbjfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7hcui")
+}],
+"loop": true,
+"name": &"middle_trigger_click",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_kr31b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_warqo")
+}],
+"loop": true,
+"name": &"rotate_left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_kr31b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vwtxt")
+}],
+"loop": true,
+"name": &"rotate_right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ksiet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ik3on")
+}],
+"loop": true,
+"name": &"trigger_click",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_f0hpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0kugs")
+}],
+"loop": true,
+"name": &"wave",
+"speed": 2.0
+}]
+
+[node name="UserInputIcon" type="AnimatedSprite3D"]
+sprite_frames = SubResource("SpriteFrames_3qg3c")
+animation = &"middle_trigger_click"
+frame_progress = 0.558395

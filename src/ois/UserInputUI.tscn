@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://nie46rsl6tw6"]
+
+[ext_resource type="Script" path="res://src/ois/UserInputUI.gd" id="1_1arha"]
+[ext_resource type="PackedScene" uid="uid://b7et6bo7evtr4" path="res://src/ois/UserInputIcon.tscn" id="1_31gjs"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6avv8"]
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jf8o5"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.305882, 0.305882, 0.305882, 0.392157)
+
+[node name="UserInputUI" type="Node3D"]
+script = ExtResource("1_1arha")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.075, 0.1)
+mesh = SubResource("PlaneMesh_6avv8")
+surface_material_override/0 = SubResource("StandardMaterial3D_jf8o5")
+
+[node name="UserInputIcon" parent="." instance=ExtResource("1_31gjs")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0.075, 0.105)
+animation = &"trigger_click"
+frame_progress = 0.923711

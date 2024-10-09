@@ -1,4 +1,5 @@
 extends ReceiverObj
+class_name TwistAction
 
 var interacting_inital_angle
 var delta_angle_buffer

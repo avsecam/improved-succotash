@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddfcwjl7txxqd"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_a2anf"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_krsp7"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_dvcyj"]
+[ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="4_g0im1"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_e4d5h"]
+[ext_resource type="Script" path="res://src/ois/GarlicFeedback.gd" id="5_qvjna"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_omssk"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xnhu3"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcfs5"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Garlic" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_a2anf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_omssk")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xnhu3")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_krsp7")]
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_dvcyj")]
+
+[node name="ReceiverComp" type="Area3D" parent="."]
+script = ExtResource("4_g0im1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiverComp"]
+shape = SubResource("BoxShape3D_tcfs5")
+
+[node name="Feedback" type="Node3D" parent="ReceiverComp"]
+script = ExtResource("5_qvjna")
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("5_e4d5h")]

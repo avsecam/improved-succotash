@@ -15,7 +15,7 @@ bottom_radius = 0.25
 height = 0.025
 
 [node name="Teleporter" type="StaticBody3D"]
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("1_s1q3v")
 

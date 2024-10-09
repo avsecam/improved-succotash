@@ -8,6 +8,7 @@
 size = Vector3(0.0665649, 0.0796387, 0.0480713)
 
 [node name="FrontGate" type="StaticBody3D" groups=["front_gate_key"]]
+collision_layer = 5242881
 script = ExtResource("1_wtq2c")
 requirement = 0.5
 
