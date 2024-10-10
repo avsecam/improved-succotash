@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://chkq0jsrwpmi8"
+path.s3tc="res://.godot/imported/Nursery_RiceSaplings_Nursery_RiceSaplings Roughness.png-26da4e9ed2a34e10f6c2f5a37e677dfe.s3tc.ctex"
+path.etc2="res://.godot/imported/Nursery_RiceSaplings_Nursery_RiceSaplings Roughness.png-26da4e9ed2a34e10f6c2f5a37e677dfe.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://src/assets/B1/Nursery_RiceSaplings_Nursery_RiceSaplings Roughness.png"
+dest_files=["res://.godot/imported/Nursery_RiceSaplings_Nursery_RiceSaplings Roughness.png-26da4e9ed2a34e10f6c2f5a37e677dfe.s3tc.ctex", "res://.godot/imported/Nursery_RiceSaplings_Nursery_RiceSaplings Roughness.png-26da4e9ed2a34e10f6c2f5a37e677dfe.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

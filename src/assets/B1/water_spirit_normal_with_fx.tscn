@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0f34rt0oox1c"]
+
+[ext_resource type="PackedScene" uid="uid://dde5dl4d02lc2" path="res://src/assets/B1/WaterSpirit_Normal.glb" id="1_vi4eu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wf1x"]
+albedo_color = Color(0.0666667, 0, 0.917647, 0.105882)
+emission_enabled = true
+emission = Color(0, 0, 0.952941, 1)
+emission_energy_multiplier = 0.03
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c84ox"]
+particle_flag_align_y = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+scale_min = 0.03
+scale_max = 0.05
+scale_over_velocity_max = 741.26
+turbulence_noise_strength = 0.18
+turbulence_noise_scale = 0.134
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_6odqn"]
+
+[node name="WaterSpirit_Normal" instance=ExtResource("1_vi4eu")]
+
+[node name="Sphere_001" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Cube" parent="." index="1"]
+visible = false
+
+[node name="Cube_001" parent="." index="2"]
+visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.572347, 0)
+material_override = SubResource("StandardMaterial3D_6wf1x")
+visibility_aabb = AABB(-0.871676, -2.34035, -1.18875, 1.74335, 4.68071, 2.3775)
+process_material = SubResource("ParticleProcessMaterial_c84ox")
+draw_pass_1 = SubResource("SphereMesh_6odqn")
