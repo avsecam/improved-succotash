@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4mbmiyebv2xq"]
+[gd_scene load_steps=5 format=3 uid="uid://c4mbmiyebv2xq"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_vklpb"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_tdvpy"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_tdvpy"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_uwauc"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_q812q"]
 
 [node name="right stairs0_jpg" type="Node3D"]
-transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+transform = Transform3D(0.81042, 0, -0.585827, 0, 1, 0, 0.585827, 0, 0.81042, 0, 0, 0)
 top_level = true
 script = ExtResource("1_vklpb")
 teleporters_data = [{
@@ -12,8 +14,8 @@ teleporters_data = [{
 "rotation": Vector3(-2.98024e-08, 1.68, -4.04757e-06),
 "to": "Right5.jpg"
 }, {
-"position": Vector3(-1.81832, -0.475336, 4.08926),
-"rotation": Vector3(-1.49012e-08, -2.72318, -3.44959e-06),
+"position": Vector3(-1.191, 0.925, 4.521),
+"rotation": Vector3(-14.7, 1, -0.6),
 "to": "RightStairs1.jpg"
 }]
 image_filename = "res://src/areas/RightStairs0.jpg.jpg"
@@ -29,3 +31,17 @@ light_energy = 3.015
 omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Right5_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_uwauc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09239, -1.81787, 0.448664)
+collision_layer = 5243392
+collision_mask = 0
+script = ExtResource("4_q812q")
+to = "Right5.jpg"
+
+[node name="RightStairs1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_uwauc")]
+transform = Transform3D(0.999833, 0.00666425, 0.0170352, -0.0107733, 0.967158, 0.253949, -0.0147833, -0.25409, 0.967068, -1.19104, 0.924664, 4.5208)
+collision_layer = 5243392
+collision_mask = 0
+script = ExtResource("4_q812q")
+to = "RightStairs1.jpg"

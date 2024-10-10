@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dy8ypbtknmce5" path="res://src/assets/B MAIN/Sunken_Amphora.glb" id="5_h30vh"]
 
 [node name="left5 vase_jpg" type="Node3D"]
-transform = Transform3D(-0.809007, 0, 0.587778, 0, 1, 0, -0.587778, 0, -0.809007, 0, 0, 0)
+transform = Transform3D(-0.0717924, 0, 0.997407, 0, 1, 0, -0.997407, 0, -0.0717924, 0, 0.0452401, 0)
 top_level = true
 script = ExtResource("1_mooij")
 teleporters_data = [{
@@ -60,3 +60,4 @@ to = "Left7.jpg"
 
 [node name="Sunken_Amphora" parent="." instance=ExtResource("5_h30vh")]
 transform = Transform3D(-0.0411953, 0, -0.999151, 0, 1, 0, 0.999151, 0, -0.0411953, 0.625255, -0.724374, -1.04888)
+visible = false

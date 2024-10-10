@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="5_ytes7"]
 
 [node name="left7_jpg" type="Node3D"]
-transform = Transform3D(-0.253754, 0, 0.967255, 0, 1, 0, -0.967255, 0, -0.253754, 0, 0, 0)
+transform = Transform3D(0.363246, 0, 0.931679, 0, 1, 0, -0.931679, 0, 0.363246, 0, 0, 0)
 top_level = true
 script = ExtResource("1_guqws")
 teleporters_data = [{

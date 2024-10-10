@@ -11,7 +11,7 @@
 albedo_texture = ExtResource("2_6aebe")
 
 [node name="left10 cheetah_jpg" type="Node3D"]
-transform = Transform3D(0.121868, 0, -0.992533, 0, 1, 0, 0.992533, 0, 0.121868, 0, 0, 0)
+transform = Transform3D(-0.559185, 0, -0.829027, 0, 1, 0, 0.829027, 0, -0.559185, 0, 0, 0)
 top_level = true
 script = ExtResource("1_c6ty8")
 teleporters_data = [{
@@ -40,14 +40,14 @@ omni_range = 16.12
 
 [node name="Left11_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("4_xv7wg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.698, -2.2, 2.092)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("5_4tbfq")
 to = "Left11.jpg"
 
 [node name="Left7_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("4_xv7wg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45318, -1.61, -1.96926)
-collision_layer = 512
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.453, -1.61, -1.969)
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("5_4tbfq")
 to = "Left7.jpg"

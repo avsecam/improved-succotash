@@ -72,10 +72,10 @@ gravity_scale = 0.01
 raycast_length = 5.0
 
 [node name="cursed_floor" parent="." instance=ExtResource("8_73r5a")]
-transform = Transform3D(0.978739, 7.08709e-10, 0.205111, 0.132942, 0.761516, -0.634366, -0.156195, 0.648147, 0.745325, -0.203244, -2.95896, -2.6498)
+transform = Transform3D(0.978739, 7.08709e-10, 0.205111, 0.132942, 0.761516, -0.634366, -0.156195, 0.648147, 0.745325, -0.203244, -1.06549, -2.6498)
 
 [node name="Floor_Cursed" parent="cursed_floor/MainMesh" index="0"]
-transform = Transform3D(1, 7.45058e-09, 0, 7.45058e-09, 1, 2.98023e-08, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 7.45058e-09, 7.45058e-09, 0, 1, 2.98023e-08, 1.49012e-08, 0, 1, 0, 0, 0)
 
 [editable path="holy_water"]
 [editable path="holy_water/InventoryItemComp"]

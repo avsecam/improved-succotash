@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="14_x0mvl"]
 
 [node name="back2_jpg" type="Node3D"]
-transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0.000283733, -0.000304431, -3.05474e-05)
+transform = Transform3D(-0.587778, 0, -0.809007, 0, 1, 0, 0.809007, 0, -0.587778, 0.000283733, -0.000304431, -3.05474e-05)
 top_level = true
 script = ExtResource("1_y8rwp")
 teleporters_data = [{
@@ -44,14 +44,14 @@ omni_range = 16.12
 
 [node name="Rights0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m7bfe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.979, -2.563, 0.696)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_nxs0m")
 to = "Rights0.jpg"
 
 [node name="Back1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m7bfe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.574, -1.398, -0.581)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_nxs0m")
 to = "Back1.jpg"
@@ -70,16 +70,16 @@ script = ExtResource("9_cx4bb")
 script = ExtResource("10_j1vnc")
 
 [node name="Bowl_PainterWater" parent="." instance=ExtResource("7_06841")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.553861, -0.188381, 0.275138)
+transform = Transform3D(-0.00406022, 0, -0.0999176, 0, 0.1, 0, 0.0999176, 0, -0.00406022, 0.273196, -0.45468, -1.19814)
 
 [node name="Easel_Normal2" parent="." instance=ExtResource("5_3dyau")]
-transform = Transform3D(0.124107, 0, 0.0842452, 0, 0.15, 0, -0.0842452, 0, 0.124107, -0.791267, -1.07163, -1.00037)
+transform = Transform3D(0.115443, 0, 0.0957746, 0, 0.15, 0, -0.0957746, 0, 0.115443, -0.81691, -1.35775, -0.804988)
 
 [node name="canvas_paint" parent="." instance=ExtResource("12_wqf6d")]
-transform = Transform3D(0.375447, -0.122278, -0.637642, 0.243884, 0.709199, 0.00760046, 0.601714, -0.211153, 0.394784, -0.656637, 0.339763, -0.796602)
+transform = Transform3D(0.431498, -0.141991, -0.596781, 0.243884, 0.709199, 0.00760049, 0.562876, -0.198434, 0.454197, -0.663333, 0.0536474, -0.615091)
 
 [node name="paintbrush_wet" parent="." instance=ExtResource("13_taacl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.649763, 0, -0.0334816)
+transform = Transform3D(-0.0406023, 0, -0.999176, 0, 1, 0, 0.999176, 0, -0.0406023, 0.585455, -0.266299, -1.28144)
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("14_x0mvl")]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.30962, 0.258942, -1.09775)
@@ -95,7 +95,7 @@ autoplay = true
 wait_time = 3.0
 
 [node name="Table" parent="." instance=ExtResource("14_gqfl1")]
-transform = Transform3D(0.609588, 0, -0.0146994, 0, 1, 0, 0.0224166, 0, 0.39973, -0.62877, -1.05118, 0.424597)
+transform = Transform3D(0.101068, 0, -0.394472, 0, 1, 0, 0.601569, 0, 0.0662739, 0.126901, -1.31748, -1.27906)
 
 [connection signal="action_ended" from="canvas_paint" to="Events/ActionPaintOnCanvas" method="_on_canvas_paint_action_ended"]
 [connection signal="canvas_disappear_signal" from="canvas_paint" to="Events/ActionInteractPaintedCanvas" method="_on_canvas_paint_canvas_disappear_signal"]

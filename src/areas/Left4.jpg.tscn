@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_qoegv"]
 
 [node name="left4_jpg" type="Node3D"]
-transform = Transform3D(0.173646, 0, 0.984795, 0, 1, 0, -0.984795, 0, 0.173646, 0, 0, 0)
+transform = Transform3D(0.334329, 0, 0.942442, 0, 1, 0, -0.942442, 0, 0.334329, 0, 0, 0)
 top_level = true
 script = ExtResource("1_beetx")
 teleporters_data = [{
@@ -41,29 +41,29 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Left1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_gdaay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.92132, -1.973, 1.13345)
-collision_layer = 512
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.921, -1.973, 1.133)
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")
 to = "Left1.jpg"
 
 [node name="Left2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_gdaay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47393, -2.311, -0.322097)
-collision_layer = 512
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.474, -2.311, -0.322)
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")
 to = "Left2.jpg"
 
 [node name="Left3_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_gdaay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57746, -1.689, -3.84695)
-collision_layer = 512
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.577, -1.689, -3.847)
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")
 to = "Left3.jpg"
 
 [node name="Left5Vase_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_gdaay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81572, -1.61, -1.76874)
-collision_layer = 512
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.816, -1.61, -1.769)
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")
 to = "Left5Vase.jpg"
