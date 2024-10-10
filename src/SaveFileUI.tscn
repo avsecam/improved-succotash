@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://bebgkxrau10o7"]
+
+[ext_resource type="Script" path="res://src/SaveFileUI.gd" id="1_agv42"]
+[ext_resource type="FontFile" uid="uid://be0wxrjh42okc" path="res://src/assets/Fonts/Poppins/Poppins-Black.ttf" id="1_hibfs"]
+[ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="2_xfl7m"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_h3o6o"]
+
+[node name="SaveFile" type="Control"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_agv42")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 150.0
+color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 150.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="SaveDataInformation" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/SaveDataInformation"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/SaveDataInformation/CenterContainer"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/SaveDataInformation/CenterContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = SubResource("ImageTexture_h3o6o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SaveDataInformation"]
+layout_mode = 2
+
+[node name="SaveFileLabel" type="Label" parent="MarginContainer/SaveDataInformation/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_hibfs")
+theme_override_font_sizes/font_size = 20
+text = "Save File 1"
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/SaveDataInformation/VBoxContainer"]
+custom_minimum_size = Vector2(400, 5)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CurrentLocation" type="Label" parent="MarginContainer/SaveDataInformation/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfl7m")
+text = "Current Location:"
+
+[node name="QuestsFinished" type="Label" parent="MarginContainer/SaveDataInformation/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfl7m")
+text = "Quests Finished:"
+
+[node name="NoSaveDataLabel" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_hibfs")
+theme_override_font_sizes/font_size = 48
+text = "NO SAVE DATA
+"
+horizontal_alignment = 1

@@ -1265,7 +1265,7 @@
 		],
 		"Event_Audio": "VE_VO_B3_MRBLSPRT_03_iNow",
 		"Loop_Audio": false,
-		"Loop_Interval": "",
+		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": "I thought we're looking for a painting, but this is a blank canvas! What do we do now?"

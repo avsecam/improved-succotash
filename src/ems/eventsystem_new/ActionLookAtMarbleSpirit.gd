@@ -12,4 +12,3 @@ func _on_event_started() -> void:
 
 func _on_visible_on_screen_notifier_3d_screen_entered():
 	close_event()
-	quests.add_active_quest("QuestRetrievePaintingUpdate")

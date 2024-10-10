@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 
 Events="*res://src/Events.gd"
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
-InventoryPersistence="*res://src/inventory/inventory_persistence.gd"
 AudioHandler="*res://src/ems/AudioHandler.tscn"
+SaveSystem="*res://src/SaveSystem.gd"
 
 [editor_plugins]
 

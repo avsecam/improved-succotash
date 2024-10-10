@@ -1,12 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://82klwlalqnpu"]
+[gd_scene load_steps=15 format=3 uid="uid://82klwlalqnpu"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_y8rwp"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v810u"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m7bfe"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_nxs0m"]
 [ext_resource type="PackedScene" uid="uid://dkk6tk5kycbf" path="res://src/assets/B3/Easel_Normal.glb" id="5_3dyau"]
-[ext_resource type="PackedScene" uid="uid://53ykoonvqw7h" path="res://src/assets/B3/Table.glb" id="6_autiu"]
 [ext_resource type="PackedScene" uid="uid://6cyd8lbfqd2p" path="res://src/assets/B MAIN/Bowl_PainterWater.glb" id="7_06841"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="7_edgk3"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLookAtCanvasPainting.gd" id="8_3623x"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPaintOnCanvas.gd" id="9_cx4bb"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionInteractPaintedCanvas.gd" id="10_j1vnc"]
+[ext_resource type="PackedScene" uid="uid://3am51gfstlnf" path="res://src/ois/canvas_paint.tscn" id="12_wqf6d"]
+[ext_resource type="PackedScene" uid="uid://6yjpwjxyl30v" path="res://src/ois/paintbrush_wet_a.tscn" id="13_taacl"]
+[ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="14_gqfl1"]
+[ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="14_x0mvl"]
 
 [node name="back2_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0.000283733, -0.000304431, -3.05474e-05)
@@ -49,14 +56,46 @@ collision_mask = 0
 script = ExtResource("4_nxs0m")
 to = "Back1.jpg"
 
-[node name="Easel_Normal" parent="." instance=ExtResource("5_3dyau")]
-transform = Transform3D(0.149617, 0, 0.0107089, 0, 0.15, 0, -0.0107089, 0, 0.149617, -0.0424517, -1.07857, -1.36313)
-visible = false
+[node name="Events" type="Node" parent="."]
+script = ExtResource("7_edgk3")
 
-[node name="Table2" parent="." instance=ExtResource("6_autiu")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.095, -0.699802, -0.769158, -0.249996)
-visible = false
+[node name="DialogueLookAtCanvasPainting" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("8_3623x")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionPaintOnCanvas" type="Node" parent="Events"]
+script = ExtResource("9_cx4bb")
+
+[node name="ActionInteractPaintedCanvas" type="Node" parent="Events"]
+script = ExtResource("10_j1vnc")
 
 [node name="Bowl_PainterWater" parent="." instance=ExtResource("7_06841")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.548757, -0.188381, -0.304477)
-visible = false
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.553861, -0.188381, 0.275138)
+
+[node name="Easel_Normal2" parent="." instance=ExtResource("5_3dyau")]
+transform = Transform3D(0.124107, 0, 0.0842452, 0, 0.15, 0, -0.0842452, 0, 0.124107, -0.791267, -1.07163, -1.00037)
+
+[node name="canvas_paint" parent="." instance=ExtResource("12_wqf6d")]
+transform = Transform3D(0.375447, -0.122278, -0.637642, 0.243884, 0.709199, 0.00760046, 0.601714, -0.211153, 0.394784, -0.656637, 0.339763, -0.796602)
+
+[node name="paintbrush_wet" parent="." instance=ExtResource("13_taacl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.649763, 0, -0.0334816)
+
+[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("14_x0mvl")]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.30962, 0.258942, -1.09775)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
+volume_db = 7.619
+autoplay = true
+
+[node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
+wait_time = 3.0
+
+[node name="Table" parent="." instance=ExtResource("14_gqfl1")]
+transform = Transform3D(0.609588, 0, -0.0146994, 0, 1, 0, 0.0224166, 0, 0.39973, -0.62877, -1.05118, 0.424597)
+
+[connection signal="action_ended" from="canvas_paint" to="Events/ActionPaintOnCanvas" method="_on_canvas_paint_action_ended"]
+[connection signal="canvas_disappear_signal" from="canvas_paint" to="Events/ActionInteractPaintedCanvas" method="_on_canvas_paint_canvas_disappear_signal"]

@@ -19,7 +19,7 @@ func canvas_disappear():
 	anim.play("FlyUpAnimation")
 	canvas_ahrt.visible = true
 	canvas_blank.visible = false
-	await get_tree().create_timer(2.0).timeout
+	await anim.animation_finished
 	self.queue_free()
 	canvas_disappear_signal.emit()
 	
@@ -27,6 +27,4 @@ func canvas_disappear():
 func _on_interact_area_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
 		canvas_disappear()
-	elif event.event_type == XRToolsPointerEvent.Type.ENTERED:
-		print("ASDKJASDKLASDJLASKDJASLKDJASLKDJASDLKJASDLKAJSDLAKSDJASLKDJ")
 	

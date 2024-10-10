@@ -13,5 +13,5 @@ func _on_cat_pet_event_done():
 	close_event()
 
 
-func _on_cat_action_ended(requirement, total_progress):
+func _on_cat_action_ended(wannrequirement, total_progress):
 	close_event()
