@@ -34,14 +34,14 @@ omni_range = 16.12
 
 [node name="Rights1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_kcbed")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.423, -1.532, 2.525)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_fyw8a")
 to = "Rights1.jpg"
 
 [node name="Right1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_kcbed")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68113, -1.26876, -3.38419)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_fyw8a")
 to = "Right1.jpg"
