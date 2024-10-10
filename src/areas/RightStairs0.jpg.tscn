@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_q812q"]
 
 [node name="right stairs0_jpg" type="Node3D"]
-transform = Transform3D(0.81042, 0, -0.585827, 0, 1, 0, 0.585827, 0, 0.81042, 0, 0, 0)
+transform = Transform3D(-0.587777, 0, -0.809006, 0, 1, 0, 0.809006, 0, -0.587777, 0, 0, 0)
 top_level = true
 script = ExtResource("1_vklpb")
 teleporters_data = [{
@@ -40,7 +40,7 @@ script = ExtResource("4_q812q")
 to = "Right5.jpg"
 
 [node name="RightStairs1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_uwauc")]
-transform = Transform3D(0.999833, 0.00666425, 0.0170352, -0.0107733, 0.967158, 0.253949, -0.0147833, -0.25409, 0.967068, -1.19104, 0.924664, 4.5208)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.191, 0.925, 4.521)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_q812q")

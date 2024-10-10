@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_sonl7"]
 
 [node name="right3_jpg" type="Node3D"]
-transform = Transform3D(-0.654732, 0, 0.755844, 0, 1, 0, -0.755844, 0, -0.654732, 0, 0, 0)
+transform = Transform3D(0.76, 0, 0.649904, 0, 1, 0, -0.649904, 0, 0.76, 0, 0, 0)
 top_level = true
 script = ExtResource("1_f2ym7")
 teleporters_data = [{
@@ -34,14 +34,14 @@ omni_range = 16.12
 
 [node name="Right1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_6w57s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.23714, -1.35488, 0.680326)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_sonl7")
 to = "Right1.jpg"
 
 [node name="Right4_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_6w57s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05944, -1.39773, -1.34884)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_sonl7")
 to = "Right4.jpg"

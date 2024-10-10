@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_et2fa"]
 
 [node name="right5_jpg" type="Node3D"]
-transform = Transform3D(0.552192, 0, -0.833702, 0, 1, 0, 0.833702, 0, 0.552192, 0, 0, 0)
+transform = Transform3D(-0.833875, 0, -0.55193, 0, 1, 0, 0.55193, 0, -0.833875, 0, 0, 0)
 top_level = true
 script = ExtResource("1_p01w3")
 teleporters_data = [{
