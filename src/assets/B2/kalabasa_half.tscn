@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq7dh0nb0xrfk"]
+
+[ext_resource type="PackedScene" uid="uid://bqr00dx0f30xc" path="res://(GLB FILES FOR GODOT) Villa Escudero Files/B2/Kalabasa_Half.glb" id="1_mwp1q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdcdj"]
+albedo_color = Color(0.709804, 0.521569, 0.129412, 1)
+
+[node name="Kalabasa_Half" instance=ExtResource("1_mwp1q")]
+
+[node name="Sphere" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_fdcdj")

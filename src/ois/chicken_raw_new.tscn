@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv5an2ct23mem"]
+
+[ext_resource type="Script" path="res://src/ois/chicken_raw_new.gd" id="1_8yc85"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_buwsc"]
+[ext_resource type="PackedScene" uid="uid://bng2k0ebnkryu" path="res://src/assets/B2/Chicken_Whole Raw.glb" id="2_epytd"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_jy2ii"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_f0kjq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45ogs"]
+size = Vector3(0.217871, 0.257971, 0.284277)
+
+[node name="chicken_raw_new" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_8yc85")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00737305, 0.0789856, -0.0102051)
+shape = SubResource("BoxShape3D_45ogs")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Chicken_Whole Raw" parent="MainMesh" instance=ExtResource("2_epytd")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_buwsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0469796, 0.130866, -0.0167318)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_jy2ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543334, 0.138585, 0)
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("5_f0kjq")]
+
+[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
+visible = false
+
+[node name="Chicken_Whole Raw2" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_epytd")]
+transform = Transform3D(0.25, 0, 0, 0, 0.103673, -0.22749, 0, 0.22749, 0.103673, 0, 0, -0.0583652)
+
+[editable path="InventoryItemComp"]

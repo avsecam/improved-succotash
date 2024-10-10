@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://btyvx7jme4ly7"]
+
+[ext_resource type="Script" path="res://src/ois/chicken_raw_pickable.gd" id="1_bdc6e"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_fi4so"]
+[ext_resource type="PackedScene" uid="uid://bng2k0ebnkryu" path="res://src/assets/B2/Chicken_Whole Raw.glb" id="2_uc337"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_b4l8k"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_iapq0"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_14xom"]
+[ext_resource type="Script" path="res://src/ois/states/interact_receiver.gd" id="7_awe07"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83pxc"]
+size = Vector3(0.2479, 0.188242, 0.264154)
+
+[sub_resource type="Resource" id="Resource_cb1ct"]
+script = ExtResource("7_14xom")
+state_behavior_settings = {
+"ActiveCollidingState": {},
+"ActiveState": {},
+"IdleState": {},
+"TriggerState": {}
+}
+behavior_dict = {}
+
+[node name="chicken_raw" type="RigidBody3D"]
+collision_layer = 5242885
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_bdc6e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00153809, 0.102281, -0.00465392)
+shape = SubResource("BoxShape3D_83pxc")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Chicken_Whole Raw" parent="MainMesh" instance=ExtResource("2_uc337")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_fi4so")]
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_b4l8k")]
+
+[node name="StateManager" parent="." instance=ExtResource("5_iapq0")]
+receiver_group = "chicken"
+settings = SubResource("Resource_cb1ct")
+
+[node name="InteractReceiver" type="Node3D" parent="StateManager"]
+script = ExtResource("7_awe07")

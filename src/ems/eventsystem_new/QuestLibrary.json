@@ -218,7 +218,9 @@
 			"Name": "Retrieve the missing painting",
 			"Description": "Locate the missing painting."
 		},
-		"Quest_Completion_Requirements": ["DialogueLookAtCanvasPainting_Done"],
+		"Quest_Completion_Requirements": [
+			"DialogueLookAtCanvasPainting_Done"
+		],
 		"Quest_Completion_Tracker": {
 			"Locate the missing painting": [
 				"DialogueLookAtCanvasPainting_Done"
@@ -234,7 +236,10 @@
 			"Name": "Paint on the canvas",
 			"Description": "Since there's no painting, might as well make a new one."
 		},
-		"Quest_Completion_Requirements": ["ActionPaintOnCanvas_Done","ActionInteractPaintedCanvas_Done"],
+		"Quest_Completion_Requirements": [
+			"ActionPaintOnCanvas_Done",
+			"ActionInteractPaintedCanvas_Done"
+		],
 		"Quest_Completion_Tracker": {
 			"Make a new painting": [
 				"ActionPaintOnCanvas_Done"
@@ -245,6 +250,28 @@
 		},
 		"Quest_Completion_Flags": [
 			"QuestRetrievePaintingUpdate_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestAddChickenToPole",
+		"Quest_Description": {
+			"Name": "TEST",
+			"Description": "chicken."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPutChickenPole1_Done",
+			"ActionPutChickenPole2_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Chicken 1": [
+				"ActionPutChickenPole1_Done"
+			],
+			"Chicken 2": [
+				"ActionPutChickenPole2_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestAddChickenToPole_Done"
 		]
 	}
 ]

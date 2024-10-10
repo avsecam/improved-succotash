@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1m66c65pq4fg"]
+
+[ext_resource type="Script" path="res://src/ois/pole_bamboo_chicken.gd" id="1_wi735"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/pole_bamboo_chicken_feedback.gd" id="2_4pe6d"]
+[ext_resource type="PackedScene" uid="uid://x5hvdtq5l4wf" path="res://src/assets/B2/Chicken_Whole Raw(1).glb" id="2_5hwfq"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_ob5gl"]
+[ext_resource type="PackedScene" uid="uid://dfnc5ga5dl8tp" path="res://src/assets/B2/Chicken_Whole Cooked.glb" id="3_ssqho"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_5g6ve"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="6_hfur4"]
+[ext_resource type="PackedScene" uid="uid://muoewebdtop4" path="res://src/assets/B3/Pole_Bamboo.glb" id="6_y6kp4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxcyy"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjyr0"]
+size = Vector3(0.1, 0.89408, 0.1)
+
+[node name="pole_bamboo_chicken" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_wi735")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_vxcyy")
+
+[node name="Feedback" type="Node3D" parent="."]
+script = ExtResource("2_4pe6d")
+action_start = true
+action_during = false
+action_end = null
+action_completed = null
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="ChickenRaw2" parent="MainMesh" instance=ExtResource("2_5hwfq")]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, -0.165942, -0.0606027)
+visible = false
+
+[node name="ChickenRaw1" parent="MainMesh" instance=ExtResource("2_5hwfq")]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0.188361, -0.0606027)
+visible = false
+
+[node name="Cooked" type="Node3D" parent="MainMesh"]
+visible = false
+
+[node name="ChickenCooked2" parent="MainMesh/Cooked" instance=ExtResource("3_ssqho")]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, -0.166, -0.061)
+
+[node name="ChickenCooked1" parent="MainMesh/Cooked" instance=ExtResource("3_ssqho")]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0.188303, -0.061)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_ob5gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.337121, -0.0960255)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_5g6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.337121, -0.0960255)
+
+[node name="ChickenReceiver" type="Area3D" parent="."]
+script = ExtResource("6_hfur4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChickenReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0157288, 0)
+shape = SubResource("BoxShape3D_bjyr0")
+
+[node name="Pole_Bamboo" parent="." instance=ExtResource("6_y6kp4")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[connection signal="action_ended" from="ChickenReceiver" to="Feedback" method="_on_chicken_receiver_action_ended"]

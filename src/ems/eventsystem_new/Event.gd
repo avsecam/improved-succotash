@@ -114,3 +114,7 @@ func clear_event_dialogue():
 
 func _on_event_started():
 	pass
+
+
+func _on_pole_bamboo_chicken_new_chicken_connect():
+	pass # Replace with function body.

@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://cmn6op3t4pdhk"]
+
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_xs1xg"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_gh08l"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_psbmx"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_sar06"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_88bbt"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLookAtMe.gd" id="6_busdr"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtMarbleSpirit.gd" id="7_ptm3v"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="8_0wu65"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole1.gd" id="9_gflcg"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole2.gd" id="10_r78k0"]
+[ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="11_xnaib"]
+[ext_resource type="PackedScene" uid="uid://vv52ccxdhu6h" path="res://src/ois/pole_bamboo_chicken_new.tscn" id="12_vixga"]
+[ext_resource type="PackedScene" uid="uid://bv5an2ct23mem" path="res://src/ois/chicken_raw_new.tscn" id="13_tpsa3"]
+
+[node name="tut1_jpg" type="Node3D"]
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
+top_level = true
+script = ExtResource("1_xs1xg")
+teleporters_data = [{
+"position": Vector3(0.313, -0.52, -4.459),
+"to": "Tut2.jpg"
+}, {
+"position": Vector3(4, -1, 0),
+"to": "Left00.jpg"
+}]
+image_filename = "res://src/areas/Tut1.jpg.jpg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+gi_mode = 0
+mesh = ExtResource("2_gh08l")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Tut2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_psbmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313, -0.52, -4.459)
+collision_layer = 5243392
+collision_mask = 0
+script = ExtResource("4_sar06")
+to = "Tut2.jpg"
+
+[node name="Left00_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_psbmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 0)
+collision_layer = 5243392
+collision_mask = 0
+script = ExtResource("4_sar06")
+to = "Left00.jpg"
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_88bbt")
+
+[node name="DialogueLookAtMe" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("6_busdr")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionLookAtMarbleSpirit" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("7_ptm3v")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="BGMPlayerOutside" type="Node" parent="Events"]
+script = ExtResource("8_0wu65")
+
+[node name="ActionPutChickenPole1" type="Node" parent="Events"]
+script = ExtResource("9_gflcg")
+
+[node name="ActionPutChickenPole2" type="Node" parent="Events"]
+script = ExtResource("10_r78k0")
+
+[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("11_xnaib")]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -0.307552, -0.0116689, 1.4901)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
+volume_db = 7.619
+autoplay = true
+
+[node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
+wait_time = 3.0
+
+[node name="pole_bamboo_chicken_new" parent="." instance=ExtResource("12_vixga")]
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, 0.258572, 0, -1.2148)
+
+[node name="chicken_raw_new" parent="." instance=ExtResource("13_tpsa3")]
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, 0.448389, 0, -0.646007)
+
+[node name="chicken_raw_new2" parent="." instance=ExtResource("13_tpsa3")]
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, 0.659792, 0, -0.446387)
+
+[connection signal="chicken_connect" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole1" method="_on_pole_bamboo_chicken_new_chicken_connect"]
+[connection signal="chicken_connect_2" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole2" method="_on_pole_bamboo_chicken_new_chicken_connect_2"]

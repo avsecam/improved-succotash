@@ -6,6 +6,8 @@ var current_inventory_item_comp
 # TODO: Consider transition from using inventory_item objects to using inventory_item_comp
 # If one wants to make object inventory object, just add inventory_item_comp
 
+	
+
 func _on_has_dropped():
 	# handles objects using inventory_item scene (old)
 	if current_inventory_obj.has_method("toggle_replacement_mesh"):
@@ -24,6 +26,7 @@ func _on_has_dropped():
 	
 	#current_inventory_obj = null
 	current_inventory_item_comp = null
+	
 
 func _on_has_picked_up(picked_up_object):
 	current_inventory_obj = picked_up_object

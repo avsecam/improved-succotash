@@ -1090,6 +1090,34 @@
 		"Event_Text": {}
 	},
 	{
+		"Event_Name": "ActionPutChickenPole1",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionPutChickenPole1_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPutChickenPole2",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPutChickenPole1_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPutChickenPole2_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
 		"Event_Name": "ActionPoleOnlyRoast",
 		"Event_Category": "ACTION",
 		"Oneshot": false,
