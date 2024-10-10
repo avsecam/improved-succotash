@@ -9,7 +9,7 @@ var start_inv_array = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	start_inv_array = get_tree().get_nodes_in_group("InventorySlot_PoleBamboo")
+	start_inv_array = get_tree().get_nodes_in_group("InventorySlot_Shelf")
 	inventory_size = start_inv_array.size()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
