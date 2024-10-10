@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3q1e5dyiic5v"]
+
+[ext_resource type="FontFile" uid="uid://be0wxrjh42okc" path="res://src/assets/Fonts/Poppins/Poppins-Black.ttf" id="1_pfw27"]
+[ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="2_bgy54"]
+[ext_resource type="FontFile" uid="uid://cvpm3sl6dimfg" path="res://src/assets/Fonts/Poppins/Poppins-MediumItalic.ttf" id="3_my10h"]
+[ext_resource type="FontFile" uid="uid://ii2stee4kiwm" path="res://src/assets/Fonts/Poppins/Poppins-BlackItalic.ttf" id="4_oyjvv"]
+[ext_resource type="PackedScene" uid="uid://bebgkxrau10o7" path="res://src/SaveFileUI.tscn" id="5_8hjiv"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_aj5rr"]
+
+[node name="MainMenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ImageTexture_aj5rr")
+
+[node name="Main" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StartGame" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 48
+text = "START GAME"
+
+[node name="Credits" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 48
+text = "CREDITS"
+
+[node name="SaveLoad" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveLoad"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="NewGame" type="Button" parent="SaveLoad/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 48
+text = "NEW GAME"
+
+[node name="LoadGame" type="Button" parent="SaveLoad/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 48
+text = "LOAD GAME"
+
+[node name="Credits" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Credits"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+follow_focus = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ScrollContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_bgy54")
+theme_override_fonts/bold_font = ExtResource("1_pfw27")
+theme_override_fonts/italics_font = ExtResource("3_my10h")
+theme_override_fonts/bold_italics_font = ExtResource("4_oyjvv")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
+bbcode_enabled = true
+text = "[b][i]CREDITS HERE[/i][/b]
+
+NAME 1  
+NAME 2
+NAME 3
+NAME 4
+NAME 5
+NAME 6
+NAME 7
+NAME 8
+NAME 9
+"
+scroll_following = true
+
+[node name="SaveFiles" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveFiles"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SaveFile" parent="SaveFiles/VBoxContainer" instance=ExtResource("5_8hjiv")]
+layout_mode = 2
+
+[node name="SaveFile2" parent="SaveFiles/VBoxContainer" instance=ExtResource("5_8hjiv")]
+layout_mode = 2
+
+[node name="SaveFile3" parent="SaveFiles/VBoxContainer" instance=ExtResource("5_8hjiv")]
+layout_mode = 2

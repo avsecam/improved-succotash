@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bwc5vmma3yvfi"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://w2srkixfd34a"]
 
 [ext_resource type="Texture2D" uid="uid://8s03ra8tp0hr" path="res://addons/godot-xr-tools/images/ring.png" id="1"]
 

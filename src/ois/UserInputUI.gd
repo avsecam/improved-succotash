@@ -14,13 +14,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_transform = follow_object.global_transform
-	
-	if pointer.is_colliding():
-		var object = pointer.get_collider()
-		pointer_collision_response(object)
-	else:
-		close_ui()
+	if Events.current_mode == "VR":
+		global_transform = follow_object.global_transform
+		
+		if pointer.is_colliding():
+			var object = pointer.get_collider()
+			pointer_collision_response(object)
+		else:
+			close_ui()
 
 
 func show_action(action_name : String) -> void:
@@ -42,7 +43,7 @@ func pointer_collision_response(obj) -> void:
 		show_action("middle_click")
 	elif obj is WipeAction:
 		show_action("wave")
-	elif obj is TwistAction:
-		show_action("rotate_left")
+	#elif obj is TwistAction:
+		#show_action("rotate_left")
 	else:
 		close_ui()
