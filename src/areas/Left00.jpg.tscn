@@ -68,5 +68,12 @@ transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14651, -1.75174, -3.82812)
 gravity_scale = 0.01
 
+[node name="ControlRaycast" parent="holy_water/StateManager" index="4"]
+raycast_length = 5.0
+
 [node name="cursed_floor" parent="." instance=ExtResource("8_73r5a")]
-transform = Transform3D(0.978739, 0, 0.205111, 0, 1, 0, -0.205111, 0, 0.978739, 0, -3.503, 0)
+transform = Transform3D(0.978739, 4.44095e-16, 0.205111, 0.0838413, 0.912642, -0.40007, -0.187193, 0.408761, 0.893238, 0, -4.29608, -1.78132)
+
+[editable path="holy_water"]
+[editable path="holy_water/InventoryItemComp"]
+[editable path="cursed_floor"]

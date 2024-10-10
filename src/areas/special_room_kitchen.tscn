@@ -2,10 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_7hb37"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_17tsy"]
 
 [node name="SpecialRoom_Kitchen" type="Node3D"]
 script = ExtResource("1_7hb37")
@@ -120,7 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04538, 0, 1.30367)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
-mesh = SubResource("SphereMesh_17tsy")
+mesh = ExtResource("3_7i3wd")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_energy = 3.015
