@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://sd6dhjeum6eo"]
+
+[ext_resource type="Script" path="res://src/ois/pole_bamboo_chicken_connect.gd" id="1_hls1o"]
+[ext_resource type="PackedScene" uid="uid://dfnc5ga5dl8tp" path="res://src/assets/B2/Chicken_Whole Cooked.glb" id="3_ejmt6"]
+[ext_resource type="PackedScene" uid="uid://muoewebdtop4" path="res://src/assets/B3/Pole_Bamboo.glb" id="5_vsaxw"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_rcxix"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_ff8cq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ck2rs"]
+size = Vector3(0.0983503, 0.896259, 0.1)
+
+[node name="pole_bamboo_chicken_roastpit" type="RigidBody3D"]
+collision_layer = 5
+collision_mask = 196615
+gravity_scale = 0.0
+freeze_mode = 1
+script = ExtResource("1_hls1o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00444288, 0.00194398, 0)
+visible = false
+shape = SubResource("BoxShape3D_ck2rs")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Pole_Bamboo" parent="MainMesh" instance=ExtResource("5_vsaxw")]
+transform = Transform3D(0.3, 0, 0, 0, 0.4, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Chicken_Whole Cooked" parent="MainMesh" instance=ExtResource("3_ejmt6")]
+transform = Transform3D(-0.00507224, 0.246758, 0.0398115, -0.0183467, 0.0393447, -0.246202, -0.249274, -0.00791683, 0.0173105, -0.0817652, 0.158621, 0.00895783)
+
+[node name="Chicken_Whole Cooked2" parent="MainMesh" instance=ExtResource("3_ejmt6")]
+transform = Transform3D(-0.00507224, 0.246758, 0.0398115, -0.0183467, 0.0393447, -0.246202, -0.249274, -0.00791683, 0.0173105, -0.0817652, -0.19986, 0.00895783)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("7_rcxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.308096, -0.0822605)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("8_ff8cq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.308096, -0.0822605)

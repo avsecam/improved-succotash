@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0qm8ycbqgx3s"]
+
+[ext_resource type="PackedScene" uid="uid://bnuh37thuw6hn" path="res://src/assets/B1/Tile_Sun.glb" id="1_ydaul"]
+
+[node name="Tile_Sun" instance=ExtResource("1_ydaul")]

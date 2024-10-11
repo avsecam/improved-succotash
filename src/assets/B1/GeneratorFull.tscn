@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b42afk4j3r76d"]
+
+[ext_resource type="PackedScene" uid="uid://d01cmuarffo6w" path="res://src/assets/B1/Generator_Crank.glb" id="1_ub8cf"]
+[ext_resource type="PackedScene" uid="uid://bg53skko2jjla" path="res://src/assets/B1/Generator_Compartment.glb" id="2_hgavb"]
+[ext_resource type="PackedScene" uid="uid://c00lcjnt8xi7" path="res://src/assets/B1/Generator_Compartment Door.glb" id="3_3s2li"]
+[ext_resource type="PackedScene" uid="uid://cnf67wsfj0df4" path="res://src/assets/B1/Generator_Body.glb" id="4_n2gpo"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Generator_Crank" parent="." instance=ExtResource("1_ub8cf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.90297)
+
+[node name="Generator_Compartment" parent="." instance=ExtResource("2_hgavb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Generator_Compartment Door" parent="." instance=ExtResource("3_3s2li")]
+transform = Transform3D(0.999997, 0, 0.00237365, 0, 1, 0, -0.00237365, 0, 0.999997, 0, 0, -1)
+
+[node name="Generator_Body2" parent="." instance=ExtResource("4_n2gpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Generator_Compartment" parent="Generator_Body2" instance=ExtResource("2_hgavb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.198)
+
+[node name="Generator_Body2" parent="Generator_Body2" instance=ExtResource("4_n2gpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.198)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3se6o8q2n7rn"]
+
+[ext_resource type="PackedScene" uid="uid://br8e0buathkji" path="res://src/assets/B2/Papaya_Peeled.glb" id="1_dxt7y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2winn"]
+albedo_color = Color(1, 0.972549, 0.631373, 1)
+
+[node name="Papaya_Peeled" instance=ExtResource("1_dxt7y")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.449, 0, 0, 0, 0.3, 0, 0.158389, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_2winn")

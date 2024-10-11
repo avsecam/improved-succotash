@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=3 uid="uid://d6m7vthwf6a6"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_2d6d3"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/slice_kalabasa.gd" id="2_ucc1r"]
+[ext_resource type="PackedScene" uid="uid://b0d0sjo7f7wwf" path="res://src/assets/B2/Kalabasa_Whole.glb" id="3_imxpf"]
+[ext_resource type="PackedScene" uid="uid://dt2whaxocytb5" path="res://src/assets/B2/Kalabasa_Pieces.glb" id="4_3seuw"]
+[ext_resource type="PackedScene" uid="uid://ctrc8jt7mp5fe" path="res://src/assets/B2/kalabasa_eights.tscn" id="5_q1bu6"]
+[ext_resource type="PackedScene" uid="uid://c05tyyt6s8g5o" path="res://src/assets/B2/kalabasa_quarters.tscn" id="6_coswp"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_se07a"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_12pop"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="9_fm716"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0j2vl"]
+size = Vector3(0.222163, 0.0990719, 0.242407)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpgbw"]
+size = Vector3(0.276603, 0.271533, 0.328437)
+
+[node name="kalabasa" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+mass = 3.0
+freeze_mode = 1
+script = ExtResource("1_2d6d3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0441596, -0.0532243, -0.000763904)
+shape = SubResource("BoxShape3D_0j2vl")
+
+[node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("kalabasaa", "kalabasab", "kalabasac", "kalabasad")]
+script = ExtResource("2_ucc1r")
+kalabasaa = NodePath("../MainMesh/Kalabasa_Whole")
+kalabasab = NodePath("../MainMesh/Halves")
+kalabasac = NodePath("../MainMesh/Quarters")
+kalabasad = NodePath("../MainMesh/Eighths")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Kalabasa_Whole" parent="MainMesh" instance=ExtResource("3_imxpf")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.048131, 0.00184517, -0.00136464)
+
+[node name="Eighths" type="Node3D" parent="MainMesh"]
+transform = Transform3D(0.0298477, -0.00301867, 0, 0.00301867, 0.0298477, 0, 0, 0, 0.03, 0, -0.178583, 0)
+visible = false
+
+[node name="Kalabasa_Pieces" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
+transform = Transform3D(9.94925, 1.00622, 0, -1.00622, 9.94925, 0, 0, 0, 10, 0.34248, 2.94528, 2.70451)
+
+[node name="Kalabasa_Pieces2" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
+transform = Transform3D(6.59179, 1.00622, -7.45224, -0.666666, 9.94925, 0.753688, 7.49025, 6.20882e-08, 6.62542, 1.19679, 2.85888, 0.31375)
+
+[node name="Kalabasa_Pieces3" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
+transform = Transform3D(6.07434, 1.00622, -7.87972, -0.614333, 9.94925, 0.796921, 7.91992, 0, 6.10532, -1.68794, 3.15063, 0.31375)
+
+[node name="Kalabasa_Pieces4" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
+transform = Transform3D(4.08033, 1.00622, 9.07407, -0.412668, 9.94925, -0.917713, -9.12035, 2.27075e-07, 4.10115, -1.68948, 3.15079, 2.08269)
+
+[node name="Kalabasa_Pieces5" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
+transform = Transform3D(9.94925, 0.967134, 0.277741, -1.00622, 9.56273, 2.74622, 3.10441e-08, -2.76023, 9.61151, 0.434101, 3.85119, 0.888057)
+
+[node name="Kalabasa_Pieces6" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
+transform = Transform3D(6.79983, 0.967134, -7.26823, 1.39033, 9.56273, 2.57318, 7.19927, -2.76023, 6.36803, 1.22201, 3.10824, -1.40982)
+
+[node name="Kalabasa_Pieces7" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
+transform = Transform3D(6.29431, 0.967134, -7.71015, 1.56065, 9.56273, 2.47358, 7.61224, -2.76023, 5.86814, -1.66273, 3.39999, -1.40982)
+
+[node name="Kalabasa_Pieces8" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
+transform = Transform3D(3.82703, 0.967134, 9.18797, -2.91732, 9.56273, 0.208553, -8.76604, -2.76023, 3.94182, -1.61513, 3.88594, 0.290391)
+
+[node name="Quarters" type="Node3D" parent="MainMesh"]
+transform = Transform3D(0.0191373, -0.0172313, -0.0428584, 0.0334565, 0.0371573, -1.44287e-08, 0.03185, -0.0286779, 0.0257518, 0.00113975, -0.151026, -0.0499877)
+visible = false
+
+[node name="Kalabasa_quarters" parent="MainMesh/Quarters" instance=ExtResource("5_q1bu6")]
+transform = Transform3D(1.00374, 0.936783, 0.273748, -0.903776, 1.0404, -0.246483, -0.368364, -1.47405e-06, 1.35067, 2.07907, 0.216913, 2.33772)
+
+[node name="Kalabasa_quarters2" parent="MainMesh/Quarters" instance=ExtResource("5_q1bu6")]
+transform = Transform3D(0.535845, 0.936782, 0.891801, -0.482478, 1.0404, -0.80298, -1.20004, -7.50601e-07, 0.721052, 1.79343, 0.474105, 0.539993)
+
+[node name="Kalabasa_quarters3" parent="MainMesh/Quarters" instance=ExtResource("5_q1bu6")]
+transform = Transform3D(0.979895, 0.936784, -0.349635, -0.882303, 1.0404, 0.314815, 0.470482, -1.53458e-06, 1.31858, 0.128238, 1.97345, 2.37907)
+
+[node name="Kalabasa_quarters4" parent="MainMesh/Quarters" instance=ExtResource("5_q1bu6")]
+transform = Transform3D(1.32462, 0.309073, 0.331448, -0.135794, -0.706175, 1.2012, 0.432372, -1.16867, -0.638174, 0.549931, 1.59375, 3.87175)
+
+[node name="Kalabasa_quarters5" parent="MainMesh/Quarters" instance=ExtResource("5_q1bu6")]
+transform = Transform3D(0.961693, 0.936784, -0.396968, -0.865914, 1.0404, 0.357434, 0.534175, -1.51922e-06, 1.29409, 2.98757, -0.601111, 0.627836)
+
+[node name="Kalabasa_quarters6" parent="MainMesh/Quarters" instance=ExtResource("5_q1bu6")]
+transform = Transform3D(-0.0658881, 0.936784, -1.03831, 0.0593248, 1.0404, 0.934906, 1.39719, 2.37686e-07, -0.0886606, 0.6711, 1.48465, 0.29167)
+
+[node name="Halves" type="Node3D" parent="MainMesh"]
+transform = Transform3D(0.0696447, -0.00704356, 0, 0.00704356, 0.0696447, 0, 0, 0, 0.07, -0.0195663, -0.0715405, 0.0439649)
+visible = false
+
+[node name="Kalabasa_quarters" parent="MainMesh/Halves" instance=ExtResource("6_coswp")]
+transform = Transform3D(0.922721, 0.0280427, 0.766679, 0.0280425, 1.19716, -0.0775385, -0.76668, 0.0775385, 0.919885, -1.25501, 0.126926, -2.26442)
+
+[node name="Kalabasa_quarters2" parent="MainMesh/Halves" instance=ExtResource("6_coswp")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="Kalabasa_quarters3" parent="MainMesh/Halves" instance=ExtResource("6_coswp")]
+transform = Transform3D(0.254391, 0.0956347, -1.16882, 0.0956346, 1.19033, 0.118209, 1.16882, -0.118209, 0.244719, 1.14984, -0.116289, -2.13515)
+
+[node name="Kalabasa_quarters4" parent="MainMesh/Halves" instance=ExtResource("6_coswp")]
+transform = Transform3D(-0.0211206, 0.123499, -1.19344, 0.123499, 1.18751, 0.120699, 1.19344, -0.120699, -0.0336107, -2.51475, 0.254331, -0.732292)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("7_se07a")]
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("8_12pop")]
+
+[node name="KalabasaReceiver" type="Area3D" parent="." groups=["sliceable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97672e-05, -3.72529e-09, -0.00086543)
+script = ExtResource("9_fm716")
+requirement = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KalabasaReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614364, 0.0351809, 0.000948388)
+shape = SubResource("BoxShape3D_fpgbw")
+
+[connection signal="action_completed" from="KalabasaReceiver" to="Feedback" method="_on_kalabasa_receiver_action_completed"]
+[connection signal="action_in_progress" from="KalabasaReceiver" to="Feedback" method="_on_kalabasa_receiver_action_in_progress"]

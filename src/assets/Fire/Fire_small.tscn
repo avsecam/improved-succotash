@@ -1,0 +1,142 @@
+[gd_scene load_steps=22 format=3 uid="uid://bvmc7xy6d8n82"]
+
+[ext_resource type="Shader" uid="uid://s1vlqsqdci1o" path="res://src/assets/Fire/FireShader.tres" id="1_hlmfk"]
+[ext_resource type="Texture2D" uid="uid://b4cij3rwar8be" path="res://src/assets/Fire/Voronoi01.png" id="2_08uin"]
+[ext_resource type="Texture2D" uid="uid://cm56ymessdpyx" path="res://src/assets/Fire/Flame01.png" id="3_lrl2v"]
+[ext_resource type="Texture2D" uid="uid://kdko7148y7hv" path="res://src/assets/Fire/Flame02.png" id="4_lseua"]
+[ext_resource type="Texture2D" uid="uid://cfpqiimjv161b" path="res://src/assets/Fire/Flare00.PNG" id="5_sna8y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5m3v"]
+render_priority = 0
+shader = ExtResource("1_hlmfk")
+shader_parameter/Dissolve_Tilling = Vector2(0.25, 0.2)
+shader_parameter/Dissolve_Speed = Vector2(0, 0.4)
+shader_parameter/DissolveAmount = 0.405
+shader_parameter/Main_Texture = ExtResource("3_lrl2v")
+shader_parameter/Dissolve_Texture = ExtResource("2_08uin")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_raueu"]
+gravity = Vector3(0, 0, 0)
+color = Color(4, 1.25, 0.6, 0.8)
+
+[sub_resource type="QuadMesh" id="QuadMesh_cwpu3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s05kq"]
+render_priority = 0
+shader = ExtResource("1_hlmfk")
+shader_parameter/Dissolve_Tilling = Vector2(1, 1)
+shader_parameter/Dissolve_Speed = null
+shader_parameter/DissolveAmount = null
+shader_parameter/Main_Texture = ExtResource("4_lseua")
+shader_parameter/Dissolve_Texture = ExtResource("2_08uin")
+
+[sub_resource type="Curve" id="Curve_n4nt0"]
+_data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6mgy3"]
+curve = SubResource("Curve_n4nt0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q72nb"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+angle_min = -360.0
+angle_max = 360.0
+gravity = Vector3(0, 2, 0)
+damping_max = 1.0
+scale_min = 0.1
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_6mgy3")
+color = Color(4, 1.25, 0.6, 0.8)
+
+[sub_resource type="QuadMesh" id="QuadMesh_dk2u8"]
+
+[sub_resource type="Gradient" id="Gradient_68mfk"]
+offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ipxr7"]
+gradient = SubResource("Gradient_68mfk")
+
+[sub_resource type="Curve" id="Curve_mqja3"]
+_data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rxjis"]
+curve = SubResource("Curve_mqja3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ds67m"]
+resource_local_to_scene = true
+lifetime_randomness = 0.05
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -360.0
+angle_max = 360.0
+gravity = Vector3(0, 2, 0)
+damping_max = 1.0
+scale_min = 0.2
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_rxjis")
+color = Color(0.12495, 0.0106964, 0.000834139, 0.8)
+color_ramp = SubResource("GradientTexture1D_ipxr7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k67je"]
+render_priority = 0
+shader = ExtResource("1_hlmfk")
+shader_parameter/Dissolve_Tilling = Vector2(1, 1)
+shader_parameter/Dissolve_Speed = null
+shader_parameter/DissolveAmount = null
+shader_parameter/Main_Texture = ExtResource("5_sna8y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_krqx8"]
+emission_shape = 1
+emission_sphere_radius = 0.6
+gravity = Vector3(0, 4, 0)
+scale_min = 0.01
+scale_max = 0.12
+color = Color(4, 1.2902, 0.6, 0.8)
+turbulence_enabled = true
+turbulence_noise_scale = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_1puwy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticFlame" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_y5m3v")
+amount = 1
+lifetime = 5.0
+visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+process_material = SubResource("ParticleProcessMaterial_raueu")
+draw_pass_1 = SubResource("QuadMesh_cwpu3")
+
+[node name="Flames" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014836, 0, 0)
+material_override = SubResource("ShaderMaterial_s05kq")
+visibility_range_fade_mode = 1
+amount = 10
+lifetime = 0.65
+visibility_aabb = AABB(0, 0, 0, 0.1, 0.1, 0.2)
+process_material = SubResource("ParticleProcessMaterial_q72nb")
+draw_pass_1 = SubResource("QuadMesh_dk2u8")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0296721, 0, 0)
+material_override = SubResource("ShaderMaterial_s05kq")
+amount = 10
+visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+process_material = SubResource("ParticleProcessMaterial_ds67m")
+draw_pass_1 = SubResource("QuadMesh_dk2u8")
+
+[node name="Floaters" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_k67je")
+amount = 25
+lifetime = 2.0
+visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+process_material = SubResource("ParticleProcessMaterial_krqx8")
+draw_pass_1 = SubResource("QuadMesh_1puwy")
