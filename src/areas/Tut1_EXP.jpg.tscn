@@ -15,11 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://vv52ccxdhu6h" path="res://src/ois/pole_bamboo_chicken_new.tscn" id="12_vixga"]
 [ext_resource type="PackedScene" uid="uid://bv5an2ct23mem" path="res://src/ois/chicken_raw_new.tscn" id="13_tpsa3"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="14_4hwlx"]
-[ext_resource type="PackedScene" uid="uid://bdsmwcbkg2ua7" path="res://src/ois/knife_cleaver.tscn" id="15_g8324"]
-[ext_resource type="PackedScene" uid="uid://lul7yfj27do8" path="res://src/ois/Garlic.tscn" id="16_w3bij"]
-[ext_resource type="PackedScene" uid="uid://b74f8r4tmvgdb" path="res://src/ois/onion.tscn" id="17_g2qpx"]
-[ext_resource type="PackedScene" uid="uid://d6m7vthwf6a6" path="res://src/ois/kalabasa.tscn" id="18_4s5jq"]
-[ext_resource type="PackedScene" uid="uid://blvdj2t00ghc6" path="res://src/ois/roasting_pit_a.tscn" id="19_lydk1"]
+[ext_resource type="PackedScene" path="res://src/ois/knife_cleaver.tscn" id="15_g8324"]
+[ext_resource type="PackedScene" uid="uid://ddfcwjl7txxqd" path="res://src/ois/Garlic.tscn" id="16_w3bij"]
+[ext_resource type="PackedScene" path="res://src/ois/onion.tscn" id="17_g2qpx"]
+[ext_resource type="PackedScene" path="res://src/ois/kalabasa.tscn" id="18_4s5jq"]
+[ext_resource type="PackedScene" path="res://src/ois/roasting_pit_a.tscn" id="19_lydk1"]
 
 [node name="tut1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -135,6 +135,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5936
 
 [connection signal="chicken_connect" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole1" method="_on_pole_bamboo_chicken_new_chicken_connect"]
 [connection signal="chicken_connect_2" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole2" method="_on_pole_bamboo_chicken_new_chicken_connect_2"]
-[connection signal="pole_inserted_inventory" from="pole_bamboo_chicken_new" to="Events/ActionAfterChickenSkewer" method="_on_pole_bamboo_chicken_new_pole_inserted_inventory"]
 
 [editable path="roasting_pit_a"]
