@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=3 uid="uid://b74f8r4tmvgdb"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_kmvew"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_0c3c4"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/slice_onion_pieces.gd" id="2_tleod"]
+[ext_resource type="PackedScene" uid="uid://bfe20flb35lph" path="res://src/assets/B2/WhiteOnion_Peeled1.glb" id="3_3kqg0"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_5xhde"]
+[ext_resource type="PackedScene" uid="uid://800d5pi7toji" path="res://src/assets/B2/WhiteOnion_Eights.glb" id="4_c55o7"]
+[ext_resource type="PackedScene" uid="uid://d20rlsd50ugpx" path="res://src/assets/B2/WhiteOnion_Quarters.glb" id="5_j8xt8"]
+[ext_resource type="PackedScene" uid="uid://dceobd16aphk0" path="res://src/assets/B2/WhiteOnion_Halves.glb" id="6_ryleq"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_rsfia"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0j2vl"]
+size = Vector3(0.211768, 0.0616692, 0.242407)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpgbw"]
+size = Vector3(0.267541, 0.232471, 0.292047)
+
+[node name="onion" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+mass = 3.0
+freeze_mode = 1
+script = ExtResource("1_kmvew")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010498, -0.0719257, -0.000763904)
+shape = SubResource("BoxShape3D_0j2vl")
+
+[node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("oniona", "onionb", "onionc", "oniond")]
+script = ExtResource("2_tleod")
+oniona = NodePath("../MainMesh/WhiteOnion_Peeled1")
+onionb = NodePath("../MainMesh/Halves")
+onionc = NodePath("../MainMesh/Quarters")
+oniond = NodePath("../MainMesh/Eighths")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="WhiteOnion_Peeled1" parent="MainMesh" instance=ExtResource("3_3kqg0")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="Eighths" type="Node3D" parent="MainMesh"]
+transform = Transform3D(0.0298477, -0.00301867, 0, 0.00301867, 0.0298477, 0, 0, 0, 0.03, 0, -0.092632, 0)
+visible = false
+
+[node name="WhiteOnion_Eights" parent="MainMesh/Eighths" instance=ExtResource("4_c55o7")]
+transform = Transform3D(1, -7.45058e-09, 0, 7.45058e-09, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="WhiteOnion_Eights2" parent="MainMesh/Eighths" instance=ExtResource("4_c55o7")]
+transform = Transform3D(-0.254352, 0.126976, -0.95874, 0.127296, 0.987114, 0.0969626, 0.958697, -0.0973809, -0.267238, -1.15482, 0.116793, 0)
+
+[node name="WhiteOnion_Eights3" parent="MainMesh/Eighths" instance=ExtResource("4_c55o7")]
+transform = Transform3D(0.422617, 0, 0.906306, 2.6077e-08, 0.999998, -2.23517e-08, -0.906306, 2.02576e-08, 0.422618, 2.64732, -0.267738, -0.410554)
+
+[node name="WhiteOnion_Eights4" parent="MainMesh/Eighths" instance=ExtResource("4_c55o7")]
+transform = Transform3D(0.407907, -0.141208, 0.902036, 0.127296, 0.987112, 0.0969625, -0.904105, 0.0752737, 0.420626, -0.0696558, 0.00704466, -2.29499)
+
+[node name="WhiteOnion_Eights5" parent="MainMesh/Eighths" instance=ExtResource("4_c55o7")]
+transform = Transform3D(0.407907, -0.141208, 0.902035, 0.127296, 0.98711, 0.0969623, -0.904104, 0.0752737, 0.420626, -2.69549, 0.353589, -1.57733)
+
+[node name="WhiteOnion_Eights6" parent="MainMesh/Eighths" instance=ExtResource("4_c55o7")]
+transform = Transform3D(0.743051, -0.175435, -0.645826, 0.186235, 0.981111, -0.0522425, 0.642796, -0.0814569, 0.761692, 2.92105, -0.295468, 1.37071)
+
+[node name="WhiteOnion_Eights7" parent="MainMesh/Eighths" instance=ExtResource("4_c55o7")]
+transform = Transform3D(-0.645132, -0.141208, 0.750903, -0.0340802, 0.987108, 0.156347, -0.763306, 0.0752734, -0.641632, 3.8691, -0.201845, -2.51403)
+
+[node name="WhiteOnion_Eights8" parent="MainMesh/Eighths" instance=ExtResource("4_c55o7")]
+transform = Transform3D(-0.667122, -0.129088, 0.733674, 0.0899157, 0.963712, 0.251323, -0.739499, 0.233632, -0.63131, -0.57498, 0.16264, 4.47882)
+
+[node name="Quarters" type="Node3D" parent="MainMesh"]
+transform = Transform3D(0.0114824, -0.0103388, -0.025715, 0.0200739, 0.0222943, -4.15265e-10, 0.01911, -0.0172067, 0.0154511, -0.0609141, -0.0465709, -0.0499877)
+visible = false
+
+[node name="WhiteOnion_Quarters" parent="MainMesh/Quarters" instance=ExtResource("5_j8xt8")]
+transform = Transform3D(1, 5.96046e-08, 2.98023e-08, 0, 1, -2.98023e-08, -2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="WhiteOnion_Quarters2" parent="MainMesh/Quarters" instance=ExtResource("5_j8xt8")]
+transform = Transform3D(0.619698, 0.774094, -0.129431, -0.557979, 0.318564, -0.766275, -0.551937, 0.547078, 0.629342, 1.64883, -1.48461, 1.33314)
+
+[node name="WhiteOnion_Quarters3" parent="MainMesh/Quarters" instance=ExtResource("5_j8xt8")]
+transform = Transform3D(-0.708123, -0.00309777, 0.706083, 0.704038, -0.0792595, 0.705725, 0.0537776, 0.996849, 0.0583064, 1.76433, -3.06237, -0.50155)
+
+[node name="WhiteOnion_Quarters4" parent="MainMesh/Quarters" instance=ExtResource("5_j8xt8")]
+transform = Transform3D(0.711088, -0.0602273, -0.700519, 0.656427, 0.413834, 0.63075, 0.25191, -0.908358, 0.333807, 1.90071, -1.71141, -1.80546)
+
+[node name="Halves" type="Node3D" parent="MainMesh"]
+transform = Transform3D(0.0497462, -0.00503111, 0, 0.00503111, 0.0497462, 0, 0, 0, 0.05, 0, -0.0488899, 0)
+visible = false
+
+[node name="WhiteOnion_Halves" parent="MainMesh/Halves" instance=ExtResource("6_ryleq")]
+transform = Transform3D(-0.057564, 0.99834, 0, -0.99834, -0.057564, 0, 0, 0, 0.999999, 0.765804, -0.870566, -0.999397)
+
+[node name="WhiteOnion_Halves2" parent="MainMesh/Halves" instance=ExtResource("6_ryleq")]
+transform = Transform3D(0.778243, -0.627963, 0, 0.627963, 0.778243, 0, 0, 0, 1, -0.9884, 0.128024, 1.20003)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_0c3c4")]
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_5xhde")]
+
+[node name="OnionReceiver" type="Area3D" parent="." groups=["sliceable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97672e-05, -3.72529e-09, -0.00086543)
+script = ExtResource("7_rsfia")
+requirement = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OnionReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000469968, 0.0156494, 0.00145692)
+shape = SubResource("BoxShape3D_fpgbw")
+
+[connection signal="action_completed" from="OnionReceiver" to="Feedback" method="_on_onion_receiver_action_completed"]
+[connection signal="action_in_progress" from="OnionReceiver" to="Feedback" method="_on_onion_receiver_action_in_progress"]

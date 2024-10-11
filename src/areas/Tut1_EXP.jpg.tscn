@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmn6op3t4pdhk"]
+[gd_scene load_steps=21 format=3 uid="uid://cmn6op3t4pdhk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_xs1xg"]
 [ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_gh08l"]
@@ -10,9 +10,16 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="8_0wu65"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole1.gd" id="9_gflcg"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole2.gd" id="10_r78k0"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionAfterChickenSkewer.gd" id="11_7f8b1"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="11_xnaib"]
 [ext_resource type="PackedScene" uid="uid://vv52ccxdhu6h" path="res://src/ois/pole_bamboo_chicken_new.tscn" id="12_vixga"]
 [ext_resource type="PackedScene" uid="uid://bv5an2ct23mem" path="res://src/ois/chicken_raw_new.tscn" id="13_tpsa3"]
+[ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="14_4hwlx"]
+[ext_resource type="PackedScene" uid="uid://bdsmwcbkg2ua7" path="res://src/ois/knife_cleaver.tscn" id="15_g8324"]
+[ext_resource type="PackedScene" uid="uid://lul7yfj27do8" path="res://src/ois/Garlic.tscn" id="16_w3bij"]
+[ext_resource type="PackedScene" uid="uid://b74f8r4tmvgdb" path="res://src/ois/onion.tscn" id="17_g2qpx"]
+[ext_resource type="PackedScene" uid="uid://d6m7vthwf6a6" path="res://src/ois/kalabasa.tscn" id="18_4s5jq"]
+[ext_resource type="PackedScene" uid="uid://blvdj2t00ghc6" path="res://src/ois/roasting_pit_a.tscn" id="19_lydk1"]
 
 [node name="tut1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -28,12 +35,13 @@ teleporters_data = [{
 image_filename = "res://src/areas/Tut1.jpg.jpg"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.00450843, -0.00116739, -0.0275225)
 gi_mode = 0
 mesh = ExtResource("2_gh08l")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 0, 0, 0)
 light_energy = 3.015
 omni_range = 16.12
 
@@ -73,6 +81,10 @@ script = ExtResource("9_gflcg")
 [node name="ActionPutChickenPole2" type="Node" parent="Events"]
 script = ExtResource("10_r78k0")
 
+[node name="ActionAfterChickenSkewer" type="Node" parent="Events" node_paths=PackedStringArray("roasting_pit")]
+script = ExtResource("11_7f8b1")
+roasting_pit = NodePath("../../roasting_pit_a")
+
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("11_xnaib")]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -0.307552, -0.0116689, 1.4901)
 
@@ -87,13 +99,42 @@ autoplay = true
 wait_time = 3.0
 
 [node name="pole_bamboo_chicken_new" parent="." instance=ExtResource("12_vixga")]
-transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, 0.258572, 0, -1.2148)
+transform = Transform3D(0.847178, 0, -0.53131, 0.530339, 0.0604214, 0.84563, 0.0321025, -0.998173, 0.0511877, 0.0867586, -0.320068, -0.745112)
 
 [node name="chicken_raw_new" parent="." instance=ExtResource("13_tpsa3")]
-transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, 0.448389, 0, -0.646007)
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, 0.325564, -0.463282, -0.82884)
 
 [node name="chicken_raw_new2" parent="." instance=ExtResource("13_tpsa3")]
-transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, 0.659792, 0, -0.446387)
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, 0.552271, -0.456021, -0.599397)
+
+[node name="Table" parent="." instance=ExtResource("14_4hwlx")]
+transform = Transform3D(-0.233997, 0, -0.3694, 0, 1, 0, 0.563334, 0, -0.153441, 0.104222, -1.31748, -0.81136)
+
+[node name="Table2" parent="." instance=ExtResource("14_4hwlx")]
+transform = Transform3D(-0.608257, 0, 0.0509859, 0, 1, 0, -0.0460762, 0, -0.673072, 0.6247, -1.31088, 0.0347145)
+visible = false
+
+[node name="onion" parent="." instance=ExtResource("17_g2qpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.530994, -0.354592, 0.0371228)
+visible = false
+
+[node name="knife_cleaver" parent="." instance=ExtResource("15_g8324")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533636, -0.276312, 0.366982)
+visible = false
+
+[node name="garlic" parent="." instance=ExtResource("16_w3bij")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529329, -0.445795, 0.476689)
+visible = false
+
+[node name="kalabasa" parent="." instance=ExtResource("18_4s5jq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.584682, -0.327169, 0.797946)
+visible = false
+
+[node name="roasting_pit_a" parent="." instance=ExtResource("19_lydk1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.593626, -0.600783, -0.00587805)
 
 [connection signal="chicken_connect" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole1" method="_on_pole_bamboo_chicken_new_chicken_connect"]
 [connection signal="chicken_connect_2" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole2" method="_on_pole_bamboo_chicken_new_chicken_connect_2"]
+[connection signal="pole_inserted_inventory" from="pole_bamboo_chicken_new" to="Events/ActionAfterChickenSkewer" method="_on_pole_bamboo_chicken_new_pole_inserted_inventory"]
+
+[editable path="roasting_pit_a"]

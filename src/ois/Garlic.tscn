@@ -1,44 +1,56 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddfcwjl7txxqd"]
+[gd_scene load_steps=10 format=3 uid="uid://lul7yfj27do8"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_a2anf"]
-[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_krsp7"]
-[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_dvcyj"]
-[ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="4_g0im1"]
-[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_e4d5h"]
-[ext_resource type="Script" path="res://src/ois/GarlicFeedback.gd" id="5_qvjna"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_e4pl0"]
+[ext_resource type="PackedScene" uid="uid://d3ke36fld31pu" path="res://src/assets/B2/Garlic_SmallerPieces.glb" id="2_o7l7w"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_shny1"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/slice_garlic.gd" id="2_xe4rh"]
+[ext_resource type="PackedScene" uid="uid://cxorvronhu2l6" path="res://src/assets/B2/Garlic_Minced.glb" id="3_43bjc"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_o53v3"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_rol5e"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_omssk"]
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
+size = Vector3(0.188604, 0.0501802, 0.13439)
 
-[sub_resource type="BoxMesh" id="BoxMesh_xnhu3"]
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kuwuf"]
+size = Vector3(0.241116, 0.192407, 0.223926)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tcfs5"]
-size = Vector3(0.1, 0.1, 0.1)
-
-[node name="Garlic" type="RigidBody3D"]
+[node name="garlic" type="RigidBody3D" groups=["garlic"]]
 collision_layer = 4
 collision_mask = 196615
+mass = 3.0
 freeze_mode = 1
-script = ExtResource("1_a2anf")
+script = ExtResource("1_e4pl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_omssk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0435439, 0.0292771, 0.0133223)
+shape = SubResource("BoxShape3D_dhox6")
+
+[node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("garlica", "garlicb")]
+script = ExtResource("2_xe4rh")
+garlica = NodePath("../MainMesh/Garlic_SmallerPieces2")
+garlicb = NodePath("../MainMesh/Garlic_Minced2")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_xnhu3")
 
-[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_krsp7")]
+[node name="Garlic_SmallerPieces2" parent="MainMesh" instance=ExtResource("2_o7l7w")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0891812, 0, 0.0364674)
 
-[node name="GrabPointHandRight" parent="." instance=ExtResource("4_dvcyj")]
+[node name="Garlic_Minced2" parent="MainMesh" instance=ExtResource("3_43bjc")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0372834, 0.0359937, 0.0383895)
+visible = false
 
-[node name="ReceiverComp" type="Area3D" parent="."]
-script = ExtResource("4_g0im1")
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_shny1")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiverComp"]
-shape = SubResource("BoxShape3D_tcfs5")
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_o53v3")]
 
-[node name="Feedback" type="Node3D" parent="ReceiverComp"]
-script = ExtResource("5_qvjna")
+[node name="GarlicReceiver" type="Area3D" parent="." groups=["sliceable"]]
+collision_layer = 5242881
+script = ExtResource("7_rol5e")
+requirement = 1.0
 
-[node name="InventoryItemComp" parent="." instance=ExtResource("5_e4d5h")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GarlicReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0483004, 0.0680542, 0.0162962)
+shape = SubResource("BoxShape3D_kuwuf")
+
+[connection signal="action_completed" from="GarlicReceiver" to="Feedback" method="_on_garlic_receiver_action_completed"]
+[connection signal="action_in_progress" from="GarlicReceiver" to="Feedback" method="_on_garlic_receiver_action_in_progress"]

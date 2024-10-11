@@ -1118,6 +1118,22 @@
 		"Event_Text": {}
 	},
 	{
+		"Event_Name": "ActionAfterChickenSkewer",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPutChickenPole1_Done",
+			"ActionPutChickenPole2_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionAfterChickenSkewer_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
 		"Event_Name": "ActionPoleOnlyRoast",
 		"Event_Category": "ACTION",
 		"Oneshot": false,

@@ -32,7 +32,7 @@ _data = {
 }
 
 [node name="canvas_paint" type="StaticBody3D" groups=["paintbrush_wet"]]
-transform = Transform3D(1, 0, 0, 0, 0, 0, 0, 0, 0, -0.657, 0.34, -0.797)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.657, 0.34, -0.797)
 script = ExtResource("1_xapy4")
 requirement = 1.0
 
