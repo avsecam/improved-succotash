@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0f34rt0oox1c"]
+[gd_scene load_steps=6 format=3 uid="uid://b0f34rt0oox1c"]
 
 [ext_resource type="PackedScene" uid="uid://dde5dl4d02lc2" path="res://src/assets/B1/WaterSpirit_Normal.glb" id="1_vi4eu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llo8o"]
+albedo_color = Color(0, 0, 1, 1)
+metallic = 0.25
+emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wf1x"]
 albedo_color = Color(0.0666667, 0, 0.917647, 0.105882)
@@ -26,6 +31,7 @@ sub_emitter_frequency = 4.0
 
 [node name="Sphere_001" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_llo8o")
 
 [node name="Cube" parent="." index="1"]
 visible = false
