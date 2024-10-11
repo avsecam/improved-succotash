@@ -5,8 +5,10 @@ extends Event
 
 func _on_event_started():
 	key.visible = false
+	key.enabled = false
 	play_event_audio()
 	await event_audio_done
 	key.visible = true
+	key.enabled = true
 	quests.add_active_quest("QuestOpenTheFrontGate")
 	close_event()

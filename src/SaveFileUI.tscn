@@ -1,23 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bebgkxrau10o7"]
+[gd_scene load_steps=7 format=3 uid="uid://bebgkxrau10o7"]
 
 [ext_resource type="Script" path="res://src/SaveFileUI.gd" id="1_agv42"]
 [ext_resource type="FontFile" uid="uid://be0wxrjh42okc" path="res://src/assets/Fonts/Poppins/Poppins-Black.ttf" id="1_hibfs"]
 [ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="2_xfl7m"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ghi1"]
+bg_color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcvns"]
+
 [sub_resource type="ImageTexture" id="ImageTexture_h3o6o"]
 
-[node name="SaveFile" type="Control"]
+[node name="SaveFile" type="Button"]
 custom_minimum_size = Vector2(600, 150)
-layout_mode = 3
-anchors_preset = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ghi1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gcvns")
 script = ExtResource("1_agv42")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(600, 150)
-layout_mode = 0
-offset_right = 600.0
-offset_bottom = 150.0
-color = Color(0.752941, 0.752941, 0.752941, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

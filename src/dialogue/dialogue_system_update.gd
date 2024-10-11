@@ -8,6 +8,7 @@ extends CenterContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.connect("update_dialogue_box", _update_dialogue)
+	_update_dialogue("", "")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,6 +18,10 @@ func _process(delta):
 func _update_dialogue(npc_name : String, dialogue : String) -> void:
 	npc_name_field.set_text("[b][i]" + npc_name)
 	dialogue_field.set_text("[center]"+dialogue+"[/center]")
+	if npc_name == "" and dialogue == "":
+		visible = false
+	else:
+		visible = true
 
 
 func _open_dialogue_box() -> void:

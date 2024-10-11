@@ -3,6 +3,11 @@ extends Node
 @onready var quest_tracker := get_tree().get_root().get_node("Demo/StaticUIContainer")
 
 func add_active_quest(quest_name: String) -> void:
+	for quest in get_children():
+		if quest.name == quest_name:
+			print("Quest Already Active")
+			return
+	
 	var quest := Quest.new()
 	quest.name = quest_name
 	

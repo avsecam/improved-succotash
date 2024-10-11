@@ -1,4 +1,5 @@
 extends Control
+class_name SaveFileSlot
 
 @onready var save_data_information := $MarginContainer/SaveDataInformation
 @onready var no_save_data_label := $MarginContainer/NoSaveDataLabel

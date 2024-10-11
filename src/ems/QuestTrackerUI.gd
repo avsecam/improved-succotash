@@ -9,6 +9,7 @@ var quest = preload("res://src/ems/QuestUI.tscn")
 func _ready():
 	quest_indicator.visible = false
 	quest_description.visible = false
+	visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,6 +22,7 @@ func _add_quest(quest_name) -> void:
 	var new_quest = quest.instantiate()
 	quest_container.add_child(new_quest)
 	new_quest.initialize_quest_ui(quest_name, Events.quest_library[quest_name]["Quest_Completion_Tracker"])
+	visible = true
 
 
 func _remove_quest(quest_name) -> void:
@@ -30,6 +32,9 @@ func _remove_quest(quest_name) -> void:
 			print("Ending " + quest_name)
 			flash_quest_end(quest_name)
 			quest.queue_free()
+	
+	if quest_container.get_children().size() == 0:
+		visible = false
 
 func _update_quest_progress(quest_name) -> void:
 	print("updating quest progress")

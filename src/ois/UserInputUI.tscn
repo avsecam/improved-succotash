@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdhncfg7g3w7t"]
 
 [ext_resource type="Script" path="res://src/ois/UserInputUI.gd" id="1_1arha"]
-[ext_resource type="PackedScene" path="res://src/ois/UserInputIcon.tscn" id="1_31gjs"]
+[ext_resource type="PackedScene" uid="uid://b7et6bo7evtr4" path="res://src/ois/UserInputIcon.tscn" id="1_31gjs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6avv8"]
 size = Vector2(0.1, 0.1)

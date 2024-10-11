@@ -27,6 +27,7 @@ var current_mode : String
 
 #EVENT FLAGS
 var current_bgm
+var current_location 
 
 var event_library : Dictionary = {}
 var quest_library : Dictionary = {}

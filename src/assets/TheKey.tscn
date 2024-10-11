@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxeebb6cl7moy"]
+[gd_scene load_steps=14 format=3 uid="uid://dxeebb6cl7moy"]
 
 [ext_resource type="PackedScene" uid="uid://bu0yac1i41kpr" path="res://src/ois/pickable_template.tscn" id="1_rmflg"]
 [ext_resource type="ArrayMesh" uid="uid://c03xphnqy1of6" path="res://src/assets/key.obj" id="2_50pi8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="6_1kv8b"]
 [ext_resource type="PackedScene" uid="uid://yurhfdf4xm13" path="res://src/ois/states/snap_objects.tscn" id="7_ysbnh"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_body.gd" id="10_eyfr8"]
+[ext_resource type="Script" path="res://src/assets/KeyControl.gd" id="11_6mc7j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2jdh"]
 size = Vector3(0.217, 0.05, 0.1)
@@ -93,5 +94,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0600821, -0.0247183)
 [node name="XRToolsInteractableBody" type="Node3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0579044, 0)
 script = ExtResource("10_eyfr8")
+
+[node name="KeyControl" type="Node3D" parent="." index="7"]
+script = ExtResource("11_6mc7j")
 
 [editable path="InventoryItemComp"]

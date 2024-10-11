@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxq3i5u6ilhui"]
+[gd_scene load_steps=7 format=3 uid="uid://cxq3i5u6ilhui"]
 
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_tjone"]
+[ext_resource type="PackedScene" uid="uid://d3q1e5dyiic5v" path="res://src/MainMenuUI.tscn" id="2_v8llf"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_bs8yd"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ppmrx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_05vck"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ef0xe"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycfjt"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_ppmrx")
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_05vck")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jv6il"]
@@ -23,13 +25,16 @@ size = Vector3(3, 2, 0.02)
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("1_tjone")]
 viewport_size = Vector2(1280, 720)
+unshaded = true
 
 [node name="Viewport" parent="Viewport2Din3D" index="0"]
 size = Vector2i(1280, 720)
 
+[node name="MainMenuUI" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_v8llf")]
+
 [node name="Screen" parent="Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_bs8yd")
-surface_material_override/0 = SubResource("StandardMaterial3D_ef0xe")
+surface_material_override/0 = SubResource("StandardMaterial3D_ycfjt")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 viewport_size = Vector2(1280, 720)

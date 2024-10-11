@@ -16,12 +16,18 @@ extends XRToolsInteractableArea
 var inventory_open := true
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	inventory_visible(inventory_open)
+	check_if_active.call_deferred()
 
+func check_if_active() -> void:
+	if Events.finished_events.has("DialogueKindPerson_Done"):
+		print("Inventory is already activated")
+		inventory_visible(inventory_open)
+		get_parent().visible = true
+	else:
+		print("Inventory is not activatedn")
+		inventory_visible(inventory_open )
+		get_parent().visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func inventory_visible(b : bool) -> void:
 	if b:

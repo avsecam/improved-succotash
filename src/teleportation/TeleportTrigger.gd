@@ -48,5 +48,6 @@ func _physics_process(delta):
 		and raycast_is_colliding:
 			if (teleporter is Teleporter) and teleporter.enabled:
 				Events.emit_signal("player_teleport_requested_trigger", teleporter.to)
+				Events.current_location = teleporter.to
 
 	button_pressed_last_frame = button_pressed_this_frame
