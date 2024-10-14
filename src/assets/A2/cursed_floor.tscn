@@ -8,12 +8,14 @@
 size = Vector3(1.53296, 0.113007, 1.52875)
 
 [node name="cursed_floor" type="StaticBody3D" groups=["holy_water"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.553857, 0)
 script = ExtResource("1_8t0sv")
 requirement = 1.0
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 
 [node name="Floor_Cursed" parent="MainMesh" instance=ExtResource("1_e2meh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.535088, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00427246, -0.0199432, 0.00210571)

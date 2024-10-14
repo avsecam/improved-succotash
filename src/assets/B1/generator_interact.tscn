@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpk8bx5qipk7v"]
+
+[ext_resource type="Script" path="res://src/ois/action_components/lever_action.gd" id="1_pbc1m"]
+[ext_resource type="PackedScene" uid="uid://b42afk4j3r76d" path="res://src/assets/B1/GeneratorFull.tscn" id="2_phmye"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8c1y"]
+size = Vector3(1.44779, 2.88274, 2.17904)
+
+[node name="generator" type="StaticBody3D"]
+script = ExtResource("1_pbc1m")
+requirement = 1.0
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Generator" parent="MainMesh" instance=ExtResource("2_phmye")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374939, 1.39137, -1.00958)
+shape = SubResource("BoxShape3D_p8c1y")
+
+[node name="SnapPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0381749, 3.95139, 0.481426)

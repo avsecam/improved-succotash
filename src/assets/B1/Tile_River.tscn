@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://de2klvxpok73i"]
+
+[ext_resource type="PackedScene" uid="uid://fagrcdk3jvgy" path="res://src/assets/B1/Tile_River.glb" id="1_gb5ip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1b7su"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Tile_River" instance=ExtResource("1_gb5ip")]
+
+[node name="RiverIcon" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1b7su")

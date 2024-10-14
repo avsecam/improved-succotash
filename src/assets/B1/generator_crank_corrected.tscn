@@ -4,3 +4,6 @@
 
 [node name="Generator_Crank" instance=ExtResource("1_piuww")]
 transform = Transform3D(1, 0.000139624, 0, -0.000139624, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Crank Plastic" parent="." index="0"]
+transform = Transform3D(0.100774, 0, 0, 0, 0.100774, 0, 0, 0, 0.100774, 0.00619374, -1.69369, 0.672631)

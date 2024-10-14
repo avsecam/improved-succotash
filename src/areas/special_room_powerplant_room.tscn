@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://86ntuf0j6gis"]
+[gd_scene load_steps=12 format=3 uid="uid://86ntuf0j6gis"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_24fbd"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
 [ext_resource type="PackedScene" uid="uid://bd7170yeh1357" path="res://src/assets/B1/Nursery_RiceSaplings.glb" id="4_w27sf"]
 [ext_resource type="PackedScene" uid="uid://dmmbs4v3u23b" path="res://src/assets/B1/Bangka_Normal.glb" id="5_s866p"]
 [ext_resource type="PackedScene" uid="uid://b42afk4j3r76d" path="res://src/assets/B1/GeneratorFull.tscn" id="6_l083o"]
+[ext_resource type="PackedScene" uid="uid://c0qm8ycbqgx3s" path="res://src/assets/B1/tile_sun.tscn" id="7_ffab0"]
+[ext_resource type="PackedScene" uid="uid://de2klvxpok73i" path="res://src/assets/B1/Tile_River.tscn" id="8_1eqgx"]
 [ext_resource type="PackedScene" uid="uid://b0f34rt0oox1c" path="res://src/assets/B1/water_spirit_normal_with_fx.tscn" id="8_qw2mr"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="9_ags6u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
@@ -85,10 +88,11 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.72107, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.72107, 0)
 light_energy = 2.912
 light_indirect_energy = 0.855
 light_volumetric_fog_energy = 2.711
+spot_range = 7.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -107,12 +111,21 @@ transform = Transform3D(0.749726, 0, 0.020287, 0, 0.75, 0, -0.020287, 0, 0.74972
 transform = Transform3D(0.241624, 0, 0.0641693, 0, 0.25, 0, -0.0641693, 0, 0.241624, 3.04535, -1.10521, -0.128431)
 
 [node name="Generator" parent="." instance=ExtResource("6_l083o")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.735399, -1.40737, -1.86714)
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.148557, -1.40737, -1.86714)
 
 [node name="Generator_Crank" parent="Generator" index="3"]
 transform = Transform3D(-1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.114204)
 
 [node name="WaterSpirit_Normal" parent="." instance=ExtResource("8_qw2mr")]
 transform = Transform3D(-0.214909, 0, 0.209318, 0, 0.3, 0, -0.209318, 0, -0.214909, 2.1515, -0.36432, -1.57456)
+
+[node name="Tile_Sun" parent="." instance=ExtResource("7_ffab0")]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, -0.569547, 0.264759, 1.46618)
+
+[node name="Tile_River" parent="." instance=ExtResource("8_1eqgx")]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 1.62119, 0.265, 1.446)
+
+[node name="SnapZone" parent="." instance=ExtResource("9_ags6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477674, 0, 1.46695)
 
 [editable path="Generator"]

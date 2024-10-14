@@ -79,7 +79,7 @@ libraries = {
 }
 
 [node name="Generator_Crank" parent="." instance=ExtResource("3_n5qpg")]
-transform = Transform3D(-1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.114204)
+transform = Transform3D(-1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.030112)
 
 [node name="Generator_Compartment_Door" parent="." instance=ExtResource("4_i0haa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.700239, 1.01144, -0.210106)
