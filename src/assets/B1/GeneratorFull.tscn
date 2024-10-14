@@ -1,26 +1,85 @@
-[gd_scene load_steps=5 format=3 uid="uid://b42afk4j3r76d"]
+[gd_scene load_steps=8 format=3 uid="uid://b42afk4j3r76d"]
 
-[ext_resource type="PackedScene" uid="uid://d01cmuarffo6w" path="res://src/assets/B1/Generator_Crank.glb" id="1_ub8cf"]
 [ext_resource type="PackedScene" uid="uid://bg53skko2jjla" path="res://src/assets/B1/Generator_Compartment.glb" id="2_hgavb"]
-[ext_resource type="PackedScene" uid="uid://c00lcjnt8xi7" path="res://src/assets/B1/Generator_Compartment Door.glb" id="3_3s2li"]
+[ext_resource type="PackedScene" uid="uid://6htrn3ol43og" path="res://src/assets/B1/generator_crank_corrected.tscn" id="3_n5qpg"]
+[ext_resource type="PackedScene" uid="uid://dr4j0ukpvgtky" path="res://src/assets/B1/generator_door.tscn" id="4_i0haa"]
 [ext_resource type="PackedScene" uid="uid://cnf67wsfj0df4" path="res://src/assets/B1/Generator_Body.glb" id="4_n2gpo"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="Animation" id="Animation_8v6xe"]
+resource_name = "Crank_Movement"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Generator_Crank:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 3.14159), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Generator_Compartment_Door:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
 
-[node name="Generator_Crank" parent="." instance=ExtResource("1_ub8cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.90297)
+[sub_resource type="Animation" id="Animation_6gxy7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Generator_Crank:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 3.14159)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Generator_Compartment_Door:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mkypl"]
+_data = {
+"Crank_Movement": SubResource("Animation_8v6xe"),
+"RESET": SubResource("Animation_6gxy7")
+}
+
+[node name="Generator" type="Node3D"]
 
 [node name="Generator_Compartment" parent="." instance=ExtResource("2_hgavb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="Generator_Compartment Door" parent="." instance=ExtResource("3_3s2li")]
-transform = Transform3D(0.999997, 0, 0.00237365, 0, 1, 0, -0.00237365, 0, 0.999997, 0, 0, -1)
-
 [node name="Generator_Body2" parent="." instance=ExtResource("4_n2gpo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="Generator_Compartment" parent="Generator_Body2" instance=ExtResource("2_hgavb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.198)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mkypl")
+}
 
-[node name="Generator_Body2" parent="Generator_Body2" instance=ExtResource("4_n2gpo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.198)
+[node name="Generator_Crank" parent="." instance=ExtResource("3_n5qpg")]
+transform = Transform3D(-1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.114204)
+
+[node name="Generator_Compartment_Door" parent="." instance=ExtResource("4_i0haa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.700239, 1.01144, -0.210106)
