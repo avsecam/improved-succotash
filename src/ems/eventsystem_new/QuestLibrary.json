@@ -188,24 +188,130 @@
 		]
 	},
 	{
-		"Quest_Name": "QuestCookLunch",
+		"Quest_Name": "QuestPrepareRoastChicken",
 		"Quest_Description": {
-			"Name": "Cook Lunch",
-			"Description": "It's time to prepare some meals for lunch."
+			"Name": "Roast the chicken",
+			"Description": "Prepare this meal as part of the lunch! Roast the chicken."
 		},
-		"Quest_Completion_Requirements": [],
+		"Quest_Completion_Requirements": [
+			"ActionAfterChickenSkewer_Done"
+		],
 		"Quest_Completion_Tracker": {
-			"Prepare the ingredients": [
-				"ActionChopGarlic_Done",
-				"ActionChopOnion_Done",
+			"Chicken 1": [
+				"ActionPutChickenPole1_Done"
+			],
+			"Chicken 2": [
+				"ActionPutChickenPole2_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestPrepareRoastChicken_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestKalabasaSoup",
+		"Quest_Description": {
+			"Name": "Prepare the Kalabasa soup",
+			"Description": "Prepare this meal as part of the lunch! Kalabasa soup must be cooked and mixed."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionChopKalabasa_Done",
+			"ActionPutKalabasaInPot_Done",
+			"ActionMixKalabasaSoup_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Chop the Kalabasa": [
 				"ActionChopKalabasa_Done"
 			],
-			"Skewer two whole chickens": [
-				"ActionSkewerChicken1_Done",
-				"ActionSkewerChicken2_Done"
+			"Throw the chopped kalabasa in the pot": [
+				"ActionPutKalabasaInPot_Done"
 			],
-			"Roast the chicken": [
-				"ActionRoastChicken_Done"
+			"Mix the Kalabasa soup": [
+				"ActionMixKalabasaSoup_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestKalabasaSoup_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestPrepareAtchara",
+		"Quest_Description": {
+			"Name": "Prepare the Atchara",
+			"Description": "Put some of the ingredients on the table on the bowl to make atchara."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionChopOnion_Done",
+			"ActionChopGarlic_Done",
+			"ActionGratePapaya_Done",
+			"ActionAddAtcharaIngredientsOnion_Done",
+			"ActionAddAtcharaIngredientsGarlic_Done",
+			"ActionAddAtcharaIngredientsPapaya_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Chop the onion": [
+				"ActionChopOnion_Done"
+			],
+			"Chop the garlic": [
+				"ActionChopGarlic_Done"
+			],
+			"Grate the papaya": [
+				"ActionGratePapaya_Done"
+			],
+			"Put all ingredients together in the bowl": [
+				"ActionAddAtcharaIngredientsOnion_Done",
+				"ActionAddAtcharaIngredientsGarlic_Done",
+				"ActionAddAtcharaIngredientsPapaya_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestPrepareAtchara_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestPrepareDeepFriedSaba",
+		"Quest_Description": {
+			"Name": "Prepare the deep-fried banana cues",
+			"Description": "Make use of the saba bananas to make deep-fried banana cue!"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPutSabaInPan_Done",
+			"ActionFinishSabaCooking_Done",
+			"ActionPutCookedSabaInPlate_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Put the saba in the pan": [
+				"ActionPutSabaInPan_Done"
+			],
+			"Wait for saba to finish cooking": [
+				"ActionFinishSabaCooking_Done"
+			],
+			"Get saba from the pan to the plate using strainer": [
+				"ActionPutCookedSabaInPlate_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestPrepareDeepFriedSaba_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestCookLunch",
+		"Quest_Description": {
+			"Name": "Cook lunch",
+			"Description": "Prepare the four different dishes."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionAfterChickenSkewer_Done",
+			"ActionMixKalabasaSoup_Done",
+			"ActionAllAtcharaIngredients_Done",
+			"ActionPutCookedSabaInPlate_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Overall quest progress": [
+				"ActionAfterChickenSkewer_Done",
+				"ActionMixKalabasaSoup_Done",
+				"ActionAllAtcharaIngredients_Done",
+				"ActionPutCookedSabaInPlate_Done"
 			]
 		},
 		"Quest_Completion_Flags": [
@@ -250,28 +356,6 @@
 		},
 		"Quest_Completion_Flags": [
 			"QuestRetrievePaintingUpdate_Done"
-		]
-	},
-	{
-		"Quest_Name": "QuestAddChickenToPole",
-		"Quest_Description": {
-			"Name": "TEST",
-			"Description": "chicken."
-		},
-		"Quest_Completion_Requirements": [
-			"ActionPutChickenPole1_Done",
-			"ActionPutChickenPole2_Done"
-		],
-		"Quest_Completion_Tracker": {
-			"Chicken 1": [
-				"ActionPutChickenPole1_Done"
-			],
-			"Chicken 2": [
-				"ActionPutChickenPole2_Done"
-			]
-		},
-		"Quest_Completion_Flags": [
-			"QuestAddChickenToPole_Done"
 		]
 	}
 ]

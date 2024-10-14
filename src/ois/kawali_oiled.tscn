@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ddm00kg6s30ok"]
+[gd_scene load_steps=44 format=3 uid="uid://ddm00kg6s30ok"]
 
 [ext_resource type="Script" path="res://src/ois/kawali_oiled.gd" id="1_ylpqi"]
 [ext_resource type="PackedScene" uid="uid://cnrr218dhry3h" path="res://src/assets/B2/Kawali_Oil.glb" id="2_wuhyd"]
@@ -22,14 +22,14 @@ shader_parameter/Dissolve_Texture = ExtResource("5_c83vx")
 offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ipxr7"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e1e7f"]
 gradient = SubResource("Gradient_f151i")
 
 [sub_resource type="Curve" id="Curve_h0sjs"]
 _data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_rxjis"]
+[sub_resource type="CurveTexture" id="CurveTexture_30c8q"]
 curve = SubResource("Curve_h0sjs")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i63re"]
@@ -44,9 +44,9 @@ gravity = Vector3(0, 2, 0)
 damping_max = 1.0
 scale_min = 0.2
 scale_max = 0.5
-scale_curve = SubResource("CurveTexture_rxjis")
+scale_curve = SubResource("CurveTexture_30c8q")
 color = Color(1, 1, 1, 0.0666667)
-color_ramp = SubResource("GradientTexture1D_ipxr7")
+color_ramp = SubResource("GradientTexture1D_e1e7f")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 anim_speed_max = 4.83
@@ -272,7 +272,21 @@ shader_parameter/Dissolve_Speed = null
 shader_parameter/DissolveAmount = null
 shader_parameter/Main_Texture = ExtResource("7_otwo8")
 
+[sub_resource type="Gradient" id="Gradient_twheo"]
+offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ipxr7"]
+gradient = SubResource("Gradient_twheo")
+
 [sub_resource type="CurveTexture" id="CurveTexture_u745f"]
+
+[sub_resource type="Curve" id="Curve_v53j3"]
+_data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rxjis"]
+curve = SubResource("Curve_v53j3")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lr3or"]
 resource_local_to_scene = true

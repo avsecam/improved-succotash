@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://lul7yfj27do8"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_e4pl0"]
+[ext_resource type="Script" path="res://src/ois/Garlic.gd" id="1_d14ck"]
 [ext_resource type="PackedScene" uid="uid://d3ke36fld31pu" path="res://src/assets/B2/Garlic_SmallerPieces.glb" id="2_o7l7w"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_shny1"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/slice_garlic.gd" id="2_xe4rh"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_rol5e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
-size = Vector3(0.188604, 0.0501802, 0.13439)
+size = Vector3(0.188604, 0.066594, 0.13439)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kuwuf"]
 size = Vector3(0.241116, 0.192407, 0.223926)
@@ -19,10 +19,10 @@ collision_layer = 4
 collision_mask = 196615
 mass = 3.0
 freeze_mode = 1
-script = ExtResource("1_e4pl0")
+script = ExtResource("1_d14ck")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0435439, 0.0292771, 0.0133223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0435439, -0.00142507, 0.0133223)
 shape = SubResource("BoxShape3D_dhox6")
 
 [node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("garlica", "garlicb")]
@@ -36,7 +36,7 @@ garlicb = NodePath("../MainMesh/Garlic_Minced2")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0891812, 0, 0.0364674)
 
 [node name="Garlic_Minced2" parent="MainMesh" instance=ExtResource("3_43bjc")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0372834, 0.0359937, 0.0383895)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.015493, 0.0375804, 0.0349744)
 visible = false
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_shny1")]
@@ -52,5 +52,6 @@ requirement = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0483004, 0.0680542, 0.0162962)
 shape = SubResource("BoxShape3D_kuwuf")
 
+[connection signal="action_completed" from="GarlicReceiver" to="." method="_on_garlic_receiver_action_completed"]
 [connection signal="action_completed" from="GarlicReceiver" to="Feedback" method="_on_garlic_receiver_action_completed"]
 [connection signal="action_in_progress" from="GarlicReceiver" to="Feedback" method="_on_garlic_receiver_action_in_progress"]

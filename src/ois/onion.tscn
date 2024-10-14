@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b74f8r4tmvgdb"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_kmvew"]
+[ext_resource type="Script" path="res://src/ois/Onion.gd" id="1_yaui0"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_0c3c4"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/slice_onion_pieces.gd" id="2_tleod"]
 [ext_resource type="PackedScene" uid="uid://bfe20flb35lph" path="res://src/assets/B2/WhiteOnion_Peeled1.glb" id="3_3kqg0"]
@@ -21,7 +21,7 @@ collision_layer = 4
 collision_mask = 196615
 mass = 3.0
 freeze_mode = 1
-script = ExtResource("1_kmvew")
+script = ExtResource("1_yaui0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010498, -0.0719257, -0.000763904)
@@ -106,5 +106,6 @@ requirement = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000469968, 0.0156494, 0.00145692)
 shape = SubResource("BoxShape3D_fpgbw")
 
+[connection signal="action_completed" from="OnionReceiver" to="." method="_on_onion_receiver_action_completed"]
 [connection signal="action_completed" from="OnionReceiver" to="Feedback" method="_on_onion_receiver_action_completed"]
 [connection signal="action_in_progress" from="OnionReceiver" to="Feedback" method="_on_onion_receiver_action_in_progress"]

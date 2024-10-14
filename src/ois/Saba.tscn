@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_bh38d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
-size = Vector3(0.211846, 0.0501802, 0.114295)
+size = Vector3(0.211846, 0.085637, 0.114295)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kuwuf"]
 size = Vector3(0.202051, 0.0612243, 0.115298)
@@ -20,7 +20,7 @@ freeze_mode = 1
 script = ExtResource("1_ybe5w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0215908, 0.0292771, 0.00780059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0215908, 0.0115487, 0.00780059)
 shape = SubResource("BoxShape3D_dhox6")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]

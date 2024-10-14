@@ -5,11 +5,13 @@ extends Feedback
 
 	
 var progress_track_papaya : float = 0
-	
-	
+
+signal papaya_grated_workaround
+
 func papaya_receiver_comp_workaround():
 	papaya_peeled.visible = false
 	papaya_grated.visible = true
+	papaya_grated_workaround.emit()
 	self.queue_free()
 
 func _on_papaya_receiver_action_in_progress(requirement, total_progress):

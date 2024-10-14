@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtb0evnypn7nb"]
+
+[ext_resource type="PackedScene" uid="uid://c8mgunsr7ievl" path="res://src/assets/B2/ChoppingBoard_Wood.glb" id="1_b7gi7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cilor"]
+size = Vector3(1, 0.0994873, 1)
+
+[node name="ChoppingBoard_Wood" instance=ExtResource("1_b7gi7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0822144, 0)
+shape = SubResource("BoxShape3D_cilor")

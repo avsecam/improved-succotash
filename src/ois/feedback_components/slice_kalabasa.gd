@@ -5,6 +5,7 @@ extends Feedback
 @export var kalabasac : Node3D
 @export var kalabasad : Node3D
 
+
 func _on_kalabasa_receiver_action_in_progress(requirement, total_progress):
 	
 	var percentage = total_progress/requirement

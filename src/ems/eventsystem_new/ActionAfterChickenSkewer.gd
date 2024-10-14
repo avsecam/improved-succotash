@@ -4,9 +4,10 @@ extends Event
 # Called when the node enters the scene tree for the first time.
 
 @export var roasting_pit: Node3D
-@onready var cooking_vat_long = $"../../cooking_vat_long"
 
 func _on_pole_bamboo_chicken_new_pole_inserted_inventory():
 	roasting_pit.pole_visible.visible = true
-	
+	quests.add_active_quest("QuestKalabasaSoup")
 	print("DID THIS GET CALLED ASLDKJALKDJASDLKAJSDLKAJSDLAKSJDALSKDJASDLKAJSD")
+	close_event()
+	

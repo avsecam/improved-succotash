@@ -1017,8 +1017,8 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionPickUpKnife_Done",
-			"DialogueLunchFoodEnjoy_Done"
+			"ActionAfterChickenSkewer_Done",
+			"ActionMixKalabasaSoup_Done"
 		],
 		"Event_Completion_Flags": [
 			"ActionChopGarlic_Done"
@@ -1036,8 +1036,8 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionPickUpKnife_Done",
-			"ActionChopGarlic_Done"
+			"ActionAfterChickenSkewer_Done",
+			"ActionMixKalabasaSoup_Done"
 		],
 		"Event_Completion_Flags": [
 			"ActionChopOnion_Done"
@@ -1055,8 +1055,8 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionPickUpKnife_Done",
-			"ActionChopOnion_Done"
+			"ActionAfterChickenSkewer_Done",
+			"ActionPickUpKnife_Done"
 		],
 		"Event_Completion_Flags": [
 			"ActionChopKalabasa_Done"
@@ -1070,28 +1070,12 @@
 		}
 	},
 	{
-		"Event_Name": "ActionPickUpPole",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionChopGarlic_Done",
-			"ActionChopOnion_Done",
-			"ActionChopKalabasa_Done",
-			"ActionRoastChicken_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPickUpPole_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {}
-	},
-	{
 		"Event_Name": "ActionPutChickenPole1",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
-		"Event_Prerequisites": [],
+		"Event_Prerequisites": [
+			"DialogueLunchFoodEnjoy_Done"
+		],
 		"Event_Completion_Flags": [
 			"ActionPutChickenPole1_Done"
 		],
@@ -1125,6 +1109,167 @@
 		],
 		"Event_Completion_Flags": [
 			"ActionAfterChickenSkewer_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPutKalabasaInPot",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionChopKalabasa_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPutKalabasaInPot_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionMixKalabasaSoup",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPutKalabasaInPot_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionMixKalabasaSoup_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionGratePapaya",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionAfterChickenSkewer_Done",
+			"ActionMixKalabasaSoup_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionGratePapaya_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionAddAtcharaIngredientsOnion",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionChopGarlic_Done",
+			"ActionChopOnion_Done",
+			"ActionGratePapaya_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionAddAtcharaIngredientsOnion_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionAddAtcharaIngredientsGarlic",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionChopGarlic_Done",
+			"ActionChopOnion_Done",
+			"ActionGratePapaya_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionAddAtcharaIngredientsGarlic_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionAddAtcharaIngredientsPapaya",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionChopGarlic_Done",
+			"ActionChopOnion_Done",
+			"ActionGratePapaya_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionAddAtcharaIngredientsPapaya_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionAllAtcharaIngredients",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionAddAtcharaIngredientsOnion_Done",
+			"ActionAddAtcharaIngredientsGarlic_Done",
+			"ActionAddAtcharaIngredientsPapaya_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionAllAtcharaIngredients_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPutSabaInPan",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionAddAtcharaIngredientsOnion_Done",
+			"ActionAddAtcharaIngredientsGarlic_Done",
+			"ActionAddAtcharaIngredientsPapaya_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPutSabaInPan_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionFinishSabaCooking",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPutSabaInPan_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionFinishSabaCooking_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPutCookedSabaInPlate",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionFinishSabaCooking_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPutCookedSabaInPlate_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,

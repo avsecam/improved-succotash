@@ -12,6 +12,7 @@ signal saba_ready
 
 func _ready():
 	strainer_receiver.set_monitoring(false)
+	oil_receiver.set_monitoring(false)
 	
 func _process(delta):
 	pass
@@ -33,3 +34,7 @@ func _on_oil_receiver_area_entered(area):
 func _on_strainer_receiver_area_entered(area):
 	if area.name == "StrainerActor":
 		saba_bananas_fried.visible = false
+
+
+func _on_action_all_atchara_ingredients_event_ended():
+	oil_receiver.set_monitoring(true)

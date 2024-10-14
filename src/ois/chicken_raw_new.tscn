@@ -31,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0469796, 0.130866, -0.0167
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543334, 0.138585, 0)
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("5_f0kjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, 0)
 
 [node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
 visible = false
