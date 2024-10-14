@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6htrn3ol43og"]
+
+[ext_resource type="PackedScene" uid="uid://d01cmuarffo6w" path="res://src/assets/B1/Generator_Crank.glb" id="1_piuww"]
+
+[node name="Generator_Crank" instance=ExtResource("1_piuww")]
+transform = Transform3D(1, 0.000139624, 0, -0.000139624, 1, 0, 0, 0, 1, 0, 0, 0)

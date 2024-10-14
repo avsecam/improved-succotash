@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://86ntuf0j6gis"]
+[gd_scene load_steps=9 format=3 uid="uid://86ntuf0j6gis"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_24fbd"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
 [ext_resource type="PackedScene" uid="uid://bd7170yeh1357" path="res://src/assets/B1/Nursery_RiceSaplings.glb" id="4_w27sf"]
 [ext_resource type="PackedScene" uid="uid://dmmbs4v3u23b" path="res://src/assets/B1/Bangka_Normal.glb" id="5_s866p"]
 [ext_resource type="PackedScene" uid="uid://b42afk4j3r76d" path="res://src/assets/B1/GeneratorFull.tscn" id="6_l083o"]
-[ext_resource type="PackedScene" uid="uid://bcan7webhb7ku" path="res://src/assets/B1/RicePaddy_SegmentFull(1).glb" id="7_pioep"]
 [ext_resource type="PackedScene" uid="uid://b0f34rt0oox1c" path="res://src/assets/B1/water_spirit_normal_with_fx.tscn" id="8_qw2mr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
@@ -56,7 +55,7 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D19" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(-1.9998e-07, 0.265, -9.87877e-08, 0, -1.15835e-08, -2.26, -4.575, -1.15835e-08, 4.31815e-15, 0.2, 1.216, -4)
+transform = Transform3D(-1.9998e-07, 0.265, -9.87877e-08, 0, -1.15835e-08, -2.26, -4.575, -1.15835e-08, 4.31815e-15, -1.64283, 1.216, -4)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
@@ -107,11 +106,13 @@ transform = Transform3D(0.749726, 0, 0.020287, 0, 0.75, 0, -0.020287, 0, 0.74972
 [node name="Bangka_Normal" parent="." instance=ExtResource("5_s866p")]
 transform = Transform3D(0.241624, 0, 0.0641693, 0, 0.25, 0, -0.0641693, 0, 0.241624, 3.04535, -1.10521, -0.128431)
 
-[node name="Node3D" parent="." instance=ExtResource("6_l083o")]
-transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, -1.40737, -1.49469)
+[node name="Generator" parent="." instance=ExtResource("6_l083o")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.735399, -1.40737, -1.86714)
 
-[node name="RicePaddy_SegmentFull(1)" parent="." instance=ExtResource("7_pioep")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0314036, -1.2959, 1.19165)
+[node name="Generator_Crank" parent="Generator" index="3"]
+transform = Transform3D(-1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.114204)
 
 [node name="WaterSpirit_Normal" parent="." instance=ExtResource("8_qw2mr")]
 transform = Transform3D(-0.214909, 0, 0.209318, 0, 0.3, 0, -0.209318, 0, -0.214909, 2.1515, -0.36432, -1.57456)
+
+[editable path="Generator"]
