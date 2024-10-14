@@ -7,14 +7,14 @@
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_05vck"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1f1ml"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycfjt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7opv"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_05vck")
+albedo_texture = SubResource("ViewportTexture_1f1ml")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jv6il"]
@@ -34,7 +34,7 @@ size = Vector2i(1280, 720)
 
 [node name="Screen" parent="Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_bs8yd")
-surface_material_override/0 = SubResource("StandardMaterial3D_ycfjt")
+surface_material_override/0 = SubResource("StandardMaterial3D_l7opv")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 viewport_size = Vector2(1280, 720)

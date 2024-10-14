@@ -90,6 +90,8 @@ func load_game(slot_num : int = 0, in_game : bool = false) -> void:
 	var data : Dictionary = JSON.parse_string(load_file.get_line())
 	print(data)
 	
+	Events.current_location = data["current_location"]
+	
 	Events.finished_events = data["finished_events"]
 	
 	var quests := get_tree().get_root().get_node("Demo/Quests")
