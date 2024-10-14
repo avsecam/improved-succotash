@@ -1,0 +1,361 @@
+[gd_scene load_steps=40 format=3 uid="uid://ddm00kg6s30ok"]
+
+[ext_resource type="Script" path="res://src/ois/kawali_oiled.gd" id="1_ylpqi"]
+[ext_resource type="PackedScene" uid="uid://cnrr218dhry3h" path="res://src/assets/B2/Kawali_Oil.glb" id="2_wuhyd"]
+[ext_resource type="PackedScene" uid="uid://cxve5dk0ns4k7" path="res://src/assets/B2/SabaBananas.glb" id="3_p8bjp"]
+[ext_resource type="Shader" uid="uid://s1vlqsqdci1o" path="res://src/assets/Fire/FireShader.tres" id="4_t4oxu"]
+[ext_resource type="Texture2D" uid="uid://b4cij3rwar8be" path="res://src/assets/Fire/Voronoi01.png" id="5_c83vx"]
+[ext_resource type="Texture2D" uid="uid://kdko7148y7hv" path="res://src/assets/Fire/Flame02.png" id="6_trj03"]
+[ext_resource type="Texture2D" uid="uid://cwlfxr7018hdp" path="res://src/assets/Fire/oilpop image.png" id="7_otwo8"]
+[ext_resource type="PackedScene" uid="uid://dvwst02stxfna" path="res://src/assets/B2/SabaBananas_Fried.glb" id="8_qrjht"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l1s47"]
+render_priority = 0
+shader = ExtResource("4_t4oxu")
+shader_parameter/Dissolve_Tilling = Vector2(1, 1)
+shader_parameter/Dissolve_Speed = null
+shader_parameter/DissolveAmount = null
+shader_parameter/Main_Texture = ExtResource("6_trj03")
+shader_parameter/Dissolve_Texture = ExtResource("5_c83vx")
+
+[sub_resource type="Gradient" id="Gradient_f151i"]
+offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ipxr7"]
+gradient = SubResource("Gradient_f151i")
+
+[sub_resource type="Curve" id="Curve_h0sjs"]
+_data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rxjis"]
+curve = SubResource("Curve_h0sjs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i63re"]
+resource_local_to_scene = true
+lifetime_randomness = 0.05
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -360.0
+angle_max = 360.0
+spread = 16.981
+gravity = Vector3(0, 2, 0)
+damping_max = 1.0
+scale_min = 0.2
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_rxjis")
+color = Color(1, 1, 1, 0.0666667)
+color_ramp = SubResource("GradientTexture1D_ipxr7")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+anim_speed_max = 4.83
+
+[sub_resource type="QuadMesh" id="QuadMesh_ndy7q"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_ev0ng"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_1tt87"]
+parameter_name = "DissolveAmount"
+hint = 1
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_cxxe0"]
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_e03h8"]
+parameter_name = "Dissolve_Speed"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_l2wyj"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_p2ak3"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_xvnu0"]
+parameter_name = "Dissolve_Tilling"
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_pv3yi"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_r8vq7"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_hcmlx"]
+parameter_name = "Main_Texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_71wyg"]
+source = 5
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_1tn0p"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hgy6c"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_qpf4q"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_1wbaj"]
+parameter_name = "Dissolve_Texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4lm5j"]
+source = 5
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_r6ivq"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_uce1x"]
+billboard_type = 3
+keep_scale = true
+
+[sub_resource type="VisualShader" id="VisualShader_mlp8r"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D Main_Texture;
+uniform vec2 Dissolve_Tilling = vec2(1.000000, 1.000000);
+uniform vec2 Dissolve_Speed;
+uniform sampler2D Dissolve_Texture;
+uniform float DissolveAmount : hint_range(0, 1);
+
+
+
+void vertex() {
+	mat4 n_out2p0;
+// GetBillboardMatrix:2
+	{
+		mat4 __wm = mat4(normalize(INV_VIEW_MATRIX[0]), normalize(INV_VIEW_MATRIX[1]), normalize(INV_VIEW_MATRIX[2]), MODEL_MATRIX[3]);
+		__wm = __wm * mat4(vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(0.0, 0.0, 1.0, 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		__wm = __wm * mat4(vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0), vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		n_out2p0 = VIEW_MATRIX * __wm;
+	}
+
+
+// Output:0
+	MODELVIEW_MATRIX = n_out2p0;
+
+
+}
+
+void fragment() {
+// Input:5
+	vec4 n_out5p0 = COLOR;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Main_Texture, UV);
+
+
+// Input:17
+	vec2 n_out17p0 = UV;
+
+
+// Vector2Parameter:16
+	vec2 n_out16p0 = Dissolve_Tilling;
+
+
+// VectorOp:18
+	vec2 n_out18p0 = n_out17p0 * n_out16p0;
+
+
+// Input:14
+	float n_out14p0 = TIME;
+
+
+// Vector2Parameter:13
+	vec2 n_out13p0 = Dissolve_Speed;
+
+
+// VectorOp:15
+	vec2 n_out15p0 = vec2(n_out14p0) * n_out13p0;
+
+
+// UVFunc:12
+	vec2 n_in12p1 = vec2(1.00000, 1.00000);
+	vec2 n_out12p0 = n_out15p0 * n_in12p1 + n_out18p0;
+
+
+	vec4 n_out8p0;
+// Texture2D:8
+	n_out8p0 = texture(Dissolve_Texture, n_out12p0);
+
+
+// VectorOp:9
+	vec4 n_out9p0 = n_out3p0 * n_out8p0;
+
+
+// FloatParameter:11
+	float n_out11p0 = DissolveAmount;
+
+
+// Mix:10
+	vec4 n_out10p0 = mix(n_out3p0, n_out9p0, vec4(n_out11p0));
+
+
+// VectorOp:6
+	vec4 n_out6p0 = n_out5p0 * n_out10p0;
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out6p0.x;
+	float n_out4p1 = n_out6p0.y;
+	float n_out4p2 = n_out6p0.z;
+	float n_out4p3 = n_out6p0.w;
+
+
+// Output:0
+	ALBEDO = vec3(n_out6p0.xyz);
+	ALPHA = n_out4p3;
+
+
+}
+"
+flags/unshaded = true
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_uce1x")
+nodes/vertex/2/position = Vector2(-20, 300)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
+nodes/fragment/0/position = Vector2(1120, 140)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_hcmlx")
+nodes/fragment/2/position = Vector2(-660, 320)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_71wyg")
+nodes/fragment/3/position = Vector2(-280, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_1tn0p")
+nodes/fragment/4/position = Vector2(720, 360)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_hgy6c")
+nodes/fragment/5/position = Vector2(-20, 40)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_qpf4q")
+nodes/fragment/6/position = Vector2(540, 120)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture2DParameter_1wbaj")
+nodes/fragment/7/position = Vector2(-720, 940)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_4lm5j")
+nodes/fragment/8/position = Vector2(-240, 860)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_r6ivq")
+nodes/fragment/9/position = Vector2(80, 480)
+nodes/fragment/10/node = SubResource("VisualShaderNodeMix_ev0ng")
+nodes/fragment/10/position = Vector2(300, 280)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatParameter_1tt87")
+nodes/fragment/11/position = Vector2(260, 540)
+nodes/fragment/12/node = SubResource("VisualShaderNodeUVFunc_cxxe0")
+nodes/fragment/12/position = Vector2(-720, 660)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVec2Parameter_e03h8")
+nodes/fragment/13/position = Vector2(-1380, 760)
+nodes/fragment/14/node = SubResource("VisualShaderNodeInput_l2wyj")
+nodes/fragment/14/position = Vector2(-1400, 640)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_p2ak3")
+nodes/fragment/15/position = Vector2(-960, 660)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVec2Parameter_xvnu0")
+nodes/fragment/16/position = Vector2(-1380, 400)
+nodes/fragment/17/node = SubResource("VisualShaderNodeInput_pv3yi")
+nodes/fragment/17/position = Vector2(-1400, 300)
+nodes/fragment/18/node = SubResource("VisualShaderNodeVectorOp_r8vq7")
+nodes/fragment/18/position = Vector2(-960, 340)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 3, 0, 1, 5, 0, 6, 0, 6, 0, 0, 0, 7, 0, 8, 2, 3, 0, 9, 0, 8, 0, 9, 1, 6, 0, 4, 0, 3, 0, 10, 0, 9, 0, 10, 1, 10, 0, 6, 1, 11, 0, 10, 2, 12, 0, 8, 0, 14, 0, 15, 0, 13, 0, 15, 1, 15, 0, 12, 2, 17, 0, 18, 0, 16, 0, 18, 1, 18, 0, 12, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkv1w"]
+render_priority = 0
+shader = SubResource("VisualShader_mlp8r")
+shader_parameter/Dissolve_Tilling = Vector2(1, 1)
+shader_parameter/Dissolve_Speed = null
+shader_parameter/DissolveAmount = null
+shader_parameter/Main_Texture = ExtResource("7_otwo8")
+
+[sub_resource type="CurveTexture" id="CurveTexture_u745f"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lr3or"]
+resource_local_to_scene = true
+lifetime_randomness = 0.41
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -360.0
+angle_max = 360.0
+spread = 52.691
+gravity = Vector3(0, 0.5, 0)
+damping_max = 1.0
+scale_min = 0.01
+scale_max = 0.01
+scale_curve = SubResource("CurveTexture_rxjis")
+color_ramp = SubResource("GradientTexture1D_ipxr7")
+emission_curve = SubResource("CurveTexture_u745f")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+anim_speed_min = 1.5
+anim_speed_max = 3.23
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cn0r"]
+size = Vector3(0.332591, 0.0566773, 0.370966)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eubi5"]
+height = 0.0739591
+radius = 0.158939
+
+[node name="Kawali with Oil" type="StaticBody3D"]
+script = ExtResource("1_ylpqi")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.046348)
+
+[node name="Kawali_Oil" parent="MainMesh" instance=ExtResource("2_wuhyd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.154493)
+
+[node name="SabaBananas" parent="MainMesh" instance=ExtResource("3_p8bjp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.10242, 0.125321, 0.154403)
+visible = false
+
+[node name="Smoke" type="GPUParticles3D" parent="MainMesh/SabaBananas"]
+transform = Transform3D(0.420345, 0, 0, 0, 0.420345, 0, 0, 0, 0.420345, 0.00443009, -0.144846, -0.0690639)
+material_override = SubResource("ShaderMaterial_l1s47")
+amount = 5
+speed_scale = 0.42
+visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+process_material = SubResource("ParticleProcessMaterial_i63re")
+draw_pass_1 = SubResource("QuadMesh_ndy7q")
+
+[node name="Oil Pop" type="GPUParticles3D" parent="MainMesh/SabaBananas"]
+transform = Transform3D(0.420345, 0, 0, 0, 0.420345, 0, 0, 0, 0.420345, 0.176424, 0.101752, 0.0844841)
+material_override = SubResource("ShaderMaterial_jkv1w")
+gi_mode = 0
+amount = 10
+lifetime = 0.2
+explosiveness = 0.3
+randomness = 1.0
+visibility_aabb = AABB(-1.81198, -0.5, -1.71742, 3.62395, 1, 3.43484)
+process_material = SubResource("ParticleProcessMaterial_lr3or")
+draw_pass_1 = SubResource("QuadMesh_ndy7q")
+
+[node name="SabaBananas_Fried" parent="MainMesh" instance=ExtResource("8_qrjht")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.102, 0.125, 0.154)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00050386, 0.0415752, 0.000925384)
+shape = SubResource("BoxShape3D_5cn0r")
+
+[node name="OilReceiver" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OilReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00297554, 0.0548484, 0.00259808)
+shape = SubResource("CylinderShape3D_eubi5")
+
+[node name="StrainerReceiver" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StrainerReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00297554, 0.0548484, 0.00259808)
+shape = SubResource("CylinderShape3D_eubi5")
+
+[connection signal="area_entered" from="OilReceiver" to="." method="_on_vat_long_receiver_area_entered"]
+[connection signal="area_entered" from="OilReceiver" to="." method="_on_oil_receiver_area_entered"]
+[connection signal="area_entered" from="StrainerReceiver" to="." method="_on_vat_long_receiver_area_entered"]
+[connection signal="area_entered" from="StrainerReceiver" to="." method="_on_strainer_receiver_area_entered"]

@@ -16,7 +16,7 @@ size = Vector3(0.211768, 0.0616692, 0.242407)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fpgbw"]
 size = Vector3(0.267541, 0.232471, 0.292047)
 
-[node name="onion" type="RigidBody3D"]
+[node name="Onion" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
 mass = 3.0

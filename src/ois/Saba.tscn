@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqwgfyorumpev"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_ybe5w"]
+[ext_resource type="PackedScene" uid="uid://cxve5dk0ns4k7" path="res://src/assets/B2/SabaBananas.glb" id="3_bluxd"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_2ebix"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_cu4ag"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_bh38d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
+size = Vector3(0.211846, 0.0501802, 0.114295)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kuwuf"]
+size = Vector3(0.202051, 0.0612243, 0.115298)
+
+[node name="Saba Bananas" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+mass = 3.0
+freeze_mode = 1
+script = ExtResource("1_ybe5w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0215908, 0.0292771, 0.00780059)
+shape = SubResource("BoxShape3D_dhox6")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0355981, 0)
+
+[node name="SabaBananas" parent="MainMesh" instance=ExtResource("3_bluxd")]
+transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, -0.0144776, -0.0379591, 0.020179)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("5_2ebix")]
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("6_cu4ag")]
+
+[node name="SabaReceiver" type="Area3D" parent="." groups=["sliceable"]]
+collision_layer = 5242881
+script = ExtResource("7_bh38d")
+requirement = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SabaReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0253507, 0.00246286, 0.029994)
+shape = SubResource("BoxShape3D_kuwuf")

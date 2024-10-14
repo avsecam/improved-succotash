@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://d4ankyowlxlkh"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_dtxd8"]
+[ext_resource type="PackedScene" uid="uid://eswimsoiq01v" path="res://src/assets/B2/Spoon_Mix.glb" id="2_4hmpw"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_85v25"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_n8m8n"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_8jkvf"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_fejjv"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="7_o7hx6"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_ekg70"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qb08"]
+size = Vector3(0.0820313, 0.1, 0.486084)
+
+[sub_resource type="Resource" id="Resource_1aclx"]
+script = ExtResource("7_fejjv")
+state_behavior_settings = {
+"ActiveCollidingState": {
+"ControlRaycast": true,
+"InteractReceiver": true
+},
+"ActiveState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"IdleState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+}
+behavior_dict = {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+
+[node name="Mixer Spoon" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_dtxd8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00763027, 0, 0.0221967)
+shape = SubResource("BoxShape3D_4qb08")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Spoon_Mix" parent="MainMesh" instance=ExtResource("2_4hmpw")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0070011, -0.000411153, -0.152155)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_85v25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0247146, 0.0734005)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_n8m8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0247146, 0.0734005)
+
+[node name="StateManager" parent="." instance=ExtResource("5_8jkvf")]
+receiver_group = "kalabasasoup"
+settings = SubResource("Resource_1aclx")
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("7_o7hx6")]
+
+[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_ekg70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00293714, -0.00265041, -0.213769)
+raycast_length = 0.3

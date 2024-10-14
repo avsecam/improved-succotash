@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://4pnnxfryuk7t"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_o4yu6"]
+[ext_resource type="PackedScene" uid="uid://3h5i01cvq2hy" path="res://src/assets/B2/Grater_Standing.tscn" id="1_xaq1o"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_5h3ti"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="6_42jah"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="7_0pv43"]
+[ext_resource type="PackedScene" uid="uid://cyjdtclqritq0" path="res://src/ois/states/control_raycast_cleaver.tscn" id="8_u1dhl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xr4xy"]
+size = Vector3(0.1, 0.167182, 0.0857262)
+
+[sub_resource type="Resource" id="Resource_bjsyl"]
+script = ExtResource("6_42jah")
+state_behavior_settings = {
+"ActiveCollidingState": {
+"ControlRaycast": true,
+"InteractReceiver": true
+},
+"ActiveState": {
+"ControlRaycast": true,
+"InteractReceiver": true
+},
+"IdleState": {
+"ControlRaycast": true,
+"InteractReceiver": true
+},
+"TriggerState": {
+"ControlRaycast": true,
+"InteractReceiver": true
+}
+}
+behavior_dict = {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+
+[node name="Grater" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+can_sleep = false
+freeze = true
+script = ExtResource("1_o4yu6")
+enabled = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101504, -0.0253126)
+shape = SubResource("BoxShape3D_xr4xy")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Grater_Standing" parent="MainMesh" instance=ExtResource("1_xaq1o")]
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, 0, 0, -0.0255472)
+
+[node name="StateManager" parent="." instance=ExtResource("5_5h3ti")]
+receiver_group = "gratable"
+settings = SubResource("Resource_bjsyl")
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("7_0pv43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0909863, 0.0293517)
+rate = 2.0
+
+[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_u1dhl")]
+transform = Transform3D(2.93, 0, 0, 0, -5.10189, -0.0348995, 0, 0.178162, -0.999391, 0.000384241, 0.0913702, 0.0251349)
+raycast_length = 0.1
+laser_thickness = 0.0

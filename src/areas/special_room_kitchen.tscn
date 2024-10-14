@@ -1,27 +1,37 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb2op0b3b07lb"]
+[gd_scene load_steps=29 format=3 uid="uid://bb2op0b3b07lb"]
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_7hb37"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_ymid4"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="5_xpe1w"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_k8pkv"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole1.gd" id="7_7aheo"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole2.gd" id="8_dks5q"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionAfterChickenSkewer.gd" id="9_372qp"]
+[ext_resource type="PackedScene" uid="uid://vv52ccxdhu6h" path="res://src/ois/pole_bamboo_chicken_new.tscn" id="10_gkpfe"]
+[ext_resource type="PackedScene" uid="uid://bv5an2ct23mem" path="res://src/ois/chicken_raw_new.tscn" id="11_kvh1r"]
+[ext_resource type="PackedScene" uid="uid://b74f8r4tmvgdb" path="res://src/ois/onion.tscn" id="12_nmkx5"]
+[ext_resource type="PackedScene" uid="uid://bdsmwcbkg2ua7" path="res://src/ois/knife_cleaver.tscn" id="13_sud5d"]
+[ext_resource type="PackedScene" uid="uid://lul7yfj27do8" path="res://src/ois/Garlic.tscn" id="14_phaoi"]
+[ext_resource type="PackedScene" uid="uid://d6m7vthwf6a6" path="res://src/ois/kalabasa.tscn" id="15_linsv"]
+[ext_resource type="PackedScene" uid="uid://blvdj2t00ghc6" path="res://src/ois/roasting_pit_a.tscn" id="16_vna2s"]
+[ext_resource type="PackedScene" uid="uid://bh2wrcnj5r3h5" path="res://src/ois/cooking_vat_long.tscn" id="17_cdb10"]
+[ext_resource type="PackedScene" uid="uid://bwjn4khxgi4fe" path="res://src/ois/cooking_vat.tscn" id="18_7df72"]
+[ext_resource type="PackedScene" uid="uid://c8mgunsr7ievl" path="res://src/assets/B2/ChoppingBoard_Wood.glb" id="19_tp542"]
+[ext_resource type="PackedScene" uid="uid://d4ankyowlxlkh" path="res://src/ois/spoon_mix.tscn" id="20_u58be"]
+[ext_resource type="PackedScene" uid="uid://4pnnxfryuk7t" path="res://src/ois/grater.tscn" id="21_0kpst"]
+[ext_resource type="PackedScene" uid="uid://bjtla4yvw53s0" path="res://src/ois/Papaya.tscn" id="22_w7xq8"]
+[ext_resource type="PackedScene" uid="uid://ddm00kg6s30ok" path="res://src/ois/kawali_oiled.tscn" id="23_2l0vu"]
+[ext_resource type="PackedScene" uid="uid://bx6iow16dlty0" path="res://src/ois/strainer_saba.tscn" id="24_cpqmc"]
+[ext_resource type="PackedScene" uid="uid://cqwgfyorumpev" path="res://src/ois/Saba.tscn" id="25_dpbcj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_rdsro"]
-height = 0.1
-radius = 0.25
+[sub_resource type="BoxMesh" id="BoxMesh_5hau0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehsxk"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_17ox7"]
-material = SubResource("StandardMaterial3D_ehsxk")
-top_radius = 0.25
-bottom_radius = 0.25
-height = 0.025
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsrv7"]
-albedo_color = Color(0.290196, 0.290196, 0.290196, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bwcr"]
+albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
 
 [node name="SpecialRoom_Kitchen" type="Node3D"]
 script = ExtResource("1_7hb37")
@@ -35,6 +45,7 @@ image_filename = "res://src/areas/Tut1.jpg.jpg"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45209, -1.43378, 0)
 
 [node name="Walls" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00019145, 0, -0.00122952)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, 1.5)
@@ -100,18 +111,18 @@ skeleton = NodePath("../../..")
 
 [node name="Counter" type="Node3D" parent="Environment"]
 
-[node name="Counter Island" type="MeshInstance3D" parent="Environment/Counter"]
-transform = Transform3D(0.89, 0, 0, 0, 0.925, 0, 0, 0, 2.045, -0.636571, 0.367582, 0.528255)
-mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../../..")
-
 [node name="Counter" type="MeshInstance3D" parent="Environment/Counter"]
 transform = Transform3D(-3.89031e-08, 0, 2.29, 0, 0.925, 0, -0.89, 0, -1.00099e-07, -1.73852, 0.367582, 2.92455)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
 [node name="Counter A" type="MeshInstance3D" parent="Environment/Counter"]
-transform = Transform3D(-0.89, 0, -4.99796e-07, 0, 0.925, 0, 1.34386e-07, 0, -3.31, -2.43393, 0.367582, 1.01251)
+transform = Transform3D(-0.89, 0, -2.62254e-07, 0, 0.925, 0, 1.34386e-07, 0, -1.73683, -2.43393, 0.367582, 2.40796)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../../..")
+
+[node name="Counter A2" type="MeshInstance3D" parent="Environment/Counter"]
+transform = Transform3D(-3.89031e-08, 0, 2.09084, 0, 0.925, 0, -0.89, 0, -9.13934e-08, -1.9719, 0.367582, -2.951)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
@@ -121,45 +132,114 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
 [node name="Cabinet2" type="MeshInstance3D" parent="Environment/Counter"]
-transform = Transform3D(-0.63, 0, -5.58684e-07, 0, 0.7, 0, 9.51274e-08, 0, -3.7, -2.58288, 2.34897, 1.23887)
+transform = Transform3D(-0.63, 0, -2.57917e-07, 0, 0.7, 0, 9.51274e-08, 0, -1.70811, -2.58288, 2.34897, 2.07203)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
-[node name="Fridge" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.89, 0, 0, 0, -4.0433e-08, -2.045, 0, 0.925, -8.93898e-08, -2.32131, 1.1354, -1.30209)
-mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
-
-[node name="Fridge2" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.89, 0, 0, 0, -2.35226e-08, -1.16819, 0, 0.538134, -5.10631e-08, -2.32808, 0.682634, -2.16759)
-mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../..")
-
 [node name="Table2" parent="Environment" instance=ExtResource("1_6subo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04538, 0, 1.30367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.788116, 0, 0.677136)
+
+[node name="Table3" parent="Environment" instance=ExtResource("1_6subo")]
+transform = Transform3D(-4.37114e-08, 0.0174524, 0.999848, 0, 0.999848, -0.0174524, -1, -7.62869e-10, -4.37047e-08, -0.790747, -0.00641692, -0.603391)
+
+[node name="Table4" parent="Environment" instance=ExtResource("1_6subo")]
+transform = Transform3D(-4.37114e-08, 0.0174524, 0.999848, 0, 0.999848, -0.0174524, -1, -7.62869e-10, -4.37047e-08, -0.790747, -0.00641692, 0.703446)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
 mesh = ExtResource("3_7i3wd")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000575662, -2.38419e-07, -0.0126655)
 light_energy = 3.015
 omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
 
-[node name="special_room_kitchen" parent="Teleporters" instance=ExtResource("4_ymid4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86049, -1.33851, -1.99382)
+[node name="special_room_kitchen" type="StaticBody3D" parent="Teleporters" instance=ExtResource("4_ymid4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86, -1.339, -1.994)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("5_xpe1w")
-to = "welp"
+to = "special_room_kitchen"
 
-[node name="CollisionShape3D" parent="Teleporters/special_room_kitchen" index="0"]
-shape = SubResource("CylinderShape3D_rdsro")
+[node name="Events" type="Node" parent="."]
+script = ExtResource("6_k8pkv")
 
-[node name="MeshInstance3D" parent="Teleporters/special_room_kitchen/CollisionShape3D" index="0"]
-mesh = SubResource("CylinderMesh_17ox7")
-surface_material_override/0 = SubResource("StandardMaterial3D_dsrv7")
+[node name="ActionPutChickenPole1" type="Node" parent="Events"]
+script = ExtResource("7_7aheo")
 
-[editable path="Teleporters/special_room_kitchen"]
+[node name="ActionPutChickenPole2" type="Node" parent="Events"]
+script = ExtResource("8_dks5q")
+
+[node name="ActionAfterChickenSkewer" type="Node" parent="Events" node_paths=PackedStringArray("roasting_pit")]
+script = ExtResource("9_372qp")
+roasting_pit = NodePath("../../Roasting Pit")
+
+[node name="pole_bamboo_chicken_new" parent="." instance=ExtResource("10_gkpfe")]
+transform = Transform3D(0.847178, 0, -0.53131, 0.530339, 0.0604214, 0.84563, 0.0321025, -0.998173, 0.0511877, -0.58894, -0.510225, -0.523594)
+
+[node name="chicken_raw_new" parent="." instance=ExtResource("11_kvh1r")]
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, -0.400985, -0.653439, -0.745307)
+
+[node name="chicken_raw_new2" parent="." instance=ExtResource("11_kvh1r")]
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, -0.394836, -0.646178, -0.377879)
+
+[node name="Onion" parent="." instance=ExtResource("12_nmkx5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695436, -0.606739, -0.166944)
+
+[node name="Cleaver" parent="." instance=ExtResource("13_sud5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165982, -0.276312, -0.434624)
+
+[node name="Garlic" parent="." instance=ExtResource("14_phaoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.694816, -0.584891, 0.0560557)
+
+[node name="Papaya" parent="." instance=ExtResource("22_w7xq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.837666, -0.633548, 0.0336038)
+
+[node name="Kalabasa" parent="." instance=ExtResource("15_linsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00609875, -0.51773, -0.410117)
+
+[node name="Roasting Pit" parent="." instance=ExtResource("16_vna2s")]
+transform = Transform3D(0.999984, 0, -0.00572464, 0, 1, 0, 0.00572464, 0, 0.999984, -0.107376, -0.5848, -2.96939)
+
+[node name="Long Cooking Vat" parent="." instance=ExtResource("17_cdb10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45337, -0.483151, -0.406506)
+
+[node name="Stove" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.257829, 0, 0, 0, 0.0669858, 0, 0, 0, 0.259298, 0.457251, -0.633326, -0.407002)
+mesh = SubResource("BoxMesh_5hau0")
+surface_material_override/0 = SubResource("StandardMaterial3D_2bwcr")
+
+[node name="Stove2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.257829, 0, 0, 0, 0.0669858, 0, 0, 0, 0.259298, -0.183881, -0.621704, 0.497024)
+mesh = SubResource("BoxMesh_5hau0")
+surface_material_override/0 = SubResource("StandardMaterial3D_2bwcr")
+
+[node name="Atchara Pot" parent="." instance=ExtResource("18_7df72")]
+transform = Transform3D(0.47199, 0, 0.58286, 0, 0.75, 0, -0.58286, 0, 0.47199, 0.367931, -0.654483, 0.410036)
+
+[node name="Chopping Board A" parent="." instance=ExtResource("19_tp542")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -0.0433877, -0.661292, -0.430036)
+
+[node name="Chopping Board B" parent="." instance=ExtResource("19_tp542")]
+transform = Transform3D(-1.44248e-08, 0, 0.33, 0, 0.33, 0, -0.33, 0, -1.44248e-08, 0.440954, -0.661292, 0.0447507)
+
+[node name="Mixer Spoon" parent="." instance=ExtResource("20_u58be")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17826, -0.594062, 0.528492)
+
+[node name="Grater" parent="." instance=ExtResource("21_0kpst")]
+transform = Transform3D(-0.999657, 0, 0.0261769, 0, 1, 0, -0.0261769, 0, -0.999657, 0.0499794, -0.647724, 0.429817)
+disable_mode = 1
+mass = 15.0
+
+[node name="Kawali with Oil" parent="." instance=ExtResource("23_2l0vu")]
+transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, -0.187266, -0.592339, 0.515119)
+
+[node name="strainer_saba" parent="." instance=ExtResource("24_cpqmc")]
+transform = Transform3D(0.31651, 0, 0.948589, 0, 1, 0, -0.948589, 0, 0.31651, -0.387406, -0.58849, 0.859969)
+
+[node name="Saba Bananas" parent="." instance=ExtResource("25_dpbcj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48934, -0.576272, 0.453418)
+
+[editable path="Roasting Pit"]

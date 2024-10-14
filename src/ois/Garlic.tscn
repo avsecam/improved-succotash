@@ -14,7 +14,7 @@ size = Vector3(0.188604, 0.0501802, 0.13439)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kuwuf"]
 size = Vector3(0.241116, 0.192407, 0.223926)
 
-[node name="garlic" type="RigidBody3D" groups=["garlic"]]
+[node name="Garlic" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
 mass = 3.0

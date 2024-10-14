@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bx6iow16dlty0"]
+
+[ext_resource type="Script" path="res://src/ois/strainer_saba.gd" id="1_g13wq"]
+[ext_resource type="PackedScene" uid="uid://cedlls7pxjsp1" path="res://src/assets/B2/Strainer.glb" id="2_hl83o"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_tbh4y"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_o0s00"]
+[ext_resource type="PackedScene" uid="uid://dvwst02stxfna" path="res://src/assets/B2/SabaBananas_Fried.glb" id="5_uf588"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjo1j"]
+size = Vector3(0.0687012, 0.0475586, 0.310321)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7xgi2"]
+height = 0.0329437
+radius = 0.113634
+
+[node name="Strainer" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_g13wq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00651856, -0.0453689, 0.0199738)
+shape = SubResource("BoxShape3D_mjo1j")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Strainer" parent="MainMesh" instance=ExtResource("2_hl83o")]
+transform = Transform3D(-0.15, 1.0609e-08, -7.70787e-09, 0, 0.0881678, 0.121353, 1.31134e-08, 0.121353, -0.0881678, 0.00453734, 0.0978856, -0.128243)
+
+[node name="SabaBananas_Fried" parent="MainMesh" instance=ExtResource("5_uf588")]
+transform = Transform3D(0.2, 0, 0, 0, 0.121375, -0.158959, 0, 0.158959, 0.121375, 0.000383675, 0.0623955, -0.175299)
+visible = false
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_tbh4y")]
+transform = Transform3D(1, 0, 0, 0, 0.25038, 0.968148, 0, -0.968148, 0.25038, 0.0158579, -0.126377, 0.0435536)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_o0s00")]
+transform = Transform3D(1, 0, 0, 0, 0.25038, 0.968148, 0, -0.968148, 0.25038, -0.0148716, -0.126377, 0.0435536)
+
+[node name="StrainerActor" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StrainerActor"]
+transform = Transform3D(1, 0, 0, 0, 0.587785, -0.809017, 0, 0.809017, 0.587785, -0.000610821, 0.0345361, -0.216276)
+shape = SubResource("CylinderShape3D_7xgi2")
+
+[connection signal="area_entered" from="StrainerActor" to="." method="_on_strainer_actor_area_entered"]

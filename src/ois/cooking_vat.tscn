@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwjn4khxgi4fe"]
+
+[ext_resource type="Script" path="res://src/ois/cooking_vat.gd" id="1_dhy5y"]
+[ext_resource type="PackedScene" uid="uid://datnw2ppiu6hs" path="res://src/assets/B2/Cooking_Vat.glb" id="2_n4opr"]
+[ext_resource type="Texture2D" uid="uid://b3gkhcaeg3lio" path="res://src/assets/B2/PapayaPeeledPNG.png" id="4_orgpd"]
+[ext_resource type="PackedScene" uid="uid://cxorvronhu2l6" path="res://src/assets/B2/Garlic_Minced.glb" id="4_u8vxn"]
+[ext_resource type="PackedScene" uid="uid://800d5pi7toji" path="res://src/assets/B2/WhiteOnion_Eights.glb" id="6_lhb0t"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fl6ii"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nygy"]
+transparency = 1
+albedo_texture = ExtResource("4_orgpd")
+albedo_texture_force_srgb = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cn0r"]
+size = Vector3(0.175951, 0.0508545, 0.223441)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eubi5"]
+height = 0.103325
+radius = 0.124211
+
+[node name="cooking_vat_atchara" type="StaticBody3D"]
+script = ExtResource("1_dhy5y")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.046348)
+
+[node name="Cooking_Vat" parent="MainMesh" instance=ExtResource("2_n4opr")]
+transform = Transform3D(0.876, 0, 0, 0, 0.876, 0, 0, 0, 0.876, 0.0531966, -0.00417372, 0.367283)
+
+[node name="PeeledPapaya" type="MeshInstance3D" parent="MainMesh"]
+transform = Transform3D(0.599554, 0, 0, 0, 10.5872, 0, 0, 0, 0.555684, 0.0419627, 0.271076, 0.33834)
+visible = false
+mesh = SubResource("PlaneMesh_fl6ii")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1nygy")
+
+[node name="Garlic_Minced" parent="MainMesh" instance=ExtResource("4_u8vxn")]
+transform = Transform3D(0.29127, 0, 0, 0, 0.29127, 0, 0, 0, 0.29127, 0.0907889, 0.279899, 0.383715)
+visible = false
+
+[node name="Onion_Eighths" type="Node3D" parent="MainMesh"]
+transform = Transform3D(0.0994923, -0.0100622, 0, 0.0100622, 0.0994923, 0, 0, 0, 0.1, -0.00188706, 0.189997, 0.288819)
+visible = false
+
+[node name="WhiteOnion_Eights" parent="MainMesh/Onion_Eighths" instance=ExtResource("6_lhb0t")]
+transform = Transform3D(1, -7.45058e-09, 0, 7.45058e-09, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="WhiteOnion_Eights2" parent="MainMesh/Onion_Eighths" instance=ExtResource("6_lhb0t")]
+transform = Transform3D(-0.254352, 0.126976, -0.95874, 0.127296, 0.987114, 0.0969626, 0.958697, -0.0973809, -0.267238, -1.15482, 0.116793, 0)
+
+[node name="WhiteOnion_Eights3" parent="MainMesh/Onion_Eighths" instance=ExtResource("6_lhb0t")]
+transform = Transform3D(0.422617, 0, 0.906306, 2.6077e-08, 0.999998, -2.23517e-08, -0.906306, 2.02576e-08, 0.422618, 2.64732, -0.267738, -0.410554)
+
+[node name="WhiteOnion_Eights4" parent="MainMesh/Onion_Eighths" instance=ExtResource("6_lhb0t")]
+transform = Transform3D(0.407907, -0.141208, 0.902036, 0.127296, 0.987112, 0.0969625, -0.904105, 0.0752737, 0.420626, -0.0696558, 0.00704466, -2.29499)
+
+[node name="WhiteOnion_Eights5" parent="MainMesh/Onion_Eighths" instance=ExtResource("6_lhb0t")]
+transform = Transform3D(0.407907, -0.141208, 0.902035, 0.127296, 0.98711, 0.0969623, -0.904104, 0.0752737, 0.420626, -2.69549, 0.353589, -1.57733)
+
+[node name="WhiteOnion_Eights6" parent="MainMesh/Onion_Eighths" instance=ExtResource("6_lhb0t")]
+transform = Transform3D(0.743051, -0.175435, -0.645826, 0.186235, 0.981111, -0.0522425, 0.642796, -0.0814569, 0.761692, 2.92105, -0.295468, 1.37071)
+
+[node name="WhiteOnion_Eights7" parent="MainMesh/Onion_Eighths" instance=ExtResource("6_lhb0t")]
+transform = Transform3D(-0.645132, -0.141208, 0.750903, -0.0340802, 0.987108, 0.156347, -0.763306, 0.0752734, -0.641632, 3.8691, -0.201845, -2.51403)
+
+[node name="WhiteOnion_Eights8" parent="MainMesh/Onion_Eighths" instance=ExtResource("6_lhb0t")]
+transform = Transform3D(-0.667122, -0.129088, 0.733674, 0.0899157, 0.963712, 0.251323, -0.739499, 0.233632, -0.63131, -0.57498, 0.16264, 4.47882)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00961337, 0.0386638, 0.00593217)
+shape = SubResource("BoxShape3D_5cn0r")
+
+[node name="VatAcharaReceiver" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VatAcharaReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0089322, 0.067206, 0.00259808)
+shape = SubResource("CylinderShape3D_eubi5")
+
+[connection signal="area_entered" from="VatAcharaReceiver" to="." method="_on_vat_long_receiver_area_entered"]

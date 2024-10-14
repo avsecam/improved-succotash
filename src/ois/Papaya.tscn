@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjtla4yvw53s0"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_kgy81"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/grate_papaya.gd" id="2_glyda"]
+[ext_resource type="PackedScene" uid="uid://c3se6o8q2n7rn" path="res://src/assets/B2/papaya_peeled.tscn" id="3_it1p7"]
+[ext_resource type="Texture2D" uid="uid://b3gkhcaeg3lio" path="res://src/assets/B2/PapayaPeeledPNG.png" id="4_w6g43"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_fdbgt"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_dhbbc"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_p866h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
+size = Vector3(0.088639, 0.0988018, 0.0951984)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sahb1"]
+albedo_texture = ExtResource("4_w6g43")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eetxh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kuwuf"]
+size = Vector3(0.0951911, 0.192407, 0.146167)
+
+[node name="Papaya" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+mass = 3.0
+freeze_mode = 1
+script = ExtResource("1_kgy81")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018781, 0.0535879, -0.00337668)
+shape = SubResource("BoxShape3D_dhox6")
+
+[node name="Feedback" type="Node3D" parent="."]
+script = ExtResource("2_glyda")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Papaya_Peeled" parent="MainMesh" instance=ExtResource("3_it1p7")]
+transform = Transform3D(0.165, 0, 0, 0, 0.12, 0, 0, 0, 0.165, 0, 0, 0)
+
+[node name="Papaya_Grated" type="MeshInstance3D" parent="MainMesh"]
+transform = Transform3D(0.161, 0, 0, 0, 0.01, 0, 0, 0, 0.159, 0, 0.0190946, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_sahb1")
+mesh = SubResource("CylinderMesh_eetxh")
+skeleton = NodePath("../..")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("5_fdbgt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00205207, 0.0399281, -0.106962)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("6_dhbbc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00205207, 0.0399281, -0.106962)
+
+[node name="PapayaReceiver" type="Area3D" parent="." groups=["gratable"]]
+collision_layer = 5242881
+script = ExtResource("7_p866h")
+requirement = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PapayaReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00412282, 0.0680542, 0.00263655)
+shape = SubResource("BoxShape3D_kuwuf")
+
+[connection signal="action_completed" from="PapayaReceiver" to="Feedback" method="_on_papaya_receiver_action_completed"]
+[connection signal="action_in_progress" from="PapayaReceiver" to="Feedback" method="_on_papaya_receiver_action_in_progress"]
