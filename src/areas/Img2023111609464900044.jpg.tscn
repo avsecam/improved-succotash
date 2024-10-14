@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcaiojb2sbtoy"]
+[gd_scene load_steps=14 format=3 uid="uid://bcaiojb2sbtoy"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_re8ad"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vh8x2"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vh8x2"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m8ruw"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_c77ko"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="5_28qyy"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cicew6koqq028" path="res://src/assets/A1/Rag.tscn" id="7_lovlb"]
 [ext_resource type="PackedScene" uid="uid://dh8u38dgfwcu0" path="res://src/assets/A1/dirt.tscn" id="7_y0fml"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionCleanWindow3.gd" id="8_bthsp"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionUseOiledRagOnWindow.gd" id="10_ftqb3"]
 
 [node name="IMG_20231116_094649_00_044_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -41,14 +42,14 @@ omni_range = 16.12
 
 [node name="Middle7_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m8ruw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.536096, -1.65172, 4.15192)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_c77ko")
 to = "Middle7.jpg"
 
 [node name="Left00_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m8ruw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31949, -1.05138, -0.700588)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_c77ko")
 to = "Left00.jpg"
@@ -68,14 +69,14 @@ script = ExtResource("7_555h0")
 [node name="ActionCleanWindow3" type="Node" parent="Events"]
 script = ExtResource("8_bthsp")
 
+[node name="ActionUseOiledRagOnWindow" type="Node" parent="Events"]
+script = ExtResource("10_ftqb3")
+
 [node name="Table" parent="." instance=ExtResource("6_vmrc1")]
 transform = Transform3D(0.999325, 0, -0.0367485, 0, 1, 0, 0.0367485, 0, 0.999325, -1.16517, -1.37802, 0.497826)
 
 [node name="Rag" parent="." instance=ExtResource("7_lovlb")]
 transform = Transform3D(0.0135034, -0.110438, 0.993791, 0.992608, 0.121367, 0, -0.120613, 0.986445, 0.111261, -1.09694, -0.245621, 0.0217835)
-
-[node name="ControlRaycastVisibility" parent="Rag/StateManager" index="5"]
-raycast_length = 5.0
 
 [node name="dirt" parent="." instance=ExtResource("7_y0fml")]
 transform = Transform3D(-0.136459, 0, -0.990646, 0, 1, 0, 0.990646, 0, -0.136459, 0.120501, -0.0896844, -2.38281)
@@ -96,8 +97,11 @@ requirement = 0.25
 [connection signal="tree_exiting" from="Events/ActionCleanWindow2" to="dirt2" method="_associated_event_done"]
 [connection signal="tree_exiting" from="Events/ActionCleanWindow3" to="dirt3" method="_associated_event_done"]
 [connection signal="action_completed" from="dirt" to="Events/ActionCleanWindow1" method="_on_dirt_action_completed"]
+[connection signal="action_completed" from="dirt/OiledRagReceiver" to="Events/ActionUseOiledRagOnWindow" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="dirt2" to="Events/ActionCleanWindow2" method="_on_dirt_2_action_completed"]
+[connection signal="action_completed" from="dirt2/OiledRagReceiver" to="Events/ActionUseOiledRagOnWindow" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="dirt3" to="Events/ActionCleanWindow3" method="_on_dirt_3_action_completed"]
+[connection signal="action_completed" from="dirt3/OiledRagReceiver" to="Events/ActionUseOiledRagOnWindow" method="_on_oiled_rag_receiver_action_completed"]
 
 [editable path="Rag"]
 [editable path="Rag/MainMesh/CleanRag"]
@@ -105,3 +109,5 @@ requirement = 0.25
 [editable path="Rag/InventoryItemComp"]
 [editable path="Rag/InventoryItemComp/ReplacementMesh/MainMesh"]
 [editable path="dirt"]
+[editable path="dirt2"]
+[editable path="dirt3"]

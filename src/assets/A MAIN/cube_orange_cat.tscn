@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bharucw5xeyyi"]
+
+[ext_resource type="PackedScene" uid="uid://cmi2p4wrd3u7y" path="res://src/assets/A MAIN/Cube_OrangeCat.glb" id="1_xnh0i"]
+
+[node name="Cube_OrangeCat" instance=ExtResource("1_xnh0i")]

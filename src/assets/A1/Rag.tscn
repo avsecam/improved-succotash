@@ -90,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0462698, 0, 0)
 
 [node name="ControlRaycastVisibility" parent="StateManager" instance=ExtResource("9_76bp8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0413412, 0, 0)
-raycast_length = 0.5
+raycast_length = 5.0
 
 [node name="Laser" parent="StateManager/ControlRaycastVisibility" index="1"]
 mesh = SubResource("BoxMesh_w5bnt")

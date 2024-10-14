@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cubabc1xpnnac"]
+
+[ext_resource type="PackedScene" uid="uid://ck66ebvhwdf1w" path="res://src/assets/A MAIN/Cube_CalicoCat.glb" id="1_oah2f"]
+
+[node name="Cube_CalicoCat" instance=ExtResource("1_oah2f")]

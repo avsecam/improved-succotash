@@ -1,16 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d38rik2xqhbcv"]
+[gd_scene load_steps=7 format=3 uid="uid://d38rik2xqhbcv"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mp4ii"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_beq4h"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_bku23"]
-[ext_resource type="PackedScene" uid="uid://c6tegpjwepp73" path="res://src/assets/A1/Shelf_FiveTier (1).glb" id="5_4sx8c"]
-[ext_resource type="PackedScene" uid="uid://b3foujhryuk5l" path="res://src/assets/A1/MetalPolish.tscn" id="6_v50rv"]
 [ext_resource type="PackedScene" uid="uid://bq46582kommvy" path="res://src/ois/holy_water.tscn" id="7_u38j7"]
 [ext_resource type="PackedScene" uid="uid://dydpr1syelc2g" path="res://src/assets/A2/cursed_floor.tscn" id="8_73r5a"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7d0gm"]
-size = Vector3(2.55133, 4.33917, 3.49219)
 
 [node name="left00_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -52,18 +47,6 @@ collision_mask = 0
 script = ExtResource("4_bku23")
 to = "Left1.jpg"
 
-[node name="Shelf_FiveTier (1)" parent="." instance=ExtResource("5_4sx8c")]
-transform = Transform3D(0.47874, 0, 0.144249, 0, 0.5, 0, -0.144249, 0, 0.47874, -2.09469, -2.45315, 1.09475)
-
-[node name="Area3D" type="Area3D" parent="Shelf_FiveTier (1)"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf_FiveTier (1)/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116035, 1.64776, -0.0611534)
-shape = SubResource("BoxShape3D_7d0gm")
-
-[node name="MetalPolish" parent="." instance=ExtResource("6_v50rv")]
-transform = Transform3D(-0.00219903, 0.999998, 0, -0.999998, -0.00219904, 0, 0, 0, 1, -1.91261, -0.449503, 1.14752)
-
 [node name="holy_water" parent="." instance=ExtResource("7_u38j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14651, -1.75174, -3.82812)
 gravity_scale = 0.01
@@ -72,10 +55,15 @@ gravity_scale = 0.01
 raycast_length = 5.0
 
 [node name="cursed_floor" parent="." instance=ExtResource("8_73r5a")]
-transform = Transform3D(0.978739, 7.08709e-10, 0.205111, 0.132942, 0.761516, -0.634366, -0.156195, 0.648147, 0.745325, -0.203244, -1.06549, -2.6498)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.092901, -3.50282, -0.0606237)
+requirement = 20.0
 
 [node name="Floor_Cursed" parent="cursed_floor/MainMesh" index="0"]
 transform = Transform3D(1, 7.45058e-09, 7.45058e-09, 0, 1, 2.98023e-08, 1.49012e-08, 0, 1, 0, 0, 0)
+
+[node name="Feedback" parent="cursed_floor" index="2"]
+action_start = false
+action_completed = true
 
 [editable path="holy_water"]
 [editable path="holy_water/InventoryItemComp"]

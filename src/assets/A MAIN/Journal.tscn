@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfcpm6g53chw4"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="1_3roa7"]
+[ext_resource type="PackedScene" uid="uid://cg33sc1j0oh6t" path="res://src/assets/A MAIN/journal_open.tscn" id="2_40euk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_be3ar"]
+size = Vector3(0.3, 0.025, 0.25)
+
+[node name="Journal" type="Area3D"]
+collision_layer = 5242881
+script = ExtResource("1_3roa7")
+
+[node name="Journal_Open" parent="." instance=ExtResource("2_40euk")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00337747, 0)
+shape = SubResource("BoxShape3D_be3ar")

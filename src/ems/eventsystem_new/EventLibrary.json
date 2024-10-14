@@ -316,11 +316,9 @@
 	{
 		"Event_Name": "DialogueCalandraOfSanto",
 		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
+		"Oneshot": false,
 		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialogueCalandraOfSanto_Done"
-		],
+		"Event_Completion_Flags": [],
 		"Event_Audio": "VE_VO_A1_ASST_02_TheProcession",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
@@ -1378,5 +1376,19 @@
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {}
+	},
+	{
+		"Event_Name": "DialogueTheCarossaLastSupper",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "VE_VO_A3_ASST_01_This1990s",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "This carossa depicting the Last Supper is one of the biggest in the procession. Each figure in this life-sized work of art was created by a different sculptor. \nThe museum became its home after it was donated by the Potenciano family to the Arsenio Escudero Rosario Adap Foundation in the 1990s."
+		}
 	}
 ]

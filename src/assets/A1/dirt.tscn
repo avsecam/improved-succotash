@@ -1,17 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh8u38dgfwcu0"]
+[gd_scene load_steps=8 format=3 uid="uid://dh8u38dgfwcu0"]
 
 [ext_resource type="Script" path="res://src/ois/action_components/dirt_wipe_action.gd" id="1_83kch"]
 [ext_resource type="PackedScene" uid="uid://bydkdsvfvqg3e" path="res://src/assets/A1/Stain_Full.glb" id="2_rqqya"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/wipe_feedback.gd" id="3_cxcqw"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="4_efhvt"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/waxed.gd" id="5_ut688"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbqk5"]
-size = Vector3(0.1, 0.365881, 0.330176)
+size = Vector3(0.1, 0.365881, 0.175708)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yb7fd"]
+size = Vector3(0.1, 0.365881, 0.176318)
 
 [node name="dirt" type="StaticBody3D" groups=["clean_rag"]]
 script = ExtResource("1_83kch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0193298, -0.0137207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0193298, -0.0909546)
 shape = SubResource("BoxShape3D_mbqk5")
 
 [node name="MainMesh" parent="." instance=ExtResource("2_rqqya")]
@@ -20,5 +25,18 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 [node name="WipeFeedback" type="Node3D" parent="." node_paths=PackedStringArray("dirt_mesh")]
 script = ExtResource("3_cxcqw")
 dirt_mesh = NodePath("../MainMesh")
+action_during = false
+action_completed = true
+
+[node name="OiledRagReceiver" type="Area3D" parent="." groups=["oiled_rag"]]
+script = ExtResource("4_efhvt")
+requirement = 0.25
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="OiledRagReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0193298, 0.0632081)
+shape = SubResource("BoxShape3D_yb7fd")
+
+[node name="Feedback" type="Node3D" parent="OiledRagReceiver"]
+script = ExtResource("5_ut688")
 action_during = false
 action_completed = true

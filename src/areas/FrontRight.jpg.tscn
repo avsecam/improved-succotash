@@ -1,22 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://t4312pkmm888"]
+[gd_scene load_steps=8 format=3 uid="uid://t4312pkmm888"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mhqlv"]
 [ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_o3s15"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_13dui"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_yga4a"]
-[ext_resource type="PackedScene" uid="uid://bcdqwquh4lrv3" path="res://src/assets/fire_spirit.tscn" id="5_1nkw4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_861gv"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_wen13"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionUseNormalRagOnly.gd" id="7_2b6w6"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionUsePolishOnRod.gd" id="8_kr3pa"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPolishRod1.gd" id="9_lqomg"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtFireSpirit.gd" id="10_3oxq7"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutRag1Inventory.gd" id="11_1526x"]
-[ext_resource type="PackedScene" uid="uid://cicew6koqq028" path="res://src/assets/A1/Rag.tscn" id="13_yl0jx"]
-[ext_resource type="PackedScene" uid="uid://cf7200jemvmw6" path="res://src/assets/A1/RodSilverTorch.tscn" id="14_6aeui"]
-[ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="15_0pk1a"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="15_rw727"]
-[ext_resource type="PackedScene" uid="uid://b3foujhryuk5l" path="res://src/assets/A1/MetalPolish.tscn" id="17_608uq"]
 
 [node name="front right_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -46,14 +36,14 @@ omni_range = 16.12
 
 [node name="FrontClosedDoors(2)_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_13dui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1332, -1.83253, -3.6634)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_yga4a")
 to = "FrontClosedDoors(2).jpg"
 
 [node name="Middle0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_13dui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262456, -1.44031, 4.25521)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_yga4a")
 to = "Middle0.jpg"
@@ -64,52 +54,8 @@ script = ExtResource("5_861gv")
 [node name="BGMPlayerInA1" type="Node" parent="Events"]
 script = ExtResource("6_wen13")
 
-[node name="ActionUseNormalRagOnly" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
-script = ExtResource("7_2b6w6")
-event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
-
-[node name="ActionUsePolishOnRod" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
-script = ExtResource("8_kr3pa")
-event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
-
-[node name="ActionPolishRod1" type="Node" parent="Events"]
-script = ExtResource("9_lqomg")
-
-[node name="ActionLookAtFireSpirit" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
-script = ExtResource("10_3oxq7")
-event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
-
-[node name="ActionPutRag1Inventory" type="Node" parent="Events" node_paths=PackedStringArray("rag")]
-script = ExtResource("11_1526x")
-rag = NodePath("../../Rag")
-
-[node name="FireSpirit_Normal" parent="." instance=ExtResource("5_1nkw4")]
-transform = Transform3D(0.0943506, 0, 0.0331354, 0, 0.1, 0, -0.0331354, 0, 0.0943506, -2.03491, -0.637481, 1.52635)
-
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="FireSpirit_Normal"]
-
-[node name="Rag" parent="." instance=ExtResource("13_yl0jx")]
-transform = Transform3D(0.00765572, -0.627495, -0.778583, 0.999926, 0.0121995, 0, 0.00949835, -0.778525, 0.627542, -0.98731, -0.417531, 0.246154)
-
-[node name="RodSilverTorch" parent="." instance=ExtResource("14_6aeui")]
-transform = Transform3D(-0.0129561, -0.627408, -0.778583, 0.999787, -0.0206457, 0, -0.0160744, -0.778417, 0.627542, -0.661552, -0.426256, 0.89667)
-
-[node name="CleanRagReceiver" parent="RodSilverTorch" index="5"]
-requirement = 0.1
-
-[node name="RagNeedsPolish" parent="RodSilverTorch/CleanRagReceiver" index="1"]
-action_during = false
-action_completed = true
-
-[node name="PolishReceiver" parent="RodSilverTorch" index="6"]
-requirement = 0.5
-
-[node name="ApplyPolishToRag" parent="RodSilverTorch/PolishReceiver" index="1"]
-action_during = false
-action_completed = true
-
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("15_rw727")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.42563, -0.424407, -1.47719)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.42563, -0.424407, 0.726784)
 
 [node name="Marble" parent="MarbleSpirit_Normal" index="0"]
 transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
@@ -125,21 +71,4 @@ transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
-[node name="Table" parent="." instance=ExtResource("15_0pk1a")]
-transform = Transform3D(0.947568, 0, 0.319555, 0, 1, 0, -0.319555, 0, 0.947568, -0.749454, -1.59297, 1.08575)
-
-[node name="MetalPolish" parent="." instance=ExtResource("17_608uq")]
-transform = Transform3D(0.167887, 0.985806, 0, -0.985806, 0.167887, 0, 0, 0, 1, -1.06696, -0.53791, 0)
-
-[connection signal="tree_exiting" from="Events/ActionPolishRod1" to="RodSilverTorch" method="_associated_event_finished"]
-[connection signal="action_completed" from="RodSilverTorch/OiledRagReceiver" to="Events/ActionPolishRod1" method="_on_oiled_rag_receiver_action_completed"]
-[connection signal="action_completed" from="RodSilverTorch/CleanRagReceiver" to="Events/ActionUseNormalRagOnly" method="_on_clean_rag_receiver_action_completed"]
-[connection signal="action_completed" from="RodSilverTorch/PolishReceiver" to="Events/ActionUsePolishOnRod" method="_on_polish_receiver_action_completed"]
-
-[editable path="Rag"]
-[editable path="Rag/MainMesh/CleanRag"]
-[editable path="Rag/StateManager/ControlRaycastVisibility"]
-[editable path="Rag/InventoryItemComp"]
-[editable path="Rag/InventoryItemComp/ReplacementMesh/MainMesh"]
-[editable path="RodSilverTorch"]
 [editable path="MarbleSpirit_Normal"]

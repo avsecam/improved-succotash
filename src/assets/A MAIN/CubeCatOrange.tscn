@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://djcp2y446v0x6"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_ijm4h"]
+[ext_resource type="PackedScene" uid="uid://bharucw5xeyyi" path="res://src/assets/A MAIN/cube_orange_cat.tscn" id="2_dhnm4"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_dkipy"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_lp1nn"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_2dpog"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fu5av"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="CubeCatOrange" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_ijm4h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fu5av")
+
+[node name="MainMesh" parent="." instance=ExtResource("2_dhnm4")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.09, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_dkipy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, 0, -0.05)
+visible = true
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_lp1nn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, 0, -0.05)
+visible = true
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("5_2dpog")]
+
+[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
+visible = false
+
+[node name="MainMesh" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_dhnm4")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.09, 0)
+
+[editable path="InventoryItemComp"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnws6rqbaw8d"]
+[gd_scene load_steps=7 format=3 uid="uid://cnws6rqbaw8d"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_ajq3h"]
 [ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_ybpbf"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_kxuby"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_1c6le"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_1hcfe"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_1umaw"]
 
 [node name="middle1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -18,7 +20,6 @@ teleporters_data = [{
 }]
 image_filename = "res://src/areas/Middle1.jpg.jpg"
 base_rotation = 1.36
-outside = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -34,14 +35,20 @@ omni_range = 16.12
 
 [node name="Middle0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_kxuby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.26094, -1.3548, 0.51031)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_1c6le")
 to = "Middle0.jpg"
 
 [node name="Middle2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_kxuby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.27376, -1.35483, -0.389095)
-collision_layer = 512
+collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_1c6le")
 to = "Middle2.jpg"
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_1hcfe")
+
+[node name="BGMPlayerInA1" type="Node" parent="Events"]
+script = ExtResource("6_1umaw")

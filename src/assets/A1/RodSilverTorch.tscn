@@ -57,6 +57,7 @@ action_completed = true
 [node name="CleanRagReceiver" type="Area3D" parent="." groups=["clean_rag"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0977108)
 script = ExtResource("5_binet")
+requirement = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CleanRagReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103745, -0.0309793)
@@ -68,6 +69,7 @@ script = ExtResource("7_b7td8")
 [node name="PolishReceiver" type="Area3D" parent="." groups=["wax"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0936024)
 script = ExtResource("5_binet")
+requirement = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PolishReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00912477, 0.032094)
