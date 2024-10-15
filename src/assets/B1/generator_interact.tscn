@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpk8bx5qipk7v"]
+[gd_scene load_steps=7 format=3 uid="uid://bpk8bx5qipk7v"]
 
 [ext_resource type="Script" path="res://src/ois/action_components/lever_action.gd" id="1_pbc1m"]
 [ext_resource type="PackedScene" uid="uid://b42afk4j3r76d" path="res://src/assets/B1/GeneratorFull.tscn" id="2_phmye"]
+[ext_resource type="Script" path="res://src/assets/B1/GeneratorInteractible.gd" id="3_ktyqe"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="4_udxnv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jnypt"]
+size = Vector3(0.26709, 0.305054, 0.881592)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p8c1y"]
 size = Vector3(1.44779, 2.88274, 2.17904)
@@ -13,10 +18,28 @@ requirement = 1.0
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 
 [node name="Generator" parent="MainMesh" instance=ExtResource("2_phmye")]
+script = ExtResource("3_ktyqe")
+
+[node name="TopLever_Area" type="Area3D" parent="MainMesh"]
+script = ExtResource("4_udxnv")
+
+[node name="TopLever" type="CollisionShape3D" parent="MainMesh/TopLever_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1521, 3.91214, 0.510782)
+shape = SubResource("BoxShape3D_jnypt")
+
+[node name="BottomLever_Area" type="Area3D" parent="MainMesh"]
+collision_layer = 5242881
+script = ExtResource("4_udxnv")
+
+[node name="BottomLever" type="CollisionShape3D" parent="MainMesh/BottomLever_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0675391, 0.653137, 0.57582)
+shape = SubResource("BoxShape3D_jnypt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374939, 1.39137, -1.00958)
 shape = SubResource("BoxShape3D_p8c1y")
 
-[node name="SnapPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0381749, 3.95139, 0.481426)
+[connection signal="pointer_event" from="MainMesh/TopLever_Area" to="MainMesh/Generator" method="_on_top_lever_area_pointer_event"]
+[connection signal="pointer_event" from="MainMesh/BottomLever_Area" to="MainMesh/Generator" method="_on_bottom_lever_area_pointer_event"]
+
+[editable path="MainMesh/Generator"]

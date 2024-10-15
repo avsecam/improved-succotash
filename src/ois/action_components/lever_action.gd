@@ -1,4 +1,5 @@
 extends ReceiverObj
+class_name LeverAction
 
 var initial_direction
 var past_progress = 0

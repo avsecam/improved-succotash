@@ -23,3 +23,5 @@ action_completed = true
 
 [node name="MainMesh" parent="." instance=ExtResource("3_0eo84")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.00499955, -0.00149406, 0.0626538)
+
+[editable path="MainMesh"]

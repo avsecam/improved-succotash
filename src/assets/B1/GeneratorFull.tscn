@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b42afk4j3r76d"]
+[gd_scene load_steps=9 format=3 uid="uid://b42afk4j3r76d"]
 
 [ext_resource type="PackedScene" uid="uid://bg53skko2jjla" path="res://src/assets/B1/Generator_Compartment.glb" id="2_hgavb"]
 [ext_resource type="PackedScene" uid="uid://6htrn3ol43og" path="res://src/assets/B1/generator_crank_corrected.tscn" id="3_n5qpg"]
@@ -59,8 +59,36 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_bny63"]
+resource_name = "Close_Movement"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Generator_Crank:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.14159)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Generator_Compartment_Door:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mkypl"]
 _data = {
+"Close_Movement": SubResource("Animation_bny63"),
 "Crank_Movement": SubResource("Animation_8v6xe"),
 "RESET": SubResource("Animation_6gxy7")
 }

@@ -591,14 +591,29 @@
 		"Event_Text": {}
 	},
 	{
-		"Event_Name": "ActionPurifyWoodenPillar",
+		"Event_Name": "ActionPurifyWoodenPillar1",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
 			"ActionPickUpHolyWater_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionPurifyWoodenPillar_Done"
+			"ActionPurifyWoodenPillar1_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionPurifyWoodenPillar2",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPickUpHolyWater_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPurifyWoodenPillar1_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,
@@ -614,21 +629,6 @@
 		],
 		"Event_Completion_Flags": [
 			"ActionPurifyFloor_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {}
-	},
-	{
-		"Event_Name": "ActionPurifyDoor",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPickUpHolyWater_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPurifyDoor_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,
@@ -1534,6 +1534,20 @@
 		"Event_Text": {
 			"npc_name": "Assistant",
 			"dialogue": "This carossa depicting the Last Supper is one of the biggest in the procession. Each figure in this life-sized work of art was created by a different sculptor. \nThe museum became its home after it was donated by the Potenciano family to the Arsenio Escudero Rosario Adap Foundation in the 1990s."
+		}
+	},
+	{
+		"Event_Name": "DialogueTheTurumba",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "VE_VO_A2_ASST_02_On1778",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "On September 12, 1788, a wooden frame containing an image of the mother of God was found floating in the Laguna de Bay. The fishermen that discovered it tried to retrieve it, but they could not, for it was so heavy that they had to leave it in order to continue fishing that Friday. \nThen, on the following Sunday, a group of women found it and tried to retrieve it as well. However, despite the image itself being fairly small, not even Mariangga, the strongest of them, could lift it. \nSoon, the priest and practically everyone attending Mass at the time went to retrieve the image. It was only then that they managed to lift the icon, and the singing and dancing that followed became the first Turumba, held on September 14, 1788."
 		}
 	}
 ]
