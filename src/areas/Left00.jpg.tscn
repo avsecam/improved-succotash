@@ -4,8 +4,8 @@
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_beq4h"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_bku23"]
+[ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="6_omj0c"]
 [ext_resource type="PackedScene" uid="uid://bq46582kommvy" path="res://src/ois/holy_water.tscn" id="7_u38j7"]
-[ext_resource type="PackedScene" uid="uid://dydpr1syelc2g" path="res://src/assets/A2/cursed_floor.tscn" id="8_73r5a"]
 
 [node name="left00_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -51,20 +51,8 @@ to = "Left1.jpg"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14651, -1.75174, -3.82812)
 gravity_scale = 0.01
 
-[node name="ControlRaycast" parent="holy_water/StateManager" index="4"]
-raycast_length = 5.0
-
-[node name="cursed_floor" parent="." instance=ExtResource("8_73r5a")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.092901, -3.50282, -0.0606237)
-requirement = 20.0
-
-[node name="Floor_Cursed" parent="cursed_floor/MainMesh" index="0"]
-transform = Transform3D(1, 7.45058e-09, 7.45058e-09, 0, 1, 2.98023e-08, 1.49012e-08, 0, 1, 0, 0, 0)
-
-[node name="Feedback" parent="cursed_floor" index="2"]
-action_start = false
-action_completed = true
+[node name="Pillar_A2" parent="." instance=ExtResource("6_omj0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01184, -5.73052, -3.00792)
 
 [editable path="holy_water"]
 [editable path="holy_water/InventoryItemComp"]
-[editable path="cursed_floor"]

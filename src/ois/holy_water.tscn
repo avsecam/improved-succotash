@@ -13,7 +13,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6bgc"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="Resource" id="Resource_gyark"]
+[sub_resource type="Resource" id="Resource_lnges"]
 script = ExtResource("7_rte4t")
 state_behavior_settings = {
 "ActiveCollidingState": {
@@ -22,15 +22,19 @@ state_behavior_settings = {
 },
 "ActiveState": {
 "ControlRaycast": true,
-"InteractReceiver": true
+"InteractReceiver": false
 },
 "IdleState": {
 "ControlRaycast": false,
 "InteractReceiver": false
 },
+"InventoryState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
 "TriggerState": {
-"ControlRaycast": true,
-"InteractReceiver": true
+"ControlRaycast": false,
+"InteractReceiver": false
 }
 }
 behavior_dict = {
@@ -59,10 +63,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0421172, 0.0375126, -0.1288
 
 [node name="StateManager" parent="." instance=ExtResource("5_uoch3")]
 receiver_group = "holy_water"
-settings = SubResource("Resource_gyark")
+settings = SubResource("Resource_lnges")
 
 [node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_dppkb")]
-raycast_length = 3.0
+raycast_length = 5.0
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("8_mj7qo")]
 rate = 3.0

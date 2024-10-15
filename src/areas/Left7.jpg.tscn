@@ -11,7 +11,7 @@ transform = Transform3D(0.363246, 0, 0.931679, 0, 1, 0, -0.931679, 0, 0.363246, 
 top_level = true
 script = ExtResource("1_guqws")
 teleporters_data = [{
-"position": Vector3(-4.334, -1.676, 1.2),
+"position": Vector3(-4.225, -1.676, 0.306),
 "rotation": Vector3(2.251e-14, -1.83, 5.57611e-07),
 "to": "Left5Vase.jpg"
 }, {
@@ -34,7 +34,7 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Left5Vase_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_oxm6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.334, -1.676, 1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.22517, -1.676, 0.306053)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_rrawd")
@@ -48,4 +48,4 @@ script = ExtResource("4_rrawd")
 to = "Left10Cheetah.jpg"
 
 [node name="Pillar_A2" parent="." instance=ExtResource("5_ytes7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39793, -5.8332, 1.85748)
+transform = Transform3D(0.8, 0, -2.98023e-08, 0, 0.8, 0, 2.98023e-08, 0, 0.8, 2.39793, -4.54658, 1.85748)
