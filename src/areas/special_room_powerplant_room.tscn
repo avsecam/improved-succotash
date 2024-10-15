@@ -1,23 +1,34 @@
-[gd_scene load_steps=12 format=3 uid="uid://86ntuf0j6gis"]
+[gd_scene load_steps=13 format=3 uid="uid://86ntuf0j6gis"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_24fbd"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_macj4"]
 [ext_resource type="PackedScene" uid="uid://bd7170yeh1357" path="res://src/assets/B1/Nursery_RiceSaplings.glb" id="4_w27sf"]
 [ext_resource type="PackedScene" uid="uid://dmmbs4v3u23b" path="res://src/assets/B1/Bangka_Normal.glb" id="5_s866p"]
-[ext_resource type="PackedScene" uid="uid://b42afk4j3r76d" path="res://src/assets/B1/GeneratorFull.tscn" id="6_l083o"]
 [ext_resource type="PackedScene" uid="uid://c0qm8ycbqgx3s" path="res://src/assets/B1/tile_sun.tscn" id="7_ffab0"]
 [ext_resource type="PackedScene" uid="uid://de2klvxpok73i" path="res://src/assets/B1/Tile_River.tscn" id="8_1eqgx"]
 [ext_resource type="PackedScene" uid="uid://b0f34rt0oox1c" path="res://src/assets/B1/water_spirit_normal_with_fx.tscn" id="8_qw2mr"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="9_ags6u"]
+[ext_resource type="PackedScene" uid="uid://bpk8bx5qipk7v" path="res://src/assets/B1/generator_interact.tscn" id="10_8l0sr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_175fc"]
 albedo_color = Color(0, 0, 0, 0)
 
-[node name="SpecialRoom_PowerPLant" type="Node3D"]
+[node name="SpecialRoom_PowerPlant" type="Node3D"]
 script = ExtResource("1_24fbd")
+teleporters_data = [{
+"position": Vector3(0, -1.385, 1.32),
+"to": "Right1.jpg"
+}]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Right1_jpg" parent="Teleporters" instance=ExtResource("3_macj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.38549, 1.31965)
+to = "Right1_jpg"
 
 [node name="Walls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
@@ -102,22 +113,14 @@ mesh = ExtResource("2_7ohg7")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_175fc")
 
-[node name="Teleporters" type="Node3D" parent="."]
-
 [node name="Nursery_RiceSaplings2" parent="." instance=ExtResource("4_w27sf")]
 transform = Transform3D(0.749726, 0, 0.020287, 0, 0.75, 0, -0.020287, 0, 0.749726, -2.60327, -1.22617, -0.101364)
 
 [node name="Bangka_Normal" parent="." instance=ExtResource("5_s866p")]
 transform = Transform3D(0.241624, 0, 0.0641693, 0, 0.25, 0, -0.0641693, 0, 0.241624, 3.04535, -1.10521, -0.128431)
 
-[node name="Generator" parent="." instance=ExtResource("6_l083o")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.148557, -1.40737, -1.86714)
-
-[node name="Generator_Crank" parent="Generator" index="3"]
-transform = Transform3D(-1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.114204)
-
 [node name="WaterSpirit_Normal" parent="." instance=ExtResource("8_qw2mr")]
-transform = Transform3D(-0.214909, 0, 0.209318, 0, 0.3, 0, -0.209318, 0, -0.214909, 2.1515, -0.36432, -1.57456)
+transform = Transform3D(-0.214909, 0, 0.209318, 0, 0.3, 0, -0.209318, 0, -0.214909, 3.1515, 0.63568, -1.57456)
 
 [node name="Tile_Sun" parent="." instance=ExtResource("7_ffab0")]
 transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, -0.569547, 0.264759, 1.46618)
@@ -128,4 +131,16 @@ transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-0
 [node name="SnapZone" parent="." instance=ExtResource("9_ags6u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477674, 0, 1.46695)
 
-[editable path="Generator"]
+[node name="generator" parent="." instance=ExtResource("10_8l0sr")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.3, -1.4, -1.63109)
+collision_layer = 5242881
+collision_mask = 16385
+
+[node name="Generator_Crank" parent="generator/MainMesh/Generator" index="3"]
+transform = Transform3D(-1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.030112)
+
+[node name="TopLever_Area" parent="generator/MainMesh" index="1"]
+collision_layer = 5242881
+
+[editable path="generator"]
+[editable path="generator/MainMesh/Generator"]

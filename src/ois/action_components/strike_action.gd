@@ -16,7 +16,7 @@ func _process(delta):
 	var interacting_current_pos = interacting_object.position
 	var actor_receiver_dist = position.distance_to(interacting_current_pos)
 	var actor_start_end_dist = interacting_inital_pos.distance_to(interacting_current_pos)
-	print("dist : " + str(actor_receiver_dist))
+	#print("dist : " + str(actor_receiver_dist))
 
 	# hasn't registred hit yet, actor and receiver within range, direction of motion is towards the object
 	if(!hit_already && actor_receiver_dist < range && actor_receiver_dist < actor_receiver_dist_init):
