@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_7hb37"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_ymid4"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="5_xpe1w"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_k8pkv"]
@@ -55,7 +55,7 @@ albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
 script = ExtResource("1_7hb37")
 teleporters_data = [{
 "position": Vector3(3.86, -1.339, -1.994),
-"to": "special_room_kitchen"
+"to": "Rights0.jpg"
 }]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
 
