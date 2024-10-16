@@ -9,7 +9,7 @@
 size = Vector3(0.26709, 0.305054, 0.881592)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p8c1y"]
-size = Vector3(1.44779, 2.88274, 2.17904)
+size = Vector3(1.44779, 0.668195, 2.17904)
 
 [node name="generator" type="StaticBody3D"]
 script = ExtResource("1_pbc1m")
@@ -19,6 +19,9 @@ requirement = 1.0
 
 [node name="Generator" parent="MainMesh" instance=ExtResource("2_phmye")]
 script = ExtResource("3_ktyqe")
+
+[node name="Generator_Crank" parent="MainMesh/Generator" index="3"]
+transform = Transform3D(-1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.030112)
 
 [node name="TopLever_Area" type="Area3D" parent="MainMesh"]
 script = ExtResource("4_udxnv")
@@ -36,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0675391, 0.653137, 0.57582
 shape = SubResource("BoxShape3D_jnypt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374939, 1.39137, -1.00958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374939, 0.247533, -1.00958)
 shape = SubResource("BoxShape3D_p8c1y")
 
 [connection signal="pointer_event" from="MainMesh/TopLever_Area" to="MainMesh/Generator" method="_on_top_lever_area_pointer_event"]
