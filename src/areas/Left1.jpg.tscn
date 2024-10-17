@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://j8j0tspv58x3"]
+[gd_scene load_steps=6 format=3 uid="uid://j8j0tspv58x3"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_njjgm"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_2d42v"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_f8l0h"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_2s5of"]
+[ext_resource type="PackedScene" uid="uid://dbbjh1nfeajhp" path="res://src/assets/B4/numpad.tscn" id="5_si8s7"]
 
 [node name="left1_jpg" type="Node3D"]
 transform = Transform3D(0.173425, 0, 0.984847, 0, 1, 0, -0.984847, 0, 0.173425, 0, 0, 0)
@@ -56,3 +57,6 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_2s5of")
 to = "Left2.jpg"
+
+[node name="Numpad" parent="." instance=ExtResource("5_si8s7")]
+transform = Transform3D(-0.125628, 0, 4.96039, 0, 5, 0, -0.992079, 0, -0.628139, 0.369744, -0.378186, 2.35924)

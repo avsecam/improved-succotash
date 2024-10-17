@@ -104,6 +104,11 @@ editor_move_down={
 
 3d_physics/layer_10="teleporter"
 
+[physics]
+
+common/physics_ticks_per_second=100
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true

@@ -42,6 +42,10 @@ shape = SubResource("BoxShape3D_jnypt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374939, 0.247533, -1.00958)
 shape = SubResource("BoxShape3D_p8c1y")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0749878, 2.56363, -1.00744)
+shape = SubResource("BoxShape3D_p8c1y")
+
 [connection signal="pointer_event" from="MainMesh/TopLever_Area" to="MainMesh/Generator" method="_on_top_lever_area_pointer_event"]
 [connection signal="pointer_event" from="MainMesh/BottomLever_Area" to="MainMesh/Generator" method="_on_bottom_lever_area_pointer_event"]
 
