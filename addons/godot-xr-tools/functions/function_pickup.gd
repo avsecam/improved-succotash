@@ -430,3 +430,11 @@ func _on_grip_pressed() -> void:
 func _on_grip_release() -> void:
 	if is_instance_valid(picked_up_object) and picked_up_object.press_to_hold:
 		drop_object()
+
+
+func _on_function_pointer_raycast_grab(thing):
+	if thing != null:
+		if thing is XRToolsPickable:
+			_pick_up_object(thing)
+		else:
+			pass

@@ -21,6 +21,7 @@ radius = 0.2
 
 [node name="FunctionPointer" type="Node3D"]
 script = ExtResource("2")
+active_button_action = "trigger_click"
 show_target = true
 
 [node name="RayCast" type="RayCast3D" parent="."]

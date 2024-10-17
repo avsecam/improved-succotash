@@ -54,6 +54,7 @@ func _process(delta):
 	if (raycast.is_colliding()):
 		if (currently_colliding == null):
 			currently_colliding = raycast.get_collider()
+			print("current collider: "+str(currently_colliding.name))
 			body_entered.emit(currently_colliding)
 	else:
 		if (currently_colliding != null):

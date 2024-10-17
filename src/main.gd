@@ -34,3 +34,7 @@ func _ready():
 	get_tree().paused = true
 
 
+
+
+func _on_right_hand_button_pressed(name):
+	print("BUTTON PRESSED: "+name)

@@ -17,6 +17,8 @@ extends Node3D
 ## Signal emitted when this object points at another object
 signal pointing_event(event)
 
+## TESTING THIS LOL
+signal raycast_grab(thing)
 
 ## Enumeration of laser show modes
 enum LaserShow {
@@ -51,7 +53,7 @@ const SUPPRESS_MASK := 0b0000_0000_0100_0000_0000_0000_0000_0000
 @export var distance : float = 10: set = set_distance
 
 ## Active button action
-@export var active_button_action : String = "trigger_click"
+@export var active_button_action : String = "grip_click"
 
 @export_group("Laser")
 
@@ -251,6 +253,8 @@ func _process(_delta):
 	# Update last values
 	last_target = new_target
 	last_collided_at = new_at
+	
+	print("CURRENT RAYCAST TARGET: "+ str(last_target))
 
 
 # Set pointer enabled property
@@ -415,6 +419,8 @@ func _update_pointer() -> void:
 
 # Pointer-activation button pressed handler
 func _button_pressed() -> void:
+	
+	print("Function Pointer: Controller button PRESSED!!")
 	if $RayCast.is_colliding():
 		# Report pressed
 		target = $RayCast.get_collider()
@@ -426,6 +432,7 @@ func _button_pressed() -> void:
 func _button_released() -> void:
 	if target:
 		# Report release
+		print("Function Pointer: Controller button RELEASED!!")
 		XRToolsPointerEvent.released(self, target, last_collided_at)
 		target = null
 		last_collided_at = Vector3(0, 0, 0)
@@ -509,3 +516,12 @@ func _visible_miss() -> void:
 	# Restore laser length if set to collide-length
 	$Laser.mesh.size.z = distance
 	$Laser.position.z = distance * -0.5
+
+
+func _on_right_hand_button_pressed(name):
+	if name == "grip_click":
+		raycast_grab.emit(last_target)
+	
+func _on_left_hand_button_pressed(name):
+	if name == "grip_click":
+		raycast_grab.emit(last_target)
