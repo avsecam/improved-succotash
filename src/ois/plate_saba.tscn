@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://dcm7wtj5ie8a8"]
+[gd_scene load_steps=34 format=3 uid="uid://dcm7wtj5ie8a8"]
 
 [ext_resource type="PackedScene" uid="uid://dvwst02stxfna" path="res://src/assets/B2/SabaBananas_Fried.glb" id="1_58rha"]
 [ext_resource type="Script" path="res://src/ois/Plate_Saba.gd" id="1_jxyf6"]
 [ext_resource type="Texture2D" uid="uid://b4cij3rwar8be" path="res://src/assets/Fire/Voronoi01.png" id="2_vcntg"]
 [ext_resource type="Texture2D" uid="uid://kdko7148y7hv" path="res://src/assets/Fire/Flame02.png" id="3_12i8x"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="5_kvvbi"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4pm24"]
 
@@ -291,5 +292,9 @@ draw_pass_1 = SubResource("QuadMesh_l46ry")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlateReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00598985, 1.49012e-08, 0.0038377)
 shape = SubResource("CylinderShape3D_1dmgk")
+
+[node name="Progress View" parent="." instance=ExtResource("5_kvvbi")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
+visible = false
 
 [connection signal="area_entered" from="PlateReceiver" to="." method="_on_plate_receiver_area_entered"]

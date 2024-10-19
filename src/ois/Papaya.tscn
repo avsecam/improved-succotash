@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjtla4yvw53s0"]
+[gd_scene load_steps=13 format=3 uid="uid://bjtla4yvw53s0"]
 
 [ext_resource type="Script" path="res://src/ois/Papaya.gd" id="1_6tdkn"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/grate_papaya.gd" id="2_glyda"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_fdbgt"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_dhbbc"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_p866h"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="8_vprv8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
+margin = 0.01
 size = Vector3(0.088639, 0.108483, 0.0951984)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sahb1"]
@@ -59,6 +61,10 @@ requirement = 2.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PapayaReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00412282, 0.0680542, 0.00263655)
 shape = SubResource("BoxShape3D_kuwuf")
+
+[node name="Progress View" parent="." instance=ExtResource("8_vprv8")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
+visible = false
 
 [connection signal="papaya_grated_workaround" from="Feedback" to="." method="_on_feedback_papaya_grated_workaround"]
 [connection signal="action_completed" from="PapayaReceiver" to="Feedback" method="_on_papaya_receiver_action_completed"]

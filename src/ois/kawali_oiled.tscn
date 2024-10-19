@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://ddm00kg6s30ok"]
+[gd_scene load_steps=45 format=3 uid="uid://ddm00kg6s30ok"]
 
 [ext_resource type="Script" path="res://src/ois/kawali_oiled.gd" id="1_ylpqi"]
 [ext_resource type="PackedScene" uid="uid://cnrr218dhry3h" path="res://src/assets/B2/Kawali_Oil.glb" id="2_wuhyd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://kdko7148y7hv" path="res://src/assets/Fire/Flame02.png" id="6_trj03"]
 [ext_resource type="Texture2D" uid="uid://cwlfxr7018hdp" path="res://src/assets/Fire/oilpop image.png" id="7_otwo8"]
 [ext_resource type="PackedScene" uid="uid://dvwst02stxfna" path="res://src/assets/B2/SabaBananas_Fried.glb" id="8_qrjht"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="9_nnm71"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l1s47"]
 render_priority = 0
@@ -368,6 +369,10 @@ shape = SubResource("CylinderShape3D_eubi5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StrainerReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00297554, 0.0548484, 0.00259808)
 shape = SubResource("CylinderShape3D_eubi5")
+
+[node name="Progress View" parent="." instance=ExtResource("9_nnm71")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
+visible = false
 
 [connection signal="area_entered" from="OilReceiver" to="." method="_on_vat_long_receiver_area_entered"]
 [connection signal="area_entered" from="OilReceiver" to="." method="_on_oil_receiver_area_entered"]

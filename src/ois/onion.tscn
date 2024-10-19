@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b74f8r4tmvgdb"]
+[gd_scene load_steps=13 format=3 uid="uid://b74f8r4tmvgdb"]
 
 [ext_resource type="Script" path="res://src/ois/Onion.gd" id="1_yaui0"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_0c3c4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d20rlsd50ugpx" path="res://src/assets/B2/WhiteOnion_Quarters.glb" id="5_j8xt8"]
 [ext_resource type="PackedScene" uid="uid://dceobd16aphk0" path="res://src/assets/B2/WhiteOnion_Halves.glb" id="6_ryleq"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_rsfia"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="10_65sx4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0j2vl"]
 size = Vector3(0.211768, 0.0616692, 0.242407)
@@ -105,6 +106,10 @@ requirement = 3.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OnionReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000469968, 0.0156494, 0.00145692)
 shape = SubResource("BoxShape3D_fpgbw")
+
+[node name="Progress View" parent="." instance=ExtResource("10_65sx4")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
+visible = false
 
 [connection signal="action_completed" from="OnionReceiver" to="." method="_on_onion_receiver_action_completed"]
 [connection signal="action_completed" from="OnionReceiver" to="Feedback" method="_on_onion_receiver_action_completed"]

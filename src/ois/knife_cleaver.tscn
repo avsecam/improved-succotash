@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cyjdtclqritq0" path="res://src/ois/states/control_raycast_cleaver.tscn" id="8_8gnm0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xr4xy"]
+margin = 0.01
 size = Vector3(0.1, 0.107935, 0.435584)
 
 [sub_resource type="Resource" id="Resource_m6wk3"]

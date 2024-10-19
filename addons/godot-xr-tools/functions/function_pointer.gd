@@ -253,8 +253,7 @@ func _process(_delta):
 	# Update last values
 	last_target = new_target
 	last_collided_at = new_at
-	
-	print("CURRENT RAYCAST TARGET: "+ str(last_target))
+
 
 
 # Set pointer enabled property
@@ -419,8 +418,7 @@ func _update_pointer() -> void:
 
 # Pointer-activation button pressed handler
 func _button_pressed() -> void:
-	
-	print("Function Pointer: Controller button PRESSED!!")
+
 	if $RayCast.is_colliding():
 		# Report pressed
 		target = $RayCast.get_collider()
@@ -432,7 +430,6 @@ func _button_pressed() -> void:
 func _button_released() -> void:
 	if target:
 		# Report release
-		print("Function Pointer: Controller button RELEASED!!")
 		XRToolsPointerEvent.released(self, target, last_collided_at)
 		target = null
 		last_collided_at = Vector3(0, 0, 0)

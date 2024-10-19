@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://muoewebdtop4" path="res://src/assets/B3/Pole_Bamboo.glb" id="6_y6kp4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vxcyy"]
-size = Vector3(0.1, 0.1, 0.1)
+size = Vector3(0.1, 0.704028, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bjyr0"]
 size = Vector3(0.1, 0.89408, 0.1)
@@ -22,6 +22,7 @@ freeze_mode = 1
 script = ExtResource("1_wi735")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0137818, 0)
 shape = SubResource("BoxShape3D_vxcyy")
 
 [node name="Feedback" type="Node3D" parent="."]

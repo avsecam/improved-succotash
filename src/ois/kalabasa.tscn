@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d6m7vthwf6a6"]
+[gd_scene load_steps=13 format=3 uid="uid://d6m7vthwf6a6"]
 
 [ext_resource type="Script" path="res://src/ois/Kalabasa.gd" id="1_3m8f5"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/slice_kalabasa.gd" id="2_ucc1r"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_se07a"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_12pop"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="9_fm716"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="10_decta"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0j2vl"]
+margin = 0.01
 size = Vector3(0.222163, 0.0796996, 0.242407)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fpgbw"]
@@ -24,7 +26,7 @@ freeze_mode = 1
 script = ExtResource("1_3m8f5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0441596, -0.0525468, -0.000763904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00459591, -0.0525468, -0.000763904)
 shape = SubResource("BoxShape3D_0j2vl")
 
 [node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("kalabasaa", "kalabasab", "kalabasac", "kalabasad")]
@@ -37,10 +39,10 @@ kalabasad = NodePath("../MainMesh/Eighths")
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 
 [node name="Kalabasa_Whole" parent="MainMesh" instance=ExtResource("3_imxpf")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.048131, 0.00184517, -0.00136464)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3.36058e-05, 0.0278856, -0.00136464)
 
 [node name="Eighths" type="Node3D" parent="MainMesh"]
-transform = Transform3D(0.0298477, -0.00301867, 0, 0.00301867, 0.0298477, 0, 0, 0, 0.03, 0, -0.106942, 0)
+transform = Transform3D(0.0298477, -0.00301867, 0, 0.00301867, 0.0298477, 0, 0, 0, 0.03, 0, -0.138923, 0)
 visible = false
 
 [node name="Kalabasa_Pieces" parent="MainMesh/Eighths" instance=ExtResource("4_3seuw")]
@@ -68,7 +70,7 @@ transform = Transform3D(6.29431, 0.967134, -7.71015, 1.56065, 9.56273, 2.47358, 
 transform = Transform3D(3.82703, 0.967134, 9.18797, -2.91732, 9.56273, 0.208553, -8.76604, -2.76023, 3.94182, -1.61513, 3.88594, 0.290391)
 
 [node name="Quarters" type="Node3D" parent="MainMesh"]
-transform = Transform3D(0.0191373, -0.0172313, -0.0428584, 0.0334565, 0.0371573, -1.44287e-08, 0.03185, -0.0286779, 0.0257518, 0.00113975, -0.099822, -0.0499877)
+transform = Transform3D(0.0191373, -0.0172313, -0.0428584, 0.0334565, 0.0371573, -1.44287e-08, 0.03185, -0.0286779, 0.0257518, 0.00113975, -0.131803, -0.0655061)
 visible = false
 
 [node name="Kalabasa_quarters" parent="MainMesh/Quarters" instance=ExtResource("5_q1bu6")]
@@ -90,7 +92,7 @@ transform = Transform3D(0.961693, 0.936784, -0.396968, -0.865914, 1.0404, 0.3574
 transform = Transform3D(-0.0658881, 0.936784, -1.03831, 0.0593248, 1.0404, 0.934906, 1.39719, 2.37686e-07, -0.0886606, 0.6711, 1.48465, 0.29167)
 
 [node name="Halves" type="Node3D" parent="MainMesh"]
-transform = Transform3D(0.0696447, -0.00704356, 0, 0.00704356, 0.0696447, 0, 0, 0, 0.07, -0.0195663, -0.00651399, 0.0439649)
+transform = Transform3D(0.0696447, -0.00704356, 0, 0.00704356, 0.0696447, 0, 0, 0, 0.07, 0.0213948, -0.0384947, 0.0935757)
 visible = false
 
 [node name="Kalabasa_quarters" parent="MainMesh/Halves" instance=ExtResource("6_coswp")]
@@ -112,11 +114,15 @@ transform = Transform3D(-0.0211206, 0.123499, -1.19344, 0.123499, 1.18751, 0.120
 [node name="KalabasaReceiver" type="Area3D" parent="." groups=["sliceable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97672e-05, -3.72529e-09, -0.00086543)
 script = ExtResource("9_fm716")
-requirement = 3.0
+requirement = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KalabasaReceiver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614364, 0.0351809, 0.000948388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105011, 0.0351809, 0.000948388)
 shape = SubResource("BoxShape3D_fpgbw")
+
+[node name="Progress View" parent="." instance=ExtResource("10_decta")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
+visible = false
 
 [connection signal="action_completed" from="KalabasaReceiver" to="." method="_on_kalabasa_receiver_action_completed"]
 [connection signal="action_completed" from="KalabasaReceiver" to="Feedback" method="_on_kalabasa_receiver_action_completed"]
