@@ -16,3 +16,6 @@ snap_require = "sliceable"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0822144, 0)
 shape = SubResource("BoxShape3D_cilor")
+
+[connection signal="has_dropped" from="SnapZone" to="." method="_on_snap_zone_has_dropped"]
+[connection signal="has_picked_up" from="SnapZone" to="." method="_on_snap_zone_has_picked_up"]
