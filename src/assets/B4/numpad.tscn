@@ -1,12 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbbjh1nfeajhp"]
+[gd_scene load_steps=11 format=3 uid="uid://dbbjh1nfeajhp"]
 
 [ext_resource type="Script" path="res://src/assets/B4/Numpad.gd" id="1_es3hv"]
 [ext_resource type="PackedScene" uid="uid://bcqv5rg2155im" path="res://src/assets/B4/KeypadLock_BodyNineKeys.glb" id="2_1snae"]
 [ext_resource type="PackedScene" uid="uid://c2g6qwu3lt1f8" path="res://src/assets/B4/KeypadLock_ThreeScratched.glb" id="3_4w303"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="3_h3jhr"]
+[ext_resource type="PackedScene" uid="uid://ug2mkpisptn3" path="res://src/assets/B4/NumPadUI.tscn" id="5_5h4u3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ctgps"]
 size = Vector3(0.0631104, 0.162079, 0.154381)
+
+[sub_resource type="QuadMesh" id="QuadMesh_3mcrr"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ue3bq"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwrfw"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ue3bq")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fsovu"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
 
 [node name="Numpad" type="Node3D"]
 script = ExtResource("1_es3hv")
@@ -90,7 +109,19 @@ script = ExtResource("3_h3jhr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Numpad9"]
 shape = SubResource("BoxShape3D_ctgps")
 
+[node name="StaticUIContainer" parent="." instance=ExtResource("5_5h4u3")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.0286522, 0.644101, 0)
+script = null
+
+[node name="Screen" parent="StaticUIContainer/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_3mcrr")
+surface_material_override/0 = SubResource("StandardMaterial3D_kwrfw")
+
+[node name="CollisionShape3D" parent="StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_fsovu")
+
 [connection signal="pointer_event" from="Numpad1" to="." method="_on_numpad_1_pointer_event"]
+[connection signal="pointer_event" from="Numpad1" to="StaticUIContainer" method="_on_numpad_1_pointer_event"]
 [connection signal="pointer_event" from="Numpad2" to="." method="_on_numpad_2_pointer_event"]
 [connection signal="pointer_event" from="Numpad3" to="." method="_on_numpad_3_pointer_event"]
 [connection signal="pointer_event" from="Numpad4" to="." method="_on_numpad_4_pointer_event"]
@@ -101,3 +132,6 @@ shape = SubResource("BoxShape3D_ctgps")
 [connection signal="pointer_event" from="Numpad9" to="." method="_on_numpad_9_pointer_event"]
 
 [editable path="KeypadLock_BodyNineKeys"]
+[editable path="StaticUIContainer"]
+[editable path="StaticUIContainer/Viewport2Din3D"]
+[editable path="StaticUIContainer/Viewport2Din3D/Viewport/NumPadUI"]

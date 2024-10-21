@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ug2mkpisptn3"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_ctd0h"]
+[ext_resource type="PackedScene" uid="uid://cav3ywd6bqrtm" path="res://src/assets/B4/num_pad_ui.tscn" id="3_64t1y"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_d400e"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g33oa"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxs70"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_g33oa")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tgo51"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
+
+[node name="StaticUIContainer" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("2_ctd0h")]
+collision_layer = 0
+viewport_size = Vector2(1152, 648)
+unshaded = true
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(1152, 648)
+
+[node name="NumPadUI" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("3_64t1y")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_d400e")
+surface_material_override/0 = SubResource("StandardMaterial3D_uxs70")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+collision_layer = 0
+viewport_size = Vector2(1152, 648)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_tgo51")
+
+[editable path="Viewport2Din3D"]
+[editable path="Viewport2Din3D/Viewport/NumPadUI"]

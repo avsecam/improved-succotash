@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8o0r1caf8gku"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_cxs1m"]
+[ext_resource type="PackedScene" uid="uid://cav3ywd6bqrtm" path="res://src/assets/B4/num_pad_ui.tscn" id="2_1n0bv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_lxka1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y83hk"]
+viewport_path = NodePath("Viewport2Din3D/ViewPort")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64uuj"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_y83hk")
+texture_filter = 1
+
+[node name="NumPadInterfaceContainer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494486, 0)
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_cxs1m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, 0)
+screen_size = Vector2(2, 1)
+collision_layer = 0
+viewport_size = Vector2(1152, 680)
+
+[node name="ViewPort" type="SubViewport" parent="Viewport2Din3D"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1152, 680)
+size_2d_override = Vector2i(-155, 0)
+
+[node name="NumPadUI" parent="Viewport2Din3D/ViewPort" instance=ExtResource("2_1n0bv")]
+
+[node name="ViewPort2" type="MeshInstance3D" parent="Viewport2Din3D"]
+transform = Transform3D(2.01433, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_lxka1")
+surface_material_override/0 = SubResource("StandardMaterial3D_64uuj")
+
+[editable path="Viewport2Din3D/ViewPort/NumPadUI"]

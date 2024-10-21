@@ -16,3 +16,5 @@ layout_mode = 1
 
 [node name="Dialogue UI" parent="." instance=ExtResource("2_ss8wf")]
 layout_mode = 1
+
+[editable path="Dialogue UI"]

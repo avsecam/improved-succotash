@@ -1,8 +1,9 @@
 extends Node3D
-
+@onready var numpad_view = $StaticUIContainer/Viewport2Din3D/Viewport/NumPadUI/VBoxContainer/ColorRect/NumpadView
 
 func _on_numpad_1_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
+		numpad_view.text = "[center]1"
 		print(1)
 
 
