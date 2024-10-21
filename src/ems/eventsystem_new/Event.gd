@@ -80,9 +80,10 @@ func close_event() -> void:
 	clear_event_dialogue()
 	for flag in event_completion_flags:
 		Events.finished_events.append(flag)
-	queue_free()
-	print(Events.finished_events)
-	await tree_exited
+	if event_category != "JOURNAL" or event_category != "BGM":
+		queue_free()
+		print(Events.finished_events)
+		await tree_exited
 	emit_signal("event_ended")
 
 
@@ -115,6 +116,3 @@ func clear_event_dialogue():
 func _on_event_started():
 	pass
 
-
-func _on_pole_bamboo_chicken_new_chicken_connect():
-	pass # Replace with function body.

@@ -79,7 +79,7 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 script = ExtResource("10_y2err")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="DialogueCalandraOfSanto" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+[node name="JournalCalandraOfSanto" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("11_uihfg")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
@@ -101,18 +101,23 @@ transform = Transform3D(0.0348581, 0, 0.247558, 0, 0.25, 0, -0.247558, 0, 0.0348
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
 [node name="Pillar_Wood" parent="." instance=ExtResource("15_eywd5")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -2.74373, -2.2, -1.11432)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -1.59017, -2.2, -1.11432)
 
 [node name="Journal" parent="." instance=ExtResource("16_ghadr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75573, -0.488819, -1.09807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60217, -0.488819, -1.09807)
 
+[node name="Indicator" parent="Journal" index="2"]
+associated_event = "JournalCalandraOfSanto"
+
+[connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="action_completed" from="RodSilverTorch/OiledRagReceiver" to="Events/ActionPolishRod1" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch/CleanRagReceiver" to="Events/ActionUseNormalRagOnly" method="_on_clean_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch/PolishReceiver" to="Events/ActionUsePolishOnRod" method="_on_polish_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch2/OiledRagReceiver" to="Events/ActionPolishRod2" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch2/CleanRagReceiver" to="Events/ActionUseNormalRagOnly" method="_on_clean_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch2/PolishReceiver" to="Events/ActionUsePolishOnRod" method="_on_polish_receiver_action_completed"]
-[connection signal="pointer_event" from="Journal" to="Events/DialogueCalandraOfSanto" method="_on_journal_pointer_event"]
+[connection signal="pointer_event" from="Journal" to="Events/JournalCalandraOfSanto" method="_on_journal_pointer_event"]
 
 [editable path="RodSilverTorch"]
 [editable path="RodSilverTorch2"]
+[editable path="Journal"]
