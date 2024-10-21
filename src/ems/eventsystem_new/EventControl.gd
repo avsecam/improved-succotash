@@ -1,5 +1,7 @@
 extends Node
 
+signal rechecking_events
+
 @onready var teleporters = get_parent().get_node("Teleporters")
 
 func _ready() -> void:
@@ -23,3 +25,4 @@ func _on_event_ended() -> void:
 	for child in get_children():
 		if not child.is_ongoing:
 			child.start_event()
+	emit_signal("rechecking_events")

@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://chqn1m2fy1uxr"]
+
+[ext_resource type="Script" path="res://src/progress_bar_test/progress_bar_cameramanip.gd" id="1_iq2on"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_pgytf"]
+[ext_resource type="PackedScene" uid="uid://bqlt35ga34qd0" path="res://src/progress_bar_test/progress_circle.tscn" id="3_g7sxe"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_oigqy"]
+resource_local_to_scene = true
+size = Vector2(200, 200)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sx67j"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uleyf"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_sx67j")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p435t"]
+resource_local_to_scene = true
+size = Vector3(200, 200, 0.02)
+
+[node name="Progress View" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+script = ExtResource("1_iq2on")
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("2_pgytf")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+screen_size = Vector2(200, 200)
+scene = ExtResource("3_g7sxe")
+viewport_size = Vector2(500, 500)
+unshaded = true
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(500, 500)
+
+[node name="Progress Circle2" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("3_g7sxe")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_oigqy")
+surface_material_override/0 = SubResource("StandardMaterial3D_uleyf")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+screen_size = Vector2(200, 200)
+viewport_size = Vector2(500, 500)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_p435t")
+
+[editable path="Viewport2Din3D"]
+[editable path="Viewport2Din3D/Viewport/Progress Circle2"]

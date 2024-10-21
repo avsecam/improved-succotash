@@ -12,7 +12,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qb08"]
 size = Vector3(0.0820313, 0.1, 0.486084)
 
-[sub_resource type="Resource" id="Resource_1aclx"]
+[sub_resource type="Resource" id="Resource_gpgox"]
 script = ExtResource("7_fejjv")
 state_behavior_settings = {
 "ActiveCollidingState": {
@@ -20,8 +20,8 @@ state_behavior_settings = {
 "InteractReceiver": true
 },
 "ActiveState": {
-"ControlRaycast": false,
-"InteractReceiver": false
+"ControlRaycast": true,
+"InteractReceiver": true
 },
 "IdleState": {
 "ControlRaycast": false,
@@ -60,9 +60,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0247146, 0.0734005)
 
 [node name="StateManager" parent="." instance=ExtResource("5_8jkvf")]
 receiver_group = "kalabasasoup"
-settings = SubResource("Resource_1aclx")
+settings = SubResource("Resource_gpgox")
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("7_o7hx6")]
+rate = 0.5
 
 [node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_ekg70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00293714, -0.00265041, -0.213769)

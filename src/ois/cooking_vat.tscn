@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwjn4khxgi4fe"]
+[gd_scene load_steps=11 format=3 uid="uid://bwjn4khxgi4fe"]
 
 [ext_resource type="Script" path="res://src/ois/cooking_vat.gd" id="1_dhy5y"]
 [ext_resource type="PackedScene" uid="uid://datnw2ppiu6hs" path="res://src/assets/B2/Cooking_Vat.glb" id="2_n4opr"]
 [ext_resource type="Texture2D" uid="uid://b3gkhcaeg3lio" path="res://src/assets/B2/PapayaPeeledPNG.png" id="4_orgpd"]
 [ext_resource type="PackedScene" uid="uid://cxorvronhu2l6" path="res://src/assets/B2/Garlic_Minced.glb" id="4_u8vxn"]
 [ext_resource type="PackedScene" uid="uid://800d5pi7toji" path="res://src/assets/B2/WhiteOnion_Eights.glb" id="6_lhb0t"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="6_ynll5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fl6ii"]
 
@@ -77,5 +78,9 @@ shape = SubResource("BoxShape3D_5cn0r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VatAcharaReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0089322, 0.067206, 0.00259808)
 shape = SubResource("CylinderShape3D_eubi5")
+
+[node name="Progress View" parent="." instance=ExtResource("6_ynll5")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
+visible = false
 
 [connection signal="area_entered" from="VatAcharaReceiver" to="." method="_on_vat_long_receiver_area_entered"]

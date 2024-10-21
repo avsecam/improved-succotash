@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c87iqblyt35gf"]
 
 [ext_resource type="Script" path="res://src/assets/A3/CombinationLockControl.gd" id="1_adhbu"]
-[ext_resource type="PackedScene" uid="uid://b46kanoqam1fw" path="res://src/assets/A3/CombinationLockInterface.tscn" id="2_1ssna"]
+[ext_resource type="PackedScene" path="res://src/assets/A3/CombinationLockInterface.tscn" id="2_1ssna"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ov4vf"]
 size = Vector3(0.2, 0.2, 0.1)

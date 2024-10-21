@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://blvdj2t00ghc6"]
+[gd_scene load_steps=15 format=3 uid="uid://blvdj2t00ghc6"]
 
 [ext_resource type="Script" path="res://src/ois/roasting_pit_a.gd" id="1_gwuid"]
 [ext_resource type="PackedScene" uid="uid://bvmc7xy6d8n82" path="res://src/assets/Fire/Fire_small.tscn" id="3_nqukt"]
 [ext_resource type="PackedScene" uid="uid://sd6dhjeum6eo" path="res://src/ois/pole_bamboo_chicken_roastpit.tscn" id="4_agf5l"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="4_bf8wy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg4ih"]
 resource_name = "Old concrete"
@@ -157,3 +158,7 @@ visible = false
 script = null
 
 [node name="Node3D" parent="." instance=ExtResource("3_nqukt")]
+
+[node name="Progress View" parent="." instance=ExtResource("4_bf8wy")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.628714, 0)
+visible = false

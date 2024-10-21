@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtb0evnypn7nb"]
+[gd_scene load_steps=4 format=3 uid="uid://dtb0evnypn7nb"]
 
 [ext_resource type="PackedScene" uid="uid://c8mgunsr7ievl" path="res://src/assets/B2/ChoppingBoard_Wood.glb" id="1_b7gi7"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_6yp3e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cilor"]
 size = Vector3(1, 0.0994873, 1)
 
 [node name="ChoppingBoard_Wood" instance=ExtResource("1_b7gi7")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+[node name="SnapZone" parent="." index="0" instance=ExtResource("2_6yp3e")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0.296409, 0)
+grab_distance = 0.1
+snap_require = "sliceable"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0822144, 0)
 shape = SubResource("BoxShape3D_cilor")

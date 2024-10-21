@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://lul7yfj27do8"]
+[gd_scene load_steps=11 format=3 uid="uid://lul7yfj27do8"]
 
 [ext_resource type="Script" path="res://src/ois/Garlic.gd" id="1_d14ck"]
 [ext_resource type="PackedScene" uid="uid://d3ke36fld31pu" path="res://src/assets/B2/Garlic_SmallerPieces.glb" id="2_o7l7w"]
@@ -7,12 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://cxorvronhu2l6" path="res://src/assets/B2/Garlic_Minced.glb" id="3_43bjc"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_o53v3"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_rol5e"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="8_y048e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
+margin = 0.01
 size = Vector3(0.188604, 0.066594, 0.13439)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kuwuf"]
-size = Vector3(0.241116, 0.192407, 0.223926)
+size = Vector3(0.241116, 0.127331, 0.223926)
 
 [node name="Garlic" type="RigidBody3D"]
 collision_layer = 4
@@ -22,7 +24,7 @@ freeze_mode = 1
 script = ExtResource("1_d14ck")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0435439, -0.00142507, 0.0133223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0062147, -0.00142507, 0.0133223)
 shape = SubResource("BoxShape3D_dhox6")
 
 [node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("garlica", "garlicb")]
@@ -31,17 +33,20 @@ garlica = NodePath("../MainMesh/Garlic_SmallerPieces2")
 garlicb = NodePath("../MainMesh/Garlic_Minced2")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373292, 0, 0)
 
 [node name="Garlic_SmallerPieces2" parent="MainMesh" instance=ExtResource("2_o7l7w")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0891812, 0, 0.0364674)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0891812, -0.0334408, 0.0364674)
 
 [node name="Garlic_Minced2" parent="MainMesh" instance=ExtResource("3_43bjc")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.015493, 0.0375804, 0.0349744)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.015493, -0.0265895, 0.0349744)
 visible = false
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_shny1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373292, 0, 0)
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_o53v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373292, 0, 0)
 
 [node name="GarlicReceiver" type="Area3D" parent="." groups=["sliceable"]]
 collision_layer = 5242881
@@ -49,8 +54,12 @@ script = ExtResource("7_rol5e")
 requirement = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GarlicReceiver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0483004, 0.0680542, 0.0162962)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0109712, 0.0355164, 0.0162962)
 shape = SubResource("BoxShape3D_kuwuf")
+
+[node name="Progress View" parent="." instance=ExtResource("8_y048e")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -0.00600046, 0.183714, 0)
+visible = false
 
 [connection signal="action_completed" from="GarlicReceiver" to="." method="_on_garlic_receiver_action_completed"]
 [connection signal="action_completed" from="GarlicReceiver" to="Feedback" method="_on_garlic_receiver_action_completed"]

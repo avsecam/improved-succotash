@@ -1,10 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfcpm6g53chw4"]
+[gd_scene load_steps=9 format=3 uid="uid://bfcpm6g53chw4"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="1_3roa7"]
 [ext_resource type="PackedScene" uid="uid://cg33sc1j0oh6t" path="res://src/assets/A MAIN/journal_open.tscn" id="2_40euk"]
+[ext_resource type="Texture2D" uid="uid://8p6dk5jf0rkx" path="res://src/assets/Action Icons/Lightbulb_Inactive.png" id="3_g5133"]
+[ext_resource type="Texture2D" uid="uid://cfmh5my6olkbo" path="res://src/assets/Action Icons/Lightbulb_Off.png" id="4_ekoj0"]
+[ext_resource type="Texture2D" uid="uid://cbvl8ey1770ng" path="res://src/assets/Action Icons/Lightbulb_On.png" id="5_lglkx"]
+[ext_resource type="Script" path="res://src/assets/A MAIN/Indicator.gd" id="6_nvx1h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_be3ar"]
-size = Vector3(0.3, 0.025, 0.25)
+size = Vector3(0.3, 0.163867, 0.25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bc5ev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g5133")
+}],
+"loop": true,
+"name": &"done",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ekoj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lglkx")
+}],
+"loop": true,
+"name": &"not_done",
+"speed": 2.0
+}]
 
 [node name="Journal" type="Area3D"]
 collision_layer = 5242881
@@ -14,5 +40,14 @@ script = ExtResource("1_3roa7")
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00337747, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0728111, 0)
 shape = SubResource("BoxShape3D_be3ar")
+
+[node name="Indicator" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.29148, 0)
+cast_shadow = 0
+sprite_frames = SubResource("SpriteFrames_bc5ev")
+animation = &"not_done"
+autoplay = "not_done"
+frame_progress = 0.70858
+script = ExtResource("6_nvx1h")

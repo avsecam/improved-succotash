@@ -5,11 +5,17 @@ extends Feedback
 @export var kalabasac : Node3D
 @export var kalabasad : Node3D
 
+@onready var progress_view = $"../Progress View"
+
 
 func _on_kalabasa_receiver_action_in_progress(requirement, total_progress):
 	
 	var percentage = total_progress/requirement
 	print("Kalabasa chop progress: " + str(percentage*100)+"%")
+	
+	if progress_view.visible == false:
+		progress_view.visible = true
+	progress_view.change_progress_value(percentage*100)
 	
 	if percentage < 0.25:
 		kalabasaa.visible = true
@@ -29,3 +35,4 @@ func _on_kalabasa_receiver_action_completed(requirement, total_progress):
 		kalabasab.visible = false
 		kalabasac.visible = false
 		kalabasad.visible = true
+		progress_view.progress_complete_anim()
