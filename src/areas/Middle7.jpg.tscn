@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dvgkywh2c18xf"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_25di4"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_1oa45"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_1oa45"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m3sr5"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_40l63"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="5_8adsr"]
@@ -84,13 +84,13 @@ script = ExtResource("11_uihfg")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="Table" parent="." instance=ExtResource("5_8adsr")]
-transform = Transform3D(0.0573026, 0, -0.998357, 0, 1, 0, 0.998357, 0, 0.0573026, -0.933813, -1.67721, 1.04373)
+transform = Transform3D(0.0573026, 0, -0.998357, 0, 1, 0, 0.998357, 0, 0.0573026, -0.933813, -1.67721, 0.771012)
 
 [node name="RodSilverTorch" parent="." instance=ExtResource("6_y7rnq")]
-transform = Transform3D(0.0149394, -0.999888, 0, 0.999888, 0.0149394, 0, 0, 0, 1, 0, -0.642857, 0.764676)
+transform = Transform3D(0.0149394, -0.999888, 0, 0.999888, 0.0149394, 0, 0, 0, 1, 0, -0.642857, 0.491958)
 
 [node name="RodSilverTorch2" parent="." instance=ExtResource("6_y7rnq")]
-transform = Transform3D(0.0149394, -0.999888, 0, 0.999888, 0.0149394, 0, 0, 0, 1, -0.697706, -0.642857, 1.04906)
+transform = Transform3D(0.0149394, -0.999888, 0, 0.999888, 0.0149394, 0, 0, 0, 1, -0.697706, -0.642857, 0.776342)
 
 [node name="PolishedRod" parent="RodSilverTorch2/OiledRagReceiver" index="1" node_paths=PackedStringArray("dirt")]
 dirt = NodePath("../../../RodSilverTorch/Node3D")

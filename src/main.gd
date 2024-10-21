@@ -37,4 +37,4 @@ func _ready():
 
 
 func _on_right_hand_button_pressed(name):
-	print("BUTTON PRESSED: "+name)
+	pass

@@ -1,30 +1,19 @@
-extends WipeAction
+extends XRToolsPickable
 
-@onready var anim := $AnimationPlayer
-@onready var canvas_hitbox := $InteractArea/CollisionShape3D
-@onready var canvas_blank := $MainMesh/Canvas_Blank
-@onready var canvas_ahrt := $MainMesh/Canvas_Ahrt
+@onready var main_mesh = $MainMesh
 
-signal canvas_disappear_signal
+signal finish_paint
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	canvas_hitbox.disabled = true
+	self.enabled = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
-func canvas_disappear():
-	anim.play("FlyUpAnimation")
-	canvas_ahrt.visible = true
-	canvas_blank.visible = false
-	await anim.animation_finished
-	self.queue_free()
-	canvas_disappear_signal.emit()
-	
 
-func _on_interact_area_pointer_event(event):
-	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
-		canvas_disappear()
+func _on_feedback_finish_paint_feedback():
+	finish_paint.emit()
+	self.enabled = true
+
+
+func _on_picked_up(pickable):
+	main_mesh.scale = Vector3(0.185,0.185,0.185)
+
 	

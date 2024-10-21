@@ -1,4 +1,5 @@
 extends Event
 
-func _on_canvas_paint_action_ended(requirement, total_progress):
+
+func _on_canvas_paint_new_canvas_paint_complete():
 	close_event() # Replace with function body.

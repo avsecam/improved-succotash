@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dotnn7tssatd7"]
+
+[ext_resource type="Script" path="res://src/ois/canvas_paint_new.gd" id="1_omwlt"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_apnr4"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/paint_canvas.gd" id="2_uhmdm"]
+[ext_resource type="PackedScene" uid="uid://bdhvky1pve6it" path="res://src/assets/B3/Canvas_Blank.glb" id="3_vayvy"]
+[ext_resource type="PackedScene" uid="uid://c8kio1tdeedvw" path="res://src/assets/B3/Canvas_Ahrt.glb" id="4_7w6mj"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_vnqrv"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_dp5vr"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_af7gc"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="9_8o7f0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_akh3k"]
+margin = 0.01
+size = Vector3(0.411365, 0.594897, 0.0504517)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iw85n"]
+size = Vector3(0.345068, 0.500098, 0.0477051)
+
+[node name="canvas_paint_new" type="RigidBody3D" groups=["paintbrush_wet"]]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_omwlt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000140376, 0.00445557, -0.0124085)
+shape = SubResource("BoxShape3D_akh3k")
+
+[node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("canvas_blank", "canvas_ahrt")]
+script = ExtResource("2_uhmdm")
+canvas_blank = NodePath("../MainMesh/Canvas_Blank")
+canvas_ahrt = NodePath("../MainMesh/Canvas_Ahrt")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Canvas_Blank" parent="MainMesh" instance=ExtResource("3_vayvy")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, 0, 0)
+
+[node name="Canvas_Ahrt" parent="MainMesh" instance=ExtResource("4_7w6mj")]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, 0, 0)
+visible = false
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_apnr4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19523, 0, -0.0755205)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_vnqrv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178503, 0, -0.0905328)
+
+[node name="CanvasPaintReceiver" type="Area3D" parent="." groups=["paintbrush_wet"]]
+script = ExtResource("7_af7gc")
+requirement = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CanvasPaintReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00407714, 0.000927754, -0.00397949)
+shape = SubResource("BoxShape3D_iw85n")
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("5_dp5vr")]
+
+[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
+visible = false
+
+[node name="Canvas_Ahrt_Replacement" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("4_7w6mj")]
+transform = Transform3D(-4.5897e-09, 0, -0.105, 0, 0.105, 0, 0.105, 0, -4.5897e-09, 0, 0, 0)
+
+[node name="Progress View" parent="." instance=ExtResource("9_8o7f0")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.439043, 0)
+visible = false
+
+[connection signal="picked_up" from="." to="." method="_on_picked_up"]
+[connection signal="action_ended" from="CanvasPaintReceiver" to="." method="_on_canvas_paint_receiver_action_ended"]
+[connection signal="action_ended" from="CanvasPaintReceiver" to="Feedback" method="_on_canvas_paint_receiver_action_ended"]
+[connection signal="action_in_progress" from="CanvasPaintReceiver" to="Feedback" method="_on_canvas_paint_receiver_action_in_progress"]
+
+[editable path="InventoryItemComp"]
