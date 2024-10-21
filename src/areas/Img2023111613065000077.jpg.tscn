@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://b057du50i5f5k"]
+
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_1x0mi"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_vs3rx"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_5fdkr"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_2wby7"]
+
+[node name="IMG_20231116_130650_00_077_jpg" type="Node3D"]
+transform = Transform3D(-0.499993, 0, -0.866014, 0, 1, 0, 0.866014, 0, -0.499993, 0, 0, 0)
+top_level = true
+script = ExtResource("1_1x0mi")
+teleporters_data = [{
+"position": Vector3(0.471201, -1.35515, -4.26639),
+"rotation": Vector3(-5.96046e-08, 0.110002, -5.23393e-06),
+"to": "2Right6.jpg"
+}, {
+"position": Vector3(0.221371, -1.35516, 4.28663),
+"rotation": Vector3(-2.98024e-08, 3.09, -5.45696e-06),
+"to": "2Right5.jpg"
+}]
+image_filename = "res://src/areas/Img2023111613065000077.jpg.jpg"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+gi_mode = 0
+mesh = ExtResource("2_vs3rx")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 3.015
+omni_range = 16.12
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="2Right6_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_5fdkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.471201, -1.35515, -4.26639)
+collision_layer = 5243392
+collision_mask = 0
+script = ExtResource("4_2wby7")
+to = "2Right6.jpg"
+
+[node name="2Right5_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_5fdkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221371, -1.35516, 4.28663)
+collision_layer = 5243392
+collision_mask = 0
+script = ExtResource("4_2wby7")
+to = "2Right5.jpg"
