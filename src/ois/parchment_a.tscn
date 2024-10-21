@@ -1,0 +1,52 @@
+[gd_scene load_steps=13 format=3 uid="uid://clpu518gw3se"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_i4teu"]
+[ext_resource type="Texture2D" uid="uid://bhfmxfuea5vu8" path="res://src/assets/C2/parchment_a.png" id="2_e5hyx"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_i8ak2"]
+[ext_resource type="Animation" uid="uid://fi23m6i7orhw" path="res://addons/godot-xr-tools/hands/animations/left/Pinch Up.res" id="5_1yecd"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_eprqn"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="7_q5plu"]
+[ext_resource type="Animation" uid="uid://cseojxi8rrqc" path="res://addons/godot-xr-tools/hands/animations/right/Pinch Up.res" id="8_xcwj0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ug2f"]
+size = Vector3(0.229511, 0.292334, 0.0433105)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_622nk"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_e5hyx")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qj4mb"]
+material = SubResource("StandardMaterial3D_622nk")
+size = Vector2(0.105, 0.148)
+
+[sub_resource type="Resource" id="Resource_bedjh"]
+script = ExtResource("6_eprqn")
+closed_pose = ExtResource("5_1yecd")
+
+[sub_resource type="Resource" id="Resource_br85y"]
+script = ExtResource("6_eprqn")
+closed_pose = ExtResource("8_xcwj0")
+
+[node name="parchment_a" type="RigidBody3D" groups=["parchment"]]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_i4teu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00063782, 0.0076416, 0.000659183)
+shape = SubResource("BoxShape3D_1ug2f")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.885, 0, 0, 0, -8.2396e-08, -1.885, 0, 1.885, -8.2396e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_qj4mb")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("4_i8ak2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117065, 0, -0.0484475)
+hand_pose = SubResource("Resource_bedjh")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("7_q5plu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12563, 0, -0.050462)
+hand_pose = SubResource("Resource_br85y")

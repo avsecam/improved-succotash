@@ -54,7 +54,7 @@ func _on_vat_long_receiver_area_entered(area):
 		
 	if floattrack >= 100:
 		progress_view.progress_complete_anim()
-		pass
+		pass	
 	progress_view.change_progress_value(floattrack)
 	
 		

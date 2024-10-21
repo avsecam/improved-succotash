@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://mpcnttp31a44"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_iirm1"]
+[ext_resource type="Script" path="res://src/ois/parchment_arrange_panel.gd" id="1_m6u7c"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="3_gpbix"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0awe"]
+albedo_color = Color(0.956863, 0.901961, 0.858824, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hdiyd"]
+material = SubResource("StandardMaterial3D_p0awe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq3pr"]
+albedo_color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ogic2"]
+material = SubResource("StandardMaterial3D_gq3pr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xt83b"]
+size = Vector3(2.02539, 1.51117, 0.23526)
+
+[node name="Parchment Arrange Panel" type="Node3D"]
+script = ExtResource("1_m6u7c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 0.15, 0, 0, 0)
+mesh = SubResource("BoxMesh_hdiyd")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00138569, 1.11291, 0.285494)
+light_color = Color(1, 0.882353, 0.737255, 1)
+spot_range = 3.965
+spot_attenuation = 0.732042
+spot_angle = 63.92
+
+[node name="Frame1" parent="." instance=ExtResource("1_iirm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.204, 0.109)
+grab_distance = 0.25
+
+[node name="Frame_inside" type="MeshInstance3D" parent="Frame1"]
+transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.001, -0.073)
+mesh = SubResource("BoxMesh_ogic2")
+skeleton = NodePath("../..")
+
+[node name="Frame2" parent="." instance=ExtResource("1_iirm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.204, 0.109)
+grab_distance = 0.25
+
+[node name="Frame_inside" type="MeshInstance3D" parent="Frame2"]
+transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.000608206, -0.0733268)
+mesh = SubResource("BoxMesh_ogic2")
+skeleton = NodePath("../..")
+
+[node name="Frame3" parent="." instance=ExtResource("1_iirm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204, 0.109)
+grab_distance = 0.25
+
+[node name="Frame_inside" type="MeshInstance3D" parent="Frame3"]
+transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.000608206, -0.0733268)
+mesh = SubResource("BoxMesh_ogic2")
+skeleton = NodePath("../..")
+
+[node name="Frame4" parent="." instance=ExtResource("1_iirm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.204, 0.109)
+grab_distance = 0.25
+
+[node name="Frame_inside" type="MeshInstance3D" parent="Frame4"]
+transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.000608206, -0.0733268)
+mesh = SubResource("BoxMesh_ogic2")
+skeleton = NodePath("../..")
+
+[node name="Frame5" parent="." instance=ExtResource("1_iirm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.204, 0.109)
+grab_distance = 0.25
+
+[node name="Frame_inside" type="MeshInstance3D" parent="Frame5"]
+transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.000608206, -0.0733268)
+mesh = SubResource("BoxMesh_ogic2")
+skeleton = NodePath("../..")
+
+[node name="Progress View" parent="." instance=ExtResource("3_gpbix")]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, 0.789727, 0.178361)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00292969, 0.0050354, -0.016098)
+shape = SubResource("BoxShape3D_xt83b")
+
+[connection signal="has_dropped" from="Frame1" to="." method="_on_frame_1_has_dropped"]
+[connection signal="has_picked_up" from="Frame1" to="." method="_on_frame_1_has_picked_up"]
+[connection signal="has_dropped" from="Frame2" to="." method="_on_frame_2_has_dropped"]
+[connection signal="has_picked_up" from="Frame2" to="." method="_on_frame_2_has_picked_up"]
+[connection signal="has_dropped" from="Frame3" to="." method="_on_frame_3_has_dropped"]
+[connection signal="has_picked_up" from="Frame3" to="." method="_on_frame_3_has_picked_up"]
+[connection signal="has_dropped" from="Frame4" to="." method="_on_frame_4_has_dropped"]
+[connection signal="has_picked_up" from="Frame4" to="." method="_on_frame_4_has_picked_up"]
+[connection signal="has_dropped" from="Frame5" to="." method="_on_frame_5_has_dropped"]
+[connection signal="has_picked_up" from="Frame5" to="." method="_on_frame_5_has_picked_up"]
