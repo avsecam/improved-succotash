@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsono6l7nohab"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_aek63"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_t272j"]
+[ext_resource type="PackedScene" uid="uid://c5lqlcj4wr21" path="res://src/assets/C3/ship_sail_component.tscn" id="2_wbfew"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_s1mjp"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_tj0a4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qs6l0"]
+size = Vector3(0.201074, 0.0567871, 0.211621)
+
+[node name="ship_sail" type="RigidBody3D" groups=["ship_sail"]]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_aek63")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000976564, -0.0216064, -0.0558105)
+shape = SubResource("BoxShape3D_qs6l0")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Ship_SailComponent3" parent="MainMesh" instance=ExtResource("2_wbfew")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0345816, -0.0249071, -0.00489882)
+
+[node name="Ship_SailComponent4" parent="MainMesh" instance=ExtResource("2_wbfew")]
+transform = Transform3D(0.1, 0, 0, 0, 0.0990268, 0.0139173, 0, -0.0139173, 0.0990268, 0.00448567, -0.020692, -0.0503382)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_t272j")]
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_s1mjp")]
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("5_tj0a4")]
+
+[node name="Ship_SailComponent" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_wbfew")]
+transform = Transform3D(0.075, 0, 0, 0, -3.27835e-09, -0.075, 0, 0.075, -3.27835e-09, 0.0345816, 0.0500263, 0.00445753)
+visible = false
+
+[node name="Ship_SailComponent2" parent="InventoryItemComp/ReplacementMesh" index="1" instance=ExtResource("2_wbfew")]
+transform = Transform3D(0.075, 0, 0, 0, -3.27835e-09, -0.075, 0, 0.075, -3.27835e-09, -0.0117508, 0.0675805, -0.0338681)
+visible = false
+
+[editable path="InventoryItemComp"]

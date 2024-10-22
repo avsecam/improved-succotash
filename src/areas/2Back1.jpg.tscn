@@ -1,16 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2dotovac6n64"]
+[gd_scene load_steps=16 format=3 uid="uid://d2dotovac6n64"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_bo0i1"]
 [ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_yabc8"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_o4px8"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_4lqhb"]
 [ext_resource type="PackedScene" uid="uid://mpcnttp31a44" path="res://src/ois/parchment_arrange_panel.tscn" id="5_c4a7b"]
-[ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="6_ywe5v"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_s5b8e"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueDocumentsOnFloor.gd" id="6_kn0rp"]
 [ext_resource type="PackedScene" uid="uid://clpu518gw3se" path="res://src/ois/parchment_a.tscn" id="7_7sdt1"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueReminderGrabPaper.gd" id="7_rtj3v"]
 [ext_resource type="PackedScene" uid="uid://oqxa6ppw0qrl" path="res://src/ois/parchment_b.tscn" id="8_lups5"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionArrangeDocuments.gd" id="8_o6ovk"]
 [ext_resource type="PackedScene" uid="uid://cbsi2j7tqs8dr" path="res://src/ois/parchment_c.tscn" id="9_0fwem"]
 [ext_resource type="PackedScene" uid="uid://wrsjbpww7gpi" path="res://src/ois/parchment_d.tscn" id="10_8u6d0"]
 [ext_resource type="PackedScene" uid="uid://3tro40hld4iq" path="res://src/ois/parchment_e.tscn" id="11_15ni8"]
+[ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="15_8evq3"]
 
 [node name="2 back1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -53,23 +57,49 @@ collision_mask = 0
 script = ExtResource("4_4lqhb")
 to = "2Back0.jpg"
 
-[node name="Parchment Arrange Panel" parent="." instance=ExtResource("5_c4a7b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0182198, -0.191407, -0.848707)
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_s5b8e")
 
-[node name="Table2" parent="." instance=ExtResource("6_ywe5v")]
-transform = Transform3D(-0.0108381, 0, -0.664918, 0, 1, 0, 0.689915, 0, -0.0104454, -0.370488, -1.17776, -0.512911)
+[node name="DialogueDocumentsOnFloor" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("6_kn0rp")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="DialogueReminderGrabPaper" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("7_rtj3v")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionArrangeDocuments" type="Node" parent="Events"]
+script = ExtResource("8_o6ovk")
+
+[node name="Parchment Arrange Panel" parent="." instance=ExtResource("5_c4a7b")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.0182198, -0.191407, -0.848707)
 
 [node name="parchment_a" parent="." instance=ExtResource("7_7sdt1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.432346, -0.247261, -0.340035)
+transform = Transform3D(0.762905, -0.625563, -0.163238, 0, -0.252492, 0.967599, -0.64651, -0.738187, -0.192627, -0.432346, -0.247261, 0.449325)
 
 [node name="parchment_b" parent="." instance=ExtResource("8_lups5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267551, -0.239221, -0.46204)
+transform = Transform3D(1, 0, 0, 0, 0.0206981, 0.999786, 0, -0.999786, 0.0206981, -0.155348, -0.239221, 0.821049)
 
 [node name="parchment_c" parent="." instance=ExtResource("9_0fwem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0735234, -0.22645, -0.407621)
+transform = Transform3D(-0.944621, 0.227688, -0.236323, -0.190972, 0.204229, 0.960115, 0.266871, 0.952076, -0.149436, 0.749709, -0.22645, 0.0807901)
 
 [node name="parchment_d" parent="." instance=ExtResource("10_8u6d0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16774, -0.223895, -0.396013)
+transform = Transform3D(1, 0, 0, 0, 0.118907, 0.992905, 0, -0.992905, 0.118907, 0.188749, -0.314585, -0.324431)
 
 [node name="parchment_e" parent="." instance=ExtResource("11_15ni8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.404345, -0.250217, -0.412402)
+transform = Transform3D(0.692118, -0.72045, 0.0438627, 0, 0.0607698, 0.998152, -0.721784, -0.690839, 0.0420599, -0.495877, -0.48067, -0.0298066)
+
+[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("15_8evq3")]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0.841524, 0.258942, 0.334313)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
+volume_db = 7.619
+autoplay = true
+
+[node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
+wait_time = 3.0
+
+[connection signal="parchment_arrangement_complete" from="Parchment Arrange Panel" to="Events/ActionArrangeDocuments" method="_on_parchment_arrange_panel_parchment_arrangement_complete"]

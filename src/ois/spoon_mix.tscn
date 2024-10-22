@@ -63,7 +63,7 @@ receiver_group = "kalabasasoup"
 settings = SubResource("Resource_gpgox")
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("7_o7hx6")]
-rate = 0.5
+rate = 2.0
 
 [node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_ekg70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00293714, -0.00265041, -0.213769)

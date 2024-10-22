@@ -6,18 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_jy2ii"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_f0kjq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_45ogs"]
-size = Vector3(0.217871, 0.257971, 0.284277)
+[sub_resource type="BoxShape3D" id="BoxShape3D_87xpu"]
+margin = 0.01
+size = Vector3(0.217871, 0.229571, 0.284277)
 
-[node name="chicken_raw_new" type="RigidBody3D"]
+[node name="chicken_raw_new" type="RigidBody3D" groups=["chicken"]]
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("1_8yc85")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00737305, 0.0789856, -0.0102051)
-shape = SubResource("BoxShape3D_45ogs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00737305, 0.0647858, -0.0102051)
+shape = SubResource("BoxShape3D_87xpu")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 

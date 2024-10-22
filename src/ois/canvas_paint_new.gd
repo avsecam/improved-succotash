@@ -6,13 +6,8 @@ signal canvas_paint_complete
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	super()
 	canvas_paint_receiver.set_monitoring(false)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_canvas_paint_receiver_action_ended(requirement, total_progress):
 	self.enabled = true

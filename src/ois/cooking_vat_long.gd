@@ -1,4 +1,4 @@
-extends WipeAction
+extends ReceiverObj
 
 @onready var water_clear = $MainMesh/WaterClear
 @onready var kalabasa_soup_unmixed = $MainMesh/KalabasaSoupUnmixed
@@ -7,16 +7,14 @@ extends WipeAction
 @onready var progress_view = $"Progress View"
 
 signal kalabasa_in_pot_receiver
+signal kalabasa_soup_complete
 
 var enable_receiver : bool
 
 func _ready():
+	super()
 	vat_long_receiver.set_monitoring(enable_receiver)
 	
-func _process(delta):
-	pass
-	
-
 func _on_vat_long_receiver_area_entered(area):
 	print("COOKING VAT: "+ area.name)
 	
@@ -33,3 +31,5 @@ func _on_action_chop_kalabasa_event_ended():
 	vat_long_receiver.set_monitoring(enable_receiver)
 	
 
+func _on_feedback_kalabasa_mix_finished():
+	kalabasa_soup_complete.emit()
