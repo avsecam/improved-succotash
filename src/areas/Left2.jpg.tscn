@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqnkwa632i3r1"]
+[gd_scene load_steps=8 format=3 uid="uid://bqnkwa632i3r1"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_rvxnt"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_36yx7"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_n3egp"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_51t1e"]
+[ext_resource type="PackedScene" uid="uid://dg4o0t5f3ty7o" path="res://src/assets/B4/Sign_Cooo.glb" id="5_apjn7"]
+[ext_resource type="PackedScene" uid="uid://dg4o0t5f3ty7o" path="res://src/assets/B4/Sign_Eo.glb" id="6_bw5oc"]
+[ext_resource type="PackedScene" uid="uid://bloqrdv1q2tjk" path="res://src/assets/B4/Sign_Soo.glb" id="7_d4yrl"]
 
 [node name="left2_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -45,3 +48,12 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_51t1e")
 to = "Left4.jpg"
+
+[node name="Sign_Cooo" parent="." instance=ExtResource("5_apjn7")]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -2.029, -2.7, -3.315)
+
+[node name="Sign_Eo" parent="." instance=ExtResource("6_bw5oc")]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -0.235, -3, -3.804)
+
+[node name="Sign_Soo" parent="." instance=ExtResource("7_d4yrl")]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 1.8652, -2.7, -3.417)
