@@ -1,0 +1,117 @@
+[gd_scene load_steps=21 format=3 uid="uid://dwtpqavssopmc"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_3g00g"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_02u1x"]
+[ext_resource type="PackedScene" uid="uid://bwnrpwkgqrgmh" path="res://src/assets/C1/Shotgun_Winchester1897.glb" id="2_5ysn7"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_gvral"]
+[ext_resource type="Animation" uid="uid://dlxa6f6hwurka" path="res://addons/godot-xr-tools/hands/animations/left/Default pose.res" id="5_astv5"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_pnykv"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_cclkh"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_jpd6o"]
+[ext_resource type="Animation" uid="uid://ky28birj4su6" path="res://addons/godot-xr-tools/hands/animations/right/Default pose.res" id="9_13o3v"]
+[ext_resource type="Animation" uid="uid://ddbo6ioa282en" path="res://addons/godot-xr-tools/hands/animations/left/Pistol.res" id="10_rjvbv"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="10_w3e11"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="11_0we44"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="12_b45s7"]
+[ext_resource type="Animation" uid="uid://csp3fdknowmi5" path="res://addons/godot-xr-tools/hands/animations/right/Pistol.res" id="12_g4gfg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uxta1"]
+size = Vector3(0.126172, 0.0818848, 0.866895)
+
+[sub_resource type="Resource" id="Resource_vfb70"]
+script = ExtResource("11_0we44")
+open_pose = ExtResource("5_astv5")
+closed_pose = ExtResource("10_rjvbv")
+
+[sub_resource type="Resource" id="Resource_jt2pi"]
+script = ExtResource("11_0we44")
+open_pose = ExtResource("9_13o3v")
+closed_pose = ExtResource("12_g4gfg")
+
+[sub_resource type="Resource" id="Resource_eu0gq"]
+script = ExtResource("7_cclkh")
+state_behavior_settings = {
+"ActiveCollidingState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"ActiveState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"IdleState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+}
+behavior_dict = {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+
+[sub_resource type="Resource" id="Resource_y785y"]
+script = ExtResource("11_0we44")
+open_pose = ExtResource("10_rjvbv")
+closed_pose = ExtResource("10_rjvbv")
+
+[sub_resource type="Resource" id="Resource_kp6ys"]
+script = ExtResource("11_0we44")
+open_pose = ExtResource("12_g4gfg")
+closed_pose = ExtResource("12_g4gfg")
+
+[node name="shotgun" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_3g00g")
+second_hand_grab = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130859, 0.0542725, -0.383447)
+shape = SubResource("BoxShape3D_uxta1")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Shotgun_Winchester1897" parent="MainMesh" instance=ExtResource("2_5ysn7")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_02u1x")]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.000515401, 0, -0.120934)
+mode = 1
+hand_pose = SubResource("Resource_vfb70")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_gvral")]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, -0.0101346, -0.141971)
+mode = 1
+hand_pose = SubResource("Resource_jt2pi")
+
+[node name="StateManager" parent="." instance=ExtResource("5_pnykv")]
+settings = SubResource("Resource_eu0gq")
+
+[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_jpd6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050129, -0.839293)
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_w3e11")]
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("12_b45s7")]
+
+[node name="GrabPointHandLeftStock" parent="." instance=ExtResource("2_02u1x")]
+transform = Transform3D(-0.0576555, -0.653376, -0.754835, 0.956852, 0.179527, -0.228483, 0.284798, -0.735439, 0.614833, 0.0331708, 0.0531897, -0.586378)
+visible = true
+mode = 2
+hand_pose = SubResource("Resource_y785y")
+drive_position = 0.0
+drive_angle = 0.0
+drive_aim = 1.0
+
+[node name="GrabPointHandRightStock" parent="." instance=ExtResource("4_gvral")]
+transform = Transform3D(-0.181473, 0.566494, 0.803836, -0.972637, 0.0171847, -0.231693, -0.145066, -0.823887, 0.547874, -0.0338376, 0.0450961, -0.584264)
+mode = 2
+hand_pose = SubResource("Resource_kp6ys")
+drive_position = 0.0
+drive_angle = 0.0
+drive_aim = 1.0

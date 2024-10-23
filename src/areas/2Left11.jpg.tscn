@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2okglqxdsbmd"]
+[gd_scene load_steps=7 format=3 uid="uid://d2okglqxdsbmd"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_3fvc1"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v1iix"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_5k86s"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_e53sw"]
 [ext_resource type="PackedScene" uid="uid://cr1f0g0xwuq0a" path="res://src/assets/C1/katana.tscn" id="5_jdjqg"]
+[ext_resource type="PackedScene" uid="uid://dwtpqavssopmc" path="res://src/assets/C1/shotgun.tscn" id="5_ox6hr"]
 
 [node name="2 left11_jpg" type="Node3D"]
 transform = Transform3D(0.499993, 0, -0.866014, 0, 1, 0, 0.866014, 0, 0.499993, 0, 0, 0)
@@ -58,8 +59,11 @@ collision_mask = 0
 script = ExtResource("4_e53sw")
 to = "2Left13.jpg"
 
+[node name="shotgun" parent="." instance=ExtResource("5_ox6hr")]
+transform = Transform3D(-0.312683, 0, 0.949857, 0, 1, 0, -0.949857, 0, -0.312683, 0.955138, 0, 1.2909)
+
 [node name="katana" parent="." instance=ExtResource("5_jdjqg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500006, 0, -0.866037)
+transform = Transform3D(-0.312683, 0, 0.949857, 0, 1, 0, -0.949857, 0, -0.312683, 0.162593, 0, -2.5219)
 
 [node name="GrabPointHandLeft" parent="katana" index="2"]
 visible = false
