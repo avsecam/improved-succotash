@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ActorReceiverSettings" load_steps=2 format=3 uid="uid://i7huviwkuuvr"]
+[gd_resource type="Resource" script_class="ActorReceiverSettings" load_steps=2 format=3 uid="uid://doc0i43y5r138"]
 
 [ext_resource type="Script" path="res://src/authoring_tools/object_authoring/actor_receiver_settings.gd" id="1_rii42"]
 
 [resource]
 script = ExtResource("1_rii42")
-receiver_groups = Array[String](["wrench", "holy_water"])
+receiver_groups = Array[String](["wrench", "holy_water", "sword_dummy"])

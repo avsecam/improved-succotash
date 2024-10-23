@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://cr1f0g0xwuq0a"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_xxpyb"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_qdw1m"]
+[ext_resource type="PackedScene" uid="uid://c7kyxfjjjaqba" path="res://src/assets/C1/KATANA.glb" id="2_vnvwt"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_c4ff1"]
+[ext_resource type="PackedScene" uid="uid://v2rfmhs1ltk4" path="res://src/ois/state_managers/two_handed_tool.tscn" id="5_xhxce"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_gmhwo"]
+[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_ip1t5"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="10_npa3f"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="12_k1l6l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vjgy"]
+size = Vector3(0.1, 0.1, 0.771216)
+
+[sub_resource type="Resource" id="Resource_dqqgo"]
+script = ExtResource("7_gmhwo")
+state_behavior_settings = {
+"Active1State": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"Active2State": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"IdleState": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"Trigger1State": {
+"ControlRaycast": false,
+"InteractReceiver": false
+},
+"Trigger2State": {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+}
+behavior_dict = {
+"ControlRaycast": false,
+"InteractReceiver": false
+}
+
+[node name="katana" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_xxpyb")
+second_hand_grab = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.210095)
+shape = SubResource("BoxShape3D_1vjgy")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.030808, 0.019464)
+
+[node name="KATANA" parent="MainMesh" instance=ExtResource("2_vnvwt")]
+transform = Transform3D(-2.18557e-10, 0.005, 0, -0.005, -2.18557e-10, 0, 0, 0, 0.005, -0.0695379, 0.0311797, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_qdw1m")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0142254, -0.0927128, 0.124834)
+visible = true
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_c4ff1")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0927128, 0)
+visible = true
+
+[node name="StateManager" parent="." instance=ExtResource("5_xhxce")]
+receiver_group = "sword_dummy"
+settings = SubResource("Resource_dqqgo")
+
+[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_ip1t5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050078, 0, 0)
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_npa3f")]
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("12_k1l6l")]
