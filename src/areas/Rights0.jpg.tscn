@@ -30,7 +30,7 @@ mesh = ExtResource("2_pk5il")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 1.12
+light_energy = 2.964
 omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]

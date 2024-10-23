@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn1uehuvnbmrj"]
+[gd_scene load_steps=15 format=3 uid="uid://bn1uehuvnbmrj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_u6q0f"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sgu81"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sgu81"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_hnffy"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_qdn7k"]
+[ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="5_0tyb4"]
+[ext_resource type="PackedScene" uid="uid://6uurg1uwbkwe" path="res://src/assets/C3/Box_ModelShip.glb" id="6_wrlky"]
+[ext_resource type="PackedScene" uid="uid://12acvs62sh6v" path="res://src/ois/ship.tscn" id="7_2hcsq"]
+[ext_resource type="PackedScene" uid="uid://dd7s4yj8s7klu" path="res://src/ois/ship_wheel.tscn" id="8_yjgib"]
+[ext_resource type="PackedScene" uid="uid://bsono6l7nohab" path="res://src/ois/ship_sail.tscn" id="9_14pt1"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="10_pp3c8"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueWhoaCool.gd" id="11_0vark"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueTheresPartsShip.gd" id="12_fwjjd"]
+[ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="12_kbxwi"]
+[ext_resource type="Script" path="res://src/areas/ActionShipAssemblyComplete.gd" id="13_mu204"]
 
 [node name="2 left0_jpg" type="Node3D"]
 transform = Transform3D(0.300286, 0, -0.953836, 0, 1, 0, 0.953836, 0, 0.300286, 0, 0, 0)
@@ -27,7 +37,7 @@ mesh = ExtResource("2_sgu81")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 3.015
+light_energy = 1.28
 omni_range = 16.12
 
 [node name="Teleporters" type="Node3D" parent="."]
@@ -45,3 +55,47 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qdn7k")
 to = "2Left1.jpg"
+
+[node name="Table" parent="." instance=ExtResource("5_0tyb4")]
+transform = Transform3D(-0.437367, 0, -0.411276, 0, 0.65, 0, 0.425218, 0, -0.423027, 0.050529, -1.31748, -1.00783)
+
+[node name="Box_ModelShip" parent="." instance=ExtResource("6_wrlky")]
+transform = Transform3D(-0.0497661, 0, -0.396892, 0, 0.4, 0, 0.396892, 0, -0.0497661, 1.22168, -1.35986, -0.0846853)
+
+[node name="Ship" parent="." instance=ExtResource("7_2hcsq")]
+transform = Transform3D(0.720345, 0, -0.693616, 0, 1, 0, 0.693616, 0, 0.720345, 0.382929, -0.588183, -0.715215)
+
+[node name="ship_wheel" parent="." instance=ExtResource("8_yjgib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.222704, -0.413054, 0.3241)
+
+[node name="ship_sail" parent="." instance=ExtResource("9_14pt1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0287698, -0.413054, 0.59415)
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("10_pp3c8")
+
+[node name="DialogueWhoaCool" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("11_0vark")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="DialogueTheresPartsShip" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("12_fwjjd")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionShipAssemblyComplete" type="Node" parent="Events"]
+script = ExtResource("13_mu204")
+
+[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("12_kbxwi")]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.30962, 0.258942, -1.09775)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
+volume_db = 7.619
+autoplay = true
+
+[node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
+wait_time = 3.0
+
+[connection signal="ship_parts_assembled" from="Ship" to="Events/ActionShipAssemblyComplete" method="_on_ship_ship_parts_assembled"]

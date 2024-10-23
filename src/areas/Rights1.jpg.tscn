@@ -30,7 +30,6 @@ mesh = ExtResource("2_grp0j")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 0.59
 omni_range = 16.12
 
 [node name="Events" type="Node" parent="."]

@@ -80,19 +80,15 @@
 			"Description": "Several areas in the Museum have some lingering malice around them, You have to purify them somehow"
 		},
 		"Quest_Completion_Requirements": [
-			"ActionPurifyWoodenPillar_Done",
-			"ActionPurifyFloor_Done",
-			"ActionPurifyDoor_Done"
+			"ActionPurifyWoodenPillar1_Done",
+			"ActionPurifyWoodenPillar2_Done",
+			"ActionPurifyWoodenPillar3_Done"
 		],
 		"Quest_Completion_Tracker": {
 			"Purify the Wooden Pillar": [
-				"ActionPurifyWoodenPillar_Done"
-			],
-			"Purify the Floor": [
-				"ActionPurifyFloor_Done"
-			],
-			"Purify the Door": [
-				"ActionPurifyDoor_Done"
+				"ActionPurifyWoodenPillar1_Done",
+				"ActionPurifyWoodenPillar2_Done",
+				"ActionPurifyWoodenPillar3_Done"
 			]
 		},
 		"Quest_Completion_Flags": [
@@ -153,7 +149,14 @@
 			"Name": "Find and Place all the Cat Icons",
 			"Decription": "The Cat Icons aren't on their pedestals. Find them all and put them in their proper places"
 		},
-		"Quest_Completion_Requirements": [],
+		"Quest_Completion_Requirements": [
+			"ActionGetCatIcon1_Done",
+			"ActionGetCatIcon2_Done",
+			"ActionGetCatIcon3_Done",
+			"ActionPlaceCatIcon1_Done",
+			"ActionPlaceCatIcon2_Done",
+			"ActionPlaceCatIcon3_Done"
+		],
 		"Quest_Completion_Tracker": {
 			"Find the Cat Icons": [
 				"ActionGetCatIcon1_Done",
@@ -194,13 +197,13 @@
 			"Description": "Prepare this meal as part of the lunch! Roast the chicken."
 		},
 		"Quest_Completion_Requirements": [
+			"ActionPutChickenPole1_Done",
+			"ActionPutChickenPole2_Done",
 			"ActionAfterChickenSkewer_Done"
 		],
 		"Quest_Completion_Tracker": {
-			"Chicken 1": [
-				"ActionPutChickenPole1_Done"
-			],
-			"Chicken 2": [
+			"Skewer two chickens": [
+				"ActionPutChickenPole1_Done",
 				"ActionPutChickenPole2_Done"
 			]
 		},
@@ -350,12 +353,48 @@
 			"Make a new painting": [
 				"ActionPaintOnCanvas_Done"
 			],
-			"Retrieve canvas": [
+			"Put canvas in its respective place": [
 				"ActionInteractPaintedCanvas_Done"
 			]
 		},
 		"Quest_Completion_Flags": [
 			"QuestRetrievePaintingUpdate_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestArrangeDocuments",
+		"Quest_Description": {
+			"Name": "Arrange the fallen documents",
+			"Description": "Clean up the mess by organizing the documents."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionArrangeDocuments_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Arrange the documents according to some order": [
+				"ActionArrangeDocuments_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestArrangeDocuments_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestAssembleShip",
+		"Quest_Description": {
+			"Name": "Complete the model ship",
+			"Description": "Find the missing parts and assemble them."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionShipAssemblyComplete_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Find the sails and wheel and put them on the ship": [
+				"ActionShipAssemblyComplete_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestAssembleShip_Done"
 		]
 	}
 ]

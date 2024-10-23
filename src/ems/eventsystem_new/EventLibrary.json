@@ -546,9 +546,7 @@
 		"Event_Name": "DialogueChurchHasStood",
 		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionInteractWithFireSpirit_Done"
-		],
+		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [
 			"DialogueChurchHasStood_Done"
 		],
@@ -690,7 +688,7 @@
 		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"QuestFindAndPlaceRelic_Done"
+			"QuestPurifyTheMuseum_Done"
 		],
 		"Event_Completion_Flags": [
 			"DialogueWhatIsThis_Done"
@@ -1028,7 +1026,7 @@
 		],
 		"Event_Audio": "VE_VO_B2_MRBLSPRT_02_ChopGarlicMore",
 		"Loop_Audio": true,
-		"Loop_Interval": 5,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": "Chop the garlic up some more!"
@@ -1047,7 +1045,7 @@
 		],
 		"Event_Audio": "VE_VO_B2_MRBLSPRT_03_ChopMore",
 		"Loop_Audio": true,
-		"Loop_Interval": 5,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": "Chop it up some more!"
@@ -1066,7 +1064,7 @@
 		],
 		"Event_Audio": "VE_VO_B2_MRBLSPRT_03_ChopMore",
 		"Loop_Audio": true,
-		"Loop_Interval": 5,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": "Chop it up some more!"
@@ -1092,7 +1090,7 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionPutChickenPole1_Done"
+			"DialogueLunchFoodEnjoy_Done"
 		],
 		"Event_Completion_Flags": [
 			"ActionPutChickenPole2_Done"
@@ -1558,5 +1556,135 @@
 			"npc_name": "Assistant",
 			"dialogue": "On September 12, 1788, a wooden frame containing an image of the mother of God was found floating in the Laguna de Bay. The fishermen that discovered it tried to retrieve it, but they could not, for it was so heavy that they had to leave it in order to continue fishing that Friday. \nThen, on the following Sunday, a group of women found it and tried to retrieve it as well. However, despite the image itself being fairly small, not even Mariangga, the strongest of them, could lift it. \nSoon, the priest and practically everyone attending Mass at the time went to retrieve the image. It was only then that they managed to lift the icon, and the singing and dancing that followed became the first Turumba, held on September 14, 1788."
 		}
+	},
+	{
+		"Event_Name": "DialogueDocumentsOnFloor",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueDocumentsOnFloor_Done"
+		],
+		"Event_Audio": "VE_VO_C2_ASST_01_WhatOut",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "What a mess! Why are all these documents on the floor? Please pick them up and sort them out."
+		}
+	},
+	{
+		"Event_Name": "DialogueReminderGrabPaper",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueDocumentsOnFloor_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueReminderGrabPaper_Done"
+		],
+		"Event_Audio": "VE_VO_C2_MRBLSPRT_01_ThisThem",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "This place is so messy! Let's grab those papers on the floor and organize them!"
+		}
+	},
+	{
+		"Event_Name": "JournalHermanoPuleExhibit",
+		"Event_Category": "JOURNAL",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"JournalHermanoPuleExhibit_Read"
+		],
+		"Event_Audio": "VE_VO_C2_ASST_02_The1923",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "The Hermano Pule exhibit, which opened on March 15, 2017, is the result of a partnership between Villa Escudero and the National Archives of the Philippines. Here you will find replicas of letters written by the religious leader of the Cofradía de San José. \nBy the way, did you know the Arsenio Escudero and Rosario Adap museum also houses a collection of love letters exchanged between the couple that the museum is named after? Don Arsenio Escudero and Doña Rosario Adap exchanged these letters during the 1920's, before they got married in 1923."
+		}
+	},
+	{
+		"Event_Name": "ActionArrangeDocuments",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueDocumentsOnFloor_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionArrangeDocuments_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "DialogueWhoaCool",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueWhoaCool_Done"
+		],
+		"Event_Audio": "VE_VO_C3_MRBLSPRT_01_WhoaCool",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "Whoa, where are we? This is so cool!"
+		}
+	},
+	{
+		"Event_Name": "DialogueTheresPartsShip",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueWhoaCool_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueTheresPartsShip_Done"
+		],
+		"Event_Audio": "VE_VO_C3_MRBLSPRT_02_TheresParts",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": "There's a box for a model ship on the table, but where are the parts?"
+		}
+	},
+	{
+		"Event_Name": "JournalHermanoPuleShip",
+		"Event_Category": "JOURNAL",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"JournalHermanoPuleShip_Read"
+		],
+		"Event_Audio": "VE_VO_C3_ASST_01_ThisQuezon",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "This is a model of the ship that Hermano Pule and some members of the Cofradía de San José used to escape the Spanish government. While this attempt was successful, Hermano was still eventually caught and executed. \nHermano Pule's death anniversary, which is on November 4, is a holiday in Quezon."
+		}
+	},
+	{
+		"Event_Name": "ActionShipAssemblyComplete",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueTheresPartsShip_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionShipAssemblyComplete_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
 	}
 ]

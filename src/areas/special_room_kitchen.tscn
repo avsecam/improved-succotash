@@ -23,7 +23,6 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionMixKalabasaSoup.gd" id="15_sc7qd"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionGratePapaya.gd" id="16_lgpjy"]
 [ext_resource type="PackedScene" uid="uid://blvdj2t00ghc6" path="res://src/ois/roasting_pit_a.tscn" id="16_vna2s"]
-[ext_resource type="PackedScene" uid="uid://bh2wrcnj5r3h5" path="res://src/ois/cooking_vat_long.tscn" id="17_cdb10"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionChopOnion.gd" id="17_n0em0"]
 [ext_resource type="PackedScene" uid="uid://bwjn4khxgi4fe" path="res://src/ois/cooking_vat.tscn" id="18_7df72"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionChopGarlic.gd" id="18_sy0v8"]
@@ -42,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://dtb0evnypn7nb" path="res://src/ois/chopping_board_wood.tscn" id="25_0oy1l"]
 [ext_resource type="PackedScene" uid="uid://cqwgfyorumpev" path="res://src/ois/Saba.tscn" id="25_dpbcj"]
 [ext_resource type="PackedScene" uid="uid://dcm7wtj5ie8a8" path="res://src/ois/plate_saba.tscn" id="41_em2b0"]
+[ext_resource type="PackedScene" uid="uid://7hrj4owegamd" path="res://src/ois/cooking_vat_long_new.tscn" id="43_2rwgp"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="43_4temx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
@@ -201,9 +201,8 @@ script = ExtResource("7_7aheo")
 [node name="ActionPutChickenPole2" type="Node" parent="Events"]
 script = ExtResource("8_dks5q")
 
-[node name="ActionAfterChickenSkewer" type="Node" parent="Events" node_paths=PackedStringArray("roasting_pit")]
+[node name="ActionAfterChickenSkewer" type="Node" parent="Events"]
 script = ExtResource("9_372qp")
-roasting_pit = NodePath("../../Roasting Pit")
 
 [node name="ActionChopKalabasa" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("13_stsfd")
@@ -274,9 +273,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00609875, -0.51773, -0.410
 [node name="Roasting Pit" parent="." instance=ExtResource("16_vna2s")]
 transform = Transform3D(0.999984, 0, -0.00572464, 0, 1, 0, 0.00572464, 0, 0.999984, -0.107376, -0.5848, -2.96939)
 
-[node name="Long Cooking Vat" parent="." instance=ExtResource("17_cdb10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45337, -0.483151, -0.406506)
-
 [node name="Stove" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.257829, 0, 0, 0, 0.0669858, 0, 0, 0, 0.259298, 0.457251, -0.633326, -0.407002)
 mesh = SubResource("BoxMesh_5hau0")
@@ -313,8 +309,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.513811, -0.640269, 0.51155
 [node name="Chopping Board" parent="." instance=ExtResource("25_0oy1l")]
 transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -0.0417354, -0.646021, -0.410637)
 
+[node name="SnapZone" parent="Chopping Board" index="0"]
+snap_mode = 1
+initial_object = NodePath("../../Kalabasa")
+
 [node name="Chopping Board2" parent="." instance=ExtResource("25_0oy1l")]
 transform = Transform3D(-1.44248e-08, 0, 0.33, 0, 0.33, 0, -0.33, 0, -1.44248e-08, 0.442164, -0.646021, 0.0229139)
+
+[node name="SnapZone" parent="Chopping Board2" index="0"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0.296409, 0)
+snap_mode = 1
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("43_4temx")]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 2.27257, -0.0116689, 1.4901)
@@ -329,7 +333,9 @@ autoplay = true
 [node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
 wait_time = 3.0
 
-[connection signal="event_ended" from="Events/ActionChopKalabasa" to="Long Cooking Vat" method="_on_action_chop_kalabasa_event_ended"]
+[node name="cooking_vat_long_new" parent="." instance=ExtResource("43_2rwgp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457423, -0.468628, -0.431517)
+
 [connection signal="event_ended" from="Events/ActionAllAtcharaIngredients" to="Kawali with Oil" method="_on_action_all_atchara_ingredients_event_ended"]
 [connection signal="chicken_connect" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole1" method="_on_pole_bamboo_chicken_new_chicken_connect"]
 [connection signal="chicken_connect_2" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole2" method="_on_pole_bamboo_chicken_new_chicken_connect_2"]
@@ -339,8 +345,6 @@ wait_time = 3.0
 [connection signal="garlic_chopped" from="Garlic" to="Events/ActionChopGarlic" method="_on_garlic_garlic_chopped"]
 [connection signal="papaya_grated" from="Papaya" to="Events/ActionGratePapaya" method="_on_papaya_papaya_grated"]
 [connection signal="kalabasa_chopped" from="Kalabasa" to="Events/ActionChopKalabasa" method="_on_kalabasa_kalabasa_chopped"]
-[connection signal="action_ended" from="Long Cooking Vat" to="Events/ActionMixKalabasaSoup" method="_on_long_cooking_vat_action_ended"]
-[connection signal="kalabasa_in_pot_receiver" from="Long Cooking Vat" to="Events/ActionPutKalabasaInPot" method="_on_long_cooking_vat_kalabasa_in_pot_receiver"]
 [connection signal="add_garlic" from="Atchara Pot" to="Events/ActionAddAtcharaIngredientsGarlic" method="_on_atchara_pot_add_garlic"]
 [connection signal="add_onion" from="Atchara Pot" to="Events/ActionAddAtcharaIngredientsOnion" method="_on_atchara_pot_add_onion"]
 [connection signal="add_papaya" from="Atchara Pot" to="Events/ActionAddAtcharaIngredientsPapaya" method="_on_atchara_pot_add_papaya"]
@@ -348,5 +352,9 @@ wait_time = 3.0
 [connection signal="saba_being_fried" from="Kawali with Oil" to="Events/ActionPutSabaInPan" method="_on_kawali_with_oil_saba_being_fried"]
 [connection signal="saba_ready" from="Kawali with Oil" to="Events/ActionFinishSabaCooking" method="_on_kawali_with_oil_saba_ready"]
 [connection signal="saba_plated" from="Plate" to="Events/ActionPutCookedSabaInPlate" method="_on_plate_saba_plated"]
+[connection signal="kalabasa_in_pot_receiver" from="cooking_vat_long_new" to="Events/ActionPutKalabasaInPot" method="_on_cooking_vat_long_new_kalabasa_in_pot_receiver"]
+[connection signal="kalabasa_soup_complete" from="cooking_vat_long_new" to="Events/ActionMixKalabasaSoup" method="_on_cooking_vat_long_new_kalabasa_soup_complete"]
 
 [editable path="Roasting Pit"]
+[editable path="Chopping Board"]
+[editable path="Chopping Board2"]
