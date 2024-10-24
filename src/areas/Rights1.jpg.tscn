@@ -32,6 +32,9 @@ skeleton = NodePath("../../..")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 omni_range = 16.12
 
+[node name="Painting Container" parent="." instance=ExtResource("5_yx1uk")]
+transform = Transform3D(-0.499895, 0, -0.0102357, 0, 0.5, 0, 0.0102357, 0, -0.499895, -0.0125781, 0, 0.66912)
+
 [node name="Events" type="Node" parent="."]
 script = ExtResource("3_bmsd6")
 
@@ -53,8 +56,5 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_tt6bu")
 to = "Rights2.jpg"
-
-[node name="Painting Container" parent="." instance=ExtResource("5_yx1uk")]
-transform = Transform3D(-0.499895, 0, -0.0102357, 0, 0.5, 0, 0.0102357, 0, -0.499895, -0.0125781, 0, 0.66912)
 
 [connection signal="painting_placed" from="Painting Container" to="Events/ActionInteractPaintedCanvas" method="_on_painting_container_painting_placed"]

@@ -43,11 +43,9 @@ visible = false
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_apnr4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19523, 0, -0.0755205)
-visible = true
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_vnqrv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178503, 0, -0.0905328)
-visible = true
 
 [node name="CanvasPaintReceiver" type="Area3D" parent="." groups=["paintbrush_wet"]]
 script = ExtResource("7_af7gc")

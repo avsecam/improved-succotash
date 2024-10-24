@@ -1,10 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://qcbwudnqsps6"]
 
 [ext_resource type="Script" path="res://src/ois/painting_placement.gd" id="1_7f02h"]
-[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_a3q5f"]
-[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="3_24iww"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="3_lhanj"]
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="4_a422y"]
+[ext_resource type="PackedScene" uid="uid://c8kio1tdeedvw" path="res://src/assets/B3/Canvas_Ahrt.glb" id="6_ghiyp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0awe"]
 albedo_color = Color(0.956863, 0.901961, 0.858824, 1)
@@ -17,6 +16,8 @@ albedo_color = Color(0.368627, 0.368627, 0.368627, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ogic2"]
 material = SubResource("StandardMaterial3D_gq3pr")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o3xu8"]
 
 [node name="Painting Container" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -33,17 +34,9 @@ spot_range = 3.965
 spot_attenuation = 0.732042
 spot_angle = 63.92
 
-[node name="Frame3" parent="." instance=ExtResource("2_a3q5f")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.204, 0.0790387)
-grab_distance = 0.5
-snap_require = "canvas"
-
-[node name="Frame_inside" type="MeshInstance3D" parent="Frame3"]
-transform = Transform3D(0.43, 0, 0, 0, 0.84, 0, 0, 0, 0.0675, 0, -0.000304103, -0.0814355)
+[node name="Frame_inside" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.86, 0, 0, 0, 1.68, 0, 0, 0, 0.135, 0, 0.203392, -0.0838323)
 mesh = SubResource("BoxMesh_ogic2")
-skeleton = NodePath("../..")
-
-[node name="HighlightRing" parent="Frame3" instance=ExtResource("3_24iww")]
 
 [node name="Pillar_Wood" parent="." instance=ExtResource("4_a422y")]
 transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 1.05, -0.754, 0)
@@ -52,7 +45,16 @@ transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 1.05, -0.754, 0)
 transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -1.05, -0.754, 0)
 
 [node name="Progress View" parent="." instance=ExtResource("3_lhanj")]
-transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, 0.789727, 0.178361)
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, 0.240421, 0.178361)
 visible = false
 
-[connection signal="has_picked_up" from="Frame3" to="." method="_on_frame_3_has_picked_up"]
+[node name="Canvas_Ahrt" parent="." instance=ExtResource("6_ghiyp")]
+transform = Transform3D(-2.16371e-08, 0, -0.495, 0, 0.495, 0, 0.495, 0, -2.16371e-08, 0, 0.17574, 0.0224865)
+visible = false
+
+[node name="Test" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test"]
+shape = SubResource("SphereShape3D_o3xu8")
+
+[connection signal="area_entered" from="Test" to="." method="_on_test_area_entered"]
