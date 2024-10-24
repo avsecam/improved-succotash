@@ -14,7 +14,7 @@
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="13_qo0ib"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vjgy"]
-size = Vector3(0.1, 0.1, 0.771216)
+size = Vector3(0.0380615, 0.1, 1.31244)
 
 [sub_resource type="Resource" id="Resource_dqqgo"]
 script = ExtResource("7_gmhwo")
@@ -73,7 +73,7 @@ script = ExtResource("1_xxpyb")
 second_hand_grab = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.210095)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00343017, 0, -0.365594)
 shape = SubResource("BoxShape3D_1vjgy")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
@@ -95,7 +95,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050078, 0, 0)
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_qdw1m")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0112069, -0.104982, 8.03769e-05)
-visible = true
 mode = 1
 hand_pose = SubResource("Resource_i8mbt")
 
@@ -106,12 +105,10 @@ hand_pose = SubResource("Resource_l64ea")
 
 [node name="GrabPointHandLeftOffhand" parent="." instance=ExtResource("2_qdw1m")]
 transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
-visible = true
 mode = 2
 hand_pose = SubResource("Resource_0rf81")
 
 [node name="GrabPointHandRightOffhand" parent="." instance=ExtResource("4_c4ff1")]
 transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
-visible = true
 mode = 2
 hand_pose = SubResource("Resource_fg8sq")

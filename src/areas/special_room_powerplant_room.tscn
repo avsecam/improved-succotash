@@ -152,11 +152,18 @@ transform = Transform3D(-0.00322522, 2.22081e-09, 0.0499935, 0.199974, -2.18529e
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24545, -0.512715, -1.58268)
 collision_layer = 5242884
 collision_mask = 196615
+enabled = false
 
 [node name="generator" parent="." instance=ExtResource("10_8l0sr")]
 transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, -0.44903, -1.4, -1.63109)
 collision_layer = 5242881
 collision_mask = 5259269
+
+[node name="Generator" parent="generator/MainMesh" index="0" node_paths=PackedStringArray("item")]
+item = NodePath("../../../lightning_tile")
+
+[node name="Generator_Crank" parent="generator/MainMesh/Generator" index="3"]
+transform = Transform3D(-1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 1, -0.125081, 2.24801, 0.030112)
 
 [node name="TopLever_Area" parent="generator/MainMesh" index="1"]
 collision_layer = 5242881
@@ -164,6 +171,7 @@ collision_layer = 5242881
 [node name="CollisionShape3D" parent="generator" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374939, 0.183136, -1.00958)
 
+[editable path="lightning_tile"]
 [editable path="generator"]
 [editable path="generator/MainMesh/Generator"]
 [editable path="generator/MainMesh/Generator/Generator_Compartment"]
