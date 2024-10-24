@@ -66,12 +66,6 @@ transform = Transform3D(-0.312683, 0, 0.949857, 0, 1, 0, -0.949857, 0, -0.312683
 [node name="katana" parent="." instance=ExtResource("5_jdjqg")]
 transform = Transform3D(-0.312683, 0, 0.949857, 0, 1, 0, -0.949857, 0, -0.312683, 0.162593, 0, -2.5219)
 
-[node name="GrabPointHandLeft" parent="katana" index="2"]
-visible = false
-
-[node name="GrabPointHandRight" parent="katana" index="3"]
-visible = false
-
 [node name="pistol" parent="." instance=ExtResource("7_sjwpy")]
 transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, -1.14595, 0, -0.0192841)
 
