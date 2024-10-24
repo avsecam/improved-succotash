@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cr1f0g0xwuq0a"]
+[gd_scene load_steps=19 format=3 uid="uid://cr1f0g0xwuq0a"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_xxpyb"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_qdw1m"]
@@ -8,7 +8,10 @@
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_gmhwo"]
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_ip1t5"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="10_npa3f"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="11_f00fr"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="12_b75gs"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="12_k1l6l"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="13_qo0ib"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vjgy"]
 size = Vector3(0.1, 0.1, 0.771216)
@@ -42,6 +45,26 @@ behavior_dict = {
 "InteractReceiver": false
 }
 
+[sub_resource type="Resource" id="Resource_i8mbt"]
+script = ExtResource("12_b75gs")
+open_pose = ExtResource("11_f00fr")
+closed_pose = ExtResource("11_f00fr")
+
+[sub_resource type="Resource" id="Resource_l64ea"]
+script = ExtResource("12_b75gs")
+open_pose = ExtResource("13_qo0ib")
+closed_pose = ExtResource("13_qo0ib")
+
+[sub_resource type="Resource" id="Resource_0rf81"]
+script = ExtResource("12_b75gs")
+open_pose = ExtResource("11_f00fr")
+closed_pose = ExtResource("11_f00fr")
+
+[sub_resource type="Resource" id="Resource_fg8sq"]
+script = ExtResource("12_b75gs")
+open_pose = ExtResource("13_qo0ib")
+closed_pose = ExtResource("13_qo0ib")
+
 [node name="katana" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
@@ -59,14 +82,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.030808, 0.019464)
 [node name="KATANA" parent="MainMesh" instance=ExtResource("2_vnvwt")]
 transform = Transform3D(-2.18557e-10, 0.005, 0, -0.005, -2.18557e-10, 0, 0, 0, 0.005, -0.0695379, 0.0311797, 0)
 
-[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_qdw1m")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0142254, -0.0927128, 0.124834)
-visible = true
-
-[node name="GrabPointHandRight" parent="." instance=ExtResource("4_c4ff1")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0927128, 0)
-visible = true
-
 [node name="StateManager" parent="." instance=ExtResource("5_xhxce")]
 receiver_group = "sword_dummy"
 settings = SubResource("Resource_dqqgo")
@@ -77,3 +92,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050078, 0, 0)
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_npa3f")]
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("12_k1l6l")]
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_qdw1m")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0112069, -0.104982, 8.03769e-05)
+visible = true
+mode = 1
+hand_pose = SubResource("Resource_i8mbt")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_c4ff1")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0116897, -0.101179, -0.00941038)
+mode = 1
+hand_pose = SubResource("Resource_l64ea")
+
+[node name="GrabPointHandLeftOffhand" parent="." instance=ExtResource("2_qdw1m")]
+transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
+visible = true
+mode = 2
+hand_pose = SubResource("Resource_0rf81")
+
+[node name="GrabPointHandRightOffhand" parent="." instance=ExtResource("4_c4ff1")]
+transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
+visible = true
+mode = 2
+hand_pose = SubResource("Resource_fg8sq")

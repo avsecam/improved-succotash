@@ -75,7 +75,6 @@ script = ExtResource("8_o6ovk")
 transform = Transform3D(0.878373, -0.0976003, 0.170103, -4.54877e-09, 0.78063, 0.447904, -0.196114, -0.43714, 0.761871, -0.176725, -0.691407, -0.848707)
 
 [node name="MeshInstance3D" parent="Parchment Arrange Panel" index="0"]
-transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 0.15, 0, 0, 0)
 visible = false
 
 [node name="parchment_a" parent="." instance=ExtResource("7_7sdt1")]
