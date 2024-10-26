@@ -49,5 +49,5 @@ cast_shadow = 0
 sprite_frames = SubResource("SpriteFrames_bc5ev")
 animation = &"not_done"
 autoplay = "not_done"
-frame_progress = 0.70858
+frame_progress = 0.659619
 script = ExtResource("6_nvx1h")

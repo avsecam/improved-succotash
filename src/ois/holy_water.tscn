@@ -6,39 +6,39 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_08wjh"]
 [ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_uoch3"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_rte4t"]
-[ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_dppkb"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="8_mj7qo"]
+[ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="8_scxnr"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="9_bajfv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6bgc"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="Resource" id="Resource_lnges"]
+[sub_resource type="Resource" id="Resource_7dhfn"]
 script = ExtResource("7_rte4t")
 state_behavior_settings = {
 "ActiveCollidingState": {
-"ControlRaycast": true,
+"ControlRaycastVisibility": true,
 "InteractReceiver": true
 },
 "ActiveState": {
-"ControlRaycast": true,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 },
 "IdleState": {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 },
 "InventoryState": {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 },
 "TriggerState": {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 }
 }
 behavior_dict = {
-"ControlRaycast": false,
+"ControlRaycastVisibility": false,
 "InteractReceiver": false
 }
 
@@ -63,13 +63,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0421172, 0.0375126, -0.1288
 
 [node name="StateManager" parent="." instance=ExtResource("5_uoch3")]
 receiver_group = "holy_water"
-settings = SubResource("Resource_lnges")
-
-[node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_dppkb")]
-raycast_length = 5.0
+settings = SubResource("Resource_7dhfn")
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("8_mj7qo")]
-rate = 3.0
+rate = 100.0
+
+[node name="ControlRaycastVisibility" parent="StateManager" instance=ExtResource("8_scxnr")]
+raycast_length = 5.0
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("9_bajfv")]
 

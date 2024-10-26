@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_i0l1r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fu5av"]
-size = Vector3(0.1, 0.1, 0.1)
+size = Vector3(0.15, 0.15, 0.15)
 
 [node name="CubeCatSpotted" type="RigidBody3D"]
 collision_layer = 4
@@ -16,6 +16,7 @@ freeze_mode = 1
 script = ExtResource("1_u6fco")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0129238, 0)
 shape = SubResource("BoxShape3D_fu5av")
 
 [node name="MainMesh" parent="." instance=ExtResource("2_1wvla")]

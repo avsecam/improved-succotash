@@ -3,9 +3,11 @@ extends Node
 signal rechecking_events
 
 @onready var teleporters = get_parent().get_node("Teleporters")
+@onready var quests := get_tree().get_root().get_node("/root/Demo/Quests")
 
 func _ready() -> void:
 	call_deferred("check_waypoints")
+	quests.quests_updated.connect(_on_event_ended)
 
 
 func check_waypoints() -> void:

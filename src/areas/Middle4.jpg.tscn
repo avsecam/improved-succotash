@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://blmgg5mjuwec5"]
+[gd_scene load_steps=9 format=3 uid="uid://blmgg5mjuwec5"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_nmhm3"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4722n"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4722n"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_u4rfp"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_ju6eo"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_fj4fk"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_jnkkg"]
+[ext_resource type="PackedScene" uid="uid://c26db2y36x10u" path="res://src/assets/A3/DistortionCrystal.tscn" id="7_0a8j3"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSmashDistortionCrystal.gd" id="7_ualhj"]
 
 [node name="middle4_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -51,3 +53,14 @@ script = ExtResource("5_fj4fk")
 
 [node name="BGMPlayerInA1" type="Node" parent="Events"]
 script = ExtResource("6_jnkkg")
+
+[node name="ActionSmashDistortionCrystal" type="Node" parent="Events"]
+script = ExtResource("7_ualhj")
+
+[node name="DistortionCrystal" parent="." instance=ExtResource("7_0a8j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.00001)
+
+[connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSmashDistortionCrystal" method="_on_distortion_crystal_action_completed"]
+
+[editable path="DistortionCrystal"]
+[editable path="DistortionCrystal/MainMesh/Dark_Crystal"]

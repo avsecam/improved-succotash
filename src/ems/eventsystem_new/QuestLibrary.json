@@ -80,19 +80,15 @@
 			"Description": "Several areas in the Museum have some lingering malice around them, You have to purify them somehow"
 		},
 		"Quest_Completion_Requirements": [
-			"ActionPurifyWoodenPillar_Done",
-			"ActionPurifyFloor_Done",
-			"ActionPurifyDoor_Done"
+			"ActionPurifyWoodenPillar1_Done",
+			"ActionPurifyWoodenPillar2_Done",
+			"ActionPurifyWoodenPillar3_Done"
 		],
 		"Quest_Completion_Tracker": {
-			"Purify the Wooden Pillar": [
-				"ActionPurifyWoodenPillar_Done"
-			],
-			"Purify the Floor": [
-				"ActionPurifyFloor_Done"
-			],
-			"Purify the Door": [
-				"ActionPurifyDoor_Done"
+			"Purify the Wooden Pillars": [
+				"ActionPurifyWoodenPillar1_Done",
+				"ActionPurifyWoodenPillar2_Done",
+				"ActionPurifyWoodenPillar3_Done"
 			]
 		},
 		"Quest_Completion_Flags": [
@@ -153,7 +149,14 @@
 			"Name": "Find and Place all the Cat Icons",
 			"Decription": "The Cat Icons aren't on their pedestals. Find them all and put them in their proper places"
 		},
-		"Quest_Completion_Requirements": [],
+		"Quest_Completion_Requirements": [
+			"ActionGetCatIcon1_Done",
+			"ActionGetCatIcon2_Done",
+			"ActionGetCatIcon3_Done",
+			"ActionPlaceCatIcon1_Done",
+			"ActionPlaceCatIcon2_Done",
+			"ActionPlaceCatIcon3_Done"
+		],
 		"Quest_Completion_Tracker": {
 			"Find the Cat Icons": [
 				"ActionGetCatIcon1_Done",
@@ -197,10 +200,8 @@
 			"ActionAfterChickenSkewer_Done"
 		],
 		"Quest_Completion_Tracker": {
-			"Chicken 1": [
-				"ActionPutChickenPole1_Done"
-			],
-			"Chicken 2": [
+			"Skewer two chickens": [
+				"ActionPutChickenPole1_Done",
 				"ActionPutChickenPole2_Done"
 			]
 		},

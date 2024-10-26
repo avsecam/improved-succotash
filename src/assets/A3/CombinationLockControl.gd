@@ -27,23 +27,22 @@ func initialize_lock() -> void:
 		lock_rotate = interface.get_parent().get_parent().global_rotation.y
 
 func _physics_process(delta):
-	if trying_lock:
+	if trying_lock: 
 		var point = camera.global_transform.origin
-		#interface.look_at(-point)	
+		#interface.look_at(-point)	q
 		
 		var temp_pos = interface.position
 		
 		##deg_to_rad(camera.global_rotation_degrees.y)
 		
-		var position_x_rotate = object_distance * cos(camera.global_rotation.y - interface.get_parent().get_parent().global_rotation.y)
-		var position_z_rotate = object_distance * sin(camera.global_rotation.y - interface.get_parent().get_parent().global_rotation.y)
+		var position_x_rotate = object_distance * cos(camera.global_rotation.y)
+		var position_z_rotate = object_distance * sin(camera.global_rotation.y)
 		var position_ui_offset = Vector3(-position_z_rotate,object_height,-position_x_rotate)
 		interface.global_transform.origin = interface.global_transform.origin.lerp(camera.global_transform.origin + position_ui_offset, delta * object_follow_speed)
 		
-		interface.rotation.y = camera.global_rotation.y - interface.get_parent().get_parent().global_rotation.y - 0.3
+		interface.rotation.y = camera.global_rotation.y - 1.5
 	#print("Dialogue UI POSITION:"+str(self.transform.origin))
 	#print("CAMERA GLOBALTRANSFORM:"+str(point))
-
 
 func activate_lock() -> void:
 	interface.lock_active(true)

@@ -79,7 +79,8 @@ func start_event() -> void:
 func close_event() -> void:
 	clear_event_dialogue()
 	for flag in event_completion_flags:
-		Events.finished_events.append(flag)
+		if !Events.finished_events.has(flag):
+			Events.finished_events.append(flag)
 	if event_category != "JOURNAL" or event_category != "BGM":
 		queue_free()
 		print(Events.finished_events)

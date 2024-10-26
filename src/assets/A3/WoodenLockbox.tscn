@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7cqp34qrg2v"]
+[gd_scene load_steps=9 format=3 uid="uid://c7cqp34qrg2v"]
 
 [ext_resource type="PackedScene" uid="uid://tutpcs3x7iuh" path="res://src/assets/WoodenLockboxModel.tscn" id="1_kihpu"]
+[ext_resource type="Script" path="res://src/assets/A3/WoodenLockbox.gd" id="1_mpwit"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qfutu"]
 size = Vector3(4.5, 1, 9)
@@ -21,6 +22,7 @@ size = Vector3(4.5, 3, 0.7)
 size = Vector3(4.5, 3, 0.7)
 
 [node name="WoodenLockbox" type="StaticBody3D"]
+script = ExtResource("1_mpwit")
 
 [node name="Wooden_Lockbox" parent="." instance=ExtResource("1_kihpu")]
 

@@ -9,5 +9,5 @@ func _on_journal_pointer_event(event):
 		else:
 			play_event_audio()
 	
-	await event_audio_done
-	close_event()
+		await event_audio_done
+		close_event()

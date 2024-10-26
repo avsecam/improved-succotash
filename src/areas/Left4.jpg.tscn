@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv5a67md3v1f8"]
+[gd_scene load_steps=7 format=3 uid="uid://cv5a67md3v1f8"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_beetx"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_urork"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_urork"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_gdaay"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_qoegv"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_r5tya"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_8fl52"]
 
 [node name="left4_jpg" type="Node3D"]
 transform = Transform3D(0.334329, 0, 0.942442, 0, 1, 0, -0.942442, 0, 0.334329, 0, 0, 0)
@@ -67,3 +69,9 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")
 to = "Left5Vase.jpg"
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_r5tya")
+
+[node name="BGMPlayerInA1" type="Node" parent="Events"]
+script = ExtResource("6_8fl52")
