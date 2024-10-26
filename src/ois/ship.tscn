@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://12acvs62sh6v"]
+
+[ext_resource type="Script" path="res://src/ois/ship_parts.gd" id="1_pqlt3"]
+[ext_resource type="PackedScene" uid="uid://dhtj6ggun7nw6" path="res://src/assets/C3/Ship.glb" id="1_siaxd"]
+[ext_resource type="PackedScene" uid="uid://c5lqlcj4wr21" path="res://src/assets/C3/ship_sail_component.tscn" id="3_uvyrt"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="4_agpe4"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="5_48i4u"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="5_w33w0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmmek"]
+size = Vector3(2.2094, 0.1, 0.669409)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kqvcm"]
+resource_local_to_scene = true
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aygff"]
+resource_local_to_scene = true
+radius = 0.405
+
+[node name="Ship" type="StaticBody3D"]
+script = ExtResource("1_pqlt3")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Ship" parent="MainMesh" instance=ExtResource("1_siaxd")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="SailComponent" type="Node3D" parent="MainMesh"]
+visible = false
+
+[node name="Ship_SailComponent" parent="MainMesh/SailComponent" instance=ExtResource("3_uvyrt")]
+transform = Transform3D(-1.74846e-08, -0.49, 1.31134e-08, 0, -2.14186e-08, -0.3, 0.4, -2.14186e-08, 5.73206e-16, 0.0308386, 0.886739, 0)
+
+[node name="Ship_SailComponent2" parent="MainMesh/SailComponent" instance=ExtResource("3_uvyrt")]
+transform = Transform3D(-1.74846e-08, -0.49, 1.31134e-08, 0, -2.14186e-08, -0.3, 0.4, -2.14186e-08, 5.73206e-16, -0.577322, 0.886739, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0119019, 0, 0.0129272)
+shape = SubResource("BoxShape3D_rmmek")
+
+[node name="WheelSnapZone" parent="." instance=ExtResource("4_agpe4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.734616, 0.212034, 0)
+grab_distance = 0.4
+snap_require = "ship_wheel"
+
+[node name="CollisionShape3D" parent="WheelSnapZone" index="0"]
+shape = SubResource("SphereShape3D_kqvcm")
+
+[node name="HighlightRing" parent="WheelSnapZone" instance=ExtResource("5_48i4u")]
+
+[node name="SailSnapZone" parent="." instance=ExtResource("4_agpe4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.141749, 0.838349, 0)
+grab_distance = 0.405
+snap_require = "ship_sail"
+
+[node name="CollisionShape3D" parent="SailSnapZone" index="0"]
+shape = SubResource("SphereShape3D_aygff")
+
+[node name="HighlightRing" parent="SailSnapZone" instance=ExtResource("5_48i4u")]
+
+[node name="Progress View" parent="." instance=ExtResource("5_w33w0")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.357588, 0)
+visible = false
+
+[connection signal="has_dropped" from="WheelSnapZone" to="." method="_on_wheel_snap_zone_has_dropped"]
+[connection signal="has_picked_up" from="WheelSnapZone" to="." method="_on_wheel_snap_zone_has_picked_up"]
+[connection signal="has_dropped" from="SailSnapZone" to="." method="_on_sail_snap_zone_has_dropped"]
+[connection signal="has_picked_up" from="SailSnapZone" to="." method="_on_sail_snap_zone_has_picked_up"]
+
+[editable path="WheelSnapZone"]
+[editable path="SailSnapZone"]

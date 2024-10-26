@@ -38,14 +38,14 @@ shader_parameter/Dissolve_Texture = ExtResource("5_n41q7")
 offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_damkt"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7mvvt"]
 gradient = SubResource("Gradient_y13vl")
 
 [sub_resource type="Curve" id="Curve_x23jw"]
 _data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_ymw6l"]
+[sub_resource type="CurveTexture" id="CurveTexture_0cuf7"]
 curve = SubResource("Curve_x23jw")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_47lvc"]
@@ -60,24 +60,24 @@ gravity = Vector3(0, 2, 0)
 damping_max = 1.0
 scale_min = 0.2
 scale_max = 0.5
-scale_curve = SubResource("CurveTexture_ymw6l")
+scale_curve = SubResource("CurveTexture_0cuf7")
 color = Color(1, 1, 1, 0.0666667)
-color_ramp = SubResource("GradientTexture1D_damkt")
+color_ramp = SubResource("GradientTexture1D_7mvvt")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_3dv0l"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5cn0r"]
-size = Vector3(0.34101, 0.294531, 0.360562)
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_eubi5"]
 height = 0.310293
 radius = 0.178897
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0m33d"]
+height = 0.274412
+radius = 0.163726
+
 [node name="cooking_vat_long" type="StaticBody3D" groups=["kalabasasoup"]]
 script = ExtResource("1_xnigw")
-requirement = 2.0
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.046348)
@@ -124,10 +124,6 @@ draw_pass_1 = SubResource("QuadMesh_3dv0l")
 script = ExtResource("7_2jwwc")
 action_completed = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00513408, -0.0364704, -0.00813223)
-shape = SubResource("BoxShape3D_5cn0r")
-
 [node name="VatLongReceiver" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VatLongReceiver"]
@@ -138,6 +134,9 @@ shape = SubResource("CylinderShape3D_eubi5")
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
 visible = false
 
-[connection signal="action_ended" from="." to="Feedback" method="_on_cooking_vat_long_action_ended"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_0m33d")
+
 [connection signal="action_in_progress" from="." to="Feedback" method="_on_cooking_vat_long_action_in_progress"]
+[connection signal="kalabasa_mix_finished" from="Feedback" to="." method="_on_feedback_kalabasa_mix_finished"]
 [connection signal="area_entered" from="VatLongReceiver" to="." method="_on_vat_long_receiver_area_entered"]

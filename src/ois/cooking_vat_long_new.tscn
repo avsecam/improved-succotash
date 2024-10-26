@@ -1,0 +1,152 @@
+[gd_scene load_steps=23 format=3 uid="uid://7hrj4owegamd"]
+
+[ext_resource type="Script" path="res://src/ois/cooking_vat_long_new.gd" id="1_6ifcl"]
+[ext_resource type="PackedScene" uid="uid://c3fu7kdeka02f" path="res://src/assets/B2/Cooking_Vat_Long.glb" id="1_f2o5c"]
+[ext_resource type="PackedScene" uid="uid://dt2whaxocytb5" path="res://src/assets/B2/Kalabasa_Pieces.glb" id="2_c7drm"]
+[ext_resource type="Shader" uid="uid://s1vlqsqdci1o" path="res://src/assets/Fire/FireShader.tres" id="3_58r4b"]
+[ext_resource type="Texture2D" uid="uid://b4cij3rwar8be" path="res://src/assets/Fire/Voronoi01.png" id="4_bljyn"]
+[ext_resource type="Texture2D" uid="uid://kdko7148y7hv" path="res://src/assets/Fire/Flame02.png" id="5_3sov7"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="6_6jb1e"]
+[ext_resource type="Script" path="res://src/ois/feedback_components/mix_kalabasa_soup_new.gd" id="7_cl8r0"]
+[ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="8_j4hbe"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rvdut"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an8ey"]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(0.666667, 0.858824, 0.882353, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4a6u"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.529412, 0.368627, 0.14902, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ey2y2"]
+transparency = 1
+albedo_color = Color(0.588235, 0.376471, 0.0588235, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fe63c"]
+render_priority = 0
+shader = ExtResource("3_58r4b")
+shader_parameter/Dissolve_Tilling = Vector2(1, 1)
+shader_parameter/Dissolve_Speed = null
+shader_parameter/DissolveAmount = null
+shader_parameter/Main_Texture = ExtResource("5_3sov7")
+shader_parameter/Dissolve_Texture = ExtResource("4_bljyn")
+
+[sub_resource type="Gradient" id="Gradient_c6u0o"]
+offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_damkt"]
+gradient = SubResource("Gradient_c6u0o")
+
+[sub_resource type="Curve" id="Curve_m8cws"]
+_data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ymw6l"]
+curve = SubResource("Curve_m8cws")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wy57u"]
+resource_local_to_scene = true
+lifetime_randomness = 0.05
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -360.0
+angle_max = 360.0
+spread = 16.981
+gravity = Vector3(0, 2, 0)
+damping_max = 1.0
+scale_min = 0.2
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_ymw6l")
+color = Color(1, 1, 1, 0.0666667)
+color_ramp = SubResource("GradientTexture1D_damkt")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_4duas"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fca4k"]
+height = 0.34712
+radius = 0.203918
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_amemj"]
+height = 0.326392
+radius = 0.152934
+
+[node name="cooking_vat_long_new" type="StaticBody3D" groups=["kalabasasoup"]]
+script = ExtResource("1_6ifcl")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Cooking_Vat_Long" parent="MainMesh" instance=ExtResource("1_f2o5c")]
+transform = Transform3D(1, 0, 0, 0, 0.781166, 0, 0, 0, 1, 0, 0.0926109, 0)
+
+[node name="WaterClear" type="MeshInstance3D" parent="MainMesh"]
+transform = Transform3D(1.148, 0, 0, 0, 0.320231, 0, 0, 0, 1.148, 0, 0.00606144, 0)
+mesh = SubResource("CylinderMesh_rvdut")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_an8ey")
+
+[node name="KalabasaSoupUnmixed" type="MeshInstance3D" parent="MainMesh"]
+transform = Transform3D(1.148, 0, 0, 0, 0.320231, 0, 0, 0, 1.148, 0, 0.00606144, 0)
+visible = false
+mesh = SubResource("CylinderMesh_rvdut")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_y4a6u")
+
+[node name="Kalabasa_Pieces" parent="MainMesh/KalabasaSoupUnmixed" instance=ExtResource("2_c7drm")]
+transform = Transform3D(1.1333, 0, 1.84938, 0, 6.073, 0, -1.84938, 0, 1.1333, 0.103001, 0.900908, 0.0533834)
+
+[node name="KalabasaSoupMixed" type="MeshInstance3D" parent="MainMesh"]
+transform = Transform3D(1.148, 0, 0, 0, 0.320231, 0, 0, 0, 1.148, 0, 0.00606144, 0)
+visible = false
+mesh = SubResource("CylinderMesh_rvdut")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ey2y2")
+
+[node name="Kalabasa_Pieces" parent="MainMesh/KalabasaSoupMixed" instance=ExtResource("2_c7drm")]
+transform = Transform3D(2.169, 0, 0, 0, 6.073, 0, 0, 0, 2.169, 0.103001, 0.900908, 0.124762)
+
+[node name="Smoke" type="GPUParticles3D" parent="MainMesh/KalabasaSoupMixed"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0296721, 1.05373, 0)
+material_override = SubResource("ShaderMaterial_fe63c")
+amount = 5
+speed_scale = 0.42
+visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1, 1)
+process_material = SubResource("ParticleProcessMaterial_wy57u")
+draw_pass_1 = SubResource("QuadMesh_4duas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_fca4k")
+
+[node name="Progress View" parent="." instance=ExtResource("6_6jb1e")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.374123, 0)
+visible = false
+
+[node name="KalabasaSoupReceiver" type="Area3D" parent="." groups=["kalabasasoup"]]
+script = ExtResource("8_j4hbe")
+requirement = 0.75
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="KalabasaSoupReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0153156, 0)
+shape = SubResource("CylinderShape3D_amemj")
+
+[node name="KalabasaSliceReceiver" type="Area3D" parent="."]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="KalabasaSliceReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0153156, 0)
+shape = SubResource("CylinderShape3D_amemj")
+
+[node name="Feedback" type="Node3D" parent="."]
+script = ExtResource("7_cl8r0")
+
+[connection signal="action_in_progress" from="." to="Feedback" method="_on_cooking_vat_long_new_action_in_progress"]
+[connection signal="action_in_progress" from="KalabasaSoupReceiver" to="." method="_on_kalabasa_soup_receiver_action_in_progress"]
+[connection signal="action_in_progress" from="KalabasaSoupReceiver" to="Feedback" method="_on_kalabasa_soup_receiver_action_in_progress"]
+[connection signal="area_entered" from="KalabasaSliceReceiver" to="." method="_on_kalabasa_slice_receiver_area_entered"]
+[connection signal="mix_complete" from="Feedback" to="." method="_on_feedback_mix_complete"]

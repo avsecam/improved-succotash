@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mpcnttp31a44"]
+[gd_scene load_steps=9 format=3 uid="uid://clkms3ef3xwpn"]
 
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_iirm1"]
 [ext_resource type="Script" path="res://src/ois/parchment_arrange_panel.gd" id="1_m6u7c"]

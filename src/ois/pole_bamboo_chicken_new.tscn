@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://vv52ccxdhu6h"]
+[gd_scene load_steps=7 format=3 uid="uid://vv52ccxdhu6h"]
 
 [ext_resource type="Script" path="res://src/ois/pole_bamboo_chicken_connect.gd" id="1_gsq50"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_lou4i"]
-[ext_resource type="PackedScene" uid="uid://crwyd7l0re2e" path="res://src/inventory/Slot.tscn" id="3_jspyy"]
-[ext_resource type="Script" path="res://src/inventory/inventory_snap_zone_pole_bamboo_2.gd" id="4_3a1tc"]
-[ext_resource type="Script" path="res://src/inventory/inventory_snap_zone_pole_bamboo.gd" id="4_asqtt"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_ifhcf"]
 [ext_resource type="PackedScene" uid="uid://muoewebdtop4" path="res://src/assets/B3/Pole_Bamboo.glb" id="4_wixbx"]
-[ext_resource type="PackedScene" uid="uid://bng2k0ebnkryu" path="res://src/assets/B2/Chicken_Whole Raw.glb" id="6_psgu0"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="6_apspg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ck2rs"]
 size = Vector3(0.0983503, 0.896259, 0.1)
@@ -18,27 +15,6 @@ collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("1_gsq50")
 
-[node name="InventorySlots_PoleBamboo" type="Node3D" parent="."]
-
-[node name="Slot" parent="InventorySlots_PoleBamboo" groups=["InventorySlot_Shelf"] instance=ExtResource("3_jspyy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183795, 0)
-
-[node name="Slot_prototype" parent="InventorySlots_PoleBamboo/Slot" index="1"]
-transform = Transform3D(17.91, 0, 0, 0, 17.91, 0, 0, 0, 17.91, 0, 0, 0)
-visible = false
-
-[node name="SnapZone" parent="InventorySlots_PoleBamboo/Slot" index="2"]
-script = ExtResource("4_3a1tc")
-
-[node name="Slot2" parent="InventorySlots_PoleBamboo" groups=["InventorySlot_Shelf"] instance=ExtResource("3_jspyy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118025, 0)
-
-[node name="Slot_prototype" parent="InventorySlots_PoleBamboo/Slot2" index="1"]
-visible = false
-
-[node name="SnapZone" parent="InventorySlots_PoleBamboo/Slot2" index="2"]
-script = ExtResource("4_asqtt")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00444288, 0.00194398, 0)
 shape = SubResource("BoxShape3D_ck2rs")
@@ -48,24 +24,21 @@ shape = SubResource("BoxShape3D_ck2rs")
 [node name="Pole_Bamboo" parent="MainMesh" instance=ExtResource("4_wixbx")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
-[node name="Chicken_Whole Raw" parent="MainMesh" instance=ExtResource("6_psgu0")]
-transform = Transform3D(-1.09278e-08, 0.234923, 0.085505, 0, 0.085505, -0.234923, -0.25, -1.02688e-08, -3.73754e-09, -0.0549588, -0.150423, 0)
-visible = false
-
-[node name="Chicken_Whole Raw2" parent="MainMesh" instance=ExtResource("6_psgu0")]
-transform = Transform3D(-1.09278e-08, 0.234923, 0.085505, 0, 0.085505, -0.234923, -0.25, -1.02688e-08, -3.73754e-09, -0.0549588, 0.190978, 0)
-visible = false
-
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_lou4i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.308096, -0.0822605)
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_ifhcf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.308096, -0.0822605)
 
-[connection signal="item_inserted_2" from="InventorySlots_PoleBamboo/Slot/SnapZone" to="." method="_on_snap_zone_item_inserted_2"]
-[connection signal="item_inserted" from="InventorySlots_PoleBamboo/Slot2/SnapZone" to="." method="_on_snap_zone_item_inserted"]
+[node name="Chicken1" parent="." instance=ExtResource("6_apspg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.216482, 0)
+grab_distance = 0.2
+snap_require = "chicken"
 
-[editable path="InventorySlots_PoleBamboo/Slot"]
-[editable path="InventorySlots_PoleBamboo/Slot/HighlightRing"]
-[editable path="InventorySlots_PoleBamboo/Slot2"]
-[editable path="InventorySlots_PoleBamboo/Slot2/HighlightRing"]
+[node name="Chicken2" parent="." instance=ExtResource("6_apspg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.131036, 0)
+grab_distance = 0.2
+snap_require = "chicken"
+
+[connection signal="has_picked_up" from="Chicken1" to="." method="_on_chicken_1_has_picked_up"]
+[connection signal="has_picked_up" from="Chicken2" to="." method="_on_chicken_2_has_picked_up"]

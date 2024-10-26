@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd7s4yj8s7klu"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_vba42"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_go7vy"]
+[ext_resource type="PackedScene" uid="uid://u4yw1gepqqsq" path="res://src/assets/C3/Ship_ModelWheel.glb" id="2_wsolp"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_0wckl"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_smi1j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qs6l0"]
+size = Vector3(0.0813965, 0.208362, 0.0813477)
+
+[node name="ship_wheel" type="RigidBody3D" groups=["ship_wheel"]]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_vba42")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00275879, 0.0846497, 0.00161133)
+shape = SubResource("BoxShape3D_qs6l0")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0219398, 0)
+
+[node name="Ship_ModelWheel" parent="MainMesh" instance=ExtResource("2_wsolp")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_go7vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0404965, 0, -0.0861209)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_0wckl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0345119, 0.00237678, -0.0853917)
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("5_smi1j")]
+
+[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
+visible = false
+
+[node name="Ship_ModelWheel2" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_wsolp")]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, -0.0784216, 0)
+
+[editable path="InventoryItemComp"]

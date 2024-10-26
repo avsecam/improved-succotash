@@ -4,37 +4,35 @@ signal chicken_connect
 signal chicken_connect_2
 signal pole_inserted_inventory
 
-@onready var slot_a = $InventorySlots_PoleBamboo/Slot
-@onready var slot_b = $InventorySlots_PoleBamboo/Slot2
-@onready var chicken_1 = $"MainMesh/Chicken_Whole Raw"
-@onready var chicken_2 = $"MainMesh/Chicken_Whole Raw2"
+@onready var chicken_1 = $Chicken1
+@onready var chicken_2 = $Chicken2
 
-func _on_snap_zone_item_inserted():
+var chicken_b1 : bool
+var chicken_b2 : bool
+
+func _on_chicken_1_has_picked_up(what):
+	chicken_1.enabled = false
+	what.disable_collision()
 	chicken_connect.emit()
+	chicken_b1 = true
 	
-	if !is_instance_valid(slot_b):
-		chicken_1.visible = true
-		chicken_2.visible = true
-		self_destruct()
-	else:
-		chicken_1.visible = true
-	
+	if chicken_b2:
+		all_chicken_complete()
 
-func _on_snap_zone_item_inserted_2():
+
+func _on_chicken_2_has_picked_up(what):
+	chicken_2.enabled = false
+	what.disable_collision()
 	chicken_connect_2.emit()
+	chicken_b2 = true
 	
-	if is_instance_valid(slot_b):
-		chicken_2.visible = true
-	else:
-		chicken_1.visible = true
-		chicken_2.visible = true
-		self_destruct()
-		
-func self_destruct():
+	if chicken_b1:
+		all_chicken_complete()
+
+func all_chicken_complete():
 	await get_tree().create_timer(3).timeout
 	pole_inserted_inventory.emit()
-	self.queue_free()
-
-		
-
-		
+	chicken_2.picked_up_object.queue_free()
+	chicken_1.picked_up_object.queue_free()
+	self.visible = false
+	self.enabled = false
