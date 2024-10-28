@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dydpr1syelc2g"]
 
-[ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="1_8t0sv"]
+[ext_resource type="Script" path="res://src/ois/action_components/curse_strike_action.gd" id="1_3vbl7"]
 [ext_resource type="PackedScene" uid="uid://cgu27pk33r6ea" path="res://src/assets/A2/Floor_Cursed.glb" id="1_e2meh"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/cursed_floor_cleansed.gd" id="2_t4mm5"]
 
@@ -8,11 +8,13 @@
 size = Vector3(1.53296, 0.113007, 1.58239)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dyb0i"]
-size = Vector3(1.56055, 1, 0.307739)
+size = Vector3(1.56055, 0.135742, 1.87897)
 
 [node name="cursed_floor" type="StaticBody3D" groups=["holy_water"]]
 collision_layer = 5242881
-script = ExtResource("1_8t0sv")
+script = ExtResource("1_3vbl7")
+range = 6
+requirement = 1.0
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 
@@ -28,10 +30,7 @@ action_start = true
 action_completed = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, 0.411326, 0.773988)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, -0.0208029, -0.0116261)
 shape = SubResource("BoxShape3D_dyb0i")
-
-[connection signal="action_completed" from="." to="Feedback" method="_on_cursed_floor_action_completed"]
-[connection signal="action_started" from="." to="Feedback" method="_on_cursed_floor_action_started"]
 
 [editable path="MainMesh/Floor_Cursed"]
