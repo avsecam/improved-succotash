@@ -101,7 +101,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050129, -0.839293)
 
 [node name="GrabPointHandLeftStock" parent="." instance=ExtResource("2_02u1x")]
 transform = Transform3D(-0.0576555, -0.653376, -0.754835, 0.956852, 0.179527, -0.228483, 0.284798, -0.735439, 0.614833, 0.0331708, 0.0531897, -0.586378)
-visible = true
 mode = 2
 hand_pose = SubResource("Resource_y785y")
 drive_position = 0.0
