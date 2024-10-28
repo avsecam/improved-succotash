@@ -18,7 +18,7 @@ func _ready():
 		state_manager.add_child(inventory_state)
 
 func toggle_replacement_mesh() -> void:
-	print(self.name+" | Toggled replacement mesh OFF.")	
+	print(self.name+" | Toggled replacement mesh OFF.")
 	main_mesh.visible = true
 	replacement_mesh.visible = false
 	

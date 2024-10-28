@@ -1,5 +1,7 @@
 extends Node
 
+signal quests_updated
+
 @onready var quest_tracker := get_tree().get_root().get_node("Demo/StaticUIContainer")
 
 func add_active_quest(quest_name: String) -> void:
@@ -23,3 +25,5 @@ func update_active_quests() -> void:
 	print("ohno a quest has ended")
 	for child in get_children():
 		child.update_quest()
+	print("Quests successfully updated")
+	emit_signal("quests_updated")

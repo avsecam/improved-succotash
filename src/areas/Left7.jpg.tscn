@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://drei6f2wos07c"]
+[gd_scene load_steps=9 format=3 uid="uid://drei6f2wos07c"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_guqws"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_41t1a"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_41t1a"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_oxm6h"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_rrawd"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_pjlee"]
 [ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="5_ytes7"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_foad6"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPurifyWoodenPillar.gd" id="7_ty2a2"]
 
 [node name="left7_jpg" type="Node3D"]
 transform = Transform3D(0.363246, 0, 0.931679, 0, 1, 0, -0.931679, 0, 0.363246, 0, 0, 0)
@@ -34,7 +37,7 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Left5Vase_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_oxm6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.22517, -1.676, 0.306053)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.225, -1.676, 0.306)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_rrawd")
@@ -47,5 +50,19 @@ collision_mask = 0
 script = ExtResource("4_rrawd")
 to = "Left10Cheetah.jpg"
 
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_pjlee")
+
+[node name="BGMPlayerInA1" type="Node" parent="Events"]
+script = ExtResource("6_foad6")
+
+[node name="ActionPurifyWoodenPillar2" type="Node" parent="Events"]
+script = ExtResource("7_ty2a2")
+
 [node name="Pillar_A2" parent="." instance=ExtResource("5_ytes7")]
 transform = Transform3D(0.8, 0, -2.98023e-08, 0, 0.8, 0, 2.98023e-08, 0, 0.8, 2.39793, -4.54658, 1.85748)
+
+[connection signal="tree_exiting" from="Events/ActionPurifyWoodenPillar2" to="Pillar_A2/PillarControl" method="_on_associated_event_finished"]
+[connection signal="action_completed" from="Pillar_A2" to="Events/ActionPurifyWoodenPillar2" method="_on_pillar_a_2_action_completed"]
+
+[editable path="Pillar_A2"]

@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://d38rik2xqhbcv"]
+[gd_scene load_steps=14 format=3 uid="uid://d38rik2xqhbcv"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mp4ii"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lac8p"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_beq4h"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_bku23"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_c5w5h"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_3sgem"]
 [ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="6_omj0c"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueChurchHasStood.gd" id="7_s2q27"]
 [ext_resource type="PackedScene" uid="uid://bq46582kommvy" path="res://src/ois/holy_water.tscn" id="7_u38j7"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLingeringMalice.gd" id="8_7sf7p"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPurifyWoodenPillar.gd" id="8_hewy1"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPickUpHolyWater.gd" id="9_r11w6"]
+[ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="10_3js1p"]
 
 [node name="left00_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -47,12 +54,42 @@ collision_mask = 0
 script = ExtResource("4_bku23")
 to = "Left1.jpg"
 
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_c5w5h")
+
+[node name="BGMPlayerInA1" type="Node" parent="Events"]
+script = ExtResource("6_3sgem")
+
+[node name="DialogueChurchHasStood" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("7_s2q27")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="DialogueLingeringMalice" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("8_7sf7p")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionPickUpHolyWater" type="Node" parent="Events"]
+script = ExtResource("9_r11w6")
+
+[node name="ActionPurifyWoodenPillar1" type="Node" parent="Events"]
+script = ExtResource("8_hewy1")
+
 [node name="holy_water" parent="." instance=ExtResource("7_u38j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14651, -1.75174, -3.82812)
 gravity_scale = 0.01
 
 [node name="Pillar_A2" parent="." instance=ExtResource("6_omj0c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01184, -5.73052, -3.00792)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -2.00672, -4.17327, -3.00792)
+
+[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("10_3js1p")]
+transform = Transform3D(0.116462, 0, -0.221216, 0, 0.25, 0, 0.221216, 0, 0.116462, 0, 0.0271107, -2.28518)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+
+[connection signal="tree_exiting" from="Events/ActionPurifyWoodenPillar1" to="Pillar_A2/PillarControl" method="_on_associated_event_finished"]
+[connection signal="picked_up" from="holy_water" to="Events/ActionPickUpHolyWater" method="_on_holy_water_picked_up"]
+[connection signal="action_completed" from="Pillar_A2" to="Events/ActionPurifyWoodenPillar1" method="_on_pillar_a_2_action_completed"]
 
 [editable path="holy_water"]
 [editable path="holy_water/InventoryItemComp"]
+[editable path="Pillar_A2"]

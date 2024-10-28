@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dvgkywh2c18xf"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_25di4"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_1oa45"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_1oa45"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m3sr5"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_40l63"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="5_8adsr"]
@@ -90,10 +90,7 @@ transform = Transform3D(0.0573026, 0, -0.998357, 0, 1, 0, 0.998357, 0, 0.0573026
 transform = Transform3D(0.0149394, -0.999888, 0, 0.999888, 0.0149394, 0, 0, 0, 1, 0, -0.642857, 0.491958)
 
 [node name="RodSilverTorch2" parent="." instance=ExtResource("6_y7rnq")]
-transform = Transform3D(0.0149394, -0.999888, 0, 0.999888, 0.0149394, 0, 0, 0, 1, -0.697706, -0.642857, 0.776342)
-
-[node name="PolishedRod" parent="RodSilverTorch2/OiledRagReceiver" index="1" node_paths=PackedStringArray("dirt")]
-dirt = NodePath("../../../RodSilverTorch/Node3D")
+transform = Transform3D(0.452762, -0.891632, 0, 0.891632, 0.452762, 0, 0, 0, 1, -0.609893, -0.531329, 0.668035)
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("13_t4dbj")]
 transform = Transform3D(0.0348581, 0, 0.247558, 0, 0.25, 0, -0.247558, 0, 0.0348581, -1.92617, -0.333609, 1.34512)
@@ -110,6 +107,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60217, -0.488819, -1.09807
 associated_event = "JournalCalandraOfSanto"
 
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
+[connection signal="tree_exiting" from="Events/ActionPolishRod1" to="RodSilverTorch" method="_associated_event_finished"]
+[connection signal="tree_exiting" from="Events/ActionPolishRod2" to="RodSilverTorch2" method="_associated_event_finished"]
 [connection signal="action_completed" from="RodSilverTorch/OiledRagReceiver" to="Events/ActionPolishRod1" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch/CleanRagReceiver" to="Events/ActionUseNormalRagOnly" method="_on_clean_rag_receiver_action_completed"]
 [connection signal="action_completed" from="RodSilverTorch/PolishReceiver" to="Events/ActionUsePolishOnRod" method="_on_polish_receiver_action_completed"]

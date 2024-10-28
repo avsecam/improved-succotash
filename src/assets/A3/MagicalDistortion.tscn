@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=3 uid="uid://cp3el5iygvid8"]
+
+[ext_resource type="Script" path="res://src/assets/A3/MagicalDistortion.gd" id="1_nm3mk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pvks"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.392157, 0.117647, 0.435294, 0.690196)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_1w70s"]
+_data = [Vector2(0, 0.322939), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_is1hk"]
+curve = SubResource("Curve_1w70s")
+
+[sub_resource type="Curve" id="Curve_kl6fq"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xgs2e"]
+curve = SubResource("Curve_kl6fq")
+
+[sub_resource type="Curve" id="Curve_8hen5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.227429), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x8khj"]
+curve = SubResource("Curve_8hen5")
+
+[sub_resource type="Curve" id="Curve_oraha"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yk0pt"]
+curve = SubResource("Curve_oraha")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0tlms"]
+angular_velocity_max = 1.0
+angular_velocity_curve = SubResource("CurveTexture_xgs2e")
+orbit_velocity_max = 1.0
+orbit_velocity_curve = SubResource("CurveTexture_yk0pt")
+radial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 1.0
+scale_min = 0.5
+alpha_curve = SubResource("CurveTexture_is1hk")
+emission_curve = SubResource("CurveTexture_x8khj")
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_yfydk"]
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_wiorb"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="MagicalDistortion" type="Node3D"]
+script = ExtResource("1_nm3mk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0pvks")
+amount = 50
+lifetime = 2.0
+explosiveness = 0.25
+fixed_fps = 60
+visibility_aabb = AABB(-1.07255, -1.32856, -0.419061, 2.1451, 2.65713, 0.838122)
+process_material = SubResource("ParticleProcessMaterial_0tlms")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_yfydk")
+draw_pass_2 = SubResource("PrismMesh_wiorb")
