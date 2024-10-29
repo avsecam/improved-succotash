@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://src/assets/A1/RagControl.gd" id="13_iwv4s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_07xwo"]
-size = Vector3(0.2, 0.0641602, 0.2)
+size = Vector3(0.2, 0.0472168, 0.2)
 
 [sub_resource type="Resource" id="Resource_tmajd"]
 script = ExtResource("7_s2rum")
@@ -54,7 +54,7 @@ material = SubResource("StandardMaterial3D_p3ct0")
 size = Vector3(0.02, 0.02, 0.02)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dowu4"]
-size = Vector3(0.2, 0.05, 0.2)
+size = Vector3(0.2, 0.0352539, 0.2)
 
 [node name="Rag" type="RigidBody3D"]
 collision_layer = 4
@@ -63,7 +63,7 @@ freeze_mode = 1
 script = ExtResource("1_66iak")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.00173234, 0.0195587, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.00673935, 0.0195587, 0)
 shape = SubResource("BoxShape3D_07xwo")
 
 [node name="MainMesh" type="Node3D" parent="."]
@@ -112,7 +112,7 @@ script = ExtResource("8_jf20s")
 requirement = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaxReceiver"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.00133772, 0.0165058, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.00603533, 0.0165058, 0)
 shape = SubResource("BoxShape3D_dowu4")
 
 [node name="Waxed" type="Node3D" parent="WaxReceiver"]
