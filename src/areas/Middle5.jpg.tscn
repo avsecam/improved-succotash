@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://c6g8tyipdbknu"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_xhj0w"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_hb6pg"]
+[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_hb6pg"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_0ef5i"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_4wf6l"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_g5gm8"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c87iqblyt35gf" path="res://src/assets/A3/CombinationLock.tscn" id="8_jcbb0"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPickUpHammer.gd" id="8_x20fn"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionCleanDirtFromHint.gd" id="9_2244i"]
-[ext_resource type="PackedScene" path="res://src/assets/A3/Hammer.tscn" id="9_y03w7"]
+[ext_resource type="PackedScene" uid="uid://d4e7qlnksmm47" path="res://src/assets/A3/Hammer.tscn" id="9_y03w7"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPurifyHint.gd" id="10_p8ltu"]
 [ext_resource type="PackedScene" uid="uid://dmldurhnt6d6o" path="res://src/assets/A3/Image_HintA3.glb" id="12_liaj6"]
 [ext_resource type="PackedScene" uid="uid://dh8u38dgfwcu0" path="res://src/assets/A1/dirt.tscn" id="13_wa5m6"]
@@ -98,6 +98,7 @@ transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 
 
 [node name="dirt" parent="." instance=ExtResource("13_wa5m6")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.430467, -1.4552, -1.04389)
+visible = false
 requirement = 1.0
 
 [node name="CollisionShape3D" parent="dirt" index="0"]
@@ -110,6 +111,7 @@ disabled = true
 
 [node name="cursed_floor" parent="." instance=ExtResource("14_af0sb")]
 transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0.429674, -1.4689, -1.07502)
+visible = false
 
 [connection signal="tree_exiting" from="Events/ActionCleanDirtFromHint" to="dirt" method="_associated_event_done"]
 [connection signal="tree_exiting" from="Events/ActionPurifyHint" to="cursed_floor" method="_on_associated_event_finished"]

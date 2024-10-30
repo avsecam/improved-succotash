@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2q7hiaw8bxy5"]
+
+[ext_resource type="PackedScene" uid="uid://bd0r2xbh7i83d" path="res://src/assets/A MAIN/Tray_Cats.glb" id="1_rlwar"]
+[ext_resource type="Script" path="res://src/assets/A MAIN/CatTray.gd" id="1_rx8no"]
+[ext_resource type="PackedScene" uid="uid://crwyd7l0re2e" path="res://src/inventory/Slot.tscn" id="3_i1di4"]
+
+[node name="CatTray" type="Node3D"]
+script = ExtResource("1_rx8no")
+
+[node name="Tray_Cats2" parent="." instance=ExtResource("1_rlwar")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Slot" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121841, 0)
+
+[node name="Slot3" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257465, 0.121841, 0)
+
+[node name="Slot2" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263741, 0.121841, 0)
+
+[connection signal="body_entered" from="Slot/SnapZone" to="." method="_on_snap_zone_body_entered"]
+[connection signal="body_entered" from="Slot3/SnapZone" to="." method="_on_snap_zone_body_entered"]
+[connection signal="body_entered" from="Slot2/SnapZone" to="." method="_on_snap_zone_body_entered"]
+
+[editable path="Slot"]
+[editable path="Slot/HighlightRing"]
+[editable path="Slot3"]
+[editable path="Slot3/HighlightRing"]
+[editable path="Slot2"]
+[editable path="Slot2/HighlightRing"]

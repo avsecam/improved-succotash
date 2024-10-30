@@ -33,6 +33,7 @@ var event_library : Dictionary = {}
 var quest_library : Dictionary = {}
 var ongoing_events : Array = []
 var finished_events : Array = []
+var cat_tray_content : Dictionary = {"Slot" : null, "Slot3" : null, "Slot2" : null}
 
 var locked_teleporters : Dictionary = {
 	"Tut2_jpg" : "WaypointToTut2_Open",

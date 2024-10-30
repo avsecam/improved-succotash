@@ -147,7 +147,7 @@
 		"Quest_Name": "QuestPlaceAllTheCatIcons",
 		"Quest_Description": {
 			"Name": "Find and Place all the Cat Icons",
-			"Decription": "The Cat Icons aren't on their pedestals. Find them all and put them in their proper places"
+			"Description": "The Cat Icons aren't on their pedestals. Find them all and put them in their proper places"
 		},
 		"Quest_Completion_Requirements": [
 			"ActionGetCatIcon1_Done",

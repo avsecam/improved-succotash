@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cccq27ag20h2m"]
+
+[ext_resource type="PackedScene" uid="uid://bd0r2xbh7i83d" path="res://src/assets/A MAIN/Tray_Cats.glb" id="1_k78jr"]
+
+[node name="Tray_Cats2" instance=ExtResource("1_k78jr")]

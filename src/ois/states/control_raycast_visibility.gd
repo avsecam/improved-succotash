@@ -26,6 +26,7 @@ func on_enter_state():
 
 func on_exit_state():
 	enable_raycast(false)
+	raycast.clear_exceptions()
 
 func _ready():
 	#debug_show(false)
@@ -54,12 +55,16 @@ func _process(delta):
 	if (raycast.is_colliding()):
 		if (currently_colliding == null):
 			currently_colliding = raycast.get_collider()
+			if !currently_colliding.is_in_group(get_parent().receiver_group):
+				raycast.add_exception(currently_colliding)
 			#print("current collider: "+str(currently_colliding.name))
-			body_entered.emit(currently_colliding)
+			else:
+				body_entered.emit(currently_colliding)
 	else:
 		if (currently_colliding != null):
 			body_exited.emit(currently_colliding)
 			currently_colliding = null
+			#raycast.clear_exceptions()
 
 #func debug_show(to_show):
 	#$Debug.visible = to_show

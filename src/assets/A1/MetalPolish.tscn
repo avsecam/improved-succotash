@@ -120,6 +120,7 @@ control_raycast = NodePath("../StateManager/ControlRaycastVisibility")
 animation_player = NodePath("../MainMesh/AnimationPlayer")
 
 [connection signal="action_completed" from="ReceiverComp" to="MetalPolishControl" method="_on_receiver_comp_action_completed"]
+[connection signal="action_in_progress" from="ReceiverComp" to="ReceiverComp/Node3D" method="_on_receiver_comp_action_in_progress"]
 
 [editable path="MainMesh"]
 [editable path="StateManager/ControlRaycastVisibility"]

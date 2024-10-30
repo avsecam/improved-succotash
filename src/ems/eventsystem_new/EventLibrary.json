@@ -911,7 +911,7 @@
 			"ActionLookAtWaterSpiritB1_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionLookAtWaterSpiritB1_Done"
+			"ActionInteractWaterSpiritB1_Done"
 		],
 		"Event_Audio": "VE_VO_B1_MRBLSPRT_02_HiSearch",
 		"Loop_Audio": false,
@@ -922,26 +922,32 @@
 		}
 	},
 	{
-		"Event_Name": "ActionInteractPPlantSwitchUnfinished",
+		"Event_Name": "ActionInteractPPlantSwitch",
 		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionInteractWaterSpiritB1_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionInteractPPlantSwitch_Done"
+		],
 		"Event_Audio": "VE_VO_B1_MRBLSPRT_03_StopMacho",
 		"Loop_Audio": false,
-		"Loop_Interval": 0,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": "Stop trying to be so macho!"
 		}
 	},
 	{
-		"Event_Name": "ActionInteractPPlantSwitch",
+		"Event_Name": "ActionReturnTileToSnapZone",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
-		"Event_Prerequisites": "[\"DialogueMarblePPlantReminder_Done\"］",
-		"Event_Completion_Flags": [
+		"Event_Prerequisites": [
 			"ActionInteractPPlantSwitch_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionReturnTileToSnapZone_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,
@@ -1707,6 +1713,19 @@
 		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [
 			"ActionPurifyHint_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionStartCatIconQuest",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionStartCatIconQuest_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,
