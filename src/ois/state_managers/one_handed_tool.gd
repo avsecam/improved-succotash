@@ -57,7 +57,7 @@ func _on_trigger_released():
 
 func _on_receiver_collision_entered(receiver):
 	if is_instance_valid(receiver):
-		print("collision " + receiver.name)
+		print("collision " + actor_object.name + " and " + receiver.name)
 		if receiver.is_in_group(receiver_group):
 			receiver_object = receiver
 			set_state(active_colliding_state)

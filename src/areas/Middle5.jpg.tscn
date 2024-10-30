@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6g8tyipdbknu"]
+[gd_scene load_steps=19 format=3 uid="uid://c6g8tyipdbknu"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_xhj0w"]
 [ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_hb6pg"]
@@ -16,6 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://dmldurhnt6d6o" path="res://src/assets/A3/Image_HintA3.glb" id="12_liaj6"]
 [ext_resource type="PackedScene" uid="uid://dh8u38dgfwcu0" path="res://src/assets/A1/dirt.tscn" id="13_wa5m6"]
 [ext_resource type="PackedScene" uid="uid://dydpr1syelc2g" path="res://src/assets/A2/cursed_floor.tscn" id="14_af0sb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wimxo"]
+size = Vector3(0.291211, 0.674683, 0.327966)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxuob"]
+size = Vector3(0.1, 0.365881, 0.176318)
 
 [node name="middle5_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -93,6 +99,14 @@ transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 
 [node name="dirt" parent="." instance=ExtResource("13_wa5m6")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.430467, -1.4552, -1.04389)
 requirement = 1.0
+
+[node name="CollisionShape3D" parent="dirt" index="0"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.0956055, 0.173731, -0.0148255)
+shape = SubResource("BoxShape3D_wimxo")
+
+[node name="CollisionShape3D2" parent="dirt/OiledRagReceiver" index="0"]
+shape = SubResource("BoxShape3D_wxuob")
+disabled = true
 
 [node name="cursed_floor" parent="." instance=ExtResource("14_af0sb")]
 transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0.429674, -1.4689, -1.07502)

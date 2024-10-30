@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dotnn7tssatd7"]
+[gd_scene load_steps=14 format=3 uid="uid://dotnn7tssatd7"]
 
 [ext_resource type="Script" path="res://src/ois/canvas_paint_new.gd" id="1_omwlt"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_apnr4"]
@@ -7,12 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://c8kio1tdeedvw" path="res://src/assets/B3/Canvas_Ahrt.glb" id="4_7w6mj"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_vnqrv"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_dp5vr"]
+[ext_resource type="Material" uid="uid://bahwnmqk57mcw" path="res://src/assets/B3/paint_mesh_ref.tres" id="5_q0vkl"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_af7gc"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="9_8o7f0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_akh3k"]
 margin = 0.01
 size = Vector3(0.411365, 0.594897, 0.0504517)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7lsfk"]
+material = ExtResource("5_q0vkl")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iw85n"]
 size = Vector3(0.345068, 0.500098, 0.0477051)
@@ -41,6 +45,10 @@ transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 
 transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, 0, 0)
 visible = false
 
+[node name="CanvasPaintCall" type="MeshInstance3D" parent="MainMesh"]
+transform = Transform3D(5.72126e-16, -4.37114e-08, -0.205427, -0.299435, -4.37114e-08, 0, -1.30887e-08, 1, -8.97951e-09, 0, 0, -0.00672538)
+mesh = SubResource("PlaneMesh_7lsfk")
+
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_apnr4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19523, 0, -0.0755205)
 
@@ -56,6 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00407714, 0.000927754, -0.0
 shape = SubResource("BoxShape3D_iw85n")
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("5_dp5vr")]
+visible = false
 
 [node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
 visible = false
