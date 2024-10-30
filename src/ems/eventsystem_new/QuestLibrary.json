@@ -401,10 +401,10 @@
 		"Quest_Name": "QuestLookAtTheButterflies",
 		"Quest_Description": {
 			"Name": "Loot at the butterflies",
-			"Description": "Check out the butterfly exhibit"
+			"Description": "Check out the butterfly exhibit. Look around the room!"
 		},
 		"Quest_Completion_Requirements": [
-			"ActionLookAtMarbleSpirit_Done"
+			"ActionLookAtTheButterflies_Done"
 		],
 		"Quest_Completion_Tracker": {
 			"Look at the Butterflies": [
