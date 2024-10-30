@@ -1731,5 +1731,22 @@
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {}
+	},
+	{
+		"Event_Name": "ActionLookAtTheButterflies",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionLookAtTheButterflies_Done",
+			"WaypointToLeft4_Open"
+		],
+		"Event_Audio": "VE_VO_B4_ASST_01_DuringWorld",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": "During her travels to various parts of the world, Doña Rosario Adap Escudero brought preserved butterflies with her and traded them for other insects and butterflies. The result is the insect collection in the Arsenio Escudero and Rosario Adap museum. Visitors are allowed and encouraged to look inside the drawers, which are actually part of the exhibit and contain more wonders to behold from the insect world."
+		}
 	}
 ]

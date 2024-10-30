@@ -42,7 +42,8 @@ var locked_teleporters : Dictionary = {
 	"FrontClosedDoors(2)_jpg" : "WaypointToA_Open",
 	"FrontRight_jpg" : "WaypointToAQuest_Open",
 	"Middle4_jpg" : "WaypointToMid4_Open",
-	"Img2023111609464900044_jpg" : "WaypointToMid8_Open"
+	"Img2023111609464900044_jpg" : "WaypointToMid8_Open",
+	"Left4_jpg" : "WaypointToLeft4_Open"
 }
 
 func _ready():
