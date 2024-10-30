@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLookAtMe.gd" id="6_3f53r"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="6_y6uk4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtMarbleSpirit.gd" id="7_siu0w"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="8_psgse"]
+[ext_resource type="PackedScene" uid="uid://b5gbypfuimvr" path="res://src/ems/eventsystem_new/bgm_player_outside.tscn" id="8_levk4"]
 
 [node name="tut1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -50,8 +50,7 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 script = ExtResource("7_siu0w")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="BGMPlayerOutside" type="Node" parent="Events"]
-script = ExtResource("8_psgse")
+[node name="BGMPlayerOutside" parent="Events" instance=ExtResource("8_levk4")]
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("6_y6uk4")]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -0.307552, -0.0116689, 1.4901)
