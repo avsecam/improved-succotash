@@ -33,6 +33,9 @@ size_2d_override = Vector2i(-155, 0)
 
 [node name="NumPadUI" parent="Viewport2Din3D/ViewPort" instance=ExtResource("2_1n0bv")]
 
+[node name="ColorRect" parent="Viewport2Din3D/ViewPort/NumPadUI/VBoxContainer" index="0"]
+color = Color(0.698039, 0.631373, 0.47451, 1)
+
 [node name="ViewPort2" type="MeshInstance3D" parent="Viewport2Din3D"]
 transform = Transform3D(2.01433, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_lxka1")
