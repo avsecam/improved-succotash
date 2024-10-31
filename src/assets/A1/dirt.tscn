@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh8u38dgfwcu0"]
+[gd_scene load_steps=9 format=3 uid="uid://dh8u38dgfwcu0"]
 
 [ext_resource type="Script" path="res://src/ois/action_components/dirt_wipe_action.gd" id="1_83kch"]
 [ext_resource type="PackedScene" uid="uid://bydkdsvfvqg3e" path="res://src/assets/A1/Stain_Full.glb" id="2_rqqya"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/wipe_feedback.gd" id="3_cxcqw"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="4_efhvt"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/waxed.gd" id="5_ut688"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="6_ng6xa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbqk5"]
 size = Vector3(0.1, 0.365881, 0.175708)
@@ -40,3 +41,9 @@ shape = SubResource("BoxShape3D_yb7fd")
 script = ExtResource("5_ut688")
 action_during = false
 action_completed = true
+
+[node name="Progress View" parent="." instance=ExtResource("6_ng6xa")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.360081, 0)
+visible = false
+
+[connection signal="action_in_progress" from="." to="WipeFeedback" method="_on_dirt_action_in_progress"]

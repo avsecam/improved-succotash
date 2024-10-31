@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cohmpqxch6sjx"]
+[gd_scene load_steps=8 format=3 uid="uid://cohmpqxch6sjx"]
 
 [ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="1_84fym"]
 [ext_resource type="ArrayMesh" uid="uid://m2oh1jabrc3l" path="res://src/assets/A2/pillar_cursed_mesh.tres" id="2_7gmrk"]
 [ext_resource type="ArrayMesh" uid="uid://ciejfwcbnjm1s" path="res://src/assets/A2/pillar_not_cursed.tres" id="3_mvbov"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/object_cleansed.gd" id="4_8m4wg"]
 [ext_resource type="Script" path="res://src/assets/A2/PillarControl.gd" id="5_f33x3"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="6_jq673"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uydu6"]
 height = 11.2547
@@ -39,3 +40,7 @@ skeleton = NodePath("../..")
 
 [node name="PillarControl" type="Node3D" parent="."]
 script = ExtResource("5_f33x3")
+
+[node name="Progress View" parent="." instance=ExtResource("6_jq673")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 6.003, 1.1)
+visible = false

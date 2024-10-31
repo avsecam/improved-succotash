@@ -3,4 +3,7 @@ extends XRToolsPickable
 
 func disable_collision():
 	collision_shape_3d.disabled = true
+	
+func _on_associated_event_finished() -> void:
+	queue_free()
 

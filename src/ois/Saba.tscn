@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cqwgfyorumpev"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_ybe5w"]
+[ext_resource type="Script" path="res://src/ois/Saba_Bananas.gd" id="1_57mc3"]
 [ext_resource type="PackedScene" uid="uid://cxve5dk0ns4k7" path="res://src/assets/B2/SabaBananas.glb" id="3_bluxd"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_2ebix"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_cu4ag"]
@@ -17,7 +17,7 @@ collision_layer = 4
 collision_mask = 196615
 mass = 3.0
 freeze_mode = 1
-script = ExtResource("1_ybe5w")
+script = ExtResource("1_57mc3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0215908, 0.0115487, 0.00780059)

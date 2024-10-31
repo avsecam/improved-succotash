@@ -1,5 +1,6 @@
 extends Event
 
+@onready var back_2_jpg = $"../../Teleporters/Back2_jpg"
 
 func _on_event_started():
 	play_event_audio()

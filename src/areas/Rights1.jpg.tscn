@@ -58,3 +58,6 @@ script = ExtResource("4_tt6bu")
 to = "Rights2.jpg"
 
 [connection signal="painting_placed" from="Painting Container" to="Events/ActionInteractPaintedCanvas" method="_on_painting_container_painting_placed"]
+[connection signal="tree_exiting" from="Events/ActionInteractPaintedCanvas" to="Painting Container" method="_on_associated_event_finished"]
+
+[editable path="Painting Container"]
