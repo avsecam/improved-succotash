@@ -198,8 +198,7 @@
 		},
 		"Quest_Completion_Requirements": [
 			"ActionPutChickenPole1_Done",
-			"ActionPutChickenPole2_Done",
-			"ActionAfterChickenSkewer_Done"
+			"ActionPutChickenPole2_Done"
 		],
 		"Quest_Completion_Tracker": {
 			"Skewer two chickens": [
