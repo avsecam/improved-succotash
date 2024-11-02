@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://crm7asbjemq3y"]
+[gd_scene load_steps=7 format=3 uid="uid://crm7asbjemq3y"]
 
 [ext_resource type="Script" path="res://src/ems/QuestTrackerUI.gd" id="1_dldru"]
-[ext_resource type="FontFile" uid="uid://d4hdsg83n0hj1" path="res://src/assets/Fonts/Poppins/Poppins-SemiBold.ttf" id="2_1jg5c"]
+[ext_resource type="FontFile" uid="uid://bbr7c6n4axdo4" path="res://src/assets/Fonts/Metamorphous/Metamorphous-Regular.ttf" id="2_17sm6"]
 [ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="3_bppa3"]
+[ext_resource type="FontFile" uid="uid://d2q4v1d5xky1c" path="res://src/assets/Fonts/Poppins/Poppins-Bold.ttf" id="3_gtpe5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_drwf0"]
-font = ExtResource("2_1jg5c")
+font = ExtResource("2_17sm6")
 font_size = 30
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
@@ -51,15 +52,12 @@ layout_mode = 2
 
 [node name="QuestIndicator" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "QUEST STARTED"
+theme_override_fonts/font = ExtResource("2_17sm6")
+text = "QUEST STARTED: Meet the Marble Spirit"
 label_settings = SubResource("LabelSettings_drwf0")
 
 [node name="QuestDescription" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gtpe5")
 text = "This is a Quest Description"
 label_settings = SubResource("LabelSettings_tew1i")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0

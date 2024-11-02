@@ -9,11 +9,13 @@ var image_rotate
 
 @onready var quest_tracker_ui := $"Viewport2Din3D/Viewport/StaticUI/QuestTrackerUI"
 @onready var dialogue_box := $"Viewport2Din3D/Viewport/StaticUI/Dialogue UI"
+@onready var screen := $Viewport2Din3D/Screen
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print(camera.name)
 	pass # Replace with function body.
+	screen.get_surface_override_material(0).set_flag(0, true)
 
 func initialize_static_ui_container(mode: String) -> void:
 	if mode == "NonVR":

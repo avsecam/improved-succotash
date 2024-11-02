@@ -61,8 +61,11 @@ func _ready():
 			#sfx_locations[file.get_basename()] = load("res://src/assets/audio/sfx/" + file)
 
 
-func play_bgm(bgm_key):
+func play_bgm(bgm_key, loop_interval):
 	bgm_player.stream = bgm_locations[bgm_key]
+	bgm_player.stream.set_loop_begin(loop_interval)
+	bgm_player.stream.set_loop_end(bgm_player.stream.get_length() * bgm_player.stream.get_mix_rate())
+	bgm_player.stream.set_loop_mode(1)
 	bgm_player.play()
 
 

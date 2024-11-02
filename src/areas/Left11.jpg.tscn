@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8ns3j4owietc"]
+[gd_scene load_steps=13 format=3 uid="uid://b8ns3j4owietc"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_h3x0h"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7mw8v"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b2q7hiaw8bxy5" path="res://src/assets/A MAIN/CatTray.tscn" id="8_rsx7d"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPlaceCatIcon2.gd" id="8_x4ww2"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPlaceCatIcon3.gd" id="9_hg5a8"]
+[ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="12_ajs55"]
 
 [node name="left11_jpg" type="Node3D"]
 transform = Transform3D(0.27773, 0, 0.960646, 0, 1, 0, -0.960646, 0, 0.27773, 0, 0, 0)
@@ -72,4 +73,7 @@ script = ExtResource("8_x4ww2")
 script = ExtResource("9_hg5a8")
 
 [node name="CatTray" parent="." instance=ExtResource("8_rsx7d")]
-transform = Transform3D(0.266297, 0, -0.963892, 0, 1, 0, 0.963892, 0, 0.266297, 0.701036, -0.641685, -0.202675)
+transform = Transform3D(0.252593, 0, -0.967573, 0, 1, 0, 0.967573, 0, 0.252593, 0.575206, -0.641685, -0.166297)
+
+[node name="Pillar_A2" parent="." instance=ExtResource("12_ajs55")]
+transform = Transform3D(0.147909, 0, 0.0249585, 0, 0.15, 0, -0.0249585, 0, 0.147909, 0.575675, -2.31174, -0.166432)

@@ -92,7 +92,7 @@ func play_event_audio():
 	clear_event_dialogue()
 	if event_category == "BGM":
 		Events.current_bgm = event_name
-		AudioHandler.play_bgm(event_audio)
+		AudioHandler.play_bgm(event_audio, loop_interval)
 		await AudioHandler.bgm_player.finished
 	else:
 		show_event_dialogue()

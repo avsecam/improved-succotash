@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://crtld76jovict"
+path="res://.godot/imported/06 - Repeating Tea Room (C-5).wav-3ebb65561141016121c0e86ebe74c880.sample"
+
+[deps]
+
+source_file="res://src/assets/audio/music/06 - Repeating Tea Room (C-5).wav"
+dest_files=["res://.godot/imported/06 - Repeating Tea Room (C-5).wav-3ebb65561141016121c0e86ebe74c880.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

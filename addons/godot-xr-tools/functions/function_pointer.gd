@@ -518,7 +518,9 @@ func _visible_miss() -> void:
 func _on_right_hand_button_pressed(name):
 	if name == "grip_click":
 		raycast_grab.emit(last_target)
+		#print(last_target.name)
 	
 func _on_left_hand_button_pressed(name):
 	if name == "grip_click":
 		raycast_grab.emit(last_target)
+		#print(last_target.name)

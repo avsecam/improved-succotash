@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cohmpqxch6sjx"]
+[gd_scene load_steps=16 format=3 uid="uid://cohmpqxch6sjx"]
 
 [ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="1_84fym"]
 [ext_resource type="ArrayMesh" uid="uid://m2oh1jabrc3l" path="res://src/assets/A2/pillar_cursed_mesh.tres" id="2_7gmrk"]
@@ -9,6 +9,54 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uydu6"]
 height = 11.2547
 radius = 0.922291
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg10h"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.294118, 0.117647, 0.215686, 0.847059)
+
+[sub_resource type="Curve" id="Curve_iq4jg"]
+_data = [Vector2(0, 0.577632), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_po406"]
+curve = SubResource("Curve_iq4jg")
+
+[sub_resource type="Curve" id="Curve_xy4dn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.517169, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h7s3v"]
+curve = SubResource("Curve_xy4dn")
+
+[sub_resource type="Curve" id="Curve_s3oaf"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1coe3"]
+curve = SubResource("Curve_s3oaf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ofpn"]
+emission_shape_offset = Vector3(0, 3, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -11.0
+angle_max = 110.1
+angular_velocity_max = 64.2
+orbit_velocity_curve = SubResource("CurveTexture_1coe3")
+radial_velocity_max = 0.1
+gravity = Vector3(0, -5, 0)
+alpha_curve = SubResource("CurveTexture_po406")
+emission_curve = SubResource("CurveTexture_h7s3v")
+hue_variation_min = -0.04
+hue_variation_max = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_bo7qn"]
+radius = 0.25
+height = 0.5
 
 [node name="Pillar_A2" type="StaticBody3D" groups=["holy_water"]]
 script = ExtResource("1_84fym")
@@ -39,3 +87,14 @@ skeleton = NodePath("../..")
 
 [node name="PillarControl" type="Node3D" parent="."]
 script = ExtResource("5_f33x3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.52239, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_bg10h")
+amount = 500
+lifetime = 2.0
+fixed_fps = 60
+visibility_aabb = AABB(-1.01865, -4, -1.01396, 2.0373, 8, 2.02791)
+process_material = SubResource("ParticleProcessMaterial_7ofpn")
+draw_pass_1 = SubResource("SphereMesh_bo7qn")
