@@ -8,7 +8,8 @@
 		"Event_Audio": "01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3)",
 		"Loop_Audio": true,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "BGMPlayerInA1",
@@ -19,7 +20,8 @@
 		"Event_Audio": "02 - Maintenance Workshop (A-1, C-4)",
 		"Loop_Audio": true,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueLookAtMe",
@@ -37,7 +39,8 @@
 			"dialogue": {
 				"Hello! Are you a visitor? Can you see me?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionLookAtMarbleSpirit",
@@ -57,7 +60,8 @@
 			"dialogue": {
 				"HEY! I'm Here! Look Over Here!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "DialogueGateIsLocked",
@@ -77,7 +81,8 @@
 			"dialogue": {
 				"The gate up ahead is locked. You'll need this to open it!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPickUpKey",
@@ -97,7 +102,8 @@
 			"dialogue": {
 				"Go on, pick up the key!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "DialogueKindPerson",
@@ -117,7 +123,8 @@
 			"dialogue": {
 				"You're a kind person, aren't you? I know because there's an earth spirit following you.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPutKeyInventory",
@@ -138,7 +145,8 @@
 			"dialogue": {
 				"Since you don't have a bag, why not let the earth spirit carry that key for you?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionFollowMarbleSpirit",
@@ -160,7 +168,8 @@
 			"dialogue": {
 				"Now, please follow me!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueIntroduceCat",
@@ -180,7 +189,8 @@
 			"dialogue": {
 				"Hey, it's the nice kitty from the museum! Hi there! ... Hm? Sure, I'll translate. The cat says it wants you to pet it.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPetTheCat",
@@ -200,7 +210,8 @@
 			"dialogue": {
 				"Don't be scared. Go ahead and pet the cat.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionGetCatPicture",
@@ -220,7 +231,8 @@
 			"dialogue": {
 				"The cat says it's giving you that picture, but it also has a favor to ask.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueItWillAnAdventure",
@@ -241,7 +253,8 @@
 			"dialogue": {
 				"What? Oh, no! The cat said its friend is lost in the museum somewhere. Strange things have been happening there lately, so we should find the missing cat as soon as we can. Come on, it'll be a fun adventure!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueTheresTheGate",
@@ -261,7 +274,8 @@
 			"dialogue": {
 				"There's the gate. Use the key from earlier to open it!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionUseTheKey",
@@ -282,7 +296,8 @@
 			"dialogue": {
 				"It's not a card key, so you'll have to turn the key after inserting it.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "DialogueLetsGo",
@@ -302,7 +317,8 @@
 			"dialogue": {
 				"Great job! Let's go!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueHeyNewbie",
@@ -322,7 +338,8 @@
 			"dialogue": {
 				"Hey, newbie! Yes, you! We're bringing the Calandra out soon, so go polish the rods and clean the glass windows! Everything you need should be on the table there. Hurry up!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialoguePolishRodsCleanWindows",
@@ -343,7 +360,8 @@
 			"dialogue": {
 				"Come on! Let's go polish those rods and clean those windows!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "JournalCalandraOfSanto",
@@ -363,7 +381,8 @@
 				"The Calandra of Santo Entierro, or the Bier of Holy Burial, is brought out every Good Friday for a procession. Preparations for this, such as conditioning and other maintenance work on the float, are done a few days prior.": 0,
 				"This symbol of hope and faith in Jesus Christ was donated by the Kilatis family and was restored by Conrado Escudero in the 1960’s. \nDevotees believe that it will grant their wishes if they are able to touch it while participating in the procession.": 14
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionLookAtFireSpirit",
@@ -383,7 +402,8 @@
 			"dialogue": {
 				"What's an elemental spirit doing here?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionUseNormalRagOnly",
@@ -399,7 +419,8 @@
 			"dialogue": {
 				"This isn't working.  Wasn't there anything on the shelf that we could use?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionUsePolishOnRod",
@@ -415,7 +436,8 @@
 			"dialogue": {
 				"The instructions say you're supposed to apply polish to the cloth first.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionUseOiledRagOnWindow",
@@ -431,7 +453,8 @@
 			"dialogue": {
 				"Hey! Use a clean rag!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionUseSprayOnRag",
@@ -447,7 +470,8 @@
 			"dialogue": {
 				"The instructions say you're supposed to spray the glass, not the cloth.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionInteractWithFireSpirit",
@@ -468,7 +492,8 @@
 			"dialogue": {
 				"The fire spirit is saying something! ... Oh, we'd appreciate that. Thank you! Hey, the fire spirit said it wants to help us find the lost cat. Isn't that great? Come on, we should head back!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPolishRod1",
@@ -484,7 +509,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPolishRod2",
@@ -500,7 +526,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionCleanWindow1",
@@ -516,7 +543,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionCleanWindow2",
@@ -532,7 +560,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionCleanWindow3",
@@ -548,7 +577,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPutRag1Inventory",
@@ -561,7 +591,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPutRag2Inventory",
@@ -574,7 +605,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionOiledRag",
@@ -587,7 +619,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueChurchHasStood",
@@ -605,7 +638,8 @@
 			"dialogue": {
 				"This church has stood for hundreds of years. Why did this happen? Who would do such a horrible thing? Was it cursed?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueLingeringMalice",
@@ -625,7 +659,8 @@
 			"dialogue": {
 				"I can sense some kind of lingering malice here. We should dispel it before it spreads to the museum!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPickUpHolyWater",
@@ -640,7 +675,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPurifyWoodenPillar1",
@@ -655,7 +691,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPurifyWoodenPillar2",
@@ -670,7 +707,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPurifyWoodenPillar3",
@@ -685,7 +723,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionLookAtUndamagedPart",
@@ -705,7 +744,8 @@
 			"dialogue": {
 				"Wow! See that rectangular spot on the wall? Whatever was placed there must have been quite the sacred relic. Let's look for it and put it back there.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPickUpRelic",
@@ -718,7 +758,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPlaceRelicOnUndamagedPart",
@@ -734,7 +775,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "DialogueWhatIsThis",
@@ -754,7 +796,8 @@
 			"dialogue": {
 				"What IS this? Some kind of magical distortion?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionUnlockLockbox",
@@ -769,7 +812,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPickUpHammer",
@@ -784,7 +828,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionSmashDistortionCrystal",
@@ -804,7 +849,8 @@
 			"dialogue": {
 				"We should be able to erase the distortion by destroying its source!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionGetCatIcon1",
@@ -819,7 +865,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionGetCatIcon2",
@@ -834,7 +881,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionGetCatIcon3",
@@ -849,7 +897,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPlaceCatIcon1",
@@ -864,7 +913,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPlaceCatIcon2",
@@ -879,7 +929,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPlaceCatIcon3",
@@ -894,7 +945,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "DialoguePowerPlantInstructions",
@@ -912,7 +964,8 @@
 			"dialogue": {
 				"Finally, you're here! We've received instructions to shut down the power plant. Hurry up!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueMarblePPlantReminder",
@@ -930,7 +983,8 @@
 			"dialogue": {
 				"This power plant looks really old. You were asked to shut it down, right?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionLookAtWaterSpiritB1",
@@ -948,7 +1002,8 @@
 			"dialogue": {
 				"What's an elemental spirit doing here?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "JournalDonPlacidoEscuderoDam",
@@ -967,7 +1022,8 @@
 				"Originally a dam built in 1872 for irrigation purposes, the Don Placido Escudero dam was rebuilt two more times\n - once in 1904 out of sturdier materials by Don Placido Escudero and Doña Claudia Marasigan,": 0,
 				"and then again in 1937 by Don Arsenio Escudero and Doña Rosario Adap not only for irrigation but also for a hydroelectric power plant that began operation in the same year. \nThe Arsenio Escudero Hydroelectric Power Plant was upgraded in the 1990's, and continued to provide power for Villa Escudero up to 2023 before it was shut down.": 16
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionInteractWaterSpiritB1",
@@ -987,7 +1043,8 @@
 			"dialogue": {
 				"Hi, water spirit! How are you? ... Of course! Thank you! \nHey, the water spirit said it wants to help us look for the lost cat. Let's return to the museum and continue the search!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionInteractPPlantSwitch",
@@ -1007,7 +1064,8 @@
 			"dialogue": {
 				"Stop trying to be so macho!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionReturnTileToSnapZone",
@@ -1022,7 +1080,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueLunchFoodPrep",
@@ -1040,7 +1099,8 @@
 			"dialogue": {
 				"Good, you're here! It's almost time for lunch. Please help with food preparations!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueLunchGetCooking",
@@ -1060,7 +1120,8 @@
 			"dialogue": {
 				"What are you waiting for? Let's get cooking!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueLunchFoodEnjoy",
@@ -1078,7 +1139,8 @@
 			"dialogue": {
 				"I heard that many of our guests really enjoyed the food that is served here. \nAcharang papaya, kalabasa soup, and lechon manok - these are but a few of the family heirloom recipes that me and the others were taught how to cook. \nMealtime in Villa Escudero is sure to include all this food on the menu... as a testament to Filipino culinary culture.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPickUpKnife",
@@ -1093,7 +1155,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionChopGarlic",
@@ -1114,7 +1177,8 @@
 			"dialogue": {
 				"Chop the garlic up some more!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionChopOnion",
@@ -1135,7 +1199,8 @@
 			"dialogue": {
 				"Chop it up some more!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionChopKalabasa",
@@ -1156,7 +1221,8 @@
 			"dialogue": {
 				"Chop it up some more!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPutChickenPole1",
@@ -1171,7 +1237,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPutChickenPole2",
@@ -1186,7 +1253,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionAfterChickenSkewer",
@@ -1202,7 +1270,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPutKalabasaInPot",
@@ -1217,7 +1286,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionMixKalabasaSoup",
@@ -1232,7 +1302,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionGratePapaya",
@@ -1248,7 +1319,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionAddAtcharaIngredientsOnion",
@@ -1265,7 +1337,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionAddAtcharaIngredientsGarlic",
@@ -1282,7 +1355,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionAddAtcharaIngredientsPapaya",
@@ -1299,7 +1373,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionAllAtcharaIngredients",
@@ -1316,7 +1391,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPutSabaInPan",
@@ -1333,7 +1409,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionFinishSabaCooking",
@@ -1348,7 +1425,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPutCookedSabaInPlate",
@@ -1363,7 +1441,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPoleOnlyRoast",
@@ -1379,7 +1458,8 @@
 			"dialogue": {
 				"Shouldn't you skewer both chickens first?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionOneChickenPoleRoast",
@@ -1395,7 +1475,8 @@
 			"dialogue": {
 				"Shouldn't you skewer both chickens first?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionSabaBananaNoFire",
@@ -1411,7 +1492,8 @@
 			"dialogue": {
 				"Light a fire first!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionSabaBananaNoOil",
@@ -1427,7 +1509,8 @@
 			"dialogue": {
 				"You put the bananas there after they're deep-fried!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionInteractFriedSaba",
@@ -1443,7 +1526,8 @@
 			"dialogue": {
 				"Stop! You'll burn yourself!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionCookingFinished",
@@ -1461,7 +1545,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionSkewerChicken1",
@@ -1474,7 +1559,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionSkewerChicken2",
@@ -1487,7 +1573,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionRoastChicken",
@@ -1503,7 +1590,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialoguePaintingsTransfer",
@@ -1521,7 +1609,8 @@
 			"dialogue": {
 				"We transferred the paintings here as instructed, but I was just told that one of the paintings is still on the artist's easel! Please find it!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialoguePaintingsReminder",
@@ -1541,7 +1630,8 @@
 			"dialogue": {
 				"There's lots of paintings here, but we're looking for one that's on an easel and not on a wall, right?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueLookAtCanvasPainting",
@@ -1561,7 +1651,8 @@
 			"dialogue": {
 				"I thought we're looking for a painting, but this is a blank canvas! What do we do now?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionLookAtCanvasPainting",
@@ -1581,7 +1672,8 @@
 			"dialogue": {
 				"Uh... Maybe we should paint something?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueAssistantPaintings",
@@ -1599,7 +1691,8 @@
 			"dialogue": {
 				"The portraits you see here were made by various amateur painters from the CALABARZON region. \nThey have been housed in the Arsenio Escudero and Rosario Adap museum since the collection was donated to the Escudero family in the 1980's.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPaintOnCanvas",
@@ -1614,7 +1707,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionInteractPaintedCanvas",
@@ -1629,7 +1723,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "JournalTheCarossaLastSupper",
@@ -1648,7 +1743,8 @@
 			"dialogue": {
 				"This carossa depicting the Last Supper is one of the biggest in the procession. Each figure in this life-sized work of art was created by a different sculptor. \nThe museum became its home after it was donated by the Potenciano family to the Arsenio Escudero Rosario Adap Foundation in the 1990s.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "JournalTheTurumba",
@@ -1667,7 +1763,8 @@
 			"dialogue": {
 				"On September 12, 1788, a wooden frame containing an image of the mother of God was found floating in the Laguna de Bay. The fishermen that discovered it tried to retrieve it, but they could not, for it was so heavy that they had to leave it in order to continue fishing that Friday. \nThen, on the following Sunday, a group of women found it and tried to retrieve it as well. However, despite the image itself being fairly small, not even Mariangga, the strongest of them, could lift it. \nSoon, the priest and practically everyone attending Mass at the time went to retrieve the image. It was only then that they managed to lift the icon, and the singing and dancing that followed became the first Turumba, held on September 14, 1788.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueDocumentsOnFloor",
@@ -1685,7 +1782,8 @@
 			"dialogue": {
 				"What a mess! Why are all these documents on the floor? Please pick them up and sort them out.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueReminderGrabPaper",
@@ -1705,7 +1803,8 @@
 			"dialogue": {
 				"This place is so messy! Let's grab those papers on the floor and organize them!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "JournalHermanoPuleExhibit",
@@ -1724,7 +1823,8 @@
 				"The Hermano Pule exhibit, which opened on March 15, 2017, is the result of a partnership between Villa Escudero and the National Archives of the Philippines. Here you will find replicas of letters written by the religious leader of the Cofradía de San José.": 0,
 				"By the way, did you know the Arsenio Escudero and Rosario Adap museum also houses a collection of love letters exchanged between the couple that the museum is named after? Don Arsenio Escudero and Doña Rosario Adap exchanged these letters during the 1920's, before they got married in 1923.": 18
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionArrangeDocuments",
@@ -1739,7 +1839,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueWhoaCool",
@@ -1757,7 +1858,8 @@
 			"dialogue": {
 				"Whoa, where are we? This is so cool!": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "DialogueTheresPartsShip",
@@ -1777,7 +1879,8 @@
 			"dialogue": {
 				"There's a box for a model ship on the table, but where are the parts?": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "JournalHermanoPuleShip",
@@ -1795,7 +1898,8 @@
 			"dialogue": {
 				"This is a model of the ship that Hermano Pule and some members of the Cofradía de San José used to escape the Spanish government. While this attempt was successful, Hermano was still eventually caught and executed. \nHermano Pule's death anniversary, which is on November 4, is a holiday in Quezon.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionShipAssemblyComplete",
@@ -1810,7 +1914,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionCleanDirtFromHint",
@@ -1823,7 +1928,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionPurifyHint",
@@ -1836,7 +1942,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionStartCatIconQuest",
@@ -1849,7 +1956,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionLookAtTheButterflies",
@@ -1868,7 +1976,8 @@
 			"dialogue": {
 				"During her travels to various parts of the world, Doña Rosario Adap Escudero brought preserved butterflies with her and traded them for other insects and butterflies. The result is the insect collection in the Arsenio Escudero and Rosario Adap museum. Visitors are allowed and encouraged to look inside the drawers, which are actually part of the exhibit and contain more wonders to behold from the insect world.": 0
 			}
-		}
+		},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "ActionInputNumberSequence",
@@ -1882,7 +1991,8 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	},
 	{
 		"Event_Name": "BGMPlayerInA3",
@@ -1893,6 +2003,7 @@
 		"Event_Audio": "04 - Dungeon Cell (A-3, B-4) (loop at 4s)",
 		"Loop_Audio": true,
 		"Loop_Interval": 4,
-		"Event_Text": {}
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	}
 ]

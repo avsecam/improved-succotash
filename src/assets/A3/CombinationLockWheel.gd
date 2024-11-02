@@ -95,8 +95,10 @@ func move_wheel_down() -> void:
 func _on_move_up_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
 		move_wheel_up()
+		AudioHandler.play_sfx("A_Padlock_Turn1", $AudioStreamPlayer3D)
 
 
 func _on_move_down_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
 		move_wheel_down()
+		AudioHandler.play_sfx("A_Padlock_Turn2", $AudioStreamPlayer3D)

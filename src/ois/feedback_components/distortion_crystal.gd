@@ -6,6 +6,7 @@ extends Feedback
 func show_feedback(requirement, total_progress):
 	print("SMASHING DISTORTION CCRYSTAL")
 	crystal_mesh.anim.play("smash")
+	AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
 	await crystal_mesh.anim.animation_finished
 	
 	get_parent().queue_free()

@@ -234,5 +234,7 @@ script = ExtResource("3_bcldx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MoveDown" index="0"]
 shape = SubResource("BoxShape3D_xym0y")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
+
 [connection signal="pointer_event" from="MoveUp" to="." method="_on_move_up_pointer_event"]
 [connection signal="pointer_event" from="MoveDown" to="." method="_on_move_down_pointer_event"]

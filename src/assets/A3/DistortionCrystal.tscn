@@ -24,4 +24,7 @@ script = ExtResource("3_m5a2j")
 action_during = false
 action_completed = true
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = 10.0
+
 [editable path="MainMesh/Dark_Crystal"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://i5bb6qimkglk" path="res://src/assets/Gate.tscn" id="1_k7kax"]
 [ext_resource type="Script" path="res://src/ois/action_components/twist_action.gd" id="1_wtq2c"]
-[ext_resource type="Script" path="res://src/ois/feedback_components/play_animation.gd" id="3_r45ar"]
+[ext_resource type="Script" path="res://src/assets/GateLockInteracted.gd" id="3_mh3fx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sblwv"]
 size = Vector3(0.0665649, 0.0796387, 0.0480713)
@@ -19,7 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284142, 0.153987, -0.01481
 shape = SubResource("BoxShape3D_sblwv")
 
 [node name="GateLockInteracted" type="Node3D" parent="." node_paths=PackedStringArray("animation_player")]
-script = ExtResource("3_r45ar")
+script = ExtResource("3_mh3fx")
 animation_player = NodePath("../MainMesh/AnimationPlayer")
 animation_name = "OpenGate"
 action_during = false
@@ -27,5 +27,10 @@ action_completed = true
 
 [node name="SnapPos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00667394, 0.221676, -0.0204303)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = 3.0
+
+[connection signal="action_completed" from="." to="GateLockInteracted" method="_on_front_gate_action_completed"]
 
 [editable path="MainMesh"]

@@ -89,6 +89,7 @@ func _on_pointer_event(event):
 			else:
 				anim.play("open_inventory")
 				inventory_open = true
+			AudioHandler.play_sfx("UI_Inventory_Toggle", $"../AudioStreamPlayer3D")
 		else:
 			print("ongoing inventory animation")
 		

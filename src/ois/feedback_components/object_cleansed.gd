@@ -5,6 +5,7 @@ extends Feedback
 @onready var progress_view = $"../Progress View"
 
 func show_feedback(requirement, total_progress):
+	AudioHandler.play_sfx("A_Purify", $"../AudioStreamPlayer3D")
 	cursed_mesh.visible = false
 	cleansed_mesh.visible = true
 	progress_view.visible = true

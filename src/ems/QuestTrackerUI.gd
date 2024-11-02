@@ -56,5 +56,6 @@ func flash_quest_start(quest_name) -> void:
 func flash_quest_end(quest_name) -> void:
 	quest_indicator.set_text("Quest Finished: " + Events.quest_library[quest_name]["Quest_Description"]["Name"])
 	quest_indicator.visible = true
+	AudioHandler.play_sfx("UI_QuestComplete", null)
 	await get_tree().create_timer(3).timeout
 	quest_indicator.visible = false

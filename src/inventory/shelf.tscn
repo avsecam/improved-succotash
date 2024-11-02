@@ -216,6 +216,9 @@ script = ExtResource("4_6vrg0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04584, -0.0131117, -0.224287)
 shape = SubResource("SphereShape3D_doxiw")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = -2.0
+
 [connection signal="body_entered" from="Slot/SnapZone" to="." method="_on_snap_zone_body_entered"]
 [connection signal="body_exited" from="Slot/SnapZone" to="." method="_on_snap_zone_body_exited"]
 [connection signal="body_entered" from="Slot2/SnapZone" to="." method="_on_snap_zone_body_entered"]

@@ -68,7 +68,8 @@ func load_event_data(file_location: String) -> Dictionary:
 			"Event_Audio" : key["Event_Audio"],
 			"Loop_Audio" : key["Loop_Audio"],
 			"Loop_Interval" : key["Loop_Interval"],
-			"Event_Text" : key["Event_Text"]
+			"Event_Text" : key["Event_Text"],
+			"Play_Success_SFX" : key["Play_Success_SFX"]
 		}
 	return output_dictionary
 	

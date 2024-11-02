@@ -37,11 +37,13 @@ func check_answer() -> void:
 		if answer == code:
 			lock_open = true
 			anim.play("open_lock")
+			AudioHandler.play_sfx("A_Padlock_Open", $AudioStreamPlayer3D)
 			await anim.animation_finished
 			await get_tree().create_timer(0.5).timeout
 			emit_signal("lock_solved")
 		else:
 			anim.play("open_lock_fail")
+			AudioHandler.play_sfx("A_Padlock_Turn1", $AudioStreamPlayer3D)
 
 
 func _on_xr_tools_interactable_area_pointer_event(event):

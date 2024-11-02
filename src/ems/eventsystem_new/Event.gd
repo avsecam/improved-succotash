@@ -18,6 +18,7 @@ var event_text : Dictionary
 @export var event_audio_source : AudioStreamPlayer3D
 var loop_audio : bool
 var loop_interval : float
+var play_success_sfx : bool
 
 
 var prerequisites_done : bool = true
@@ -58,6 +59,7 @@ func initialize_event() -> void:
 		loop_audio = Events.event_library[event_name]["Loop_Audio"]
 		loop_interval = Events.event_library[event_name]["Loop_Interval"]
 		event_text = Events.event_library[event_name]["Event_Text"]
+		play_success_sfx = Events.event_library[event_name]["Play_Success_SFX"]
 	else:
 		print("Event " + event_name + " Not Found")
 
@@ -82,6 +84,8 @@ func close_event() -> void:
 		if !Events.finished_events.has(flag):
 			Events.finished_events.append(flag)
 	if event_category != "JOURNAL" or event_category != "BGM":
+		if play_success_sfx:
+			AudioHandler.play_sfx("UI_Success", null)
 		queue_free()
 		print(Events.finished_events)
 		await tree_exited
