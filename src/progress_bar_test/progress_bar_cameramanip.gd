@@ -32,8 +32,10 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	self.rotation.y = camera.global_rotation.y - self.get_parent().global_rotation.y
-		
+	var cam_pos = camera.global_position
+	look_at(cam_pos, Vector3.UP)
+	rotate_object_local(Vector3.UP, PI)
+	
 func change_progress_value(value):
 	progress_circle_component.value = value
 	

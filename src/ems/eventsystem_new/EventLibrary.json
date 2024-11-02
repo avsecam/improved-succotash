@@ -5,7 +5,7 @@
 		"Oneshot": false,
 		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [],
-		"Event_Audio": "01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3) v1 Full Loopable",
+		"Event_Audio": "01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3)",
 		"Loop_Audio": true,
 		"Loop_Interval": 0,
 		"Event_Text": {}
@@ -16,7 +16,7 @@
 		"Oneshot": false,
 		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [],
-		"Event_Audio": "02 - Maintenance Workshop (A-1, C-4) v1 Full Loopable",
+		"Event_Audio": "02 - Maintenance Workshop (A-1, C-4)",
 		"Loop_Audio": true,
 		"Loop_Interval": 0,
 		"Event_Text": {}
@@ -34,7 +34,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "???",
-			"dialogue": "Hello! Are you a visitor? Can you see me?"
+			"dialogue": {
+				"Hello! Are you a visitor? Can you see me?": 0
+			}
 		}
 	},
 	{
@@ -52,7 +54,9 @@
 		"Loop_Interval": 3,
 		"Event_Text": {
 			"npc_name": "???",
-			"dialogue": "HEY! I'm Here! Look Over Here!"
+			"dialogue": {
+				"HEY! I'm Here! Look Over Here!": 0
+			}
 		}
 	},
 	{
@@ -70,7 +74,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "The gate up ahead is locked. You'll need this to open it!"
+			"dialogue": {
+				"The gate up ahead is locked. You'll need this to open it!": 0
+			}
 		}
 	},
 	{
@@ -88,7 +94,9 @@
 		"Loop_Interval": 3,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Go on, pick up the key!"
+			"dialogue": {
+				"Go on, pick up the key!": 0
+			}
 		}
 	},
 	{
@@ -106,7 +114,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "You're a kind person, aren't you? I know because there's an earth spirit following you."
+			"dialogue": {
+				"You're a kind person, aren't you? I know because there's an earth spirit following you.": 0
+			}
 		}
 	},
 	{
@@ -125,7 +135,9 @@
 		"Loop_Interval": 3,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Since you don't have a bag, why not let the earth spirit carry that key for you?"
+			"dialogue": {
+				"Since you don't have a bag, why not let the earth spirit carry that key for you?": 0
+			}
 		}
 	},
 	{
@@ -145,7 +157,9 @@
 		"Loop_Interval": 3,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Now, please follow me!"
+			"dialogue": {
+				"Now, please follow me!": 0
+			}
 		}
 	},
 	{
@@ -163,7 +177,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Hey, it's the nice kitty from the museum! Hi there! ... Hm? Sure, I'll translate. The cat says it wants you to pet it."
+			"dialogue": {
+				"Hey, it's the nice kitty from the museum! Hi there! ... Hm? Sure, I'll translate. The cat says it wants you to pet it.": 0
+			}
 		}
 	},
 	{
@@ -181,7 +197,9 @@
 		"Loop_Interval": 3,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Don't be scared. Go ahead and pet the cat."
+			"dialogue": {
+				"Don't be scared. Go ahead and pet the cat.": 0
+			}
 		}
 	},
 	{
@@ -199,7 +217,9 @@
 		"Loop_Interval": 3,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "The cat says it's giving you that picture, but it also has a favor to ask."
+			"dialogue": {
+				"The cat says it's giving you that picture, but it also has a favor to ask.": 0
+			}
 		}
 	},
 	{
@@ -218,7 +238,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "What? Oh, no! The cat said its friend is lost in the museum somewhere. Strange things have been happening there lately, so we should find the missing cat as soon as we can. Come on, it'll be a fun adventure!"
+			"dialogue": {
+				"What? Oh, no! The cat said its friend is lost in the museum somewhere. Strange things have been happening there lately, so we should find the missing cat as soon as we can. Come on, it'll be a fun adventure!": 0
+			}
 		}
 	},
 	{
@@ -236,7 +258,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "There's the gate. Use the key from earlier to open it!"
+			"dialogue": {
+				"There's the gate. Use the key from earlier to open it!": 0
+			}
 		}
 	},
 	{
@@ -255,7 +279,9 @@
 		"Loop_Interval": 3,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "It's not a card key, so you'll have to turn the key after inserting it."
+			"dialogue": {
+				"It's not a card key, so you'll have to turn the key after inserting it.": 0
+			}
 		}
 	},
 	{
@@ -273,7 +299,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Great job! Let's go!"
+			"dialogue": {
+				"Great job! Let's go!": 0
+			}
 		}
 	},
 	{
@@ -291,7 +319,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "Hey, newbie! Yes, you! We're bringing the Calandra out soon, so go polish the rods and clean the glass windows! Everything you need should be on the table there. Hurry up!"
+			"dialogue": {
+				"Hey, newbie! Yes, you! We're bringing the Calandra out soon, so go polish the rods and clean the glass windows! Everything you need should be on the table there. Hurry up!": 0
+			}
 		}
 	},
 	{
@@ -310,7 +340,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Come on! Let's go polish those rods and clean those windows!"
+			"dialogue": {
+				"Come on! Let's go polish those rods and clean those windows!": 0
+			}
 		}
 	},
 	{
@@ -327,7 +359,10 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "The Calandra of Santo Entierro, or the Bier of Holy Burial, is brought out every Good Friday for a procession. Preparations for this, such as conditioning and other maintenance work on the float, are done a few days prior. \nThis symbol of hope and faith in Jesus Christ was donated by the Kilatis family and was restored by Conrado Escudero in the 1960’s. \nDevotees believe that it will grant their wishes if they are able to touch it while participating in the procession."
+			"dialogue": {
+				"The Calandra of Santo Entierro, or the Bier of Holy Burial, is brought out every Good Friday for a procession. Preparations for this, such as conditioning and other maintenance work on the float, are done a few days prior.": 0,
+				"This symbol of hope and faith in Jesus Christ was donated by the Kilatis family and was restored by Conrado Escudero in the 1960’s. \nDevotees believe that it will grant their wishes if they are able to touch it while participating in the procession.": 14
+			}
 		}
 	},
 	{
@@ -345,7 +380,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "What's an elemental spirit doing here?"
+			"dialogue": {
+				"What's an elemental spirit doing here?": 0
+			}
 		}
 	},
 	{
@@ -359,7 +396,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "This isn't working.  Wasn't there anything on the shelf that we could use?"
+			"dialogue": {
+				"This isn't working.  Wasn't there anything on the shelf that we could use?": 0
+			}
 		}
 	},
 	{
@@ -373,7 +412,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "The instructions say you're supposed to apply polish to the cloth first."
+			"dialogue": {
+				"The instructions say you're supposed to apply polish to the cloth first.": 0
+			}
 		}
 	},
 	{
@@ -387,7 +428,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Hey! Use a clean rag!"
+			"dialogue": {
+				"Hey! Use a clean rag!": 0
+			}
 		}
 	},
 	{
@@ -401,7 +444,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "The instructions say you're supposed to spray the glass, not the cloth."
+			"dialogue": {
+				"The instructions say you're supposed to spray the glass, not the cloth.": 0
+			}
 		}
 	},
 	{
@@ -420,7 +465,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "The fire spirit is saying something! ... Oh, we'd appreciate that. Thank you! Hey, the fire spirit said it wants to help us find the lost cat. Isn't that great? Come on, we should head back!"
+			"dialogue": {
+				"The fire spirit is saying something! ... Oh, we'd appreciate that. Thank you! Hey, the fire spirit said it wants to help us find the lost cat. Isn't that great? Come on, we should head back!": 0
+			}
 		}
 	},
 	{
@@ -555,7 +602,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "This church has stood for hundreds of years. Why did this happen? Who would do such a horrible thing? Was it cursed?"
+			"dialogue": {
+				"This church has stood for hundreds of years. Why did this happen? Who would do such a horrible thing? Was it cursed?": 0
+			}
 		}
 	},
 	{
@@ -573,7 +622,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "I can sense some kind of lingering malice here. We should dispel it before it spreads to the museum!"
+			"dialogue": {
+				"I can sense some kind of lingering malice here. We should dispel it before it spreads to the museum!": 0
+			}
 		}
 	},
 	{
@@ -651,7 +702,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Wow! See that rectangular spot on the wall? Whatever was placed there must have been quite the sacred relic. Let's look for it and put it back there."
+			"dialogue": {
+				"Wow! See that rectangular spot on the wall? Whatever was placed there must have been quite the sacred relic. Let's look for it and put it back there.": 0
+			}
 		}
 	},
 	{
@@ -698,7 +751,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "What IS this? Some kind of magical distortion?"
+			"dialogue": {
+				"What IS this? Some kind of magical distortion?": 0
+			}
 		}
 	},
 	{
@@ -746,7 +801,9 @@
 		"Loop_Interval": 3,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "We should be able to erase the distortion by destroying its source!"
+			"dialogue": {
+				"We should be able to erase the distortion by destroying its source!": 0
+			}
 		}
 	},
 	{
@@ -852,7 +909,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "Finally, you're here! We've received instructions to shut down the power plant. Hurry up!"
+			"dialogue": {
+				"Finally, you're here! We've received instructions to shut down the power plant. Hurry up!": 0
+			}
 		}
 	},
 	{
@@ -868,7 +927,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "This power plant looks really old. You were asked to shut it down, right?"
+			"dialogue": {
+				"This power plant looks really old. You were asked to shut it down, right?": 0
+			}
 		}
 	},
 	{
@@ -884,7 +945,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "What's an elemental spirit doing here?"
+			"dialogue": {
+				"What's an elemental spirit doing here?": 0
+			}
 		}
 	},
 	{
@@ -900,7 +963,10 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "Originally a dam built in 1872 for irrigation purposes, the Don Placido Escudero dam was rebuilt two more times\n - once in 1904 out of sturdier materials by Don Placido Escudero and Doña Claudia Marasigan, \nand then again in 1937 by Don Arsenio Escudero and Doña Rosario Adap not only for irrigation but also for a hydroelectric power plant that began operation in the same year. \nThe Arsenio Escudero Hydroelectric Power Plant was upgraded in the 1990's, and continued to provide power for Villa Escudero up to 2023 before it was shut down."
+			"dialogue": {
+				"Originally a dam built in 1872 for irrigation purposes, the Don Placido Escudero dam was rebuilt two more times\n - once in 1904 out of sturdier materials by Don Placido Escudero and Doña Claudia Marasigan,": 0,
+				"and then again in 1937 by Don Arsenio Escudero and Doña Rosario Adap not only for irrigation but also for a hydroelectric power plant that began operation in the same year. \nThe Arsenio Escudero Hydroelectric Power Plant was upgraded in the 1990's, and continued to provide power for Villa Escudero up to 2023 before it was shut down.": 16
+			}
 		}
 	},
 	{
@@ -918,7 +984,9 @@
 		"Loop_Interval": "",
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Hi, water spirit! How are you? ... Of course! Thank you! \nHey, the water spirit said it wants to help us look for the lost cat. Let's return to the museum and continue the search!"
+			"dialogue": {
+				"Hi, water spirit! How are you? ... Of course! Thank you! \nHey, the water spirit said it wants to help us look for the lost cat. Let's return to the museum and continue the search!": 0
+			}
 		}
 	},
 	{
@@ -936,7 +1004,9 @@
 		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Stop trying to be so macho!"
+			"dialogue": {
+				"Stop trying to be so macho!": 0
+			}
 		}
 	},
 	{
@@ -967,7 +1037,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "Good, you're here! It's almost time for lunch. Please help with food preparations!"
+			"dialogue": {
+				"Good, you're here! It's almost time for lunch. Please help with food preparations!": 0
+			}
 		}
 	},
 	{
@@ -985,7 +1057,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "What are you waiting for? Let's get cooking!"
+			"dialogue": {
+				"What are you waiting for? Let's get cooking!": 0
+			}
 		}
 	},
 	{
@@ -1001,7 +1075,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "I heard that many of our guests really enjoyed the food that is served here. \nAcharang papaya, kalabasa soup, and lechon manok - these are but a few of the family heirloom recipes that me and the others were taught how to cook. \nMealtime in Villa Escudero is sure to include all this food on the menu... as a testament to Filipino culinary culture."
+			"dialogue": {
+				"I heard that many of our guests really enjoyed the food that is served here. \nAcharang papaya, kalabasa soup, and lechon manok - these are but a few of the family heirloom recipes that me and the others were taught how to cook. \nMealtime in Villa Escudero is sure to include all this food on the menu... as a testament to Filipino culinary culture.": 0
+			}
 		}
 	},
 	{
@@ -1035,7 +1111,9 @@
 		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Chop the garlic up some more!"
+			"dialogue": {
+				"Chop the garlic up some more!": 0
+			}
 		}
 	},
 	{
@@ -1054,7 +1132,9 @@
 		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Chop it up some more!"
+			"dialogue": {
+				"Chop it up some more!": 0
+			}
 		}
 	},
 	{
@@ -1073,7 +1153,9 @@
 		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Chop it up some more!"
+			"dialogue": {
+				"Chop it up some more!": 0
+			}
 		}
 	},
 	{
@@ -1294,7 +1376,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Shouldn't you skewer both chickens first?"
+			"dialogue": {
+				"Shouldn't you skewer both chickens first?": 0
+			}
 		}
 	},
 	{
@@ -1308,7 +1392,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Shouldn't you skewer both chickens first?"
+			"dialogue": {
+				"Shouldn't you skewer both chickens first?": 0
+			}
 		}
 	},
 	{
@@ -1322,7 +1408,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Light a fire first!"
+			"dialogue": {
+				"Light a fire first!": 0
+			}
 		}
 	},
 	{
@@ -1336,7 +1424,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "You put the bananas there after they're deep-fried!"
+			"dialogue": {
+				"You put the bananas there after they're deep-fried!": 0
+			}
 		}
 	},
 	{
@@ -1350,7 +1440,9 @@
 		"Loop_Interval": "",
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Stop! You'll burn yourself!"
+			"dialogue": {
+				"Stop! You'll burn yourself!": 0
+			}
 		}
 	},
 	{
@@ -1426,7 +1518,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "We transferred the paintings here as instructed, but I was just told that one of the paintings is still on the artist's easel! Please find it!"
+			"dialogue": {
+				"We transferred the paintings here as instructed, but I was just told that one of the paintings is still on the artist's easel! Please find it!": 0
+			}
 		}
 	},
 	{
@@ -1444,7 +1538,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "There's lots of paintings here, but we're looking for one that's on an easel and not on a wall, right?"
+			"dialogue": {
+				"There's lots of paintings here, but we're looking for one that's on an easel and not on a wall, right?": 0
+			}
 		}
 	},
 	{
@@ -1462,7 +1558,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "I thought we're looking for a painting, but this is a blank canvas! What do we do now?"
+			"dialogue": {
+				"I thought we're looking for a painting, but this is a blank canvas! What do we do now?": 0
+			}
 		}
 	},
 	{
@@ -1480,7 +1578,9 @@
 		"Loop_Interval": 5,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Uh... Maybe we should paint something?"
+			"dialogue": {
+				"Uh... Maybe we should paint something?": 0
+			}
 		}
 	},
 	{
@@ -1496,7 +1596,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "The portraits you see here were made by various amateur painters from the CALABARZON region. \nThey have been housed in the Arsenio Escudero and Rosario Adap museum since the collection was donated to the Escudero family in the 1980's."
+			"dialogue": {
+				"The portraits you see here were made by various amateur painters from the CALABARZON region. \nThey have been housed in the Arsenio Escudero and Rosario Adap museum since the collection was donated to the Escudero family in the 1980's.": 0
+			}
 		}
 	},
 	{
@@ -1543,7 +1645,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "This carossa depicting the Last Supper is one of the biggest in the procession. Each figure in this life-sized work of art was created by a different sculptor. \nThe museum became its home after it was donated by the Potenciano family to the Arsenio Escudero Rosario Adap Foundation in the 1990s."
+			"dialogue": {
+				"This carossa depicting the Last Supper is one of the biggest in the procession. Each figure in this life-sized work of art was created by a different sculptor. \nThe museum became its home after it was donated by the Potenciano family to the Arsenio Escudero Rosario Adap Foundation in the 1990s.": 0
+			}
 		}
 	},
 	{
@@ -1560,7 +1664,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "On September 12, 1788, a wooden frame containing an image of the mother of God was found floating in the Laguna de Bay. The fishermen that discovered it tried to retrieve it, but they could not, for it was so heavy that they had to leave it in order to continue fishing that Friday. \nThen, on the following Sunday, a group of women found it and tried to retrieve it as well. However, despite the image itself being fairly small, not even Mariangga, the strongest of them, could lift it. \nSoon, the priest and practically everyone attending Mass at the time went to retrieve the image. It was only then that they managed to lift the icon, and the singing and dancing that followed became the first Turumba, held on September 14, 1788."
+			"dialogue": {
+				"On September 12, 1788, a wooden frame containing an image of the mother of God was found floating in the Laguna de Bay. The fishermen that discovered it tried to retrieve it, but they could not, for it was so heavy that they had to leave it in order to continue fishing that Friday. \nThen, on the following Sunday, a group of women found it and tried to retrieve it as well. However, despite the image itself being fairly small, not even Mariangga, the strongest of them, could lift it. \nSoon, the priest and practically everyone attending Mass at the time went to retrieve the image. It was only then that they managed to lift the icon, and the singing and dancing that followed became the first Turumba, held on September 14, 1788.": 0
+			}
 		}
 	},
 	{
@@ -1576,7 +1682,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "What a mess! Why are all these documents on the floor? Please pick them up and sort them out."
+			"dialogue": {
+				"What a mess! Why are all these documents on the floor? Please pick them up and sort them out.": 0
+			}
 		}
 	},
 	{
@@ -1594,7 +1702,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "This place is so messy! Let's grab those papers on the floor and organize them!"
+			"dialogue": {
+				"This place is so messy! Let's grab those papers on the floor and organize them!": 0
+			}
 		}
 	},
 	{
@@ -1610,7 +1720,10 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "The Hermano Pule exhibit, which opened on March 15, 2017, is the result of a partnership between Villa Escudero and the National Archives of the Philippines. Here you will find replicas of letters written by the religious leader of the Cofradía de San José. \nBy the way, did you know the Arsenio Escudero and Rosario Adap museum also houses a collection of love letters exchanged between the couple that the museum is named after? Don Arsenio Escudero and Doña Rosario Adap exchanged these letters during the 1920's, before they got married in 1923."
+			"dialogue": {
+				"The Hermano Pule exhibit, which opened on March 15, 2017, is the result of a partnership between Villa Escudero and the National Archives of the Philippines. Here you will find replicas of letters written by the religious leader of the Cofradía de San José.": 0,
+				"By the way, did you know the Arsenio Escudero and Rosario Adap museum also houses a collection of love letters exchanged between the couple that the museum is named after? Don Arsenio Escudero and Doña Rosario Adap exchanged these letters during the 1920's, before they got married in 1923.": 18
+			}
 		}
 	},
 	{
@@ -1641,7 +1754,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "Whoa, where are we? This is so cool!"
+			"dialogue": {
+				"Whoa, where are we? This is so cool!": 0
+			}
 		}
 	},
 	{
@@ -1659,7 +1774,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
-			"dialogue": "There's a box for a model ship on the table, but where are the parts?"
+			"dialogue": {
+				"There's a box for a model ship on the table, but where are the parts?": 0
+			}
 		}
 	},
 	{
@@ -1675,7 +1792,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "This is a model of the ship that Hermano Pule and some members of the Cofradía de San José used to escape the Spanish government. While this attempt was successful, Hermano was still eventually caught and executed. \nHermano Pule's death anniversary, which is on November 4, is a holiday in Quezon."
+			"dialogue": {
+				"This is a model of the ship that Hermano Pule and some members of the Cofradía de San José used to escape the Spanish government. While this attempt was successful, Hermano was still eventually caught and executed. \nHermano Pule's death anniversary, which is on November 4, is a holiday in Quezon.": 0
+			}
 		}
 	},
 	{
@@ -1746,7 +1865,9 @@
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Assistant",
-			"dialogue": "During her travels to various parts of the world, Doña Rosario Adap Escudero brought preserved butterflies with her and traded them for other insects and butterflies. The result is the insect collection in the Arsenio Escudero and Rosario Adap museum. Visitors are allowed and encouraged to look inside the drawers, which are actually part of the exhibit and contain more wonders to behold from the insect world."
+			"dialogue": {
+				"During her travels to various parts of the world, Doña Rosario Adap Escudero brought preserved butterflies with her and traded them for other insects and butterflies. The result is the insect collection in the Arsenio Escudero and Rosario Adap museum. Visitors are allowed and encouraged to look inside the drawers, which are actually part of the exhibit and contain more wonders to behold from the insect world.": 0
+			}
 		}
 	},
 	{

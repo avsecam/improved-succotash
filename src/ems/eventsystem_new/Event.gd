@@ -108,7 +108,13 @@ func play_event_audio():
 
 func show_event_dialogue():
 	if event_category != "BGM":
-		Events.emit_signal("update_dialogue_box", event_text["npc_name"], event_text["dialogue"])
+		var page_text : String
+		var page_timer : float = 0
+		for page in event_text["dialogue"]:
+			page_text = page
+			page_timer = event_text["dialogue"][page]
+			await get_tree().create_timer(page_timer).timeout
+			Events.emit_signal("update_dialogue_box", event_text["npc_name"], page_text)
 
 func clear_event_dialogue():
 	if event_category != "BGM":
