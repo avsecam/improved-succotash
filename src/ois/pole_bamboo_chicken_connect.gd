@@ -36,3 +36,8 @@ func all_chicken_complete():
 	chicken_1.picked_up_object.queue_free()
 	self.visible = false
 	self.enabled = false
+	
+func _on_associated_event_finished():
+	self.visible = false
+
+

@@ -64,17 +64,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00407714, 0.000927754, -0.0
 shape = SubResource("BoxShape3D_iw85n")
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("5_dp5vr")]
-visible = false
 
 [node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
 visible = false
 
-[node name="Canvas_Ahrt_Replacement" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("4_7w6mj")]
+[node name="Canvas_Ahrt2" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("4_7w6mj")]
 transform = Transform3D(-4.5897e-09, 0, -0.105, 0, 0.105, 0, 0.105, 0, -4.5897e-09, 0, 0, 0)
 
 [node name="Progress View" parent="." instance=ExtResource("9_8o7f0")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.439043, 0)
-visible = false
 
 [connection signal="picked_up" from="." to="." method="_on_picked_up"]
 [connection signal="action_ended" from="CanvasPaintReceiver" to="." method="_on_canvas_paint_receiver_action_ended"]

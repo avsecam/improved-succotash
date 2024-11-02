@@ -12,3 +12,6 @@ func _on_plate_receiver_area_entered(area):
 		progress_view.visible = true
 		progress_view.progress_complete_checkmark_only_anim()
 		saba_plated.emit()
+
+func _on_associated_event_finished():
+	saba_bananas_fried.visible = true

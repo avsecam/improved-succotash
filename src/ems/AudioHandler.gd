@@ -39,6 +39,8 @@ func _ready():
 				dialogue_locations[audio_name] = load("res://src/assets/audio/b2/" + audio_name + ".ogg")
 			if audio_name.contains("_B3_"):
 				dialogue_locations[audio_name] = load("res://src/assets/audio/b3/" + audio_name + ".ogg")
+			if audio_name.contains("_B4_"):
+				dialogue_locations[audio_name] = load("res://src/assets/audio/b4/" + audio_name + ".ogg")
 			if audio_name.contains("_C1_"):
 				dialogue_locations[audio_name] = load("res://src/assets/audio/c1/" + audio_name + ".ogg")
 			if audio_name.contains("_C2_"):

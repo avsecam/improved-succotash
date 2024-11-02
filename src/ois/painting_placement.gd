@@ -16,3 +16,8 @@ func _on_test_area_entered(area):
 		progress_view.visible = true
 		progress_view.progress_complete_checkmark_only_anim()
 		anim_check = true
+
+func _on_associated_event_finished() -> void:
+	canvas_ahrt.visible = true
+
+

@@ -21,3 +21,6 @@ func _on_picked_up(pickable):
 
 func _on_easel_snap_zone_has_picked_up(what):
 	canvas_paint_receiver.set_monitoring(true)
+
+func _on_associated_event_finished():
+	queue_free()

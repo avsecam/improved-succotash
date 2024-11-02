@@ -198,8 +198,7 @@
 		},
 		"Quest_Completion_Requirements": [
 			"ActionPutChickenPole1_Done",
-			"ActionPutChickenPole2_Done",
-			"ActionAfterChickenSkewer_Done"
+			"ActionPutChickenPole2_Done"
 		],
 		"Quest_Completion_Tracker": {
 			"Skewer two chickens": [
@@ -395,6 +394,24 @@
 		},
 		"Quest_Completion_Flags": [
 			"QuestAssembleShip_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestLookAtTheButterflies",
+		"Quest_Description": {
+			"Name": "Loot at the butterflies",
+			"Description": "Check out the butterfly exhibit. Look around the room!"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionLookAtTheButterflies_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Look at the Butterflies": [
+				"ActionLookAtTheButterflies_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestLookAtTheButterflies_Done"
 		]
 	}
 ]

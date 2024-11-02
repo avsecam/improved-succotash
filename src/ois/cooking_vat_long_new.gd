@@ -21,5 +21,18 @@ func _on_kalabasa_slice_receiver_area_entered(area):
 
 func _on_feedback_mix_complete():
 	kalabasa_soup_complete.emit()
+	
+func _on_kalabasa_added_event_finished():
+	water_clear.visible = false
+	kalabasa_soup_unmixed.visible = true
+	kalabasa_soup_mixed.visible = false
+	
+func _on_kalabasa_mixed_event_finished():
+	water_clear.visible = false
+	kalabasa_soup_unmixed.visible = false
+	kalabasa_soup_mixed.visible = true
+	
+	
+
 
 
