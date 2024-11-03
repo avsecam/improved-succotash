@@ -2,5 +2,6 @@ extends Event
 
 
 func _on_event_started():
-	play_event_audio()
+	if !Events.current_bgm == "BGMPlayerInA3":
+		play_event_audio()
 	 

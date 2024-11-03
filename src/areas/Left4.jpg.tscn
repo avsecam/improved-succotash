@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv5a67md3v1f8"]
+[gd_scene load_steps=8 format=3 uid="uid://cv5a67md3v1f8"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_beetx"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_urork"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_qoegv"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_r5tya"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_8fl52"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA3.gd" id="7_sgqv0"]
 
 [node name="left4_jpg" type="Node3D"]
 transform = Transform3D(0.334329, 0, 0.942442, 0, 1, 0, -0.942442, 0, 0.334329, 0, 0, 0)
@@ -75,3 +76,7 @@ script = ExtResource("5_r5tya")
 
 [node name="BGMPlayerInA1" type="Node" parent="Events"]
 script = ExtResource("6_8fl52")
+
+[node name="BGMPlayerInA3" type="Node" parent="Events" node_paths=PackedStringArray("locked_teleporter")]
+script = ExtResource("7_sgqv0")
+locked_teleporter = NodePath("../../Teleporters/Left3_jpg")

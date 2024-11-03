@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvgkywh2c18xf"]
+[gd_scene load_steps=18 format=3 uid="uid://dvgkywh2c18xf"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_25di4"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_1oa45"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPolishRod1.gd" id="9_upvub"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPolishRod2.gd" id="10_y2err"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCalandraOfSanto.gd" id="11_uihfg"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA3.gd" id="12_bmehw"]
 [ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="13_t4dbj"]
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="15_eywd5"]
 [ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="16_ghadr"]
@@ -82,6 +83,9 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 [node name="JournalCalandraOfSanto" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("11_uihfg")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="BGMPlayerInA3" type="Node" parent="Events"]
+script = ExtResource("12_bmehw")
 
 [node name="Table" parent="." instance=ExtResource("5_8adsr")]
 transform = Transform3D(0.0573026, 0, -0.998357, 0, 1, 0, 0.998357, 0, 0.0573026, -0.933813, -1.67721, 0.771012)

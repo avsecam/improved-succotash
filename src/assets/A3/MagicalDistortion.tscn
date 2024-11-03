@@ -69,7 +69,7 @@ script = ExtResource("1_nm3mk")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_0pvks")
-amount = 50
+amount = 1
 lifetime = 2.0
 explosiveness = 0.25
 fixed_fps = 60

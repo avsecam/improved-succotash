@@ -14,3 +14,4 @@ func _process(delta):
 
 func _on_combination_lock_interface_lock_solved():
 	anim.play("open_lockbox")
+	AudioHandler.play_sfx("A_WoodBox_Open", $AudioStreamPlayer3D)

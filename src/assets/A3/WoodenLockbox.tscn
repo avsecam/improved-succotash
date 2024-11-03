@@ -52,4 +52,6 @@ shape = SubResource("BoxShape3D_fpe8k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101048, 1.30145, -4.28522)
 shape = SubResource("BoxShape3D_ev0ek")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
 [editable path="Wooden_Lockbox"]

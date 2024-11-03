@@ -1997,12 +1997,16 @@
 	{
 		"Event_Name": "BGMPlayerInA3",
 		"Event_Category": "BGM",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"QuestPurifyTheMuseum_Done"
+		],
+		"Event_Completion_Flags": [
+			"BGMPlayerInA3_Done"
+		],
 		"Event_Audio": "04 - Dungeon Cell (A-3, B-4) (loop at 4s)",
 		"Loop_Audio": true,
-		"Loop_Interval": 4,
+		"Loop_Interval": 192000,
 		"Event_Text": {},
 		"Play_Success_SFX": false
 	}

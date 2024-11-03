@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cllqjja2ycguh"]
+[gd_scene load_steps=10 format=3 uid="uid://cllqjja2ycguh"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mooij"]
 [ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4pfgi"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dy8ypbtknmce5" path="res://src/assets/B MAIN/Sunken_Amphora.glb" id="5_h30vh"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_t72gx"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="7_dl7lj"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA3.gd" id="8_rysv0"]
+[ext_resource type="PackedScene" uid="uid://cp3el5iygvid8" path="res://src/assets/A3/MagicalDistortion.tscn" id="9_82j10"]
 
 [node name="left5 vase_jpg" type="Node3D"]
 transform = Transform3D(-0.0717924, 0, 0.997407, 0, 1, 0, -0.997407, 0, -0.0717924, 0, 0.0452401, 0)
@@ -69,3 +71,14 @@ script = ExtResource("6_t72gx")
 
 [node name="BGMPlayerInA1" type="Node" parent="Events"]
 script = ExtResource("7_dl7lj")
+
+[node name="BGMPlayerInA3" type="Node" parent="Events"]
+script = ExtResource("8_rysv0")
+
+[node name="MagicalDistortion" parent="." instance=ExtResource("9_82j10")]
+transform = Transform3D(1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, -1.70522, -0.73642, -2.3568)
+
+[node name="GPUParticles3D" parent="MagicalDistortion" index="0"]
+emitting = false
+
+[editable path="MagicalDistortion"]
