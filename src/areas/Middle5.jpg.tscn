@@ -102,7 +102,6 @@ transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 
 
 [node name="dirt" parent="." instance=ExtResource("13_wa5m6")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0.430467, -1.4552, -1.04389)
-visible = false
 requirement = 1.0
 
 [node name="CollisionShape3D" parent="dirt" index="0"]
@@ -115,7 +114,6 @@ disabled = true
 
 [node name="cursed_floor" parent="." instance=ExtResource("14_af0sb")]
 transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0.429674, -1.4689, -1.07502)
-visible = false
 
 [connection signal="tree_exiting" from="Events/ActionCleanDirtFromHint" to="dirt" method="_associated_event_done"]
 [connection signal="tree_exiting" from="Events/ActionPurifyHint" to="cursed_floor" method="_on_associated_event_finished"]

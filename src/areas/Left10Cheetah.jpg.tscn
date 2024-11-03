@@ -78,9 +78,8 @@ script = ExtResource("9_unm7r")
 script = ExtResource("10_x5hxp")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="BGMPlayerInA3" type="Node" parent="Events" node_paths=PackedStringArray("locked_teleporter")]
+[node name="BGMPlayerInA3" type="Node" parent="Events"]
 script = ExtResource("11_8k5cd")
-locked_teleporter = NodePath("../../Teleporters/Left11_jpg")
 
 [node name="Pillar_A2" parent="." instance=ExtResource("6_xqftd")]
 transform = Transform3D(0.8, 0, -2.98023e-08, 0, 0.8, 0, 2.98023e-08, 0, 0.8, -1.69378, -4.63739, -3.36228)

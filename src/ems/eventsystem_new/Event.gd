@@ -32,6 +32,9 @@ func _ready() -> void:
 		if event_name == Events.current_bgm:
 			queue_free()
 			return
+		if (event_name + "_Done") in Events.finished_events:
+			queue_free()
+			return
 	elif oneshot:
 		if (event_name + "_Done") in Events.finished_events:
 			print(event_name + " Cleared from Events")
@@ -83,7 +86,7 @@ func close_event() -> void:
 	for flag in event_completion_flags:
 		if !Events.finished_events.has(flag):
 			Events.finished_events.append(flag)
-	if event_category != "JOURNAL" or event_category != "BGM":
+	if event_category != "JOURNAL":
 		if play_success_sfx:
 			AudioHandler.play_sfx("UI_Success", null)
 		queue_free()

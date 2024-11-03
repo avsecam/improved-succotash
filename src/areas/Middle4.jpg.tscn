@@ -93,6 +93,7 @@ visible = false
 disabled = true
 
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSmashDistortionCrystal" method="_on_distortion_crystal_action_completed"]
+[connection signal="action_completed" from="DistortionCrystal" to="Events/BGMPlayerInA3" method="_on_distortion_crystal_action_completed"]
 [connection signal="picked_up" from="CubeCatSpotted" to="Events/ActionGetCatIcon3" method="_on_cube_cat_spotted_picked_up"]
 
 [editable path="DistortionCrystal"]
