@@ -11,6 +11,6 @@ func _on_event_started():
 
 func _on_distortion_crystal_action_completed(requirement, total_progress):
 	print("Finished A3")
-	Events.current_bgm == ""
+	Events.current_bgm = ""
 	close_event()
 	

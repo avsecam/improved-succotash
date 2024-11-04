@@ -11,8 +11,5 @@ func _on_event_started():
 
 func _on_distortion_crystal_action_completed(requirement, total_progress):
 	close_event()
-	print("Finished A3")
-	Events.current_bgm == ""
-	quest_bgm_event.close_event()
 	magical_distortion.emitting = false
 	

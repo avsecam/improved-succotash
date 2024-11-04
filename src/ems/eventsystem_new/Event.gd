@@ -29,11 +29,11 @@ func _ready() -> void:
 	initialize_event()
 	
 	if event_category == "BGM":
-		if event_name == Events.current_bgm:
-			queue_free()
-			return
 		if (event_name + "_Done") in Events.finished_events:
 			queue_free()
+			return
+		if event_name == Events.current_bgm:
+			#queue_free()
 			return
 	elif oneshot:
 		if (event_name + "_Done") in Events.finished_events:
