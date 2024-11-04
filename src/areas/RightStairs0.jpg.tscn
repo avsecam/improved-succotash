@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4mbmiyebv2xq"]
+[gd_scene load_steps=21 format=3 uid="uid://c4mbmiyebv2xq"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_vklpb"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_tdvpy"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_uwauc"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_q812q"]
 [ext_resource type="PackedScene" uid="uid://dbbjh1nfeajhp" path="res://src/assets/B4/numpad.tscn" id="5_rofm2"]
-[ext_resource type="PackedScene" uid="uid://dg4o0t5f3ty7o" path="res://src/assets/B4/Sign_Cooo.glb" id="6_2aati"]
 [ext_resource type="PackedScene" uid="uid://dg4o0t5f3ty7o" path="res://src/assets/B4/Sign_Eo.glb" id="7_m0hxd"]
 [ext_resource type="PackedScene" uid="uid://bloqrdv1q2tjk" path="res://src/assets/B4/Sign_Soo.glb" id="8_s3l8o"]
 [ext_resource type="PackedScene" uid="uid://c8o0r1caf8gku" path="res://src/assets/B4/num_pad_interface_container.tscn" id="9_gc2w6"]
@@ -16,14 +15,14 @@
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5ylk3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_d1a0o"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mvwl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_il1xo"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_5ylk3")
+albedo_texture = SubResource("ViewportTexture_d1a0o")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kfnp7"]
@@ -109,12 +108,12 @@ transform = Transform3D(0.547111, 0, -0.837061, 0, 1, 0, 0.837061, 0, 0.547111, 
 
 [node name="Screen" parent="Numpad/StaticUIContainer/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_vugv5")
-surface_material_override/0 = SubResource("StandardMaterial3D_2mvwl")
+surface_material_override/0 = SubResource("StandardMaterial3D_il1xo")
 
 [node name="CollisionShape3D" parent="Numpad/StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_kfnp7")
 
-[node name="Sign_Cooo" parent="." instance=ExtResource("6_2aati")]
+[node name="Sign_Cooo" parent="." instance=ExtResource("7_m0hxd")]
 transform = Transform3D(-0.113498, -0.222752, 9.73678e-09, 0, -1.09278e-08, -0.25, 0.222752, -0.113498, 4.96114e-09, 3.79862, 0.493444, 2.97349)
 
 [node name="Screen1" parent="Sign_Cooo" instance=ExtResource("9_gc2w6")]
