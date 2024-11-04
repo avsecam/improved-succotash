@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://86ntuf0j6gis"]
+[gd_scene load_steps=18 format=3 uid="uid://86ntuf0j6gis"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_24fbd"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
@@ -13,13 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bpk8bx5qipk7v" path="res://src/assets/B1/generator_interact.tscn" id="10_8l0sr"]
 [ext_resource type="PackedScene" uid="uid://ci0071vufy21u" path="res://src/assets/A2/Wall_Burnt.glb" id="11_rboox"]
 [ext_resource type="PackedScene" uid="uid://cyv41nrasxy8j" path="res://src/assets/B1/tile_lightning.tscn" id="12_uihde"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="14_jvt5a"]
-[ext_resource type="PackedScene" uid="uid://b5gbypfuimvr" path="res://src/ems/eventsystem_new/bgm_player_outside.tscn" id="15_wq2g7"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialoguePowerPlantInstructions.gd" id="16_ty6mu"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueMarblePPlantReminder.gd" id="17_mmi7p"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtWaterSpiritB1.gd" id="18_xtu61"]
 [ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="19_kq0kr"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/JournalDonPlacidoEscuderoDam.gd" id="19_tmx3g"]
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="20_8erwo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
@@ -182,36 +176,11 @@ collision_layer = 5242881
 [node name="CollisionShape3D" parent="generator" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374939, 0.183136, -1.00958)
 
-[node name="Events" type="Node" parent="."]
-script = ExtResource("14_jvt5a")
-
-[node name="BGMPlayerOutside" parent="Events" instance=ExtResource("15_wq2g7")]
-
-[node name="DialoguePowerPlantInstructions" type="Node" parent="Events"]
-script = ExtResource("16_ty6mu")
-
-[node name="DialogueMarblePPlantReminder" type="Node" parent="Events"]
-script = ExtResource("17_mmi7p")
-
-[node name="ActionLookAtWaterSpiritB1" type="Node" parent="Events"]
-script = ExtResource("18_xtu61")
-
-[node name="JournalDonPlacidoEscuderoDam" type="Node" parent="Events"]
-script = ExtResource("19_tmx3g")
-
-[node name="ActionInteractWaterSpiritB1" type="Node" parent="Events"]
-
-[node name="ActionInteractPPlantSwitchUnfinished" type="Node" parent="Events"]
-
-[node name="ActionInteractPPlantSwitch" type="Node" parent="Events"]
-
 [node name="Journal" parent="." instance=ExtResource("19_kq0kr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44068, 0.182144, -1.66446)
 
 [node name="Pillar_Wood" parent="." instance=ExtResource("20_8erwo")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1.47135, -1.5, -1.70711)
-
-[connection signal="pointer_event" from="Journal" to="Events/JournalDonPlacidoEscuderoDam" method="_on_journal_pointer_event"]
 
 [editable path="lightning_tile"]
 [editable path="generator"]

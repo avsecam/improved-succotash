@@ -18,7 +18,7 @@ size = Vector2(3, 2)
 [sub_resource type="ViewportTexture" id="ViewportTexture_d1a0o"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_il1xo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_670om"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
@@ -108,7 +108,7 @@ transform = Transform3D(0.547111, 0, -0.837061, 0, 1, 0, 0.837061, 0, 0.547111, 
 
 [node name="Screen" parent="Numpad/StaticUIContainer/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_vugv5")
-surface_material_override/0 = SubResource("StandardMaterial3D_il1xo")
+surface_material_override/0 = SubResource("StandardMaterial3D_670om")
 
 [node name="CollisionShape3D" parent="Numpad/StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_kfnp7")
