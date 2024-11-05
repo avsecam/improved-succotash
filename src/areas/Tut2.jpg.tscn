@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ch34gbnsyxf34"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c85dj"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_l78c2"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_orxck"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_rfskg"]
@@ -87,7 +87,7 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.30956, 0.0811628, 
 transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
 
 [node name="TheKey" parent="." instance=ExtResource("14_cd1k7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695461, 0.189739, 0.0347564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26671, 0.189739, 0.0347564)
 gravity_scale = 0.1
 
 [connection signal="picked_up" from="TheKey" to="Events/ActionPickUpKey" method="_on_the_key_picked_up"]
