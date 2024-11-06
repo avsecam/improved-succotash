@@ -8,16 +8,16 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87xpu"]
 margin = 0.01
-size = Vector3(0.217871, 0.18107, 0.284277)
+size = Vector3(0.122852, 0.12618, 0.284277)
 
 [node name="chicken_raw_new" type="RigidBody3D" groups=["chicken"]]
 collision_layer = 4
-collision_mask = 196615
+collision_mask = 196611
 freeze_mode = 1
 script = ExtResource("1_8yc85")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00737305, 0.0405351, -0.0102051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000878926, 0.0679803, -0.0102051)
 shape = SubResource("BoxShape3D_87xpu")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]

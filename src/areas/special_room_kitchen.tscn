@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bb2op0b3b07lb"]
+[gd_scene load_steps=47 format=3 uid="uid://bb2op0b3b07lb"]
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_l7fku"]
@@ -45,6 +45,10 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_gra0n"]
+resource_local_to_scene = true
+radius = 0.2
+
 [sub_resource type="BoxMesh" id="BoxMesh_5hau0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bwcr"]
@@ -77,22 +81,22 @@ light_bake_mode = 1
 spot_angle = 80.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls"]
-transform = Transform3D(6, 0, 0, 0, 0.12, 0, 0, 0, 7, 0, 0, 0)
+transform = Transform3D(7.92, 0, 0, 0, 0.12, 0, 0, 0, 7, 0, 0, 0)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Environment/Walls"]
-transform = Transform3D(6, 0, 0, 0, 0.12, 0, 0, 0, 7, 0, 3.0008, 0)
+transform = Transform3D(7.545, 0, 0, 0, 0.12, 0, 0, 0, 7, 0, 3.0008, 0)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment/Walls"]
-transform = Transform3D(6, 0, 0, 0, -5.24537e-09, -3, 0, 0.12, -1.31134e-07, -0.00541377, 1.48662, -3.44387)
+transform = Transform3D(7.985, 0, 0, 0, -5.24537e-09, -3, 0, 0.12, -1.31134e-07, -0.704718, 1.48662, -3.44387)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment/Walls"]
-transform = Transform3D(6, 0, 0, 0, -5.24537e-09, -3, 0, 0.12, -1.31134e-07, -0.00541377, 1.48662, 3.4346)
+transform = Transform3D(7.845, 0, 0, 0, -5.24537e-09, -3, 0, 0.12, -1.31134e-07, -0.00541377, 1.48662, 3.4346)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
@@ -107,7 +111,7 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment/Walls"]
-transform = Transform3D(-3.0598e-07, 0.12, -1.31134e-07, 0, -5.24537e-09, -3, -7, -5.24537e-09, 5.73206e-15, -2.96261, 1.48662, -0.00587314)
+transform = Transform3D(-3.0598e-07, 0.12, -1.31134e-07, 0, -5.24537e-09, -3, -7, -5.24537e-09, 5.73206e-15, -3.73223, 1.48662, -0.00587314)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
@@ -127,6 +131,7 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
 [node name="Counter" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.850714, 0, 0)
 
 [node name="Counter" type="MeshInstance3D" parent="Environment/Counter"]
 transform = Transform3D(-3.89031e-08, 0, 2.29, 0, 0.925, 0, -0.89, 0, -1.00099e-07, -1.73852, 0.367582, 2.92455)
@@ -135,11 +140,6 @@ skeleton = NodePath("../../..")
 
 [node name="Counter A" type="MeshInstance3D" parent="Environment/Counter"]
 transform = Transform3D(-0.89, 0, -2.62254e-07, 0, 0.925, 0, 1.34386e-07, 0, -1.73683, -2.43393, 0.367582, 2.40796)
-mesh = SubResource("BoxMesh_fua6v")
-skeleton = NodePath("../../..")
-
-[node name="Counter A2" type="MeshInstance3D" parent="Environment/Counter"]
-transform = Transform3D(-3.89031e-08, 0, 2.09084, 0, 0.925, 0, -0.89, 0, -9.13934e-08, -1.9719, 0.367582, -2.951)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
@@ -154,13 +154,16 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
 [node name="Table2" parent="Environment" instance=ExtResource("1_6subo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.788116, 0, 0.677136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.814671, 0, 0.677136)
+
+[node name="Table5" parent="Environment" instance=ExtResource("1_6subo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3, -2.78096, 0, 0.562668)
 
 [node name="Table3" parent="Environment" instance=ExtResource("1_6subo")]
-transform = Transform3D(-4.37114e-08, 0.0174524, 0.999848, 0, 0.999848, -0.0174524, -1, -7.62869e-10, -4.37047e-08, -0.790747, -0.00641692, -0.603391)
+transform = Transform3D(-4.37114e-08, 0.0174524, 1.11983, 0, 0.999848, -0.0195467, -1, -7.62868e-10, -4.89493e-08, -0.869853, -0.00641692, -0.838835)
 
 [node name="Table4" parent="Environment" instance=ExtResource("1_6subo")]
-transform = Transform3D(-4.37114e-08, 0.0174524, 0.999848, 0, 0.999848, -0.0174524, -1, -7.62869e-10, -4.37047e-08, -0.790747, -0.00641692, 0.703446)
+transform = Transform3D(-4.37114e-08, 0.0174524, 1.11983, 0, 0.999848, -0.0195467, -1, -7.62868e-10, -4.89493e-08, -0.869853, -0.00641692, 0.675884)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -243,77 +246,78 @@ script = ExtResource("23_qemw7")
 script = ExtResource("24_xlv2s")
 
 [node name="pole_bamboo_chicken_new" parent="." instance=ExtResource("10_gkpfe")]
-transform = Transform3D(0.847178, 0, -0.53131, 0.530339, 0.0604214, 0.84563, 0.0321025, -0.998173, 0.0511877, -0.58894, -0.510225, -0.523594)
+transform = Transform3D(0.776744, -0.434326, -0.456104, 0.497137, -0.0218156, 0.867398, -0.386684, -0.900492, 0.198975, -1.16429, -0.582367, -0.488802)
 
 [node name="chicken_raw_new" parent="." instance=ExtResource("11_kvh1r")]
-transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, -0.400985, -0.653439, -0.64026)
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, -0.673536, -0.653439, -0.937005)
+collision_mask = 196615
 
 [node name="chicken_raw_new2" parent="." instance=ExtResource("11_kvh1r")]
-transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, -0.394836, -0.646178, -0.377879)
+transform = Transform3D(0.847178, 0, -0.53131, 0, 1, 0, 0.53131, 0, 0.847178, -0.669923, -0.646178, -0.666563)
+collision_mask = 196615
 
 [node name="Onion" parent="." groups=["sliceable"] instance=ExtResource("12_nmkx5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695436, -0.606739, -0.166944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715056, -0.606739, -0.385559)
 
 [node name="Cleaver" parent="." instance=ExtResource("13_sud5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165982, -0.276312, -0.434624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46152, -0.276312, -0.641495)
 
 [node name="Garlic" parent="." groups=["sliceable"] instance=ExtResource("14_phaoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.694816, -0.584891, 0.0560557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651081, -0.584891, -0.157762)
 
 [node name="Papaya" parent="." instance=ExtResource("22_w7xq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.837666, -0.633548, 0.0336038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608172, -0.633548, 0.0792502)
 
 [node name="Kalabasa" parent="." groups=["sliceable"] instance=ExtResource("15_linsv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00609875, -0.51773, -0.410117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228431, -0.51773, -0.878162)
 
 [node name="Roasting Pit" parent="." instance=ExtResource("16_vna2s")]
-transform = Transform3D(0.999984, 0, -0.00572464, 0, 1, 0, 0.00572464, 0, 0.999984, -0.107376, -0.5848, -2.96939)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.29558, -0.5848, 0.145437)
+
+[node name="Stilts" parent="Roasting Pit/MainMesh/Pit" index="1"]
+transform = Transform3D(1.231, 0, 0, 0, 12.184, 0, -3.55271e-15, 0, 1.511, 22.8868, 12.2064, 0)
+
+[node name="CollisionShape3D" parent="Roasting Pit/SnapZone" index="0"]
+shape = SubResource("SphereShape3D_gra0n")
 
 [node name="Stove" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.257829, 0, 0, 0, 0.0669858, 0, 0, 0, 0.259298, 0.457251, -0.633326, -0.407002)
+transform = Transform3D(0.257829, 0, 0, 0, 0.0669858, 0, 0, 0, 0.259298, 0.336711, -0.633326, -0.609162)
 mesh = SubResource("BoxMesh_5hau0")
 surface_material_override/0 = SubResource("StandardMaterial3D_2bwcr")
 
 [node name="Stove2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.257829, 0, 0, 0, 0.0669858, 0, 0, 0, 0.259298, -0.183881, -0.621704, 0.497024)
+transform = Transform3D(0.257829, 0, 0, 0, 0.0669858, 0, 0, 0, 0.259298, -0.136701, -0.606924, 0.632207)
 mesh = SubResource("BoxMesh_5hau0")
 surface_material_override/0 = SubResource("StandardMaterial3D_2bwcr")
 
 [node name="Atchara Pot" parent="." instance=ExtResource("18_7df72")]
-transform = Transform3D(0.47199, 0, 0.58286, 0, 0.75, 0, -0.58286, 0, 0.47199, 0.367931, -0.654483, 0.410036)
+transform = Transform3D(-0.749619, 0, 0.0239238, 0, 0.75, 0, -0.0239238, 0, -0.749619, 0.301641, -0.654483, 0.501836)
 
 [node name="Mixer Spoon" parent="." instance=ExtResource("20_u58be")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17826, -0.594062, 0.528492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104603, -0.594062, -0.738663)
 
 [node name="Grater" parent="." instance=ExtResource("21_0kpst")]
-transform = Transform3D(-0.999657, 0, 0.0261769, 0, 1, 0, -0.0261769, 0, -0.999657, 0.0499794, -0.647724, 0.429817)
+transform = Transform3D(-0.733208, 0, -0.680004, 0, 1, 0, 0.680004, 0, -0.733208, 0.466246, -0.632294, 0.174008)
 disable_mode = 1
 mass = 15.0
 
 [node name="Kawali with Oil" parent="." instance=ExtResource("23_2l0vu")]
-transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, -0.187266, -0.592339, 0.515119)
+transform = Transform3D(-0.65594, 0, -0.754813, 0, 1, 0, 0.754813, 0, -0.65594, -0.142911, -0.592339, 0.614328)
 
 [node name="Strainer" parent="." instance=ExtResource("24_cpqmc")]
-transform = Transform3D(0.31651, 0, 0.948589, 0, 1, 0, -0.948589, 0, 0.31651, -0.387406, -0.58849, 0.859969)
+transform = Transform3D(-0.989298, 0, 0.14591, 0, 1, 0, -0.14591, 0, -0.989298, -0.86113, -0.58849, 0.525626)
 
 [node name="Saba Bananas" parent="." instance=ExtResource("25_dpbcj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015934, -0.576272, 0.753384)
+transform = Transform3D(0.999984, 0.00561993, 0, -0.00561993, 0.999984, 0, 0, 0, 1, -0.408003, -0.576272, 0.39372)
 
 [node name="Plate" parent="." instance=ExtResource("41_em2b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.513811, -0.640269, 0.511551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577415, -0.640269, 0.741877)
 
 [node name="Chopping Board" parent="." instance=ExtResource("25_0oy1l")]
-transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -0.0417354, -0.646021, -0.410637)
-
-[node name="SnapZone" parent="Chopping Board" index="0"]
-snap_mode = 1
-initial_object = NodePath("../../Kalabasa")
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -0.215953, -0.646021, -0.639257)
 
 [node name="Chopping Board2" parent="." instance=ExtResource("25_0oy1l")]
-transform = Transform3D(-1.44248e-08, 0, 0.33, 0, 0.33, 0, -0.33, 0, -1.44248e-08, 0.442164, -0.646021, 0.0229139)
-
-[node name="SnapZone" parent="Chopping Board2" index="0"]
-snap_mode = 1
+transform = Transform3D(-1.44248e-08, 0, 0.33, 0, 0.33, 0, -0.33, 0, -1.44248e-08, 0.406957, -0.646021, -0.152502)
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("43_4temx")]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 2.27257, -0.0116689, 1.4901)
@@ -329,8 +333,10 @@ autoplay = true
 wait_time = 3.0
 
 [node name="cooking_vat_long_new" parent="." instance=ExtResource("43_2rwgp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457423, -0.468628, -0.431517)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.353571, -0.468628, -0.61941)
 
+[connection signal="tree_exiting" from="Events/ActionPutChickenPole1" to="Roasting Pit" method="_on_action_put_chicken_pole_1_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionPutChickenPole2" to="Roasting Pit" method="_on_action_put_chicken_pole_2_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="pole_bamboo_chicken_new" method="_on_associated_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="chicken_raw_new" method="_on_associated_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="chicken_raw_new2" method="_on_associated_event_finished"]
@@ -360,12 +366,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457423, -0.468628, -0.43151
 [connection signal="tree_exiting" from="Events/ActionPutCookedSabaInPlate" to="Plate" method="_on_associated_event_finished"]
 [connection signal="chicken_connect" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole1" method="_on_pole_bamboo_chicken_new_chicken_connect"]
 [connection signal="chicken_connect_2" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole2" method="_on_pole_bamboo_chicken_new_chicken_connect_2"]
-[connection signal="pole_inserted_inventory" from="pole_bamboo_chicken_new" to="Events/ActionAfterChickenSkewer" method="_on_pole_bamboo_chicken_new_pole_inserted_inventory"]
 [connection signal="onion_chopped" from="Onion" to="Events/ActionChopOnion" method="_on_onion_onion_chopped"]
 [connection signal="picked_up" from="Cleaver" to="Events/ActionPickUpKnife" method="_on_cleaver_picked_up"]
 [connection signal="garlic_chopped" from="Garlic" to="Events/ActionChopGarlic" method="_on_garlic_garlic_chopped"]
 [connection signal="papaya_grated" from="Papaya" to="Events/ActionGratePapaya" method="_on_papaya_papaya_grated"]
 [connection signal="kalabasa_chopped" from="Kalabasa" to="Events/ActionChopKalabasa" method="_on_kalabasa_kalabasa_chopped"]
+[connection signal="pole_inserted_inventory" from="Roasting Pit" to="Events/ActionAfterChickenSkewer" method="_on_roasting_pit_pole_inserted_inventory"]
 [connection signal="add_garlic" from="Atchara Pot" to="Events/ActionAddAtcharaIngredientsGarlic" method="_on_atchara_pot_add_garlic"]
 [connection signal="add_onion" from="Atchara Pot" to="Events/ActionAddAtcharaIngredientsOnion" method="_on_atchara_pot_add_onion"]
 [connection signal="add_papaya" from="Atchara Pot" to="Events/ActionAddAtcharaIngredientsPapaya" method="_on_atchara_pot_add_papaya"]
@@ -376,12 +382,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457423, -0.468628, -0.43151
 [connection signal="kalabasa_in_pot_receiver" from="cooking_vat_long_new" to="Events/ActionPutKalabasaInPot" method="_on_cooking_vat_long_new_kalabasa_in_pot_receiver"]
 [connection signal="kalabasa_soup_complete" from="cooking_vat_long_new" to="Events/ActionMixKalabasaSoup" method="_on_cooking_vat_long_new_kalabasa_soup_complete"]
 
-[editable path="pole_bamboo_chicken_new"]
-[editable path="chicken_raw_new"]
-[editable path="chicken_raw_new/InventoryItemComp"]
-[editable path="chicken_raw_new2"]
-[editable path="chicken_raw_new2/InventoryItemComp"]
-[editable path="Onion"]
 [editable path="Roasting Pit"]
-[editable path="Chopping Board"]
-[editable path="Chopping Board2"]
+[editable path="Roasting Pit/SnapZone"]

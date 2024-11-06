@@ -198,12 +198,16 @@
 		},
 		"Quest_Completion_Requirements": [
 			"ActionPutChickenPole1_Done",
-			"ActionPutChickenPole2_Done"
+			"ActionPutChickenPole2_Done",
+			"ActionAfterChickenSkewer_Done"
 		],
 		"Quest_Completion_Tracker": {
 			"Skewer two chickens": [
 				"ActionPutChickenPole1_Done",
 				"ActionPutChickenPole2_Done"
+			],
+			"Put the pole on the roasting pit": [
+				"ActionAfterChickenSkewer_Done"
 			]
 		},
 		"Quest_Completion_Flags": [
@@ -403,7 +407,9 @@
 			"Description": "Check out the butterfly exhibit. Look around the room!"
 		},
 		"Quest_Completion_Requirements": [
-			"ActionLookAtTheButterflies_Done"
+			"ActionLookAtTheButterflies1_Done",
+			"ActionLookAtTheButterflies3_Done",
+			"ActionLookAtTheButterflies2_Done"
 		],
 		"Quest_Completion_Tracker": {
 			"Look at the Butterflies": [

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbbjh1nfeajhp"]
+[gd_scene load_steps=11 format=3 uid="uid://dbbjh1nfeajhp"]
 
 [ext_resource type="Script" path="res://src/assets/B4/Numpad.gd" id="1_es3hv"]
 [ext_resource type="PackedScene" uid="uid://bcqv5rg2155im" path="res://src/assets/B4/KeypadLock_BodyNineKeys.glb" id="2_1snae"]
+[ext_resource type="PackedScene" uid="uid://c2g6qwu3lt1f8" path="res://src/assets/B4/KeypadLock_ThreeScratched.glb" id="3_4w303"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="3_h3jhr"]
 [ext_resource type="PackedScene" uid="uid://ug2mkpisptn3" path="res://src/assets/B4/NumPadUI.tscn" id="5_5h4u3"]
 
@@ -12,14 +13,14 @@ size = Vector3(0.0631104, 0.162079, 0.154381)
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_67mb4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_geg5u"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_putyt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_032n2"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_67mb4")
+albedo_texture = SubResource("ViewportTexture_geg5u")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fsovu"]
@@ -31,6 +32,10 @@ script = ExtResource("1_es3hv")
 
 [node name="KeypadLock_BodyNineKeys" parent="." instance=ExtResource("2_1snae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16132, 0)
+
+[node name="KeypadLock_ThreeScratched" parent="." instance=ExtResource("3_4w303")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0.301175, -1.30089, 0)
+visible = false
 
 [node name="Numpad1" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.290639, 0.160067)
@@ -112,7 +117,7 @@ text = "[center]– – –"
 
 [node name="Screen" parent="StaticUIContainer/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_3mcrr")
-surface_material_override/0 = SubResource("StandardMaterial3D_putyt")
+surface_material_override/0 = SubResource("StandardMaterial3D_032n2")
 
 [node name="CollisionShape3D" parent="StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_fsovu")

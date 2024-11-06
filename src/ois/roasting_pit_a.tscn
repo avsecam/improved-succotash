@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://blvdj2t00ghc6"]
+[gd_scene load_steps=20 format=3 uid="uid://blvdj2t00ghc6"]
 
 [ext_resource type="Script" path="res://src/ois/roasting_pit_a.gd" id="1_gwuid"]
 [ext_resource type="PackedScene" uid="uid://bvmc7xy6d8n82" path="res://src/assets/Fire/Fire_small.tscn" id="3_nqukt"]
 [ext_resource type="PackedScene" uid="uid://sd6dhjeum6eo" path="res://src/ois/pole_bamboo_chicken_roastpit.tscn" id="4_agf5l"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="4_bf8wy"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="5_3k8g5"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="6_aqlop"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg4ih"]
 resource_name = "Old concrete"
@@ -124,9 +126,34 @@ shadow_mesh = SubResource("ArrayMesh_3t5pp")
 [sub_resource type="BoxShape3D" id="BoxShape3D_hrwnm"]
 size = Vector3(1.02256, 0.381628, 0.177393)
 
-[node name="roasting_pit_a" type="StaticBody3D" node_paths=PackedStringArray("pole_visible")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_pehcl"]
+resource_local_to_scene = true
+radius = 0.2
+
+[sub_resource type="Animation" id="Animation_oh2yf"]
+resource_name = "roast_spin"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pole_bamboo_chicken_roastpit:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, 3.14159, 1.5708), Vector3(4.71239, 3.14159, 1.5708), Vector3(7.85398, 3.14159, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aw7xm"]
+_data = {
+"roast_spin": SubResource("Animation_oh2yf")
+}
+
+[node name="roasting_pit_a" type="StaticBody3D"]
 script = ExtResource("1_gwuid")
-pole_visible = NodePath("pole_bamboo_chicken_roastpit")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 
@@ -153,12 +180,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0346191, 0.140814, -0.00148
 shape = SubResource("BoxShape3D_hrwnm")
 
 [node name="pole_bamboo_chicken_roastpit" parent="." instance=ExtResource("4_agf5l")]
-transform = Transform3D(4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, -3.82137e-15, 8.74228e-08, -1, 0, 0.5, 0)
+transform = Transform3D(-4.37114e-08, 1, 3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, 4.37114e-08, 0, 0.5, 0)
 visible = false
-script = null
 
 [node name="Node3D" parent="." instance=ExtResource("3_nqukt")]
 
 [node name="Progress View" parent="." instance=ExtResource("4_bf8wy")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.628714, 0)
 visible = false
+
+[node name="SnapZone" parent="." instance=ExtResource("5_3k8g5")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.444893, 0)
+grab_distance = 0.2
+snap_require = "polechicken"
+
+[node name="CollisionShape3D" parent="SnapZone" index="0"]
+shape = SubResource("SphereShape3D_pehcl")
+
+[node name="HighlightRing" parent="SnapZone" instance=ExtResource("6_aqlop")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aw7xm")
+}
+
+[connection signal="has_picked_up" from="SnapZone" to="." method="_on_snap_zone_has_picked_up"]
+
+[editable path="SnapZone"]

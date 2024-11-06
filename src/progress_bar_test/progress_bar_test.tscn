@@ -8,14 +8,14 @@
 resource_local_to_scene = true
 size = Vector2(200, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sju1p"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vt127"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4sk12"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms3d4"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_sju1p")
+albedo_texture = SubResource("ViewportTexture_vt127")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p435t"]
@@ -38,12 +38,9 @@ size = Vector2i(500, 500)
 
 [node name="Progress Circle2" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("3_g7sxe")]
 
-[node name="CheckMarkComplete" parent="Viewport2Din3D/Viewport/Progress Circle2" index="1"]
-rotation = -0.898845
-
 [node name="Screen" parent="Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_oigqy")
-surface_material_override/0 = SubResource("StandardMaterial3D_4sk12")
+surface_material_override/0 = SubResource("StandardMaterial3D_ms3d4")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 screen_size = Vector2(200, 200)
