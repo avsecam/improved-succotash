@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c6ty8"]
 [ext_resource type="Texture2D" uid="uid://hw11qu03ko3y" path="res://src/areas/Left10Cheetah.jpg" id="2_6aebe"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lh1r4"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lh1r4"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_xv7wg"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="5_4tbfq"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_jrpj7"]
