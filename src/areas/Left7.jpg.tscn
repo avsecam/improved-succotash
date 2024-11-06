@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://drei6f2wos07c"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_guqws"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_41t1a"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_41t1a"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_oxm6h"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_rrawd"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_pjlee"]
@@ -64,7 +64,7 @@ script = ExtResource("7_ty2a2")
 script = ExtResource("8_brsqq")
 
 [node name="Pillar_A2" parent="." instance=ExtResource("5_ytes7")]
-transform = Transform3D(0.8, 0, -2.98023e-08, 0, 0.8, 0, 2.98023e-08, 0, 0.8, 2.39793, -4.54658, 1.85748)
+transform = Transform3D(-0.55205, 0, -0.579, 0, 0.8, 0, 0.579, 0, -0.55205, 2.39793, -4.54658, 1.85748)
 
 [connection signal="tree_exiting" from="Events/ActionPurifyWoodenPillar2" to="Pillar_A2/PillarControl" method="_on_associated_event_finished"]
 [connection signal="action_completed" from="Pillar_A2" to="Events/ActionPurifyWoodenPillar2" method="_on_pillar_a_2_action_completed"]

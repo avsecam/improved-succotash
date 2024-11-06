@@ -9,6 +9,9 @@ func _ready():
 	super()
 	PAINT_MESH_REF.albedo_color.a = 0
 	canvas_paint_receiver.set_monitoring(false)
+	
+	if Events.finished_events.has("ActionInteractPaintedCanvas"):
+		queue_free()
 
 func _on_canvas_paint_receiver_action_ended(requirement, total_progress):
 	self.enabled = true
