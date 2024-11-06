@@ -70,11 +70,11 @@ hue_variation_max = 1.0
 [sub_resource type="QuadMesh" id="QuadMesh_4duas"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fca4k"]
-height = 0.34712
+height = 0.220287
 radius = 0.203918
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_amemj"]
-height = 0.326392
+height = 0.284016
 radius = 0.152934
 
 [node name="cooking_vat_long_new" type="StaticBody3D" groups=["kalabasasoup"]]

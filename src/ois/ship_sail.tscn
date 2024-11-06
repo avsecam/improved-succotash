@@ -33,12 +33,13 @@ transform = Transform3D(0.1, 0, 0, 0, 0.0990268, 0.0139173, 0, -0.0139173, 0.099
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("5_tj0a4")]
 
+[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
+visible = false
+
 [node name="Ship_SailComponent" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_wbfew")]
 transform = Transform3D(0.075, 0, 0, 0, -3.27835e-09, -0.075, 0, 0.075, -3.27835e-09, 0.0345816, 0.0500263, 0.00445753)
-visible = false
 
 [node name="Ship_SailComponent2" parent="InventoryItemComp/ReplacementMesh" index="1" instance=ExtResource("2_wbfew")]
 transform = Transform3D(0.075, 0, 0, 0, -3.27835e-09, -0.075, 0, 0.075, -3.27835e-09, -0.0117508, 0.0675805, -0.0338681)
-visible = false
 
 [editable path="InventoryItemComp"]

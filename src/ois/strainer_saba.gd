@@ -7,6 +7,7 @@ var saba_check : bool
 
 func _ready():
 	saba_check = false
+	super()
 
 func _on_strainer_actor_area_entered(area):
 	if area.name == "StrainerReceiver":

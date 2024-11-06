@@ -1,16 +1,226 @@
-[gd_scene load_steps=14 format=3 uid="uid://cp3el5iygvid8"]
+[gd_scene load_steps=33 format=3 uid="uid://cp3el5iygvid8"]
 
 [ext_resource type="Script" path="res://src/assets/A3/MagicalDistortion.gd" id="1_nm3mk"]
+[ext_resource type="Texture2D" uid="uid://c4rgm83altm6d" path="res://src/assets/Fire/distortion.png" id="2_i3w2x"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pvks"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.392157, 0.117647, 0.435294, 0.690196)
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_r507p"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_wvvtm"]
+parameter_name = "DissolveAmount"
+hint = 1
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_el1xb"]
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_v4nwf"]
+parameter_name = "Dissolve_Speed"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_0xy32"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_6o1tr"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_mdqf4"]
+parameter_name = "Dissolve_Tilling"
+default_value_enabled = true
+default_value = Vector2(1, 1)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hdnmv"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_wlp8h"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_k2rip"]
+parameter_name = "Main_Texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_io73d"]
+source = 5
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_oyooa"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qauma"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_sdjsc"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_fc68r"]
+parameter_name = "Dissolve_Texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ic62q"]
+source = 5
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bjnro"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_nkuf6"]
+billboard_type = 3
+keep_scale = true
+
+[sub_resource type="VisualShader" id="VisualShader_oddr1"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D Main_Texture;
+uniform vec2 Dissolve_Tilling = vec2(1.000000, 1.000000);
+uniform vec2 Dissolve_Speed;
+uniform sampler2D Dissolve_Texture;
+uniform float DissolveAmount : hint_range(0, 1);
+
+
+
+void vertex() {
+	mat4 n_out2p0;
+// GetBillboardMatrix:2
+	{
+		mat4 __wm = mat4(normalize(INV_VIEW_MATRIX[0]), normalize(INV_VIEW_MATRIX[1]), normalize(INV_VIEW_MATRIX[2]), MODEL_MATRIX[3]);
+		__wm = __wm * mat4(vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(0.0, 0.0, 1.0, 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		__wm = __wm * mat4(vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0), vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		n_out2p0 = VIEW_MATRIX * __wm;
+	}
+
+
+// Output:0
+	MODELVIEW_MATRIX = n_out2p0;
+
+
+}
+
+void fragment() {
+// Input:5
+	vec4 n_out5p0 = COLOR;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Main_Texture, UV);
+
+
+// Input:17
+	vec2 n_out17p0 = UV;
+
+
+// Vector2Parameter:16
+	vec2 n_out16p0 = Dissolve_Tilling;
+
+
+// VectorOp:18
+	vec2 n_out18p0 = n_out17p0 * n_out16p0;
+
+
+// Input:14
+	float n_out14p0 = TIME;
+
+
+// Vector2Parameter:13
+	vec2 n_out13p0 = Dissolve_Speed;
+
+
+// VectorOp:15
+	vec2 n_out15p0 = vec2(n_out14p0) * n_out13p0;
+
+
+// UVFunc:12
+	vec2 n_in12p1 = vec2(1.00000, 1.00000);
+	vec2 n_out12p0 = n_out15p0 * n_in12p1 + n_out18p0;
+
+
+	vec4 n_out8p0;
+// Texture2D:8
+	n_out8p0 = texture(Dissolve_Texture, n_out12p0);
+
+
+// VectorOp:9
+	vec4 n_out9p0 = n_out3p0 * n_out8p0;
+
+
+// FloatParameter:11
+	float n_out11p0 = DissolveAmount;
+
+
+// Mix:10
+	vec4 n_out10p0 = mix(n_out3p0, n_out9p0, vec4(n_out11p0));
+
+
+// VectorOp:6
+	vec4 n_out6p0 = n_out5p0 * n_out10p0;
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out6p0.x;
+	float n_out4p1 = n_out6p0.y;
+	float n_out4p2 = n_out6p0.z;
+	float n_out4p3 = n_out6p0.w;
+
+
+// Output:0
+	ALBEDO = vec3(n_out6p0.xyz);
+	ALPHA = n_out4p3;
+
+
+}
+"
+flags/unshaded = true
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_nkuf6")
+nodes/vertex/2/position = Vector2(-20, 300)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
+nodes/fragment/0/position = Vector2(1120, 140)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_k2rip")
+nodes/fragment/2/position = Vector2(-660, 320)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_io73d")
+nodes/fragment/3/position = Vector2(-280, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_oyooa")
+nodes/fragment/4/position = Vector2(720, 360)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_qauma")
+nodes/fragment/5/position = Vector2(-20, 40)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_sdjsc")
+nodes/fragment/6/position = Vector2(540, 120)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture2DParameter_fc68r")
+nodes/fragment/7/position = Vector2(-720, 940)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_ic62q")
+nodes/fragment/8/position = Vector2(-240, 860)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_bjnro")
+nodes/fragment/9/position = Vector2(80, 480)
+nodes/fragment/10/node = SubResource("VisualShaderNodeMix_r507p")
+nodes/fragment/10/position = Vector2(300, 280)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatParameter_wvvtm")
+nodes/fragment/11/position = Vector2(260, 540)
+nodes/fragment/12/node = SubResource("VisualShaderNodeUVFunc_el1xb")
+nodes/fragment/12/position = Vector2(-720, 660)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVec2Parameter_v4nwf")
+nodes/fragment/13/position = Vector2(-1380, 760)
+nodes/fragment/14/node = SubResource("VisualShaderNodeInput_0xy32")
+nodes/fragment/14/position = Vector2(-1400, 640)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_6o1tr")
+nodes/fragment/15/position = Vector2(-960, 660)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVec2Parameter_mdqf4")
+nodes/fragment/16/position = Vector2(-1380, 400)
+nodes/fragment/17/node = SubResource("VisualShaderNodeInput_hdnmv")
+nodes/fragment/17/position = Vector2(-1400, 300)
+nodes/fragment/18/node = SubResource("VisualShaderNodeVectorOp_wlp8h")
+nodes/fragment/18/position = Vector2(-960, 340)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 3, 0, 1, 5, 0, 6, 0, 6, 0, 0, 0, 7, 0, 8, 2, 3, 0, 9, 0, 8, 0, 9, 1, 6, 0, 4, 0, 3, 0, 10, 0, 9, 0, 10, 1, 10, 0, 6, 1, 11, 0, 10, 2, 12, 0, 8, 0, 14, 0, 15, 0, 13, 0, 15, 1, 15, 0, 12, 2, 17, 0, 18, 0, 16, 0, 18, 1, 18, 0, 12, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1stn"]
+render_priority = 0
+shader = SubResource("VisualShader_oddr1")
+shader_parameter/Dissolve_Tilling = Vector2(1, 1)
+shader_parameter/Dissolve_Speed = null
+shader_parameter/DissolveAmount = null
+shader_parameter/Main_Texture = ExtResource("2_i3w2x")
 
 [sub_resource type="Curve" id="Curve_1w70s"]
 _data = [Vector2(0, 0.322939), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -45,6 +255,9 @@ point_count = 2
 curve = SubResource("Curve_oraha")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0tlms"]
+lifetime_randomness = 0.4
+angle_min = -78.5
+angle_max = 29.8
 angular_velocity_max = 1.0
 angular_velocity_curve = SubResource("CurveTexture_xgs2e")
 orbit_velocity_max = 1.0
@@ -52,29 +265,25 @@ orbit_velocity_curve = SubResource("CurveTexture_yk0pt")
 radial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
 radial_accel_max = 1.0
-scale_min = 0.5
+scale_min = 0.75
+color = Color(0.615686, 0.0705882, 0.733333, 1)
 alpha_curve = SubResource("CurveTexture_is1hk")
 emission_curve = SubResource("CurveTexture_x8khj")
-hue_variation_min = -0.1
-hue_variation_max = 0.1
+hue_variation_max = 0.02
 
-[sub_resource type="BoxMesh" id="BoxMesh_yfydk"]
-size = Vector3(1, 1, 0.1)
-
-[sub_resource type="PrismMesh" id="PrismMesh_wiorb"]
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="QuadMesh" id="QuadMesh_jyrfj"]
 
 [node name="MagicalDistortion" type="Node3D"]
 script = ExtResource("1_nm3mk")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-material_override = SubResource("StandardMaterial3D_0pvks")
+material_override = SubResource("ShaderMaterial_g1stn")
 amount = 50
 lifetime = 2.0
-explosiveness = 0.25
+speed_scale = 0.5
 fixed_fps = 60
 visibility_aabb = AABB(-1.07255, -1.32856, -0.419061, 2.1451, 2.65713, 0.838122)
 process_material = SubResource("ParticleProcessMaterial_0tlms")
 draw_passes = 2
-draw_pass_1 = SubResource("BoxMesh_yfydk")
-draw_pass_2 = SubResource("PrismMesh_wiorb")
+draw_pass_1 = SubResource("QuadMesh_jyrfj")
+draw_pass_2 = null

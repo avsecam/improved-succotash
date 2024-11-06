@@ -98,5 +98,6 @@ transform = Transform3D(0.00291404, 0, -0.009566, 0, 0.01, 0, 0.009566, 0, 0.002
 
 [node name="Progress View" parent="." instance=ExtResource("10_s1one")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.487197, 0)
+visible = false
 
 [connection signal="action_in_progress" from="OiledRagReceiver" to="OiledRagReceiver/PolishedRod" method="_on_oiled_rag_receiver_action_in_progress"]
