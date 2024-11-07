@@ -1,7 +1,7 @@
 extends XRToolsInteractableArea
 
 
-@onready var interface := $CombinationLockInterface
+@export var interface : Node
 
 
 @export var object_follow_speed := 4.0
@@ -45,6 +45,7 @@ func _physics_process(delta):
 	#print("CAMERA GLOBALTRANSFORM:"+str(point))
 
 func activate_lock() -> void:
+	print("activating lock")
 	interface.lock_active(true)
 	interface.visible = true
 	trying_lock = true

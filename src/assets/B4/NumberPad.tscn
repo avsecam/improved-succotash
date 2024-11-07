@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjrq3hrxbdmsf"]
+
+[ext_resource type="Script" path="res://src/assets/A3/CombinationLockControl.gd" id="1_mllho"]
+[ext_resource type="PackedScene" uid="uid://dbbjh1nfeajhp" path="res://src/assets/B4/numpad.tscn" id="2_2cmpc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwtry"]
+size = Vector3(0.1, 0.25, 0.2)
+
+[node name="NumberPad" type="Area3D" node_paths=PackedStringArray("interface")]
+collision_layer = 5242881
+script = ExtResource("1_mllho")
+interface = NodePath("NumpadInterface")
+object_distance = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0483937, 0)
+shape = SubResource("BoxShape3D_gwtry")
+
+[node name="NumpadRealWorldAsset" parent="." instance=ExtResource("2_2cmpc")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="NumpadInterface" parent="." instance=ExtResource("2_2cmpc")]
+transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, -0.0830867, 0, -0.666467)
+visible = false
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="pointer_event" from="." to="." method="_on_pointer_event"]
+[connection signal="correct_password_inputted" from="NumpadInterface" to="." method="_on_combination_lock_interface_lock_solved"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

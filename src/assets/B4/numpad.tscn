@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcqv5rg2155im" path="res://src/assets/B4/KeypadLock_BodyNineKeys.glb" id="2_1snae"]
 [ext_resource type="PackedScene" uid="uid://c2g6qwu3lt1f8" path="res://src/assets/B4/KeypadLock_ThreeScratched.glb" id="3_4w303"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="3_h3jhr"]
-[ext_resource type="PackedScene" uid="uid://ug2mkpisptn3" path="res://src/assets/B4/NumPadUI.tscn" id="5_5h4u3"]
+[ext_resource type="PackedScene" path="res://src/assets/B4/NumPadUI.tscn" id="5_5h4u3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ctgps"]
 size = Vector3(0.0631104, 0.162079, 0.154381)
@@ -13,14 +13,14 @@ size = Vector3(0.0631104, 0.162079, 0.154381)
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_geg5u"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_w48x6"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_032n2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ies2"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_geg5u")
+albedo_texture = SubResource("ViewportTexture_w48x6")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fsovu"]
@@ -28,6 +28,7 @@ resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
 [node name="Numpad" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_es3hv")
 
 [node name="KeypadLock_BodyNineKeys" parent="." instance=ExtResource("2_1snae")]
@@ -117,7 +118,7 @@ text = "[center]– – –"
 
 [node name="Screen" parent="StaticUIContainer/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_3mcrr")
-surface_material_override/0 = SubResource("StandardMaterial3D_032n2")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ies2")
 
 [node name="CollisionShape3D" parent="StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_fsovu")

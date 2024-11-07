@@ -4,6 +4,21 @@ extends Node3D
 @export var passkey = ["3","6","7"]
 signal correct_password_inputted
 
+func _ready():
+	lock_active(false)
+
+
+func lock_active(b : bool) -> void:
+	$Numpad1/CollisionShape3D.disabled = !b
+	$Numpad2/CollisionShape3D.disabled = !b
+	$Numpad3/CollisionShape3D.disabled = !b
+	$Numpad4/CollisionShape3D.disabled = !b
+	$Numpad5/CollisionShape3D.disabled = !b
+	$Numpad6/CollisionShape3D.disabled = !b
+	$Numpad7/CollisionShape3D.disabled = !b
+	$Numpad8/CollisionShape3D.disabled = !b
+	$Numpad9/CollisionShape3D.disabled = !b
+
 func notepad_inputter(num):
 	if password[0] == "–":
 		password[0] = num
@@ -17,7 +32,9 @@ func notepad_inputter(num):
 		password[2] = "–"
 	var format_string = "[center]%s %s %s"
 	numpad_view.text = format_string % [str(password[0]), str(password[1]), str(password[2])]
-	if arrays_have_same_content(password, passkey): correct_password_inputted.emit()
+	if arrays_have_same_content(password, passkey): 
+		await get_tree().create_timer(1).timeout
+		correct_password_inputted.emit()
 
 func arrays_have_same_content(array1, array2):
 	if array1.size() != array2.size(): return false

@@ -6,9 +6,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ov4vf"]
 size = Vector3(0.2, 0.2, 0.1)
 
-[node name="CombinationLock" type="Area3D"]
+[node name="CombinationLock" type="Area3D" node_paths=PackedStringArray("interface")]
 collision_layer = 5242881
 script = ExtResource("1_adhbu")
+interface = NodePath("CombinationLockInterface")
 object_distance = 1.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
