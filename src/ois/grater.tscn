@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://4pnnxfryuk7t"]
+[gd_scene load_steps=9 format=3 uid="uid://cxe46gqchtjoo"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_o4yu6"]
-[ext_resource type="PackedScene" uid="uid://3h5i01cvq2hy" path="res://src/assets/B2/Grater_Standing.tscn" id="1_xaq1o"]
+[ext_resource type="PackedScene" path="res://src/assets/B2/Grater_Standing.tscn" id="1_xaq1o"]
 [ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_5h3ti"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="6_42jah"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="7_0pv43"]
@@ -36,12 +36,9 @@ behavior_dict = {
 }
 
 [node name="Grater" type="RigidBody3D"]
-collision_layer = 4
+collision_layer = 5242884
 collision_mask = 196615
-can_sleep = false
-freeze = true
 script = ExtResource("1_o4yu6")
-enabled = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101504, -0.0253126)

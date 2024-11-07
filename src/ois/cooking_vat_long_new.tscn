@@ -74,7 +74,7 @@ height = 0.220287
 radius = 0.203918
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_amemj"]
-height = 0.284016
+height = 0.305381
 radius = 0.152934
 
 [node name="cooking_vat_long_new" type="StaticBody3D" groups=["kalabasasoup"]]
@@ -133,7 +133,7 @@ script = ExtResource("8_j4hbe")
 requirement = 0.75
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="KalabasaSoupReceiver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0153156, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0215056, 0)
 shape = SubResource("CylinderShape3D_amemj")
 
 [node name="KalabasaSliceReceiver" type="Area3D" parent="."]

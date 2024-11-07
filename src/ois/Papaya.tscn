@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjtla4yvw53s0"]
+[gd_scene load_steps=13 format=3 uid="uid://5dydegdvyud0"]
 
 [ext_resource type="Script" path="res://src/ois/Papaya.gd" id="1_6tdkn"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/grate_papaya.gd" id="2_glyda"]
@@ -22,7 +22,7 @@ albedo_texture = ExtResource("4_w6g43")
 size = Vector3(0.0951911, 0.192407, 0.146167)
 
 [node name="Papaya" type="RigidBody3D"]
-collision_layer = 4
+collision_layer = 5242884
 collision_mask = 196615
 mass = 3.0
 freeze_mode = 1

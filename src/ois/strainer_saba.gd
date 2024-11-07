@@ -15,3 +15,4 @@ func _on_strainer_actor_area_entered(area):
 		saba_check = true
 	elif area.name == "PlateReceiver":
 		saba_bananas_fried.visible = false
+		strainer_actor.set_monitoring(false)

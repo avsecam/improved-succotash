@@ -57,7 +57,12 @@ func _process(delta):
 	if (raycast.is_colliding()):
 		if (currently_colliding == null):
 			currently_colliding = raycast.get_collider()
-			body_entered.emit(currently_colliding)
+			if is_instance_valid(currently_colliding):
+				if !currently_colliding.is_in_group(get_parent().receiver_group):
+					raycast.add_exception(currently_colliding)
+			#print("current collider: "+str(currently_colliding.name))
+				else:
+					body_entered.emit(currently_colliding)
 	else:
 		if (currently_colliding != null):
 			body_exited.emit(currently_colliding)

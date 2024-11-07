@@ -21,7 +21,6 @@ func _on_chicken_2_has_picked_up(what):
 	chicken_connect_2.emit()
 	chicken_b2 = true
 
-	
 func _on_associated_event_finished():
 	self.visible = false
 

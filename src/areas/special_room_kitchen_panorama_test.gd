@@ -12,4 +12,4 @@ func _ready():
 	if camera:
 		self.global_position = camera.global_position
 	else:
-		self.global_position = Vector3(-1.5, 0, 0)
+		self.global_position = Vector3(-2.5, 0, 0)

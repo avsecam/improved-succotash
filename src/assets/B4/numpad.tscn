@@ -16,7 +16,7 @@ size = Vector2(3, 2)
 [sub_resource type="ViewportTexture" id="ViewportTexture_w48x6"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ies2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve5dp"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
@@ -118,7 +118,7 @@ text = "[center]– – –"
 
 [node name="Screen" parent="StaticUIContainer/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_3mcrr")
-surface_material_override/0 = SubResource("StandardMaterial3D_5ies2")
+surface_material_override/0 = SubResource("StandardMaterial3D_ve5dp")
 
 [node name="CollisionShape3D" parent="StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_fsovu")

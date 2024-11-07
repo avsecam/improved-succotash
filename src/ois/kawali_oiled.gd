@@ -49,8 +49,7 @@ func _on_strainer_receiver_area_entered(area):
 	if area.name == "StrainerActor":
 		saba_bananas_fried.visible = false
 		progress_view.visible = false
-
-	
+		strainer_receiver.set_monitoring(false)
 
 func _on_action_put_saba_in_pan_tree_exiting():
 	saba_bananas.visible = true

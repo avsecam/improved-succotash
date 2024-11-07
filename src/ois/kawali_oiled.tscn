@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ddm00kg6s30ok"]
+[gd_scene load_steps=45 format=3 uid="uid://b6mycyxt1if70"]
 
 [ext_resource type="Script" path="res://src/ois/kawali_oiled.gd" id="1_ylpqi"]
 [ext_resource type="PackedScene" uid="uid://cnrr218dhry3h" path="res://src/assets/B2/Kawali_Oil.glb" id="2_wuhyd"]
@@ -374,7 +374,7 @@ shape = SubResource("CylinderShape3D_eubi5")
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
 visible = false
 
-[connection signal="area_entered" from="OilReceiver" to="." method="_on_vat_long_receiver_area_entered"]
 [connection signal="area_entered" from="OilReceiver" to="." method="_on_oil_receiver_area_entered"]
-[connection signal="area_entered" from="StrainerReceiver" to="." method="_on_vat_long_receiver_area_entered"]
+[connection signal="area_entered" from="OilReceiver" to="." method="_on_vat_long_receiver_area_entered"]
 [connection signal="area_entered" from="StrainerReceiver" to="." method="_on_strainer_receiver_area_entered"]
+[connection signal="area_entered" from="StrainerReceiver" to="." method="_on_vat_long_receiver_area_entered"]

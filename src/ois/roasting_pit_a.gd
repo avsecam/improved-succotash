@@ -16,15 +16,16 @@ signal pole_inserted_inventory
 func _ready():
 	snap_zone.enabled = false
 	pole_visible.visible = false
-	pole_visible.position = fire_wood.position - Vector3(0,0.2,0)	
+	pole_visible.global_position = fire_wood.global_position + Vector3(0,0,0.05)
 	animation_player.play("roast_spin")
 	c1 = false
 	c2 = false
 
 func _physics_process(delta):
-	
 	if c1 and c2:
-		snap_zone.enabled = true
+		if !Events.finished_events.has("ActionAfterChickenSkewer_Done"):
+			snap_zone.enabled = true
+	
 
 func _on_associated_event_finished():
 	pole_visible.visible = true

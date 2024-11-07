@@ -5,5 +5,5 @@ func disable_collision():
 	collision_shape_3d.disabled = true
 	
 func _on_associated_event_finished() -> void:
-	self.visible = false
+	queue_free()
 

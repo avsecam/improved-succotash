@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx6iow16dlty0"]
+[gd_scene load_steps=8 format=3 uid="uid://cib0ma6a1uck5"]
 
 [ext_resource type="Script" path="res://src/ois/strainer_saba.gd" id="1_g13wq"]
 [ext_resource type="PackedScene" uid="uid://cedlls7pxjsp1" path="res://src/assets/B2/Strainer.glb" id="2_hl83o"]
@@ -14,7 +14,7 @@ height = 0.0329437
 radius = 0.113634
 
 [node name="Strainer" type="RigidBody3D"]
-collision_layer = 4
+collision_layer = 5242884
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("1_g13wq")
