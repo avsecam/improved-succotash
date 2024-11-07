@@ -1960,24 +1960,52 @@
 		"Play_Success_SFX": false
 	},
 	{
-		"Event_Name": "ActionLookAtTheButterflies",
+		"Event_Name": "ActionLookAtTheButterflies1",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionLookAtTheButterflies_Done",
-			"WaypointToLeft2_Open"
+		"Event_Prerequisites": [
+			"JournalLookAtTheButterflies_Read"
 		],
-		"Event_Audio": "VE_VO_B4_ASST_01_DuringWorld",
+		"Event_Completion_Flags": [
+			"ActionLookAtTheButterflies1_Done"
+		],
+		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"During her travels to various parts of the world, Doña Rosario Adap Escudero brought preserved butterflies with her and traded them for other insects and butterflies. The result is the insect collection in the Arsenio Escudero and Rosario Adap museum. Visitors are allowed and encouraged to look inside the drawers, which are actually part of the exhibit and contain more wonders to behold from the insect world.": 0
-			}
-		},
-		"Play_Success_SFX": false
+		"Event_Text": {},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "ActionLookAtTheButterflies2",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"JournalLookAtTheButterflies_Read"
+		],
+		"Event_Completion_Flags": [
+			"ActionLookAtTheButterflies2_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "ActionLookAtTheButterflies3",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"JournalLookAtTheButterflies_Read"
+		],
+		"Event_Completion_Flags": [
+			"ActionLookAtTheButterflies3_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionInputNumberSequence",
@@ -1992,7 +2020,7 @@
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {},
-		"Play_Success_SFX": false
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "BGMPlayerInA3",

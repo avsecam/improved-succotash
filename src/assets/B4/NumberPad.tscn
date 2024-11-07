@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjrq3hrxbdmsf"]
+[gd_scene load_steps=4 format=3 uid="uid://em67bif4815n"]
 
 [ext_resource type="Script" path="res://src/assets/A3/CombinationLockControl.gd" id="1_mllho"]
 [ext_resource type="PackedScene" uid="uid://dbbjh1nfeajhp" path="res://src/assets/B4/numpad.tscn" id="2_2cmpc"]

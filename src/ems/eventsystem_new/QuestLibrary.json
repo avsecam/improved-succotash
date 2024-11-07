@@ -413,7 +413,9 @@
 		],
 		"Quest_Completion_Tracker": {
 			"Look at the Butterflies": [
-				"ActionLookAtTheButterflies_Done"
+				"ActionLookAtTheButterflies1_Done",
+				"ActionLookAtTheButterflies3_Done",
+				"ActionLookAtTheButterflies2_Done"
 			]
 		},
 		"Quest_Completion_Flags": [
