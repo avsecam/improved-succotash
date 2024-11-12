@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dw80v8iwrrhog"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_0lbrw"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_ih0o5"]
+[ext_resource type="Texture2D" uid="uid://bnorjcgcl3bw0" path="res://src/assets/C3/cratetext.jpg" id="2_wt7x7"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_kt17x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7jw1l"]
+size = Vector3(0.319597, 0.314758, 0.314789)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xnhu3"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0vp5"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_wt7x7")
+metallic_specular = 0.0
+emission = Color(0.580392, 0.717647, 0.419608, 1)
+emission_energy_multiplier = 0.05
+heightmap_scale = 15.03
+texture_filter = 1
+
+[node name="PickableObject" instance=ExtResource("1_0lbrw")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8399e-05, 0.00509644, 0.000198364)
+shape = SubResource("BoxShape3D_7jw1l")
+
+[node name="MainMesh" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(3.125, 0, 0, 0, 3.125, 0, 0, 0, 3.125, 0, 0, 0)
+mesh = SubResource("BoxMesh_xnhu3")
+surface_material_override/0 = SubResource("StandardMaterial3D_t0vp5")
+
+[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("2_ih0o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0666687, 0, 0.0571757)
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("3_kt17x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.150687, 0, 0.0571757)

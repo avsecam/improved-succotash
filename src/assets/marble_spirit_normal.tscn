@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1nfdxx4l4avm"]
+[gd_scene load_steps=25 format=3 uid="uid://d1hopeq1ke5m4"]
 
-[ext_resource type="PackedScene" uid="uid://7o3tjw1re0k8" path="res://src/assets/MarbleSpirit_Normal.gltf" id="1_10rmh"]
-[ext_resource type="Texture2D" uid="uid://cfpqiimjv161b" path="res://src/assets/Fire/Flare00.PNG" id="2_f1bvh"]
+[ext_resource type="PackedScene" uid="uid://7o3tjw1re0k8" path="res://src/assets/MarbleSpirit_Normal.gltf" id="1_5gs04"]
+[ext_resource type="Texture2D" uid="uid://cfpqiimjv161b" path="res://src/assets/Fire/Flare00.PNG" id="2_mu851"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp3u5"]
 render_priority = 127
@@ -62,22 +62,10 @@ transparency = 1
 cull_mode = 1
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
-albedo_texture = ExtResource("2_f1bvh")
+albedo_texture = ExtResource("2_mu851")
 albedo_texture_force_srgb = true
 billboard_mode = 1
 billboard_keep_scale = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qx347"]
-no_depth_test = true
-albedo_color = Color(0.376471, 0.0784314, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s172e"]
-no_depth_test = true
-albedo_color = Color(0.713726, 0, 0.713726, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as04t"]
-no_depth_test = true
-albedo_color = Color(0, 0.784314, 0.227451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpvev"]
 transparency = 1
@@ -135,6 +123,18 @@ sub_emitter_keep_velocity = true
 [sub_resource type="SphereMesh" id="SphereMesh_qfgce"]
 radius = 0.01
 height = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qx347"]
+no_depth_test = true
+albedo_color = Color(0.376471, 0.0784314, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s172e"]
+no_depth_test = true
+albedo_color = Color(0.713726, 0, 0.713726, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as04t"]
+no_depth_test = true
+albedo_color = Color(0, 0.784314, 0.227451, 1)
 
 [sub_resource type="Animation" id="Animation_ypwtd"]
 length = 0.001
@@ -233,18 +233,6 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, -0.300842, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("GPUParticles3D:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.423326, -0.518358)]
 }
 
 [sub_resource type="Animation" id="Animation_qn44v"]
@@ -348,18 +336,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0, -0.300842, 0), Vector3(0, 0.481344, 0)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("GPUParticles3D:position")
-tracks/8/interp = 2
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.25, 0.75, 1.05, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -0.423326, -0.518358), Vector3(0, 0.459198, -0.725749), Vector3(0, -0.368476, 0.232692), Vector3(0, 0.285097, 0.260944)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pjfnd"]
 _data = {
@@ -367,7 +343,7 @@ _data = {
 "marble_spirit_idle": SubResource("Animation_qn44v")
 }
 
-[node name="MarbleSpirit_Normal" instance=ExtResource("1_10rmh")]
+[node name="MarbleSpirit_Normal" instance=ExtResource("1_5gs04")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0271107, 0.0417523)
 
 [node name="Marble" parent="." index="0"]
@@ -379,6 +355,18 @@ transform = Transform3D(1.02, 0, -5.79016e-08, 0, 1.02, 0, 5.79016e-08, 0, 1.02,
 mesh = SubResource("ArrayMesh_3mjgg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_a3kir")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Marble" index="1"]
+transform = Transform3D(0.955088, 0, 0.296325, 0, 1, 0, -0.296325, 0, 0.955088, 0, 0, 0)
+sorting_offset = -50.0
+sorting_use_aabb_center = false
+material_override = SubResource("StandardMaterial3D_dpvev")
+amount = 15
+speed_scale = 0.5
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_bmtkp")
+draw_pass_1 = SubResource("SphereMesh_qfgce")
 
 [node name="Plane" parent="." index="1"]
 transform = Transform3D(-0.119496, -1.24276e-06, -0.453, -4.18798e-07, 0.656079, -5.73562e-08, -0.114061, -1.10695e-06, 0.474584, -0.0438846, 0, 0.0168927)
@@ -394,19 +382,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s172e")
 transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888, 0, -0.0244276, 0.22937, 0, 0.346641)
 surface_material_override/0 = SubResource("StandardMaterial3D_as04t")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.423326, -0.518358)
-sorting_offset = -50.0
-sorting_use_aabb_center = false
-material_override = SubResource("StandardMaterial3D_dpvev")
-amount = 15
-speed_scale = 0.5
-fixed_fps = 60
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_bmtkp")
-draw_pass_1 = SubResource("SphereMesh_qfgce")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_pjfnd")
 }

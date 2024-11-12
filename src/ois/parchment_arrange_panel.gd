@@ -19,6 +19,7 @@ var anim_check_bool : bool
 @onready var frame_4 = $Frame4
 @onready var frame_5 = $Frame5
 @onready var progress_view = $"Progress View"
+@onready var parchments = $Parchments
 
 signal parchment_arrangement_complete
 
@@ -93,3 +94,12 @@ func _on_frame_4_has_dropped():
 
 func _on_frame_5_has_dropped():
 	frame5_correct = false
+
+
+func _on_action_arrange_documents_tree_exiting():
+	frame_1.enabled = false
+	frame_2.enabled = false
+	frame_3.enabled = false
+	frame_4.enabled = false
+	frame_5.enabled = false
+	parchments.visible = true

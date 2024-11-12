@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://12acvs62sh6v"]
+[gd_scene load_steps=11 format=3 uid="uid://12acvs62sh6v"]
 
 [ext_resource type="Script" path="res://src/ois/ship_parts.gd" id="1_pqlt3"]
 [ext_resource type="PackedScene" uid="uid://dhtj6ggun7nw6" path="res://src/assets/C3/Ship.glb" id="1_siaxd"]
+[ext_resource type="PackedScene" uid="uid://dd7s4yj8s7klu" path="res://src/ois/ship_wheel.tscn" id="3_4tbj2"]
 [ext_resource type="PackedScene" uid="uid://c5lqlcj4wr21" path="res://src/assets/C3/ship_sail_component.tscn" id="3_uvyrt"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="4_agpe4"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="5_48i4u"]
@@ -25,6 +26,11 @@ script = ExtResource("1_pqlt3")
 
 [node name="Ship" parent="MainMesh" instance=ExtResource("1_siaxd")]
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="shipwheel_component" parent="MainMesh" instance=ExtResource("3_4tbj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.740217, 0.140819, -0.0085239)
+visible = false
+enabled = false
 
 [node name="SailComponent" type="Node3D" parent="MainMesh"]
 visible = false

@@ -66,6 +66,9 @@ script = ExtResource("8_brsqq")
 [node name="Pillar_A2" parent="." instance=ExtResource("5_ytes7")]
 transform = Transform3D(-0.55205, 0, -0.579, 0, 0.8, 0, 0.579, 0, -0.55205, 2.39793, -4.54658, 1.85748)
 
+[node name="CursedMesh" parent="Pillar_A2/MainMesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [connection signal="tree_exiting" from="Events/ActionPurifyWoodenPillar2" to="Pillar_A2/PillarControl" method="_on_associated_event_finished"]
 [connection signal="action_completed" from="Pillar_A2" to="Events/ActionPurifyWoodenPillar2" method="_on_pillar_a_2_action_completed"]
 

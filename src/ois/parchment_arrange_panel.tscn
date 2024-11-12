@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://clkms3ef3xwpn"]
+[gd_scene load_steps=14 format=3 uid="uid://clkms3ef3xwpn"]
 
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_iirm1"]
 [ext_resource type="Script" path="res://src/ois/parchment_arrange_panel.gd" id="1_m6u7c"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="3_gpbix"]
+[ext_resource type="PackedScene" uid="uid://clpu518gw3se" path="res://src/ois/parchment_a.tscn" id="4_iix3m"]
+[ext_resource type="PackedScene" uid="uid://oqxa6ppw0qrl" path="res://src/ois/parchment_b.tscn" id="5_ell7w"]
+[ext_resource type="PackedScene" uid="uid://cbsi2j7tqs8dr" path="res://src/ois/parchment_c.tscn" id="6_hc32s"]
+[ext_resource type="PackedScene" uid="uid://wrsjbpww7gpi" path="res://src/ois/parchment_d.tscn" id="7_hqr4j"]
+[ext_resource type="PackedScene" uid="uid://3tro40hld4iq" path="res://src/ois/parchment_e.tscn" id="8_l1tmj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0awe"]
 albedo_color = Color(0.956863, 0.901961, 0.858824, 1)
@@ -35,7 +40,6 @@ spot_angle = 63.92
 
 [node name="Frame1" parent="." instance=ExtResource("1_iirm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.204, 0.109)
-grab_distance = 0.25
 
 [node name="Frame_inside" type="MeshInstance3D" parent="Frame1"]
 transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.001, -0.073)
@@ -44,7 +48,6 @@ skeleton = NodePath("../..")
 
 [node name="Frame2" parent="." instance=ExtResource("1_iirm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.204, 0.109)
-grab_distance = 0.25
 
 [node name="Frame_inside" type="MeshInstance3D" parent="Frame2"]
 transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.000608206, -0.0733268)
@@ -53,7 +56,6 @@ skeleton = NodePath("../..")
 
 [node name="Frame3" parent="." instance=ExtResource("1_iirm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204, 0.109)
-grab_distance = 0.25
 
 [node name="Frame_inside" type="MeshInstance3D" parent="Frame3"]
 transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.000608206, -0.0733268)
@@ -62,7 +64,6 @@ skeleton = NodePath("../..")
 
 [node name="Frame4" parent="." instance=ExtResource("1_iirm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.204, 0.109)
-grab_distance = 0.25
 
 [node name="Frame_inside" type="MeshInstance3D" parent="Frame4"]
 transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.000608206, -0.0733268)
@@ -71,7 +72,6 @@ skeleton = NodePath("../..")
 
 [node name="Frame5" parent="." instance=ExtResource("1_iirm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.204, 0.109)
-grab_distance = 0.25
 
 [node name="Frame_inside" type="MeshInstance3D" parent="Frame5"]
 transform = Transform3D(0.305, 0, 0, 0, 0.41, 0, 0, 0, 0.135, 0, -0.000608206, -0.0733268)
@@ -85,6 +85,44 @@ visible = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00292969, 0.0050354, -0.016098)
 shape = SubResource("BoxShape3D_xt83b")
+
+[node name="Parchments" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.350176, 0.187752, 0.11135)
+visible = false
+
+[node name="parchment_a" parent="Parchments" instance=ExtResource("4_iix3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05732, 0, 0)
+can_sleep = false
+freeze = true
+freeze_mode = 0
+script = null
+
+[node name="parchment_b" parent="Parchments" instance=ExtResource("5_ell7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355957, 0, 0)
+can_sleep = false
+freeze = true
+freeze_mode = 0
+script = null
+
+[node name="parchment_c" parent="Parchments" instance=ExtResource("6_hc32s")]
+can_sleep = false
+freeze = true
+freeze_mode = 0
+script = null
+
+[node name="parchment_d" parent="Parchments" instance=ExtResource("7_hqr4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.693194, 0, 0)
+can_sleep = false
+freeze = true
+freeze_mode = 0
+script = null
+
+[node name="parchment_e" parent="Parchments" instance=ExtResource("8_l1tmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.350176, 0, 0)
+can_sleep = false
+freeze = true
+freeze_mode = 0
+script = null
 
 [connection signal="has_dropped" from="Frame1" to="." method="_on_frame_1_has_dropped"]
 [connection signal="has_picked_up" from="Frame1" to="." method="_on_frame_1_has_picked_up"]

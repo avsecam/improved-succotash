@@ -4,6 +4,7 @@ extends StaticBody3D
 @onready var sail_snap_zone = $SailSnapZone
 @onready var progress_view = $"Progress View"
 @onready var wheel_snap_zone = $WheelSnapZone
+@onready var shipwheel_component = $MainMesh/shipwheel_component
 
 signal ship_parts_assembled
 var ship_sail : bool
@@ -63,6 +64,8 @@ func ship_parts_complete():
 	wheel_snap_zone.enabled = false
 	ship_parts_assembled.emit()
 	
-
-
-
+func _on_action_ship_assembly_complete_tree_exiting():
+	sail_component.visible = true
+	shipwheel_component.visible = true
+	sail_snap_zone.enabled = false
+	wheel_snap_zone.enabled = false
