@@ -5,7 +5,7 @@ extends Node3D
 signal correct_password_inputted
 
 func _ready():
-	lock_active(false)
+	lock_active(true)
 
 
 func lock_active(b : bool) -> void:
