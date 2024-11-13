@@ -1,6 +1,5 @@
 extends Event
 
-
 func _on_water_spirit_area_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
 		if is_instance_valid(AudioHandler.dialogue_player):

@@ -971,13 +971,13 @@
 		"Event_Name": "DialogueMarblePPlantReminder",
 		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
-		"Event_Prerequisites": "[\"DialoguePowerPlantInstructions_Done\"］",
+		"Event_Prerequisites": ["DialoguePowerPlantInstructions_Done"],
 		"Event_Completion_Flags": [
 			"DialogueMarblePPlantReminder_Done"
 		],
 		"Event_Audio": "VE_VO_B1_MRBLSPRT_01_ThisRight",
 		"Loop_Audio": false,
-		"Loop_Interval": 0,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -990,7 +990,9 @@
 		"Event_Name": "ActionLookAtWaterSpiritB1",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
-		"Event_Prerequisites": "[\"DialogueMarblePPlantReminder_Done\"］",
+		"Event_Prerequisites": [
+			"DialoguePowerPlantInstructions_Done"
+		],
 		"Event_Completion_Flags": [
 			"ActionLookAtWaterSpiritB1_Done"
 		],
@@ -1037,7 +1039,7 @@
 		],
 		"Event_Audio": "VE_VO_B1_MRBLSPRT_02_HiSearch",
 		"Loop_Audio": false,
-		"Loop_Interval": "",
+		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
