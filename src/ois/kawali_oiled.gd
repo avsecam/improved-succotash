@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var oil_receiver = $OilReceiver
 @onready var saba_bananas = $MainMesh/SabaBananas
-@onready var strainer_receiver = $StrainerReceiver
+@onready var strainer_receiver = $StrainerReceiver/CollisionShape3D
 @onready var saba_bananas_fried = $MainMesh/SabaBananas_Fried
 @onready var progress_view = $"Progress View"
 @export var timer_duration := 10
@@ -13,7 +13,7 @@ signal saba_being_fried
 signal saba_ready
 
 func _ready():
-	strainer_receiver.set_monitoring(false)
+	strainer_receiver.disabled = true
 	oil_receiver.set_monitoring(false)
 	timer_duration_x = timer_duration
 	saba_limaw_test = false
@@ -42,14 +42,14 @@ func _on_oil_receiver_area_entered(area):
 			saba_bananas_fried.visible = true
 			saba_bananas.visible = false
 			saba_ready.emit()
-			strainer_receiver.set_monitoring(true)
+			strainer_receiver.disabled = false
 
 
 func _on_strainer_receiver_area_entered(area):
 	if area.name == "StrainerActor":
 		saba_bananas_fried.visible = false
 		progress_view.visible = false
-		strainer_receiver.set_monitoring(false)
+		strainer_receiver.disabled = true
 
 func _on_action_put_saba_in_pan_tree_exiting():
 	saba_bananas.visible = true
@@ -59,11 +59,10 @@ func _on_action_put_saba_in_pan_tree_exiting():
 func _on_action_finish_saba_cooking_tree_exiting():
 	saba_bananas_fried.visible = true
 	saba_bananas.visible = false
-	strainer_receiver.set_monitoring(true)
 
 func _on_action_put_cooked_saba_in_plate_tree_exiting():
 	saba_bananas_fried.visible = false
-	strainer_receiver.set_monitoring(false)
+	strainer_receiver.disabled = true
 
 
 func _on_action_all_atchara_ingredients_tree_exiting():

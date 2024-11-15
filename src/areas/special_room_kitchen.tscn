@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_l7fku"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_ymid4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_k8pkv"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole1.gd" id="7_7aheo"]
@@ -364,7 +364,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.353571, -0.468628, -0.61941
 [connection signal="tree_exiting" from="Events/ActionPutSabaInPan" to="Kawali with Oil" method="_on_action_put_saba_in_pan_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutSabaInPan" to="Saba Bananas" method="_on_associated_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionFinishSabaCooking" to="Kawali with Oil" method="_on_action_finish_saba_cooking_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionFinishSabaCooking" to="Strainer" method="_on_action_finish_saba_cooking_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutCookedSabaInPlate" to="Kawali with Oil" method="_on_action_put_cooked_saba_in_plate_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionPutCookedSabaInPlate" to="Strainer" method="_on_action_put_cooked_saba_in_plate_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutCookedSabaInPlate" to="Plate" method="_on_associated_event_finished"]
 [connection signal="chicken_connect" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole1" method="_on_pole_bamboo_chicken_new_chicken_connect"]
 [connection signal="chicken_connect_2" from="pole_bamboo_chicken_new" to="Events/ActionPutChickenPole2" method="_on_pole_bamboo_chicken_new_chicken_connect_2"]

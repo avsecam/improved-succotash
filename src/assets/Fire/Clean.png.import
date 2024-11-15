@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdxnyacd4ktv1"
-path.s3tc="res://.godot/imported/fuelle_Material__0_albedo.jpg-ede5672a239e3cc5bdf817741d62ab57.s3tc.ctex"
-path.etc2="res://.godot/imported/fuelle_Material__0_albedo.jpg-ede5672a239e3cc5bdf817741d62ab57.etc2.ctex"
+uid="uid://dqkluhca4r2r8"
+path.s3tc="res://.godot/imported/Clean.png-39016877af5eb60cc1bb0ee1542b4c97.s3tc.ctex"
+path.etc2="res://.godot/imported/Clean.png-39016877af5eb60cc1bb0ee1542b4c97.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://src/assets/C4/textures/fuelle_Material__0_albedo.jpg"
-dest_files=["res://.godot/imported/fuelle_Material__0_albedo.jpg-ede5672a239e3cc5bdf817741d62ab57.s3tc.ctex", "res://.godot/imported/fuelle_Material__0_albedo.jpg-ede5672a239e3cc5bdf817741d62ab57.etc2.ctex"]
+source_file="res://src/assets/Fire/Clean.png"
+dest_files=["res://.godot/imported/Clean.png-39016877af5eb60cc1bb0ee1542b4c97.s3tc.ctex", "res://.godot/imported/Clean.png-39016877af5eb60cc1bb0ee1542b4c97.etc2.ctex"]
 
 [params]
 
