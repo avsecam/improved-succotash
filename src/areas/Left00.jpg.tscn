@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPickUpHolyWater.gd" id="9_r11w6"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="10_3js1p"]
 [ext_resource type="PackedScene" uid="uid://ciiwok353lla6" path="res://src/assets/C4/Forge_Bellows_Fixed.tscn" id="14_h87d1"]
-[ext_resource type="PackedScene" uid="uid://ddvps57qx5vgb" path="res://src/assets/C4/tongs.tscn" id="15_0j8yj"]
+[ext_resource type="PackedScene" uid="uid://bd8esgu6u364l" path="res://src/assets/C4/tongs_one_hand.tscn" id="15_0apre"]
 
 [node name="left00_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -94,8 +94,8 @@ transform = Transform3D(0.116462, 0, -0.221216, 0, 0.25, 0, 0.221216, 0, 0.11646
 [node name="Bellows" parent="." instance=ExtResource("14_h87d1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299111, 0, -0.681736)
 
-[node name="tongs" parent="." instance=ExtResource("15_0j8yj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434789, -0.566094, -0.0917779)
+[node name="tongs_one_hand" parent="." instance=ExtResource("15_0apre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0399278, 0, -0.255851)
 
 [connection signal="tree_exiting" from="Events/ActionPurifyWoodenPillar1" to="Pillar_A2/PillarControl" method="_on_associated_event_finished"]
 [connection signal="picked_up" from="holy_water" to="Events/ActionPickUpHolyWater" method="_on_holy_water_picked_up"]
