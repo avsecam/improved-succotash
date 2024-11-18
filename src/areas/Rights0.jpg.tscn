@@ -59,6 +59,7 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_u4cl3")
 to = "special_room_kitchen"
+special_room = true
 
 [node name="special_room_forge" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_ybt8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.552, -3.448, 1.866)
@@ -66,6 +67,7 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_u4cl3")
 to = "special_room_forge"
+special_room = true
 
 [node name="Events" type="Node" parent="."]
 script = ExtResource("5_cvk1d")

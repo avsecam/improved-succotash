@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ddvps57qx5vgb"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_xlk3o"]
-[ext_resource type="PackedScene" uid="uid://dxqkb4gyod474" path="res://src/assets/C4/Tongs_BlacksmithCrucibleEmpty.glb" id="2_bsoso"]
+[ext_resource type="PackedScene" uid="uid://eeaco4tih30j" path="res://src/assets/C4/Tongs_BlacksmithCrucibleEmpty.glb" id="2_bsoso"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_kn6tq"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_ajfdf"]
 [ext_resource type="PackedScene" uid="uid://v2rfmhs1ltk4" path="res://src/ois/state_managers/two_handed_tool.tscn" id="5_bcfoh"]
@@ -58,11 +58,9 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_kn6tq")]
 transform = Transform3D(-0.280801, 0.957315, -0.068554, 0, 0.0714278, 0.997446, 0.959766, 0.280083, -0.020057, -0.824752, -0.0846822, -0.229053)
-visible = true
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_ajfdf")]
 transform = Transform3D(0.430653, 0.89658, 0.103357, 0, -0.114521, 0.993421, 0.902518, -0.42782, -0.0493188, -0.855483, -0.0894628, 0.234173)
-visible = true
 
 [node name="StateManager" parent="." instance=ExtResource("5_bcfoh")]
 settings = SubResource("Resource_xkf2t")

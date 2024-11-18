@@ -96,7 +96,7 @@ transform = Transform3D(0.878122, 0.472672, -0.0740873, 0.0316723, 0.0970813, 0.
 transform = Transform3D(-0.563268, 0, -0.826279, 0, 1, 0, 0.826279, 0, -0.563268, 0.685112, -0.395099, -0.40129)
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("14_x0mvl")]
-transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.30962, 0.258942, -1.09775)
+transform = Transform3D(-2.23517e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -2.23517e-08, 1.30962, 0.258942, -1.09775)
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
 

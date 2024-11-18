@@ -6,6 +6,8 @@ extends StaticBody3D
 # File path of the scene to teleport to
 @export var to: String
 
+@export var special_room : bool = false
+
 @onready var mesh: MeshInstance3D = $CollisionShape3D/MeshInstance3D
 
 func _ready():
@@ -16,13 +18,21 @@ func _ready():
 
 func _process(_delta):
 	if not enabled:
-		self.mesh.mesh.material.albedo_color = Color(Color.DARK_SLATE_GRAY)
+		if special_room:
+			self.mesh.mesh.material.albedo_color = Color(Color.DARK_SLATE_GRAY)
+		else:
+			self.mesh.mesh.material.albedo_color = Color(Color.DARK_KHAKI)
+		
+		
 
 
 func enable_teleporter():
 	if !enabled:
 		enabled = true
-		self.mesh.mesh.material.albedo_color = Color(Color.WHITE)
+		if special_room:
+			self.mesh.mesh.material.albedo_color = Color(Color.DARK_SLATE_GRAY)
+		else:
+			self.mesh.mesh.material.albedo_color = Color(Color.LEMON_CHIFFON)
 
 func set_color(color: Color):
 	(self.mesh.mesh.material as StandardMaterial3D).albedo_color = color

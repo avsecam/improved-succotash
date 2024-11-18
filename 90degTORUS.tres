@@ -1,0 +1,8 @@
+[gd_resource type="TorusMesh" load_steps=2 format=3 uid="uid://dglqvhn6wh82f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6dqg"]
+
+[resource]
+material = SubResource("StandardMaterial3D_e6dqg")
+inner_radius = 0.003
+outer_radius = 0.019

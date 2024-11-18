@@ -140,14 +140,14 @@ albedo_color = Color(0.709804, 0.709804, 0.709804, 0.52549)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_7f1xt"]
+[sub_resource type="CurveTexture" id="CurveTexture_bgsf5"]
 curve = SubResource("Curve_o80hy")
 
 [sub_resource type="Curve" id="Curve_oidi8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.637127, 0.539425), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_54msb"]
+[sub_resource type="CurveTexture" id="CurveTexture_w1n0g"]
 curve = SubResource("Curve_oidi8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phkbu"]
@@ -155,9 +155,9 @@ emission_shape_scale = Vector3(0.1, 0.1, 0.1)
 inherit_velocity_ratio = -0.74
 radial_velocity_min = 1.0
 radial_velocity_max = 5.0
-radial_velocity_curve = SubResource("CurveTexture_54msb")
+radial_velocity_curve = SubResource("CurveTexture_w1n0g")
 damping_max = 40.984
-alpha_curve = SubResource("CurveTexture_7f1xt")
+alpha_curve = SubResource("CurveTexture_bgsf5")
 
 [sub_resource type="SphereMesh" id="SphereMesh_8qwgk"]
 radius = 0.1

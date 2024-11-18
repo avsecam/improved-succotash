@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=19 format=3 uid="uid://s1vlqsqdci1o"]
+[gd_resource type="VisualShader" load_steps=19 format=3 uid="uid://xdxpwltssrk3"]
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_gyif2"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
@@ -69,7 +69,7 @@ keep_scale = true
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_add, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, depth_test_disabled;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform sampler2D Main_Texture;
 uniform vec2 Dissolve_Tilling = vec2(1.000000, 1.000000);
@@ -170,8 +170,6 @@ void fragment() {
 
 }
 "
-modes/blend = 1
-flags/depth_test_disabled = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_5mj2a")
 nodes/vertex/2/position = Vector2(-20, 300)
 nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)

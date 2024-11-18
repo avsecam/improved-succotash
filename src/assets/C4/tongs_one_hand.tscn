@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_1n3nu"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_5vux3"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="3_8vjl0"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_l2vvp"]
+[ext_resource type="PackedScene" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_7fbnj"]
+[ext_resource type="Script" path="res://src/ois/state_managers/one_handed_tool.gd" id="6_sj7vv"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_3ev8b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_28ir3"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xnhu3"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Resource" id="Resource_26seb"]
+script = ExtResource("7_3ev8b")
+state_behavior_settings = {
+"ActiveCollidingState": {},
+"ActiveState": {},
+"IdleState": {},
+"TriggerState": {}
+}
+behavior_dict = {}
+
+[node name="tongs_one_hand" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_1n3nu")
+enabled = true
+press_to_hold = true
+picked_up_layer = 65536
+release_mode = -1
+ranged_grab_method = 1
+second_hand_grab = 0
+ranged_grab_speed = 20.0
+picked_by_exclude = ""
+picked_by_require = ""
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_28ir3")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xnhu3")
+
+[node name="GrabPointHandLeft" type="Marker3D" parent="." instance=ExtResource("2_5vux3")]
+script = ExtResource("3_8vjl0")
+handle = ""
+hand = 0
+mode = 0
+snap_hand = true
+hand_pose = null
+editor_preview_mode = 0
+drive_position = 1.0
+drive_angle = 1.0
+drive_aim = 0.0
+enabled = true
+
+[node name="GrabPointHandRight" type="Marker3D" parent="." instance=ExtResource("4_l2vvp")]
+script = ExtResource("3_8vjl0")
+handle = ""
+hand = 1
+mode = 0
+snap_hand = true
+hand_pose = null
+editor_preview_mode = 0
+drive_position = 1.0
+drive_angle = 1.0
+drive_aim = 0.0
+enabled = true
+
+[node name="StateManager" type="Node3D" parent="." node_paths=PackedStringArray("current_state") instance=ExtResource("5_7fbnj")]
+script = ExtResource("6_sj7vv")
+init_settings = false
+receiver_group = ""
+current_state = NodePath("IdleState")
+debug = true
+settings = SubResource("Resource_26seb")
