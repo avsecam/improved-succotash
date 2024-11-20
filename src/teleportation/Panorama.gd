@@ -6,6 +6,8 @@ const AREAS_DIR = "res://src/areas/"
 
 const IDLE_COLOR := Color("white")
 const ACTIVE_COLOR := Color("red")
+const SPECIAL_IDLE_COLOR := Color(Color.LEMON_CHIFFON)
+const SPECIAL_ACTIVE_COLOR := Color(Color.GREEN_YELLOW)
 
 var data: Dictionary
 
@@ -29,6 +31,10 @@ func _ready():
 		teleporter.queue_free()
 	
 	_set_teleporters()
+	
+	for teleporter in teleporters_container.get_children():
+		if teleporter.special:
+			teleporter.set_color(SPECIAL_IDLE_COLOR)
 	
 	# Add 360 image. Flip image horizontally to compensate for SphereMesh's Flip Faces property.
 	#var image = Image.load_from_file(image_filename)
@@ -95,6 +101,9 @@ func _set_teleporters():
 		teleporter.position = teleporter_data.position
 		teleporter.to = teleporter_data.to
 		
+		if teleporter_data.has("special"):
+			teleporter.special = teleporter_data.special
+		
 		teleporters_container.add_child(teleporter)
 		teleporter.owner = self
 
@@ -102,9 +111,15 @@ func _set_teleporters():
 func _on_teleporter_hovered(teleporter: Teleporter):
 	print (teleporter)
 	if teleporter and teleporter.enabled:
-		teleporter.set_color(ACTIVE_COLOR)
+		if teleporter.special:
+			teleporter.set_color(SPECIAL_ACTIVE_COLOR)
+		else:
+			teleporter.set_color(ACTIVE_COLOR)
 		AudioHandler.play_sfx("UI_Tele_Hover", null)
 
 func _on_no_teleporter_hovered():
 	for teleporter in teleporters_container.get_children():
-		teleporter.set_color(IDLE_COLOR)
+		if teleporter.special:
+			teleporter.set_color(SPECIAL_IDLE_COLOR)
+		else:
+			teleporter.set_color(IDLE_COLOR)

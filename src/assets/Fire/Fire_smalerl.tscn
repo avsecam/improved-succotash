@@ -256,26 +256,26 @@ angle_max = 360.0
 spread = 0.0
 gravity = Vector3(0, 1, 0)
 damping_max = 1.0
-scale_min = 0.1
-scale_max = 0.15
+scale_min = 0.2
+scale_max = 0.3
 scale_curve = SubResource("CurveTexture_6mgy3")
 color = Color(1, 0.443137, 0, 0.8)
 
 [sub_resource type="QuadMesh" id="QuadMesh_dk2u8"]
 
-[sub_resource type="Gradient" id="Gradient_0j5gl"]
+[sub_resource type="Gradient" id="Gradient_fs3dj"]
 offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ipxr7"]
-gradient = SubResource("Gradient_0j5gl")
+gradient = SubResource("Gradient_fs3dj")
 
-[sub_resource type="Curve" id="Curve_c14mw"]
+[sub_resource type="Curve" id="Curve_cufel"]
 _data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_rxjis"]
-curve = SubResource("Curve_c14mw")
+curve = SubResource("Curve_cufel")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ds67m"]
 resource_local_to_scene = true

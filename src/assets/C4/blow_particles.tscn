@@ -280,7 +280,6 @@ anim_speed_max = 2.15
 [sub_resource type="QuadMesh" id="QuadMesh_rkopu"]
 
 [node name="BlowParticles" type="GPUParticles3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18071, -0.198672, 0.000835851)
 material_override = SubResource("ShaderMaterial_j4yk4")
 emitting = false
 amount = 100
@@ -290,6 +289,7 @@ speed_scale = 0.5
 explosiveness = 1.0
 randomness = 1.0
 fixed_fps = 60
+visibility_aabb = AABB(-0.581918, -0.631061, -0.632694, 1.16384, 1.26212, 1.24586)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_81lyh")
 draw_passes = 2

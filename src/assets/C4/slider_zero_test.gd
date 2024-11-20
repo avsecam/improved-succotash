@@ -37,11 +37,16 @@ func _physics_process(delta):
 	if keyval >= 0.5:
 		if !smoke_check:
 			smoke.restart()
-			add_child(ember_particles.instantiate())
+			
+			var ember = ember_particles.instantiate()
+			add_child(ember)
+			#ember.position = Vector3(0.35,-0.05,0)
+			
 			if (heat_level + 10) < 100:
 				heat_level += 10
 			else:
 				heat_level = 100
+			
 			smoke.emitting = true
 		smoke_check = true
 	
