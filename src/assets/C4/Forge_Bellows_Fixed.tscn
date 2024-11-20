@@ -274,29 +274,29 @@ shader_parameter/DissolveAmount = null
 shader_parameter/Main_Texture = ExtResource("17_fu2wf")
 shader_parameter/Dissolve_Texture = ExtResource("16_psijm")
 
-[sub_resource type="Gradient" id="Gradient_nqcsx"]
+[sub_resource type="Gradient" id="Gradient_t4n6o"]
 offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hi1iy"]
-gradient = SubResource("Gradient_nqcsx")
+gradient = SubResource("Gradient_t4n6o")
 
-[sub_resource type="Curve" id="Curve_lqow7"]
+[sub_resource type="Curve" id="Curve_8brty"]
 min_value = -2.0
 max_value = 2.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_g2rgj"]
-curve = SubResource("Curve_lqow7")
+curve = SubResource("Curve_8brty")
 
-[sub_resource type="Curve" id="Curve_kiq0p"]
+[sub_resource type="Curve" id="Curve_bk5yt"]
 max_value = 3.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_xl3bq"]
-curve = SubResource("Curve_kiq0p")
+curve = SubResource("Curve_bk5yt")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ih5r2"]
 resource_local_to_scene = true
@@ -321,14 +321,14 @@ color_ramp = SubResource("GradientTexture1D_hi1iy")
 resource_local_to_scene = true
 size = Vector2(200, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_u52dx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7qv3n"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtqmd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8dj7"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_u52dx")
+albedo_texture = SubResource("ViewportTexture_7qv3n")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nn2a6"]
@@ -450,7 +450,7 @@ tint_progress = Color(0, 0.968627, 0.831373, 1)
 
 [node name="Screen" parent="FlameHeatView/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_wba4x")
-surface_material_override/0 = SubResource("StandardMaterial3D_vtqmd")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8dj7")
 
 [node name="CollisionShape3D" parent="FlameHeatView/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_nn2a6")

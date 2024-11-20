@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_7fbnj"]
 [ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="6_qjc45"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_3ev8b"]
-[ext_resource type="Animation" uid="uid://dlxa6f6hwurka" path="res://addons/godot-xr-tools/hands/animations/left/Default pose.res" id="7_cciyt"]
+[ext_resource type="Animation" uid="uid://bediglpx0rj7i" path="res://addons/godot-xr-tools/hands/animations/left/Grip 5.res" id="7_hb0rn"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="8_nsj34"]
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="10_5vdbi"]
-[ext_resource type="Animation" uid="uid://ky28birj4su6" path="res://addons/godot-xr-tools/hands/animations/right/Default pose.res" id="11_2fody"]
+[ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="11_10sgd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_28ir3"]
 size = Vector3(0.0628601, 0.325732, 0.05308)
@@ -50,12 +50,12 @@ blend_shape_mode = 0
 
 [sub_resource type="Resource" id="Resource_d8evj"]
 script = ExtResource("8_nsj34")
-open_pose = ExtResource("7_cciyt")
+open_pose = ExtResource("7_hb0rn")
 closed_pose = ExtResource("6_qjc45")
 
 [sub_resource type="Resource" id="Resource_wxm55"]
 script = ExtResource("8_nsj34")
-open_pose = ExtResource("11_2fody")
+open_pose = ExtResource("11_10sgd")
 closed_pose = ExtResource("10_5vdbi")
 
 [sub_resource type="Resource" id="Resource_gbe33"]
@@ -81,14 +81,15 @@ shape = SubResource("BoxShape3D_28ir3")
 [node name="MainMesh" type="MeshInstance3D" parent="."]
 
 [node name="kk_tongs" type="MeshInstance3D" parent="MainMesh"]
-transform = Transform3D(1.31134e-10, -0.003, -4.52987e-10, -0.003, -1.31134e-10, 0, -1.98007e-17, 4.52987e-10, -0.003, 0, 0.202287, 0.00625915)
+transform = Transform3D(1.31134e-10, -0.018, -4.52987e-10, -0.003, -7.86805e-10, 3.1874e-23, -1.98007e-17, 2.71792e-09, -0.003, 0, 0.202287, 0.00625915)
 mesh = SubResource("ArrayMesh_1e77h")
 skeleton = NodePath("")
-blend_shapes/Open = 0.0
+blend_shapes/Open = 1.0
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_5vux3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00895125, 0, -0.0853278)
 hand_pose = SubResource("Resource_d8evj")
+editor_preview_mode = 1
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_l2vvp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00939476, 0, -0.0853278)
