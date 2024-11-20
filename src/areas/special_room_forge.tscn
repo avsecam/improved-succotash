@@ -19,7 +19,7 @@ size = Vector3(1.75537, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ajmg"]
 size = Vector3(0.311584, 0.0989075, 0.322746)
 
-[node name="SpecialRoom_Kitchen" type="Node3D"]
+[node name="SpecialRoom_Forge" type="Node3D"]
 script = ExtResource("1_f36t3")
 teleporters_data = [{
 "position": Vector3(3.86, -1.339, -1.994),

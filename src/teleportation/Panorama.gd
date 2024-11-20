@@ -6,7 +6,7 @@ const AREAS_DIR = "res://src/areas/"
 
 const IDLE_COLOR := Color("white")
 const ACTIVE_COLOR := Color("red")
-const SPECIAL_IDLE_COLOR := Color(Color.LEMON_CHIFFON)
+const SPECIAL_IDLE_COLOR := Color(Color.DARK_SEA_GREEN)
 const SPECIAL_ACTIVE_COLOR := Color(Color.GREEN_YELLOW)
 
 var data: Dictionary
