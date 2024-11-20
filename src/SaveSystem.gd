@@ -99,6 +99,13 @@ func load_game(slot_num : int = 0, in_game : bool = false) -> void:
 		quests.add_active_quest(quest)
 	
 	var inventory := get_tree().get_root().get_node("Demo/Shelf")
+	
+	for slot in inventory.get_children():
+		if slot.is_in_group("InventorySlot_Shelf"):
+			if slot.get_node("Inventory Content").get_child_count() != 0:
+				for child in slot.get_node("Inventory Content").get_children():
+					child.free()
+				
 	for slot in data["inventory_content"]:
 		if data["inventory_content"][slot] != null:
 			var item = load(data["inventory_content"][slot]).instantiate()

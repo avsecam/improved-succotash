@@ -14,6 +14,7 @@ var has_savedata := false
 
 func _ready():
 	no_save_data()
+	save_file_label.text = "Save File " + str(slot_number)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

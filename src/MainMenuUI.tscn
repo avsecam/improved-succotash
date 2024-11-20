@@ -50,12 +50,19 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="StartGame" type="Button" parent="Main/VBoxContainer"]
+[node name="NewGame" type="Button" parent="Main/VBoxContainer"]
 custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_pfw27")
 theme_override_font_sizes/font_size = 48
-text = "START GAME"
+text = "NEW GAME"
+
+[node name="LoadGame" type="Button" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 48
+text = "LOAD GAME"
 
 [node name="Credits" type="Button" parent="Main/VBoxContainer"]
 custom_minimum_size = Vector2(400, 80)
@@ -63,34 +70,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_pfw27")
 theme_override_font_sizes/font_size = 48
 text = "CREDITS"
-
-[node name="SaveLoad" type="CenterContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 191.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SaveLoad"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="SaveGame" type="Button" parent="SaveLoad/VBoxContainer"]
-custom_minimum_size = Vector2(400, 80)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_pfw27")
-theme_override_font_sizes/font_size = 48
-text = "SAVE GAME"
-
-[node name="LoadGame" type="Button" parent="SaveLoad/VBoxContainer"]
-custom_minimum_size = Vector2(400, 80)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_pfw27")
-theme_override_font_sizes/font_size = 48
-text = "LOAD GAME"
 
 [node name="NewGameLoad" type="CenterContainer" parent="."]
 visible = false
@@ -126,6 +105,33 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_pfw27")
 theme_override_font_sizes/font_size = 48
 text = "BACK"
+
+[node name="SaveLoad" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveLoad"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SaveGame" type="Button" parent="SaveLoad/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 48
+text = "SAVE GAME"
+
+[node name="LoadGame" type="Button" parent="SaveLoad/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 48
+text = "LOAD GAME"
 
 [node name="Credits" type="CenterContainer" parent="."]
 visible = false
@@ -253,13 +259,14 @@ theme_override_fonts/font = ExtResource("1_pfw27")
 theme_override_font_sizes/font_size = 30
 text = "CONFIRM"
 
-[connection signal="pressed" from="Main/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="SaveLoad/VBoxContainer/SaveGame" to="." method="_on_save_game_pressed"]
-[connection signal="pressed" from="SaveLoad/VBoxContainer/LoadGame" to="." method="_on_in_game_load_game_pressed"]
 [connection signal="pressed" from="NewGameLoad/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="NewGameLoad/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="NewGameLoad/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="SaveLoad/VBoxContainer/SaveGame" to="." method="_on_save_game_pressed"]
+[connection signal="pressed" from="SaveLoad/VBoxContainer/LoadGame" to="." method="_on_in_game_load_game_pressed"]
 [connection signal="pressed" from="Credits/VBoxContainer/CenterContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile" to="SaveFiles" method="_on_save_file_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile2" to="SaveFiles" method="_on_save_file_2_pressed"]

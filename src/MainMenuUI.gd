@@ -1,8 +1,10 @@
 extends Control
 
+signal menu_closed()
+
 @onready var main := $Main
-@onready var save_load := $SaveLoad
 @onready var new_game_load := $NewGameLoad
+@onready var save_load := $SaveLoad
 @onready var credits := $Credits
 @onready var save_files := $SaveFiles
 @onready var confirmation_panel := $ConfirmationPanel
@@ -22,6 +24,7 @@ func close_main_menu() -> void:
 	visible = false
 	main_menu_hitbox.disabled = true
 	get_tree().paused = false
+	emit_signal("menu_closed")
 
 
 func open_main_menu() -> void:
@@ -31,32 +34,32 @@ func open_main_menu() -> void:
 
 func go_to_main() -> void:
 	main.visible = true
-	save_load.visible = false
 	new_game_load.visible = false
+	save_load.visible = false
 	credits.visible = false
 	save_files.visible = false
 	confirmation_panel.visible = false
 
 func go_to_save_load() -> void:
 	main.visible = false
-	save_load.visible = true
 	new_game_load.visible = false
+	save_load.visible = true
 	credits.visible = false
 	save_files.visible = false
 	confirmation_panel.visible = false
 
 func go_to_new_game_load() -> void:
 	main.visible = false
-	save_load.visible = false
 	new_game_load.visible = true
+	save_load.visible = false
 	credits.visible = false
 	save_files.visible = false
 	confirmation_panel.visible = false
 
 func go_to_credits() -> void:
 	main.visible = false
-	save_load.visible = false
 	new_game_load.visible = false
+	save_load.visible = false
 	credits.visible = true
 	save_files.visible = false
 	confirmation_panel.visible = false
@@ -65,8 +68,8 @@ func go_to_save_files(is_new_game: bool, is_save_game: bool) -> void:
 	save_files.is_new_game = is_new_game
 	save_files.is_save_game = is_save_game
 	main.visible = false
-	save_load.visible = false
 	new_game_load.visible = false
+	save_load.visible = false
 	credits.visible = false
 	save_files.visible = true
 	confirmation_panel.visible = false
