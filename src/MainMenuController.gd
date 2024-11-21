@@ -74,4 +74,5 @@ func _on_main_menu_ui_menu_closed():
 	get_tree().paused = false
 	static_ui_container.visible = true
 	user_input_ui.visible = true
-	shelf.visible = true
+	if Events.finished_events.has("DialogueKindPerson_Done"):
+		shelf.visible = true

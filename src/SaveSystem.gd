@@ -94,7 +94,15 @@ func load_game(slot_num : int = 0, in_game : bool = false) -> void:
 	
 	Events.finished_events = data["finished_events"]
 	
+	var quest_ui := get_tree().get_root().get_node("Demo/StaticUIContainer/Viewport2Din3D/Viewport/StaticUI/QuestTrackerUI")
+	
+	quest_ui.clear_quests()
+	
 	var quests := get_tree().get_root().get_node("Demo/Quests")
+	
+	for quest in quests.get_children():
+		quest.free()
+	
 	for quest in data["ongoing_quests"]:
 		quests.add_active_quest(quest)
 	

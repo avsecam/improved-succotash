@@ -350,14 +350,14 @@ color_ramp = SubResource("GradientTexture1D_ipxr7")
 resource_local_to_scene = true
 size = Vector2(200, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ww2uw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_intj7"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bp4u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmmfa"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_ww2uw")
+albedo_texture = SubResource("ViewportTexture_intj7")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nn2a6"]
@@ -452,6 +452,9 @@ target = NodePath("../../../SliderBody/HandleMesh/GrabPointHandRight")
 [node name="kk_modified_forge_bellow" parent="." instance=ExtResource("11_leocm")]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.781717, -0.280841, -0.0033728)
 
+[node name="Fuelle" parent="kk_modified_forge_bellow" index="0"]
+blend_shapes/FuellePush = 0.44755
+
 [node name="Crucible_Empty2" parent="." instance=ExtResource("13_nv1xr")]
 transform = Transform3D(0.15, 0, 0, 0, 0.062, 0, 0, 0, 0.15, -0.0028538, 0.140216, 0.00310017)
 
@@ -485,7 +488,7 @@ tint_progress = Color(0, 0.968627, 0.831373, 1)
 
 [node name="Screen" parent="FlameHeatView/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_wba4x")
-surface_material_override/0 = SubResource("StandardMaterial3D_5bp4u")
+surface_material_override/0 = SubResource("StandardMaterial3D_pmmfa")
 
 [node name="CollisionShape3D" parent="FlameHeatView/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_nn2a6")

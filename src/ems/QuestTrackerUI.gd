@@ -24,6 +24,10 @@ func _add_quest(quest_name) -> void:
 	new_quest.initialize_quest_ui(quest_name, Events.quest_library[quest_name]["Quest_Completion_Tracker"])
 	visible = true
 
+func clear_quests() -> void:
+	for quest in quest_container.get_children():
+		quest.free()
+	visible = false
 
 func _remove_quest(quest_name) -> void:
 	for quest in quest_container.get_children():
