@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://movlb5yi80x4"]
+[gd_scene load_steps=15 format=3 uid="uid://movlb5yi80x4"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_f36t3"]
 [ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_8nuf8"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="6_itvg3"]
 [ext_resource type="PackedScene" uid="uid://ciiwok353lla6" path="res://src/assets/C4/Forge_Bellows_Fixed.tscn" id="7_tjxov"]
 [ext_resource type="PackedScene" uid="uid://bd8esgu6u364l" path="res://src/assets/C4/tongs_one_hand.tscn" id="8_8yr38"]
+[ext_resource type="PackedScene" uid="uid://c3kx8fai7jyqs" path="res://src/ois/small_ingot.tscn" id="9_kakas"]
+[ext_resource type="PackedScene" uid="uid://cwypgvwd2no7o" path="res://src/ois/small_crucible.tscn" id="10_fqv4q"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="41_tbdcw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
@@ -141,10 +143,10 @@ autoplay = true
 wait_time = 3.0
 
 [node name="Table" parent="." instance=ExtResource("6_itvg3")]
-transform = Transform3D(-4.37114e-08, 0, 0.675, 0, 1, 0, -1, 0, -2.95052e-08, 0.0667875, -1.33332, 0.946189)
+transform = Transform3D(-2.57897e-08, 0, 0.675, 0, 1, 0, -0.59, 0, -2.95052e-08, 0.0667875, -1.33332, 0.779557)
 
 [node name="tongs_one_hand" parent="." instance=ExtResource("8_8yr38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135695, -0.339254, 0.928216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135695, -0.339254, 0.768115)
 
 [node name="ForgeOnTop" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.446912, -1.38975, -1.1831)
@@ -172,3 +174,9 @@ shape = SubResource("BoxShape3D_8ajmg")
 
 [node name="Bellows" parent="." instance=ExtResource("7_tjxov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141782, -0.384209, -1.15476)
+
+[node name="small_ingot" parent="." instance=ExtResource("9_kakas")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0268135, -0.46803, 0.763123)
+
+[node name="small_crucible" parent="." instance=ExtResource("10_fqv4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.229215, -0.468235, 0.75504)
