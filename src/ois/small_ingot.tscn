@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c3kx8fai7jyqs"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_olte0"]
+[ext_resource type="Script" path="res://src/ois/small_ingot.gd" id="1_7gvyj"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_1wwi7"]
 [ext_resource type="PackedScene" uid="uid://belyjmlpo6t2y" path="res://src/assets/C4/Iron_ingot.glb" id="2_dxvip"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_1u1hd"]
@@ -23,10 +23,10 @@ open_pose = ExtResource("7_uao2h")
 closed_pose = ExtResource("7_uao2h")
 
 [node name="small_ingot" type="RigidBody3D" groups=["ingot"]]
-collision_layer = 4
+collision_layer = 8388612
 collision_mask = 196615
 freeze_mode = 1
-script = ExtResource("1_olte0")
+script = ExtResource("1_7gvyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0055664, 0, 0.0114563)

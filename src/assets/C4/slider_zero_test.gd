@@ -11,6 +11,10 @@ extends Node3D
 @onready var flame_heat_view = $FlameHeatView
 @onready var bar_shade = $"FlameHeatView/Viewport2Din3D/Viewport/Progress Circle2/ProgressCircleComponent"
 
+signal crucible_in_forge
+signal crucible_removed
+signal enough_heat_in_forge
+signal not_enough_heat_in_forge
 
 var keyval : float
 var keyval_check : bool
@@ -55,11 +59,20 @@ func _physics_process(delta):
 		
 	if heat_level >= 70:
 		bar_shade.set("tint_progress", Color8(0,255,215))
+		enough_heat_in_forge.emit()
 	else:
 		bar_shade.set("tint_progress", Color8(255,170,160))
+		not_enough_heat_in_forge.emit()
 	
 	if heat_level > 0:
 		heat_level -= 0.06
 	
 	flame_heat_view.change_progress_value(heat_level)
 	
+
+func _on_forge_snap_zone_has_picked_up(what):
+	crucible_in_forge.emit()
+
+
+func _on_forge_snap_zone_has_dropped():
+	crucible_removed.emit()

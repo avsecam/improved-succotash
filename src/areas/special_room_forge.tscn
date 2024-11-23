@@ -180,3 +180,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.026
 
 [node name="small_crucible" parent="." instance=ExtResource("10_fqv4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.229215, -0.468235, 0.75504)
+picked_by_require = "tongs"
+
+[connection signal="crucible_in_forge" from="Bellows" to="small_crucible" method="_on_bellows_crucible_in_forge"]
+[connection signal="crucible_removed" from="Bellows" to="small_crucible" method="_on_bellows_crucible_removed"]
+[connection signal="enough_heat_in_forge" from="Bellows" to="small_crucible" method="_on_bellows_enough_heat_in_forge"]
+[connection signal="not_enough_heat_in_forge" from="Bellows" to="small_crucible" method="_on_bellows_not_enough_heat_in_forge"]

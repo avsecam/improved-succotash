@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cwypgvwd2no7o"]
+[gd_scene load_steps=53 format=3 uid="uid://cwypgvwd2no7o"]
 
 [ext_resource type="Script" path="res://src/ois/small_crucible.gd" id="1_8wdci"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_8t8t3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_l4687"]
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="7_tryyo"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="8_lbqtt"]
+[ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="13_w3gyc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fww2x"]
 size = Vector3(0.0724243, 0.0812866, 0.0721314)
@@ -272,7 +273,13 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_x8khj"]
 curve = SubResource("Curve_38850")
 
+[sub_resource type="Curve" id="Curve_sl68e"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_hbsbo"]
+curve = SubResource("Curve_sl68e")
 
 [sub_resource type="Curve" id="Curve_w81y4"]
 min_value = -2.0
@@ -316,7 +323,7 @@ radius = 0.05
 
 [node name="small_crucible" type="RigidBody3D" groups=["crucible"]]
 collision_layer = 4
-collision_mask = 196615
+collision_mask = 65543
 freeze_mode = 1
 script = ExtResource("1_8wdci")
 
@@ -331,10 +338,10 @@ transform = Transform3D(0.034, 0, 0, 0, 0.034, 0, 0, 0, 0.034, 0, 0, 0)
 
 [node name="Iron_ingot" parent="MainMesh" instance=ExtResource("3_sfpmw")]
 transform = Transform3D(9.55343e-17, 2.18557e-09, -0.05, 0.0485898, 0.011791, 5.15402e-10, 0.011791, -0.0485898, -2.12393e-09, -0.000140119, 0.0646322, 0.00557506)
-visible = false
 
 [node name="MeltedIron" type="MeshInstance3D" parent="MainMesh"]
 transform = Transform3D(0.055, 0, 0, 0, 0.02, 0, 0, 0, 0.055, 0, 0.0415943, 0)
+visible = false
 mesh = SubResource("CylinderMesh_tg5pp")
 surface_material_override/0 = SubResource("StandardMaterial3D_xee6o")
 
@@ -370,8 +377,11 @@ hand_pose = SubResource("Resource_1783t")
 editor_preview_mode = 1
 
 [node name="CrucibleSnapZone" parent="." instance=ExtResource("8_lbqtt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16148, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00150196, 0.0812479, -0.00384314)
+collision_layer = 8388612
+collision_mask = 65538
 grab_distance = 0.05
+snap_require = "ingot"
 
 [node name="CollisionShape3D" parent="CrucibleSnapZone" index="0"]
 shape = SubResource("SphereShape3D_12ec1")
@@ -383,6 +393,11 @@ visible = false
 
 [node name="Crucible_Empty3" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_wxr7r")]
 transform = Transform3D(0.034, 0, 0, 0, 0.034, 0, 0, 0, 0.034, 0.00297409, 0.00275671, -0.00169337)
+
+[node name="Progress View" parent="." instance=ExtResource("13_w3gyc")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.271301, 0)
+
+[connection signal="has_picked_up" from="CrucibleSnapZone" to="." method="_on_crucible_snap_zone_has_picked_up"]
 
 [editable path="MainMesh/Iron_ingot"]
 [editable path="CrucibleSnapZone"]
