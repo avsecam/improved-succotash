@@ -1,2063 +1,2178 @@
 [
-	{
-		"Event_Name": "BGMPlayerOutside",
-		"Event_Category": "BGM",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3)",
-		"Loop_Audio": true,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "BGMPlayerInA1",
-		"Event_Category": "BGM",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "02 - Maintenance Workshop (A-1, C-4)",
-		"Loop_Audio": true,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueLookAtMe",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialogueLookAtMe_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_01_HelloMe",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "???",
-			"dialogue": {
-				"Hello! Are you a visitor? Can you see me?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionLookAtMarbleSpirit",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueLookAtMe_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionLookAtMarbleSpirit_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_02_HeyHere",
-		"Loop_Audio": true,
-		"Loop_Interval": 3,
-		"Event_Text": {
-			"npc_name": "???",
-			"dialogue": {
-				"HEY! I'm Here! Look Over Here!": 0
-			}
-		},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "DialogueGateIsLocked",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionLookAtMarbleSpirit_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueGateIsLocked_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"The gate up ahead is locked. You'll need this to open it!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPickUpKey",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueGateIsLocked_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPickUpKey_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_04_GoKey",
-		"Loop_Audio": true,
-		"Loop_Interval": 3,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Go on, pick up the key!": 0
-			}
-		},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "DialogueKindPerson",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPickUpKey_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueKindPerson_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_05_YoureYou",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"You're a kind person, aren't you? I know because there's an earth spirit following you.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPutKeyInventory",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueKindPerson_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPutKeyInventory_Done",
-			"KeyInInventory"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_06_SinceYou",
-		"Loop_Audio": true,
-		"Loop_Interval": 3,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Since you don't have a bag, why not let the earth spirit carry that key for you?": 0
-			}
-		},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionFollowMarbleSpirit",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPutKeyInventory_Done",
-			"KeyInInventory"
-		],
-		"Event_Completion_Flags": [
-			"ActionFollowMarbleSpirit_Done",
-			"WaypointToTut3_Open"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_07_Now_Me",
-		"Loop_Audio": true,
-		"Loop_Interval": 3,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Now, please follow me!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueIntroduceCat",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionFollowMarbleSpirit_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueIntroduceCat_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_11_HeyIt",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Hey, it's the nice kitty from the museum! Hi there! ... Hm? Sure, I'll translate. The cat says it wants you to pet it.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPetTheCat",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueIntroduceCat_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPetTheCat_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_12_DontCat",
-		"Loop_Audio": true,
-		"Loop_Interval": 3,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Don't be scared. Go ahead and pet the cat.": 0
-			}
-		},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionGetCatPicture",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPetTheCat_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionGetCatPicture_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_13_TheAsk",
-		"Loop_Audio": true,
-		"Loop_Interval": 3,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"The cat says it's giving you that picture, but it also has a favor to ask.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueItWillAnAdventure",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionGetCatPicture_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueItWillAnAdventure_Done",
-			"WaypointToGate_Open"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_14_WhatAdventure",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"What? Oh, no! The cat said its friend is lost in the museum somewhere. Strange things have been happening there lately, so we should find the missing cat as soon as we can. Come on, it'll be a fun adventure!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueTheresTheGate",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueItWillAnAdventure_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueTheresTheGate_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_08_TheresIt",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"There's the gate. Use the key from earlier to open it!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionUseTheKey",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPickUpKey_Done",
-			"DialogueTheresTheGate_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionUseTheKey_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_09_ItsIt",
-		"Loop_Audio": true,
-		"Loop_Interval": 3,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"It's not a card key, so you'll have to turn the key after inserting it.": 0
-			}
-		},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "DialogueLetsGo",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionUseTheKey_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueLetsGo_Done"
-		],
-		"Event_Audio": "VE_VO_ZT_MRBLSPRT_10_GreatGo",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Great job! Let's go!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueHeyNewbie",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueLetsGo_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueHeyNewbie_Done"
-		],
-		"Event_Audio": "VE_VO_A1_ASST_01_HeyUp",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"Hey, newbie! Yes, you! We're bringing the Calandra out soon, so go polish the rods and clean the glass windows! Everything you need should be on the table there. Hurry up!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialoguePolishRodsCleanWindows",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueHeyNewbie_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialoguePolishRodsCleanWindows_Done",
-			"WaypointToAQuest_Open"
-		],
-		"Event_Audio": "VE_VO_A1_MRBLSPRT_01_ComeWindows",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Come on! Let's go polish those rods and clean those windows!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "JournalCalandraOfSanto",
-		"Event_Category": "JOURNAL",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"JournalCalandraOfSanto_Read",
-			"WaypointToMid8_Open"
-		],
-		"Event_Audio": "VE_VO_A1_ASST_02_TheProcession",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"The Calandra of Santo Entierro, or the Bier of Holy Burial, is brought out every Good Friday for a procession. Preparations for this, such as conditioning and other maintenance work on the float, are done a few days prior.": 0,
-				"This symbol of hope and faith in Jesus Christ was donated by the Kilatis family and was restored by Conrado Escudero in the 1960’s. \nDevotees believe that it will grant their wishes if they are able to touch it while participating in the procession.": 14
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionLookAtFireSpirit",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueHeyNewbie_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionLookAtFireSpirit_Done"
-		],
-		"Event_Audio": "VE_VO_A1_MRBLSPRT_02_WhatsHere",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"What's an elemental spirit doing here?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionUseNormalRagOnly",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_A1_MRBLSPRT_05_ThisUse",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"This isn't working.  Wasn't there anything on the shelf that we could use?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionUsePolishOnRod",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_A1_MRBLSPRT_04_TheFirst",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"The instructions say you're supposed to apply polish to the cloth first.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionUseOiledRagOnWindow",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_A1_MRBLSPRT_08_HeyRag",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Hey! Use a clean rag!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionUseSprayOnRag",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_A1_MRBLSPRT_07_TheCloth",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"The instructions say you're supposed to spray the glass, not the cloth.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionInteractWithFireSpirit",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionLookAtFireSpirit_Done",
-			"QuestPolishRodsCleanWindows_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionInteractWithFireSpirit_Done"
-		],
-		"Event_Audio": "VE_VO_A1_MRBLSPRT_06_TheBack",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"The fire spirit is saying something! ... Oh, we'd appreciate that. Thank you! Hey, the fire spirit said it wants to help us find the lost cat. Isn't that great? Come on, we should head back!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPolishRod1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueHeyNewbie_Done",
-			"DialoguePolishRodsCleanWindows_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPolishRod1_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionPolishRod2",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueHeyNewbie_Done",
-			"DialoguePolishRodsCleanWindows_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPolishRod2_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionCleanWindow1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueHeyNewbie_Done",
-			"DialoguePolishRodsCleanWindows_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionCleanWindow1_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionCleanWindow2",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueHeyNewbie_Done",
-			"DialoguePolishRodsCleanWindows_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionCleanWindow2_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionCleanWindow3",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueHeyNewbie_Done",
-			"DialoguePolishRodsCleanWindows_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionCleanWindow3_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionPutRag1Inventory",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionPutRag1Inventory_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPutRag2Inventory",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionPutRag2Inventory_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionOiledRag",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionOiledRag_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueChurchHasStood",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialogueChurchHasStood_Done"
-		],
-		"Event_Audio": "VE_VO_A2_ASST_01_ThisCursed",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"This church has stood for hundreds of years. Why did this happen? Who would do such a horrible thing? Was it cursed?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueLingeringMalice",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueChurchHasStood_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueLingeringMalice_Done"
-		],
-		"Event_Audio": "VE_VO_A2_MRBLSPRT_01_iMuseum",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"I can sense some kind of lingering malice here. We should dispel it before it spreads to the museum!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPickUpHolyWater",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueLingeringMalice_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPickUpHolyWater_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPurifyWoodenPillar1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPickUpHolyWater_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPurifyWoodenPillar1_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionPurifyWoodenPillar2",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPickUpHolyWater_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPurifyWoodenPillar2_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionPurifyWoodenPillar3",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPickUpHolyWater_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPurifyWoodenPillar3_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionLookAtUndamagedPart",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"QuestPurifyTheMuseum_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionLookAtUndamagedPart_Done"
-		],
-		"Event_Audio": "VE_VO_A2_MRBLSPRT_02_WowThere",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Wow! See that rectangular spot on the wall? Whatever was placed there must have been quite the sacred relic. Let's look for it and put it back there.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPickUpRelic",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionPickUpRelic_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionPlaceRelicOnUndamagedPart",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionLookAtUndamagedPart_Done",
-			"ActionPickUpRelic_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPlaceRelicOnUndamagedPart_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "DialogueWhatIsThis",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"QuestPurifyTheMuseum_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueWhatIsThis_Done"
-		],
-		"Event_Audio": "VE_VO_A3_MRBLSPRT_01_WhatDistortion",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"What IS this? Some kind of magical distortion?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionUnlockLockbox",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueWhatIsThis_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionUnlockLockbox_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionPickUpHammer",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionUnlockLockbox_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPickUpHammer_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionSmashDistortionCrystal",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueWhatIsThis_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionSmashDistortionCrystal_Done"
-		],
-		"Event_Audio": "VE_VO_A3_MRBLSPRT_02_WeSource",
-		"Loop_Audio": true,
-		"Loop_Interval": 3,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"We should be able to erase the distortion by destroying its source!": 0
-			}
-		},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionGetCatIcon1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"QuestPolishRodsCleanWindows_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionGetCatIcon1_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionGetCatIcon2",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"QuestPurifyTheMuseum_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionGetCatIcon2_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionGetCatIcon3",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"QuestDestroyTheDistortionCrystal_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionGetCatIcon3_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPlaceCatIcon1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionGetCatIcon1_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPlaceCatIcon1_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionPlaceCatIcon2",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionGetCatIcon2_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPlaceCatIcon2_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionPlaceCatIcon3",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionGetCatIcon3_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPlaceCatIcon3_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "DialoguePowerPlantInstructions",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialoguePowerPlantInstructions_Done"
-		],
-		"Event_Audio": "VE_VO_B1_ASST_01_FinallyUp",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"Finally, you're here! We've received instructions to shut down the power plant. Hurry up!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueMarblePPlantReminder",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": ["DialoguePowerPlantInstructions_Done"],
-		"Event_Completion_Flags": [
-			"DialogueMarblePPlantReminder_Done"
-		],
-		"Event_Audio": "VE_VO_B1_MRBLSPRT_01_ThisRight",
-		"Loop_Audio": false,
-		"Loop_Interval": 15,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"This power plant looks really old. You were asked to shut it down, right?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionLookAtWaterSpiritB1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialoguePowerPlantInstructions_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionLookAtWaterSpiritB1_Done"
-		],
-		"Event_Audio": "VE_VO_A1_MRBLSPRT_02_WhatsHere",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"What's an elemental spirit doing here?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "JournalDonPlacidoEscuderoDam",
-		"Event_Category": "JOURNAL",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"JournalDonPlacidoEscuderoDam_Read"
-		],
-		"Event_Audio": "VE_VO_B1_ASST_02_OriginallyDown",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"Originally a dam built in 1872 for irrigation purposes, the Don Placido Escudero dam was rebuilt two more times\n - once in 1904 out of sturdier materials by Don Placido Escudero and Doña Claudia Marasigan,": 0,
-				"and then again in 1937 by Don Arsenio Escudero and Doña Rosario Adap not only for irrigation but also for a hydroelectric power plant that began operation in the same year. \nThe Arsenio Escudero Hydroelectric Power Plant was upgraded in the 1990's, and continued to provide power for Villa Escudero up to 2023 before it was shut down.": 16
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionInteractWaterSpiritB1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionLookAtWaterSpiritB1_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionInteractWaterSpiritB1_Done"
-		],
-		"Event_Audio": "VE_VO_B1_MRBLSPRT_02_HiSearch",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Hi, water spirit! How are you? ... Of course! Thank you! \nHey, the water spirit said it wants to help us look for the lost cat. Let's return to the museum and continue the search!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionInteractPPlantSwitch",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionInteractWaterSpiritB1_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionInteractPPlantSwitch_Done"
-		],
-		"Event_Audio": "VE_VO_B1_MRBLSPRT_03_StopMacho",
-		"Loop_Audio": false,
-		"Loop_Interval": 15,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Stop trying to be so macho!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionReturnTileToSnapZone",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionInteractPPlantSwitch_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionReturnTileToSnapZone_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueLunchFoodPrep",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialogueLunchFoodPrep_Done"
-		],
-		"Event_Audio": "VE_VO_B2_ASST_01_GoodPreparations",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"Good, you're here! It's almost time for lunch. Please help with food preparations!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueLunchGetCooking",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueLunchFoodPrep_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueLunchGetCooking_Done"
-		],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_01_WhatCooking",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"What are you waiting for? Let's get cooking!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueLunchFoodEnjoy",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialogueLunchFoodEnjoy_Done"
-		],
-		"Event_Audio": "VE_VO_B2_ASST_02_iCulture",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"I heard that many of our guests really enjoyed the food that is served here. \nAcharang papaya, kalabasa soup, and lechon manok - these are but a few of the family heirloom recipes that me and the others were taught how to cook. \nMealtime in Villa Escudero is sure to include all this food on the menu... as a testament to Filipino culinary culture.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPickUpKnife",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueLunchFoodEnjoy_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPickUpKnife_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionChopGarlic",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionAfterChickenSkewer_Done",
-			"ActionMixKalabasaSoup_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionChopGarlic_Done"
-		],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_02_ChopGarlicMore",
-		"Loop_Audio": true,
-		"Loop_Interval": 15,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Chop the garlic up some more!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionChopOnion",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionAfterChickenSkewer_Done",
-			"ActionMixKalabasaSoup_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionChopOnion_Done"
-		],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_03_ChopMore",
-		"Loop_Audio": true,
-		"Loop_Interval": 15,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Chop it up some more!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionChopKalabasa",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionAfterChickenSkewer_Done",
-			"ActionPickUpKnife_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionChopKalabasa_Done"
-		],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_03_ChopMore",
-		"Loop_Audio": true,
-		"Loop_Interval": 15,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Chop it up some more!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPutChickenPole1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueLunchFoodEnjoy_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPutChickenPole1_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPutChickenPole2",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueLunchFoodEnjoy_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPutChickenPole2_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionAfterChickenSkewer",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPutChickenPole1_Done",
-			"ActionPutChickenPole2_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionAfterChickenSkewer_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPutKalabasaInPot",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionChopKalabasa_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPutKalabasaInPot_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionMixKalabasaSoup",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPutKalabasaInPot_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionMixKalabasaSoup_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionGratePapaya",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionAfterChickenSkewer_Done",
-			"ActionMixKalabasaSoup_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionGratePapaya_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionAddAtcharaIngredientsOnion",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionChopGarlic_Done",
-			"ActionChopOnion_Done",
-			"ActionGratePapaya_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionAddAtcharaIngredientsOnion_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionAddAtcharaIngredientsGarlic",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionChopGarlic_Done",
-			"ActionChopOnion_Done",
-			"ActionGratePapaya_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionAddAtcharaIngredientsGarlic_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionAddAtcharaIngredientsPapaya",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionChopGarlic_Done",
-			"ActionChopOnion_Done",
-			"ActionGratePapaya_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionAddAtcharaIngredientsPapaya_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionAllAtcharaIngredients",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionAddAtcharaIngredientsOnion_Done",
-			"ActionAddAtcharaIngredientsGarlic_Done",
-			"ActionAddAtcharaIngredientsPapaya_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionAllAtcharaIngredients_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPutSabaInPan",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionAddAtcharaIngredientsOnion_Done",
-			"ActionAddAtcharaIngredientsGarlic_Done",
-			"ActionAddAtcharaIngredientsPapaya_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPutSabaInPan_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionFinishSabaCooking",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPutSabaInPan_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionFinishSabaCooking_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPutCookedSabaInPlate",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionFinishSabaCooking_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPutCookedSabaInPlate_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPoleOnlyRoast",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_04_ShouldntFirst",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Shouldn't you skewer both chickens first?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionOneChickenPoleRoast",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_04_ShouldntFirst",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Shouldn't you skewer both chickens first?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionSabaBananaNoFire",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_05_LightFirst",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Light a fire first!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionSabaBananaNoOil",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_06_YouFried",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"You put the bananas there after they're deep-fried!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionInteractFriedSaba",
-		"Event_Category": "ACTION",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [],
-		"Event_Audio": "VE_VO_B2_MRBLSPRT_07_StopYourself",
-		"Loop_Audio": false,
-		"Loop_Interval": "",
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Stop! You'll burn yourself!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionCookingFinished",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionChopGarlic_Done",
-			"ActionChopOnion_Done",
-			"ActionChopKalabasa_Done",
-			"ActionRoastChicken_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionCookingFinished_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionSkewerChicken1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionSkewerChicken1_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionSkewerChicken2",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionSkewerChicken2_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionRoastChicken",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionSkewerChicken1_Done",
-			"ActionSkewerChicken2_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionRoastChicken_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialoguePaintingsTransfer",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialoguePaintingsTransfer_Done"
-		],
-		"Event_Audio": "VE_VO_B3_ASST_01_WeIt",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"We transferred the paintings here as instructed, but I was just told that one of the paintings is still on the artist's easel! Please find it!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialoguePaintingsReminder",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialoguePaintingsTransfer_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialoguePaintingsReminder_Done"
-		],
-		"Event_Audio": "VE_VO_B3_MRBLSPRT_01_TheresRight",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"There's lots of paintings here, but we're looking for one that's on an easel and not on a wall, right?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueLookAtCanvasPainting",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialoguePaintingsReminder_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueLookAtCanvasPainting_Done"
-		],
-		"Event_Audio": "VE_VO_B3_MRBLSPRT_03_iNow",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"I thought we're looking for a painting, but this is a blank canvas! What do we do now?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionLookAtCanvasPainting",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueLookAtCanvasPainting_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionLookAtCanvasPainting_Done"
-		],
-		"Event_Audio": "VE_VO_B3_MRBLSPRT_02_UhSomething",
-		"Loop_Audio": true,
-		"Loop_Interval": 5,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Uh... Maybe we should paint something?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueAssistantPaintings",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialogueAssistantPaintings_Done"
-		],
-		"Event_Audio": "VE_VO_B3_ASST_02_The1980s",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"The portraits you see here were made by various amateur painters from the CALABARZON region. \nThey have been housed in the Arsenio Escudero and Rosario Adap museum since the collection was donated to the Escudero family in the 1980's.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPaintOnCanvas",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionLookAtCanvasPainting_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionPaintOnCanvas_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionInteractPaintedCanvas",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"ActionPaintOnCanvas_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionInteractPaintedCanvas_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "JournalTheCarossaLastSupper",
-		"Event_Category": "JOURNAL",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"JournalTheCarossaLastSupper_Read",
-			"WaypointToMid4_Open"
-		],
-		"Event_Audio": "VE_VO_A3_ASST_01_This1990s",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"This carossa depicting the Last Supper is one of the biggest in the procession. Each figure in this life-sized work of art was created by a different sculptor. \nThe museum became its home after it was donated by the Potenciano family to the Arsenio Escudero Rosario Adap Foundation in the 1990s.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "JournalTheTurumba",
-		"Event_Category": "JOURNAL",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"JournalTheTurumba_Read",
-			"WaypointToMid3_Open"
-		],
-		"Event_Audio": "VE_VO_A2_ASST_02_On1778",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"On September 12, 1788, a wooden frame containing an image of the mother of God was found floating in the Laguna de Bay. The fishermen that discovered it tried to retrieve it, but they could not, for it was so heavy that they had to leave it in order to continue fishing that Friday. \nThen, on the following Sunday, a group of women found it and tried to retrieve it as well. However, despite the image itself being fairly small, not even Mariangga, the strongest of them, could lift it. \nSoon, the priest and practically everyone attending Mass at the time went to retrieve the image. It was only then that they managed to lift the icon, and the singing and dancing that followed became the first Turumba, held on September 14, 1788.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueDocumentsOnFloor",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialogueDocumentsOnFloor_Done"
-		],
-		"Event_Audio": "VE_VO_C2_ASST_01_WhatOut",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"What a mess! Why are all these documents on the floor? Please pick them up and sort them out.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueReminderGrabPaper",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueDocumentsOnFloor_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueReminderGrabPaper_Done"
-		],
-		"Event_Audio": "VE_VO_C2_MRBLSPRT_01_ThisThem",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"This place is so messy! Let's grab those papers on the floor and organize them!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "JournalHermanoPuleExhibit",
-		"Event_Category": "JOURNAL",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"JournalHermanoPuleExhibit_Read"
-		],
-		"Event_Audio": "VE_VO_C2_ASST_02_The1923",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"The Hermano Pule exhibit, which opened on March 15, 2017, is the result of a partnership between Villa Escudero and the National Archives of the Philippines. Here you will find replicas of letters written by the religious leader of the Cofradía de San José.": 0,
-				"By the way, did you know the Arsenio Escudero and Rosario Adap museum also houses a collection of love letters exchanged between the couple that the museum is named after? Don Arsenio Escudero and Doña Rosario Adap exchanged these letters during the 1920's, before they got married in 1923.": 18
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionArrangeDocuments",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueDocumentsOnFloor_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionArrangeDocuments_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueWhoaCool",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"DialogueWhoaCool_Done"
-		],
-		"Event_Audio": "VE_VO_C3_MRBLSPRT_01_WhoaCool",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"Whoa, where are we? This is so cool!": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "DialogueTheresPartsShip",
-		"Event_Category": "DIALOGUE",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueWhoaCool_Done"
-		],
-		"Event_Completion_Flags": [
-			"DialogueTheresPartsShip_Done"
-		],
-		"Event_Audio": "VE_VO_C3_MRBLSPRT_02_TheresParts",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Marble Spirit",
-			"dialogue": {
-				"There's a box for a model ship on the table, but where are the parts?": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "JournalHermanoPuleShip",
-		"Event_Category": "JOURNAL",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"JournalHermanoPuleShip_Read"
-		],
-		"Event_Audio": "VE_VO_C3_ASST_01_ThisQuezon",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"This is a model of the ship that Hermano Pule and some members of the Cofradía de San José used to escape the Spanish government. While this attempt was successful, Hermano was still eventually caught and executed. \nHermano Pule's death anniversary, which is on November 4, is a holiday in Quezon.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionShipAssemblyComplete",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"DialogueTheresPartsShip_Done"
-		],
-		"Event_Completion_Flags": [
-			"ActionShipAssemblyComplete_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionCleanDirtFromHint",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionCleanDirtFromHint_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionPurifyHint",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionPurifyHint_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionStartCatIconQuest",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionStartCatIconQuest_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "ActionLookAtTheButterflies1",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"JournalLookAtTheButterflies_Read"
-		],
-		"Event_Completion_Flags": [
-			"ActionLookAtTheButterflies1_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionLookAtTheButterflies2",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"JournalLookAtTheButterflies_Read"
-		],
-		"Event_Completion_Flags": [
-			"ActionLookAtTheButterflies2_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionLookAtTheButterflies3",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"JournalLookAtTheButterflies_Read"
-		],
-		"Event_Completion_Flags": [
-			"ActionLookAtTheButterflies3_Done"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "ActionInputNumberSequence",
-		"Event_Category": "ACTION",
-		"Oneshot": true,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"ActionInputNumberSequence_Done",
-			"WaypointUpStairs_Open"
-		],
-		"Event_Audio": "",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {},
-		"Play_Success_SFX": true
-	},
-	{
-		"Event_Name": "BGMPlayerInA3",
-		"Event_Category": "BGM",
-		"Oneshot": true,
-		"Event_Prerequisites": [
-			"QuestPurifyTheMuseum_Done"
-		],
-		"Event_Completion_Flags": [
-			"BGMPlayerInA3_Done"
-		],
-		"Event_Audio": "04 - Dungeon Cell (A-3, B-4) (loop at 4s)",
-		"Loop_Audio": true,
-		"Loop_Interval": 192000,
-		"Event_Text": {},
-		"Play_Success_SFX": false
-	},
-	{
-		"Event_Name": "JournalLookAtTheButterflies",
-		"Event_Category": "JOURNAL",
-		"Oneshot": false,
-		"Event_Prerequisites": [],
-		"Event_Completion_Flags": [
-			"JournalLookAtTheButterflies_Read",
-			"WaypointToLeft2_Open"
-		],
-		"Event_Audio": "VE_VO_B4_ASST_01_DuringWorld",
-		"Loop_Audio": false,
-		"Loop_Interval": 0,
-		"Event_Text": {
-			"npc_name": "Assistant",
-			"dialogue": {
-				"During her travels to various parts of the world, Doña Rosario Adap Escudero brought preserved butterflies with her and traded them for other insects and butterflies. The result is the insect collection in the Arsenio Escudero and Rosario Adap museum. Visitors are allowed and encouraged to look inside the drawers, which are actually part of the exhibit and contain more wonders to behold from the insect world.": 0
-			}
-		},
-		"Play_Success_SFX": false
-	}
+    {
+        "Event_Name": "BGMPlayerOutside",
+        "Event_Category": "BGM",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "01 - Outside (Tutorial), Waterfall Area (B-2), On Boat (C-3)",
+        "Loop_Audio": true,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "BGMPlayerInA1",
+        "Event_Category": "BGM",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "02 - Maintenance Workshop (A-1, C-4)",
+        "Loop_Audio": true,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueLookAtMe",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialogueLookAtMe_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_01_HelloMe",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "???",
+            "dialogue": {
+                "Hello! Are you a visitor? Can you see me?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionLookAtMarbleSpirit",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueLookAtMe_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionLookAtMarbleSpirit_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_02_HeyHere",
+        "Loop_Audio": true,
+        "Loop_Interval": 3,
+        "Event_Text": {
+            "npc_name": "???",
+            "dialogue": {
+                "HEY! I'm Here! Look Over Here!": 0
+            }
+        },
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "DialogueGateIsLocked",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionLookAtMarbleSpirit_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueGateIsLocked_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_03_TheGateIsLocked",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "The gate up ahead is locked. You'll need this to open it!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPickUpKey",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueGateIsLocked_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPickUpKey_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_04_GoKey",
+        "Loop_Audio": true,
+        "Loop_Interval": 3,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Go on, pick up the key!": 0
+            }
+        },
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "DialogueKindPerson",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPickUpKey_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueKindPerson_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_05_YoureYou",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "You're a kind person, aren't you? I know because there's an earth spirit following you.": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPutKeyInventory",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueKindPerson_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPutKeyInventory_Done",
+            "KeyInInventory"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_06_SinceYou",
+        "Loop_Audio": true,
+        "Loop_Interval": 3,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Since you don't have a bag, why not let the earth spirit carry that key for you?": 0
+            }
+        },
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionFollowMarbleSpirit",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPutKeyInventory_Done",
+            "KeyInInventory"
+        ],
+        "Event_Completion_Flags": [
+            "ActionFollowMarbleSpirit_Done",
+            "WaypointToTut3_Open"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_07_Now_Me",
+        "Loop_Audio": true,
+        "Loop_Interval": 3,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Now, please follow me!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueIntroduceCat",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionFollowMarbleSpirit_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueIntroduceCat_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_11_HeyIt",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Hey, it's the nice kitty from the museum! Hi there!": 0,
+                "... Hm? Sure, I'll translate.": 5,
+                "The cat says it wants you to pet it.": 2
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPetTheCat",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueIntroduceCat_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPetTheCat_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_12_DontCat",
+        "Loop_Audio": true,
+        "Loop_Interval": 3,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Don't be scared. Go ahead and pet the cat.": 0
+            }
+        },
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionGetCatPicture",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPetTheCat_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionGetCatPicture_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_13_TheAsk",
+        "Loop_Audio": true,
+        "Loop_Interval": 3,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "The cat says it's giving you that picture, but it also has a favor to ask.": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueItWillAnAdventure",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionGetCatPicture_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueItWillAnAdventure_Done",
+            "WaypointToGate_Open"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_14_WhatAdventure",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "What? Oh, no!": 0,
+                "The cat said its friend is lost in the museum somewhere.": 2,
+                "Strange things have been happening there lately, so we should find the missing cat as soon as we can.": 4,
+                "Come on, it'll be a fun adventure!": 6
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueTheresTheGate",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueItWillAnAdventure_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueTheresTheGate_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_08_TheresIt",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "There's the gate. Use the key from earlier to open it!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionUseTheKey",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPickUpKey_Done",
+            "DialogueTheresTheGate_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionUseTheKey_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_09_ItsIt",
+        "Loop_Audio": true,
+        "Loop_Interval": 3,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "It's not a card key, so you'll have to turn the key after inserting it.": 0
+            }
+        },
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "DialogueLetsGo",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionUseTheKey_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueLetsGo_Done"
+        ],
+        "Event_Audio": "VE_VO_ZT_MRBLSPRT_10_GreatGo",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Great job! Let's go!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueHeyNewbie",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueLetsGo_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueHeyNewbie_Done"
+        ],
+        "Event_Audio": "VE_VO_A1_ASST_01_HeyUp",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "Hey, newbie! Yes, you! We're bringing the Calandra out soon,": 0,
+                "so go polish the rods and clean the glass windows!": 4,
+                "Everything you need should be on the table there. Hurry up!": 3
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialoguePolishRodsCleanWindows",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueHeyNewbie_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialoguePolishRodsCleanWindows_Done",
+            "WaypointToAQuest_Open"
+        ],
+        "Event_Audio": "VE_VO_A1_MRBLSPRT_01_ComeWindows",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Come on! Let's go polish those rods and clean those windows!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalCalandraOfSanto",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "JournalCalandraOfSanto_Read",
+            "WaypointToMid8_Open"
+        ],
+        "Event_Audio": "VE_VO_A1_ASST_02_TheProcession",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "The Calandra of Santo Entierro, or the Bier of Holy Burial,": 0,
+                "is brought out every Good Friday for a procession.": 4,
+                "Preparations for this, such as conditioning": 3,
+                "and other maintenance work on the float, are done a few days prior.": 3,
+                "This symbol of hope and faith in Jesus Christ": 5,
+                "was donated by the Kilatis family": 2,
+                "and was restored by Conrado Escudero in the 1960’s.": 3,
+                "Devotees believe that it will grant their wishes": 4,
+                "if they are able to touch it while participating in the procession.": 4
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionLookAtFireSpirit",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueHeyNewbie_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionLookAtFireSpirit_Done"
+        ],
+        "Event_Audio": "VE_VO_A1_MRBLSPRT_02_WhatsHere",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "What's an elemental spirit doing here?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionUseNormalRagOnly",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_A1_MRBLSPRT_05_ThisUse",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "This isn't working.  Wasn't there anything on the shelf that we could use?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionUsePolishOnRod",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_A1_MRBLSPRT_04_TheFirst",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "The instructions say you're supposed to apply polish to the cloth first.": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionUseOiledRagOnWindow",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_A1_MRBLSPRT_08_HeyRag",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Hey! Use a clean rag!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionUseSprayOnRag",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_A1_MRBLSPRT_07_TheCloth",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "The instructions say you're supposed to spray the glass, not the cloth.": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionInteractWithFireSpirit",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionLookAtFireSpirit_Done",
+            "QuestPolishRodsCleanWindows_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionInteractWithFireSpirit_Done"
+        ],
+        "Event_Audio": "VE_VO_A1_MRBLSPRT_06_TheBack",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "The fire spirit is saying something! ... Oh, we'd appreciate that. Thank you! Hey, the fire spirit said it wants to help us find the lost cat. Isn't that great? Come on, we should head back!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPolishRod1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueHeyNewbie_Done",
+            "DialoguePolishRodsCleanWindows_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPolishRod1_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionPolishRod2",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueHeyNewbie_Done",
+            "DialoguePolishRodsCleanWindows_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPolishRod2_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionCleanWindow1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueHeyNewbie_Done",
+            "DialoguePolishRodsCleanWindows_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionCleanWindow1_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionCleanWindow2",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueHeyNewbie_Done",
+            "DialoguePolishRodsCleanWindows_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionCleanWindow2_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionCleanWindow3",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueHeyNewbie_Done",
+            "DialoguePolishRodsCleanWindows_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionCleanWindow3_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionPutRag1Inventory",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionPutRag1Inventory_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPutRag2Inventory",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionPutRag2Inventory_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionOiledRag",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionOiledRag_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueChurchHasStood",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialogueChurchHasStood_Done"
+        ],
+        "Event_Audio": "VE_VO_A2_ASST_01_ThisCursed",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "This church has stood for hundreds of years.": 0,
+                "Why did this happen?": 2,
+                "Who would do such a horrible thing?": 2,
+                "Was it cursed?": 2
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueLingeringMalice",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueChurchHasStood_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueLingeringMalice_Done"
+        ],
+        "Event_Audio": "VE_VO_A2_MRBLSPRT_01_iMuseum",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "I can sense some kind of lingering malice here.": 0,
+                "We should dispel it before it spreads to the museum!": 4
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPickUpHolyWater",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueLingeringMalice_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPickUpHolyWater_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPurifyWoodenPillar1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPickUpHolyWater_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPurifyWoodenPillar1_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionPurifyWoodenPillar2",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPickUpHolyWater_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPurifyWoodenPillar2_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionPurifyWoodenPillar3",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPickUpHolyWater_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPurifyWoodenPillar3_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionLookAtUndamagedPart",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "QuestPurifyTheMuseum_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionLookAtUndamagedPart_Done"
+        ],
+        "Event_Audio": "VE_VO_A2_MRBLSPRT_02_WowThere",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Wow! See that rectangular spot on the wall? Whatever was placed there must have been quite the sacred relic. Let's look for it and put it back there.": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPickUpRelic",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionPickUpRelic_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionPlaceRelicOnUndamagedPart",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionLookAtUndamagedPart_Done",
+            "ActionPickUpRelic_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPlaceRelicOnUndamagedPart_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "DialogueWhatIsThis",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "QuestPurifyTheMuseum_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueWhatIsThis_Done"
+        ],
+        "Event_Audio": "VE_VO_A3_MRBLSPRT_01_WhatDistortion",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "What IS this? Some kind of magical distortion?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionUnlockLockbox",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueWhatIsThis_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionUnlockLockbox_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionPickUpHammer",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionUnlockLockbox_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPickUpHammer_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionSmashDistortionCrystal",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueWhatIsThis_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionSmashDistortionCrystal_Done"
+        ],
+        "Event_Audio": "VE_VO_A3_MRBLSPRT_02_WeSource",
+        "Loop_Audio": true,
+        "Loop_Interval": 3,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "We should be able to erase the distortion by destroying its source!": 0
+            }
+        },
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionGetCatIcon1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "QuestPolishRodsCleanWindows_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionGetCatIcon1_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionGetCatIcon2",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "QuestPurifyTheMuseum_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionGetCatIcon2_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionGetCatIcon3",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "QuestDestroyTheDistortionCrystal_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionGetCatIcon3_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPlaceCatIcon1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionGetCatIcon1_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPlaceCatIcon1_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionPlaceCatIcon2",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionGetCatIcon2_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPlaceCatIcon2_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionPlaceCatIcon3",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionGetCatIcon3_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPlaceCatIcon3_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "DialoguePowerPlantInstructions",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialoguePowerPlantInstructions_Done"
+        ],
+        "Event_Audio": "VE_VO_B1_ASST_01_FinallyUp",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "Finally, you're here!": 0,
+                "We've received instructions to shut down the power plant. Hurry up!": 2
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueMarblePPlantReminder",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialoguePowerPlantInstructions_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueMarblePPlantReminder_Done"
+        ],
+        "Event_Audio": "VE_VO_B1_MRBLSPRT_01_ThisRight",
+        "Loop_Audio": false,
+        "Loop_Interval": 15,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "This power plant looks really old.": 0,
+                "You were asked to shut it down, right?": 4
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionLookAtWaterSpiritB1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialoguePowerPlantInstructions_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionLookAtWaterSpiritB1_Done"
+        ],
+        "Event_Audio": "VE_VO_A1_MRBLSPRT_02_WhatsHere",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "What's an elemental spirit doing here?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalDonPlacidoEscuderoDam",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "JournalDonPlacidoEscuderoDam_Read"
+        ],
+        "Event_Audio": "VE_VO_B1_ASST_02_OriginallyDown",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "Originally a dam built in 1872 for irrigation purposes,": 0,
+                "the Don Placido Escudero dam was rebuilt two more times": 5,
+                "once in 1904 out of sturdier materials by Don Placido Escudero and Doña Claudia Marasigan,": 5,
+                "and then again in 1937 by Don Arsenio Escudero and Doña Rosario Adap": 8,
+                "not only for irrigation but also for a hydroelectric power plant that began operation in the same year.": 6,
+                "The Arsenio Escudero Hydroelectric Power Plant was upgraded in the 1990's": 8,
+                "and continued to provide power for Villa Escudero up to 2023 before it was shut down.": 7
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionInteractWaterSpiritB1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionLookAtWaterSpiritB1_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionInteractWaterSpiritB1_Done"
+        ],
+        "Event_Audio": "VE_VO_B1_MRBLSPRT_02_HiSearch",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Hi, water spirit!": 0,
+                "How are you?": 2,
+                "... Of course! Thank you!": 2,
+                "Hey, the water spirit said it wants to help us look for the lost cat.": 3,
+                "Let's return to the museum and continue the search!": 5
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionInteractPPlantSwitch",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionInteractWaterSpiritB1_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionInteractPPlantSwitch_Done"
+        ],
+        "Event_Audio": "VE_VO_B1_MRBLSPRT_03_StopMacho",
+        "Loop_Audio": false,
+        "Loop_Interval": 15,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Stop trying to be so macho!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionReturnTileToSnapZone",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionInteractPPlantSwitch_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionReturnTileToSnapZone_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueLunchFoodPrep",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialogueLunchFoodPrep_Done"
+        ],
+        "Event_Audio": "VE_VO_B2_ASST_01_GoodPreparations",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "Good, you're here! It's almost time for lunch.": 0,
+                "Please help with food preparations!": 3
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueLunchGetCooking",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueLunchFoodPrep_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueLunchGetCooking_Done"
+        ],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_01_WhatCooking",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "What are you waiting for? Let's get cooking!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalLunchFoodEnjoy",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialogueLunchFoodEnjoy_Read"
+        ],
+        "Event_Audio": "VE_VO_B2_ASST_02_iCulture",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "I heard that many of our guests really enjoyed the food that is served here.": 0,
+                "Acharang papaya, kalabasa soup, and lechon manok": 5,
+                "these are but a few of the family heirloom recipes": 4,
+                "that me and the others were taught how to cook.": 4,
+                "Mealtime in Villa Escudero is sure to include all this food on the menu...": 4,
+                "as a testament to Filipino culinary culture.": 5
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPickUpKnife",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueLunchFoodEnjoy_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPickUpKnife_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionChopGarlic",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionAfterChickenSkewer_Done",
+            "ActionMixKalabasaSoup_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionChopGarlic_Done"
+        ],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_02_ChopGarlicMore",
+        "Loop_Audio": true,
+        "Loop_Interval": 15,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Chop the garlic up some more!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionChopOnion",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionAfterChickenSkewer_Done",
+            "ActionMixKalabasaSoup_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionChopOnion_Done"
+        ],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_03_ChopMore",
+        "Loop_Audio": true,
+        "Loop_Interval": 15,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Chop it up some more!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionChopKalabasa",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionAfterChickenSkewer_Done",
+            "ActionPickUpKnife_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionChopKalabasa_Done"
+        ],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_03_ChopMore",
+        "Loop_Audio": true,
+        "Loop_Interval": 15,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Chop it up some more!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPutChickenPole1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueLunchFoodEnjoy_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPutChickenPole1_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPutChickenPole2",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueLunchFoodEnjoy_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPutChickenPole2_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionAfterChickenSkewer",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPutChickenPole1_Done",
+            "ActionPutChickenPole2_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionAfterChickenSkewer_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPutKalabasaInPot",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionChopKalabasa_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPutKalabasaInPot_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionMixKalabasaSoup",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPutKalabasaInPot_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionMixKalabasaSoup_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionGratePapaya",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionAfterChickenSkewer_Done",
+            "ActionMixKalabasaSoup_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionGratePapaya_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionAddAtcharaIngredientsOnion",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionChopGarlic_Done",
+            "ActionChopOnion_Done",
+            "ActionGratePapaya_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionAddAtcharaIngredientsOnion_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionAddAtcharaIngredientsGarlic",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionChopGarlic_Done",
+            "ActionChopOnion_Done",
+            "ActionGratePapaya_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionAddAtcharaIngredientsGarlic_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionAddAtcharaIngredientsPapaya",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionChopGarlic_Done",
+            "ActionChopOnion_Done",
+            "ActionGratePapaya_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionAddAtcharaIngredientsPapaya_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionAllAtcharaIngredients",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionAddAtcharaIngredientsOnion_Done",
+            "ActionAddAtcharaIngredientsGarlic_Done",
+            "ActionAddAtcharaIngredientsPapaya_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionAllAtcharaIngredients_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPutSabaInPan",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionAddAtcharaIngredientsOnion_Done",
+            "ActionAddAtcharaIngredientsGarlic_Done",
+            "ActionAddAtcharaIngredientsPapaya_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPutSabaInPan_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionFinishSabaCooking",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPutSabaInPan_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionFinishSabaCooking_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPutCookedSabaInPlate",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionFinishSabaCooking_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPutCookedSabaInPlate_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPoleOnlyRoast",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_04_ShouldntFirst",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Shouldn't you skewer both chickens first?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionOneChickenPoleRoast",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_04_ShouldntFirst",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Shouldn't you skewer both chickens first?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionSabaBananaNoFire",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_05_LightFirst",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Light a fire first!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionSabaBananaNoOil",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_06_YouFried",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "You put the bananas there after they're deep-fried!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionInteractFriedSaba",
+        "Event_Category": "ACTION",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "VE_VO_B2_MRBLSPRT_07_StopYourself",
+        "Loop_Audio": false,
+        "Loop_Interval": "",
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Stop! You'll burn yourself!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionCookingFinished",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionChopGarlic_Done",
+            "ActionChopOnion_Done",
+            "ActionChopKalabasa_Done",
+            "ActionRoastChicken_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionCookingFinished_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionSkewerChicken1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionSkewerChicken1_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionSkewerChicken2",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionSkewerChicken2_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionRoastChicken",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionSkewerChicken1_Done",
+            "ActionSkewerChicken2_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionRoastChicken_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialoguePaintingsTransfer",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialoguePaintingsTransfer_Done"
+        ],
+        "Event_Audio": "VE_VO_B3_ASST_01_WeIt",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "We transferred the paintings here as instructed,": 0,
+                "but I was just told that one of the paintings is still on the artist's easel!": 3,
+                "Please find it!": 4
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialoguePaintingsReminder",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialoguePaintingsTransfer_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialoguePaintingsReminder_Done"
+        ],
+        "Event_Audio": "VE_VO_B3_MRBLSPRT_01_TheresRight",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "There's lots of paintings here, but we're looking for one that's on an easel and not on a wall, right?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueLookAtCanvasPainting",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialoguePaintingsReminder_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueLookAtCanvasPainting_Done"
+        ],
+        "Event_Audio": "VE_VO_B3_MRBLSPRT_03_iNow",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "I thought we're looking for a painting, but this is a blank canvas!": 0,
+                "What do we do now?": 4
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionLookAtCanvasPainting",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueLookAtCanvasPainting_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionLookAtCanvasPainting_Done"
+        ],
+        "Event_Audio": "VE_VO_B3_MRBLSPRT_02_UhSomething",
+        "Loop_Audio": true,
+        "Loop_Interval": 5,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Uh... Maybe we should paint something?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalAssistantPaintings",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialogueAssistantPaintings_Read"
+        ],
+        "Event_Audio": "VE_VO_B3_ASST_02_The1980s",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "The portraits you see here were made by various amateur painters from the CALABARZON region.": 0,
+                "They have been housed in the Arsenio Escudero and Rosario Adap museum": 6,
+                "since the collection was donated to the Escudero family in the 1980's.": 5
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPaintOnCanvas",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionLookAtCanvasPainting_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionPaintOnCanvas_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionInteractPaintedCanvas",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "ActionPaintOnCanvas_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionInteractPaintedCanvas_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalTheCarossaLastSupper",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "JournalTheCarossaLastSupper_Read",
+            "WaypointToMid4_Open"
+        ],
+        "Event_Audio": "VE_VO_A3_ASST_01_This1990s",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "This carossa depicting the Last Supper is one of the biggest in the procession.": 0,
+                "Each figure in this life-sized work of art was created by a different sculptor.": 6,
+                "The museum became its home after it was donated by the Potenciano family": 6,
+                "to the Arsenio Escudero Rosario Adap Foundation in the 1990s.": 5
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalTheTurumba",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "JournalTheTurumba_Read",
+            "WaypointToMid3_Open"
+        ],
+        "Event_Audio": "VE_VO_A2_ASST_02_On1778",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "On September 12, 1788, a wooden frame containing an image of the mother of God was found floating in the Laguna de Bay. The fishermen that discovered it tried to retrieve it, but they could not, for it was so heavy that they had to leave it in order to continue fishing that Friday. \nThen, on the following Sunday, a group of women found it and tried to retrieve it as well. However, despite the image itself being fairly small, not even Mariangga, the strongest of them, could lift it. \nSoon, the priest and practically everyone attending Mass at the time went to retrieve the image. It was only then that they managed to lift the icon, and the singing and dancing that followed became the first Turumba, held on September 14, 1788.": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueDocumentsOnFloor",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialogueDocumentsOnFloor_Done"
+        ],
+        "Event_Audio": "VE_VO_C2_ASST_01_WhatOut",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "What a mess!": 0,
+                "Why are all these documents on the floor?": 2,
+                "Please pick them up and sort them out.": 2
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueReminderGrabPaper",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueDocumentsOnFloor_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueReminderGrabPaper_Done"
+        ],
+        "Event_Audio": "VE_VO_C2_MRBLSPRT_01_ThisThem",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "This place is so messy!": 0,
+                "Let's grab those papers on the floor and organize them!": 2
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalHermanoPuleExhibit",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "JournalHermanoPuleExhibit_Read"
+        ],
+        "Event_Audio": "VE_VO_C2_ASST_02_The1923",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "The Hermano Pule exhibit, which opened on March 15, 2017,": 0,
+                "is the result of a partnership between Villa Escudero and the National Archives of the Philippines.": 5,
+                "Here you will find replicas of letters written by the religious leader of the Cofradía de San José.": 7,
+                "By the way, did you know the Arsenio Escudero and Rosario Adap museum": 7,
+                "also houses a collection of love letters exchanged between the couple that the museum is named after?": 5,
+                "Don Arsenio Escudero and Doña Rosario Adap exchanged these letters during the 1920's, before they got married in 1923.": 8
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionArrangeDocuments",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueDocumentsOnFloor_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionArrangeDocuments_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueWhoaCool",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialogueWhoaCool_Done"
+        ],
+        "Event_Audio": "VE_VO_C3_MRBLSPRT_01_WhoaCool",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "Whoa, where are we? This is so cool!": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueTheresPartsShip",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueWhoaCool_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueTheresPartsShip_Done"
+        ],
+        "Event_Audio": "VE_VO_C3_MRBLSPRT_02_TheresParts",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "There's a box for a model ship on the table, but where are the parts?": 0
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalHermanoPuleShip",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "JournalHermanoPuleShip_Read"
+        ],
+        "Event_Audio": "VE_VO_C3_ASST_01_ThisQuezon",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "This is a model of the ship that Hermano Pule and some members of the Cofradía de San José": 0,
+                "used to escape the Spanish government.": 5.5,
+                "While this attempt was successful, Hermano was still eventually caught and executed.": 2.5,
+                "Hermano Pule's death anniversary, which is on November 4, is a holiday in Quezon.": 5
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionShipAssemblyComplete",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueTheresPartsShip_Done"
+        ],
+        "Event_Completion_Flags": [
+            "ActionShipAssemblyComplete_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionCleanDirtFromHint",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionCleanDirtFromHint_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionPurifyHint",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionPurifyHint_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionStartCatIconQuest",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionStartCatIconQuest_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "ActionLookAtTheButterflies1",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "JournalLookAtTheButterflies_Read"
+        ],
+        "Event_Completion_Flags": [
+            "ActionLookAtTheButterflies1_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionLookAtTheButterflies2",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "JournalLookAtTheButterflies_Read"
+        ],
+        "Event_Completion_Flags": [
+            "ActionLookAtTheButterflies2_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionLookAtTheButterflies3",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "JournalLookAtTheButterflies_Read"
+        ],
+        "Event_Completion_Flags": [
+            "ActionLookAtTheButterflies3_Done"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "ActionInputNumberSequence",
+        "Event_Category": "ACTION",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "ActionInputNumberSequence_Done",
+            "WaypointUpStairs_Open"
+        ],
+        "Event_Audio": "",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {},
+        "Play_Success_SFX": true
+    },
+    {
+        "Event_Name": "BGMPlayerInA3",
+        "Event_Category": "BGM",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "QuestPurifyTheMuseum_Done"
+        ],
+        "Event_Completion_Flags": [
+            "BGMPlayerInA3_Done"
+        ],
+        "Event_Audio": "04 - Dungeon Cell (A-3, B-4) (loop at 4s)",
+        "Loop_Audio": true,
+        "Loop_Interval": 192000,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "JournalLookAtTheButterflies",
+        "Event_Category": "JOURNAL",
+        "Oneshot": false,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "JournalLookAtTheButterflies_Read",
+            "WaypointToLeft2_Open"
+        ],
+        "Event_Audio": "VE_VO_B4_ASST_01_DuringWorld",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "During her travels to various parts of the world,": 0,
+                "Doña Rosario Adap Escudero brought preserved butterflies with her": 3,
+                "and traded them for other insects and butterflies.": 5,
+                "The result is the insect collection in the Arsenio Escudero and Rosario Adap museum.": 3,
+                "Visitors are allowed and encouraged to look inside the drawers,": 7,
+                "which are actually part of the exhibit and contain more wonders to behold from the insect world.": 4
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "BGMPowerplant",
+        "Event_Category": "BGM",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [],
+        "Event_Audio": "08 - Power Plant and Surroundings (B-1), Warped Warehouse (loop at 4.364s)",
+        "Loop_Audio": true,
+        "Loop_Interval": 209472,
+        "Event_Text": {},
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueForgeFirstTime",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [],
+        "Event_Completion_Flags": [
+            "DialogueForgeFirstTime_Done"
+        ],
+        "Event_Audio": "VE_VO_C4_ASST_01_FirstThere",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Assistant",
+            "dialogue": {
+                "First time in this workshop?": 0,
+                "Your assignment today is to create a replica coin with the tools and materials here.": 2,
+                "Once you're done, stick it onto that frame over there.": 6
+            }
+        },
+        "Play_Success_SFX": false
+    },
+    {
+        "Event_Name": "DialogueForgeCoinFun",
+        "Event_Category": "DIALOGUE",
+        "Oneshot": true,
+        "Event_Prerequisites": [
+            "DialogueForgeFirstTime_Done"
+        ],
+        "Event_Completion_Flags": [
+            "DialogueForgeCoinFun_Done"
+        ],
+        "Event_Audio": "VE_VO_C4_MRBLSPRT_01_WeFun",
+        "Loop_Audio": false,
+        "Loop_Interval": 0,
+        "Event_Text": {
+            "npc_name": "Marble Spirit",
+            "dialogue": {
+                "We just need to make a coin and put it on the frame, right?": 0,
+                "Sounds like fun!": 4
+            }
+        },
+        "Play_Success_SFX": false
+    }
 ]
