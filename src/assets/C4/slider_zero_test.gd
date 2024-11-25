@@ -11,6 +11,11 @@ extends Node3D
 @onready var flame_heat_view = $FlameHeatView
 @onready var bar_shade = $"FlameHeatView/Viewport2Din3D/Viewport/Progress Circle2/ProgressCircleComponent"
 
+
+@onready var crucible_mid_air_collider = $StaticBody3D/CrucibleMidAirCollider
+@onready var forge_snap_zone_collider = $ForgeSnapZone/CollisionShape3D
+@onready var forge_snap_zone = $ForgeSnapZone
+
 signal crucible_in_forge
 signal crucible_removed
 signal enough_heat_in_forge
@@ -73,6 +78,10 @@ func _physics_process(delta):
 func _on_forge_snap_zone_has_picked_up(what):
 	crucible_in_forge.emit()
 
-
 func _on_forge_snap_zone_has_dropped():
 	crucible_removed.emit()
+
+func _on_small_crucible_ingot_is_melted():
+	forge_snap_zone.drop_object()
+	forge_snap_zone_collider.disabled = true
+	crucible_mid_air_collider.disabled = false

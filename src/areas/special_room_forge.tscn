@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://movlb5yi80x4"]
+[gd_scene load_steps=17 format=3 uid="uid://movlb5yi80x4"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_f36t3"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_8nuf8"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_8nuf8"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_5b7ic"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_ogko7"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="6_itvg3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bd8esgu6u364l" path="res://src/assets/C4/tongs_one_hand.tscn" id="8_8yr38"]
 [ext_resource type="PackedScene" uid="uid://c3kx8fai7jyqs" path="res://src/ois/small_ingot.tscn" id="9_kakas"]
 [ext_resource type="PackedScene" uid="uid://cwypgvwd2no7o" path="res://src/ois/small_crucible.tscn" id="10_fqv4q"]
+[ext_resource type="PackedScene" uid="uid://1pj4xqcwxqu2" path="res://src/ois/coin_mold.tscn" id="11_g4nmo"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="41_tbdcw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
@@ -18,13 +19,16 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_etpd5"]
 size = Vector3(1.75537, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rnqx0"]
+size = Vector3(5.74768, 0.454681, 6.90631)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ajmg"]
-size = Vector3(0.311584, 0.0989075, 0.322746)
+size = Vector3(0.311584, 0.0727692, 0.322746)
 
 [node name="SpecialRoom_Forge" type="Node3D"]
 script = ExtResource("1_f36t3")
 teleporters_data = [{
-"position": Vector3(3.86, -1.339, -1.994),
+"position": Vector3(3.86, -1.279, 0.052),
 "to": "Rights0.jpg"
 }]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
@@ -57,7 +61,7 @@ light_bake_mode = 1
 spot_angle = 36.21
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Walls"]
-transform = Transform3D(7.92, 0, 0, 0, 0.12, 0, 0, 0, 7, 0, 0, 0)
+transform = Transform3D(7.92, 0, 0, 0, 0.12, 0, 0, 0, 7, 0, 0.0968988, 0)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../../..")
 
@@ -123,7 +127,7 @@ omni_range = 2.266
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Rights0_jpg" parent="Teleporters" instance=ExtResource("4_5b7ic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86, -1.339, 0.0517313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86, -1.27913, 0.0517313)
 to = "Rights0.jpg"
 
 [node name="Events" type="Node" parent="."]
@@ -133,6 +137,7 @@ script = ExtResource("5_ogko7")
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 2.27257, -0.0116689, 1.4901)
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MarbleSpirit_Normal"]
+visible = false
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
@@ -143,13 +148,13 @@ autoplay = true
 wait_time = 3.0
 
 [node name="Table" parent="." instance=ExtResource("6_itvg3")]
-transform = Transform3D(-2.57897e-08, 0, 0.675, 0, 1, 0, -0.59, 0, -2.95052e-08, 0.0667875, -1.33332, 0.779557)
+transform = Transform3D(-2.57897e-08, 0, 0.675, 0, 1, 0, -0.59, 0, -2.95052e-08, 0.0689414, -1.33332, 0.76776)
 
 [node name="tongs_one_hand" parent="." instance=ExtResource("8_8yr38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135695, -0.339254, 0.768115)
 
 [node name="ForgeOnTop" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.446912, -1.38975, -1.1831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443247, -1.37571, -1.19749)
 input_ray_pickable = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ForgeOnTop"]
@@ -160,8 +165,21 @@ mesh = SubResource("BoxMesh_pb71r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000244141, 0.112875, 0.0365955)
 shape = SubResource("BoxShape3D_etpd5")
 
+[node name="Floorlol" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.90309, 0)
+input_ray_pickable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floorlol"]
+transform = Transform3D(1.76, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.112875, 0.0365955)
+visible = false
+mesh = SubResource("BoxMesh_pb71r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floorlol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352112, 0.412359, -0.00103271)
+shape = SubResource("BoxShape3D_rnqx0")
+
 [node name="ForgeOnTop2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.446912, -1.00598, -1.1831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.518568, -1.00598, -1.1831)
 input_ray_pickable = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ForgeOnTop2"]
@@ -169,11 +187,20 @@ transform = Transform3D(0.312101, 0, 0, 0, 0.116298, 0, 0, 0, 0.323083, 0.663677
 mesh = SubResource("BoxMesh_pb71r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForgeOnTop2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664459, 0.278235, 0.03679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664459, 0.292509, 0.03679)
 shape = SubResource("BoxShape3D_8ajmg")
 
+[node name="CoinLight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.489402, -0.171685, 0.636976)
+light_color = Color(0.996078, 0.690196, 0.415686, 1)
+light_energy = 3.836
+light_indirect_energy = 0.0
+light_bake_mode = 1
+spot_range = 0.401
+spot_angle = 36.21
+
 [node name="Bellows" parent="." instance=ExtResource("7_tjxov")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141782, -0.384209, -1.15476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141782, -0.453073, -1.15476)
 
 [node name="small_ingot" parent="." instance=ExtResource("9_kakas")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0268135, -0.46803, 0.763123)
@@ -182,7 +209,13 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.026
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.229215, -0.468235, 0.75504)
 picked_by_require = "tongs"
 
+[node name="Coin Mold" parent="." instance=ExtResource("11_g4nmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487158, -0.417758, 0.657796)
+
 [connection signal="crucible_in_forge" from="Bellows" to="small_crucible" method="_on_bellows_crucible_in_forge"]
 [connection signal="crucible_removed" from="Bellows" to="small_crucible" method="_on_bellows_crucible_removed"]
 [connection signal="enough_heat_in_forge" from="Bellows" to="small_crucible" method="_on_bellows_enough_heat_in_forge"]
 [connection signal="not_enough_heat_in_forge" from="Bellows" to="small_crucible" method="_on_bellows_not_enough_heat_in_forge"]
+[connection signal="ingot_is_melted" from="small_crucible" to="Bellows" method="_on_small_crucible_ingot_is_melted"]
+[connection signal="ingot_is_melted" from="small_crucible" to="Coin Mold" method="_on_small_crucible_ingot_is_melted"]
+[connection signal="coin_complete_signal" from="Coin Mold" to="small_crucible" method="_on_coin_mold_coin_complete_signal"]

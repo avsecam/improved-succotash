@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://ciiwok353lla6"]
+[gd_scene load_steps=71 format=3 uid="uid://ciiwok353lla6"]
 
 [ext_resource type="Script" path="res://src/assets/C4/slider_zero_test.gd" id="1_15gvu"]
 [ext_resource type="Material" path="res://src/assets/C4/wahooney.itch.io/blue_grid.tres" id="1_wd736"]
@@ -20,10 +20,15 @@
 [ext_resource type="Texture2D" uid="uid://cm56ymessdpyx" path="res://src/assets/Fire/Flame01.png" id="18_8ts8i"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="19_6tgeq"]
 
-[sub_resource type="BoxShape3D" id="1"]
+[sub_resource type="BoxMesh" id="2"]
 size = Vector3(0.2, 0.6, 0.1)
 
-[sub_resource type="BoxMesh" id="2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5b5w"]
+albedo_color = Color(0.207843, 0.207843, 0.207843, 1)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="1"]
 size = Vector3(0.2, 0.6, 0.1)
 
 [sub_resource type="BoxShape3D" id="3"]
@@ -351,14 +356,14 @@ color_ramp = SubResource("GradientTexture1D_ipxr7")
 resource_local_to_scene = true
 size = Vector2(200, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5ecid"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ds2su"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mknh4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbhnj"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_5ecid")
+albedo_texture = SubResource("ViewportTexture_ds2su")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nn2a6"]
@@ -373,8 +378,39 @@ shading_mode = 0
 albedo_color = Color(1, 0.337255, 0.105882, 1)
 albedo_texture = ExtResource("18_8ts8i")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kpwj"]
+size = Vector3(0.221191, 0.0612793, 0.182617)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ahq6v"]
+resource_local_to_scene = true
+radius = 0.1
+
 [node name="Bellows" type="Node3D"]
 script = ExtResource("1_15gvu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0764371, 0.0247796, 0.0285854, 0, 0.254506, -0.0319579, -0.0236086, 0.0802283, 0.0925503, -0.0267012, 0.131487, -0.0902821)
+mesh = SubResource("2")
+skeleton = NodePath("../Frame")
+surface_material_override/0 = SubResource("StandardMaterial3D_q5b5w")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0764371, -0.0248333, 0.0285786, 0, 0.254446, 0.0320272, -0.0236086, -0.0804023, 0.0925285, 0.0313352, 0.131487, 0.0976211)
+mesh = SubResource("2")
+skeleton = NodePath("../Frame")
+surface_material_override/0 = SubResource("StandardMaterial3D_q5b5w")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0398718, -0.0727959, -0.0839764, 0, 0.254506, -0.0319579, 0.0693559, 0.0418493, 0.0482769, 0.0875649, 0.131487, -0.0453383)
+mesh = SubResource("2")
+skeleton = NodePath("../Frame")
+surface_material_override/0 = SubResource("StandardMaterial3D_q5b5w")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0398718, 0.0729537, -0.0839565, 0, 0.254446, 0.0320272, 0.0693559, -0.0419401, 0.0482655, -0.0829308, 0.131487, 0.0526773)
+mesh = SubResource("2")
+skeleton = NodePath("../Frame")
+surface_material_override/0 = SubResource("StandardMaterial3D_q5b5w")
 
 [node name="Frame" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379454, 0.0914986, 0)
@@ -454,10 +490,11 @@ target = NodePath("../../../SliderBody/HandleMesh/GrabPointHandRight")
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.781717, -0.280841, -0.0033728)
 
 [node name="Fuelle" parent="kk_modified_forge_bellow" index="0"]
+transform = Transform3D(0.255648, 0, 0, 0, -9.14269e-08, -0.255648, 0, 0.255648, -9.14269e-08, 0, 0, 0)
 blend_shapes/FuellePush = 0.44755
 
 [node name="Crucible_Empty2" parent="." instance=ExtResource("13_nv1xr")]
-transform = Transform3D(0.15, 0, 0, 0, 0.062, 0, 0, 0, 0.15, -0.0028538, 0.140216, 0.00310017)
+transform = Transform3D(0.095, 0, 0, 0, 0.039, 0, 0, 0, 0.095, -0.0028538, 0.183846, 0.00310017)
 
 [node name="Crucible_Empty3" parent="." instance=ExtResource("13_nv1xr")]
 transform = Transform3D(0.14, 0, 0, 0, 0.124, 0, 0, 0, 0.14, -0.0028538, -0.230353, 0.00310017)
@@ -489,7 +526,7 @@ tint_progress = Color(0, 0.968627, 0.831373, 1)
 
 [node name="Screen" parent="FlameHeatView/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_wba4x")
-surface_material_override/0 = SubResource("StandardMaterial3D_mknh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_mbhnj")
 
 [node name="CollisionShape3D" parent="FlameHeatView/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_nn2a6")
@@ -500,11 +537,21 @@ mesh = SubResource("PlaneMesh_de63h")
 skeleton = NodePath("../../../Firesmaller")
 surface_material_override/0 = SubResource("StandardMaterial3D_gjxyr")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CrucibleMidAirCollider" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00561523, 0.181552, 0.00927734)
+shape = SubResource("BoxShape3D_1kpwj")
+
 [node name="ForgeSnapZone" parent="." instance=ExtResource("19_6tgeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.252719, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.234774, 0)
 grab_distance = 0.1
 snap_mode = 1
 snap_require = "crucible"
+grab_require = "crucible"
+
+[node name="CollisionShape3D" parent="ForgeSnapZone" index="0"]
+shape = SubResource("SphereShape3D_ahq6v")
 
 [connection signal="has_dropped" from="ForgeSnapZone" to="." method="_on_forge_snap_zone_has_dropped"]
 [connection signal="has_picked_up" from="ForgeSnapZone" to="." method="_on_forge_snap_zone_has_picked_up"]
@@ -514,3 +561,4 @@ snap_require = "crucible"
 [editable path="FlameHeatView"]
 [editable path="FlameHeatView/Viewport2Din3D"]
 [editable path="FlameHeatView/Viewport2Din3D/Viewport/Progress Circle2"]
+[editable path="ForgeSnapZone"]
