@@ -13,6 +13,7 @@ var ingot_amount_x
 var molten_iron_receiver_in : bool
 var coin_complete : bool
 var molten_iron : bool
+var complete_through_event_load : bool
 
 signal coin_complete_signal
 
@@ -21,19 +22,21 @@ func _ready():
 	coin_silver.visible = false
 	coin_snap_zone.enabled = false
 	molten_iron_receiver_in = false
+	complete_through_event_load = false
 	#coin_sz_collider.disabled = true
 	ingot_amount_x = ingot_amount
 
 func _process(delta):
-	if ingot_amount_x <= 0:
-		if !coin_complete:
-			coin_complete = true
-			blessed_particles_real.emitting = true
-			coin_silver.visible = true
-			coin_silver._set_coin_complete()
-			coin_snap_zone.enabled = true
-			progress_view.progress_complete_anim()
-			coin_complete_signal.emit()
+	if !complete_through_event_load:
+		if ingot_amount_x <= 0:
+			if !coin_complete:
+				coin_complete = true
+				blessed_particles_real.emitting = true
+				coin_silver.visible = true
+				coin_silver._set_coin_complete()
+				coin_snap_zone.enabled = true
+				progress_view.progress_complete_anim()
+				coin_complete_signal.emit()
 		
 func _physics_process(delta):
 	if !molten_iron_receiver_in and molten_iron:
@@ -57,3 +60,11 @@ func _on_molten_iron_receiver_area_exited(area):
 
 func _on_small_crucible_ingot_is_melted():
 	molten_iron = true
+
+func _on_action_coin_complete_event_ended():
+	complete_through_event_load = true
+	coin_complete = true
+	blessed_particles_real.emitting = true
+	coin_silver.visible = true
+	coin_silver._set_coin_complete()
+	coin_snap_zone.enabled = true

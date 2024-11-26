@@ -415,6 +415,7 @@ mesh = SubResource("ArrayMesh_a3yv1")
 
 [node name="Iron_ingot" parent="MainMesh" instance=ExtResource("3_sfpmw")]
 transform = Transform3D(9.55343e-17, 2.18557e-09, -0.05, 0.0485898, 0.011791, 5.15402e-10, 0.011791, -0.0485898, -2.12393e-09, -0.000140119, 0.0646322, 0.00557506)
+visible = false
 
 [node name="MeltedIron" type="MeshInstance3D" parent="MainMesh"]
 transform = Transform3D(0.055, 0, 0, 0, 0.02, 0, 0, 0, 0.055, 0, 0.0415943, 0)

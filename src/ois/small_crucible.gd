@@ -20,6 +20,7 @@ var in_forge : bool
 var ingot_melted : bool
 
 signal ingot_is_melted
+signal ingot_in_crucible
 
 func _ready():
 	super()
@@ -67,6 +68,7 @@ func _on_crucible_snap_zone_has_picked_up(what):
 	what.disable_collision()
 	iron_ingot.visible = true
 	ingot_inside = true
+	ingot_in_crucible.emit()
 	
 func _on_bellows_crucible_in_forge():
 	in_forge = true
@@ -95,3 +97,16 @@ func _on_molten_iron_receiver_area_entered(area):
 
 func _on_coin_mold_coin_complete_signal():
 	melted_iron.visible = false
+
+
+func _on_action_put_ingot_in_crucible_event_ended():
+	crucible_snap_zone.enabled = false
+	iron_ingot.visible = true
+	ingot_inside = true
+
+func _on_action_ingot_finished_melt_event_ended():
+	ingot_melted = true
+	melted_iron.visible = true
+	iron_ingot.visible = false
+	normal_crucible.visible = false
+	molten_crucible.visible = true

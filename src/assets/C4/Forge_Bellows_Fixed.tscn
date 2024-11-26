@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/assets/C4/slider_zero_test.gd" id="1_15gvu"]
 [ext_resource type="Material" path="res://src/assets/C4/wahooney.itch.io/blue_grid.tres" id="1_wd736"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_slider.gd" id="2_1t4xe"]
-[ext_resource type="Material" path="res://src/assets/C4/wahooney.itch.io/brown_grid_triplanar.tres" id="3_rhqju"]
+[ext_resource type="Material" uid="uid://d2d1hmfocanek" path="res://src/assets/C4/wahooney.itch.io/brown_grid_triplanar.tres" id="3_rhqju"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_017ex"]
 [ext_resource type="Animation" uid="uid://db62hs5s4n2b3" path="res://addons/godot-xr-tools/hands/animations/left/Grip 4.res" id="5_vupa8"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_lllia"]
@@ -356,14 +356,14 @@ color_ramp = SubResource("GradientTexture1D_ipxr7")
 resource_local_to_scene = true
 size = Vector2(200, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ds2su"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_h6jda"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbhnj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsq8a"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_ds2su")
+albedo_texture = SubResource("ViewportTexture_h6jda")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nn2a6"]
@@ -491,7 +491,6 @@ transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.781717, -0.280841
 
 [node name="Fuelle" parent="kk_modified_forge_bellow" index="0"]
 transform = Transform3D(0.255648, 0, 0, 0, -9.14269e-08, -0.255648, 0, 0.255648, -9.14269e-08, 0, 0, 0)
-blend_shapes/FuellePush = 0.44755
 
 [node name="Crucible_Empty2" parent="." instance=ExtResource("13_nv1xr")]
 transform = Transform3D(0.095, 0, 0, 0, 0.039, 0, 0, 0, 0.095, -0.0028538, 0.183846, 0.00310017)
@@ -526,7 +525,7 @@ tint_progress = Color(0, 0.968627, 0.831373, 1)
 
 [node name="Screen" parent="FlameHeatView/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_wba4x")
-surface_material_override/0 = SubResource("StandardMaterial3D_mbhnj")
+surface_material_override/0 = SubResource("StandardMaterial3D_gsq8a")
 
 [node name="CollisionShape3D" parent="FlameHeatView/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_nn2a6")
@@ -553,6 +552,7 @@ grab_require = "crucible"
 [node name="CollisionShape3D" parent="ForgeSnapZone" index="0"]
 shape = SubResource("SphereShape3D_ahq6v")
 
+[connection signal="grabbed" from="SliderOrigin/InteractableSlider" to="." method="_on_interactable_slider_grabbed"]
 [connection signal="has_dropped" from="ForgeSnapZone" to="." method="_on_forge_snap_zone_has_dropped"]
 [connection signal="has_picked_up" from="ForgeSnapZone" to="." method="_on_forge_snap_zone_has_picked_up"]
 

@@ -20,6 +20,7 @@ signal crucible_in_forge
 signal crucible_removed
 signal enough_heat_in_forge
 signal not_enough_heat_in_forge
+signal forge_touched
 
 var keyval : float
 var keyval_check : bool
@@ -85,3 +86,6 @@ func _on_small_crucible_ingot_is_melted():
 	forge_snap_zone.drop_object()
 	forge_snap_zone_collider.disabled = true
 	crucible_mid_air_collider.disabled = false
+
+func _on_interactable_slider_grabbed(interactable):
+	forge_touched.emit()
