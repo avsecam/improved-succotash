@@ -652,7 +652,7 @@
 			"dialogue": {
 				"This church has stood for hundreds of years.": 0,
 				"Why did this happen?": 2,
-				"Who would do such a horrible thing?": 2,
+				"Who would do such a horrible thing?": 3,
 				"Was it cursed?": 2
 			}
 		},
@@ -1310,7 +1310,7 @@
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {},
-		"Play_Success_SFX": false
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPutKalabasaInPot",
@@ -1342,7 +1342,7 @@
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {},
-		"Play_Success_SFX": false
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionGratePapaya",
@@ -1431,7 +1431,7 @@
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {},
-		"Play_Success_SFX": false
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPutSabaInPan",
@@ -1481,7 +1481,7 @@
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {},
-		"Play_Success_SFX": false
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionPoleOnlyRoast",
@@ -2173,6 +2173,86 @@
 				"Sounds like fun!": 4
 			}
 		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionPutIngotInCrucible",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueForgeCoinFun_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPutIngotInCrucible_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionIngotFinishedMelt",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionForgeOperationIndicator_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionIngotFinishedMelt_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCoinComplete",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionIngotFinishedMelt_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionCoinComplete_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "ActionCoinInFrame",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionCoinComplete_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionCoinInFrame_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "ActionForgeOperationIndicator",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPutIngotInCrucible_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionForgeOperationIndicator_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
 		"Play_Success_SFX": false
 	}
 ]
