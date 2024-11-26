@@ -130,6 +130,8 @@ freeze = true
 freeze_mode = 0
 script = null
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="has_dropped" from="Frame1" to="." method="_on_frame_1_has_dropped"]
 [connection signal="has_picked_up" from="Frame1" to="." method="_on_frame_1_has_picked_up"]
 [connection signal="has_dropped" from="Frame2" to="." method="_on_frame_2_has_dropped"]
