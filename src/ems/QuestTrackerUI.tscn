@@ -27,7 +27,8 @@ script = ExtResource("1_dldru")
 
 [node name="QuestTracker" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 300.0
+offset_left = 100.0
+offset_right = 400.0
 offset_bottom = 32.0
 
 [node name="ColorRect" type="ColorRect" parent="QuestTracker"]

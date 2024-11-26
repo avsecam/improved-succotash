@@ -1,4 +1,5 @@
 extends ReceiverObj
+class_name StrikeAction
 
 var interacting_inital_pos
 var hit_already = false
