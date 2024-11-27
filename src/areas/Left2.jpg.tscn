@@ -350,9 +350,12 @@ transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, -4.19152, 0, 1.
 aabb = AABB(-0.133395, -0.117757, -0.132102, 0.26679, 0.235513, 0.264204)
 
 [node name="ButterflyParticles" type="GPUParticles3D" parent="LookAroundChecker/Marker1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30293, 0)
 material_override = SubResource("ShaderMaterial_r4xrd")
+emitting = false
 amount = 40
 lifetime = 2.5
+one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
 randomness = 1.0
@@ -364,14 +367,16 @@ draw_pass_1 = SubResource("QuadMesh_n8m8r")
 draw_pass_2 = null
 
 [node name="Marker2" type="VisibleOnScreenNotifier3D" parent="LookAroundChecker"]
-transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0.0299616, -3.53517, 3.02131)
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 6.11312, -2.01172, -4.41162)
 aabb = AABB(-0.133395, -0.117757, -0.132102, 0.26679, 0.235513, 0.264204)
 
 [node name="ButterflyParticles2" type="GPUParticles3D" parent="LookAroundChecker/Marker2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.22154, 3.53517, -1.64199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88002, 2.36264, 1.94604)
 material_override = SubResource("ShaderMaterial_r4xrd")
+emitting = false
 amount = 40
 lifetime = 2.5
+one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
 randomness = 1.0
@@ -383,14 +388,15 @@ draw_pass_1 = SubResource("QuadMesh_n8m8r")
 draw_pass_2 = null
 
 [node name="Marker3" type="VisibleOnScreenNotifier3D" parent="LookAroundChecker"]
-transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 6.0641, 0, 1.74267)
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 6.0641, 0, 3.39498)
 aabb = AABB(-0.133395, -0.117757, -0.132102, 0.26679, 0.235513, 0.264204)
 
 [node name="ButterflyParticles3" type="GPUParticles3D" parent="LookAroundChecker/Marker3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2558, 0, -0.363335)
 material_override = SubResource("ShaderMaterial_r4xrd")
+emitting = false
 amount = 40
 lifetime = 2.5
+one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
 randomness = 1.0
