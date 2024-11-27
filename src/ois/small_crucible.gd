@@ -110,3 +110,8 @@ func _on_action_ingot_finished_melt_event_ended():
 	iron_ingot.visible = false
 	normal_crucible.visible = false
 	molten_crucible.visible = true
+	ingot_is_melted.emit()
+
+
+func _on_action_coin_complete_tree_exiting():
+	melted_iron.visible = false

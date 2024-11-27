@@ -2196,7 +2196,9 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionForgeOperationIndicator_Done"
+			"ActionForgeOperationIndicator_Done",
+			"ActionPutIngotInCrucible_Done",
+			"ActionPutCrucibleInForge_Done"
 		],
 		"Event_Completion_Flags": [
 			"ActionIngotFinishedMelt_Done"
@@ -2244,10 +2246,26 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionPutIngotInCrucible_Done"
+			"ActionPutCrucibleInForge_Done"
 		],
 		"Event_Completion_Flags": [
 			"ActionForgeOperationIndicator_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionPutCrucibleInForge",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPutIngotInCrucible_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionPutCrucibleInForge_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,

@@ -39,7 +39,7 @@ func _process(delta):
 				coin_complete_signal.emit()
 		
 func _physics_process(delta):
-	if !molten_iron_receiver_in and molten_iron:
+	if !molten_iron_receiver_in and molten_iron and !complete_through_event_load:
 		progress_view.visible = true
 	elif molten_iron:
 		if ingot_amount_x > 0:

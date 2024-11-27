@@ -430,6 +430,7 @@
 		},
 		"Quest_Completion_Requirements": [
 			"ActionPutIngotInCrucible_Done",
+			"ActionPutCrucibleInForge_Done",
 			"ActionForgeOperationIndicator_Done",
 			"ActionIngotFinishedMelt_Done",
 			"ActionCoinComplete_Done",
@@ -438,6 +439,9 @@
 		"Quest_Completion_Tracker": {
 			"Put ingot in crucible": [
 				"ActionPutIngotInCrucible_Done"
+			],
+			"Put crucible in forge": [
+				"ActionPutCrucibleInForge_Done"
 			],
 			"Operate forge bellows": [
 				"ActionForgeOperationIndicator_Done"
