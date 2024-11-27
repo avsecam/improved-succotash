@@ -187,7 +187,9 @@
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
-				"Hey, it's the nice kitty from the museum! Hi there! ... Hm? Sure, I'll translate. The cat says it wants you to pet it.": 0
+				"Hey, it's the nice kitty from the museum! Hi there!": 0,
+				"... Hm? Sure, I'll translate.": 5,
+				"The cat says it wants you to pet it.": 2
 			}
 		},
 		"Play_Success_SFX": false
@@ -251,7 +253,10 @@
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
-				"What? Oh, no! The cat said its friend is lost in the museum somewhere. Strange things have been happening there lately, so we should find the missing cat as soon as we can. Come on, it'll be a fun adventure!": 0
+				"What? Oh, no!": 0,
+				"The cat said its friend is lost in the museum somewhere.": 2,
+				"Strange things have been happening there lately, so we should find the missing cat as soon as we can.": 4,
+				"Come on, it'll be a fun adventure!": 6
 			}
 		},
 		"Play_Success_SFX": false
@@ -336,7 +341,9 @@
 		"Event_Text": {
 			"npc_name": "Assistant",
 			"dialogue": {
-				"Hey, newbie! Yes, you! We're bringing the Calandra out soon, so go polish the rods and clean the glass windows! Everything you need should be on the table there. Hurry up!": 0
+				"Hey, newbie! Yes, you! We're bringing the Calandra out soon,": 0,
+				"so go polish the rods and clean the glass windows!": 4,
+				"Everything you need should be on the table there. Hurry up!": 3
 			}
 		},
 		"Play_Success_SFX": false
@@ -378,8 +385,15 @@
 		"Event_Text": {
 			"npc_name": "Assistant",
 			"dialogue": {
-				"The Calandra of Santo Entierro, or the Bier of Holy Burial, is brought out every Good Friday for a procession. Preparations for this, such as conditioning and other maintenance work on the float, are done a few days prior.": 0,
-				"This symbol of hope and faith in Jesus Christ was donated by the Kilatis family and was restored by Conrado Escudero in the 1960’s. \nDevotees believe that it will grant their wishes if they are able to touch it while participating in the procession.": 14
+				"The Calandra of Santo Entierro, or the Bier of Holy Burial,": 0,
+				"is brought out every Good Friday for a procession.": 4,
+				"Preparations for this, such as conditioning": 3,
+				"and other maintenance work on the float, are done a few days prior.": 3,
+				"This symbol of hope and faith in Jesus Christ": 5,
+				"was donated by the Kilatis family": 2,
+				"and was restored by Conrado Escudero in the 1960’s.": 3,
+				"Devotees believe that it will grant their wishes": 4,
+				"if they are able to touch it while participating in the procession.": 4
 			}
 		},
 		"Play_Success_SFX": false
@@ -636,7 +650,10 @@
 		"Event_Text": {
 			"npc_name": "Assistant",
 			"dialogue": {
-				"This church has stood for hundreds of years. Why did this happen? Who would do such a horrible thing? Was it cursed?": 0
+				"This church has stood for hundreds of years.": 0,
+				"Why did this happen?": 2,
+				"Who would do such a horrible thing?": 2,
+				"Was it cursed?": 2
 			}
 		},
 		"Play_Success_SFX": false
@@ -657,7 +674,8 @@
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
-				"I can sense some kind of lingering malice here. We should dispel it before it spreads to the museum!": 0
+				"I can sense some kind of lingering malice here.": 0,
+				"We should dispel it before it spreads to the museum!": 4
 			}
 		},
 		"Play_Success_SFX": false
@@ -971,7 +989,7 @@
 		"Event_Name": "DialogueMarblePPlantReminder",
 		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
-		"Event_Prerequisites": ["DialoguePowerPlantInstructions_Done"],
+		"Event_Prerequisites": "[\"DialoguePowerPlantInstructions_Done\"］",
 		"Event_Completion_Flags": [
 			"DialogueMarblePPlantReminder_Done"
 		],
@@ -1743,7 +1761,10 @@
 		"Event_Text": {
 			"npc_name": "Assistant",
 			"dialogue": {
-				"This carossa depicting the Last Supper is one of the biggest in the procession. Each figure in this life-sized work of art was created by a different sculptor. \nThe museum became its home after it was donated by the Potenciano family to the Arsenio Escudero Rosario Adap Foundation in the 1990s.": 0
+				"This carossa depicting the Last Supper is one of the biggest in the procession.": 0,
+				"Each figure in this life-sized work of art was created by a different sculptor.": 6,
+				"The museum became its home after it was donated by the Potenciano family": 6,
+				"to the Arsenio Escudero Rosario Adap Foundation in the 1990s.": 5
 			}
 		},
 		"Play_Success_SFX": false
@@ -2058,6 +2079,18 @@
 				"During her travels to various parts of the world, Doña Rosario Adap Escudero brought preserved butterflies with her and traded them for other insects and butterflies. The result is the insect collection in the Arsenio Escudero and Rosario Adap museum. Visitors are allowed and encouraged to look inside the drawers, which are actually part of the exhibit and contain more wonders to behold from the insect world.": 0
 			}
 		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "BGMPowerplant",
+		"Event_Category": "BGM",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "08 - Power Plant and Surroundings (B-1), Warped Warehouse (loop at 4.364s)",
+		"Loop_Audio": true,
+		"Loop_Interval": 209472,
+		"Event_Text": {},
 		"Play_Success_SFX": false
 	}
 ]
