@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_iirm1"]
 [ext_resource type="Script" path="res://src/ois/parchment_arrange_panel.gd" id="1_m6u7c"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="3_gpbix"]
-[ext_resource type="PackedScene" uid="uid://clpu518gw3se" path="res://src/ois/parchment_a.tscn" id="4_iix3m"]
-[ext_resource type="PackedScene" uid="uid://oqxa6ppw0qrl" path="res://src/ois/parchment_b.tscn" id="5_ell7w"]
-[ext_resource type="PackedScene" uid="uid://cbsi2j7tqs8dr" path="res://src/ois/parchment_c.tscn" id="6_hc32s"]
-[ext_resource type="PackedScene" uid="uid://wrsjbpww7gpi" path="res://src/ois/parchment_d.tscn" id="7_hqr4j"]
-[ext_resource type="PackedScene" uid="uid://3tro40hld4iq" path="res://src/ois/parchment_e.tscn" id="8_l1tmj"]
+[ext_resource type="PackedScene" path="res://src/ois/parchment_a.tscn" id="4_iix3m"]
+[ext_resource type="PackedScene" path="res://src/ois/parchment_b.tscn" id="5_ell7w"]
+[ext_resource type="PackedScene" path="res://src/ois/parchment_c.tscn" id="6_hc32s"]
+[ext_resource type="PackedScene" path="res://src/ois/parchment_d.tscn" id="7_hqr4j"]
+[ext_resource type="PackedScene" path="res://src/ois/parchment_e.tscn" id="8_l1tmj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0awe"]
 albedo_color = Color(0.956863, 0.901961, 0.858824, 1)
@@ -37,6 +37,13 @@ light_color = Color(1, 0.882353, 0.737255, 1)
 spot_range = 3.965
 spot_attenuation = 0.732042
 spot_angle = 63.92
+
+[node name="CorrectOrWrongLight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.611568, 0.791192, 0, -0.791192, 0.611568, -0.00138569, 1.04906, 0.665578)
+light_energy = 3.0
+spot_range = 1.958
+spot_attenuation = 0.732042
+spot_angle = 52.6384
 
 [node name="Frame1" parent="." instance=ExtResource("1_iirm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.204, 0.3)
