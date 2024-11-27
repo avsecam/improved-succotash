@@ -29,11 +29,15 @@ var all_wrong_check : bool
 @onready var parchments = $Parchments
 @onready var audio_player = $AudioStreamPlayer3D
 @onready var wrongsfx = preload("res://src/assets/audio/sfx/VE_SFX_UI_TaskWrong.ogg")
+@onready var correct_or_wrong_light = $CorrectOrWrongLight
+
+
 
 signal parchment_arrangement_complete
 
 func _process(delta):
 	if frame1_entered and frame2_entered and frame3_entered and frame4_entered and frame5_entered:
+		correct_or_wrong_light.set("light_energy", 3)
 		if frame1_correct and frame2_correct and frame3_correct and frame4_correct and frame5_correct:
 			frame_1.enabled = false
 			frame_2.enabled = false
@@ -45,8 +49,10 @@ func _process(delta):
 				progress_view.visible = true
 				progress_view.progress_complete_checkmark_only_anim()
 				parchment_arrangement_complete.emit()
+				correct_or_wrong_light.set("light_color", Color8(15,240,115))
 		else:
 			if !all_wrong_check:
+				correct_or_wrong_light.set("light_color", Color8(200,0,0))
 				all_wrong_check = true
 				audio_player.stream = wrongsfx
 				audio_player.play()
@@ -101,30 +107,36 @@ func _on_frame_1_has_dropped():
 	frame1_correct = false
 	frame1_entered = false
 	all_wrong_check = false
+	reset_correct_wrong_light()
+	
 
 
 func _on_frame_2_has_dropped():
 	frame2_correct = false
 	frame2_entered = false
 	all_wrong_check = false
+	reset_correct_wrong_light()
 
 
 func _on_frame_3_has_dropped():
 	frame3_correct = false
 	frame3_entered = false
 	all_wrong_check = false
+	reset_correct_wrong_light()
 
 
 func _on_frame_4_has_dropped():
 	frame4_correct = false
 	frame4_entered = false
 	all_wrong_check = false
+	reset_correct_wrong_light()
 
 
 func _on_frame_5_has_dropped():
 	frame5_correct = false
 	frame5_entered = false
 	all_wrong_check = false
+	reset_correct_wrong_light()
 
 
 func _on_action_arrange_documents_tree_exiting():
@@ -134,3 +146,7 @@ func _on_action_arrange_documents_tree_exiting():
 	frame_4.enabled = false
 	frame_5.enabled = false
 	parchments.visible = true
+
+func reset_correct_wrong_light():
+	correct_or_wrong_light.set("light_color", Color8(255,255,255))
+	correct_or_wrong_light.set("light_energy", 1)
