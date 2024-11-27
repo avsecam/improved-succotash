@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxttrjy6hddp8"]
+
+[ext_resource type="PackedScene" uid="uid://d0wgtwr5aa74c" path="res://src/assets/C5/Button_Hunping.glb" id="1_6t5cd"]
+[ext_resource type="Texture2D" uid="uid://birxysnmqvly3" path="res://src/assets/C5/Button_Hunping_Hunping.png" id="2_kp1jx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2qro"]
+transparency = 1
+albedo_texture = ExtResource("2_kp1jx")
+albedo_texture_force_srgb = true
+
+[node name="Button_Hunping" instance=ExtResource("1_6t5cd")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Plane" parent="." index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2qro")

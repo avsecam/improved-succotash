@@ -45,8 +45,8 @@ func pointer_collision_response(obj) -> void:
 		show_action("middle_click")
 	elif obj is WipeAction:
 		show_action("wipe")
-	elif obj is TwistAction:
-		show_action("twist")
+	#elif obj is TwistAction:
+		#show_action("twist")
 	elif obj is StrikeAction:
 		show_action("strike")
 	else:
