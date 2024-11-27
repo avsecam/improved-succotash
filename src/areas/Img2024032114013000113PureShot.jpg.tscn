@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="5_isxt8"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueTheresTheGate.gd" id="6_omv4r"]
 [ext_resource type="PackedScene" uid="uid://cngv8u5svmr5n" path="res://src/assets/FrontGate.tscn" id="6_uwjbx"]
-[ext_resource type="PackedScene" uid="uid://c1nfdxx4l4avm" path="res://src/assets/marble_spirit_normal.tscn" id="7_6nomp"]
+[ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="7_6nomp"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionUseTheKey.gd" id="7_p1p22"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLetsGo.gd" id="9_jtllp"]
 

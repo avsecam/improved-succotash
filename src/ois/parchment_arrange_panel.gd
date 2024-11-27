@@ -13,6 +13,13 @@ var frame4_correct : bool
 var frame5_correct : bool
 var anim_check_bool : bool
 
+var frame1_entered : bool
+var frame2_entered : bool
+var frame3_entered : bool
+var frame4_entered : bool
+var frame5_entered : bool
+var all_wrong_check : bool
+
 @onready var frame_1 = $Frame1
 @onready var frame_2 = $Frame2
 @onready var frame_3 = $Frame3
@@ -20,24 +27,34 @@ var anim_check_bool : bool
 @onready var frame_5 = $Frame5
 @onready var progress_view = $"Progress View"
 @onready var parchments = $Parchments
+@onready var audio_player = $AudioStreamPlayer3D
+@onready var wrongsfx = preload("res://src/assets/audio/sfx/VE_SFX_UI_TaskWrong.ogg")
 
 signal parchment_arrangement_complete
 
 func _process(delta):
-	if frame1_correct and frame2_correct and frame3_correct and frame4_correct and frame5_correct:
-		frame_1.enabled = false
-		frame_2.enabled = false
-		frame_3.enabled = false
-		frame_4.enabled = false
-		frame_5.enabled = false
-		if !anim_check_bool:
-			anim_check_bool = true
-			progress_view.visible = true
-			progress_view.progress_complete_checkmark_only_anim()
-			parchment_arrangement_complete.emit()
-		
+	if frame1_entered and frame2_entered and frame3_entered and frame4_entered and frame5_entered:
+		if frame1_correct and frame2_correct and frame3_correct and frame4_correct and frame5_correct:
+			frame_1.enabled = false
+			frame_2.enabled = false
+			frame_3.enabled = false
+			frame_4.enabled = false
+			frame_5.enabled = false
+			if !anim_check_bool:
+				anim_check_bool = true
+				progress_view.visible = true
+				progress_view.progress_complete_checkmark_only_anim()
+				parchment_arrangement_complete.emit()
+		else:
+			if !all_wrong_check:
+				all_wrong_check = true
+				audio_player.stream = wrongsfx
+				audio_player.play()
+	
+	
 func _on_frame_1_has_picked_up(what):
 	# 1753 Old Parchment (A)
+	frame1_entered = true
 	if what.name == "parchment_a":
 		frame1_correct = true
 	else:
@@ -46,6 +63,7 @@ func _on_frame_1_has_picked_up(what):
 
 func _on_frame_2_has_picked_up(what):
 	# 1951 Cat Picture (D)
+	frame2_entered = true
 	if what.name == "parchment_d":
 		frame2_correct = true
 	else:
@@ -54,6 +72,7 @@ func _on_frame_2_has_picked_up(what):
 
 func _on_frame_3_has_picked_up(what):
 	# 1996 Church Front (E)
+	frame3_entered = true
 	if what.name == "parchment_e":
 		frame3_correct = true
 	else:
@@ -62,6 +81,7 @@ func _on_frame_3_has_picked_up(what):
 
 func _on_frame_4_has_picked_up(what):
 	# 2017 Brochure (C)
+	frame4_entered = true
 	if what.name == "parchment_c":
 		frame4_correct = true
 	else:
@@ -70,6 +90,7 @@ func _on_frame_4_has_picked_up(what):
 
 func _on_frame_5_has_picked_up(what):
 	# 2024 Kid Drawing (B)
+	frame5_entered = true
 	if what.name == "parchment_b":
 		frame5_correct = true
 	else:
@@ -78,22 +99,32 @@ func _on_frame_5_has_picked_up(what):
 
 func _on_frame_1_has_dropped():
 	frame1_correct = false
+	frame1_entered = false
+	all_wrong_check = false
 
 
 func _on_frame_2_has_dropped():
 	frame2_correct = false
+	frame2_entered = false
+	all_wrong_check = false
 
 
 func _on_frame_3_has_dropped():
 	frame3_correct = false
+	frame3_entered = false
+	all_wrong_check = false
 
 
 func _on_frame_4_has_dropped():
 	frame4_correct = false
+	frame4_entered = false
+	all_wrong_check = false
 
 
 func _on_frame_5_has_dropped():
 	frame5_correct = false
+	frame5_entered = false
+	all_wrong_check = false
 
 
 func _on_action_arrange_documents_tree_exiting():

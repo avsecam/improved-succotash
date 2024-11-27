@@ -14,14 +14,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Events.current_mode == "VR":
-		global_transform = follow_object.global_transform
-		
-		if pointer.is_colliding():
-			var object = pointer.get_collider()
-			pointer_collision_response(object)
-		else:
-			close_ui()
+	#if Events.current_mode == "VR":
+		#global_transform = follow_object.global_transform
+		#
+		#if pointer.is_colliding():
+			#var object = pointer.get_collider()
+			#print(object)
+			#pointer_collision_response(object)
+		#else:
+			#close_ui()
+	pass
 
 
 func show_action(action_name : String) -> void:
@@ -37,13 +39,15 @@ func close_ui() -> void:
 
 
 func pointer_collision_response(obj) -> void:
-	if obj is Teleporter:
+	if obj is Teleporter or InventoryController:
 		show_action("trigger_click")
 	elif obj is XRToolsPickable:
 		show_action("middle_click")
 	elif obj is WipeAction:
-		show_action("wave")
-	#elif obj is TwistAction:
-		#show_action("rotate_left")
+		show_action("wipe")
+	elif obj is TwistAction:
+		show_action("twist")
+	elif obj is StrikeAction:
+		show_action("strike")
 	else:
 		close_ui()

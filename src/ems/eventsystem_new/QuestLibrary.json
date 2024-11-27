@@ -403,7 +403,7 @@
 	{
 		"Quest_Name": "QuestLookAtTheButterflies",
 		"Quest_Description": {
-			"Name": "Loot at the butterflies",
+			"Name": "Look at the butterflies",
 			"Description": "Check out the butterfly exhibit. Look around the room!"
 		},
 		"Quest_Completion_Requirements": [
@@ -420,6 +420,44 @@
 		},
 		"Quest_Completion_Flags": [
 			"QuestLookAtTheButterflies_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestCoinCreation",
+		"Quest_Description": {
+			"Name": "Make a Coin",
+			"Description": "Create a coin using the forge and the ingot."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPutIngotInCrucible_Done",
+			"ActionPutCrucibleInForge_Done",
+			"ActionForgeOperationIndicator_Done",
+			"ActionIngotFinishedMelt_Done",
+			"ActionCoinComplete_Done",
+			"ActionCoinInFrame_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Put ingot in crucible": [
+				"ActionPutIngotInCrucible_Done"
+			],
+			"Put crucible in forge": [
+				"ActionPutCrucibleInForge_Done"
+			],
+			"Operate forge bellows": [
+				"ActionForgeOperationIndicator_Done"
+			],
+			"Melt ingot": [
+				"ActionIngotFinishedMelt_Done"
+			],
+			"Pour melted ingot on coin mold": [
+				"ActionCoinComplete_Done"
+			],
+			"Put coin on frame": [
+				"ActionCoinInFrame_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestCoinCreation_Done"
 		]
 	}
 ]

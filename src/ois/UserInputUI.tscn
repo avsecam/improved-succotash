@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdhncfg7g3w7t"]
 
 [ext_resource type="Script" path="res://src/ois/UserInputUI.gd" id="1_1arha"]
-[ext_resource type="PackedScene" path="res://src/ois/UserInputIcon.tscn" id="1_31gjs"]
+[ext_resource type="PackedScene" uid="uid://b7et6bo7evtr4" path="res://src/ois/UserInputIcon.tscn" id="1_31gjs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6avv8"]
-size = Vector2(0.1, 0.1)
+size = Vector2(0.125, 0.125)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jf8o5"]
 transparency = 1
@@ -12,6 +12,7 @@ shading_mode = 0
 albedo_color = Color(0.305882, 0.305882, 0.305882, 0.392157)
 
 [node name="UserInputUI" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0897373, 0)
 script = ExtResource("1_1arha")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -20,6 +21,5 @@ mesh = SubResource("PlaneMesh_6avv8")
 surface_material_override/0 = SubResource("StandardMaterial3D_jf8o5")
 
 [node name="UserInputIcon" parent="." instance=ExtResource("1_31gjs")]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0.075, 0.105)
-animation = &"middle_click"
+transform = Transform3D(0.022, 0, 0, 0, 0.022, 0, 0, 0, 0.022, 0, 0.075, 0.105)
 frame_progress = 0.970012

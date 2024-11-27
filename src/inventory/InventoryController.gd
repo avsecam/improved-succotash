@@ -1,4 +1,5 @@
 extends XRToolsInteractableArea
+class_name InventoryController
 
 @onready var anim := $"../AnimationPlayer"
 @onready var particles := $"../GPUParticles3D"

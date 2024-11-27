@@ -132,7 +132,7 @@ func load_game(slot_num : int = 0, in_game : bool = false) -> void:
 		panorama_container.rotation.y = start_scene.base_rotation
 		panorama_container.add_child(start_scene)
 	else:
-		Events.emit_signal("player_teleport_requested_trigger", data["current_location"])
+		Events.emit_signal("player_teleport_requested_trigger", data["current_location"], true)
 	
 	inventory.get_node("InventoryController").check_if_active()
 	

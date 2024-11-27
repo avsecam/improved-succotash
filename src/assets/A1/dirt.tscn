@@ -8,16 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="6_ng6xa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbqk5"]
-size = Vector3(0.1, 0.365881, 0.175708)
+size = Vector3(0.2, 0.4, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yb7fd"]
-size = Vector3(0.1, 0.365881, 0.176318)
+size = Vector3(0.1, 0.366, 0.366)
 
 [node name="dirt" type="StaticBody3D" groups=["clean_rag"]]
 script = ExtResource("1_83kch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0193298, -0.0909546)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019, 0)
 shape = SubResource("BoxShape3D_mbqk5")
 
 [node name="MainMesh" parent="." instance=ExtResource("2_rqqya")]
@@ -34,7 +34,7 @@ script = ExtResource("4_efhvt")
 requirement = 0.25
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OiledRagReceiver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0193298, 0.0632081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019, 0)
 shape = SubResource("BoxShape3D_yb7fd")
 
 [node name="Feedback" type="Node3D" parent="OiledRagReceiver"]
