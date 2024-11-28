@@ -7,6 +7,7 @@ signal event_ended()
 signal event_audio_done()
 
 @onready var quests = get_tree().get_root().get_node("/root/Demo/Quests")
+@onready var tutorial_ui = get_tree().get_root().get_node("/root/Demo/TutorialUI/Viewport2Din3D/Viewport/TutorialScreen")
 
 var event_name : String
 var event_category : String
@@ -114,14 +115,17 @@ func play_event_audio():
 
 
 func show_event_dialogue():
-	if event_category != "BGM":
+	if event_category != "BGM" and event_category != "TUTORIAL":
 		var page_text : String
 		var page_timer : float = 0
-		for page in event_text["dialogue"]:
-			page_text = page
-			page_timer = event_text["dialogue"][page]
-			await get_tree().create_timer(page_timer).timeout
-			Events.emit_signal("update_dialogue_box", event_text["npc_name"], page_text)
+		if !event_text.is_empty():
+			for page in event_text["dialogue"]:
+				page_text = page
+				page_timer = event_text["dialogue"][page]
+				await get_tree().create_timer(page_timer).timeout
+				Events.emit_signal("update_dialogue_box", event_text["npc_name"], page_text)
+	elif event_category == "TUTORIAL":
+		tutorial_ui.start_tutorial(event_text["tutorial_pages"])
 
 func clear_event_dialogue():
 	if event_category != "BGM":

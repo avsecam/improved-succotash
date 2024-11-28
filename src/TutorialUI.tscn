@@ -1,8 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1yj8l0ud3fbe"]
+[gd_scene load_steps=8 format=3 uid="uid://c1yj8l0ud3fbe"]
 
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_nfy1k"]
+[ext_resource type="Script" path="res://src/TutorialUI.gd" id="1_pbsp3"]
+[ext_resource type="PackedScene" uid="uid://crnj7saat8cis" path="res://src/TutorialUIContainer.tscn" id="2_meksb"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yy5sn"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fdgw8"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mya4"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_fdgw8")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjw1g"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
 
 [node name="TutorialUI" type="Node3D"]
+script = ExtResource("1_pbsp3")
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("1_nfy1k")]
 viewport_size = Vector2(1152, 648)
+unshaded = true
+
+[node name="Viewport" parent="Viewport2Din3D" index="0"]
+size = Vector2i(1152, 648)
+
+[node name="TutorialScreen" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("2_meksb")]
+
+[node name="Screen" parent="Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_yy5sn")
+surface_material_override/0 = SubResource("StandardMaterial3D_5mya4")
+
+[node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
+viewport_size = Vector2(1152, 648)
+
+[node name="CollisionShape3D" parent="Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_hjw1g")
+
+[editable path="Viewport2Din3D"]

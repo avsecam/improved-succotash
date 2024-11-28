@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://crnj7saat8cis"]
+[gd_scene load_steps=5 format=3 uid="uid://crnj7saat8cis"]
+
+[ext_resource type="Texture2D" uid="uid://lt4sostmcnhv" path="res://src/assets/Tutorials/TutorialNavigation01.png" id="1_6sq0g"]
+[ext_resource type="Script" path="res://src/TutorialScreenControl.gd" id="1_kk47d"]
+[ext_resource type="FontFile" uid="uid://cte42piphmlng" path="res://src/assets/Fonts/Pirata_One/PirataOne-Regular.ttf" id="3_sfixr"]
+[ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="4_242t1"]
 
 [node name="TutorialScreen" type="Control"]
 layout_mode = 3
@@ -7,3 +12,100 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kk47d")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6sq0g")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_right = 107.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_sfixr")
+theme_override_font_sizes/font_size = 70
+text = "Tutorial"
+
+[node name="NextOnly" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1152, 100)
+layout_mode = 0
+offset_top = 530.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NextOnly"]
+layout_mode = 2
+theme_override_constants/separation = 300
+
+[node name="Next" type="Button" parent="NextOnly/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_242t1")
+theme_override_font_sizes/font_size = 50
+text = "NEXT"
+
+[node name="PrevNext" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1152, 100)
+layout_mode = 0
+offset_top = 530.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PrevNext"]
+layout_mode = 2
+theme_override_constants/separation = 300
+
+[node name="Prev" type="Button" parent="PrevNext/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_242t1")
+theme_override_font_sizes/font_size = 50
+text = "PREV"
+
+[node name="Next" type="Button" parent="PrevNext/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_242t1")
+theme_override_font_sizes/font_size = 50
+text = "NEXT"
+
+[node name="PrevDone" type="CenterContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(1152, 100)
+layout_mode = 0
+offset_top = 530.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PrevDone"]
+layout_mode = 2
+theme_override_constants/separation = 300
+
+[node name="Prev" type="Button" parent="PrevDone/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_242t1")
+theme_override_font_sizes/font_size = 50
+text = "PREV"
+
+[node name="Done" type="Button" parent="PrevDone/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_242t1")
+theme_override_font_sizes/font_size = 50
+text = "DONE"
+
+[connection signal="pressed" from="NextOnly/HBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="PrevNext/HBoxContainer/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="PrevNext/HBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="PrevDone/HBoxContainer/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="PrevDone/HBoxContainer/Done" to="." method="_on_done_pressed"]

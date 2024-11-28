@@ -54,7 +54,7 @@
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_02_HeyHere",
 		"Loop_Audio": true,
-		"Loop_Interval": 3,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "???",
 			"dialogue": {
@@ -89,6 +89,7 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
+			"TutorialGrabbing_Done",
 			"DialogueGateIsLocked_Done"
 		],
 		"Event_Completion_Flags": [
@@ -96,7 +97,7 @@
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_04_GoKey",
 		"Loop_Audio": true,
-		"Loop_Interval": 3,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -131,6 +132,7 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
+			"TutorialInventory_Done",
 			"DialogueKindPerson_Done"
 		],
 		"Event_Completion_Flags": [
@@ -139,7 +141,7 @@
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_06_SinceYou",
 		"Loop_Audio": true,
-		"Loop_Interval": 3,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -162,7 +164,7 @@
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_07_Now_Me",
 		"Loop_Audio": true,
-		"Loop_Interval": 3,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -199,6 +201,7 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
+			"TutorialOIS_Done",
 			"DialogueIntroduceCat_Done"
 		],
 		"Event_Completion_Flags": [
@@ -206,7 +209,7 @@
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_12_DontCat",
 		"Loop_Audio": true,
-		"Loop_Interval": 3,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -227,7 +230,7 @@
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_13_TheAsk",
 		"Loop_Audio": true,
-		"Loop_Interval": 3,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -295,7 +298,7 @@
 		],
 		"Event_Audio": "VE_VO_ZT_MRBLSPRT_09_ItsIt",
 		"Loop_Audio": true,
-		"Loop_Interval": 3,
+		"Loop_Interval": 15,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -2272,5 +2275,104 @@
 		"Loop_Interval": 0,
 		"Event_Text": {},
 		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "TutorialNavigation",
+		"Event_Category": "TUTORIAL",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"QuestMeetTheMarbleSpirit_Done"
+		],
+		"Event_Completion_Flags": [
+			"TutorialNavigation_Done",
+			"WaypointToTut2_Open"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"tutorial_pages": [
+				"TutorialNavigation01",
+				"TutorialNavigation02",
+				"TutorialNavigation03",
+				"TutorialNavigation04",
+				"TutorialNavigation05"
+			]
+		},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "TutorialGrabbing",
+		"Event_Category": "TUTORIAL",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueGateIsLocked_Done"
+		],
+		"Event_Completion_Flags": [
+			"TutorialGrabbing_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"tutorial_pages": [
+				"TutorialGrabbing01",
+				"TutorialGrabbing02",
+				"TutorialGrabbing03",
+				"TutorialGrabbing04"
+			]
+		},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "TutorialInventory",
+		"Event_Category": "TUTORIAL",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueKindPerson_Done"
+		],
+		"Event_Completion_Flags": [
+			"TutorialInventory_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"tutorial_pages": [
+				"TutorialInventory01",
+				"TutorialInventory02",
+				"TutorialInventory03",
+				"TutorialInventory04",
+				"TutorialInventory05"
+			]
+		},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "TutorialOIS",
+		"Event_Category": "TUTORIAL",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueIntroduceCat_Done"
+		],
+		"Event_Completion_Flags": [
+			"TutorialOIS_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"tutorial_pages": [
+				"TutorialOIS01",
+				"TutorialOIS02",
+				"TutorialOIS03",
+				"TutorialOIS04",
+				"TutorialOIS05",
+				"TutorialOIS06",
+				"TutorialOIS07",
+				"TutorialOIS08"
+			]
+		},
+		"Play_Success_SFX": true
 	}
 ]

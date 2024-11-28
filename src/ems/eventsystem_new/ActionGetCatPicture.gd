@@ -3,7 +3,7 @@ extends Event
 @onready var frame = $"../../Frame"
 
 func _on_event_started():
-	await get_tree().create_timer(loop_interval).timeout
+	await get_tree().create_timer(3).timeout
 	frame.visible = false
 	play_event_audio()
 	frame.visible = true

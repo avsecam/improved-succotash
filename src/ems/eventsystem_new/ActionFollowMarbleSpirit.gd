@@ -3,7 +3,7 @@ extends Event
 @onready var marble_spirit = $"../../MarbleSpirit_Normal"
 
 func _on_event_started():
-	await get_tree().create_timer(loop_interval).timeout
+	await get_tree().create_timer(3).timeout
 	play_event_audio()
 	var tween = get_tree().create_tween()
 	print(marble_spirit)
