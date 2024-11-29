@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://crnj7saat8cis"]
 
-[ext_resource type="Texture2D" uid="uid://lt4sostmcnhv" path="res://src/assets/Tutorials/TutorialNavigation01.png" id="1_6sq0g"]
+[ext_resource type="Texture2D" uid="uid://bctmi4wcf0vv3" path="res://src/assets/Tutorials/TutorialNavigation01.png" id="1_6sq0g"]
 [ext_resource type="Script" path="res://src/TutorialScreenControl.gd" id="1_kk47d"]
 [ext_resource type="FontFile" uid="uid://cte42piphmlng" path="res://src/assets/Fonts/Pirata_One/PirataOne-Regular.ttf" id="3_sfixr"]
 [ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="4_242t1"]

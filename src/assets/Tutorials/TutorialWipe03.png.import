@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2hiw43v7bsp3"
-path="res://.godot/imported/TutorialOIS06.png-eeced7240bc973202a4cadf92a883bcc.ctex"
+uid="uid://bt3tk5y1tcv7p"
+path="res://.godot/imported/TutorialWipe03.png-c5819f4f87e73b853bd627ecb5450e26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/Tutorials/TutorialOIS06.png"
-dest_files=["res://.godot/imported/TutorialOIS06.png-eeced7240bc973202a4cadf92a883bcc.ctex"]
+source_file="res://src/assets/Tutorials/TutorialWipe03.png"
+dest_files=["res://.godot/imported/TutorialWipe03.png-c5819f4f87e73b853bd627ecb5450e26.ctex"]
 
 [params]
 

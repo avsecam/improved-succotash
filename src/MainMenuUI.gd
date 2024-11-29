@@ -7,6 +7,7 @@ signal menu_closed()
 @onready var save_load := $SaveLoad
 @onready var credits := $Credits
 @onready var save_files := $SaveFiles
+@onready var tutorials := $Tutorials
 @onready var confirmation_panel := $ConfirmationPanel
 
 @onready var main_menu_hitbox := get_parent().get_parent().get_node("StaticBody3D/CollisionShape3D")
@@ -38,6 +39,7 @@ func go_to_main() -> void:
 	save_load.visible = false
 	credits.visible = false
 	save_files.visible = false
+	tutorials.visible = false
 	confirmation_panel.visible = false
 
 func go_to_save_load() -> void:
@@ -46,6 +48,7 @@ func go_to_save_load() -> void:
 	save_load.visible = true
 	credits.visible = false
 	save_files.visible = false
+	tutorials.visible = false
 	confirmation_panel.visible = false
 
 func go_to_new_game_load() -> void:
@@ -54,6 +57,7 @@ func go_to_new_game_load() -> void:
 	save_load.visible = false
 	credits.visible = false
 	save_files.visible = false
+	tutorials.visible = false
 	confirmation_panel.visible = false
 
 func go_to_credits() -> void:
@@ -62,6 +66,7 @@ func go_to_credits() -> void:
 	save_load.visible = false
 	credits.visible = true
 	save_files.visible = false
+	tutorials.visible = false
 	confirmation_panel.visible = false
 
 func go_to_save_files(is_new_game: bool, is_save_game: bool) -> void:
@@ -72,8 +77,18 @@ func go_to_save_files(is_new_game: bool, is_save_game: bool) -> void:
 	save_load.visible = false
 	credits.visible = false
 	save_files.visible = true
+	tutorials.visible = false
 	confirmation_panel.visible = false
 
+func go_to_tutorials() -> void:
+	main.visible = false
+	new_game_load.visible = false
+	save_load.visible = false
+	credits.visible = false
+	save_files.visible = false
+	tutorials.visible = true
+	confirmation_panel.visible = false
+	tutorials.check_tutorial_availability()
 
 func _on_start_game_pressed():
 	go_to_new_game_load()
@@ -102,3 +117,7 @@ func _on_save_game_pressed():
 
 func _on_in_game_load_game_pressed():
 	go_to_save_files(false, false)
+
+
+func _on_tutorial_button_pressed():
+	go_to_tutorials()

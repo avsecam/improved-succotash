@@ -201,7 +201,7 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"TutorialOIS_Done",
+			"TutorialWipe_Done",
 			"DialogueIntroduceCat_Done"
 		],
 		"Event_Completion_Flags": [
@@ -291,6 +291,7 @@
 		"Oneshot": true,
 		"Event_Prerequisites": [
 			"ActionPickUpKey_Done",
+			"TutorialTwist_Done",
 			"DialogueTheresTheGate_Done"
 		],
 		"Event_Completion_Flags": [
@@ -2349,28 +2350,99 @@
 		"Play_Success_SFX": true
 	},
 	{
-		"Event_Name": "TutorialOIS",
+		"Event_Name": "TutorialWipe",
 		"Event_Category": "TUTORIAL",
 		"Oneshot": true,
 		"Event_Prerequisites": [
 			"DialogueIntroduceCat_Done"
 		],
 		"Event_Completion_Flags": [
-			"TutorialOIS_Done"
+			"TutorialWipe_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
 		"Event_Text": {
 			"tutorial_pages": [
-				"TutorialOIS01",
-				"TutorialOIS02",
-				"TutorialOIS03",
-				"TutorialOIS04",
-				"TutorialOIS05",
-				"TutorialOIS06",
-				"TutorialOIS07",
-				"TutorialOIS08"
+				"TutorialWipe01",
+				"TutorialWipe02",
+				"TutorialWipe03",
+				"TutorialWipe04",
+				"TutorialWipe05",
+				"TutorialWipe06"
+			]
+		},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "TutorialTwist",
+		"Event_Category": "TUTORIAL",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueTheresTheGate_Done"
+		],
+		"Event_Completion_Flags": [
+			"TutorialTwist_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"tutorial_pages": [
+				"TutorialTwist01",
+				"TutorialTwist02",
+				"TutorialTwist03",
+				"TutorialTwist04",
+				"TutorialTwist05",
+				"TutorialTwist06"
+			]
+		},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "TutorialStrike",
+		"Event_Category": "TUTORIAL",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPickUpHolyWater_Done"
+		],
+		"Event_Completion_Flags": [
+			"TutorialStrike_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"tutorial_pages": [
+				"TutorialStrike01",
+				"TutorialStrike02",
+				"TutorialStrike03",
+				"TutorialStrike04"
+			]
+		},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "TutorialMenu",
+		"Event_Category": "TUTORIAL",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueLetsGo_Done"
+		],
+		"Event_Completion_Flags": [
+			"TutorialMenu_Done",
+			"WaypointToA_Open"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"tutorial_pages": [
+				"TutorialMenu01",
+				"TutorialMenu02",
+				"TutorialMenu03",
+				"TutorialMenu04",
+				"TutorialMenu05"
 			]
 		},
 		"Play_Success_SFX": true

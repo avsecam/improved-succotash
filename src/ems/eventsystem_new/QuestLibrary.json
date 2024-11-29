@@ -40,8 +40,7 @@
 			]
 		},
 		"Quest_Completion_Flags": [
-			"QuestOpenTheFrontGate_Done",
-			"WaypointToA_Open"
+			"QuestOpenTheFrontGate_Done"
 		]
 	},
 	{

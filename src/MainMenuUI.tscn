@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3q1e5dyiic5v"]
+[gd_scene load_steps=10 format=3 uid="uid://d3q1e5dyiic5v"]
 
 [ext_resource type="Script" path="res://src/MainMenuUI.gd" id="1_1prhs"]
 [ext_resource type="FontFile" uid="uid://be0wxrjh42okc" path="res://src/assets/Fonts/Poppins/Poppins-Black.ttf" id="1_pfw27"]
 [ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="2_bgy54"]
+[ext_resource type="Script" path="res://src/TutorialsReviewScreen.gd" id="3_mseuk"]
 [ext_resource type="FontFile" uid="uid://cvpm3sl6dimfg" path="res://src/assets/Fonts/Poppins/Poppins-MediumItalic.ttf" id="3_my10h"]
 [ext_resource type="FontFile" uid="uid://ii2stee4kiwm" path="res://src/assets/Fonts/Poppins/Poppins-BlackItalic.ttf" id="4_oyjvv"]
 [ext_resource type="PackedScene" uid="uid://bebgkxrau10o7" path="res://src/SaveFileUI.tscn" id="5_8hjiv"]
@@ -133,6 +134,81 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_pfw27")
 theme_override_font_sizes/font_size = 48
 text = "LOAD GAME"
+
+[node name="TutorialButton" type="Button" parent="SaveLoad/VBoxContainer"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 48
+text = "TUTORIALS"
+
+[node name="Tutorials" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_mseuk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorials"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Navigation" type="Button" parent="Tutorials/VBoxContainer"]
+custom_minimum_size = Vector2(800, 54)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 32
+text = "NAVIGATION TUTORIAL"
+
+[node name="Grabbing" type="Button" parent="Tutorials/VBoxContainer"]
+custom_minimum_size = Vector2(800, 54)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 32
+text = "GRABBING OBJECTS TUTORIAL"
+
+[node name="Inventory" type="Button" parent="Tutorials/VBoxContainer"]
+custom_minimum_size = Vector2(800, 54)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 32
+text = "INVENTORY TUTORIAL"
+
+[node name="WipeAction" type="Button" parent="Tutorials/VBoxContainer"]
+custom_minimum_size = Vector2(800, 54)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 32
+text = "WIPE ACTION TUTORIAL
+"
+
+[node name="TwistAction" type="Button" parent="Tutorials/VBoxContainer"]
+custom_minimum_size = Vector2(800, 54)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 32
+text = "TWIST ACTION TUTORIAL
+"
+
+[node name="StrikeAction" type="Button" parent="Tutorials/VBoxContainer"]
+custom_minimum_size = Vector2(800, 54)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 32
+text = "STRIKE ACTION TUTORIAL
+"
+
+[node name="Menu" type="Button" parent="Tutorials/VBoxContainer"]
+custom_minimum_size = Vector2(800, 54)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pfw27")
+theme_override_font_sizes/font_size = 32
+text = "MENU TUTORIAL
+"
 
 [node name="Credits" type="CenterContainer" parent="."]
 visible = false
@@ -268,6 +344,14 @@ text = "CONFIRM"
 [connection signal="pressed" from="NewGameLoad/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="SaveLoad/VBoxContainer/SaveGame" to="." method="_on_save_game_pressed"]
 [connection signal="pressed" from="SaveLoad/VBoxContainer/LoadGame" to="." method="_on_in_game_load_game_pressed"]
+[connection signal="pressed" from="SaveLoad/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Tutorials/VBoxContainer/Navigation" to="Tutorials" method="_on_navigation_pressed"]
+[connection signal="pressed" from="Tutorials/VBoxContainer/Grabbing" to="Tutorials" method="_on_grabbing_pressed"]
+[connection signal="pressed" from="Tutorials/VBoxContainer/Inventory" to="Tutorials" method="_on_inventory_pressed"]
+[connection signal="pressed" from="Tutorials/VBoxContainer/WipeAction" to="Tutorials" method="_on_wipe_action_pressed"]
+[connection signal="pressed" from="Tutorials/VBoxContainer/TwistAction" to="Tutorials" method="_on_twist_action_pressed"]
+[connection signal="pressed" from="Tutorials/VBoxContainer/StrikeAction" to="Tutorials" method="_on_strike_action_pressed"]
+[connection signal="pressed" from="Tutorials/VBoxContainer/Menu" to="Tutorials" method="_on_menu_pressed"]
 [connection signal="pressed" from="Credits/VBoxContainer/CenterContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile" to="SaveFiles" method="_on_save_file_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile2" to="SaveFiles" method="_on_save_file_2_pressed"]

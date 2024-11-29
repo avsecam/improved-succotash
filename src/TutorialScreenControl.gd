@@ -46,7 +46,8 @@ func change_page(idx : int) -> void:
 	tutorial_image.texture = load("res://src/assets/Tutorials/" + page_array[current_page] + ".png")
 
 func end_tutorial() -> void:
-	shelf.visible = true
+	if Events.finished_events.has("DialogueKindPerson_Done"):
+		shelf.visible = true
 	static_ui.visible = true
 	hitbox.disabled = true
 	tutorial_ui.visible = false
