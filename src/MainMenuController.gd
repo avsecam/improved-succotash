@@ -13,6 +13,7 @@ var image_rotate
 @onready var static_ui_container := $"../StaticUIContainer"
 @onready var user_input_ui := $"../UserInputUI"
 @onready var shelf := $"../Shelf"
+@onready var tutorial_ui := $"../TutorialUI"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

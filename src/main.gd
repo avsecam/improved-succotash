@@ -4,6 +4,7 @@ var xr_interface: XRInterface
 @onready var static_ui_container := $StaticUIContainer
 @onready var main_menu_container := $MainMenu
 @onready var main_menu_controller := $MainMenuController
+@onready var tutorial_ui_container := $TutorialUI
 
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
@@ -16,6 +17,7 @@ func _ready():
 		static_ui_container.initialize_static_ui_container("VR")
 		main_menu_container.initialize_main_menu_container("VR")
 		main_menu_controller.initialize_main_menu_controller("VR")
+		tutorial_ui_container.initialize_tutorial_container("VR")
 		
 		Events.current_mode = "VR"
 		
@@ -29,6 +31,7 @@ func _ready():
 		static_ui_container.initialize_static_ui_container("NonVR")
 		main_menu_container.initialize_main_menu_container("NonVR")
 		main_menu_controller.initialize_main_menu_controller("NonVR")
+		tutorial_ui_container.initialize_tutorial_container("NonVR")
 		Events.current_mode = "NonVR"
 	
 	get_tree().paused = true

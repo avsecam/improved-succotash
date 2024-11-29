@@ -32,5 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00667394, 0.221676, -0.0204
 volume_db = 3.0
 
 [connection signal="action_completed" from="." to="GateLockInteracted" method="_on_front_gate_action_completed"]
+[connection signal="action_in_progress" from="." to="GateLockInteracted" method="_on_front_gate_action_in_progress"]
 
 [editable path="MainMesh"]
