@@ -1,10 +1,10 @@
 extends Event
 
-@onready var visible_on_screen_notifier_3d = $"../../WaterSpirit_Normal/VisibleOnScreenNotifier3D"
+@onready var notifier = $"../../WaterSpirit_Normal/VisibleOnScreenNotifier3D"
 
 func _on_event_started() -> void:
 	clear_event_dialogue()
-	visible_on_screen_notifier_3d.screen_entered.connect(_on_visible_on_screen_notifier_3d_screen_entered)
+	notifier.screen_entered.connect(_on_visible_on_screen_notifier_3d_screen_entered)
 	await get_tree().create_timer(3.0).timeout
 	play_event_audio()
 
