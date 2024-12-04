@@ -356,14 +356,14 @@ color_ramp = SubResource("GradientTexture1D_ipxr7")
 resource_local_to_scene = true
 size = Vector2(200, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mjp6p"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nj7a8"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_occ5q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2qyr"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_mjp6p")
+albedo_texture = SubResource("ViewportTexture_nj7a8")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nn2a6"]
@@ -525,7 +525,7 @@ tint_progress = Color(0, 0.968627, 0.831373, 1)
 
 [node name="Screen" parent="FlameHeatView/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_wba4x")
-surface_material_override/0 = SubResource("StandardMaterial3D_occ5q")
+surface_material_override/0 = SubResource("StandardMaterial3D_o2qyr")
 
 [node name="CollisionShape3D" parent="FlameHeatView/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_nn2a6")
