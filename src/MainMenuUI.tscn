@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3q1e5dyiic5v"]
+[gd_scene load_steps=11 format=3 uid="uid://d3q1e5dyiic5v"]
 
 [ext_resource type="Script" path="res://src/MainMenuUI.gd" id="1_1prhs"]
 [ext_resource type="FontFile" uid="uid://be0wxrjh42okc" path="res://src/assets/Fonts/Poppins/Poppins-Black.ttf" id="1_pfw27"]
 [ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="2_bgy54"]
+[ext_resource type="Texture2D" uid="uid://rvp53eu3kxrb" path="res://src/assets/Logo/HHV1.png" id="2_eyrc7"]
 [ext_resource type="Script" path="res://src/TutorialsReviewScreen.gd" id="3_mseuk"]
 [ext_resource type="FontFile" uid="uid://cvpm3sl6dimfg" path="res://src/assets/Fonts/Poppins/Poppins-MediumItalic.ttf" id="3_my10h"]
 [ext_resource type="FontFile" uid="uid://ii2stee4kiwm" path="res://src/assets/Fonts/Poppins/Poppins-BlackItalic.ttf" id="4_oyjvv"]
@@ -36,20 +37,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.870588, 0.870588, 0.870588, 1)
+color = Color(1, 1, 1, 0.701961)
 
 [node name="Main" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 191.0
+offset_left = -670.5
+offset_top = -316.77
+offset_right = 670.5
+offset_bottom = 287.23
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main"]
 layout_mode = 2
 theme_override_constants/separation = 20
+
+[node name="TitleLogo" type="TextureRect" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 192.875)
+layout_mode = 2
+texture = ExtResource("2_eyrc7")
+expand_mode = 1
 
 [node name="NewGame" type="Button" parent="Main/VBoxContainer"]
 custom_minimum_size = Vector2(400, 80)
@@ -78,13 +88,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 191.0
+offset_top = 63.37
+offset_bottom = -92.63
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NewGameLoad"]
 layout_mode = 2
 theme_override_constants/separation = 20
+
+[node name="TitleLogo2" type="TextureRect" parent="NewGameLoad/VBoxContainer"]
+custom_minimum_size = Vector2(0, 192.875)
+layout_mode = 2
+texture = ExtResource("2_eyrc7")
+expand_mode = 1
 
 [node name="NewGame" type="Button" parent="NewGameLoad/VBoxContainer"]
 custom_minimum_size = Vector2(400, 80)
@@ -113,13 +130,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 191.0
+offset_top = 63.335
+offset_bottom = -92.6646
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SaveLoad"]
 layout_mode = 2
 theme_override_constants/separation = 20
+
+[node name="TitleLogo2" type="TextureRect" parent="SaveLoad/VBoxContainer"]
+custom_minimum_size = Vector2(0, 192.875)
+layout_mode = 2
+texture = ExtResource("2_eyrc7")
+expand_mode = 1
 
 [node name="SaveGame" type="Button" parent="SaveLoad/VBoxContainer"]
 custom_minimum_size = Vector2(400, 80)
@@ -312,7 +336,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_pfw27")
 theme_override_font_sizes/font_size = 40
-text = "Overwrite File??"
+text = "Overwrite File?
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
