@@ -2507,5 +2507,19 @@
 			}
 		},
 		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "DialogueCatMeow1",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": false,
+		"Event_Prerequisites": [
+			"DialogueWaitIHearCatMeow_Done"
+		],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "",
+		"Loop_Audio": true,
+		"Loop_Interval": 5,
+		"Event_Text": {},
+		"Play_Success_SFX": false
 	}
 ]
