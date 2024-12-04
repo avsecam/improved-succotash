@@ -2446,5 +2446,66 @@
 			]
 		},
 		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "DialogueWaitIHearCatMeow",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueWaitIHearCatMeow_Done"
+		],
+		"Event_Audio": "VE_VO_ZF_MRBLSPRT_01_WaitMeowing",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Wait! I think I hear a cat meowing.": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueTheCatShouldBeHere",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueWaitIHearCatMeow_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueTheCatShouldBeHere_Done"
+		],
+		"Event_Audio": "VE_VO_ZF_MRBLSPRT_02_TheIt",
+		"Loop_Audio": true,
+		"Loop_Interval": 10,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"The cat we're looking for should be somewhere here. Let's look for it!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionLookForMissingCat",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueTheCatShouldBeHere_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionLookForMissingCat_Done"
+		],
+		"Event_Audio": "VE_VO_ZF_MRBLSPRT_04_ThereKitty",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"There you are, you silly kitty": 0
+			}
+		},
+		"Play_Success_SFX": true
 	}
 ]

@@ -457,5 +457,23 @@
 		"Quest_Completion_Flags": [
 			"QuestCoinCreation_Done"
 		]
+	},
+	{
+		"Quest_Name": "QuestFindtheMissingCat",
+		"Quest_Description": {
+			"Name": "Look for the cat's friend",
+			"Description": "You hear sounds of the missing cat"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionLookForMissingCat_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Look for the missing cat": [
+				"ActionLookForMissingCat_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestFindtheMissingCat_Done"
+		]
 	}
 ]
