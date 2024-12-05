@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3q1e5dyiic5v"]
+[gd_scene load_steps=12 format=3 uid="uid://d3q1e5dyiic5v"]
 
 [ext_resource type="Script" path="res://src/MainMenuUI.gd" id="1_1prhs"]
 [ext_resource type="FontFile" uid="uid://be0wxrjh42okc" path="res://src/assets/Fonts/Poppins/Poppins-Black.ttf" id="1_pfw27"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cvpm3sl6dimfg" path="res://src/assets/Fonts/Poppins/Poppins-MediumItalic.ttf" id="3_my10h"]
 [ext_resource type="FontFile" uid="uid://ii2stee4kiwm" path="res://src/assets/Fonts/Poppins/Poppins-BlackItalic.ttf" id="4_oyjvv"]
 [ext_resource type="PackedScene" uid="uid://bebgkxrau10o7" path="res://src/SaveFileUI.tscn" id="5_8hjiv"]
+[ext_resource type="Script" path="res://src/Credits.gd" id="5_afhh0"]
 [ext_resource type="Script" path="res://src/SaveFiles.gd" id="6_pqrwe"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_aj5rr"]
@@ -242,17 +243,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_afhh0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Credits/VBoxContainer"]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-follow_focus = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/ScrollContainer"]
-custom_minimum_size = Vector2(500, 500)
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 500)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_bgy54")
 theme_override_fonts/bold_font = ExtResource("1_pfw27")
@@ -264,16 +261,90 @@ theme_override_font_sizes/italics_font_size = 36
 theme_override_font_sizes/bold_italics_font_size = 36
 theme_override_font_sizes/mono_font_size = 36
 bbcode_enabled = true
-text = "[b][i]CREDITS HERE[/i][/b]
+text = "[center][img width=500]res://src/assets/Logo/HHV1.png[/img]
 
-NAME 1  
-NAME 2
-NAME 3
-NAME 4
-NAME 5
-NAME 6
+[b]PROJECT LEAD[/b]
+Maria Mercedes T. Rodrigo
+
+[b]TECHNICAL LEAD[/b]
+Eric Cesar E. Vidal, Jr.
+
+[b]ENGINE AND GAME PROGRAMMING[/b]
+Gerick Jeremiah Niño Go
+Jed Lazslo O. Jocson
+Jesus Alvaro C. Pato
+Joan Dominique Lee
+Kenneth King Ko
+
+[b]GAME DESIGN AND STORY[/b]
+Walfrido David Diy
+
+[b]ASSET DEVELOPMENT[/b]
+Clark Joshua A. Paguio
+Jaim-Kia Tan
+Johnver Christian Lavina
+Noah Jacob Villegas
+Riva Kaitleen T. Paras
+Roswold Sanchez
+
+[b]VOICE DIRECTING[/b]
+Rosario Leonor Manahan-Cello
+
+[b]VOICE ACTING[/b]
+Francesca Marie Aguiluz
+Jeula Therese E. Agbayani
+
+[b]DIALOGUE SUPERVISION[/b]
+Francesco U. Amante
+
+[b]MUSIC COMPOSITION[/b]
+Habble (https://soundcloud.com/habster)
+
+[b]DEVELOPMENT CONSULTANTS[/b]
+Nicko R. Caluya
+CyberCraft Philippines Association
+
+[b]CONTENT CONSULTANTS[/b]
+Aaron Escudero
+Ruel Gonzales
+Joel Espaldon
+
+[b]SUPPORT STATS[/b]
+Dominique Marie Antoinette B. Manahan
+Andre Benedict A. Dorde
+Frances Kyle D. Delos Lado
+Riva Kaitleen T. Paras
+Ma. Rosario M. Madjos
+Jessie L. Dela Cruz
+Rolando C. Artillaga
+
+[b]SPECIAL THANKS TO[/b]
+DOST-PCIEERD staff
+Villa Escudero staff
+Our many testers
+Faculty, Technical and Secretarial Staff of DISCS
+Administrative, Technical and Secretarial Staff of Ateneo de Manila
+
+Some sound effects used in this game were from https://getsoundly.com/
+
+This game was developed using the Godot game engine.
+© 2007-2024 Juan Linietsky, Ariel Manzur and contributors.
+
+This work was made possible through the generosity of:
+
+Department of Science and Technology - Philippine Council for Industry, Energy and Emerging Technology Research and Development (DOST-PCIEERD)
+
+Accenture Philippines
+and
+Ateneo de Manila University
+
+This game is a work of fiction. All likenesses of historical figures explicitly referenced in this work are not intended to be accurately depicted and are strictly for educational purposes only. All other similarities to real persons, living or dead, are purely coincidental.
+
+Game copyright © 2024, Ateneo de Manila University.
+All rights reserved.
+
 "
-scroll_following = true
+scroll_active = false
 
 [node name="CenterContainer" type="CenterContainer" parent="Credits/VBoxContainer"]
 layout_mode = 2
@@ -377,6 +448,7 @@ text = "CONFIRM"
 [connection signal="pressed" from="Tutorials/VBoxContainer/TwistAction" to="Tutorials" method="_on_twist_action_pressed"]
 [connection signal="pressed" from="Tutorials/VBoxContainer/StrikeAction" to="Tutorials" method="_on_strike_action_pressed"]
 [connection signal="pressed" from="Tutorials/VBoxContainer/Menu" to="Tutorials" method="_on_menu_pressed"]
+[connection signal="update_line" from="Credits" to="Credits" method="_on_update_line"]
 [connection signal="pressed" from="Credits/VBoxContainer/CenterContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile" to="SaveFiles" method="_on_save_file_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile2" to="SaveFiles" method="_on_save_file_2_pressed"]

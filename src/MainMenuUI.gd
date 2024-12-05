@@ -68,6 +68,7 @@ func go_to_credits() -> void:
 	save_files.visible = false
 	tutorials.visible = false
 	confirmation_panel.visible = false
+	credits.start_credits()
 
 func go_to_save_files(is_new_game: bool, is_save_game: bool) -> void:
 	save_files.is_new_game = is_new_game
