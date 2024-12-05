@@ -37,21 +37,21 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="2Right1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_b4uo4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54179, -2.63641, 3.62095)
+transform = Transform3D(-0.992617, 0, -0.121293, 0, 1, 0, 0.121293, 0, -0.992617, -1.542, -2.636, 3.621)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_ygm13")
 to = "2Right1.jpg"
 
 [node name="2Right0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_b4uo4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339866, -1.69375, 4.15618)
+transform = Transform3D(-0.996673, 0, -0.0815022, 0, 1, 0, 0.0815022, 0, -0.996673, -0.339866, -1.69375, 4.15618)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_ygm13")
 to = "2Right0.jpg"
 
 [node name="2Right4_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_b4uo4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.64297, -1.73537, -1.99395)
+transform = Transform3D(0.480124, 0, 0.877201, 0, 1, 0, -0.877201, 0, 0.480124, 3.64297, -1.73537, -1.99395)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_ygm13")

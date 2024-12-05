@@ -1,0 +1,245 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1gkt8ts2yoyx"]
+
+[ext_resource type="Script" path="res://src/assets/congratulations_message.gd" id="1_2ccj7"]
+[ext_resource type="FontFile" uid="uid://cte42piphmlng" path="res://src/assets/Fonts/Pirata_One/PirataOne-Regular.ttf" id="1_tyyfh"]
+[ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="2_gwvhr"]
+
+[sub_resource type="Gradient" id="Gradient_ts6jv"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0.980392, 0.980392, 0.980392, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m7yoe"]
+gradient = SubResource("Gradient_ts6jv")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3k7eu"]
+
+[sub_resource type="Animation" id="Animation_pi2sq"]
+resource_name = "PlayCredits"
+length = 35.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/Congratulations Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect/Congratulations Text:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(221, 219), Vector2(221, -200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect/Credits:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.8, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(221, 641), Vector2(221, -2633)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/Credits:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(31.9, 34.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p30g0"]
+_data = {
+"PlayCredits": SubResource("Animation_pi2sq")
+}
+
+[node name="Congratulations Message" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ccj7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+top_level = true
+clip_children = 1
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_m7yoe")
+
+[node name="Congratulations Text" type="RichTextLabel" parent="TextureRect"]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_3k7eu")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -105.0
+offset_right = 355.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_tyyfh")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Congratulations!
+[font_size=50]Thanks for playing![/font_size][/center]"
+fit_content = true
+
+[node name="Credits" type="RichTextLabel" parent="TextureRect"]
+material = SubResource("CanvasItemMaterial_3k7eu")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = 317.0
+offset_right = 355.0
+offset_bottom = 3298.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_tyyfh")
+theme_override_fonts/bold_font = ExtResource("2_gwvhr")
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 18
+bbcode_enabled = true
+text = "[b]
+
+[center][img width=500]res://src/assets/Logo/HHV1.png[/img]
+
+A production of the Ateneo Virtual, Augmented and Mixed Reality (VAMR) Laboratory and the Ateneo Laboratory for the Learning Sciences
+
+[b]PROJECT LEAD[/b]
+Maria Mercedes T. Rodrigo
+
+[b]TECHNICAL LEAD[/b]
+Eric Cesar E. Vidal, Jr.
+
+[b]ENGINE AND GAME PROGRAMMING[/b]
+Gerick Jeremiah Niño Go
+Jed Lazslo O. Jocson
+Jesus Alvaro C. Pato
+Joan Dominique Lee
+Kenneth King Ko
+
+[b]GAME DESIGN AND STORY[/b]
+Walfrido David Diy
+
+[b]ASSET DEVELOPMENT[/b]
+Clark Joshua A. Paguio
+Jaim-Kia Tan
+Johnver Christian Lavina
+Noah Jacob Villegas
+Riva Kaitleen T. Paras
+Roswold Sanchez
+
+[b]VOICE DIRECTING[/b]
+Rosario Leonor Manahan-Cello
+
+[b]VOICE ACTING[/b]
+Francesca Marie Aguiluz
+Jeula Therese E. Agbayani
+
+[b]DIALOGUE SUPERVISION[/b]
+Francesco U. Amante
+
+[b]MUSIC COMPOSITION[/b]
+Habble (https://soundcloud.com/habster)
+
+[b]DEVELOPMENT CONSULTANTS[/b]
+Nicko R. Caluya
+CyberCraft Philippines Association
+
+[b]CONTENT CONSULTANTS[/b]
+Aaron Escudero
+Ruel Gonzales
+Joel Espaldon
+
+[b]SUPPORT STATS[/b]
+Dominique Marie Antoinette B. Manahan
+Andre Benedict A. Dorde
+Frances Kyle D. Delos Lado
+Riva Kaitleen T. Paras
+Ma. Rosario M. Madjos
+Jessie L. Dela Cruz
+Rolando C. Artillaga
+
+[b]SPECIAL THANKS TO[/b]
+DOST-PCIEERD staff
+Villa Escudero staff
+Our many testers
+Faculty, Technical and Secretarial Staff of DISCS
+Administrative, Technical and Secretarial Staff of Ateneo de Manila
+
+Some sound effects used in this game were from https://getsoundly.com/
+
+This game was developed using the Godot game engine.
+© 2007-2024 Juan Linietsky, Ariel Manzur and contributors.
+
+This work was made possible through the generosity of:
+
+Department of Science and Technology - Philippine Council for Industry, Energy and Emerging Technology Research and Development (DOST-PCIEERD)
+
+Accenture Philippines
+and
+Ateneo de Manila University
+
+This game is a work of fiction. All likenesses of historical figures explicitly referenced in this work are not intended to be accurately depicted and are strictly for educational purposes only. All other similarities to real persons, living or dead, are purely coincidental.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Game copyright © 2024, Ateneo de Manila University.
+All rights reserved."
+fit_content = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p30g0")
+}
