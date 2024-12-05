@@ -2538,8 +2538,8 @@
 			"dialogue": {
 				"This amphora is an ancient jar from Corinth, Greece dating back to 300 BC.": 0,
 				"Visitors may find this difficult to believe - ": 6,
-				"after all, the remnants of oysters and barnacles on the artifact make it difficult to ascertain": 9,
-				"what the amphora looked like before it was subjected to the ravages of time.": 16
+				"after all, the remnants of oysters and barnacles on the artifact make it difficult to ascertain": 3,
+				"what the amphora looked like before it was subjected to the ravages of time.": 7
 			}
 		},
 		"Play_Success_SFX": false

@@ -95,11 +95,13 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.898691, -4.45189, 
 transform = Transform3D(3, 0, 5.96046e-08, 0, 3, 0, -5.96046e-08, 0, 3, 0.870734, -1.61716, -2.86612)
 
 [node name="Indicator" parent="Journal" index="2"]
-associated_event = "JournalAphora"
+animation = &"done"
+frame_progress = 0.0
+associated_event = "JournalAmphora"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Journal"]
 
-[connection signal="rechecking_events" from="Events" to="Events" method="_on_rechecking_events"]
+[connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="pointer_event" from="Journal" to="Events/JournalAmphora" method="_on_journal_pointer_event"]
 
 [editable path="MagicalDistortion"]

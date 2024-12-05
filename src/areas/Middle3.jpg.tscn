@@ -68,7 +68,6 @@ script = ExtResource("8_0x5gk")
 
 [node name="Journal" parent="." instance=ExtResource("8_u8k64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34703, -0.507222, -1.18952)
-collision_layer = 5570561
 
 [node name="Indicator" parent="Journal" index="2"]
 animation = &"done"
