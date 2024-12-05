@@ -57,10 +57,11 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="TitleLogo" type="TextureRect" parent="Main/VBoxContainer"]
-custom_minimum_size = Vector2(0, 192.875)
+custom_minimum_size = Vector2(400, 250)
 layout_mode = 2
 texture = ExtResource("2_eyrc7")
 expand_mode = 1
+stretch_mode = 4
 
 [node name="NewGame" type="Button" parent="Main/VBoxContainer"]
 custom_minimum_size = Vector2(400, 80)
@@ -99,7 +100,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="TitleLogo2" type="TextureRect" parent="NewGameLoad/VBoxContainer"]
-custom_minimum_size = Vector2(0, 192.875)
+custom_minimum_size = Vector2(400, 250)
 layout_mode = 2
 texture = ExtResource("2_eyrc7")
 expand_mode = 1

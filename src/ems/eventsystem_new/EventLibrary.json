@@ -2530,10 +2530,18 @@
 		"Event_Completion_Flags": [
 			"JournalAmphora_Read"
 		],
-		"Event_Audio": "",
+		"Event_Audio": "VE_VO_A_MAIN_ASST_09_ThisTime",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {},
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": {
+				"This amphora is an ancient jar from Corinth, Greece dating back to 300 BC.": 0,
+				"Visitors may find this difficult to believe - ": 6,
+				"after all, the remnants of oysters and barnacles on the artifact make it difficult to ascertain": 9,
+				"what the amphora looked like before it was subjected to the ravages of time.": 16
+			}
+		},
 		"Play_Success_SFX": false
 	},
 	{
