@@ -17,9 +17,9 @@
 		"Oneshot": false,
 		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [],
-		"Event_Audio": "02 - Maintenance Workshop (A-1, C-4)",
+		"Event_Audio": "07 - Museum Hubs (Mains), Title Screen (loop at 2.118s)",
 		"Loop_Audio": true,
-		"Loop_Interval": 0,
+		"Loop_Interval": 101664,
 		"Event_Text": {},
 		"Play_Success_SFX": false
 	},
@@ -2519,6 +2519,112 @@
 		"Event_Audio": "",
 		"Loop_Audio": true,
 		"Loop_Interval": 5,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "JournalAmphora",
+		"Event_Category": "JOURNAL",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"JournalAmphora_Read"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "JournalPaintings",
+		"Event_Category": "JOURNAL",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"JournalPaintings_Read"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "JournalCoinCollection",
+		"Event_Category": "JOURNAL",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"JournalCoinCollection_Read"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "JournalChineseCeramics",
+		"Event_Category": "JOURNAL",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"JournalChineseCeramics_Read"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "JournalWeaponCollection",
+		"Event_Category": "JOURNAL",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"JournalWeaponCollection_Read"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "BGMKitchen",
+		"Event_Category": "BGM",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "03 - Art Gallery Maze (B-3), Records Room (C-2) loop",
+		"Loop_Audio": true,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "BGMForge",
+		"Event_Category": "BGM",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "02 - Maintenance Workshop (A-1, C-4)",
+		"Loop_Audio": true,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "BGMTitleScreen",
+		"Event_Category": "BGM",
+		"Oneshot": false,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "05 - Ruins of a Burned Down Church (A-2)",
+		"Loop_Audio": true,
+		"Loop_Interval": 0,
 		"Event_Text": {},
 		"Play_Success_SFX": false
 	}

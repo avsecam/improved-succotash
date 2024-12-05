@@ -21,6 +21,10 @@ teleporters_data = [{
 "position": Vector3(-2.28777, -1.93542, 1.80961),
 "rotation": Vector3(2.98024e-08, -2.24, -2.96185e-06),
 "to": "2Left11.jpg"
+}, {
+"position": Vector3(1.37, -1.93, 1.82),
+"rotation": Vector3(0, 0, 0),
+"to": "2Left19.jpg"
 }]
 image_filename = "res://src/areas/2Left10.jpg.jpg"
 
@@ -56,3 +60,10 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_2lsrh")
 to = "2Left11.jpg"
+
+[node name="2Left19_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_chdqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37, -1.93, 1.82)
+collision_layer = 5243392
+collision_mask = 0
+script = ExtResource("4_2lsrh")
+to = "2Left19.jpg"

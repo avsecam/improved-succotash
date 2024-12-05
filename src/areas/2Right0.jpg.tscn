@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bksl1ubbfl4ts"]
+[gd_scene load_steps=6 format=3 uid="uid://bksl1ubbfl4ts"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_8no6u"]
 [ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_jj466"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_8hre4"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_ph5tu"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_23v5u"]
 
 [node name="2 right0_jpg" type="Node3D"]
 transform = Transform3D(0.761528, 0, 0.648111, 0, 1, 0, -0.648111, 0, 0.761528, 0, 0, 0)
@@ -56,3 +57,6 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_ph5tu")
 to = "2Right3.jpg"
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_23v5u")

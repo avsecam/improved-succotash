@@ -1,10 +1,11 @@
-[gd_scene load_steps=47 format=3 uid="uid://bb2op0b3b07lb"]
+[gd_scene load_steps=48 format=3 uid="uid://bb2op0b3b07lb"]
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_l7fku"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_ymid4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_k8pkv"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMKitchen.gd" id="6_wup7f"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole1.gd" id="7_7aheo"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLunchFoodPrep.gd" id="7_k4b8x"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutChickenPole2.gd" id="8_dks5q"]
@@ -191,6 +192,9 @@ to = "Rights0.jpg"
 
 [node name="Events" type="Node" parent="."]
 script = ExtResource("6_k8pkv")
+
+[node name="BGMKitchen" type="Node" parent="Events"]
+script = ExtResource("6_wup7f")
 
 [node name="DialogueLunchFoodPrep" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("7_k4b8x")

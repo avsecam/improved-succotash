@@ -66,9 +66,6 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 [node name="BGMPlayerInA3" type="Node" parent="Events"]
 script = ExtResource("8_0x5gk")
 
-[node name="Pillar_Wood" parent="." instance=ExtResource("5_x1e7r")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -1.35065, -2.20593, -1.20066)
-
 [node name="Journal" parent="." instance=ExtResource("8_u8k64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34703, -0.507222, -1.18952)
 
@@ -76,6 +73,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34703, -0.507222, -1.18952
 animation = &"done"
 frame_progress = 0.350999
 associated_event = "JournalTheCarossaLastSupper"
+
+[node name="Pillar_Wood" parent="Journal" instance=ExtResource("5_x1e7r")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.00361991, -1.69871, -0.01114)
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("10_n2rt0")]
 transform = Transform3D(0.234968, 0, 0.085382, 0, 0.25, 0, -0.085382, 0, 0.234968, -2.08903, 0.0271107, -1.3532)

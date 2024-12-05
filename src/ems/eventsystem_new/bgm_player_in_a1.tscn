@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0guesb13x8h4"]
+
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="1_48r1u"]
+
+[node name="BGMPlayerInA1" type="Node"]
+script = ExtResource("1_48r1u")

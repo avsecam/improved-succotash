@@ -46,7 +46,8 @@ var locked_teleporters : Dictionary = {
 	"Back0_jpg" : "WaypointToB_Open",
 	"Left2_jpg" : "QuestPlaceAllTheCatIcons_Done",
 	"RightStairs1_jpg" : "WaypointUpStairs_Open",
-	"Back2_jpg" : "DialoguePaintingsReminder_Done"
+	"Back2_jpg" : "DialoguePaintingsReminder_Done",
+	"2Right3_jpg": "ActionCoinInFrame_Done"
 }
 
 func _ready():

@@ -9,10 +9,23 @@ extends StaticBody3D
 @export var special : bool
 
 @onready var mesh: MeshInstance3D = $CollisionShape3D/MeshInstance3D
+@onready var portal_mesh = $CollisionShape3D2/PortalMesh
+@onready var main_collision_mesh = $CollisionShape3D
+@onready var special_collision_mesh = $SpecialCollisionMesh
 
 func _ready():
 	self.mesh.mesh.resource_local_to_scene = true
 	self.mesh.mesh.material = StandardMaterial3D.new()
+	if special:
+		main_collision_mesh.disabled = true
+		main_collision_mesh.visible = false
+		special_collision_mesh.disabled = false
+		special_collision_mesh.visible = true
+	else:
+		main_collision_mesh.disabled = false
+		main_collision_mesh.visible = true
+		special_collision_mesh.disabled = true
+		special_collision_mesh.visible = false
 	if not to or to.length() <= 0:
 		push_warning("Teleporter has no destination to teleport to.")
 
@@ -20,6 +33,7 @@ func _process(_delta):
 	if not enabled:
 		if special:
 			self.mesh.mesh.material.albedo_color = Color(Color.DARK_KHAKI)
+			special_collision_mesh.visible = false
 		else:
 			self.mesh.mesh.material.albedo_color = Color(Color.DARK_SLATE_GRAY)
 		
@@ -29,6 +43,7 @@ func enable_teleporter():
 		enabled = true
 		if special:
 			self.mesh.mesh.material.albedo_color = Color(Color.DARK_SEA_GREEN)
+			special_collision_mesh.visible = true
 		else:
 			self.mesh.mesh.material.albedo_color = Color(Color.WHITE)
 

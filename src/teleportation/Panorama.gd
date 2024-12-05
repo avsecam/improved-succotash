@@ -54,7 +54,8 @@ func _ready():
 	Events.connect("non_vr_teleporter_hovered", _on_teleporter_hovered)
 	Events.connect("non_vr_no_teleporter_hovered", _on_no_teleporter_hovered)
 	
-
+	if camera:
+		self.global_position = camera.global_position
 
 
 func _physics_process(delta):
@@ -62,10 +63,9 @@ func _physics_process(delta):
 		return
 	
 	# Don't let sphere move around relative to player camera
-	if camera:
-		self.global_position = camera.global_position
-	else:
-		self.global_position = Vector3(0, 0, 0)
+	
+	#else:
+		#self.global_position = Vector3(0, 0, 0)
 
 func update_panorama(new_data_filename: String):
 	var json_as_text = FileAccess.get_file_as_string(AREAS_DIR + new_data_filename)
@@ -99,6 +99,8 @@ func _set_teleporters():
 		var teleporter = preload ("res://src/teleportation/Teleporter.tscn").instantiate()
 		teleporter.name = teleporter_data.to
 		teleporter.position = teleporter_data.position
+		if teleporter_data.has("rotation"):
+			teleporter.rotation.y = teleporter_data.rotation.y
 		teleporter.to = teleporter_data.to
 		
 		if teleporter_data.has("special"):

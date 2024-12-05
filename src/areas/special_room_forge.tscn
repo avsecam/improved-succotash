@@ -1,10 +1,11 @@
-[gd_scene load_steps=77 format=3 uid="uid://movlb5yi80x4"]
+[gd_scene load_steps=78 format=3 uid="uid://movlb5yi80x4"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_f36t3"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_8nuf8"]
+[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_8nuf8"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_5b7ic"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueForgeFirstTime.gd" id="5_5aqkd"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_ogko7"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMForge.gd" id="5_pmll3"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="6_itvg3"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueForgeCoinFun.gd" id="6_wbohn"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutIngotInCrucible.gd" id="7_3y1wj"]
@@ -499,7 +500,7 @@ albedo_color = Color(0, 1, 1, 0.882353)
 script = ExtResource("1_f36t3")
 teleporters_data = [{
 "position": Vector3(3.86, -1.279, 0.052),
-"to": "Rights0.jpg"
+"to": "2Right1_jpg"
 }]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
 
@@ -596,12 +597,15 @@ omni_range = 2.266
 
 [node name="Teleporters" type="Node3D" parent="."]
 
-[node name="Rights0_jpg" parent="Teleporters" instance=ExtResource("4_5b7ic")]
+[node name="2Right1_jpg" parent="Teleporters" instance=ExtResource("4_5b7ic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86, -1.27913, 0.0517313)
-to = "Rights0.jpg"
+to = "2Right1_jpg"
 
 [node name="Events" type="Node" parent="."]
 script = ExtResource("5_ogko7")
+
+[node name="BGMForge" type="Node" parent="Events"]
+script = ExtResource("5_pmll3")
 
 [node name="DialogueForgeFirstTime" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("5_5aqkd")
