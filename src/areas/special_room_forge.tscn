@@ -500,7 +500,7 @@ albedo_color = Color(0, 1, 1, 0.882353)
 script = ExtResource("1_f36t3")
 teleporters_data = [{
 "position": Vector3(3.86, -1.279, 0.052),
-"to": "2Right1_jpg"
+"to": "2Right1.jpg"
 }]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
 
@@ -598,8 +598,8 @@ omni_range = 2.266
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="2Right1_jpg" parent="Teleporters" instance=ExtResource("4_5b7ic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86, -1.27913, 0.0517313)
-to = "2Right1_jpg"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89389, -1.08163, 0.249074)
+to = "2Right1.jpg"
 
 [node name="Events" type="Node" parent="."]
 script = ExtResource("5_ogko7")
