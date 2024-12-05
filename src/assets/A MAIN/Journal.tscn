@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [node name="Journal" type="Area3D"]
-collision_layer = 5242881
+collision_layer = 5570561
 script = ExtResource("1_3roa7")
 
 [node name="Journal_Open" parent="." instance=ExtResource("2_40euk")]

@@ -28,3 +28,7 @@ func _on_event_ended() -> void:
 		if not child.is_ongoing:
 			child.start_event()
 	emit_signal("rechecking_events")
+
+
+func _on_rechecking_events():
+	pass # Replace with function body.
