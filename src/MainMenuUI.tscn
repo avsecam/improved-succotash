@@ -41,6 +41,7 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.701961)
 
 [node name="Main" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -236,7 +237,6 @@ text = "MENU TUTORIAL
 "
 
 [node name="Credits" type="CenterContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -262,6 +262,8 @@ theme_override_font_sizes/bold_italics_font_size = 36
 theme_override_font_sizes/mono_font_size = 36
 bbcode_enabled = true
 text = "[center][img width=500]res://src/assets/Logo/HHV1.png[/img]
+
+A production of the Ateneo Virtual, Augmented and Mixed Reality (VAMR) Laboratory and the Ateneo Laboratory for the Learning Sciences
 
 [b]PROJECT LEAD[/b]
 Maria Mercedes T. Rodrigo
