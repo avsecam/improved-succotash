@@ -12,6 +12,7 @@ func show_feedback(requirement, total_progress):
 	cursed_mesh.visible = false
 	cleansed_mesh.visible = true
 	cursed_particles.emitting = false
+	cursed_particles.visible = false
 	blessed_particles.emitting = true
 	
 	progress_view.visible = true

@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://c6g8tyipdbknu"]
+[gd_scene load_steps=31 format=3 uid="uid://c6g8tyipdbknu"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_xhj0w"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_hb6pg"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_hb6pg"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_0ef5i"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_4wf6l"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_g5gm8"]
@@ -17,12 +17,68 @@
 [ext_resource type="PackedScene" uid="uid://dmldurhnt6d6o" path="res://src/assets/A3/Image_HintA3.glb" id="12_liaj6"]
 [ext_resource type="PackedScene" uid="uid://dh8u38dgfwcu0" path="res://src/assets/A1/dirt.tscn" id="13_wa5m6"]
 [ext_resource type="PackedScene" uid="uid://dydpr1syelc2g" path="res://src/assets/A2/cursed_floor.tscn" id="14_af0sb"]
+[ext_resource type="Material" uid="uid://b7vb87fyvq4h" path="res://src/assets/A3/visual_shader_backup.tres" id="18_m4c5o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wimxo"]
 size = Vector3(0.291211, 0.674683, 0.327966)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxuob"]
 size = Vector3(0.1, 0.365881, 0.176318)
+
+[sub_resource type="Curve" id="Curve_1c42a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.498886, 0.715945), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ocn7i"]
+curve = SubResource("Curve_1c42a")
+
+[sub_resource type="Curve" id="Curve_nqn0u"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xgs2e"]
+curve = SubResource("Curve_nqn0u")
+
+[sub_resource type="Curve" id="Curve_olm0n"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.43928, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x8khj"]
+curve = SubResource("Curve_olm0n")
+
+[sub_resource type="Curve" id="Curve_ud47n"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yk0pt"]
+curve = SubResource("Curve_ud47n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3100w"]
+lifetime_randomness = 0.69
+particle_flag_disable_z = true
+angle_min = -582.3
+angle_max = 29.8
+direction = Vector3(0, 0, 0)
+spread = 51.02
+angular_velocity_max = 1.0
+angular_velocity_curve = SubResource("CurveTexture_xgs2e")
+orbit_velocity_max = 1.0
+orbit_velocity_curve = SubResource("CurveTexture_yk0pt")
+radial_velocity_max = 1.0
+gravity = Vector3(0, 6, 0)
+radial_accel_max = 1.0
+scale_min = 0.0
+scale_max = 2.0
+color = Color(0.901961, 0.270588, 0.360784, 1)
+alpha_curve = SubResource("CurveTexture_ocn7i")
+emission_curve = SubResource("CurveTexture_x8khj")
+hue_variation_max = 0.02
+
+[sub_resource type="QuadMesh" id="QuadMesh_rfxps"]
 
 [node name="middle5_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -115,6 +171,20 @@ disabled = true
 [node name="cursed_floor" parent="." instance=ExtResource("14_af0sb")]
 transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0.429674, -1.4689, -1.07502)
 
+[node name="CursedParticles" type="GPUParticles3D" parent="cursed_floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113395, 0.0655231, -0.0131364)
+visible = false
+material_override = ExtResource("18_m4c5o")
+amount = 10
+lifetime = 1.02
+fixed_fps = 60
+visibility_aabb = AABB(-1.07255, -1.08784, -1.4865, 2.1451, 2.1757, 2.97301)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_3100w")
+draw_passes = 2
+draw_pass_1 = SubResource("QuadMesh_rfxps")
+draw_pass_2 = null
+
 [connection signal="tree_exiting" from="Events/ActionCleanDirtFromHint" to="dirt" method="_associated_event_done"]
 [connection signal="tree_exiting" from="Events/ActionPurifyHint" to="cursed_floor" method="_on_associated_event_finished"]
 [connection signal="lock_solved" from="CombinationLock/CombinationLockInterface" to="Events/ActionUnlockLockbox" method="_on_combination_lock_interface_lock_solved"]
@@ -127,3 +197,5 @@ transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-0
 [editable path="Hammer"]
 [editable path="Hammer/InventoryItemComp"]
 [editable path="dirt"]
+[editable path="cursed_floor"]
+[editable path="cursed_floor/MainMesh/Floor_Cursed"]

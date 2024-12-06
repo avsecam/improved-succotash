@@ -11,3 +11,4 @@ func _on_associated_event_finished() -> void:
 	cursed_mesh.visible = false
 	clean_mesh.visible = true
 	cursed_particles.emitting = false
+	cursed_particles.visible = false
