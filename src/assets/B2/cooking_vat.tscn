@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://x56nig8oxqll"]
-
-[ext_resource type="PackedScene" uid="uid://datnw2ppiu6hs" path="res://src/assets/B2/Cooking_Vat.glb" id="1_op6ws"]
-
-[node name="Cooking_Vat" instance=ExtResource("1_op6ws")]

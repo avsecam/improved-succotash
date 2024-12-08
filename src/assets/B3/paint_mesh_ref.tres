@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bahwnmqk57mcw"]
-
-[ext_resource type="Texture2D" uid="uid://bo5g34w6pgscv" path="res://src/assets/B3/Canvas_Ahrt_everytexture_4.jpg" id="1_v3lac"]
-
-[resource]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0)
-albedo_texture = ExtResource("1_v3lac")

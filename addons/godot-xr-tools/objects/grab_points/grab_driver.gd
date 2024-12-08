@@ -8,7 +8,6 @@ enum State {
 	SNAP,
 }
 
-
 ## Drive state
 var state : State = State.SNAP
 

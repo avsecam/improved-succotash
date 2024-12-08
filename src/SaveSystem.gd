@@ -30,9 +30,9 @@ func new_game(slot_num : int = 0) -> void:
 	elif Events.current_mode == "NonVR":
 		panorama_container = get_tree().get_root().get_node("Demo/NonVR/PanoramaContainer")
 	
-	Events.current_location = "Tut1.jpg"
-	var start_scene = preload("res://src/areas/Tut1.jpg.tscn").instantiate()
-	panorama_container.add_child(start_scene)
+	#Events.current_location = "Tut1.jpg"
+	#var start_scene = preload("res://src/areas/Tut1.jpg.tscn").instantiate()
+	#panorama_container.add_child(start_scene)
 
 
 func save_game(slot_num : int = 0) -> void:

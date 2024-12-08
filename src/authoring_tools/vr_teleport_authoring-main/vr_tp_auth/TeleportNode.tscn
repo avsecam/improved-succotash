@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwrrbgry634tu"]
+
+[ext_resource type="Script" path="res://src/authoring_tools/vr_teleport_authoring-main/vr_tp_auth/TeleportNode.gd" id="1_5bw6n"]
+[ext_resource type="Texture2D" uid="uid://ythcafi6i6yg" path="res://src/authoring_tools/vr_teleport_authoring-main/assets/outside_1.jpg" id="2_0lour"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46pbe"]
+size = Vector2(100, 100)
+
+[node name="TeleportNode2" type="StaticBody2D" groups=["TeleportNode"]]
+input_pickable = true
+script = ExtResource("1_5bw6n")
+
+[node name="Connections" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_46pbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_0lour")
+region_enabled = true
+region_rect = Rect2(1500, 500, 1000, 1000)
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = -51.0
+offset_top = 47.0
+offset_right = 51.0
+offset_bottom = 78.0
+text = "outside_1.jpg"
+alignment = 1
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -1
+offset_left = -52.0
+offset_top = -52.0
+offset_right = 52.0
+offset_bottom = 52.0
+mouse_filter = 1
+color = Color(0, 0.694118, 0.698039, 1)

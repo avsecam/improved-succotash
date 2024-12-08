@@ -1,11 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://5iqynxjjb1jk"]
+[gd_scene load_steps=7 format=3 uid="uid://5iqynxjjb1jk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="1_s1q3v"]
-[ext_resource type="PackedScene" uid="uid://dl0povjn2gv2o" path="res://src/assets/Portals/Portal_DarkPurpleDistorted.tscn" id="2_0he52"]
-[ext_resource type="Shader" uid="uid://by4n6g6f1ere7" path="res://src/assets/Portals/portal_shader_darkpurple.tres" id="3_rychr"]
-[ext_resource type="Texture2D" uid="uid://omwrlab6067d" path="res://src/assets/Portals/T_VFX_CircleFit1.png" id="4_xtxmm"]
-[ext_resource type="Texture2D" uid="uid://dxk5ogvvunrvu" path="res://src/assets/Portals/PerlinNoise_Tiled.png" id="5_xiltg"]
-[ext_resource type="Texture2D" uid="uid://teddjgy37ys6" path="res://src/assets/Portals/T_VFX_lelu1_tiled.png" id="6_apyev"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rdsro"]
 height = 0.1
@@ -23,22 +18,9 @@ height = 0.025
 margin = 0.01
 size = Vector3(2.11, 2.23, 0.22)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uquf"]
-render_priority = 0
-shader = ExtResource("3_rychr")
-shader_parameter/Color_Intensity = 0.1
-shader_parameter/Portal_Color = Color(0.156863, 0.482353, 0.560784, 1)
-shader_parameter/Speed_X_Y = Vector2(0.5, 0.3)
-shader_parameter/Portal_Texture = ExtResource("5_xiltg")
-shader_parameter/Portal_Shape = ExtResource("4_xtxmm")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4btm"]
-blend_mode = 1
-cull_mode = 2
-shading_mode = 0
-albedo_color = Color(0.439216, 0.886275, 1, 1)
-albedo_texture = ExtResource("6_apyev")
-use_particle_trails = true
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n1g88"]
+radius = 0.1
+height = 0.2
 
 [node name="Teleporter" type="StaticBody3D"]
 collision_layer = 5243392
@@ -53,14 +35,8 @@ mesh = SubResource("CylinderMesh_17ox7")
 
 [node name="SpecialCollisionMesh" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.994722, 0)
+visible = false
 shape = SubResource("BoxShape3D_si7hb")
 
-[node name="PortalMesh" parent="SpecialCollisionMesh" instance=ExtResource("2_0he52")]
-
-[node name="MeshInstance3D" parent="SpecialCollisionMesh/PortalMesh" index="0"]
-material_override = SubResource("ShaderMaterial_2uquf")
-
-[node name="GPUParticles3D" parent="SpecialCollisionMesh/PortalMesh" index="1"]
-material_override = SubResource("StandardMaterial3D_g4btm")
-
-[editable path="SpecialCollisionMesh/PortalMesh"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpecialCollisionMesh"]
+mesh = SubResource("CapsuleMesh_n1g88")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://busplsep6568w"]
+
+[ext_resource type="Script" path="res://src/ConnectionEntry.gd" id="1_c2tge"]
+
+[node name="ConnectionEntry" type="HBoxContainer"]
+script = ExtResource("1_c2tge")
+
+[node name="AreaName" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Area Name"
+
+[node name="Delete" type="Button" parent="."]
+layout_mode = 2
+text = "Delete
+Teleporter"
+
+[node name="Locks" type="Button" parent="."]
+layout_mode = 2
+text = "Locks"

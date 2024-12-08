@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://51rpoavcjnw3"]
+
+[ext_resource type="Script" path="res://src/events/EventObject.gd" id="1_o33ix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46pbe"]
+size = Vector2(100, 100)
+
+[node name="TeleportNode2" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_o33ix")
+
+[node name="Connections" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_46pbe")
+
+[node name="ColorR" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = -51.0
+offset_top = 47.0
+offset_right = 51.0
+offset_bottom = 78.0
+text = "EventObject"
+alignment = 1
+flat = true
+
+[node name="Highlight" type="ColorRect" parent="."]
+visible = false
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -57.0
+offset_right = 57.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+color = Color(0, 0.694118, 0.698039, 1)

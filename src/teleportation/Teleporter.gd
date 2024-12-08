@@ -19,13 +19,15 @@ func _ready():
 	if special:
 		main_collision_mesh.disabled = true
 		main_collision_mesh.visible = false
-		special_collision_mesh.disabled = false
-		special_collision_mesh.visible = true
+		if is_instance_valid(special_collision_mesh):
+			special_collision_mesh.disabled = false
+			special_collision_mesh.visible = true
 	else:
 		main_collision_mesh.disabled = false
 		main_collision_mesh.visible = true
-		special_collision_mesh.disabled = true
-		special_collision_mesh.visible = false
+		if is_instance_valid(special_collision_mesh):
+			special_collision_mesh.disabled = true
+			special_collision_mesh.visible = false
 	if not to or to.length() <= 0:
 		push_warning("Teleporter has no destination to teleport to.")
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3qom6dnf0u1x"]
+
+[ext_resource type="Script" path="res://src/events/TriggerEntry.gd" id="1_h7v1x"]
+
+[node name="TriggerEntry" type="HBoxContainer"]
+script = ExtResource("1_h7v1x")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "trigger_name"
+
+[node name="StateButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+text = "FALSE"
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+text = "DEL"

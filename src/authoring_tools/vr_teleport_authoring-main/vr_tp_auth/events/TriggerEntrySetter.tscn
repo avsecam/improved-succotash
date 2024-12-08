@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwmubgua1hljj"]
+
+[ext_resource type="Script" path="res://src/events/TriggerEntrySetter.gd" id="1_211co"]
+
+[node name="TriggerEntrySetter" type="HBoxContainer"]
+script = ExtResource("1_211co")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "trigger_name"
+
+[node name="StateButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+disabled = true
+text = "FALSE"
+
+[node name="ConnectButton" type="CheckBox" parent="."]
+layout_mode = 2

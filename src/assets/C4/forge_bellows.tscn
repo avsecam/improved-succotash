@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpeqgucyaovsq"]
-
-[ext_resource type="PackedScene" uid="uid://bf0guybhlolwk" path="res://src/assets/C4/kk_modified_forge_bellow.glb" id="1_iyj2f"]
-
-[node name="kk_modified_forge_bellow" instance=ExtResource("1_iyj2f")]
-
-[node name="Fuelle" parent="." index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)

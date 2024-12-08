@@ -21,6 +21,8 @@ Events="*res://src/Events.gd"
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 AudioHandler="*res://src/ems/AudioHandler.tscn"
 SaveSystem="*res://src/SaveSystem.gd"
+StateAuth="*res://src/authoring_tools/vr_teleport_authoring-main/State.gd"
+EventFlags="*res://src/authoring_tools/vr_teleport_authoring-main/EventFlags.gd"
 
 [editor_plugins]
 

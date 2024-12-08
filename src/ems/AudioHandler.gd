@@ -5,29 +5,6 @@ extends Node
 @export var dialogue_locations : Dictionary = {}
 
 @export var sfx_locations : Dictionary = {
-	"Char_MrblSprt" : preload("res://src/assets/audio/sfx/VE_SFX_UI_MrblSprt.ogg"),
-	"Char_Cat" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Cat.ogg"),
-	"Char_Cat_Meow1" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Cat_Meow.ogg"),
-	"Char_Cat_Meow2" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Cat_Meow_Var_01.ogg"),
-	"Char_Cat_Meow3" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Cat_Meow_Var_02.ogg"),
-	"Char_Cat_Meow4" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Cat_Meow_Var_03.ogg"),
-	"UI_Confirm" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Confirm.ogg"),
-	"UI_Fail" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Fail.ogg"),
-	"UI_Return" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Return.ogg"),
-	"UI_Success" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Success.ogg"),
-	"UI_TaskPending" : preload("res://src/assets/audio/sfx/VE_SFX_UI_TaskPending.ogg"),
-	"UI_TaskWrong" : preload("res://src/assets/audio/sfx/VE_SFX_UI_TaskWrong.ogg"),
-	"UI_QuestComplete" : preload("res://src/assets/audio/sfx/VE_SFX_UI_QuestComplete.ogg"),
-	"UI_Tele_Hover" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Teleport_Hover.ogg"),
-	"UI_Tele_Confirm" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Teleport_Confirm.ogg"),
-	"UI_Inventory_Toggle" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Inventory_Poof_Short.ogg"),
-	"Tut_Gate_Open" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Tutorial_MetalGateOpen.ogg"),
-	"A_Purify" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Purify.ogg"),
-	"A_Padlock_Turn1" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Padlock_Turn_Var_01.ogg"),
-	"A_Padlock_Turn2" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Padlock_Turn_Var_02.ogg"),
-	"A_Padlock_Open" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Padlock_Open.ogg"),
-	"A_WoodBox_Open" : preload("res://src/assets/audio/sfx/VE_SFX_UI_WoodBoxOpen.ogg"),
-	"A_CrystalShatter" : preload("res://src/assets/audio/sfx/VE_SFX_UI_A_CrystalShatter.ogg")
 }
 
 @onready var bgm_player := $BGMPlayer
