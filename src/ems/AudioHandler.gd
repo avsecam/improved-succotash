@@ -42,6 +42,8 @@ func _ready():
 		else:
 			if audio_name.contains("_ZT_"):
 				dialogue_locations[audio_name] = load("res://src/assets/audio/tutorial/" + audio_name + ".ogg")
+			if audio_name.contains("_A_MAIN_"):
+				dialogue_locations[audio_name] = load("res://src/assets/audio/a/" + audio_name + ".ogg")
 			if audio_name.contains("_A1_"):
 				dialogue_locations[audio_name] = load("res://src/assets/audio/a1/" + audio_name + ".ogg")
 			if audio_name.contains("_A2_"):
@@ -56,6 +58,8 @@ func _ready():
 				dialogue_locations[audio_name] = load("res://src/assets/audio/b3/" + audio_name + ".ogg")
 			if audio_name.contains("_B4_"):
 				dialogue_locations[audio_name] = load("res://src/assets/audio/b4/" + audio_name + ".ogg")
+			if audio_name.contains("_C0_"):
+				dialogue_locations[audio_name] = load("res://src/assets/audio/c/" + audio_name + ".ogg")
 			if audio_name.contains("_C1_"):
 				dialogue_locations[audio_name] = load("res://src/assets/audio/c1/" + audio_name + ".ogg")
 			if audio_name.contains("_C2_"):
@@ -68,8 +72,6 @@ func _ready():
 				dialogue_locations[audio_name] = load("res://src/assets/audio/c5/" + audio_name + ".ogg")
 			if audio_name.contains("_ZF_"):
 				dialogue_locations[audio_name] = load("res://src/assets/audio/zf/" + audio_name + ".ogg")
-			if audio_name.contains("_A_MAIN_"):
-				dialogue_locations[audio_name] = load("res://src/assets/audio/a/" + audio_name + ".ogg")
 	#for file in DirAccess.get_files_at("res://src/assets/audio/tutorial/"):
 		#if(file.get_extension() != "import"):
 			#dialogue_locations[file.get_basename()] = load("res://src/assets/audio/tutorial/" + file)

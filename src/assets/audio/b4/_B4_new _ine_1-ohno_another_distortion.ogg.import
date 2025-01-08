@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpc3h0xbo5fys"
+path="res://.godot/imported/_B4_new _ine_1-ohno_another_distortion.ogg-a309d9581a4e40bb9615d781a25c6aab.oggvorbisstr"
+
+[deps]
+
+source_file="res://src/assets/audio/b4/_B4_new _ine_1-ohno_another_distortion.ogg"
+dest_files=["res://.godot/imported/_B4_new _ine_1-ohno_another_distortion.ogg-a309d9581a4e40bb9615d781a25c6aab.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
