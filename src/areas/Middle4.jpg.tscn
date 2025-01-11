@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://blmgg5mjuwec5"]
+[gd_scene load_steps=15 format=3 uid="uid://blmgg5mjuwec5"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_nmhm3"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4722n"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_4722n"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_u4rfp"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_ju6eo"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_fj4fk"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_jnkkg"]
 [ext_resource type="PackedScene" uid="uid://c26db2y36x10u" path="res://src/assets/A3/DistortionCrystal.tscn" id="7_0a8j3"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueSourceDistortion.gd" id="7_iw5w4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSmashDistortionCrystal.gd" id="7_ualhj"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionGetCatIcon3.gd" id="8_rhrvd"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA3.gd" id="9_5txc0"]
@@ -58,6 +59,9 @@ script = ExtResource("5_fj4fk")
 
 [node name="BGMPlayerInA1" type="Node" parent="Events"]
 script = ExtResource("6_jnkkg")
+
+[node name="DialogueSourceDistortion" type="Node" parent="Events"]
+script = ExtResource("7_iw5w4")
 
 [node name="ActionSmashDistortionCrystal" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("7_ualhj")
