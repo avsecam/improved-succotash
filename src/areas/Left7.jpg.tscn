@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drei6f2wos07c"]
+[gd_scene load_steps=11 format=3 uid="uid://drei6f2wos07c"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_guqws"]
 [ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_41t1a"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_pjlee"]
 [ext_resource type="PackedScene" uid="uid://cohmpqxch6sjx" path="res://src/assets/A2/Pillar_A2.tscn" id="5_ytes7"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA1.gd" id="6_foad6"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionCursedPillar1.gd" id="7_coek0"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPurifyWoodenPillar.gd" id="7_ty2a2"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerInA3.gd" id="8_brsqq"]
 
@@ -38,14 +39,14 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Left5Vase_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_oxm6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.225, -1.676, 0.306)
+transform = Transform3D(-0.256311, 0, -0.966594, 0, 1, 0, 0.966594, 0, -0.256311, -4.225, -1.676, 0.306)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_rrawd")
 to = "Left5Vase.jpg"
 
 [node name="Left10Cheetah_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_oxm6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.288, -1.095, -1.344)
+transform = Transform3D(0.343655, 0, 0.939096, 0, 1, 0, -0.939096, 0, 0.343655, 4.288, -1.095, -1.344)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_rrawd")
@@ -57,6 +58,9 @@ script = ExtResource("5_pjlee")
 [node name="BGMPlayerInA1" type="Node" parent="Events"]
 script = ExtResource("6_foad6")
 
+[node name="ActionCursedPillar1" type="Node" parent="Events"]
+script = ExtResource("7_coek0")
+
 [node name="ActionPurifyWoodenPillar2" type="Node" parent="Events"]
 script = ExtResource("7_ty2a2")
 
@@ -65,9 +69,6 @@ script = ExtResource("8_brsqq")
 
 [node name="Pillar_A2" parent="." instance=ExtResource("5_ytes7")]
 transform = Transform3D(-0.55205, 0, -0.579, 0, 0.8, 0, 0.579, 0, -0.55205, 2.39793, -4.54658, 1.85748)
-
-[node name="CursedMesh" parent="Pillar_A2/MainMesh" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [connection signal="tree_exiting" from="Events/ActionPurifyWoodenPillar2" to="Pillar_A2/PillarControl" method="_on_associated_event_finished"]
 [connection signal="action_completed" from="Pillar_A2" to="Events/ActionPurifyWoodenPillar2" method="_on_pillar_a_2_action_completed"]

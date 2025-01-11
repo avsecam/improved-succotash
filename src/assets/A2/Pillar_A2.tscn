@@ -483,3 +483,6 @@ process_material = SubResource("ParticleProcessMaterial_g4dlj")
 draw_passes = 2
 draw_pass_1 = SubResource("QuadMesh_n50cu")
 draw_pass_2 = null
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.62167, 0)

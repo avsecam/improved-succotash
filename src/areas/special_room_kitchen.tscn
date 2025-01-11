@@ -1,8 +1,8 @@
-[gd_scene load_steps=48 format=3 uid="uid://bb2op0b3b07lb"]
+[gd_scene load_steps=49 format=3 uid="uid://bb2op0b3b07lb"]
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_l7fku"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_ymid4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_k8pkv"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMKitchen.gd" id="6_wup7f"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPutCookedSabaInPlate.gd" id="24_xlv2s"]
 [ext_resource type="PackedScene" uid="uid://dtb0evnypn7nb" path="res://src/ois/chopping_board_wood.tscn" id="25_0oy1l"]
 [ext_resource type="PackedScene" uid="uid://cqwgfyorumpev" path="res://src/ois/Saba.tscn" id="25_dpbcj"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCookingFinished.gd" id="26_dlaqn"]
 [ext_resource type="PackedScene" uid="uid://dcm7wtj5ie8a8" path="res://src/ois/plate_saba.tscn" id="41_em2b0"]
 [ext_resource type="PackedScene" uid="uid://7hrj4owegamd" path="res://src/ois/cooking_vat_long_new.tscn" id="43_2rwgp"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="43_4temx"]
@@ -257,6 +258,10 @@ script = ExtResource("23_qemw7")
 
 [node name="ActionPutCookedSabaInPlate" type="Node" parent="Events"]
 script = ExtResource("24_xlv2s")
+
+[node name="DialogueCookingFinished" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("26_dlaqn")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="pole_bamboo_chicken_new" parent="." instance=ExtResource("10_gkpfe")]
 transform = Transform3D(0.776744, -0.434326, -0.456104, 0.497137, -0.0218156, 0.867398, -0.386684, -0.900492, 0.198975, -1.16429, -0.582367, -0.488802)
