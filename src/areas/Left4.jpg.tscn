@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cv5a67md3v1f8"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_beetx"]
-[ext_resource type="SphereMesh" uid="uid://bp34u6v5tss3w" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_urork"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_urork"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_gdaay"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_qoegv"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_r5tya"]
@@ -45,28 +45,28 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Left1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_gdaay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.921, -1.973, 1.133)
+transform = Transform3D(-0.217443, 0, -0.976073, 0, 1, 0, 0.976073, 0, -0.217443, -3.921, -1.973, 1.133)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")
 to = "Left1.jpg"
 
 [node name="Left2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_gdaay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.474, -2.311, -0.322)
+transform = Transform3D(0.417595, 0, -0.908633, 0, 1, 0, 0.908633, 0, 0.417595, -2.474, -2.311, -0.322)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")
 to = "Left2.jpg"
 
 [node name="Left3_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_gdaay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.577, -1.689, -3.847)
+transform = Transform3D(0.91712, 0, 0.398611, 0, 1, 0, -0.398611, 0, 0.91712, 1.577, -1.689, -3.847)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")
 to = "Left3.jpg"
 
 [node name="Left5Vase_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_gdaay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.816, -1.61, -1.769)
+transform = Transform3D(0.408487, 0, 0.912764, 0, 1, 0, -0.912764, 0, 0.408487, 3.816, -1.61, -1.769)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qoegv")

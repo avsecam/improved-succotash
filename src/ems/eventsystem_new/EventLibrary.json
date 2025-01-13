@@ -360,8 +360,7 @@
 			"DialogueHeyNewbie_Done"
 		],
 		"Event_Completion_Flags": [
-			"DialoguePolishRodsCleanWindows_Done",
-			"WaypointToAQuest_Open"
+			"DialoguePolishRodsCleanWindows_Done"
 		],
 		"Event_Audio": "VE_VO_A1_MRBLSPRT_01_ComeWindows",
 		"Loop_Audio": false,
@@ -863,13 +862,14 @@
 		"Event_Completion_Flags": [
 			"ActionSmashDistortionCrystal_Done"
 		],
-		"Event_Audio": "VE_VO_A3_MRBLSPRT_02_WeSource",
+		"Event_Audio": "_A3_new_line_2-sourceOfDistortion",
 		"Loop_Audio": true,
-		"Loop_Interval": 3,
+		"Loop_Interval": 8,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
-				"We should be able to erase the distortion by destroying its source!": 0
+				"Look! It’s the source of the distortion!": 0,
+				"Do we have anything that can smash the distortion crystal?": 4
 			}
 		},
 		"Play_Success_SFX": true
@@ -1053,7 +1053,7 @@
 				"and then again in 1937 by Don Arsenio Escudero and Doña Rosario Adap": 8,
 				"not only for irrigation but also for a hydroelectric power plant that began operation in the same year.": 6,
 				"The Arsenio Escudero Hydroelectric Power Plant was upgraded in the 1990's": 8,
-				"and continued to provide power for Villa Escudero up to 2023 before it was shut down.": 7
+				"and continued to provide power for Villa Escudero up to the current date, 24 hours, 7 days a week.": 7
 			}
 		},
 		"Play_Success_SFX": false
@@ -1563,7 +1563,7 @@
 		"Event_Completion_Flags": [],
 		"Event_Audio": "VE_VO_B2_MRBLSPRT_07_StopYourself",
 		"Loop_Audio": false,
-		"Loop_Interval": "",
+		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -1573,22 +1573,22 @@
 		"Play_Success_SFX": false
 	},
 	{
-		"Event_Name": "ActionCookingFinished",
-		"Event_Category": "ACTION",
+		"Event_Name": "DialogueCookingFinished",
+		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"ActionChopGarlic_Done",
-			"ActionChopOnion_Done",
-			"ActionChopKalabasa_Done",
-			"ActionRoastChicken_Done"
+			"ActionAfterChickenSkewer_Done",
+			"ActionMixKalabasaSoup_Done",
+			"ActionAllAtcharaIngredients_Done",
+			"ActionPutCookedSabaInPlate_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionCookingFinished_Done"
+			"DialogueCookingFinished_Done"
 		],
-		"Event_Audio": "",
+		"Event_Audio": "_B2_new_greatjoboncooking",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {},
+		"Event_Text": "{\"\"npc_name\"\": \"\"Marble Spirit\"\", \"\"dialogue\"\": {\"\"Great job on the cooking! I suppose we can go back to the museum now.\n\"\" : 0}}",
 		"Play_Success_SFX": false
 	},
 	{
@@ -1752,10 +1752,16 @@
 		"Event_Completion_Flags": [
 			"ActionPaintOnCanvas_Done"
 		],
-		"Event_Audio": "",
+		"Event_Audio": "_B3_new_that's-a-masterpiece",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {},
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Wow, now that’s a masterpiece!": 0,
+				"Let the earth spirit carry it for now, and then we can find a place to display it.": 3
+			}
+		},
 		"Play_Success_SFX": false
 	},
 	{
@@ -2010,7 +2016,9 @@
 		"Event_Name": "ActionStartCatIconQuest",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
-		"Event_Prerequisites": [],
+		"Event_Prerequisites": [
+			"DialogueCatIconsMissing_Done"
+		],
 		"Event_Completion_Flags": [
 			"ActionStartCatIconQuest_Done"
 		],
@@ -2282,7 +2290,8 @@
 		"Event_Category": "TUTORIAL",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"QuestMeetTheMarbleSpirit_Done"
+			"QuestMeetTheMarbleSpirit_Done",
+			"ActionYouCanSeeMe_Done"
 		],
 		"Event_Completion_Flags": [
 			"TutorialNavigation_Done",
@@ -2583,7 +2592,7 @@
 		"Event_Audio": "",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {},
+		"Event_Text": "{\"\"npc_name\"\": \"\"Assistant\"\", \"\"dialogue\"\": {\"\"Chinese ceramics come in many shapes and sizes, ranging from tea sets to burial jars.\"\":0, \"\"These works of art also reflect the level of technology and prevailing aesthetic sense of the period they were created in.\"\": 6, \"\"Part of the collection of such in the Arsenio Escudero and Rosario Adap museum consists of ceramic items from the Escudero family's collection,\"\": 8, \"\"while the rest are from excavations and donations.\"\":11, \"\" The motifs found on these artifacts usually indicate what dynasty they are from -\"\": 3, \"\" the Sung dynasty is represented by dragons, the Ming dynasty by poodles, and the Late Ming dynasty by the four seasons.\"\":0\n }}",
 		"Play_Success_SFX": false
 	},
 	{
@@ -2634,6 +2643,359 @@
 		"Loop_Audio": true,
 		"Loop_Interval": 0,
 		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionYouCanSeeMe",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionLookAtMarbleSpirit_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionYouCanSeeMe_Done"
+		],
+		"Event_Audio": "_ZT_Tutorial_new-YOUcanseeme",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"You CAN see me! Hello again! I’m the Marble Spirit! I can show you around the museum if you’d like. Follow me!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueMakeSureToGrabRags",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialoguePolishRodsCleanWindows_Done"
+		],
+		"Event_Completion_Flags": [
+			"WaypointToAQuest_Open",
+			"DialogueMakeSureToGrabRags_Done"
+		],
+		"Event_Audio": "_A1_new-grab_the_rags_and_polish",
+		"Loop_Audio": true,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Make sure to grab the rags and polish, and let the earth spirit carry those for you!": 0
+			}
+		},
+		"Play_Success_SFX": true
+	},
+	{
+		"Event_Name": "ActionCursedPillar1",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCursedPillar1_Done"
+		],
+		"Event_Audio": "_A2_new_anotherCursedPillar",
+		"Loop_Audio": true,
+		"Loop_Interval": 15,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Look! There’s another cursed pillar!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCursedPillar2",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCursedPillar2_Done"
+		],
+		"Event_Audio": "_A2_new_anotherCursedPillar",
+		"Loop_Audio": true,
+		"Loop_Interval": 15,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Look! There’s another cursed pillar!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueDistortionBlockPath",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueWhatIsThis_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueDistortionBlockPath_Done"
+		],
+		"Event_Audio": "_A3_new_line_1-lookaroundWhereWeWereBefore",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"The magical distortion is blocking our path": 0,
+				"Maybe we should look around where we have been before to find out what is causing it!": 3
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueLookItsABox",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueLookItsABox_Done"
+		],
+		"Event_Audio": "_A3_new_line_4-itsabox",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Hey look! It’s a box! There might be something inside it that could help us. I wonder what the lock’s combination is?": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueSourceDistortion",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueDistortionBlockPath_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueSourceDistortion_Done"
+		],
+		"Event_Audio": "_A3_new_line_2-sourceOfDistortion",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Look! It’s the source of the distortion!": 0,
+				"Do we have anything that can smash the distortion crystal?": 4
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueLookItsAHint",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueLookItsABox_Done",
+			"ActionPurifyHint_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueLookItsAHint_Done"
+		],
+		"Event_Audio": "_A3_new_line_5_aHINT",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Look, a hint!": 0,
+				"Hmmm, didn’t we see an exhibit earlier that had several people, jars, and candles?": 3,
+				"Maybe if we count them…": 9
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueCatIconsMissing",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueCatIconsMissing_Done"
+		],
+		"Event_Audio": "_A4_new_line_1_missingCatIcons",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": {
+				"The cat icons are missing! If you find them, please return them to the pedestal.": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueLookForCatIcons",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueCatIconsMissing_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueLookForCatIcons_Done"
+		],
+		"Event_Audio": "_A4_new_line_2_lookforthoseCatIcons",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Come on! Let’s look for those cat icons and return them to this pedestal!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueFinishCatIconsPlacement",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionPlaceCatIcon3_Done",
+			"ActionPlaceCatIcon1_Done",
+			"ActionPlaceCatIcon2_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueFinishCatIconsPlacement_Done"
+		],
+		"Event_Audio": "_A4_new_line_3_thankyouforreturningthem",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": {
+				"Thank you for returning them, there’s still a lot more work to do, so please move forward.": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueButterflyDistortion",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueButterflyDistortion_Done"
+		],
+		"Event_Audio": "_B4_new _ine_1-ohno_another_distortion",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Oh no, It’s another magical distortion!": 0,
+				"But there’s no crystal this time,": 5,
+				"what are we going to do?": 7
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueLookButterflyDistortion",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueButterflyDistortion_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueLookButterflyDistortion_Done"
+		],
+		"Event_Audio": "_B4_new_Line_2_lookatthosebutterflies",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Look at those butterflies, maybe they can help us out if we can free them!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueFindCatTrap",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"DialogueFindCatTrap_Done"
+		],
+		"Event_Audio": "_C0_new_line_1-itsthecatwerelookingfor",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Look! It’s the cat we’re looking for! It’s trapped behind some distortion.": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueCatDontBeAfraid",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionCoinComplete_Done",
+			"ActionShipAssemblyComplete_Done",
+			"ActionArrangeDocuments_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueCatDontBeAfraid_Done"
+		],
+		"Event_Audio": "_C0_new_line_3-dontbeafraid",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Don’t be afraid, we’re here to help!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCSectionPetCat",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCSectionPetCat_Done"
+		],
+		"Event_Audio": "_C0_new_line_4_ohnocatisrunningaway",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Oh no, the cat is running away! We need to go after it!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "DialogueZFinalThankYou",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [],
+		"Event_Audio": "_ZF_new-endingthankyouline",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"You were amazing out there — such a great help!": 0,
+				"I hope you enjoyed exploring the museum as much as I enjoyed having you around.": 4,
+				"Come visit again sometime, okay?": 9
+			}
+		},
 		"Play_Success_SFX": false
 	}
 ]

@@ -39,6 +39,7 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_0fnye")
 to = "CatFinish"
+special = true
 
 [node name="LeftStairs1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_sk5ks")]
 transform = Transform3D(-0.999831, 0, -0.0184017, 0, 1, 0, 0.0184017, 0, -0.999831, -0.0825872, -0.34094, 4.48729)
@@ -46,4 +47,3 @@ collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_0fnye")
 to = "LeftStairs1.jpg"
-special = true

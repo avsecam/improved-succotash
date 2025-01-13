@@ -1,7 +1,7 @@
 [gd_scene load_steps=48 format=3 uid="uid://bkuocn1ija4py"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_mll3g"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_d65ff"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_d65ff"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCatIconsMissing.gd" id="5_4vkmo"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_ua763"]
 [ext_resource type="PackedScene" uid="uid://cafkw3ouy22un" path="res://src/assets/Cat.tscn" id="6_nwpws"]
@@ -299,13 +299,13 @@ anim_speed_max = 2.15
 resource_local_to_scene = true
 size = Vector2(2.304, 1.296)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_aoegs"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_76r1b"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qytgp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nafb"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_aoegs")
+albedo_texture = SubResource("ViewportTexture_76r1b")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dalg"]
@@ -335,8 +335,9 @@ script = ExtResource("5_ua763")
 
 [node name="BGMPlayerOutside" parent="Events" instance=ExtResource("8_a5oyg")]
 
-[node name="DialogueZFinalThankYou" type="Node" parent="Events"]
+[node name="DialogueZFinalThankYou" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("5_4vkmo")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("10_q21xs")]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.15064, -0.315491, -1.71808)
@@ -386,7 +387,7 @@ size = Vector2i(1152, 648)
 
 [node name="Screen" parent="Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_foy54")
-surface_material_override/0 = SubResource("StandardMaterial3D_qytgp")
+surface_material_override/0 = SubResource("StandardMaterial3D_3nafb")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 screen_size = Vector2(2.304, 1.296)
