@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://82klwlalqnpu"]
+[gd_scene load_steps=18 format=3 uid="uid://82klwlalqnpu"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_y8rwp"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v810u"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v810u"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_m7bfe"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_nxs0m"]
 [ext_resource type="PackedScene" uid="uid://dkk6tk5kycbf" path="res://src/assets/B3/Easel_Normal.glb" id="5_3dyau"]
 [ext_resource type="PackedScene" uid="uid://6cyd8lbfqd2p" path="res://src/assets/B MAIN/Bowl_PainterWater.glb" id="7_06841"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="7_edgk3"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLookAtCanvasPainting.gd" id="8_3623x"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtCanvasPainting.gd" id="8_ogrm6"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionPaintOnCanvas.gd" id="9_cx4bb"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="11_t2opl"]
 [ext_resource type="PackedScene" uid="uid://6yjpwjxyl30v" path="res://src/ois/paintbrush_wet_a.tscn" id="13_taacl"]
@@ -48,14 +49,14 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Rights0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m7bfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.979, -2.563, 0.696)
+transform = Transform3D(-0.313811, 0, -0.949486, 0, 1, 0, 0.949486, 0, -0.313811, -1.979, -2.563, 0.696)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_nxs0m")
 to = "Rights0.jpg"
 
 [node name="Back1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_m7bfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.574, -1.398, -0.581)
+transform = Transform3D(0.267508, 0, 0.963556, 0, 1, 0, -0.963556, 0, 0.267508, 2.574, -1.398, -0.581)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_nxs0m")
@@ -68,8 +69,12 @@ script = ExtResource("7_edgk3")
 script = ExtResource("8_3623x")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="ActionPaintOnCanvas" type="Node" parent="Events"]
+[node name="ActionLookAtCanvasPainting" type="Node" parent="Events"]
+script = ExtResource("8_ogrm6")
+
+[node name="ActionPaintOnCanvas" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("9_cx4bb")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="Bowl_PainterWater" parent="." instance=ExtResource("7_06841")]
 transform = Transform3D(-0.0563267, 0, -0.0826277, 0, 0.1, 0, 0.0826277, 0, -0.0563267, 0.400764, -0.45468, -0.934177)
@@ -89,6 +94,8 @@ initial_object = NodePath("../../canvas_paint_new")
 shape = SubResource("SphereShape3D_n5phd")
 
 [node name="HighlightRing" parent="Easel_Normal2/EaselSnapZone" instance=ExtResource("11_t2opl")]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Easel_Normal2"]
 
 [node name="canvas_paint_new" parent="." groups=["canvas"] instance=ExtResource("14_yn8da")]
 transform = Transform3D(0.878122, 0.472672, -0.0740873, 0.0316723, 0.0970813, 0.994773, 0.477395, -0.875877, 0.0702789, -0.220441, -0.301746, -0.954242)
