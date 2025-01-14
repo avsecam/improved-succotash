@@ -2907,7 +2907,8 @@
 		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"DialogueButterflyDistortion_Done"
+			"DialogueButterflyDistortion_Done",
+			"JournalLookAtTheButterflies_Read"
 		],
 		"Event_Completion_Flags": [
 			"DialogueLookButterflyDistortion_Done"

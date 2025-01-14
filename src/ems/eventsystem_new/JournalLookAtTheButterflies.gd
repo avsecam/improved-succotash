@@ -14,8 +14,6 @@ func _on_journal_pointer_event(event):
 			play_event_audio()
 	
 		await event_audio_done
-		
-		quests.add_active_quest("QuestLookAtTheButterflies")
 		clear_event_dialogue()
 		
 		close_event()

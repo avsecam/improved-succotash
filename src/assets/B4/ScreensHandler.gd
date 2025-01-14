@@ -6,10 +6,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Events.finished_events.has("QuestLookAtTheButterflies_Done"):
-		screen1_text.text = "[center]FREE"
-		screen2_text.text = "[center]THE"
-		screen3_text.text = "[center]BUTTERFLIES"
+	screen1_text.text = "[center]FREE"
+	screen2_text.text = "[center]THE"
+	screen3_text.text = "[center]BUTTERFLIES"
 	if Events.finished_events.has("QuestLookAtTheButterflies_Done"):
 		screen1_text.text = "[center]E"
 		screen2_text.text = "[center]N"

@@ -335,8 +335,9 @@ script = ExtResource("6_hr8ak")
 script = ExtResource("8_w08ql")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="DialogueLookButterflyDistortion" type="Node" parent="Events"]
+[node name="DialogueLookButterflyDistortion" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("8_hxoje")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="ActionLookAtTheButterflies1" type="Node" parent="Events"]
 script = ExtResource("8_jy4g2")
