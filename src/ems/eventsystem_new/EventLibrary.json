@@ -2580,10 +2580,17 @@
 		"Event_Completion_Flags": [
 			"JournalCoinCollection_Read"
 		],
-		"Event_Audio": "",
+		"Event_Audio": "VE_VO_C4_ASST_02_The1969",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {},
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": {
+				"The Escuderos' collection of money features currencies from various historical periods in Philippine history.": 0,
+				"Included in the collection are Philippine currencies from the Spanish, American, and Japanese occupations, as well as money from those three countries.": 6,
+				"Visitors who were born in the 1980s or earlier might also notice familiar-looking bills and coins, since the collection also includes samples of the Philippine peso after it was redesigned and issued in 1969.": 12
+			}
+		},
 		"Play_Success_SFX": false
 	},
 	{
@@ -2594,10 +2601,20 @@
 		"Event_Completion_Flags": [
 			"JournalChineseCeramics_Read"
 		],
-		"Event_Audio": "",
+		"Event_Audio": "VE_VO_C5_ASST_01_ChineseSeasons",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": "{\"\"npc_name\"\": \"\"Assistant\"\", \"\"dialogue\"\": {\"\"Chinese ceramics come in many shapes and sizes, ranging from tea sets to burial jars.\"\":0, \"\"These works of art also reflect the level of technology and prevailing aesthetic sense of the period they were created in.\"\": 6, \"\"Part of the collection of such in the Arsenio Escudero and Rosario Adap museum consists of ceramic items from the Escudero family's collection,\"\": 8, \"\"while the rest are from excavations and donations.\"\":11, \"\" The motifs found on these artifacts usually indicate what dynasty they are from -\"\": 3, \"\" the Sung dynasty is represented by dragons, the Ming dynasty by poodles, and the Late Ming dynasty by the four seasons.\"\":0\n }}",
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": {
+				"Chinese ceramics come in many shapes and sizes, ranging from tea sets to burial jars.": 0,
+				"These works of art also reflect the level of technology and prevailing aesthetic sense of the period they were created in.": 6,
+				"Part of the collection of such in the Arsenio Escudero and Rosario Adap museum consists of ceramic items from the Escudero family's collection,": 8,
+				"while the rest are from excavations and donations.": 11,
+				"The motifs found on these artifacts usually indicate what dynasty they are from": 3,
+				"- the Sung dynasty is represented by dragons, the Ming dynasty by poodles, and the Late Ming dynasty by the four seasons.": 6
+			}
+		},
 		"Play_Success_SFX": false
 	},
 	{

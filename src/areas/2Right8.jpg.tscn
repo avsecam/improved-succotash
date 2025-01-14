@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ded6gd4l7lxcw"]
+[gd_scene load_steps=9 format=3 uid="uid://ded6gd4l7lxcw"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_yxiwr"]
 [ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_t71kj"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_ewqa2"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_kbaf5"]
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="5_nms1x"]
+[ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="6_o2h2r"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="7_fm3qi"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/JournalChineseCeramics.gd" id="8_skuwy"]
 
 [node name="2 right8_jpg" type="Node3D"]
 transform = Transform3D(-0.0711832, 0, 0.99745, 0, 1, 0, -0.99745, 0, -0.0711832, 0, 0, 0)
@@ -48,4 +51,25 @@ script = ExtResource("4_kbaf5")
 to = "2Right10.jpg"
 
 [node name="Pillar_Wood" parent="." instance=ExtResource("5_nms1x")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 3.89244, -3.64607, -2.09588)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.75301, -2.65663, -2.02315)
+
+[node name="Journal" parent="." instance=ExtResource("6_o2h2r")]
+transform = Transform3D(0.567442, 0, -0.823414, 0, 1, 0, 0.823414, 0, 0.567442, 3.69779, -0.922975, -1.97927)
+
+[node name="Indicator" parent="Journal" index="2"]
+associated_event = "JournalChineseCeramics"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Journal"]
+transform = Transform3D(1.00001, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1.00001, 0, 0, 0)
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("7_fm3qi")
+
+[node name="JournalChineseCeramics" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("8_skuwy")
+event_audio_source = NodePath("../../Journal/AudioStreamPlayer3D")
+
+[connection signal="pointer_event" from="Journal" to="Events/JournalChineseCeramics" method="_on_journal_pointer_event"]
+[connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
+
+[editable path="Journal"]
