@@ -1,10 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://c4mbmiyebv2xq"]
+[gd_scene load_steps=27 format=3 uid="uid://c4mbmiyebv2xq"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_vklpb"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_tdvpy"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_tdvpy"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_uwauc"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_q812q"]
+[ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="5_5tfvy"]
 [ext_resource type="PackedScene" uid="uid://dbbjh1nfeajhp" path="res://src/assets/B4/numpad.tscn" id="5_rofm2"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueButterflyDistortion.gd" id="7_7o1wn"]
 [ext_resource type="PackedScene" uid="uid://c8o0r1caf8gku" path="res://src/assets/B4/num_pad_interface_container.tscn" id="9_gc2w6"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="10_ywvj4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionInputNumberSequence.gd" id="11_turs0"]
@@ -13,13 +15,13 @@
 resource_local_to_scene = true
 size = Vector2(2, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rhvqs"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v2fxo"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxe3f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd80l"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_rhvqs")
+albedo_texture = SubResource("ViewportTexture_v2fxo")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_12syr"]
@@ -30,13 +32,13 @@ size = Vector3(2, 1, 0.02)
 resource_local_to_scene = true
 size = Vector2(2, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2vnm2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_d4ek8"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ikvb8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joc7h"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_2vnm2")
+albedo_texture = SubResource("ViewportTexture_d4ek8")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rfelp"]
@@ -47,13 +49,13 @@ size = Vector3(2, 1, 0.02)
 resource_local_to_scene = true
 size = Vector2(2, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_oh0h0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_o8y5k"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oex5f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqrum"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_oh0h0")
+albedo_texture = SubResource("ViewportTexture_o8y5k")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w2smy"]
@@ -64,14 +66,14 @@ size = Vector3(2, 1, 0.02)
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_iiclw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_762il"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5vg7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aarxi"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_iiclw")
+albedo_texture = SubResource("ViewportTexture_762il")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2kwa"]
@@ -106,21 +108,41 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Right5_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_uwauc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09239, -1.81787, 0.448664)
+transform = Transform3D(-0.108987, 0, 0.994043, 0, 1, 0, -0.994043, 0, -0.108987, 4.09239, -1.81787, 0.448664)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_q812q")
 to = "Right5.jpg"
 
 [node name="RightStairs1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_uwauc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.191, 0.925, 4.521)
+transform = Transform3D(0.540302, 0, 0.841471, 0, 1, 0, -0.841471, 0, 0.540302, -1.191, 0.925, 4.521)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_q812q")
 to = "RightStairs1.jpg"
 
+[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("5_5tfvy")]
+transform = Transform3D(-0.146948, 0, 0.202257, 0, 0.25, 0, -0.202257, 0, -0.146948, -0.0295713, 0.0271107, -3.2244)
+
+[node name="Marble" parent="MarbleSpirit_Normal" index="0"]
+transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
+
+[node name="Plane" parent="MarbleSpirit_Normal" index="1"]
+transform = Transform3D(-0.119496, -1.24276e-06, -0.453, -4.18798e-07, 0.656079, -5.73562e-08, -0.114061, -1.10695e-06, 0.474584, -0.0438846, 0, 0.0168927)
+
+[node name="Sphere" parent="MarbleSpirit_Normal" index="2"]
+transform = Transform3D(-0.0480362, 0, 0.0149037, 0, -0.0502951, 0, -0.0149037, 0, -0.0480362, 0.260299, 0, -0.0531245)
+
+[node name="Sphere_001" parent="MarbleSpirit_Normal" index="3"]
+transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888, 0, -0.0244276, 0.22937, 0, 0.346641)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+
 [node name="Events" type="Node" parent="."]
 script = ExtResource("10_ywvj4")
+
+[node name="DialogueButterflyDistortion" type="Node" parent="Events"]
+script = ExtResource("7_7o1wn")
 
 [node name="ActionInputNumberSequence" type="Node" parent="Events"]
 script = ExtResource("11_turs0")
@@ -133,7 +155,7 @@ text = "[center]E"
 
 [node name="Screen" parent="Screen1/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_y1cmj")
-surface_material_override/0 = SubResource("StandardMaterial3D_xxe3f")
+surface_material_override/0 = SubResource("StandardMaterial3D_qd80l")
 
 [node name="CollisionShape3D" parent="Screen1/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_12syr")
@@ -146,7 +168,7 @@ text = "[center]N"
 
 [node name="Screen" parent="Screen2/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_6g4is")
-surface_material_override/0 = SubResource("StandardMaterial3D_ikvb8")
+surface_material_override/0 = SubResource("StandardMaterial3D_joc7h")
 
 [node name="CollisionShape3D" parent="Screen2/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_rfelp")
@@ -159,7 +181,7 @@ text = "[center]S"
 
 [node name="Screen" parent="Screen3/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_700mb")
-surface_material_override/0 = SubResource("StandardMaterial3D_oex5f")
+surface_material_override/0 = SubResource("StandardMaterial3D_rqrum")
 
 [node name="CollisionShape3D" parent="Screen3/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_w2smy")
@@ -172,13 +194,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0.290835, -0.16
 
 [node name="Screen" parent="Numpad/StaticUIContainer/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_wfkq6")
-surface_material_override/0 = SubResource("StandardMaterial3D_u5vg7")
+surface_material_override/0 = SubResource("StandardMaterial3D_aarxi")
 
 [node name="CollisionShape3D" parent="Numpad/StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_h2kwa")
 
 [connection signal="correct_password_inputted" from="Numpad" to="Events/ActionInputNumberSequence" method="_on_numpad_correct_password_inputted"]
 
+[editable path="MarbleSpirit_Normal"]
 [editable path="Screen1"]
 [editable path="Screen1/Viewport2Din3D"]
 [editable path="Screen1/Viewport2Din3D/Viewport/NumPadUI"]
