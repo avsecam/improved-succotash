@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://cmn6op3t4pdhk"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_wauyu"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_lclk2"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_2kr4l"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_j5in4"]
-[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_x6rvy"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_8plsy"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_75ivk"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueLookAtMe.gd" id="6_3f53r"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="6_y6uk4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtMarbleSpirit.gd" id="7_siu0w"]
-[ext_resource type="Script" path="res://src/areas/ActionYouCanSeeMe.gd" id="8_230an"]
 [ext_resource type="PackedScene" uid="uid://b5gbypfuimvr" path="res://src/ems/eventsystem_new/bgm_player_outside.tscn" id="8_levk4"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionYouCanSeeMe.gd" id="8_mge4a"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/TutorialNavigation.gd" id="9_82j3j"]
 
 [node name="tut1_jpg" type="Node3D"]
@@ -25,7 +25,7 @@ image_filename = "res://src/areas/Tut1.jpg.jpg"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 gi_mode = 0
-mesh = ExtResource("2_lclk2")
+mesh = ExtResource("2_2kr4l")
 skeleton = NodePath("../../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -38,7 +38,7 @@ omni_range = 16.12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.312646, -0.519902, -4.4586)
 collision_layer = 5243392
 collision_mask = 0
-script = ExtResource("4_x6rvy")
+script = ExtResource("4_8plsy")
 to = "Tut2.jpg"
 
 [node name="Events" type="Node" parent="."]
@@ -53,7 +53,7 @@ script = ExtResource("7_siu0w")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="ActionYouCanSeeMe" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
-script = ExtResource("8_230an")
+script = ExtResource("8_mge4a")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="BGMPlayerOutside" parent="Events" instance=ExtResource("8_levk4")]

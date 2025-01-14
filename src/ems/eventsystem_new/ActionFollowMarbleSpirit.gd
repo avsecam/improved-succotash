@@ -6,7 +6,6 @@ func _on_event_started():
 	await get_tree().create_timer(3).timeout
 	play_event_audio()
 	var tween = get_tree().create_tween()
-	print(marble_spirit)
 	tween.tween_property(marble_spirit, "position", Vector3(3.875, 1, 2.113), 2.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 	
 	await event_audio_done
