@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2dotovac6n64"]
+[gd_scene load_steps=20 format=3 uid="uid://d2dotovac6n64"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_bo0i1"]
 [ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_yabc8"]
@@ -12,10 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://oqxa6ppw0qrl" path="res://src/ois/parchment_b.tscn" id="8_lups5"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionArrangeDocuments.gd" id="8_o6ovk"]
 [ext_resource type="PackedScene" uid="uid://cbsi2j7tqs8dr" path="res://src/ois/parchment_c.tscn" id="9_0fwem"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCalandraOfSanto.gd" id="9_by408"]
 [ext_resource type="PackedScene" uid="uid://wrsjbpww7gpi" path="res://src/ois/parchment_d.tscn" id="10_8u6d0"]
 [ext_resource type="PackedScene" uid="uid://3tro40hld4iq" path="res://src/ois/parchment_e.tscn" id="11_15ni8"]
 [ext_resource type="Script" path="res://src/ois/parchment_pickable.gd" id="11_ar7bo"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="15_8evq3"]
+[ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="18_rj1ps"]
+[ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="19_8yrrl"]
 
 [node name="2 back1_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -45,14 +48,14 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="2Back2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_o4px8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15572, -1.39812, -1.02047)
+transform = Transform3D(0.238466, 0, 0.971151, 0, 1, 0, -0.971151, 0, 0.238466, 4.15572, -1.39812, -1.02047)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_4lqhb")
 to = "2Back2.jpg"
 
 [node name="2Back0_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_o4px8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95268, -1.94106, 0.935409)
+transform = Transform3D(-0.230288, 0, -0.973123, 0, 1, 0, 0.973123, 0, -0.230288, -3.95268, -1.94106, 0.935409)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_4lqhb")
@@ -71,6 +74,10 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="ActionArrangeDocuments" type="Node" parent="Events"]
 script = ExtResource("8_o6ovk")
+
+[node name="JournalHermanoPuleExhibit" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("9_by408")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="Parchment Arrange Panel" parent="." instance=ExtResource("5_c4a7b")]
 transform = Transform3D(0.878373, -0.0976003, 0.170103, -4.54877e-09, 0.78063, 0.447904, -0.196114, -0.43714, 0.761871, -0.176725, -0.691407, -0.848707)
@@ -111,6 +118,15 @@ autoplay = true
 [node name="Timer" type="Timer" parent="MarbleSpirit_Normal"]
 wait_time = 3.0
 
+[node name="Pillar_Wood" parent="." instance=ExtResource("18_rj1ps")]
+transform = Transform3D(0.117887, 0, 0.092751, 0, 0.15, 0, -0.092751, 0, 0.117887, -1.47354, -2.04842, -0.442329)
+
+[node name="Journal" parent="." instance=ExtResource("19_8yrrl")]
+transform = Transform3D(0.785911, 0, 0.61834, 0, 1, 0, -0.61834, 0, 0.785911, -1.47292, -0.337242, -0.422138)
+
+[node name="Indicator" parent="Journal" index="2"]
+associated_event = "JournalCalandraOfSanto"
+
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="Parchment Arrange Panel" method="_on_action_arrange_documents_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="parchment_a" method="_on_action_arrange_documents_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="parchment_b" method="_on_action_arrange_documents_tree_exiting"]
@@ -118,5 +134,7 @@ wait_time = 3.0
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="parchment_d" method="_on_action_arrange_documents_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="parchment_e" method="_on_action_arrange_documents_tree_exiting"]
 [connection signal="parchment_arrangement_complete" from="Parchment Arrange Panel" to="Events/ActionArrangeDocuments" method="_on_parchment_arrange_panel_parchment_arrangement_complete"]
+[connection signal="pointer_event" from="Journal" to="Events/JournalHermanoPuleExhibit" method="_on_journal_pointer_event"]
 
 [editable path="Parchment Arrange Panel"]
+[editable path="Journal"]

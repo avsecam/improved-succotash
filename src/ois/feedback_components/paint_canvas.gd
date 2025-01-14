@@ -8,6 +8,7 @@ var PAINT_MESH_REF = preload("res://src/assets/B3/paint_mesh_ref.tres")
 
 var anim_check : bool
 
+signal percentage_100
 
 func show_feedback(requirement, total_progress):
 	pass
@@ -29,4 +30,5 @@ func _on_canvas_paint_receiver_action_in_progress(requirement, total_progress):
 			progress_view.progress_complete_anim()
 			canvas_paint_call.visible = false
 			anim_check = true
+			percentage_100.emit()
 		

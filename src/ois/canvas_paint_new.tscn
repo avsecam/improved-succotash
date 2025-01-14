@@ -75,6 +75,7 @@ transform = Transform3D(-4.5897e-09, 0, -0.105, 0, 0.105, 0, 0.105, 0, -4.5897e-
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.439043, 0)
 
 [connection signal="picked_up" from="." to="." method="_on_picked_up"]
+[connection signal="percentage_100" from="Feedback" to="." method="_on_feedback_percentage_100"]
 [connection signal="action_ended" from="CanvasPaintReceiver" to="." method="_on_canvas_paint_receiver_action_ended"]
 [connection signal="action_ended" from="CanvasPaintReceiver" to="Feedback" method="_on_canvas_paint_receiver_action_ended"]
 [connection signal="action_in_progress" from="CanvasPaintReceiver" to="Feedback" method="_on_canvas_paint_receiver_action_in_progress"]

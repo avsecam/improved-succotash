@@ -1,8 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://bb2op0b3b07lb"]
+[gd_scene load_steps=52 format=3 uid="uid://bb2op0b3b07lb"]
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_l7fku"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_ymid4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_k8pkv"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMKitchen.gd" id="6_wup7f"]
@@ -41,9 +41,12 @@
 [ext_resource type="PackedScene" uid="uid://dtb0evnypn7nb" path="res://src/ois/chopping_board_wood.tscn" id="25_0oy1l"]
 [ext_resource type="PackedScene" uid="uid://cqwgfyorumpev" path="res://src/ois/Saba.tscn" id="25_dpbcj"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCookingFinished.gd" id="26_dlaqn"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCalandraOfSanto.gd" id="27_sm54i"]
 [ext_resource type="PackedScene" uid="uid://dcm7wtj5ie8a8" path="res://src/ois/plate_saba.tscn" id="41_em2b0"]
 [ext_resource type="PackedScene" uid="uid://7hrj4owegamd" path="res://src/ois/cooking_vat_long_new.tscn" id="43_2rwgp"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="43_4temx"]
+[ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="46_836et"]
+[ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="47_omwwf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
@@ -263,6 +266,10 @@ script = ExtResource("24_xlv2s")
 script = ExtResource("26_dlaqn")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
+[node name="JournalLunchFoodEnjoy" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("27_sm54i")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
 [node name="pole_bamboo_chicken_new" parent="." instance=ExtResource("10_gkpfe")]
 transform = Transform3D(0.776744, -0.434326, -0.456104, 0.497137, -0.0218156, 0.867398, -0.386684, -0.900492, 0.198975, -1.16429, -0.582367, -0.488802)
 
@@ -355,6 +362,15 @@ wait_time = 3.0
 [node name="cooking_vat_long_new" parent="." instance=ExtResource("43_2rwgp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.353571, -0.468628, -0.61941)
 
+[node name="Pillar_Wood" parent="." instance=ExtResource("46_836et")]
+transform = Transform3D(-0.00293196, 0, -0.149971, 0, 0.15, 0, 0.149971, 0, -0.00293196, 1.34237, -1.99966, 0.0227448)
+
+[node name="Journal" parent="." instance=ExtResource("47_omwwf")]
+transform = Transform3D(-0.0195464, 0, -0.999809, 0, 1, 0, 0.999809, 0, -0.0195464, 1.32636, -0.288481, 0.0104296)
+
+[node name="Indicator" parent="Journal" index="2"]
+associated_event = "JournalCalandraOfSanto"
+
 [connection signal="tree_exiting" from="Events/ActionPutChickenPole1" to="Roasting Pit" method="_on_action_put_chicken_pole_1_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutChickenPole2" to="Roasting Pit" method="_on_action_put_chicken_pole_2_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="pole_bamboo_chicken_new" method="_on_associated_event_finished"]
@@ -403,6 +419,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.353571, -0.468628, -0.61941
 [connection signal="saba_plated" from="Plate" to="Events/ActionPutCookedSabaInPlate" method="_on_plate_saba_plated"]
 [connection signal="kalabasa_in_pot_receiver" from="cooking_vat_long_new" to="Events/ActionPutKalabasaInPot" method="_on_cooking_vat_long_new_kalabasa_in_pot_receiver"]
 [connection signal="kalabasa_soup_complete" from="cooking_vat_long_new" to="Events/ActionMixKalabasaSoup" method="_on_cooking_vat_long_new_kalabasa_soup_complete"]
+[connection signal="pointer_event" from="Journal" to="Events/JournalLunchFoodEnjoy" method="_on_journal_pointer_event"]
 
 [editable path="Roasting Pit"]
 [editable path="Roasting Pit/SnapZone"]
+[editable path="Journal"]

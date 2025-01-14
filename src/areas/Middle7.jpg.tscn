@@ -105,10 +105,10 @@ transform = Transform3D(0.0348581, 0, 0.247558, 0, 0.25, 0, -0.247558, 0, 0.0348
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
 [node name="Pillar_Wood" parent="." instance=ExtResource("15_eywd5")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -1.59017, -2.2, -1.11432)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -1.87626, -1.5528, -1.11432)
 
 [node name="Journal" parent="." instance=ExtResource("16_ghadr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60217, -0.488819, -1.09807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88826, 0.158377, -1.09807)
 
 [node name="Indicator" parent="Journal" index="2"]
 associated_event = "JournalCalandraOfSanto"

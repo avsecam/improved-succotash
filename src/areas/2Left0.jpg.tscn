@@ -1,13 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://bn1uehuvnbmrj"]
+[gd_scene load_steps=21 format=3 uid="uid://bn1uehuvnbmrj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_u6q0f"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sgu81"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sgu81"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_hnffy"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_qdn7k"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="5_0tyb4"]
 [ext_resource type="PackedScene" uid="uid://6uurg1uwbkwe" path="res://src/assets/C3/Box_ModelShip.glb" id="6_wrlky"]
 [ext_resource type="PackedScene" uid="uid://12acvs62sh6v" path="res://src/ois/ship.tscn" id="7_2hcsq"]
-[ext_resource type="PackedScene" path="res://src/ois/ship_wheel.tscn" id="8_yjgib"]
+[ext_resource type="PackedScene" uid="uid://dd7s4yj8s7klu" path="res://src/ois/ship_wheel.tscn" id="8_yjgib"]
 [ext_resource type="Script" path="res://src/ois/ship_wheel.gd" id="9_5xyar"]
 [ext_resource type="PackedScene" uid="uid://bsono6l7nohab" path="res://src/ois/ship_sail.tscn" id="9_14pt1"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="10_pp3c8"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="12_kbxwi"]
 [ext_resource type="Script" path="res://src/areas/ActionShipAssemblyComplete.gd" id="13_mu204"]
 [ext_resource type="PackedScene" uid="uid://dw80v8iwrrhog" path="res://src/ois/pickable_box_real.tscn" id="15_rfw0g"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCalandraOfSanto.gd" id="16_nxp8l"]
+[ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="19_fcm70"]
+[ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="20_a440j"]
 
 [node name="2 left0_jpg" type="Node3D"]
 transform = Transform3D(0.300286, 0, -0.953836, 0, 1, 0, 0.953836, 0, 0.300286, 0, 0, 0)
@@ -46,14 +49,14 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="2Back2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_hnffy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.64531, -2.2595, 1.36881)
+transform = Transform3D(-0.351529, 0, 0.936177, 0, 1, 0, -0.936177, 0, -0.351529, 3.64531, -2.2595, 1.36881)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qdn7k")
 to = "2Back2.jpg"
 
 [node name="2Left1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_hnffy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31552, -2.63704, -1.52382)
+transform = Transform3D(0.417604, 0, -0.908629, 0, 1, 0, 0.908629, 0, 0.417604, -3.31552, -2.63704, -1.52382)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_qdn7k")
@@ -89,6 +92,10 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="ActionShipAssemblyComplete" type="Node" parent="Events"]
 script = ExtResource("13_mu204")
+
+[node name="JournalHermanoPuleShip" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("16_nxp8l")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("12_kbxwi")]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.30962, 0.258942, -1.09775)
@@ -151,7 +158,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.506352, 0.71988, -0.181567
 [node name="PickableObject12" parent="PickableObjects lol" instance=ExtResource("15_rfw0g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.848793, 0.71988, -0.393507)
 
+[node name="Pillar_Wood" parent="." instance=ExtResource("19_fcm70")]
+transform = Transform3D(0.149971, 0, 0.00295557, 0, 0.15, 0, -0.00295557, 0, 0.149971, -0.784947, -2.04842, -1.42417)
+
+[node name="Journal" parent="." instance=ExtResource("20_a440j")]
+transform = Transform3D(0.999806, 0, 0.0197039, 0, 1, 0, -0.0197039, 0, 0.999806, -0.796624, -0.337242, -1.40769)
+
+[node name="Indicator" parent="Journal" index="2"]
+associated_event = "JournalCalandraOfSanto"
+
 [connection signal="ship_parts_assembled" from="Ship" to="Events/ActionShipAssemblyComplete" method="_on_ship_ship_parts_assembled"]
 [connection signal="tree_exiting" from="Events/ActionShipAssemblyComplete" to="Ship" method="_on_action_ship_assembly_complete_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionShipAssemblyComplete" to="ship_wheel" method="_on_action_ship_assembly_complete_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionShipAssemblyComplete" to="ship_sail" method="_on_action_ship_assembly_complete_tree_exiting"]
+[connection signal="pointer_event" from="Journal" to="Events/JournalHermanoPuleShip" method="_on_journal_pointer_event"]
+
+[editable path="Journal"]

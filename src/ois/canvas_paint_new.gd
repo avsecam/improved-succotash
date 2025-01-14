@@ -14,8 +14,7 @@ func _ready():
 		queue_free()
 
 func _on_canvas_paint_receiver_action_ended(requirement, total_progress):
-	self.enabled = true
-	canvas_paint_complete.emit()
+	pass
 
 
 func _on_picked_up(pickable):
@@ -28,3 +27,8 @@ func _on_easel_snap_zone_has_picked_up(what):
 func _on_associated_event_finished():
 	print("PAINTED CANVAS: THIS EVENT IS CALLED FOR SOME REASON")
 	#queue_free()
+
+
+func _on_feedback_percentage_100():
+	self.enabled = true
+	canvas_paint_complete.emit()

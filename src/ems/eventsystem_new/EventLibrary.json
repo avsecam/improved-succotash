@@ -1588,7 +1588,12 @@
 		"Event_Audio": "_B2_new_greatjoboncooking",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": "{\"\"npc_name\"\": \"\"Marble Spirit\"\", \"\"dialogue\"\": {\"\"Great job on the cooking! I suppose we can go back to the museum now.\n\"\" : 0}}",
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"Great job on the cooking! I suppose we can go back to the museum now.": 0
+			}
+		},
 		"Play_Success_SFX": false
 	},
 	{
@@ -1711,8 +1716,8 @@
 			"ActionLookAtCanvasPainting_Done"
 		],
 		"Event_Audio": "VE_VO_B3_MRBLSPRT_02_UhSomething",
-		"Loop_Audio": true,
-		"Loop_Interval": 5,
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
 		"Event_Text": {
 			"npc_name": "Marble Spirit",
 			"dialogue": {
@@ -2938,6 +2943,27 @@
 		"Play_Success_SFX": false
 	},
 	{
+		"Event_Name": "DialogueCatTrapWIP",
+		"Event_Category": "DIALOGUE",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionCoinComplete_Done"
+		],
+		"Event_Completion_Flags": [
+			"DialogueCatTrapWIP_Done"
+		],
+		"Event_Audio": "_C0_new_Line_2_catdistortion",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"There’s still some distortion trapping the cat.": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
 		"Event_Name": "DialogueCatDontBeAfraid",
 		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
@@ -2964,7 +2990,9 @@
 		"Event_Name": "ActionCSectionPetCat",
 		"Event_Category": "ACTION",
 		"Oneshot": true,
-		"Event_Prerequisites": [],
+		"Event_Prerequisites": [
+			"DialogueCatDontBeAfraid_Done"
+		],
 		"Event_Completion_Flags": [
 			"ActionCSectionPetCat_Done"
 		],
