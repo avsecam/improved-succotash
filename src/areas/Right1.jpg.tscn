@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceuuef1xg0wgv"]
+[gd_scene load_steps=7 format=3 uid="uid://ceuuef1xg0wgv"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_jsdap"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_i34eh"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_i34eh"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_l0ktc"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_6ixvf"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_xyomf"]
+[ext_resource type="PackedScene" uid="uid://c0guesb13x8h4" path="res://src/ems/eventsystem_new/bgm_player_in_a1.tscn" id="6_ai0yx"]
 
 [node name="right1_jpg" type="Node3D"]
 transform = Transform3D(0.731344, 0, 0.681989, 0, 1, 0, -0.681989, 0, 0.731344, 0, 0, 0)
@@ -18,7 +20,9 @@ teleporters_data = [{
 "rotation": Vector3(0, 1.47, -3.35867e-08),
 "to": "Right3.jpg"
 }, {
-"position": Vector3(-0.865, -1.692, -4.473),
+"position": Vector3(0.48, -1.692, 2.834),
+"rotation": Vector3(0, -92.7, 0),
+"special": true,
 "to": "special_room_powerplant_room"
 }]
 image_filename = "res://src/areas/Right1.jpg.jpg"
@@ -50,8 +54,14 @@ script = ExtResource("4_6ixvf")
 to = "Right3.jpg"
 
 [node name="special_room_powerplant_room" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_l0ktc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.865, -1.692, -4.473)
+transform = Transform3D(0.0230116, 0, 0.999735, 0, 1, 0, -0.999735, 0, 0.0230116, 0.48, -1.692, 2.834)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_6ixvf")
 to = "special_room_powerplant_room"
+special = true
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("5_xyomf")
+
+[node name="BGMPlayerInA1" parent="Events" instance=ExtResource("6_ai0yx")]
