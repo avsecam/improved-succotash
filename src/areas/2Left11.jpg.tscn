@@ -81,7 +81,7 @@ script = ExtResource("9_rpy07")
 event_audio_source = NodePath("../../Journal/AudioStreamPlayer3D")
 
 [node name="Journal" parent="." instance=ExtResource("10_kelbf")]
-transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0.312902, -1.5473, 1.85566)
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 3.85746, -1.5473, 1.60318)
 
 [node name="Indicator" parent="Journal" index="2"]
 associated_event = "JournalWeaponCollection"
@@ -89,7 +89,7 @@ associated_event = "JournalWeaponCollection"
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Journal"]
 
 [node name="Pillar_Wood" parent="." instance=ExtResource("11_ppo6g")]
-transform = Transform3D(0.15, 0, 7.45058e-09, 0, 0.221609, 0, -7.45058e-09, 0, 0.15, 0.312902, -4.04274, 1.85566)
+transform = Transform3D(0.15, 0, 7.45058e-09, 0, 0.221609, 0, -7.45058e-09, 0, 0.15, 3.85746, -4.04274, 1.60318)
 
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="pointer_event" from="Journal" to="Events/JournalWeaponCollection" method="_on_journal_pointer_event"]
