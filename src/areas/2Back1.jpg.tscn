@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://d2dotovac6n64"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_bo0i1"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_yabc8"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_yabc8"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_o4px8"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_4lqhb"]
 [ext_resource type="PackedScene" uid="uid://clkms3ef3xwpn" path="res://src/ois/parchment_arrange_panel.tscn" id="5_c4a7b"]
@@ -127,6 +127,7 @@ transform = Transform3D(0.785911, 0, 0.61834, 0, 1, 0, -0.61834, 0, 0.785911, -1
 [node name="Indicator" parent="Journal" index="2"]
 associated_event = "JournalCalandraOfSanto"
 
+[connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="Parchment Arrange Panel" method="_on_action_arrange_documents_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="parchment_a" method="_on_action_arrange_documents_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="parchment_b" method="_on_action_arrange_documents_tree_exiting"]

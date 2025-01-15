@@ -1,0 +1,170 @@
+[gd_scene load_steps=17 format=3 uid="uid://cc0nl1olnbtqi"]
+
+[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_lpxct"]
+[ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
+[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="3_gde1o"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
+[ext_resource type="PackedScene" uid="uid://bd7170yeh1357" path="res://src/assets/B1/Nursery_RiceSaplings.glb" id="5_ihip5"]
+[ext_resource type="PackedScene" uid="uid://dmmbs4v3u23b" path="res://src/assets/B1/Bangka_Normal.glb" id="6_ur0bj"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="16_8qvpj"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="17_w6dwi"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/JournalDonPlacidoEscuderoDam.gd" id="18_04lpa"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialoguePowerPlantInstructions.gd" id="19_e6o8f"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueMarblePPlantReminder.gd" id="20_1fb4a"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtWaterSpiritB1.gd" id="21_bld2n"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionInteractPPlantSwitch.gd" id="22_ohv4p"]
+[ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="23_l1wwn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_175fc"]
+albedo_color = Color(0, 0, 0, 0)
+
+[node name="SpecialRoom_PowerPlant" type="Node3D"]
+script = ExtResource("1_lpxct")
+teleporters_data = [{
+"position": Vector3(0, -1.385, 1.32),
+"to": "Right1.jpg"
+}]
+image_filename = "res://src/areas/Tut1.jpg.jpg"
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="Right1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("2_2785x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.385, 1.32)
+collision_layer = 5243392
+collision_mask = 0
+script = ExtResource("3_gde1o")
+to = "Right1.jpg"
+
+[node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(20, 0, 0, 0, 0.12, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(20, 0, 0, 0, 0.12, 0, 0, 0, 3, 0.008, 5, 8.54983)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(20, 0, 0, 0, 0.12, 0, 0, 0, 20, 0, 8.03417, 0)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, -2.29979)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, 2.29785)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-8.74228e-07, 0.12, -3.49691e-07, 0, -5.24537e-09, -8, -20, -5.24537e-09, 1.52855e-14, -3.66666, 4.05917, -0.0213208)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-1.9998e-07, 0.265, -9.87877e-08, 0, -1.15835e-08, -2.26, -4.575, -1.15835e-08, 4.31815e-15, -1.64283, 1.216, -4)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-1.50927e-06, 1, -7.45585e-07, 0, -4.37114e-08, -17.057, -34.528, -4.37114e-08, 3.25906e-14, 5.95082, 0.7, 0.093946)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-1.9998e-07, 0.265, -9.87877e-08, 0, -1.15835e-08, -2.26, -4.575, -1.15835e-08, 4.31815e-15, 4, 0.7, -4)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-3.49691e-07, 0.12, -3.49691e-07, 0, -5.24537e-09, -8, -8, -5.24537e-09, 1.52855e-14, 9.99198, 3.97363, 5.94874)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-3.49691e-07, 0.12, -3.49691e-07, 0, -5.24537e-09, -8, -8, -5.24537e-09, 1.52855e-14, 9.99198, 4.08091, -5.99368)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-2.18557e-07, 0.12, -1.74846e-07, 0, -5.24537e-09, -4, -5, -5.24537e-09, 7.64274e-15, 9.99785, 6.07263, -0.129785)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.72107, 0)
+light_energy = 2.912
+light_indirect_energy = 0.855
+light_volumetric_fog_energy = 2.711
+spot_range = 7.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+visible = false
+gi_mode = 0
+mesh = ExtResource("4_p8xjc")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_175fc")
+
+[node name="Nursery_RiceSaplings2" parent="." instance=ExtResource("5_ihip5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.71007, -1.22617, -1.23009)
+
+[node name="Nursery_RiceSaplings3" parent="." instance=ExtResource("5_ihip5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.71007, -1.22617, 0.561615)
+
+[node name="Bangka_Normal" parent="." instance=ExtResource("6_ur0bj")]
+transform = Transform3D(0.241624, 0, 0.0641693, 0, 0.25, 0, -0.0641693, 0, 0.241624, 3.04535, -1.10521, -0.128431)
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("16_8qvpj")
+
+[node name="BGMPowerplant" type="Node" parent="Events"]
+script = ExtResource("17_w6dwi")
+
+[node name="JournalDonPlacidoEscuderoDam" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("18_04lpa")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="DialoguePowerPlantInstructions" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("19_e6o8f")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="DialogueMarblePPlantReminder" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("20_1fb4a")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionLookAtWaterSpiritB1" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("21_bld2n")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionInteractPPlantSwitch" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("22_ohv4p")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="MarbleSpirit_Normal" parent="." instance=ExtResource("23_l1wwn")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0.0417523)
+
+[node name="Marble" parent="MarbleSpirit_Normal" index="0"]
+transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
+
+[node name="Plane" parent="MarbleSpirit_Normal" index="1"]
+transform = Transform3D(-0.119496, -1.24276e-06, -0.453, -4.18798e-07, 0.656079, -5.73562e-08, -0.114061, -1.10695e-06, 0.474584, -0.0438846, 0, 0.0168927)
+
+[node name="Sphere" parent="MarbleSpirit_Normal" index="2"]
+transform = Transform3D(-0.0480362, 0, 0.0149037, 0, -0.0502951, 0, -0.0149037, 0, -0.0480362, 0.260299, 0, -0.0531245)
+
+[node name="Sphere_001" parent="MarbleSpirit_Normal" index="3"]
+transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888, 0, -0.0244276, 0.22937, 0, 0.346641)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+
+[editable path="MarbleSpirit_Normal"]

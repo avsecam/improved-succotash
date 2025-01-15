@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2okglqxdsbmd"]
+[gd_scene load_steps=12 format=3 uid="uid://d2okglqxdsbmd"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_3fvc1"]
-[ext_resource type="SphereMesh" uid="uid://dxtcea4duv7qx" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v1iix"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v1iix"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_5k86s"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_e53sw"]
 [ext_resource type="PackedScene" uid="uid://cr1f0g0xwuq0a" path="res://src/assets/C1/katana.tscn" id="5_jdjqg"]
 [ext_resource type="PackedScene" uid="uid://dwtpqavssopmc" path="res://src/assets/C1/shotgun.tscn" id="5_ox6hr"]
 [ext_resource type="PackedScene" uid="uid://byadhhny3uj5l" path="res://src/assets/C1/pistol.tscn" id="7_sjwpy"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="8_srwg6"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/JournalWeaponCollection.gd" id="9_rpy07"]
+[ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="10_kelbf"]
+[ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="11_ppo6g"]
 
 [node name="2 left11_jpg" type="Node3D"]
 transform = Transform3D(0.499993, 0, -0.866014, 0, 1, 0, 0.866014, 0, 0.499993, 0, 0, 0)
@@ -40,36 +44,55 @@ omni_range = 16.12
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="2Left10_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_5k86s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93999, -1.66543, 2.39112)
+transform = Transform3D(-0.77657, 0, 0.630031, 0, 1, 0, -0.630031, 0, -0.77657, 1.93999, -1.66543, 2.39112)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_e53sw")
 to = "2Left10.jpg"
 
 [node name="2Left12_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_5k86s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5332, -2.64341, 1.70782)
+transform = Transform3D(-0.744111, 0, -0.668056, 0, 1, 0, 0.668056, 0, -0.744111, -1.5332, -2.64341, 1.70782)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_e53sw")
 to = "2Left12.jpg"
 
 [node name="2Left13_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_5k86s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74202, -2.25903, 1.07285)
+transform = Transform3D(-0.27559, 0, -0.961275, 0, 1, 0, 0.961275, 0, -0.27559, -3.74202, -2.25903, 1.07285)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_e53sw")
 to = "2Left13.jpg"
 
 [node name="shotgun" parent="." instance=ExtResource("5_ox6hr")]
-transform = Transform3D(-0.312683, 0, 0.949857, 0, 1, 0, -0.949857, 0, -0.312683, 0.955138, 0, 1.2909)
-visible = false
+transform = Transform3D(-0.988424, 0, 0.151709, 0, 1, 0, -0.151709, 0, -0.988424, 1.90948, 0, -0.362071)
 
 [node name="katana" parent="." instance=ExtResource("5_jdjqg")]
 transform = Transform3D(-0.312683, 0, 0.949857, 0, 1, 0, -0.949857, 0, -0.312683, 0.162593, 0, -2.5219)
-visible = false
 
 [node name="pistol" parent="." instance=ExtResource("7_sjwpy")]
 transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, -1.14595, 0, -0.0192841)
-visible = false
+
+[node name="Events" type="Node" parent="."]
+script = ExtResource("8_srwg6")
+
+[node name="JournalWeaponCollection" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("9_rpy07")
+event_audio_source = NodePath("../../Journal/AudioStreamPlayer3D")
+
+[node name="Journal" parent="." instance=ExtResource("10_kelbf")]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0.312902, -1.5473, 1.85566)
+
+[node name="Indicator" parent="Journal" index="2"]
+associated_event = "JournalWeaponCollection"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Journal"]
+
+[node name="Pillar_Wood" parent="." instance=ExtResource("11_ppo6g")]
+transform = Transform3D(0.15, 0, 7.45058e-09, 0, 0.221609, 0, -7.45058e-09, 0, 0.15, 0.312902, -4.04274, 1.85566)
+
+[connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
+[connection signal="pointer_event" from="Journal" to="Events/JournalWeaponCollection" method="_on_journal_pointer_event"]
 
 [editable path="katana"]
+[editable path="Journal"]

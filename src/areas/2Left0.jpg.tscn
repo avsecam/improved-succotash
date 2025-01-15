@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bn1uehuvnbmrj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_u6q0f"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sgu81"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sgu81"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_hnffy"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_qdn7k"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="5_0tyb4"]
@@ -159,10 +159,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.506352, 0.71988, -0.181567
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.848793, 0.71988, -0.393507)
 
 [node name="Pillar_Wood" parent="." instance=ExtResource("19_fcm70")]
-transform = Transform3D(0.149971, 0, 0.00295557, 0, 0.15, 0, -0.00295557, 0, 0.149971, -0.784947, -2.04842, -1.42417)
+transform = Transform3D(0.149971, 0, 0.00295557, 0, 0.15, 0, -0.00295557, 0, 0.149971, 1.44353, -2.04842, 0.178091)
 
 [node name="Journal" parent="." instance=ExtResource("20_a440j")]
-transform = Transform3D(0.999806, 0, 0.0197039, 0, 1, 0, -0.0197039, 0, 0.999806, -0.796624, -0.337242, -1.40769)
+transform = Transform3D(0.999806, 0, 0.019704, 0, 1, 0, -0.019704, 0, 0.999806, 1.43185, -0.337242, 0.194571)
 
 [node name="Indicator" parent="Journal" index="2"]
 associated_event = "JournalCalandraOfSanto"

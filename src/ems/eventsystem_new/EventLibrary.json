@@ -2625,10 +2625,20 @@
 		"Event_Completion_Flags": [
 			"JournalWeaponCollection_Read"
 		],
-		"Event_Audio": "",
+		"Event_Audio": "VE_VO_C1_ASST_01_TheHere",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {},
+		"Event_Text": {
+			"npc_name": "Assistant",
+			"dialogue": {
+				"The weapon collection started by Don Placido Escudero consists mostly of pieces from World War 2": 0,
+				"and some from World War 1 and other historical periods.": 7,
+				"For guests who are concerned about safety, there is no need to be alarmed.": 4,
+				"Most, if not all, of these armaments no longer function.": 5,
+				"None of the firearms contain any ammunition whatsoever.": 5,
+				"Observant visitors might have noticed the howitzers outside. They were left behind by the Japanese after the war and were brought here.": 4
+			}
+		},
 		"Play_Success_SFX": false
 	},
 	{
