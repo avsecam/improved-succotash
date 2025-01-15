@@ -1,0 +1,4 @@
+{
+    "ignoredFiles": ["tsconfig.json", "dist", "node_modules", "addons", "PanoramaSphereMeshBase.tres", "rcedit-x64.exe", ".gitattributes", "android", "90degTORUS.tres", "wahooney.itch.io", "Fonts", "Cat.tscn", ".godot", "areas", "export_presets.cfg", "authoring_tools", "XRPlayer.gd"],
+    "ignoredExtensions": [".raw", ".res", ".blend", ".glb", ".gltf", ".ogg", ".import", ".wav", ".png", ".jpg", ".bmp", ".obj", ".mtl", ".bin", ".ttf", ".otf", ".svg", ".tmp", ".PNG", ".tres",".gdshader", ".godot"]
+}

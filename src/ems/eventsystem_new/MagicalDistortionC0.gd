@@ -11,3 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_dialogue_cat_dont_be_afraid_tree_exiting():
+	self.visible = false

@@ -1,6 +1,7 @@
 extends Feedback
 
 var anim_check : bool
+@onready var animation_player = $"../MainMesh/Ginger Cat (rigged with IK)/Armature/Skeleton3D/AnimationPlayer"
 
 @onready var progress_view = $"../Progress View"
 
@@ -8,6 +9,8 @@ func show_feedback(requirement, total_progress):
 	if (total_progress >= requirement):
 		print("Cat is Petted")
 		
+func _ready():
+	animation_player.play("cat_idle");
 
 func _on_cat_action_in_progress(requirement, total_progress):
 	var percentage = total_progress/requirement
