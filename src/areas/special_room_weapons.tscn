@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=16 format=3 uid="uid://cc0nl1olnbtqi"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_lpxct"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="3_gde1o"]
-[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
-[ext_resource type="PackedScene" uid="uid://bd7170yeh1357" path="res://src/assets/B1/Nursery_RiceSaplings.glb" id="5_ihip5"]
-[ext_resource type="PackedScene" uid="uid://dmmbs4v3u23b" path="res://src/assets/B1/Bangka_Normal.glb" id="6_ur0bj"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
+[ext_resource type="PackedScene" uid="uid://c26db2y36x10u" path="res://src/assets/A3/DistortionCrystal.tscn" id="13_rsr3f"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="16_8qvpj"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMPlayerOutside.gd" id="17_w6dwi"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/JournalDonPlacidoEscuderoDam.gd" id="18_04lpa"]
@@ -31,7 +30,7 @@ image_filename = "res://src/areas/Tut1.jpg.jpg"
 [node name="Teleporters" type="Node3D" parent="."]
 
 [node name="Right1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("2_2785x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.385, 1.32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84597, -1.385, 1.32)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("3_gde1o")
@@ -115,15 +114,6 @@ mesh = ExtResource("4_p8xjc")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_175fc")
 
-[node name="Nursery_RiceSaplings2" parent="." instance=ExtResource("5_ihip5")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.71007, -1.22617, -1.23009)
-
-[node name="Nursery_RiceSaplings3" parent="." instance=ExtResource("5_ihip5")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.71007, -1.22617, 0.561615)
-
-[node name="Bangka_Normal" parent="." instance=ExtResource("6_ur0bj")]
-transform = Transform3D(0.241624, 0, 0.0641693, 0, 0.25, 0, -0.0641693, 0, 0.241624, 3.04535, -1.10521, -0.128431)
-
 [node name="Events" type="Node" parent="."]
 script = ExtResource("16_8qvpj")
 
@@ -167,4 +157,9 @@ transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
+[node name="DistortionCrystal" parent="." groups=["katana"] instance=ExtResource("13_rsr3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933845, 0, 0.0511112)
+
 [editable path="MarbleSpirit_Normal"]
+[editable path="DistortionCrystal"]
+[editable path="DistortionCrystal/MainMesh/Dark_Crystal"]
