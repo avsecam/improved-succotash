@@ -165,7 +165,7 @@ transform = Transform3D(0.149971, 0, 0.00295557, 0, 0.15, 0, -0.00295557, 0, 0.1
 transform = Transform3D(0.999806, 0, 0.019704, 0, 1, 0, -0.019704, 0, 0.999806, 1.43185, -0.337242, 0.194571)
 
 [node name="Indicator" parent="Journal" index="2"]
-associated_event = "JournalCalandraOfSanto"
+associated_event = "JournalHermanoPuleShip"
 
 [connection signal="ship_parts_assembled" from="Ship" to="Events/ActionShipAssemblyComplete" method="_on_ship_ship_parts_assembled"]
 [connection signal="tree_exiting" from="Events/ActionShipAssemblyComplete" to="Ship" method="_on_action_ship_assembly_complete_tree_exiting"]

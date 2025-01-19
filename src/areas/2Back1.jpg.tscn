@@ -125,7 +125,7 @@ transform = Transform3D(0.117887, 0, 0.092751, 0, 0.15, 0, -0.092751, 0, 0.11788
 transform = Transform3D(0.785911, 0, 0.61834, 0, 1, 0, -0.61834, 0, 0.785911, -1.47292, -0.337242, -0.422138)
 
 [node name="Indicator" parent="Journal" index="2"]
-associated_event = "JournalCalandraOfSanto"
+associated_event = "JournalHermanoPuleExhibit"
 
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="Parchment Arrange Panel" method="_on_action_arrange_documents_tree_exiting"]

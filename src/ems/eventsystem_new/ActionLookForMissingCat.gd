@@ -5,6 +5,7 @@ extends Event
 @onready var spot_light_cat = $"../../SpotLightCat"
 
 func _on_event_started() -> void:
+	await get_tree().create_timer(5.0).timeout
 	AudioHandler.play_sfx("Char_Cat_Meow1", cat_voice)
 	await get_tree().create_timer(3.0).timeout
 	black_cat_location.screen_entered.connect(_on_black_cat_location_screen_entered)

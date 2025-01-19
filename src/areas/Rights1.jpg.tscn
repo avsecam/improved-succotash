@@ -77,9 +77,10 @@ transform = Transform3D(0.249996, 0, -0.00147913, 0, 0.25, 0, 0.00147913, 0, 0.2
 transform = Transform3D(0.133571, 0, -0.991039, 0, 1, 0, 0.991039, 0, 0.133571, 2.2105, 0.11964, -0.120861)
 
 [node name="Indicator" parent="Journal" index="2"]
-associated_event = "JournalCalandraOfSanto"
+associated_event = "JournalAssistantPaintings"
 
 [connection signal="painting_placed" from="Painting Container" to="Events/ActionInteractPaintedCanvas" method="_on_painting_container_painting_placed"]
+[connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="tree_exiting" from="Events/ActionInteractPaintedCanvas" to="Painting Container" method="_on_associated_event_finished"]
 [connection signal="pointer_event" from="Journal" to="Events/JournalAssistantPaintings" method="_on_journal_pointer_event"]
 

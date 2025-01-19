@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_l7fku"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="3_7i3wd"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="4_ymid4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="6_k8pkv"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/BGMKitchen.gd" id="6_wup7f"]
@@ -369,8 +369,9 @@ transform = Transform3D(-0.00293196, 0, -0.149971, 0, 0.15, 0, 0.149971, 0, -0.0
 transform = Transform3D(-0.0195464, 0, -0.999809, 0, 1, 0, 0.999809, 0, -0.0195464, 1.32636, -0.288481, 0.0104296)
 
 [node name="Indicator" parent="Journal" index="2"]
-associated_event = "JournalCalandraOfSanto"
+associated_event = "JournalLunchFoodEnjoy"
 
+[connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="tree_exiting" from="Events/ActionPutChickenPole1" to="Roasting Pit" method="_on_action_put_chicken_pole_1_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutChickenPole2" to="Roasting Pit" method="_on_action_put_chicken_pole_2_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="pole_bamboo_chicken_new" method="_on_associated_event_finished"]
