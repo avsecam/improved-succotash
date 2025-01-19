@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://d2okglqxdsbmd"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_3fvc1"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v1iix"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v1iix"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_5k86s"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_e53sw"]
 [ext_resource type="PackedScene" uid="uid://cr1f0g0xwuq0a" path="res://src/assets/C1/katana.tscn" id="5_jdjqg"]
@@ -146,65 +146,60 @@ script = ExtResource("8_srwg6")
 script = ExtResource("9_rpy07")
 event_audio_source = NodePath("../../Journal/AudioStreamPlayer3D")
 
-[node name="katanatest" type="RigidBody3D" parent="."]
+[node name="katana_for_quest" type="RigidBody3D" parent="."]
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("10_ykk4d")
+second_hand_grab = 2
 
-[node name="GrabPointHandLeft" parent="katanatest" instance=ExtResource("11_txv4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.100795)
-
-[node name="GrabPointHandRight" parent="katanatest" instance=ExtResource("12_3ysdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.100795)
-
-[node name="StateManager" parent="katanatest" instance=ExtResource("13_n2vaa")]
+[node name="StateManager" parent="katana_for_quest" instance=ExtResource("13_n2vaa")]
 receiver_group = "hammer"
 settings = SubResource("Resource_5rcvi")
 
-[node name="InteractReceiver" parent="katanatest/StateManager" instance=ExtResource("15_1ic88")]
+[node name="InteractReceiver" parent="katana_for_quest/StateManager" instance=ExtResource("15_1ic88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164288, -0.0935862)
 rate = 100.0
 
-[node name="ControlRaycastVisibility" parent="katanatest/StateManager" instance=ExtResource("16_07bw1")]
+[node name="ControlRaycastVisibility" parent="katana_for_quest/StateManager" instance=ExtResource("16_07bw1")]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -7.45058e-09, -0.00141685, -0.0935862)
 
-[node name="InventoryItemComp" parent="katanatest" instance=ExtResource("17_dkirt")]
+[node name="InventoryItemComp" parent="katana_for_quest" instance=ExtResource("17_dkirt")]
 
-[node name="ReplacementMesh" parent="katanatest/InventoryItemComp" index="0"]
+[node name="ReplacementMesh" parent="katana_for_quest/InventoryItemComp" index="0"]
 visible = false
 
-[node name="Hammer" parent="katanatest/InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("18_ox4qe")]
+[node name="Hammer" parent="katana_for_quest/InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("18_ox4qe")]
 transform = Transform3D(-1.73511e-09, 0.0304027, 0.0396947, 1.32895e-09, 0.0396947, -0.0304027, -0.05, 0, -2.18557e-09, -0.0129319, -0.0173404, 0)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="katanatest"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="katana_for_quest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00343017, 0, -0.365594)
 shape = SubResource("BoxShape3D_1vjgy")
 
-[node name="MainMesh" type="MeshInstance3D" parent="katanatest"]
+[node name="MainMesh" type="MeshInstance3D" parent="katana_for_quest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.030808, 0.019464)
 
-[node name="KATANA" parent="katanatest/MainMesh" instance=ExtResource("19_uqe4p")]
+[node name="KATANA" parent="katana_for_quest/MainMesh" instance=ExtResource("19_uqe4p")]
 transform = Transform3D(-2.18557e-10, 0.005, 0, -0.005, -2.18557e-10, 0, 0, 0, 0.005, -0.0695379, 0.0311797, 0)
 
-[node name="InventoryItemComp2" parent="katanatest" instance=ExtResource("17_dkirt")]
+[node name="InventoryItemComp2" parent="katana_for_quest" instance=ExtResource("17_dkirt")]
 
-[node name="GrabPointHandLeft2" parent="katanatest" instance=ExtResource("11_txv4q")]
+[node name="GrabPointHandLeft2" parent="katana_for_quest" instance=ExtResource("11_txv4q")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0112069, -0.104982, 8.03769e-05)
 mode = 1
 hand_pose = SubResource("Resource_i8mbt")
 
-[node name="GrabPointHandRight2" parent="katanatest" instance=ExtResource("12_3ysdh")]
+[node name="GrabPointHandRight2" parent="katana_for_quest" instance=ExtResource("12_3ysdh")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0116897, -0.101179, -0.00941038)
 mode = 1
 hand_pose = SubResource("Resource_l64ea")
 
-[node name="GrabPointHandLeftOffhand" parent="katanatest" instance=ExtResource("11_txv4q")]
+[node name="GrabPointHandLeftOffhand" parent="katana_for_quest" instance=ExtResource("11_txv4q")]
 transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
 mode = 2
 hand_pose = SubResource("Resource_0rf81")
 
-[node name="GrabPointHandRightOffhand" parent="katanatest" instance=ExtResource("12_3ysdh")]
+[node name="GrabPointHandRightOffhand" parent="katana_for_quest" instance=ExtResource("12_3ysdh")]
 transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
 mode = 2
 hand_pose = SubResource("Resource_fg8sq")
@@ -227,5 +222,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.937968, 0, 0.324961)
 [connection signal="pointer_event" from="Journal" to="Events/JournalWeaponCollection" method="_on_journal_pointer_event"]
 
 [editable path="katana"]
-[editable path="katanatest/InventoryItemComp"]
+[editable path="katana_for_quest/InventoryItemComp"]
 [editable path="Journal"]
