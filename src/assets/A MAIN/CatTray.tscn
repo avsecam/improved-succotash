@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2q7hiaw8bxy5"]
+[gd_scene load_steps=11 format=3 uid="uid://b2q7hiaw8bxy5"]
 
 [ext_resource type="PackedScene" uid="uid://bd0r2xbh7i83d" path="res://src/assets/A MAIN/Tray_Cats.glb" id="1_rlwar"]
 [ext_resource type="Script" path="res://src/assets/A MAIN/CatTray.gd" id="1_rx8no"]
 [ext_resource type="PackedScene" uid="uid://crwyd7l0re2e" path="res://src/inventory/Slot.tscn" id="3_i1di4"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="4_nn8w6"]
+[ext_resource type="PackedScene" uid="uid://bharucw5xeyyi" path="res://src/assets/A MAIN/cube_orange_cat.tscn" id="5_c7wlk"]
+[ext_resource type="PackedScene" uid="uid://bhiwtf8ltne8x" path="res://src/assets/A MAIN/cube_spotted_cat.tscn" id="6_ffctc"]
+[ext_resource type="PackedScene" uid="uid://cubabc1xpnnac" path="res://src/assets/A MAIN/cube_calico_cat.tscn" id="7_geoa1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fu5av"]
+size = Vector3(0.15, 0.15, 0.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8i6l"]
+size = Vector3(0.15, 0.15, 0.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xnoer"]
+size = Vector3(0.15, 0.15, 0.15)
 
 [node name="CatTray" type="Node3D"]
 script = ExtResource("1_rx8no")
@@ -18,6 +31,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257465, 0.121841, 0)
 
 [node name="Slot2" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263741, 0.121841, 0)
+
+[node name="Cats" type="Node3D" parent="."]
+visible = false
+
+[node name="CubeCatOrange" type="RigidBody3D" parent="Cats"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258, 0.132, 0)
+collision_layer = 4
+collision_mask = 196615
+freeze = true
+freeze_mode = 1
+script = ExtResource("4_nn8w6")
+enabled = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cats/CubeCatOrange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0119837, 0)
+shape = SubResource("BoxShape3D_fu5av")
+
+[node name="MainMesh" parent="Cats/CubeCatOrange" instance=ExtResource("5_c7wlk")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.09, 0)
+
+[node name="CubeCatSpotted" type="RigidBody3D" parent="Cats"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007, 0.13, 0)
+collision_layer = 4
+collision_mask = 196615
+freeze = true
+freeze_mode = 1
+script = ExtResource("4_nn8w6")
+enabled = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cats/CubeCatSpotted"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0129238, 0)
+shape = SubResource("BoxShape3D_h8i6l")
+
+[node name="MainMesh" parent="Cats/CubeCatSpotted" instance=ExtResource("6_ffctc")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.09, 0)
+
+[node name="CubeCatCalico" type="RigidBody3D" parent="Cats"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26269, 0.132, 0)
+collision_layer = 4
+collision_mask = 196615
+freeze = true
+freeze_mode = 1
+script = ExtResource("4_nn8w6")
+enabled = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cats/CubeCatCalico"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0137164, 0)
+shape = SubResource("BoxShape3D_xnoer")
+
+[node name="MainMesh" parent="Cats/CubeCatCalico" instance=ExtResource("7_geoa1")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.09, 0)
 
 [connection signal="body_entered" from="Slot/SnapZone" to="." method="_on_snap_zone_body_entered"]
 [connection signal="body_entered" from="Slot3/SnapZone" to="." method="_on_snap_zone_body_entered"]

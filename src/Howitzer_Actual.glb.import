@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ddw0je40k5yev"
-path="res://.godot/imported/Howitzer_Actual.glb-584fce5798180a43295ce452dfd03135.scn"
+path="res://.godot/imported/Howitzer_Actual.glb-895a5650cd0b4cfc4cbf2b0d0aa8d24e.scn"
 
 [deps]
 
-source_file="res://src/assets/C1/Howitzer_Actual.glb"
-dest_files=["res://.godot/imported/Howitzer_Actual.glb-584fce5798180a43295ce452dfd03135.scn"]
+source_file="res://src/Howitzer_Actual.glb"
+dest_files=["res://.godot/imported/Howitzer_Actual.glb-895a5650cd0b4cfc4cbf2b0d0aa8d24e.scn"]
 
 [params]
 

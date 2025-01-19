@@ -96,3 +96,5 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.579897, -2.31905, 
 transform = Transform3D(0.25, 0, 5.96046e-08, 0, 0.25, 0, -5.96046e-08, 0, 0.25, 0.473506, -0.0672717, -1.18914)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+
+[connection signal="tree_exiting" from="Events/DialogueFinishCatIconsPlacement" to="CatTray" method="_on_dialogue_finish_cat_icons_placement_tree_exiting"]

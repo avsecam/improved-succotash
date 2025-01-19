@@ -2634,9 +2634,9 @@
 				"The weapon collection started by Don Placido Escudero consists mostly of pieces from World War 2": 0,
 				"and some from World War 1 and other historical periods.": 7,
 				"For guests who are concerned about safety, there is no need to be alarmed.": 4,
-				"Most, if not all, of these armaments no longer function.": 5,
-				"None of the firearms contain any ammunition whatsoever.": 5,
-				"Observant visitors might have noticed the howitzers outside. They were left behind by the Japanese after the war and were brought here.": 4
+				"Most, if not all, of these armaments no longer function.": 4,
+				"None of the firearms contain any ammunition whatsoever.": 4,
+				"Observant visitors might have noticed the howitzers outside. They were left behind by the Japanese after the war and were brought here.": 5
 			}
 		},
 		"Play_Success_SFX": false
@@ -3019,7 +3019,7 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
-			"DialogueCatDontBeAfraid_Done"
+			"DialogueFindCatTrap_Done"
 		],
 		"Event_Completion_Flags": [
 			"ActionCSectionPetCat_Done"
@@ -3052,6 +3052,62 @@
 				"Come visit again sometime, okay?": 9
 			}
 		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun1",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun1_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun2",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun2_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun3",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun3_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun4",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun4_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
 		"Play_Success_SFX": false
 	}
 ]

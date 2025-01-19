@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2okglqxdsbmd"]
+[gd_scene load_steps=32 format=3 uid="uid://d2okglqxdsbmd"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_3fvc1"]
-[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v1iix"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_v1iix"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_5k86s"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_e53sw"]
 [ext_resource type="PackedScene" uid="uid://cr1f0g0xwuq0a" path="res://src/assets/C1/katana.tscn" id="5_jdjqg"]
@@ -10,7 +10,73 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="8_srwg6"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/JournalWeaponCollection.gd" id="9_rpy07"]
 [ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="10_kelbf"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="10_ykk4d"]
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="11_ppo6g"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="11_txv4q"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="12_3ysdh"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="13_n2vaa"]
+[ext_resource type="PackedScene" uid="uid://c26db2y36x10u" path="res://src/assets/A3/DistortionCrystal.tscn" id="13_t7olv"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="14_uyrjw"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="15_1ic88"]
+[ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="16_07bw1"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="17_dkirt"]
+[ext_resource type="PackedScene" uid="uid://b4d17e1dw4scb" path="res://src/assets/A3/hammer_mesh.tscn" id="18_ox4qe"]
+[ext_resource type="PackedScene" uid="uid://c7kyxfjjjaqba" path="res://src/assets/C1/KATANA.glb" id="19_uqe4p"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="20_a1j4a"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="21_vp61x"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="22_pdpix"]
+
+[sub_resource type="Resource" id="Resource_5rcvi"]
+script = ExtResource("14_uyrjw")
+state_behavior_settings = {
+"ActiveCollidingState": {
+"ControlRaycastVisibility": true,
+"InteractReceiver": true
+},
+"ActiveState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"IdleState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"InventoryState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+}
+}
+behavior_dict = {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vjgy"]
+size = Vector3(0.0380615, 0.1, 1.31244)
+
+[sub_resource type="Resource" id="Resource_i8mbt"]
+script = ExtResource("21_vp61x")
+open_pose = ExtResource("20_a1j4a")
+closed_pose = ExtResource("20_a1j4a")
+
+[sub_resource type="Resource" id="Resource_l64ea"]
+script = ExtResource("21_vp61x")
+open_pose = ExtResource("22_pdpix")
+closed_pose = ExtResource("22_pdpix")
+
+[sub_resource type="Resource" id="Resource_0rf81"]
+script = ExtResource("21_vp61x")
+open_pose = ExtResource("20_a1j4a")
+closed_pose = ExtResource("20_a1j4a")
+
+[sub_resource type="Resource" id="Resource_fg8sq"]
+script = ExtResource("21_vp61x")
+open_pose = ExtResource("22_pdpix")
+closed_pose = ExtResource("22_pdpix")
 
 [node name="2 left11_jpg" type="Node3D"]
 transform = Transform3D(0.499993, 0, -0.866014, 0, 1, 0, 0.866014, 0, 0.499993, 0, 0, 0)
@@ -80,6 +146,69 @@ script = ExtResource("8_srwg6")
 script = ExtResource("9_rpy07")
 event_audio_source = NodePath("../../Journal/AudioStreamPlayer3D")
 
+[node name="katanatest" type="RigidBody3D" parent="."]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("10_ykk4d")
+
+[node name="GrabPointHandLeft" parent="katanatest" instance=ExtResource("11_txv4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.100795)
+
+[node name="GrabPointHandRight" parent="katanatest" instance=ExtResource("12_3ysdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.100795)
+
+[node name="StateManager" parent="katanatest" instance=ExtResource("13_n2vaa")]
+receiver_group = "hammer"
+settings = SubResource("Resource_5rcvi")
+
+[node name="InteractReceiver" parent="katanatest/StateManager" instance=ExtResource("15_1ic88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164288, -0.0935862)
+rate = 100.0
+
+[node name="ControlRaycastVisibility" parent="katanatest/StateManager" instance=ExtResource("16_07bw1")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -7.45058e-09, -0.00141685, -0.0935862)
+
+[node name="InventoryItemComp" parent="katanatest" instance=ExtResource("17_dkirt")]
+
+[node name="ReplacementMesh" parent="katanatest/InventoryItemComp" index="0"]
+visible = false
+
+[node name="Hammer" parent="katanatest/InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("18_ox4qe")]
+transform = Transform3D(-1.73511e-09, 0.0304027, 0.0396947, 1.32895e-09, 0.0396947, -0.0304027, -0.05, 0, -2.18557e-09, -0.0129319, -0.0173404, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="katanatest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00343017, 0, -0.365594)
+shape = SubResource("BoxShape3D_1vjgy")
+
+[node name="MainMesh" type="MeshInstance3D" parent="katanatest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.030808, 0.019464)
+
+[node name="KATANA" parent="katanatest/MainMesh" instance=ExtResource("19_uqe4p")]
+transform = Transform3D(-2.18557e-10, 0.005, 0, -0.005, -2.18557e-10, 0, 0, 0, 0.005, -0.0695379, 0.0311797, 0)
+
+[node name="InventoryItemComp2" parent="katanatest" instance=ExtResource("17_dkirt")]
+
+[node name="GrabPointHandLeft2" parent="katanatest" instance=ExtResource("11_txv4q")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0112069, -0.104982, 8.03769e-05)
+mode = 1
+hand_pose = SubResource("Resource_i8mbt")
+
+[node name="GrabPointHandRight2" parent="katanatest" instance=ExtResource("12_3ysdh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0116897, -0.101179, -0.00941038)
+mode = 1
+hand_pose = SubResource("Resource_l64ea")
+
+[node name="GrabPointHandLeftOffhand" parent="katanatest" instance=ExtResource("11_txv4q")]
+transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
+mode = 2
+hand_pose = SubResource("Resource_0rf81")
+
+[node name="GrabPointHandRightOffhand" parent="katanatest" instance=ExtResource("12_3ysdh")]
+transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
+mode = 2
+hand_pose = SubResource("Resource_fg8sq")
+
 [node name="Journal" parent="." instance=ExtResource("10_kelbf")]
 transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 3.85746, -1.5473, 1.60318)
 
@@ -91,8 +220,12 @@ associated_event = "JournalWeaponCollection"
 [node name="Pillar_Wood" parent="." instance=ExtResource("11_ppo6g")]
 transform = Transform3D(0.15, 0, 7.45058e-09, 0, 0.221609, 0, -7.45058e-09, 0, 0.15, 3.85746, -4.04274, 1.60318)
 
+[node name="DistortionCrystal" parent="." instance=ExtResource("13_t7olv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.937968, 0, 0.324961)
+
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="pointer_event" from="Journal" to="Events/JournalWeaponCollection" method="_on_journal_pointer_event"]
 
 [editable path="katana"]
+[editable path="katanatest/InventoryItemComp"]
 [editable path="Journal"]
