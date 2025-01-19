@@ -10,3 +10,7 @@ signal pointer_event(event)
 # Add support for is_xr_class on XRTools classes
 func is_xr_class(name : String) -> bool:
 	return name == "XRToolsInteractableArea"
+
+
+func _on_events_rechecking_events():
+	pass # Replace with function body.

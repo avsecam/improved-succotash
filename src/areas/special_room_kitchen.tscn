@@ -371,6 +371,7 @@ transform = Transform3D(-0.0195464, 0, -0.999809, 0, 1, 0, 0.999809, 0, -0.01954
 [node name="Indicator" parent="Journal" index="2"]
 associated_event = "JournalCalandraOfSanto"
 
+[connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="tree_exiting" from="Events/ActionPutChickenPole1" to="Roasting Pit" method="_on_action_put_chicken_pole_1_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutChickenPole2" to="Roasting Pit" method="_on_action_put_chicken_pole_2_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="pole_bamboo_chicken_new" method="_on_associated_event_finished"]

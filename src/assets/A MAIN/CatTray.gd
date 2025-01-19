@@ -1,16 +1,25 @@
 extends Node3D
 
 signal cat_tray_updated()
+@onready var cats = $Cats
 
 @export var inventory_array = []
 @export var inventory_size : int
 var start_inv_array = []
+
+@onready var snap1_zone = $Slot/SnapZone
+@onready var snap3_zone = $Slot3/SnapZone
+@onready var snap2_zone = $Slot2/SnapZone
+@onready var slot = $Slot
+@onready var slot_3 = $Slot3
+@onready var slot_2 = $Slot2
 
 
 func _ready():
 	start_inv_array = get_tree().get_nodes_in_group("cat_tray_inventory")
 	inventory_size = start_inv_array.size()
 	load_cat_tray()
+	cats.visible = false
 
 func load_cat_tray():
 	for slot in Events.cat_tray_content:
@@ -46,3 +55,14 @@ func check_contents():
 func _on_snap_zone_body_entered(body):
 	emit_signal("cat_tray_updated")
 	check_contents()
+
+
+func _on_dialogue_finish_cat_icons_placement_tree_exiting():
+	cats.visible = true
+	snap1_zone.enabled = false
+	snap3_zone.enabled = false
+	snap2_zone.enabled = false
+	slot.visible = false
+	slot_3.visible = false
+	slot_2.visible = false
+	
