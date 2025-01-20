@@ -27,7 +27,9 @@ extends Node
 	"A_Padlock_Turn2" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Padlock_Turn_Var_02.ogg"),
 	"A_Padlock_Open" : preload("res://src/assets/audio/sfx/VE_SFX_UI_Padlock_Open.ogg"),
 	"A_WoodBox_Open" : preload("res://src/assets/audio/sfx/VE_SFX_UI_WoodBoxOpen.ogg"),
-	"A_CrystalShatter" : preload("res://src/assets/audio/sfx/VE_SFX_UI_A_CrystalShatter.ogg")
+	"A_CrystalShatter" : preload("res://src/assets/audio/sfx/VE_SFX_UI_A_CrystalShatter.ogg"),
+	"C_Pistol_Gunshot" : preload("res://src/assets/C1/163456__lemudcrab__pistol-shot.wav"),
+	"C_ShotGunshot" : preload("res://src/assets/C1/473846__matrixxx__shotgun-shot-03.wav")
 }
 
 @onready var bgm_player := $BGMPlayer

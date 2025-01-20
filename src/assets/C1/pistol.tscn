@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="13_1rxmm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apewi"]
-size = Vector3(0.1, 0.0297969, 0.210547)
+size = Vector3(0.0334839, 0.0297969, 0.210547)
 
 [sub_resource type="Resource" id="Resource_jwm40"]
 script = ExtResource("6_kwovm")
@@ -70,3 +70,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0897349, -0.0827039)
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("13_1rxmm")]
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("8_vn5u3")]
+
+[node name="pistol_sound" type="AudioStreamPlayer3D" parent="."]
