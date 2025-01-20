@@ -462,7 +462,7 @@
 		"Quest_Name": "QuestFindtheMissingCat",
 		"Quest_Description": {
 			"Name": "Look for the cat's friend",
-			"Description": "You hear sounds of the missing cat"
+			"Description": "You hear sounds of the missing cat."
 		},
 		"Quest_Completion_Requirements": [
 			"ActionLookForMissingCat_Done"
@@ -474,6 +474,28 @@
 		},
 		"Quest_Completion_Flags": [
 			"QuestFindtheMissingCat_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestDestroytheCrystalsKatana",
+		"Quest_Description": {
+			"Name": "Destroy the Crystals",
+			"Description": "There's a katana on the ground. Use it to destroy the crystals."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionSlashCrystalWithKatana1_Done",
+			"ActionSlashCrystalWithKatana2_Done",
+			"ActionSlashCrystalWithKatana3_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Destroy the Crystals with a Katana": [
+				"ActionSlashCrystalWithKatana1_Done",
+				"ActionSlashCrystalWithKatana2_Done",
+				"ActionSlashCrystalWithKatana3_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestDestroytheCrystalsKatana_Done"
 		]
 	}
 ]
