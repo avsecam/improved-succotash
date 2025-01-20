@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4e7qlnksmm47"]
+[gd_scene load_steps=19 format=3 uid="uid://d4e7qlnksmm47"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_pieon"]
 [ext_resource type="PackedScene" uid="uid://b4d17e1dw4scb" path="res://src/assets/A3/hammer_mesh.tscn" id="2_5deek"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_73o0k"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_swp0g"]
 [ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="8_5stwo"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="9_tmt54"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="10_7mo1n"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="10_frqv3"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="12_3ukfi"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="12_o5c2v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qli6w"]
@@ -42,6 +45,26 @@ behavior_dict = {
 "InteractReceiver": false
 }
 
+[sub_resource type="Resource" id="Resource_2v2hq"]
+script = ExtResource("10_7mo1n")
+open_pose = ExtResource("9_tmt54")
+closed_pose = ExtResource("9_tmt54")
+
+[sub_resource type="Resource" id="Resource_4erio"]
+script = ExtResource("10_7mo1n")
+open_pose = ExtResource("12_3ukfi")
+closed_pose = ExtResource("12_3ukfi")
+
+[sub_resource type="Resource" id="Resource_fh6th"]
+script = ExtResource("10_7mo1n")
+open_pose = ExtResource("9_tmt54")
+closed_pose = ExtResource("9_tmt54")
+
+[sub_resource type="Resource" id="Resource_qut4p"]
+script = ExtResource("10_7mo1n")
+open_pose = ExtResource("12_3ukfi")
+closed_pose = ExtResource("12_3ukfi")
+
 [node name="Hammer" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
@@ -56,12 +79,6 @@ shape = SubResource("BoxShape3D_qli6w")
 
 [node name="Hammer" parent="MainMesh" instance=ExtResource("2_5deek")]
 transform = Transform3D(-0.075, 0, -6.55671e-09, 0, 0.075, 0, 6.55671e-09, 0, -0.075, 0, 0, 0)
-
-[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_at80q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.100795)
-
-[node name="GrabPointHandRight" parent="." instance=ExtResource("4_x7gv1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.100795)
 
 [node name="StateManager" parent="." instance=ExtResource("5_73o0k")]
 receiver_group = "hammer"
@@ -81,5 +98,25 @@ visible = false
 
 [node name="Hammer2" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_5deek")]
 transform = Transform3D(-1.73511e-09, 0.0304027, 0.0396947, 1.32895e-09, 0.0396947, -0.0304027, -0.05, 0, -2.18557e-09, -0.0129319, -0.0173404, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_at80q")]
+transform = Transform3D(1, 0, 0, 0, 0.997685, 0.0679979, 0, -0.0679979, 0.997685, 0.0052726, 0.0844017, -0.102348)
+mode = 1
+hand_pose = SubResource("Resource_2v2hq")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_x7gv1")]
+transform = Transform3D(1, 0, 0, 0, 0.989463, 0.144788, 0, -0.144788, 0.989463, -0.0159313, 0.0796372, -0.10275)
+mode = 1
+hand_pose = SubResource("Resource_4erio")
+
+[node name="GrabPointHandLeftOffhand" parent="." instance=ExtResource("2_at80q")]
+transform = Transform3D(1, 0, 0, 0, 0.985476, 0.169814, 0, -0.169814, 0.985476, 0, -0.0879037, -0.0804318)
+mode = 2
+hand_pose = SubResource("Resource_fh6th")
+
+[node name="GrabPointHandRightOffhand" parent="." instance=ExtResource("4_x7gv1")]
+transform = Transform3D(1, 0, 0, 0, 0.985476, 0.169814, 0, -0.169814, 0.985476, 0, -0.0879037, -0.0804318)
+mode = 2
+hand_pose = SubResource("Resource_qut4p")
 
 [editable path="InventoryItemComp"]

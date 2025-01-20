@@ -1,0 +1,168 @@
+[gd_scene load_steps=28 format=3 uid="uid://cudw2thi1c62x"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_0mdco"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="2_ti60u"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="3_3e7d0"]
+[ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="4_smnbq"]
+[ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="5_axsux"]
+[ext_resource type="PackedScene" uid="uid://blpaqx7gy2i1b" path="res://src/ois/states/state_inventory.tscn" id="6_xcbna"]
+[ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="7_qjrj3"]
+[ext_resource type="PackedScene" uid="uid://b4d17e1dw4scb" path="res://src/assets/A3/hammer_mesh.tscn" id="8_fq6yt"]
+[ext_resource type="PackedScene" uid="uid://c7kyxfjjjaqba" path="res://src/assets/C1/KATANA.glb" id="9_ha0h1"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="10_1ss1r"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="11_3muiw"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="12_62ttj"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="13_f8e34"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/hand.gd" id="14_vkutp"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://dl8yf7ipqotd1" path="res://addons/godot-xr-tools/hands/animations/left/hand_blend_tree.tres" id="15_3q4ie"]
+[ext_resource type="Resource" uid="uid://dertgu7k8alls" path="res://addons/godot-xr-tools/hands/poses/pose_default_left.tres" id="16_u3pxl"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="17_sgm61"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="18_t8is0"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="19_uuooi"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://m85b1gogdums" path="res://addons/godot-xr-tools/hands/animations/right/hand_blend_tree.tres" id="20_in3lp"]
+[ext_resource type="Resource" uid="uid://dmpjtk0l8vh6v" path="res://addons/godot-xr-tools/hands/poses/pose_default_right.tres" id="21_mn4b5"]
+
+[sub_resource type="Resource" id="Resource_5rcvi"]
+script = ExtResource("3_3e7d0")
+state_behavior_settings = {
+"ActiveCollidingState": {
+"ControlRaycastVisibility": true,
+"InteractReceiver": true
+},
+"ActiveState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"IdleState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"InventoryState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+},
+"TriggerState": {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+}
+}
+behavior_dict = {
+"ControlRaycastVisibility": false,
+"InteractReceiver": false
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vjgy"]
+size = Vector3(0.0380615, 0.1, 1.31244)
+
+[sub_resource type="Resource" id="Resource_i8mbt"]
+script = ExtResource("12_62ttj")
+open_pose = ExtResource("11_3muiw")
+closed_pose = ExtResource("11_3muiw")
+
+[sub_resource type="Resource" id="Resource_l64ea"]
+script = ExtResource("12_62ttj")
+open_pose = ExtResource("18_t8is0")
+closed_pose = ExtResource("18_t8is0")
+
+[sub_resource type="Resource" id="Resource_0rf81"]
+script = ExtResource("12_62ttj")
+open_pose = ExtResource("11_3muiw")
+closed_pose = ExtResource("11_3muiw")
+
+[sub_resource type="Resource" id="Resource_fg8sq"]
+script = ExtResource("12_62ttj")
+open_pose = ExtResource("18_t8is0")
+closed_pose = ExtResource("18_t8is0")
+
+[node name="katana_for_quest" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_0mdco")
+second_hand_grab = 2
+
+[node name="StateManager" parent="." node_paths=PackedStringArray("current_state") instance=ExtResource("2_ti60u")]
+receiver_group = "hammer"
+current_state = NodePath("")
+settings = SubResource("Resource_5rcvi")
+
+[node name="InteractReceiver" parent="StateManager" instance=ExtResource("4_smnbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164288, -0.0935862)
+rate = 100.0
+
+[node name="ControlRaycastVisibility" parent="StateManager" instance=ExtResource("5_axsux")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -7.45058e-09, -0.00141685, -0.0935862)
+
+[node name="InventoryState" parent="StateManager" instance=ExtResource("6_xcbna")]
+
+[node name="_Node_49321" parent="StateManager" instance=ExtResource("6_xcbna")]
+
+[node name="InventoryItemComp" parent="." instance=ExtResource("7_qjrj3")]
+
+[node name="ReplacementMesh" parent="InventoryItemComp" index="0"]
+visible = false
+
+[node name="Hammer" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("8_fq6yt")]
+transform = Transform3D(-1.73511e-09, 0.0304027, 0.0396947, 1.32895e-09, 0.0396947, -0.0304027, -0.05, 0, -2.18557e-09, -0.0129319, -0.0173404, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00343017, 0, -0.365594)
+shape = SubResource("BoxShape3D_1vjgy")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.030808, 0.019464)
+
+[node name="KATANA" parent="MainMesh" instance=ExtResource("9_ha0h1")]
+transform = Transform3D(-2.18557e-10, 0.005, 0, -0.005, -2.18557e-10, 0, 0, 0, 0.005, -0.0695379, 0.0311797, 0)
+
+[node name="InventoryItemComp2" parent="." instance=ExtResource("7_qjrj3")]
+
+[node name="GrabPointHandLeft2" parent="." instance=ExtResource("10_1ss1r")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0112069, -0.104982, 8.03769e-05)
+mode = 1
+hand_pose = SubResource("Resource_i8mbt")
+
+[node name="@Node3D@54352" parent="GrabPointHandLeft2" instance=ExtResource("13_f8e34")]
+
+[node name="LeftHand" type="Node3D" parent="GrabPointHandLeft2" instance=ExtResource("13_f8e34")]
+script = ExtResource("14_vkutp")
+hand_blend_tree = ExtResource("15_3q4ie")
+default_pose = ExtResource("16_u3pxl")
+
+[node name="GrabPointHandRight2" parent="." instance=ExtResource("17_sgm61")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0116897, -0.101179, -0.00941038)
+mode = 1
+hand_pose = SubResource("Resource_l64ea")
+
+[node name="@Node3D@54353" parent="GrabPointHandRight2" instance=ExtResource("19_uuooi")]
+
+[node name="RightHand" type="Node3D" parent="GrabPointHandRight2" instance=ExtResource("19_uuooi")]
+script = ExtResource("14_vkutp")
+hand_blend_tree = ExtResource("20_in3lp")
+default_pose = ExtResource("21_mn4b5")
+
+[node name="GrabPointHandLeftOffhand" parent="." instance=ExtResource("10_1ss1r")]
+transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
+mode = 2
+hand_pose = SubResource("Resource_0rf81")
+
+[node name="@Node3D@54354" parent="GrabPointHandLeftOffhand" instance=ExtResource("13_f8e34")]
+
+[node name="LeftHand" type="Node3D" parent="GrabPointHandLeftOffhand" instance=ExtResource("13_f8e34")]
+script = ExtResource("14_vkutp")
+hand_blend_tree = ExtResource("15_3q4ie")
+default_pose = ExtResource("16_u3pxl")
+
+[node name="GrabPointHandRightOffhand" parent="." instance=ExtResource("17_sgm61")]
+transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
+mode = 2
+hand_pose = SubResource("Resource_fg8sq")
+
+[node name="@Node3D@54355" parent="GrabPointHandRightOffhand" instance=ExtResource("19_uuooi")]
+
+[node name="RightHand" type="Node3D" parent="GrabPointHandRightOffhand" instance=ExtResource("19_uuooi")]
+script = ExtResource("14_vkutp")
+hand_blend_tree = ExtResource("20_in3lp")
+default_pose = ExtResource("21_mn4b5")
+
+[editable path="InventoryItemComp"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=12 format=3 uid="uid://cc0nl1olnbtqi"]
 
-[ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_lpxct"]
+[ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
-[ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="3_gde1o"]
 [ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
+[ext_resource type="PackedScene" uid="uid://cjw3n3nsxqim3" path="res://src/ems/eventsystem_new/bgm_powerplant.tscn" id="6_1xtuu"]
+[ext_resource type="PackedScene" uid="uid://d4e7qlnksmm47" path="res://src/assets/A3/Hammer.tscn" id="8_hk4ax"]
+[ext_resource type="PackedScene" uid="uid://c7kyxfjjjaqba" path="res://src/assets/C1/KATANA.glb" id="12_duwru"]
 [ext_resource type="PackedScene" uid="uid://c26db2y36x10u" path="res://src/assets/A3/DistortionCrystal.tscn" id="13_rsr3f"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="16_8qvpj"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="23_l1wwn"]
@@ -14,22 +16,18 @@
 albedo_color = Color(0, 0, 0, 0)
 
 [node name="SpecialRoom_PowerPlant" type="Node3D"]
-visible = false
-script = ExtResource("1_lpxct")
+script = ExtResource("1_k6i48")
 teleporters_data = [{
-"position": Vector3(0, -1.385, 1.32),
-"to": "Right1.jpg"
+"position": Vector3(0, -1.385, 1.744),
+"to": "2Left11.jpg"
 }]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
 
 [node name="Teleporters" type="Node3D" parent="."]
 
-[node name="Right1_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("2_2785x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.385, 1.32)
-collision_layer = 5243392
-collision_mask = 0
-script = ExtResource("3_gde1o")
-to = "Right1.jpg"
+[node name="2Left11_jpg" parent="Teleporters" instance=ExtResource("2_2785x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.385, 1.74415)
+to = "2Left11.jpg"
 
 [node name="Walls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
@@ -112,6 +110,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_175fc")
 [node name="Events" type="Node" parent="."]
 script = ExtResource("16_8qvpj")
 
+[node name="BGMPowerplant" parent="Events" instance=ExtResource("6_1xtuu")]
+
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("23_l1wwn")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0.0417523)
 
@@ -129,9 +129,62 @@ transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
-[node name="DistortionCrystal" parent="." groups=["katana"] instance=ExtResource("13_rsr3f")]
+[node name="DistortionCrystal" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933845, 0, 0.0511112)
+
+[node name="DistortionCrystal2" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04159, 0, 0.0511112)
+
+[node name="DistortionCrystal3" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0698315, 0, -0.968821)
+
+[node name="katana" parent="." instance=ExtResource("8_hk4ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0735865, 0, -0.20133)
+second_hand_grab = 2
+
+[node name="CollisionShape3D" parent="katana" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146861, 0.0953857)
+
+[node name="Hammer" parent="katana/MainMesh" index="0"]
+visible = false
+
+[node name="KATANA" parent="katana/MainMesh" index="1" instance=ExtResource("12_duwru")]
+transform = Transform3D(-0.108954, 0.994047, 0, -0.976543, -0.107035, -0.186833, -0.18572, -0.0203561, 0.982392, -0.0673807, 0.166449, 0.0459585)
+
+[node name="katana" parent="katana/MainMesh/KATANA" index="0"]
+transform = Transform3D(0.005, 0, 0, 0, -2.18557e-10, -0.005, 0, 0.005, -2.18557e-10, 0, 0, 0)
+
+[node name="InventoryItemComp" parent="katana" index="3"]
+visible = false
+
+[node name="Hammer2" parent="katana/InventoryItemComp/ReplacementMesh" index="0"]
+visible = false
+
+[node name="GrabPointHandLeft" parent="katana" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.0628427, 0.998023, 0, -0.998023, 0.0628427, 0.0052726, 0.0595037, -0.0530397)
+visible = true
+
+[node name="GrabPointHandRight" parent="katana" index="5"]
+transform = Transform3D(1, 0, 0, 0, -0.0143636, 0.999897, 0, -0.999897, -0.0143636, -0.0159313, 0.0584831, -0.0483685)
+visible = true
+
+[node name="GrabPointHandLeftOffhand" parent="katana" index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.148793, 0.988868, 0, -0.988868, 0.148793, 0, 0.0265573, 0.162928)
+visible = true
+
+[node name="GrabPointHandRightOffhand" parent="katana" index="7"]
+transform = Transform3D(1, 0, 0, 0, 0.148793, 0.988868, 0, -0.988868, 0.148793, 0, 0.0265573, 0.162928)
+visible = true
+
+[node name="Node" type="Node" parent="."]
 
 [editable path="MarbleSpirit_Normal"]
 [editable path="DistortionCrystal"]
 [editable path="DistortionCrystal/MainMesh/Dark_Crystal"]
+[editable path="DistortionCrystal2"]
+[editable path="DistortionCrystal2/MainMesh/Dark_Crystal"]
+[editable path="DistortionCrystal3"]
+[editable path="DistortionCrystal3/MainMesh/Dark_Crystal"]
+[editable path="katana"]
+[editable path="katana/MainMesh/KATANA"]
+[editable path="katana/InventoryItemComp"]
