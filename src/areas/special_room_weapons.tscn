@@ -28,10 +28,9 @@ teleporters_data = [{
 image_filename = "res://src/areas/Tut1.jpg.jpg"
 
 [node name="Teleporters" type="Node3D" parent="."]
-visible = false
 
 [node name="2Left11_jpg" parent="Teleporters" instance=ExtResource("2_2785x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.385, 1.74415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10978, -1.385, 0.706632)
 to = "2Left11.jpg"
 
 [node name="Walls" type="Node3D" parent="."]
@@ -149,16 +148,18 @@ visible = false
 
 [node name="DistortionCrystal2" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04159, 0, 0.0511112)
+visible = false
 
 [node name="DistortionCrystal3" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0698315, 0, -0.968821)
+visible = false
 
 [node name="katana" parent="." instance=ExtResource("8_hk4ax")]
 transform = Transform3D(0.0171886, 0.0934971, 0.995471, 0.983518, -0.180811, 0, 0.179992, 0.979064, -0.095064, 0.566567, -0.352948, 1.25791)
-second_hand_grab = 2
+gravity_scale = 0.25
 
 [node name="CollisionShape3D" parent="katana" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.98186, -0.18961, 0, 0.18961, 0.98186, -0.0269612, 0.116826, 0.114708)
+transform = Transform3D(1, 0, 0, 0, 0.98186, -0.18961, 0, 0.18961, 0.98186, -0.00979319, 0.204174, -0.337605)
 
 [node name="Hammer" parent="katana/MainMesh" index="0"]
 visible = false
@@ -200,6 +201,9 @@ visible = true
 [node name="Table" parent="." instance=ExtResource("13_wjmqo")]
 transform = Transform3D(0.0353006, 0, -0.999377, 0, 1, 0, 0.999377, 0, 0.0353006, -0.389872, -1.34874, 1.50879)
 
+[node name="CollisionShape3D" parent="Table" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469574, -0.545469)
+
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
 [connection signal="action_completed" from="DistortionCrystal2" to="Events/ActionSlashCrystalWithKatana2" method="_on_distortion_crystal_2_action_completed"]
 [connection signal="action_completed" from="DistortionCrystal3" to="Events/ActionSlashCrystalWithKatana3" method="_on_distortion_crystal_3_action_completed"]
@@ -214,3 +218,5 @@ transform = Transform3D(0.0353006, 0, -0.999377, 0, 1, 0, 0.999377, 0, 0.0353006
 [editable path="katana"]
 [editable path="katana/MainMesh/KATANA"]
 [editable path="katana/InventoryItemComp"]
+[editable path="Table"]
+[editable path="Table/Table2"]
