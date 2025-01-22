@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://byadhhny3uj5l"]
+[gd_scene load_steps=20 format=3 uid="uid://byadhhny3uj5l"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_tsks7"]
 [ext_resource type="PackedScene" uid="uid://bu7yu2ldpmsox" path="res://src/assets/C1/Pistol_M1911.glb" id="2_1q6qh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Animation" uid="uid://ky28birj4su6" path="res://addons/godot-xr-tools/hands/animations/right/Default pose.res" id="9_rjky8"]
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="12_ldoxt"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="13_1rxmm"]
+[ext_resource type="Script" path="res://src/assets/C1/PistolRayCast.gd" id="15_phtnw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apewi"]
 size = Vector3(0.0334839, 0.0297969, 0.210547)
@@ -55,20 +56,35 @@ transform = Transform3D(-0.09, 0, -7.86805e-09, 0, 0.09, 0, 7.86805e-09, 0, -0.0
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_6funp")]
 transform = Transform3D(1, 0, 0, 0, 0.97083, -0.239771, 0, 0.239771, 0.97083, 0.00385243, 0.0754761, 0.00487334)
+visible = true
 hand_pose = SubResource("Resource_jwm40")
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_m5xlx")]
 transform = Transform3D(1, 0, 0, 0, 0.966694, -0.255935, 0, 0.255935, 0.966694, -0.00325567, 0.0760277, 0.00220691)
+visible = true
 hand_pose = SubResource("Resource_cxaet")
 
 [node name="StateManager" parent="." instance=ExtResource("5_32yga")]
+visible = false
 settings = SubResource("Resource_mf8ye")
 
 [node name="ControlRaycast" parent="StateManager" instance=ExtResource("12_ldoxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0897349, -0.0827039)
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("13_1rxmm")]
+visible = false
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("8_vn5u3")]
 
 [node name="pistol_sound" type="AudioStreamPlayer3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0845831, -0.103791)
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
+script = ExtResource("15_phtnw")
+
+[connection signal="picked_up" from="." to="RayCast3D" method="_on_pistol_picked_up"]
+[connection signal="released" from="." to="RayCast3D" method="_on_pistol_released"]
+
+[editable path="StateManager/ControlRaycast"]

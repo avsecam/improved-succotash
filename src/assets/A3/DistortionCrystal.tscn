@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c26db2y36x10u"]
+[gd_scene load_steps=7 format=3 uid="uid://c26db2y36x10u"]
 
 [ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="1_25pan"]
 [ext_resource type="PackedScene" uid="uid://baxtwobkn4emj" path="res://src/assets/A3/distortion_crystal_whole.tscn" id="2_qal81"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/distortion_crystal.gd" id="3_m5a2j"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="4_el7u2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kk81j"]
 size = Vector3(0.125, 0.378, 0.125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fflri"]
+size = Vector3(0.160339, 0.435287, 0.183105)
 
 [node name="DistortionCrystal" type="StaticBody3D" groups=["hammer"]]
 script = ExtResource("1_25pan")
@@ -26,5 +30,12 @@ action_completed = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 volume_db = 10.0
+
+[node name="Crystal_Collider" type="Area3D" parent="."]
+script = ExtResource("4_el7u2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Crystal_Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00198364, 0.116982, -0.00317383)
+shape = SubResource("BoxShape3D_fflri")
 
 [editable path="MainMesh/Dark_Crystal"]
