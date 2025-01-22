@@ -2,6 +2,8 @@ extends RayCast3D
 
 @onready var left_hand = get_node("/root/Demo/XRPlayer/XROrigin3D/LeftHand")
 @onready var right_hand = get_node("/root/Demo/XRPlayer/XROrigin3D/RightHand")
+@onready var function_pointer_right = get_node("/root/Demo/XRPlayer/XROrigin3D/RightHand/FunctionPointer")
+@onready var function_pointer_left = get_node("/root/Demo/XRPlayer/XROrigin3D/LeftHand/FunctionPointer")
 @onready var pistol_sound = $"../pistol_sound"
 signal shot
 
@@ -19,8 +21,8 @@ func _ready():
 		print("Right Hand node not found!")
 
 func _on_right_hand_button_pressed(name):
-	shoot = true
 	if holding and name == "trigger_click":
+		shoot = true
 		AudioHandler.play_sfx("C_Pistol_Gunshot", pistol_sound)
 
 func _on_right_hand_button_released(name):
@@ -31,15 +33,23 @@ func _process(delta):
 	if is_colliding():
 		var collider = get_collider()
 		if collider != null:
-			print("Shot hit: ", collider.name)
 			if collider.name == "Crystal_Collider" and shoot:
-				collider.get_parent().queue_free()
+				var crystal = collider.get_parent().get_node("MainMesh/Dark_Crystal")
+				crystal.anim.play("smash")
+				AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
+				await crystal.anim.animation_finished
+				crystal.shot.emit()
+				crystal.get_parent().get_parent().queue_free()
 
 
 func _on_pistol_picked_up(pickable):
+	function_pointer_right.visible = false
+	function_pointer_left.visible = false
 	holding = true
 	print("holding gun")
 
 func _on_pistol_released(pickable, by):
+	function_pointer_right.visible = true
+	function_pointer_left.visible = true
 	holding = false
 	print("not holding gun")

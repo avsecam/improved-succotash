@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=21 format=3 uid="uid://cc0nl1olnbtqi"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana2.gd" id="7_imt1y"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana3.gd" id="8_bsa7j"]
 [ext_resource type="PackedScene" uid="uid://d4e7qlnksmm47" path="res://src/assets/A3/Hammer.tscn" id="8_hk4ax"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionShootCrystalWithPistol1.gd" id="9_unfph"]
 [ext_resource type="PackedScene" uid="uid://c7kyxfjjjaqba" path="res://src/assets/C1/KATANA.glb" id="12_duwru"]
 [ext_resource type="PackedScene" uid="uid://c26db2y36x10u" path="res://src/assets/A3/DistortionCrystal.tscn" id="13_rsr3f"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="13_wjmqo"]
@@ -129,6 +130,9 @@ script = ExtResource("7_imt1y")
 [node name="ActionSlashCrystalWithKatana3" type="Node" parent="Events"]
 script = ExtResource("8_bsa7j")
 
+[node name="ActionShootCrystalWithPistol1" type="Node" parent="Events"]
+script = ExtResource("9_unfph")
+
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("23_l1wwn")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0.0417523)
 
@@ -230,6 +234,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0167481, 0.0542725, -0.383
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
 [connection signal="action_completed" from="DistortionCrystal2" to="Events/ActionSlashCrystalWithKatana2" method="_on_distortion_crystal_2_action_completed"]
 [connection signal="action_completed" from="DistortionCrystal3" to="Events/ActionSlashCrystalWithKatana3" method="_on_distortion_crystal_3_action_completed"]
+[connection signal="shot" from="DistortionCrystal4/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol1" method="_on_dark_crystal_shot"]
 [connection signal="action_pressed" from="pistol" to="pistol" method="_on_action_pressed"]
 [connection signal="body_entered" from="pistol/StateManager/ControlRaycast" to="pistol" method="_on_control_raycast_body_entered"]
 

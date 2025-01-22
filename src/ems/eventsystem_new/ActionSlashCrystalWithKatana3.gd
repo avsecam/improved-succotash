@@ -8,4 +8,3 @@ func _on_event_started():
 
 func _on_distortion_crystal_3_action_completed(requirement, total_progress):
 	close_event()
-	distortion_crystal.queue_free()
