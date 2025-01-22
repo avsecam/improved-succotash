@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
-[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
 [ext_resource type="PackedScene" uid="uid://cjw3n3nsxqim3" path="res://src/ems/eventsystem_new/bgm_powerplant.tscn" id="6_1xtuu"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana1.gd" id="6_v38wy"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana2.gd" id="7_imt1y"]
@@ -172,24 +172,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0698315, 0, -0.968821)
 visible = false
 
 [node name="DistortionCrystal4" parent="." instance=ExtResource("13_rsr3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67566, -0.864551, 1.32226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38837, 0.589269, 1.32226)
 visible = false
 
-[node name="MainMesh" parent="DistortionCrystal4" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94309, 0, 0)
-
 [node name="GPUParticles3D" parent="DistortionCrystal4/MainMesh/Dark_Crystal" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00734389, 0.502515, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="DistortionCrystal4" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00784773, 0.10506, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="AudioStreamPlayer3D" parent="DistortionCrystal4" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0483579, 0, 0)
 
 [node name="DistortionCrystal5" parent="." instance=ExtResource("13_rsr3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10045, 0, -0.281886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59394, 0, -0.665762)
 visible = false
+
+[node name="GPUParticles3D" parent="DistortionCrystal5/MainMesh/Dark_Crystal" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="DistortionCrystal5" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -198,17 +198,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="DistortionCrystal6" parent="." instance=ExtResource("13_rsr3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229813, 0, 1.32226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65506, 0, 0)
 visible = false
 
 [node name="CollisionShape3D" parent="DistortionCrystal6" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02568, 0.10506, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="AudioStreamPlayer3D" parent="DistortionCrystal6" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-
-[node name="Crystal_Collider" parent="DistortionCrystal6" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98431, 0, 0)
+[node name="CollisionShape3D" parent="DistortionCrystal6/Crystal_Collider" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="katana" parent="." instance=ExtResource("8_hk4ax")]
 transform = Transform3D(0.0171886, 0.0934971, 0.995471, 0.983518, -0.180811, 0, 0.179992, 0.979064, -0.095064, 0.566567, -0.352948, 1.25791)

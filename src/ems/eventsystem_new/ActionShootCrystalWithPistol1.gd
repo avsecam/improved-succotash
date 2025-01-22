@@ -5,7 +5,7 @@ extends Event
 @onready var katana = $"../../katana"
 
 func _on_event_started():
-	katana.queue_free()
+	#katana.queue_free()
 	quests.add_active_quest("QuestDestroytheCrystalsPistol")
 	pistol.visible = true
 	distortion_crystal.visible = true
