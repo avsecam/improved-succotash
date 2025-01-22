@@ -164,8 +164,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0698315, 0, -0.968821)
 visible = false
 
 [node name="DistortionCrystal4" parent="." instance=ExtResource("13_rsr3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229813, 0, 1.32226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67566, -0.864551, 1.32226)
 visible = false
+
+[node name="MainMesh" parent="DistortionCrystal4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94309, 0, 0)
+
+[node name="GPUParticles3D" parent="DistortionCrystal4/MainMesh/Dark_Crystal" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00734389, 0.502515, 0)
+
+[node name="CollisionShape3D" parent="DistortionCrystal4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00784773, 0.10506, 0)
+
+[node name="AudioStreamPlayer3D" parent="DistortionCrystal4" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0483579, 0, 0)
+
+[node name="DistortionCrystal5" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10045, 0, -0.281886)
+visible = false
+
+[node name="MainMesh" parent="DistortionCrystal5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92437, 0, 0)
+
+[node name="CollisionShape3D" parent="DistortionCrystal5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.969, 0.10506, 0)
+
+[node name="Feedback" parent="DistortionCrystal5" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8686, 0, 0)
+
+[node name="AudioStreamPlayer3D" parent="DistortionCrystal5" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Crystal_Collider" parent="DistortionCrystal5" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96314, 0, 0)
+
+[node name="DistortionCrystal6" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229813, 0, 1.32226)
+
+[node name="CollisionShape3D" parent="DistortionCrystal6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02568, 0.10506, 0)
+
+[node name="Crystal_Collider" parent="DistortionCrystal6" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98431, 0, 0)
 
 [node name="katana" parent="." instance=ExtResource("8_hk4ax")]
 transform = Transform3D(0.0171886, 0.0934971, 0.995471, 0.983518, -0.180811, 0, 0.179992, 0.979064, -0.095064, 0.566567, -0.352948, 1.25791)
@@ -209,7 +249,7 @@ transform = Transform3D(1, 0, 0, 0, 0.148793, 0.988868, 0, -0.988868, 0.148793, 
 transform = Transform3D(1, 0, 0, 0, 0.148793, 0.988868, 0, -0.988868, 0.148793, 0, 0.0265573, 0.162928)
 
 [node name="Table" parent="." instance=ExtResource("13_wjmqo")]
-transform = Transform3D(0.0353006, 0, -0.999377, 0, 1, 0, 0.999377, 0, 0.0353006, -0.389872, -1.34874, 1.50879)
+transform = Transform3D(0.0353006, 0, -0.999377, 0, 1, 0, 0.999377, 0, 0.0353006, -0.27469, -1.34874, 1.50879)
 
 [node name="CollisionShape3D" parent="Table" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469574, -0.545469)
@@ -240,6 +280,8 @@ transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0, 1, -0.01674
 [connection signal="action_completed" from="DistortionCrystal2" to="Events/ActionSlashCrystalWithKatana2" method="_on_distortion_crystal_2_action_completed"]
 [connection signal="action_completed" from="DistortionCrystal3" to="Events/ActionSlashCrystalWithKatana3" method="_on_distortion_crystal_3_action_completed"]
 [connection signal="shot" from="DistortionCrystal4/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol1" method="_on_dark_crystal_shot"]
+[connection signal="shot" from="DistortionCrystal5/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol1" method="_on_dark_crystal_shot"]
+[connection signal="shot" from="DistortionCrystal6/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol1" method="_on_dark_crystal_shot"]
 [connection signal="picked_up" from="katana" to="katana" method="_on_picked_up"]
 [connection signal="released" from="katana" to="katana" method="_on_released"]
 [connection signal="action_pressed" from="pistol" to="pistol" method="_on_action_pressed"]
@@ -254,6 +296,10 @@ transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0, 1, -0.01674
 [editable path="DistortionCrystal3/MainMesh/Dark_Crystal"]
 [editable path="DistortionCrystal4"]
 [editable path="DistortionCrystal4/MainMesh/Dark_Crystal"]
+[editable path="DistortionCrystal5"]
+[editable path="DistortionCrystal5/MainMesh/Dark_Crystal"]
+[editable path="DistortionCrystal6"]
+[editable path="DistortionCrystal6/MainMesh/Dark_Crystal"]
 [editable path="katana"]
 [editable path="katana/MainMesh/KATANA"]
 [editable path="katana/InventoryItemComp"]

@@ -19,8 +19,8 @@ func _on_picked_up(pickable):
 	holding = true
 	print("holding katana")
 
-
 func _on_released(pickable, by):
 	function_pointer_right.visible = true
 	function_pointer_left.visible = true
 	holding = false
+	print("dropped katana")
