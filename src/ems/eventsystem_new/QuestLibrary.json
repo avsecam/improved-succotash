@@ -178,7 +178,9 @@
 			"Name": "Shut down the power plant",
 			"Description": "Follow the instructions and shut down the power plant."
 		},
-		"Quest_Completion_Requirements": [],
+		"Quest_Completion_Requirements": [
+			"ActionInteractPPlantSwitch_Done"
+		],
 		"Quest_Completion_Tracker": {
 			"Shut down the power plant switch": [
 				"ActionInteractPPlantSwitch_Done"
@@ -488,7 +490,7 @@
 			"ActionSlashCrystalWithKatana3_Done"
 		],
 		"Quest_Completion_Tracker": {
-			"Destroy the Crystals with a Katana": [
+			"Destroy the Crystals with the katana": [
 				"ActionSlashCrystalWithKatana1_Done",
 				"ActionSlashCrystalWithKatana2_Done",
 				"ActionSlashCrystalWithKatana3_Done"
@@ -496,6 +498,72 @@
 		},
 		"Quest_Completion_Flags": [
 			"QuestDestroytheCrystalsKatana_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestDestroytheCrystalsPistol",
+		"Quest_Description": {
+			"Name": "Destroy the Crystals",
+			"Description": "Destroy the crystals by shooting them with the pistol."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionShootCrystalWithPistol1_Done",
+			"ActionShootCrystalWithPistol2_Done",
+			"ActionShootCrystalWithPistol3_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Shoot the Crystals with the pistol": [
+				"ActionShootCrystalWithPistol1_Done",
+				"ActionShootCrystalWithPistol2_Done",
+				"ActionShootCrystalWithPistol3_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestDestroytheCrystalsPistol_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestDestroytheCrystalsShotgun",
+		"Quest_Description": {
+			"Name": "Destroy the Crystals",
+			"Description": "Destroy the crystals by shooting them with the shotgun."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionShootCrystalWithShotgun1_Done",
+			"ActionShootCrystalWithShotgun2_Done",
+			"ActionShootCrystalWithShotgun3_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Shoot the Crystals with the shotgun": [
+				"ActionShootCrystalWithShotgun1_Done",
+				"ActionShootCrystalWithShotgun2_Done",
+				"ActionShootCrystalWithShotgun3_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestDestroytheCrystalsShotgun_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestDestroytheCrystalsHowitzer",
+		"Quest_Description": {
+			"Name": "Destroy the Giant Crystal",
+			"Description": "Load up the howitzer with its ammo and fire at the giant crystal!"
+		},
+		"Quest_Completion_Requirements": [
+			"ActionLoadHowitzer_Done",
+			"ActionFireHowitzer_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Load the howitzer with ammo": [
+				"ActionLoadHowitzer_Done"
+			],
+			"Fire howitzer at the crystal": [
+				"ActionFireHowitzer_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestDestroytheCrystalsHowitzer_Done"
 		]
 	}
 ]

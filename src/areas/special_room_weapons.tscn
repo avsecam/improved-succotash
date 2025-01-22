@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=22 format=3 uid="uid://cc0nl1olnbtqi"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d4e7qlnksmm47" path="res://src/assets/A3/Hammer.tscn" id="8_hk4ax"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionShootCrystalWithPistol1.gd" id="9_unfph"]
 [ext_resource type="PackedScene" uid="uid://c7kyxfjjjaqba" path="res://src/assets/C1/KATANA.glb" id="12_duwru"]
+[ext_resource type="Script" path="res://src/assets/C1/KatanaMechanics.gd" id="13_ake18"]
 [ext_resource type="PackedScene" uid="uid://c26db2y36x10u" path="res://src/assets/A3/DistortionCrystal.tscn" id="13_rsr3f"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="13_wjmqo"]
 [ext_resource type="PackedScene" uid="uid://byadhhny3uj5l" path="res://src/assets/C1/pistol.tscn" id="14_nox3u"]
@@ -164,10 +165,12 @@ visible = false
 
 [node name="DistortionCrystal4" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229813, 0, 1.32226)
+visible = false
 
 [node name="katana" parent="." instance=ExtResource("8_hk4ax")]
 transform = Transform3D(0.0171886, 0.0934971, 0.995471, 0.983518, -0.180811, 0, 0.179992, 0.979064, -0.095064, 0.566567, -0.352948, 1.25791)
 gravity_scale = 0.25
+script = ExtResource("13_ake18")
 
 [node name="CollisionShape3D" parent="katana" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.98186, -0.18961, 0, 0.18961, 0.98186, -0.00979319, 0.204174, -0.337605)
@@ -213,6 +216,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469574, -0.545469)
 
 [node name="pistol" parent="." instance=ExtResource("14_nox3u")]
 transform = Transform3D(0.000662923, -1, 0, 1, 0.000662923, 0, 0, 0, 1, -0.510591, -0.456485, 1.37735)
+visible = false
 script = ExtResource("15_u8hp6")
 
 [node name="CollisionShape3D" parent="pistol" index="0"]
@@ -226,15 +230,18 @@ script = ExtResource("17_74cd8")
 raycast_length = 10.0
 
 [node name="shotgun" parent="." instance=ExtResource("15_g0qf5")]
-transform = Transform3D(0.0364867, 0.999334, 0, -0.999334, 0.0364867, 0, 0, 0, 1, 0.0537372, 0, 1.62911)
+transform = Transform3D(0.0212066, 0.580827, -0.813751, -0.999334, 0.0364867, 0, 0.0296911, 0.813209, 0.581214, 0.0537372, 0, 1.62911)
+visible = false
 
 [node name="CollisionShape3D" parent="shotgun" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0167481, 0.0542725, -0.383447)
+transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0, 1, -0.0167481, 0.0542725, -0.383447)
 
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
 [connection signal="action_completed" from="DistortionCrystal2" to="Events/ActionSlashCrystalWithKatana2" method="_on_distortion_crystal_2_action_completed"]
 [connection signal="action_completed" from="DistortionCrystal3" to="Events/ActionSlashCrystalWithKatana3" method="_on_distortion_crystal_3_action_completed"]
 [connection signal="shot" from="DistortionCrystal4/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol1" method="_on_dark_crystal_shot"]
+[connection signal="picked_up" from="katana" to="katana" method="_on_picked_up"]
+[connection signal="released" from="katana" to="katana" method="_on_released"]
 [connection signal="action_pressed" from="pistol" to="pistol" method="_on_action_pressed"]
 [connection signal="body_entered" from="pistol/StateManager/ControlRaycast" to="pistol" method="_on_control_raycast_body_entered"]
 
