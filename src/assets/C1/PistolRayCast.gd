@@ -6,6 +6,9 @@ extends RayCast3D
 @onready var function_pointer_left = get_node("/root/Demo/XRPlayer/XROrigin3D/LeftHand/FunctionPointer")
 @onready var pistol_sound = $"../pistol_sound"
 signal shot
+@onready var gunshot_particles = $"../GunshotParticles"
+@onready var gunshot_light = $"../GunshotLight/AnimationPlayer"
+
 
 var shoot = false
 var holding = false
@@ -23,7 +26,11 @@ func _ready():
 func _on_right_hand_button_pressed(name):
 	if holding and name == "trigger_click":
 		shoot = true
+		gunshot_particles.emitting = true
+		gunshot_light.play("pointlight_fade")
 		AudioHandler.play_sfx("C_Pistol_Gunshot", pistol_sound)
+		await get_tree().create_timer(0.05).timeout
+		gunshot_particles.emitting = false
 
 func _on_right_hand_button_released(name):
 	print("Button released: ", name)
@@ -37,6 +44,7 @@ func _process(delta):
 				var crystal = collider.get_parent().get_node("MainMesh/Dark_Crystal")
 				crystal.anim.play("smash")
 				AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
+				collider.get_parent().get_node("MagicalDistortion/GPUParticles3D").emitting = false
 				await crystal.anim.animation_finished
 				crystal.shot.emit()
 				crystal.get_parent().get_parent().queue_free()

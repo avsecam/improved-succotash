@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://byadhhny3uj5l"]
+[gd_scene load_steps=25 format=3 uid="uid://byadhhny3uj5l"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_tsks7"]
 [ext_resource type="PackedScene" uid="uid://bu7yu2ldpmsox" path="res://src/assets/C1/Pistol_M1911.glb" id="2_1q6qh"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="12_ldoxt"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="13_1rxmm"]
 [ext_resource type="Script" path="res://src/assets/C1/PistolRayCast.gd" id="15_phtnw"]
+[ext_resource type="PackedScene" uid="uid://cyy5yw3gjh2xj" path="res://src/assets/C4/gunshot_particles.tscn" id="16_1io65"]
+[ext_resource type="Script" path="res://src/assets/C4/gunshot_particles.gd" id="17_i8tpu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apewi"]
 size = Vector3(0.0334839, 0.0297969, 0.210547)
@@ -38,6 +40,43 @@ state_behavior_settings = {
 "TriggerState": {}
 }
 behavior_dict = {}
+
+[sub_resource type="Animation" id="Animation_e1ghf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_iekcm"]
+resource_name = "pointlight_fade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.559, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbykp"]
+_data = {
+"RESET": SubResource("Animation_e1ghf"),
+"pointlight_fade": SubResource("Animation_iekcm")
+}
 
 [node name="pistol" type="RigidBody3D"]
 collision_layer = 4
@@ -83,6 +122,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0845831, -0.103791)
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 script = ExtResource("15_phtnw")
+
+[node name="GunshotParticles" parent="." instance=ExtResource("16_1io65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0906954, -0.113059)
+emitting = true
+amount = 20
+one_shot = false
+explosiveness = 1.0
+script = ExtResource("17_i8tpu")
+
+[node name="GunshotLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11073, -0.124118)
+light_color = Color(1, 0.419608, 0, 1)
+light_energy = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GunshotLight"]
+libraries = {
+"": SubResource("AnimationLibrary_jbykp")
+}
 
 [connection signal="picked_up" from="." to="RayCast3D" method="_on_pistol_picked_up"]
 [connection signal="released" from="." to="RayCast3D" method="_on_pistol_released"]
