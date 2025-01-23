@@ -24,3 +24,7 @@ func _on_released(pickable, by):
 	function_pointer_left.visible = true
 	holding = false
 	print("dropped katana")
+
+
+func _on_crystal_collider_body_exited(body):
+	pass # Replace with function body.
