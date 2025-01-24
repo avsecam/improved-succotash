@@ -22,6 +22,14 @@ func _ready():
 		print("Right Hand released signal connected")
 	else:
 		print("Right Hand node not found!")
+	if left_hand:
+		print("Left Hand node found, connecting signal...")
+		left_hand.button_pressed.connect(_on_left_hand_button_pressed)
+		print("Left Hand pressed signal connected")
+		left_hand.button_released.connect(_on_left_hand_button_released)
+		print("Left Hand released signal connected")
+	else:
+		print("Left Hand node not found!")
 
 func _on_right_hand_button_pressed(name):
 	if holding and name == "trigger_click":
@@ -31,8 +39,21 @@ func _on_right_hand_button_pressed(name):
 		AudioHandler.play_sfx("C_Pistol_Gunshot", pistol_sound)
 		await get_tree().create_timer(0.05).timeout
 		gunshot_particles.emitting = false
+	
+func _on_left_hand_button_pressed(name):
+	if holding and name == "trigger_click":
+		shoot = true
+		gunshot_particles.emitting = true
+		gunshot_light.play("pointlight_fade")
+		AudioHandler.play_sfx("C_Pistol_Gunshot", pistol_sound)
+		await get_tree().create_timer(0.05).timeout
+		gunshot_particles.emitting = false
 
 func _on_right_hand_button_released(name):
+	print("Button released: ", name)
+	shoot = false
+
+func _on_left_hand_button_released(name):
 	print("Button released: ", name)
 	shoot = false
 

@@ -83,6 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.030808, 0.019464)
 transform = Transform3D(-2.18557e-10, 0.005, 0, -0.005, -2.18557e-10, 0, 0, 0, 0.005, -0.0695379, 0.0311797, 0)
 
 [node name="StateManager" parent="." instance=ExtResource("5_xhxce")]
+visible = false
 receiver_group = "sword_dummy"
 settings = SubResource("Resource_dqqgo")
 
@@ -112,3 +113,7 @@ hand_pose = SubResource("Resource_0rf81")
 transform = Transform3D(1, 0, 0, 0, 0.00651005, 0.999979, 0, -0.999979, 0.00651005, 0, -0.0879037, 0.146654)
 mode = 2
 hand_pose = SubResource("Resource_fg8sq")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
+collide_with_areas = true
