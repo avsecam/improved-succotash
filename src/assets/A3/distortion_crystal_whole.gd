@@ -7,6 +7,7 @@ extends Node3D
 @onready var particle_emission = $"../../MagicalDistortion/GPUParticles3D"
 
 signal shot
+signal slash
 
 func _ready():
 	mesh.visible = true

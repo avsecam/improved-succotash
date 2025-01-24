@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://c4mbmiyebv2xq"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_vklpb"]
-[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_tdvpy"]
+[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_tdvpy"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_uwauc"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_q812q"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="5_5tfvy"]
@@ -19,13 +19,13 @@
 resource_local_to_scene = true
 size = Vector2(2, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tgnhm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j4pv1"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54l1n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lufp"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_tgnhm")
+albedo_texture = SubResource("ViewportTexture_j4pv1")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_12syr"]
@@ -36,13 +36,13 @@ size = Vector3(2, 1, 0.02)
 resource_local_to_scene = true
 size = Vector2(2, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rehax"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_imf0u"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m02sb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjwui"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_rehax")
+albedo_texture = SubResource("ViewportTexture_imf0u")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rfelp"]
@@ -53,13 +53,13 @@ size = Vector3(2, 1, 0.02)
 resource_local_to_scene = true
 size = Vector2(2, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vqipv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1665a"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3oml"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgeex"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_vqipv")
+albedo_texture = SubResource("ViewportTexture_1665a")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w2smy"]
@@ -70,14 +70,14 @@ size = Vector3(2, 1, 0.02)
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kaqsq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v8id3"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atede"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vdiu"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_kaqsq")
+albedo_texture = SubResource("ViewportTexture_v8id3")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2kwa"]
@@ -97,7 +97,7 @@ teleporters_data = [{
 "rotation": Vector3(-14.7, 1, -0.6),
 "to": "RightStairs1.jpg"
 }, {
-"position": Vector3(2.995, -2.992, 2.558),
+"position": Vector3(2.081, -2.01, -2.946),
 "rotation": Vector3(0, 150.2, 0),
 "special": true,
 "to": "Left2.jpg"
@@ -131,7 +131,7 @@ script = ExtResource("4_q812q")
 to = "RightStairs1.jpg"
 
 [node name="Left2_jpg" type="StaticBody3D" parent="Teleporters" instance=ExtResource("3_uwauc")]
-transform = Transform3D(0.827335, 0, -0.561709, 0, 1, 0, 0.561709, 0, 0.827335, 2.995, -2.992, 2.558)
+transform = Transform3D(-0.294159, 0, -0.955758, 0, 1, 0, 0.955758, 0, -0.294159, 2.08139, -2.00989, -2.94591)
 collision_layer = 5243392
 collision_mask = 0
 script = ExtResource("4_q812q")
@@ -179,7 +179,7 @@ text = "[center]FREE
 
 [node name="Screen" parent="ScreensHandler/Screen1/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_y1cmj")
-surface_material_override/0 = SubResource("StandardMaterial3D_54l1n")
+surface_material_override/0 = SubResource("StandardMaterial3D_3lufp")
 
 [node name="CollisionShape3D" parent="ScreensHandler/Screen1/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_12syr")
@@ -193,7 +193,7 @@ text = "[center]THEM"
 [node name="Screen" parent="ScreensHandler/Screen2/Viewport2Din3D" index="1"]
 transform = Transform3D(-0.984273, 0.0224051, 0.17523, -0.0206682, -0.999718, 0.0117309, 0.175443, 0.00792469, 0.984458, 0, 0, 0)
 mesh = SubResource("QuadMesh_6g4is")
-surface_material_override/0 = SubResource("StandardMaterial3D_m02sb")
+surface_material_override/0 = SubResource("StandardMaterial3D_jjwui")
 
 [node name="CollisionShape3D" parent="ScreensHandler/Screen2/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_rfelp")
@@ -206,7 +206,7 @@ text = "[center]PLEASE"
 
 [node name="Screen" parent="ScreensHandler/Screen3/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_700mb")
-surface_material_override/0 = SubResource("StandardMaterial3D_a3oml")
+surface_material_override/0 = SubResource("StandardMaterial3D_tgeex")
 
 [node name="CollisionShape3D" parent="ScreensHandler/Screen3/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_w2smy")
@@ -219,7 +219,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0.290835, -0.16
 
 [node name="Screen" parent="Numpad/StaticUIContainer/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_wfkq6")
-surface_material_override/0 = SubResource("StandardMaterial3D_atede")
+surface_material_override/0 = SubResource("StandardMaterial3D_8vdiu")
 
 [node name="CollisionShape3D" parent="Numpad/StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_h2kwa")

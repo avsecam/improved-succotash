@@ -4,6 +4,8 @@ extends RayCast3D
 @onready var right_hand = get_node("/root/Demo/XRPlayer/XROrigin3D/RightHand")
 @onready var function_pointer_right = get_node("/root/Demo/XRPlayer/XROrigin3D/RightHand/FunctionPointer")
 @onready var function_pointer_left = get_node("/root/Demo/XRPlayer/XROrigin3D/LeftHand/FunctionPointer")
+@onready var grab_point_hand_left = $"../GrabPointHandLeft"
+@onready var grab_point_hand_right = $"../GrabPointHandRight"
 @onready var pistol_sound = $"../pistol_sound"
 signal shot
 @onready var gunshot_particles = $"../GunshotParticles"

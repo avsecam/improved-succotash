@@ -154,17 +154,18 @@ transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
 [node name="DistortionCrystal" parent="." instance=ExtResource("13_rsr3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933845, 0, 0.0511112)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933845, 0, -0.829746)
 requirement = 0.25
 
+[node name="CollisionShape3D" parent="DistortionCrystal/Crystal_Collider" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00198364, 0.116982, -0.00317383)
+
 [node name="DistortionCrystal2" parent="." instance=ExtResource("13_rsr3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04159, 0, 0.0511112)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14934, 0, -0.928902)
 requirement = 0.25
 
 [node name="DistortionCrystal3" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0698315, 0, -0.968821)
-visible = false
 requirement = 0.25
 
 [node name="DistortionCrystal4" parent="." instance=ExtResource("13_rsr3f")]
@@ -211,7 +212,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469574, -0.545469)
 
 [node name="pistol" parent="." instance=ExtResource("14_nox3u")]
 transform = Transform3D(0.000662923, -1, 0, 1, 0.000662923, 0, 0, 0, 1, -0.510591, -0.456485, 1.37735)
-visible = false
 script = ExtResource("15_u8hp6")
 
 [node name="CollisionShape3D" parent="pistol" index="0"]
@@ -238,9 +238,12 @@ script = ExtResource("20_vcw2v")
 picked_up_layer = 65537
 
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
+[connection signal="slash" from="DistortionCrystal/MainMesh/Dark_Crystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_dark_crystal_slash"]
 [connection signal="action_completed" from="DistortionCrystal2" to="Events/ActionSlashCrystalWithKatana2" method="_on_distortion_crystal_2_action_completed"]
+[connection signal="slash" from="DistortionCrystal2/MainMesh/Dark_Crystal" to="Events/ActionSlashCrystalWithKatana2" method="_on_dark_crystal_slash"]
 [connection signal="body_exited" from="DistortionCrystal2/Crystal_Collider" to="DistortionCrystal2/MainMesh/Dark_Crystal" method="_on_crystal_collider_body_exited"]
 [connection signal="action_completed" from="DistortionCrystal3" to="Events/ActionSlashCrystalWithKatana3" method="_on_distortion_crystal_3_action_completed"]
+[connection signal="slash" from="DistortionCrystal3/MainMesh/Dark_Crystal" to="Events/ActionSlashCrystalWithKatana3" method="_on_dark_crystal_slash"]
 [connection signal="shot" from="DistortionCrystal4/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol1" method="_on_dark_crystal_shot"]
 [connection signal="shot" from="DistortionCrystal5/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol2" method="_on_dark_crystal_shot"]
 [connection signal="shot" from="DistortionCrystal6/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol3" method="_on_dark_crystal_shot"]
