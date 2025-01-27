@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dwtpqavssopmc"]
+[gd_scene load_steps=22 format=3 uid="uid://dwtpqavssopmc"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_3g00g"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_02u1x"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="11_0we44"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="12_b45s7"]
 [ext_resource type="Animation" uid="uid://csp3fdknowmi5" path="res://addons/godot-xr-tools/hands/animations/right/Pistol.res" id="12_g4gfg"]
+[ext_resource type="Script" path="res://src/assets/C1/ShotgunShoot.gd" id="15_dgng7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uxta1"]
 size = Vector3(0.126172, 0.0818848, 0.866895)
@@ -90,12 +91,15 @@ mode = 1
 hand_pose = SubResource("Resource_jt2pi")
 
 [node name="StateManager" parent="." instance=ExtResource("5_pnykv")]
+visible = false
 settings = SubResource("Resource_eu0gq")
 
 [node name="ControlRaycast" parent="StateManager" instance=ExtResource("8_jpd6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050129, -0.839293)
+visible = false
 
 [node name="InteractReceiver" parent="StateManager" instance=ExtResource("10_w3e11")]
+visible = false
 
 [node name="InventoryItemComp" parent="." instance=ExtResource("12_b45s7")]
 
@@ -114,3 +118,15 @@ hand_pose = SubResource("Resource_kp6ys")
 drive_position = 0.0
 drive_angle = 0.0
 drive_aim = 1.0
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.058296, -0.839586)
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
+script = ExtResource("15_dgng7")
+
+[node name="shotgun_sound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.817996)
+
+[connection signal="picked_up" from="." to="RayCast3D" method="_on_shotgun_picked_up"]
+[connection signal="released" from="." to="RayCast3D" method="_on_shotgun_released"]

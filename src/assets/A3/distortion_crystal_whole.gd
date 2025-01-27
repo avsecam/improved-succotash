@@ -8,6 +8,7 @@ extends Node3D
 
 signal shot
 signal slash
+signal shotgun
 
 func _ready():
 	mesh.visible = true
