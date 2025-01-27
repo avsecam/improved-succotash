@@ -38,7 +38,7 @@ func _process(delta):
 				crystal.anim.play("smash")
 				AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
 				await crystal.anim.animation_finished
-				crystal.shot.emit()
+				crystal.shotgun.emit()
 				crystal.get_parent().get_parent().queue_free()
 
 
