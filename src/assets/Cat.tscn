@@ -1,10 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://cafkw3ouy22un"]
+[gd_scene load_steps=20 format=3 uid="uid://cafkw3ouy22un"]
 
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="1_d5tku"]
 [ext_resource type="PackedScene" uid="uid://cdxd6tr53gu7m" path="res://src/assets/Orange_cat-rigged_A.glb" id="3_0eo84"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/cat_petted.gd" id="3_biran"]
 [ext_resource type="Texture2D" uid="uid://cm05tsjuxpc7u" path="res://src/assets/Orange_cat-rigged_A_Orange_cat rigged_cat_color_compressed.png" id="4_dkumx"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="5_re4on"]
+[ext_resource type="AudioStream" uid="uid://bhmgvasncvw2w" path="res://src/assets/audio/sfx/VE_SFX_UI_Cat_Meow_Var_01.ogg" id="6_qeoym"]
+[ext_resource type="AudioStream" uid="uid://dx5bm1mnkt6om" path="res://src/assets/audio/sfx/VE_SFX_UI_Cat_Meow_Var_02.ogg" id="7_rr4u2"]
+[ext_resource type="AudioStream" uid="uid://cmtdwfs1pk14x" path="res://src/assets/audio/sfx/VE_SFX_UI_Cat_Meow_Var_03.ogg" id="8_o50ia"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/CatDisappearPersistence.gd" id="9_b7hag"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_78w81"]
 size = Vector3(0.2, 0.376196, 0.402344)
@@ -2545,6 +2549,16 @@ _data = {
 "cat_walk": SubResource("Animation_750pa")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cypjy"]
+playback_mode = 1
+streams_count = 3
+stream_0/stream = ExtResource("6_qeoym")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_rr4u2")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_o50ia")
+stream_2/weight = 1.0
+
 [node name="Cat" type="StaticBody3D" groups=["single_controller"]]
 collision_layer = 5242881
 script = ExtResource("1_d5tku")
@@ -2668,6 +2682,16 @@ libraries = {
 [node name="Progress View" parent="." instance=ExtResource("5_re4on")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.362774, 0)
 visible = false
+
+[node name="CatOnScreenNotif" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10433, 0)
+aabb = AABB(-0.119018, -0.280644, -0.249114, 0.238036, 0.561289, 0.498228)
+
+[node name="CatMeow" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_cypjy")
+
+[node name="CatDisappearPersistence" type="Node3D" parent="."]
+script = ExtResource("9_b7hag")
 
 [connection signal="action_in_progress" from="." to="CatPetted" method="_on_cat_action_in_progress"]
 

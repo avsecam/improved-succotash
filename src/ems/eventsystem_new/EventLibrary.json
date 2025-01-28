@@ -1732,7 +1732,7 @@
 		"Oneshot": false,
 		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [
-			"DialogueAssistantPaintings_Read"
+			"JournalAssistantPaintings_Read"
 		],
 		"Event_Audio": "VE_VO_B3_ASST_02_The1980s",
 		"Loop_Audio": false,
@@ -2998,7 +2998,8 @@
 		"Event_Prerequisites": [
 			"ActionCoinComplete_Done",
 			"ActionShipAssemblyComplete_Done",
-			"ActionArrangeDocuments_Done"
+			"ActionArrangeDocuments_Done",
+			"ActionLookForMissingCat_Done"
 		],
 		"Event_Completion_Flags": [
 			"DialogueCatDontBeAfraid_Done"
@@ -3103,6 +3104,354 @@
 		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [
 			"ActionCatRun4_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun5",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun5_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun6",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun6_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun7",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueCatTrapWIP_Done",
+			"JournalChineseCeramics_Read"
+		],
+		"Event_Completion_Flags": [
+			"ActionCatRun7_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun8",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun8_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun9",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun9_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun10",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun10_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun11",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"ActionArrangeDocuments_Done",
+			"JournalHermanoPuleExhibit_Read"
+		],
+		"Event_Completion_Flags": [
+			"ActionCatRun11_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun12",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun12_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun13",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueTheresPartsShip_Done",
+			"ActionShipAssemblyComplete_Done",
+			"JournalHermanoPuleShip_Read"
+		],
+		"Event_Completion_Flags": [
+			"ActionCatRun13_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun14",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun14_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun15",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun15_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun16",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun16_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun17",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun17_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun18",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun18_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun19",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun19_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun20",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun20_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun21",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"JournalWeaponCollection_Read"
+		],
+		"Event_Completion_Flags": [
+			"ActionCatRun21_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun22",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun22_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun23",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun23_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun24",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun24_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun25",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun25_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun26",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun26_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun27",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun27_Done"
+		],
+		"Event_Audio": "",
+		"Loop_Audio": false,
+		"Loop_Interval": 0,
+		"Event_Text": {},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionCatRun28",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [],
+		"Event_Completion_Flags": [
+			"ActionCatRun28_Done"
 		],
 		"Event_Audio": "",
 		"Loop_Audio": false,

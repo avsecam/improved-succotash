@@ -1,5 +1,7 @@
 extends Event
 
+signal secondary_emit
+
 func _on_journal_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
 		if is_instance_valid(AudioHandler.dialogue_player):
@@ -9,4 +11,5 @@ func _on_journal_pointer_event(event):
 			play_event_audio()
 	
 		await event_audio_done
+		secondary_emit.emit()
 		close_event()

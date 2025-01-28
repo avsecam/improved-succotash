@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_43quv"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_lor4b"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_7u0rj"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionCatRun2.gd" id="6_xmo05"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionCatRun5.gd" id="6_ywa4h"]
 [ext_resource type="PackedScene" uid="uid://cafkw3ouy22un" path="res://src/assets/Cat.tscn" id="7_akjym"]
 [ext_resource type="Texture2D" uid="uid://bu2ruwllheypv" path="res://src/assets/blackcattexture.png" id="8_antoo"]
 [ext_resource type="Texture2D" uid="uid://cm05tsjuxpc7u" path="res://src/assets/Orange_cat-rigged_A_Orange_cat rigged_cat_color_compressed.png" id="9_po77y"]
@@ -104,11 +104,11 @@ to = "2Right7.jpg"
 [node name="Events" type="Node" parent="."]
 script = ExtResource("5_7u0rj")
 
-[node name="ActionCatRun2" type="Node" parent="Events"]
-script = ExtResource("6_xmo05")
+[node name="ActionCatRun5" type="Node" parent="Events"]
+script = ExtResource("6_ywa4h")
 
 [node name="Cat" parent="." instance=ExtResource("7_akjym")]
-transform = Transform3D(0.80263, 0, -0.596477, 0, 1, 0, 0.596477, 0, 0.80263, 1.47597, -1.446, -3.53383)
+transform = Transform3D(0.80263, 0, -0.596477, 0, 1, 0, 0.596477, 0, 0.80263, 0, -1.446, 0)
 requirement = 4.0
 
 [node name="CollisionShape3D" parent="Cat" index="0"]
@@ -121,6 +121,9 @@ mesh = SubResource("ArrayMesh_attkc")
 [node name="MagicalDistortion" parent="Cat" instance=ExtResource("10_2jrcn")]
 transform = Transform3D(0.82363, 0.0217047, -0.566734, -0.0201687, 0.999756, 0.00897845, 0.566791, 0.00403525, 0.823869, 0, 0, 0)
 script = ExtResource("11_k5kgb")
+
+[connection signal="tree_exiting" from="Events/ActionCatRun5" to="Cat/CatDisappearPersistence" method="on_disappear_cat"]
+[connection signal="screen_entered" from="Cat/CatOnScreenNotif" to="Events/ActionCatRun5" method="_on_cat_on_screen_notif_screen_entered"]
 
 [editable path="Cat"]
 [editable path="Cat/MainMesh"]

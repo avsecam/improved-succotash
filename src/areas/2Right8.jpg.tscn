@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="7_fm3qi"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/JournalChineseCeramics.gd" id="8_skuwy"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueWhoaCool.gd" id="9_w14o0"]
-[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCatDontBeAfraid.gd" id="10_d87w5"]
 [ext_resource type="PackedScene" uid="uid://cafkw3ouy22un" path="res://src/assets/Cat.tscn" id="11_3g8hr"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionCatRun7.gd" id="11_tkeh7"]
 [ext_resource type="Texture2D" uid="uid://bu2ruwllheypv" path="res://src/assets/blackcattexture.png" id="12_hjiyb"]
 [ext_resource type="Texture2D" uid="uid://cm05tsjuxpc7u" path="res://src/assets/Orange_cat-rigged_A_Orange_cat rigged_cat_color_compressed.png" id="13_qxpg7"]
 [ext_resource type="PackedScene" uid="uid://cp3el5iygvid8" path="res://src/assets/A3/MagicalDistortion.tscn" id="14_35kua"]
@@ -129,9 +129,8 @@ event_audio_source = NodePath("../../Journal/AudioStreamPlayer3D")
 script = ExtResource("9_w14o0")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="DialogueCatDontBeAfraid" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
-script = ExtResource("10_d87w5")
-event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+[node name="ActionCatRun7" type="Node" parent="Events"]
+script = ExtResource("11_tkeh7")
 
 [node name="Cat" parent="." instance=ExtResource("11_3g8hr")]
 transform = Transform3D(0.516009, 0, -0.856582, 0, 1, 0, 0.856582, 0, 0.516009, 1.31172, -1.14744, -0.695018)
@@ -143,6 +142,9 @@ disabled = true
 [node name="cat_001" parent="Cat/MainMesh/Ginger Cat (rigged with IK)/Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.99234, 0, 0.123532, 0, 1, 0, -0.123532, 0, 0.99234, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3byyf")
+
+[node name="CatOnScreenNotif" parent="Cat" index="4"]
+aabb = AABB(-0.15513, -0.476656, -0.226155, 0.31026, 0.953313, 0.452309)
 
 [node name="MagicalDistortion" parent="Cat" instance=ExtResource("14_35kua")]
 transform = Transform3D(0.82363, 0.0217047, -0.566734, -0.0201687, 0.999756, 0.00897845, 0.566791, 0.00403525, 0.823869, 0, 0, 0)
@@ -163,7 +165,9 @@ wait_time = 3.0
 
 [connection signal="pointer_event" from="Journal" to="Events/JournalChineseCeramics" method="_on_journal_pointer_event"]
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
-[connection signal="tree_exiting" from="Events/DialogueCatDontBeAfraid" to="Cat/MagicalDistortion" method="_on_dialogue_cat_dont_be_afraid_tree_exiting"]
+[connection signal="secondary_emit" from="Events/JournalChineseCeramics" to="Events/ActionCatRun7" method="_on_journal_chinese_ceramics_secondary_emit"]
+[connection signal="tree_exiting" from="Events/ActionCatRun7" to="Cat/CatDisappearPersistence" method="on_disappear_cat"]
+[connection signal="screen_entered" from="Cat/CatOnScreenNotif" to="Events/ActionCatRun7" method="_on_cat_on_screen_notif_screen_entered"]
 
 [editable path="Journal"]
 [editable path="Cat"]
