@@ -48,7 +48,7 @@ var locked_teleporters : Dictionary = {
 	"RightStairs1_jpg" : "WaypointUpStairs_Open",
 	"Back2_jpg" : "DialoguePaintingsReminder_Done",
 	"2Right3_jpg": "ActionCoinInFrame_Done",
-	"rights2_jpg": "JournalAssistantPaintings_Read",
+	"Rights2_jpg": "JournalAssistantPaintings_Read",
 	"2Right10_jpg": "ActionCatRun7_Done",
 	"2Back2_jpg": "ActionCatRun11_Done",
 	"2Left1_jpg": "ActionCatRun13_Done",

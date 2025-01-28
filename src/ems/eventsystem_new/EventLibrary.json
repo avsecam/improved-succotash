@@ -1167,7 +1167,7 @@
 		"Oneshot": false,
 		"Event_Prerequisites": [],
 		"Event_Completion_Flags": [
-			"DialogueLunchFoodEnjoy_Read"
+			"JournalLunchFoodEnjoy_Read"
 		],
 		"Event_Audio": "VE_VO_B2_ASST_02_iCulture",
 		"Loop_Audio": false,
@@ -1767,7 +1767,7 @@
 				"Let the earth spirit carry it for now, and then we can find a place to display it.": 3
 			}
 		},
-		"Play_Success_SFX": false
+		"Play_Success_SFX": true
 	},
 	{
 		"Event_Name": "ActionInteractPaintedCanvas",

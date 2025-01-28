@@ -9,7 +9,7 @@ extends Event
 var audio_keep_playing_state : bool = true
 var meow_signal_emitted : bool = false
 var teleport_mesh : Teleporter
-var ensure_journal_read : bool = true
+var ensure_journal_read : bool = false
 
 
 func _on_event_started():
