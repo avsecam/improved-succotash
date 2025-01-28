@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://4w08n8847k35"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_0pq3r"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_77nxj"]
+[ext_resource type="PackedScene" uid="uid://cbms6uir76jpa" path="res://src/assets/C1/Howitzer_Round.glb" id="2_vfwih"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_uh1jp"]
+[ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_w4kyf"]
+[ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_fxq7w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wdqyw"]
+size = Vector3(0.135086, 0.661987, 0.135033)
+
+[sub_resource type="Resource" id="Resource_hv4ae"]
+script = ExtResource("7_fxq7w")
+state_behavior_settings = {
+"ActiveCollidingState": {},
+"ActiveState": {},
+"IdleState": {},
+"TriggerState": {}
+}
+behavior_dict = {}
+
+[node name="howitzer_round" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_0pq3r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00774384, 0.0603638, -0.0039131)
+shape = SubResource("BoxShape3D_wdqyw")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+
+[node name="Howitzer_Round" parent="MainMesh" instance=ExtResource("2_vfwih")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.31772, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_77nxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0444192, 0, -0.109051)
+visible = true
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_uh1jp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187354, 0, -0.0956612)
+visible = true
+
+[node name="StateManager" parent="." instance=ExtResource("5_w4kyf")]
+receiver_group = "howitzer"
+settings = SubResource("Resource_hv4ae")

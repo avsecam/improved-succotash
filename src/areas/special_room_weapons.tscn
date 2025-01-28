@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=33 format=3 uid="uid://cc0nl1olnbtqi"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
@@ -20,12 +20,15 @@
 [ext_resource type="PackedScene" uid="uid://dwtpqavssopmc" path="res://src/assets/C1/shotgun.tscn" id="15_g0qf5"]
 [ext_resource type="Script" path="res://src/assets/C1/PistolMechanics.gd" id="15_u8hp6"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="16_8qvpj"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLoadHowitzer.gd" id="16_p075u"]
 [ext_resource type="Script" path="res://src/assets/C1/PistolMechanicsControlRayCast.gd" id="17_74cd8"]
 [ext_resource type="PackedScene" uid="uid://cr1f0g0xwuq0a" path="res://src/assets/C1/katana.tscn" id="19_8oxyr"]
 [ext_resource type="Script" path="res://src/assets/C1/katana_test_collision.gd" id="20_vcw2v"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="23_l1wwn"]
 [ext_resource type="PackedScene" uid="uid://ddw0je40k5yev" path="res://src/Howitzer_Actual.glb" id="24_r3rtn"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="26_iw5bq"]
+[ext_resource type="Script" path="res://src/assets/C1/HowitzerBehavior.gd" id="26_3iux5"]
+[ext_resource type="PackedScene" uid="uid://4w08n8847k35" path="res://src/assets/C1/howitzer_round.tscn" id="28_nfi3r"]
+[ext_resource type="PackedScene" uid="uid://cbms6uir76jpa" path="res://src/assets/C1/Howitzer_Round.glb" id="29_vftbf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
@@ -68,7 +71,7 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, -5.77779)
+transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, -9.88843)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
@@ -158,7 +161,9 @@ script = ExtResource("14_ybf4n")
 script = ExtResource("15_00rg1")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
-[node name="ActionLoadHowitzer" type="Node" parent="Events"]
+[node name="ActionLoadHowitzer" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("16_p075u")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("23_l1wwn")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0.0417523)
@@ -275,16 +280,33 @@ script = ExtResource("20_vcw2v")
 picked_up_layer = 65537
 
 [node name="Howitzer" parent="." instance=ExtResource("24_r3rtn")]
-transform = Transform3D(-0.149993, 0, 0.00146606, 0, 0.15, 0, -0.00146606, 0, -0.149993, -0.138216, -0.889247, -2.31171)
+transform = Transform3D(-0.149993, 0, 0.00146606, 0, 0.15, 0, -0.00146606, 0, -0.149993, -1.0555, -0.736944, -0.356324)
+visible = false
 
 [node name="XRToolsInteractableArea" type="Area3D" parent="Howitzer"]
 collision_layer = 5570561
 collision_mask = 5570561
-script = ExtResource("26_iw5bq")
+script = ExtResource("26_3iux5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Howitzer/XRToolsInteractableArea"]
 transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, 1.19209e-07, 1, -2.00001)
 shape = SubResource("BoxShape3D_h0n8k")
+
+[node name="Howitzer_Round_slot" parent="Howitzer" instance=ExtResource("29_vftbf")]
+transform = Transform3D(1.88482, 0.0184186, -0.017999, -0.0184185, 0.0433242, -1.88441, -0.0179992, 1.88441, 0.0435001, -0.07974, 2.59178, -3.69791)
+visible = false
+
+[node name="DistortionCrystal10" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.62887, -8.28864)
+
+[node name="Dark_Crystal" parent="DistortionCrystal10/MainMesh" index="0"]
+giant = true
+
+[node name="howitzer_round" parent="." instance=ExtResource("28_nfi3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.64036)
+visible = false
+collision_layer = 196613
+picked_up_layer = 65537
 
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
 [connection signal="slash" from="DistortionCrystal/MainMesh/Dark_Crystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_dark_crystal_slash"]
@@ -302,6 +324,8 @@ shape = SubResource("BoxShape3D_h0n8k")
 [connection signal="action_pressed" from="pistol" to="pistol" method="_on_action_pressed"]
 [connection signal="body_entered" from="pistol/StateManager/ControlRaycast" to="pistol" method="_on_control_raycast_body_entered"]
 [connection signal="body_entered" from="katana" to="katana" method="_on_body_entered"]
+[connection signal="body_entered" from="Howitzer/XRToolsInteractableArea" to="Howitzer/XRToolsInteractableArea" method="_on_body_entered"]
+[connection signal="loaded_howitzer" from="Howitzer/XRToolsInteractableArea" to="Events/ActionLoadHowitzer" method="_on_xr_tools_interactable_area_loaded_howitzer"]
 
 [editable path="MarbleSpirit_Normal"]
 [editable path="DistortionCrystal"]
@@ -328,3 +352,6 @@ shape = SubResource("BoxShape3D_h0n8k")
 [editable path="pistol/StateManager/ControlRaycast"]
 [editable path="shotgun"]
 [editable path="katana"]
+[editable path="DistortionCrystal10"]
+[editable path="DistortionCrystal10/MainMesh/Dark_Crystal"]
+[editable path="howitzer_round"]

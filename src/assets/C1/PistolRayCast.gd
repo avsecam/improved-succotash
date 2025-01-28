@@ -63,12 +63,13 @@ func _process(delta):
 		if collider != null:
 			if collider.name == "Crystal_Collider" and shoot:
 				var crystal = collider.get_parent().get_node("MainMesh/Dark_Crystal")
-				crystal.anim.play("smash")
-				AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
-				collider.get_parent().get_node("MagicalDistortion/GPUParticles3D").emitting = false
-				await crystal.anim.animation_finished
-				crystal.shot.emit()
-				crystal.get_parent().get_parent().queue_free()
+				if crystal.giant == false:
+					crystal.anim.play("smash")
+					AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
+					collider.get_parent().get_node("MagicalDistortion/GPUParticles3D").emitting = false
+					await crystal.anim.animation_finished
+					crystal.shot.emit()
+					crystal.get_parent().get_parent().queue_free()
 
 
 func _on_pistol_picked_up(pickable):
