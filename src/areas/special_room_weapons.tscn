@@ -290,6 +290,7 @@ picked_up_layer = 65537
 
 [node name="Howitzer" parent="." instance=ExtResource("24_r3rtn")]
 transform = Transform3D(-0.149993, 0, 0.00146606, 0, 0.15, 0, -0.00146606, 0, -0.149993, -1.0555, -0.736944, -1.33384)
+visible = false
 
 [node name="XRToolsInteractableArea" type="Area3D" parent="Howitzer"]
 collision_layer = 5570561
