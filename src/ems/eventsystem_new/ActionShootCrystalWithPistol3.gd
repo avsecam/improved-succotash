@@ -7,4 +7,5 @@ func _on_event_started():
 
 
 func _on_dark_crystal_shot():
+	print("SHOT BY SHOTGUN")
 	close_event()

@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=34 format=3 uid="uid://cc0nl1olnbtqi"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
 [ext_resource type="PackedScene" uid="uid://cjw3n3nsxqim3" path="res://src/ems/eventsystem_new/bgm_powerplant.tscn" id="6_1xtuu"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana1.gd" id="6_v38wy"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana2.gd" id="7_imt1y"]
@@ -10,26 +10,39 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionShootCrystalWithPistol1.gd" id="9_unfph"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionShootCrystalWithPistol2.gd" id="10_nw0ff"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionShootCrystalWithPistol3.gd" id="11_oihi6"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionShootCrystalWithShotgun1.gd" id="12_ex4oy"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionShootCrystalWithShotgun2.gd" id="13_ae7ls"]
 [ext_resource type="PackedScene" uid="uid://c26db2y36x10u" path="res://src/assets/A3/DistortionCrystal.tscn" id="13_rsr3f"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="13_wjmqo"]
 [ext_resource type="PackedScene" uid="uid://byadhhny3uj5l" path="res://src/assets/C1/pistol.tscn" id="14_nox3u"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionShootCrystalWithShotgun3.gd" id="14_ybf4n"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueIRememberThisThing.gd" id="15_00rg1"]
 [ext_resource type="PackedScene" uid="uid://dwtpqavssopmc" path="res://src/assets/C1/shotgun.tscn" id="15_g0qf5"]
 [ext_resource type="Script" path="res://src/assets/C1/PistolMechanics.gd" id="15_u8hp6"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="16_8qvpj"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLoadHowitzer.gd" id="16_p075u"]
 [ext_resource type="Script" path="res://src/assets/C1/PistolMechanicsControlRayCast.gd" id="17_74cd8"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionFireHowitzer.gd" id="17_iljv1"]
 [ext_resource type="PackedScene" uid="uid://cr1f0g0xwuq0a" path="res://src/assets/C1/katana.tscn" id="19_8oxyr"]
 [ext_resource type="Script" path="res://src/assets/C1/katana_test_collision.gd" id="20_vcw2v"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="23_l1wwn"]
+[ext_resource type="PackedScene" uid="uid://ddw0je40k5yev" path="res://src/Howitzer_Actual.glb" id="24_r3rtn"]
+[ext_resource type="Script" path="res://src/assets/C1/HowitzerBehavior.gd" id="26_3iux5"]
+[ext_resource type="PackedScene" uid="uid://4w08n8847k35" path="res://src/assets/C1/howitzer_round.tscn" id="28_nfi3r"]
+[ext_resource type="PackedScene" uid="uid://cbms6uir76jpa" path="res://src/assets/C1/Howitzer_Round.glb" id="29_vftbf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_175fc"]
 albedo_color = Color(0, 0, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0n8k"]
+size = Vector3(9, 5, 23)
+
 [node name="SpecialRoom_PowerPlant" type="Node3D"]
 script = ExtResource("1_k6i48")
 teleporters_data = [{
-"position": Vector3(0, -1.385, 1.744),
+"position": Vector3(4.11, -1.385, 0.707),
 "to": "2Left11.jpg"
 }]
 image_filename = "res://src/areas/Tut1.jpg.jpg"
@@ -59,7 +72,7 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, -5.77779)
+transform = Transform3D(20, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 4.06189, -9.88843)
 mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 
@@ -136,6 +149,26 @@ script = ExtResource("10_nw0ff")
 [node name="ActionShootCrystalWithPistol3" type="Node" parent="Events"]
 script = ExtResource("11_oihi6")
 
+[node name="ActionShootCrystalWithShotgun1" type="Node" parent="Events"]
+script = ExtResource("12_ex4oy")
+
+[node name="ActionShootCrystalWithShotgun2" type="Node" parent="Events"]
+script = ExtResource("13_ae7ls")
+
+[node name="ActionShootCrystalWithShotgun3" type="Node" parent="Events"]
+script = ExtResource("14_ybf4n")
+
+[node name="DialogueIRememberThisThing" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("15_00rg1")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionLoadHowitzer" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
+script = ExtResource("16_p075u")
+event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionFireHowitzer" type="Node" parent="Events"]
+script = ExtResource("17_iljv1")
+
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("23_l1wwn")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0.0417523)
 
@@ -155,22 +188,25 @@ transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888
 
 [node name="DistortionCrystal" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933845, 0, -0.829746)
+visible = false
 requirement = 0.25
-
-[node name="CollisionShape3D" parent="DistortionCrystal/Crystal_Collider" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00198364, 0.116982, -0.00317383)
 
 [node name="DistortionCrystal2" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14934, 0, -0.928902)
+visible = false
 requirement = 0.25
 
 [node name="DistortionCrystal3" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0698315, 0, -0.968821)
+visible = false
 requirement = 0.25
 
 [node name="DistortionCrystal4" parent="." instance=ExtResource("13_rsr3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38837, 0.589269, -5.65861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38837, 0.589269, -4.65861)
 visible = false
+
+[node name="Dark_Crystal" parent="DistortionCrystal4/MainMesh" index="0"]
+for_pistol = true
 
 [node name="GPUParticles3D" parent="DistortionCrystal4/MainMesh/Dark_Crystal" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -185,6 +221,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0483579, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59394, 0, -4.83913)
 visible = false
 
+[node name="Dark_Crystal" parent="DistortionCrystal5/MainMesh" index="0"]
+for_pistol = true
+
 [node name="GPUParticles3D" parent="DistortionCrystal5/MainMesh/Dark_Crystal" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
@@ -195,14 +234,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="DistortionCrystal6" parent="." instance=ExtResource("13_rsr3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65506, 0, -4.17337)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26844, 0, -5.40972)
 visible = false
+
+[node name="Dark_Crystal" parent="DistortionCrystal6/MainMesh" index="0"]
+for_pistol = true
 
 [node name="CollisionShape3D" parent="DistortionCrystal6" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="DistortionCrystal6/Crystal_Collider" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="DistortionCrystal7" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34494, 0, -1.06054)
+visible = false
+
+[node name="DistortionCrystal8" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65506, 0, -1.06054)
+visible = false
+
+[node name="DistortionCrystal9" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24264, 0, -2.29601)
+visible = false
 
 [node name="Table" parent="." instance=ExtResource("13_wjmqo")]
 transform = Transform3D(0.0353006, 0, -0.999377, 0, 1, 0, 0.999377, 0, 0.0353006, -0.27469, -1.34874, 1.50879)
@@ -212,6 +266,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469574, -0.545469)
 
 [node name="pistol" parent="." instance=ExtResource("14_nox3u")]
 transform = Transform3D(0.000662923, -1, 0, 1, 0.000662923, 0, 0, 0, 1, -0.510591, -0.456485, 1.37735)
+visible = false
 script = ExtResource("15_u8hp6")
 
 [node name="CollisionShape3D" parent="pistol" index="0"]
@@ -232,9 +287,38 @@ visible = false
 transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0, 1, -0.0167481, 0.0542725, -0.383447)
 
 [node name="katana" parent="." instance=ExtResource("19_8oxyr")]
-transform = Transform3D(-0.0331028, 0, 0.999452, 0.999442, 0.00446802, 0.0331025, -0.00446558, 0.99999, -0.000147904, 0.629069, 0, 1.35345)
+transform = Transform3D(0.0373329, 0.610386, 0.791224, 0.998135, -0.0610486, 0, 0.0483031, 0.789748, -0.611527, 0.684961, 0, 1.19507)
 collision_layer = 5
 script = ExtResource("20_vcw2v")
+picked_up_layer = 65537
+
+[node name="Howitzer" parent="." instance=ExtResource("24_r3rtn")]
+transform = Transform3D(-0.149993, 0, 0.00146606, 0, 0.15, 0, -0.00146606, 0, -0.149993, -1.0555, -0.736944, -1.33384)
+visible = false
+
+[node name="XRToolsInteractableArea" type="Area3D" parent="Howitzer"]
+collision_layer = 5570561
+collision_mask = 5570561
+script = ExtResource("26_3iux5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Howitzer/XRToolsInteractableArea"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, 1.19209e-07, 1, -2.00001)
+shape = SubResource("BoxShape3D_h0n8k")
+
+[node name="Howitzer_Round_slot" parent="Howitzer" instance=ExtResource("29_vftbf")]
+transform = Transform3D(1.88482, 0.0184186, -0.017999, -0.0184185, 0.0433242, -1.88441, -0.0179992, 1.88441, 0.0435001, -0.07974, 2.59178, -3.69791)
+visible = false
+
+[node name="DistortionCrystal10" parent="." instance=ExtResource("13_rsr3f")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.62887, -8.28864)
+
+[node name="Dark_Crystal" parent="DistortionCrystal10/MainMesh" index="0"]
+giant = true
+
+[node name="howitzer_round" parent="." instance=ExtResource("28_nfi3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02815, 0, 1.64036)
+visible = false
+collision_layer = 196613
 picked_up_layer = 65537
 
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
@@ -247,9 +331,16 @@ picked_up_layer = 65537
 [connection signal="shot" from="DistortionCrystal4/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol1" method="_on_dark_crystal_shot"]
 [connection signal="shot" from="DistortionCrystal5/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol2" method="_on_dark_crystal_shot"]
 [connection signal="shot" from="DistortionCrystal6/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithPistol3" method="_on_dark_crystal_shot"]
+[connection signal="shotgun" from="DistortionCrystal7/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithShotgun1" method="_on_dark_crystal_shotgun"]
+[connection signal="shotgun" from="DistortionCrystal8/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithShotgun2" method="_on_dark_crystal_shotgun"]
+[connection signal="shotgun" from="DistortionCrystal9/MainMesh/Dark_Crystal" to="Events/ActionShootCrystalWithShotgun3" method="_on_dark_crystal_shotgun"]
 [connection signal="action_pressed" from="pistol" to="pistol" method="_on_action_pressed"]
 [connection signal="body_entered" from="pistol/StateManager/ControlRaycast" to="pistol" method="_on_control_raycast_body_entered"]
 [connection signal="body_entered" from="katana" to="katana" method="_on_body_entered"]
+[connection signal="body_entered" from="Howitzer/XRToolsInteractableArea" to="Howitzer/XRToolsInteractableArea" method="_on_body_entered"]
+[connection signal="fire_howitzer" from="Howitzer/XRToolsInteractableArea" to="Events/ActionFireHowitzer" method="_on_xr_tools_interactable_area_fire_howitzer"]
+[connection signal="loaded_howitzer" from="Howitzer/XRToolsInteractableArea" to="Events/ActionLoadHowitzer" method="_on_xr_tools_interactable_area_loaded_howitzer"]
+[connection signal="pointer_event" from="Howitzer/XRToolsInteractableArea" to="Howitzer/XRToolsInteractableArea" method="_on_pointer_event"]
 
 [editable path="MarbleSpirit_Normal"]
 [editable path="DistortionCrystal"]
@@ -264,9 +355,18 @@ picked_up_layer = 65537
 [editable path="DistortionCrystal5/MainMesh/Dark_Crystal"]
 [editable path="DistortionCrystal6"]
 [editable path="DistortionCrystal6/MainMesh/Dark_Crystal"]
+[editable path="DistortionCrystal7"]
+[editable path="DistortionCrystal7/MainMesh/Dark_Crystal"]
+[editable path="DistortionCrystal8"]
+[editable path="DistortionCrystal8/MainMesh/Dark_Crystal"]
+[editable path="DistortionCrystal9"]
+[editable path="DistortionCrystal9/MainMesh/Dark_Crystal"]
 [editable path="Table"]
 [editable path="Table/Table2"]
 [editable path="pistol"]
 [editable path="pistol/StateManager/ControlRaycast"]
 [editable path="shotgun"]
 [editable path="katana"]
+[editable path="DistortionCrystal10"]
+[editable path="DistortionCrystal10/MainMesh/Dark_Crystal"]
+[editable path="howitzer_round"]

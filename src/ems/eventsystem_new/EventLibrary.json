@@ -3261,8 +3261,8 @@
 		"Play_Success_SFX": true
 	},
 	{
-		"Event_Name": "ActionLoadHowitzer",
-		"Event_Category": "ACTION",
+		"Event_Name": "DialogueIRememberThisThing",
+		"Event_Category": "DIALOGUE",
 		"Oneshot": true,
 		"Event_Prerequisites": [
 			"ActionShootCrystalWithShotgun1_Done",
@@ -3270,12 +3270,38 @@
 			"ActionShootCrystalWithShotgun3_Done"
 		],
 		"Event_Completion_Flags": [
-			"ActionLoadHowitzer_Done"
+			"DialogueIRememberThisThing_Done"
 		],
-		"Event_Audio": "",
+		"Event_Audio": "VE_VO_C1_MRBLSPRT_01_iWorks",
 		"Loop_Audio": false,
 		"Loop_Interval": 0,
-		"Event_Text": {},
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"I remember this thing. Someone called it a howitzer. Let's see if it still works!": 0
+			}
+		},
+		"Play_Success_SFX": false
+	},
+	{
+		"Event_Name": "ActionLoadHowitzer",
+		"Event_Category": "ACTION",
+		"Oneshot": true,
+		"Event_Prerequisites": [
+			"DialogueIRememberThisThing_Done"
+		],
+		"Event_Completion_Flags": [
+			"ActionLoadHowitzer_Done"
+		],
+		"Event_Audio": "VE_VO_C1_MRBLSPRT_02_TheAmmunition",
+		"Loop_Audio": true,
+		"Loop_Interval": 15,
+		"Event_Text": {
+			"npc_name": "Marble Spirit",
+			"dialogue": {
+				"The howitzer isn't loaded. Let's look for ammunition!": 0
+			}
+		},
 		"Play_Success_SFX": true
 	},
 	{

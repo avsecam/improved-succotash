@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="12_ldoxt"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="13_1rxmm"]
 [ext_resource type="Script" path="res://src/assets/C1/PistolRayCast.gd" id="15_phtnw"]
-[ext_resource type="PackedScene" uid="uid://cyy5yw3gjh2xj" path="res://src/assets/C4/gunshot_particles.tscn" id="16_1io65"]
+[ext_resource type="PackedScene" path="res://src/assets/C4/gunshot_particles.tscn" id="16_1io65"]
 [ext_resource type="Script" path="res://src/assets/C4/gunshot_particles.gd" id="17_i8tpu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apewi"]

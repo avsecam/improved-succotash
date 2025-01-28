@@ -4,16 +4,13 @@ extends RayCast3D
 @onready var right_hand = get_node("/root/Demo/XRPlayer/XROrigin3D/RightHand")
 @onready var function_pointer_right = get_node("/root/Demo/XRPlayer/XROrigin3D/RightHand/FunctionPointer")
 @onready var function_pointer_left = get_node("/root/Demo/XRPlayer/XROrigin3D/LeftHand/FunctionPointer")
-@onready var grab_point_hand_left = $"../GrabPointHandLeft"
-@onready var grab_point_hand_right = $"../GrabPointHandRight"
-@onready var pistol_sound = $"../pistol_sound"
-signal shot
-@onready var gunshot_particles = $"../GunshotParticles"
-@onready var gunshot_light = $"../GunshotLight/AnimationPlayer"
-
+@onready var shotgun_sound = $"../shotgun_sound"
 
 var shoot = false
 var holding = false
+
+@onready var gunshot_particles = $"../GunshotParticles"
+@onready var gunshot_light = $"../GunshotLight/AnimationPlayer"
 
 func _ready():
 	if right_hand:
@@ -36,18 +33,18 @@ func _ready():
 func _on_right_hand_button_pressed(name):
 	if holding and name == "trigger_click":
 		shoot = true
+		AudioHandler.play_sfx("C_ShotGunshot", shotgun_sound)
 		gunshot_particles.emitting = true
 		gunshot_light.play("pointlight_fade")
-		AudioHandler.play_sfx("C_Pistol_Gunshot", pistol_sound)
 		await get_tree().create_timer(0.05).timeout
 		gunshot_particles.emitting = false
-	
+
 func _on_left_hand_button_pressed(name):
 	if holding and name == "trigger_click":
 		shoot = true
 		gunshot_particles.emitting = true
 		gunshot_light.play("pointlight_fade")
-		AudioHandler.play_sfx("C_Pistol_Gunshot", pistol_sound)
+		AudioHandler.play_sfx("C_ShotGunshot", shotgun_sound)
 		await get_tree().create_timer(0.05).timeout
 		gunshot_particles.emitting = false
 
@@ -61,25 +58,25 @@ func _process(delta):
 	if is_colliding():
 		var collider = get_collider()
 		if collider != null:
+			print(collider.name)
 			if collider.name == "Crystal_Collider" and shoot:
 				var crystal = collider.get_parent().get_node("MainMesh/Dark_Crystal")
-				if crystal.giant == false and crystal.for_pistol:
+				if crystal.giant == false:
 					crystal.anim.play("smash")
 					AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
-					collider.get_parent().get_node("MagicalDistortion/GPUParticles3D").emitting = false
 					await crystal.anim.animation_finished
-					crystal.shot.emit()
+					crystal.shotgun.emit()
 					crystal.get_parent().get_parent().queue_free()
 
 
-func _on_pistol_picked_up(pickable):
+func _on_shotgun_picked_up(pickable):
 	function_pointer_right.visible = false
 	function_pointer_left.visible = false
 	holding = true
-	print("holding gun")
+	print("holding shotgun")
 
-func _on_pistol_released(pickable, by):
+func _on_shotgun_released(pickable, by):
 	function_pointer_right.visible = true
 	function_pointer_left.visible = true
 	holding = false
-	print("not holding gun")
+	print("not holding shotgun")

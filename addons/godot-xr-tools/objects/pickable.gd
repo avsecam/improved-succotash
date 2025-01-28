@@ -374,7 +374,6 @@ func switch_active_grab_point(grab_point : XRToolsGrabPoint):
 	# Apply the grab point
 	_grab_driver.primary.set_grab_point(grab_point)
 
-
 ## Find the most suitable grab-point for the grabber
 func _get_grab_point(grabber : Node3D, current : XRToolsGrabPoint) -> XRToolsGrabPoint:
 	# Find the best grab-point

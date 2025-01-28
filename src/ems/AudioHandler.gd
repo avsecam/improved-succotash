@@ -29,7 +29,8 @@ extends Node
 	"A_WoodBox_Open" : preload("res://src/assets/audio/sfx/VE_SFX_UI_WoodBoxOpen.ogg"),
 	"A_CrystalShatter" : preload("res://src/assets/audio/sfx/VE_SFX_UI_A_CrystalShatter.ogg"),
 	"C_Pistol_Gunshot" : preload("res://src/assets/C1/163456__lemudcrab__pistol-shot.wav"),
-	"C_ShotGunshot" : preload("res://src/assets/C1/473846__matrixxx__shotgun-shot-03.wav")
+	"C_ShotGunshot" : preload("res://src/assets/C1/473846__matrixxx__shotgun-shot-03.wav"),
+	"C_Howitzer": preload("res://src/assets/C1/685279__logicogonist__m777-howitzer-1.ogg")
 }
 
 @onready var bgm_player := $BGMPlayer

@@ -9,10 +9,14 @@ var holding = false
 func _on_katana_picked_up(pickable):
 	holding = true
 	print("holding katana")
+	function_pointer_right.visible = false
+	function_pointer_left.visible = false
 
 func _on_katana_released(pickable, by):
 	holding = false
 	print("not holding gun")
+	function_pointer_right.visible = true
+	function_pointer_left.visible = true
 	
 func _process(delta):
 	if is_colliding():
