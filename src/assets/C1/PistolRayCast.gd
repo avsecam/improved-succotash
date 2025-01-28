@@ -52,11 +52,9 @@ func _on_left_hand_button_pressed(name):
 		gunshot_particles.emitting = false
 
 func _on_right_hand_button_released(name):
-	print("Button released: ", name)
 	shoot = false
 
 func _on_left_hand_button_released(name):
-	print("Button released: ", name)
 	shoot = false
 
 func _process(delta):

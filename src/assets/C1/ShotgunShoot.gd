@@ -9,6 +9,9 @@ extends RayCast3D
 var shoot = false
 var holding = false
 
+@onready var gunshot_particles = $"../GunshotParticles"
+@onready var gunshot_light = $"../GunshotLight/AnimationPlayer"
+
 func _ready():
 	if right_hand:
 		print("Right Hand node found, connecting signal...")
@@ -18,14 +21,37 @@ func _ready():
 		print("Right Hand released signal connected")
 	else:
 		print("Right Hand node not found!")
+	if left_hand:
+		print("Left Hand node found, connecting signal...")
+		left_hand.button_pressed.connect(_on_left_hand_button_pressed)
+		print("Left Hand pressed signal connected")
+		left_hand.button_released.connect(_on_left_hand_button_released)
+		print("Left Hand released signal connected")
+	else:
+		print("Left Hand node not found!")
 
 func _on_right_hand_button_pressed(name):
 	if holding and name == "trigger_click":
 		shoot = true
 		AudioHandler.play_sfx("C_ShotGunshot", shotgun_sound)
+		gunshot_particles.emitting = true
+		gunshot_light.play("pointlight_fade")
+		await get_tree().create_timer(0.05).timeout
+		gunshot_particles.emitting = false
+
+func _on_left_hand_button_pressed(name):
+	if holding and name == "trigger_click":
+		shoot = true
+		gunshot_particles.emitting = true
+		gunshot_light.play("pointlight_fade")
+		AudioHandler.play_sfx("C_ShotGunshot", shotgun_sound)
+		await get_tree().create_timer(0.05).timeout
+		gunshot_particles.emitting = false
 
 func _on_right_hand_button_released(name):
-	print("Button released: ", name)
+	shoot = false
+
+func _on_left_hand_button_released(name):
 	shoot = false
 
 func _process(delta):

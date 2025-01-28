@@ -2,10 +2,10 @@ extends Event
 
 @onready var distortion_crystal = $"../../DistortionCrystal7"
 @onready var shotgun = $"../../shotgun"
-@onready var katana = $"../../katana"
+@onready var pistol = $"../../pistol"
 
 func _on_event_started():
-	katana.queue_free()
+	pistol.queue_free()
 	quests.add_active_quest("QuestDestroytheCrystalsShotgun")
 	shotgun.visible = true
 	distortion_crystal.visible = true
