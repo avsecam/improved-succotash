@@ -270,6 +270,7 @@ picked_up_layer = 65537
 
 [node name="Howitzer" parent="." instance=ExtResource("24_r3rtn")]
 transform = Transform3D(-0.149993, 0, 0.00146606, 0, 0.15, 0, -0.00146606, 0, -0.149993, -0.138216, -0.889247, -2.31171)
+visible = false
 
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
 [connection signal="slash" from="DistortionCrystal/MainMesh/Dark_Crystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_dark_crystal_slash"]
