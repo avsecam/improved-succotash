@@ -201,6 +201,9 @@ requirement = 0.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38837, 0.589269, -4.65861)
 visible = false
 
+[node name="Dark_Crystal" parent="DistortionCrystal4/MainMesh" index="0"]
+for_pistol = true
+
 [node name="GPUParticles3D" parent="DistortionCrystal4/MainMesh/Dark_Crystal" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
@@ -214,6 +217,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0483579, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59394, 0, -4.83913)
 visible = false
 
+[node name="Dark_Crystal" parent="DistortionCrystal5/MainMesh" index="0"]
+for_pistol = true
+
 [node name="GPUParticles3D" parent="DistortionCrystal5/MainMesh/Dark_Crystal" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
@@ -226,6 +232,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="DistortionCrystal6" parent="." instance=ExtResource("13_rsr3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26844, 0, -5.40972)
 visible = false
+
+[node name="Dark_Crystal" parent="DistortionCrystal6/MainMesh" index="0"]
+for_pistol = true
 
 [node name="CollisionShape3D" parent="DistortionCrystal6" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -280,8 +289,7 @@ script = ExtResource("20_vcw2v")
 picked_up_layer = 65537
 
 [node name="Howitzer" parent="." instance=ExtResource("24_r3rtn")]
-transform = Transform3D(-0.149993, 0, 0.00146606, 0, 0.15, 0, -0.00146606, 0, -0.149993, -1.0555, -0.736944, -0.356324)
-visible = false
+transform = Transform3D(-0.149993, 0, 0.00146606, 0, 0.15, 0, -0.00146606, 0, -0.149993, -1.0555, -0.736944, -1.33384)
 
 [node name="XRToolsInteractableArea" type="Area3D" parent="Howitzer"]
 collision_layer = 5570561
@@ -303,7 +311,7 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.62887, -8.28864)
 giant = true
 
 [node name="howitzer_round" parent="." instance=ExtResource("28_nfi3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.64036)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02815, 0, 1.64036)
 visible = false
 collision_layer = 196613
 picked_up_layer = 65537
@@ -326,6 +334,7 @@ picked_up_layer = 65537
 [connection signal="body_entered" from="katana" to="katana" method="_on_body_entered"]
 [connection signal="body_entered" from="Howitzer/XRToolsInteractableArea" to="Howitzer/XRToolsInteractableArea" method="_on_body_entered"]
 [connection signal="loaded_howitzer" from="Howitzer/XRToolsInteractableArea" to="Events/ActionLoadHowitzer" method="_on_xr_tools_interactable_area_loaded_howitzer"]
+[connection signal="pointer_event" from="Howitzer/XRToolsInteractableArea" to="Howitzer/XRToolsInteractableArea" method="_on_pointer_event"]
 
 [editable path="MarbleSpirit_Normal"]
 [editable path="DistortionCrystal"]

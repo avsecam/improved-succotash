@@ -63,7 +63,7 @@ func _process(delta):
 		if collider != null:
 			if collider.name == "Crystal_Collider" and shoot:
 				var crystal = collider.get_parent().get_node("MainMesh/Dark_Crystal")
-				if crystal.giant == false:
+				if crystal.giant == false and crystal.for_pistol:
 					crystal.anim.play("smash")
 					AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
 					collider.get_parent().get_node("MagicalDistortion/GPUParticles3D").emitting = false

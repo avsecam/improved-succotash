@@ -10,6 +10,7 @@ signal shot
 signal slash
 signal shotgun
 @export var giant:bool
+@export var for_pistol:bool
 
 func _ready():
 	mesh.visible = true
