@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=34 format=3 uid="uid://cc0nl1olnbtqi"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="16_8qvpj"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLoadHowitzer.gd" id="16_p075u"]
 [ext_resource type="Script" path="res://src/assets/C1/PistolMechanicsControlRayCast.gd" id="17_74cd8"]
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionFireHowitzer.gd" id="17_iljv1"]
 [ext_resource type="PackedScene" uid="uid://cr1f0g0xwuq0a" path="res://src/assets/C1/katana.tscn" id="19_8oxyr"]
 [ext_resource type="Script" path="res://src/assets/C1/katana_test_collision.gd" id="20_vcw2v"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="23_l1wwn"]
@@ -164,6 +165,9 @@ event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
 [node name="ActionLoadHowitzer" type="Node" parent="Events" node_paths=PackedStringArray("event_audio_source")]
 script = ExtResource("16_p075u")
 event_audio_source = NodePath("../../MarbleSpirit_Normal/AudioStreamPlayer3D")
+
+[node name="ActionFireHowitzer" type="Node" parent="Events"]
+script = ExtResource("17_iljv1")
 
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("23_l1wwn")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0.0417523)
@@ -334,6 +338,7 @@ picked_up_layer = 65537
 [connection signal="body_entered" from="pistol/StateManager/ControlRaycast" to="pistol" method="_on_control_raycast_body_entered"]
 [connection signal="body_entered" from="katana" to="katana" method="_on_body_entered"]
 [connection signal="body_entered" from="Howitzer/XRToolsInteractableArea" to="Howitzer/XRToolsInteractableArea" method="_on_body_entered"]
+[connection signal="fire_howitzer" from="Howitzer/XRToolsInteractableArea" to="Events/ActionFireHowitzer" method="_on_xr_tools_interactable_area_fire_howitzer"]
 [connection signal="loaded_howitzer" from="Howitzer/XRToolsInteractableArea" to="Events/ActionLoadHowitzer" method="_on_xr_tools_interactable_area_loaded_howitzer"]
 [connection signal="pointer_event" from="Howitzer/XRToolsInteractableArea" to="Howitzer/XRToolsInteractableArea" method="_on_pointer_event"]
 

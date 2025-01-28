@@ -6,17 +6,6 @@ signal fire_howitzer
 @onready var dark_crystal = $"../../DistortionCrystal10/MainMesh/Dark_Crystal"
 var loaded = false
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_body_entered(body):
 	if body == howitzer_round:
 		howitzer_round.queue_free()
@@ -28,4 +17,11 @@ func _on_body_entered(body):
 func _on_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED and loaded:
 		AudioHandler.play_sfx("C_Howitzer", null)
+		round_slot.visible = false
+		loaded = false
+		await get_tree().create_timer(2).timeout
+		dark_crystal.anim.play("smash")
+		AudioHandler.play_sfx("A_CrystalShatter", $"../AudioStreamPlayer3D")
+		await dark_crystal.anim.animation_finished
 		fire_howitzer.emit()
+		dark_crystal.get_parent().get_parent().queue_free()
