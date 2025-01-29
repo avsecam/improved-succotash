@@ -3350,6 +3350,7 @@
 		"Event_Category": "ACTION",
 		"Oneshot": true,
 		"Event_Prerequisites": [
+			"QuestDestroytheCrystalsHowitzer_Done",
 			"JournalWeaponCollection_Read"
 		],
 		"Event_Completion_Flags": [
