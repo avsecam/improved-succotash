@@ -214,6 +214,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ProgressCircleComponent" type="TextureProgressBar" parent="."]
+z_index = 1000
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -234,6 +235,7 @@ texture_over = ExtResource("2_rpswd")
 texture_progress = ExtResource("3_awr25")
 
 [node name="CheckMarkComplete" type="TextureRect" parent="."]
+z_index = 1000
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
