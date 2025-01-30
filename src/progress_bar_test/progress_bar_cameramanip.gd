@@ -45,4 +45,7 @@ func progress_complete_anim():
 func progress_complete_checkmark_only_anim():
 	animation_player.play("progress_complete_checkmark_only")
 
+func get_progress_value():
+	return progress_circle_component.value
+
 	

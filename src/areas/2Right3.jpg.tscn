@@ -166,6 +166,9 @@ mesh = SubResource("ArrayMesh_5n1df")
 transform = Transform3D(0.82363, 0.0217047, -0.566734, -0.0201687, 0.999756, 0.00897845, 0.566791, 0.00403525, 0.823869, 0, 0, 0)
 script = ExtResource("11_ln8gm")
 
+[connection signal="tree_exiting" from="Events/ActionCatRun1" to="Cat/CatDisappearPersistence" method="on_disappear_cat"]
+[connection signal="screen_entered" from="Cat/CatOnScreenNotif" to="Events/ActionCatRun1" method="_on_cat_on_screen_notif_screen_entered"]
+
 [editable path="Cat"]
 [editable path="Cat/MainMesh"]
 [editable path="Cat/MagicalDistortion"]

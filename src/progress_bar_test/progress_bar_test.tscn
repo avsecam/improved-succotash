@@ -1,21 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://chqn1m2fy1uxr"]
+[gd_scene load_steps=10 format=3 uid="uid://chqn1m2fy1uxr"]
 
 [ext_resource type="Script" path="res://src/progress_bar_test/progress_bar_cameramanip.gd" id="1_iq2on"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_pgytf"]
 [ext_resource type="PackedScene" uid="uid://bqlt35ga34qd0" path="res://src/progress_bar_test/progress_circle.tscn" id="3_g7sxe"]
+[ext_resource type="Shader" path="res://src/UI.gdshader" id="4_sm8bk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtbfy"]
+render_priority = 127
+shader = ExtResource("4_sm8bk")
 
 [sub_resource type="QuadMesh" id="QuadMesh_oigqy"]
 resource_local_to_scene = true
 size = Vector2(200, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ecpg5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pk7i1"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qko0c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5u3y"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_ecpg5")
+albedo_texture = SubResource("ViewportTexture_pk7i1")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p435t"]
@@ -37,10 +42,17 @@ unshaded = true
 size = Vector2i(500, 500)
 
 [node name="Progress Circle2" parent="Viewport2Din3D/Viewport" index="0" instance=ExtResource("3_g7sxe")]
+material = SubResource("ShaderMaterial_jtbfy")
+
+[node name="ProgressCircleComponent" parent="Viewport2Din3D/Viewport/Progress Circle2" index="0"]
+use_parent_material = true
+
+[node name="CheckMarkComplete" parent="Viewport2Din3D/Viewport/Progress Circle2" index="1"]
+use_parent_material = true
 
 [node name="Screen" parent="Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_oigqy")
-surface_material_override/0 = SubResource("StandardMaterial3D_qko0c")
+surface_material_override/0 = SubResource("StandardMaterial3D_u5u3y")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 screen_size = Vector2(200, 200)

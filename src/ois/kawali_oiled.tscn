@@ -374,7 +374,7 @@ shape = SubResource("CylinderShape3D_eubi5")
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
 visible = false
 
-[connection signal="area_entered" from="OilReceiver" to="." method="_on_vat_long_receiver_area_entered"]
 [connection signal="area_entered" from="OilReceiver" to="." method="_on_oil_receiver_area_entered"]
-[connection signal="area_entered" from="StrainerReceiver" to="." method="_on_vat_long_receiver_area_entered"]
+[connection signal="area_entered" from="OilReceiver" to="." method="_on_vat_long_receiver_area_entered"]
 [connection signal="area_entered" from="StrainerReceiver" to="." method="_on_strainer_receiver_area_entered"]
+[connection signal="area_entered" from="StrainerReceiver" to="." method="_on_vat_long_receiver_area_entered"]

@@ -14,4 +14,4 @@ func _process(delta):
 
 
 func _on_dialogue_cat_dont_be_afraid_tree_exiting():
-	self.visible = false
+	pass

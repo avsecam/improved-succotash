@@ -42,3 +42,4 @@ func _on_circle_anim_player_animation_finished(anim_name):
 			self.rotation.y = new_level.base_rotation
 			add_child(new_level)
 			circleanimplayer.play("circle_fade_out")
+

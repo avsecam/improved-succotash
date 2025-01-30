@@ -482,7 +482,7 @@
 		"Quest_Name": "QuestDestroytheCrystalsKatana",
 		"Quest_Description": {
 			"Name": "Destroy the Crystals",
-			"Description": "There's a katana on the ground. Use it to destroy the crystals."
+			"Description": "Use the katana to destroy the crystals."
 		},
 		"Quest_Completion_Requirements": [
 			"ActionSlashCrystalWithKatana1_Done",
@@ -548,7 +548,7 @@
 		"Quest_Name": "QuestDestroytheCrystalsHowitzer",
 		"Quest_Description": {
 			"Name": "Destroy the Giant Crystal",
-			"Description": "Load up the howitzer with its ammo and fire at the giant crystal!"
+			"Description": "Load up the howitzer with its ammo and fire at the giant crystal"
 		},
 		"Quest_Completion_Requirements": [
 			"ActionLoadHowitzer_Done",
