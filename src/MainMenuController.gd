@@ -68,7 +68,11 @@ func _on_pointer_event(event):
 			static_ui_container.visible = true
 			user_input_ui.visible = true
 			shelf.visible = true
-		
+
+func on_demand_hide_everything():
+	static_ui_container.visible = false
+	user_input_ui.visible = false
+	shelf.visible = false
 
 
 func _on_main_menu_ui_menu_closed():

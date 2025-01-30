@@ -127,7 +127,7 @@ anchor_bottom = 0.5
 offset_left = -355.0
 offset_top = 317.0
 offset_right = 355.0
-offset_bottom = 3298.0
+offset_bottom = 3303.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -243,3 +243,4 @@ fit_content = true
 libraries = {
 "": SubResource("AnimationLibrary_p30g0")
 }
+autoplay = "PlayCredits"
