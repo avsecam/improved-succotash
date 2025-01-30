@@ -5,3 +5,7 @@ func _on_event_started() -> void:
 
 func _on_numpad_correct_password_inputted():
 	close_event()
+
+
+func _on_numpad_interface_correct_password_inputted():
+	close_event()

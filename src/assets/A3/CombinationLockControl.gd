@@ -40,7 +40,7 @@ func _physics_process(delta):
 		var position_ui_offset = Vector3(-position_z_rotate,object_height,-position_x_rotate)
 		interface.global_transform.origin = interface.global_transform.origin.lerp(camera.global_transform.origin + position_ui_offset, delta * object_follow_speed)
 		
-		interface.rotation.y = camera.global_rotation.y - 1.5
+		#nterface.rotation.y = camera.global_rotation.y - 1.5
 	#print("Dialogue UI POSITION:"+str(self.transform.origin))
 	#print("CAMERA GLOBALTRANSFORM:"+str(point))
 
