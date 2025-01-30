@@ -43,3 +43,9 @@ func _on_circle_anim_player_animation_finished(anim_name):
 			add_child(new_level)
 			circleanimplayer.play("circle_fade_out")
 
+func on_demand_play_fade_in():
+	circleanimplayer.play("circle_fade_in")
+	
+func on_demand_play_fade_out():
+	circleanimplayer.play("circle_fade_out")
+
