@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c4mbmiyebv2xq"]
+[gd_scene load_steps=36 format=3 uid="uid://c4mbmiyebv2xq"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_vklpb"]
 [ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_tdvpy"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionInputNumberSequence.gd" id="11_turs0"]
 [ext_resource type="PackedScene" uid="uid://cp3el5iygvid8" path="res://src/assets/A3/MagicalDistortion.tscn" id="12_tgcmi"]
 [ext_resource type="Script" path="res://src/assets/B4/ButterflyMagicalDistortion.gd" id="13_e20nd"]
+[ext_resource type="PackedScene" uid="uid://em67bif4815n" path="res://src/assets/B4/NumberPad.tscn" id="15_vpvvo"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y1cmj"]
 resource_local_to_scene = true
@@ -22,7 +23,7 @@ size = Vector2(2, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_p0b66"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6dot"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h133l"]
 transparency = 1
 cull_mode = 2
 albedo_texture = SubResource("ViewportTexture_p0b66")
@@ -39,7 +40,7 @@ size = Vector2(2, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_rv1k7"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wckq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vib7l"]
 transparency = 1
 cull_mode = 2
 albedo_texture = SubResource("ViewportTexture_rv1k7")
@@ -56,7 +57,7 @@ size = Vector2(2, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_skfdm"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8qc7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ikb58"]
 transparency = 1
 cull_mode = 2
 albedo_texture = SubResource("ViewportTexture_skfdm")
@@ -73,7 +74,7 @@ size = Vector2(3, 2)
 [sub_resource type="ViewportTexture" id="ViewportTexture_aun7n"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qugdg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0c6x7"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
@@ -81,6 +82,24 @@ albedo_texture = SubResource("ViewportTexture_aun7n")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2kwa"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
+
+[sub_resource type="QuadMesh" id="QuadMesh_n5p3k"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_heaog"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdgcs"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_heaog")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tljh"]
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
@@ -178,7 +197,7 @@ text = "[center]FREE
 
 [node name="Screen" parent="ScreensHandler/Screen1/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_y1cmj")
-surface_material_override/0 = SubResource("StandardMaterial3D_i6dot")
+surface_material_override/0 = SubResource("StandardMaterial3D_h133l")
 
 [node name="CollisionShape3D" parent="ScreensHandler/Screen1/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_12syr")
@@ -192,7 +211,7 @@ text = "[center]THEM"
 [node name="Screen" parent="ScreensHandler/Screen2/Viewport2Din3D" index="1"]
 transform = Transform3D(-0.984273, 0.0224051, 0.17523, -0.0206682, -0.999718, 0.0117309, 0.175443, 0.00792469, 0.984458, 0, 0, 0)
 mesh = SubResource("QuadMesh_6g4is")
-surface_material_override/0 = SubResource("StandardMaterial3D_2wckq")
+surface_material_override/0 = SubResource("StandardMaterial3D_vib7l")
 
 [node name="CollisionShape3D" parent="ScreensHandler/Screen2/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_rfelp")
@@ -205,20 +224,24 @@ text = "[center]PLEASE"
 
 [node name="Screen" parent="ScreensHandler/Screen3/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_700mb")
-surface_material_override/0 = SubResource("StandardMaterial3D_l8qc7")
+surface_material_override/0 = SubResource("StandardMaterial3D_ikb58")
 
 [node name="CollisionShape3D" parent="ScreensHandler/Screen3/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_w2smy")
 
 [node name="Numpad" parent="." instance=ExtResource("5_rofm2")]
 transform = Transform3D(0.601216, 0, -0.799087, 0, 1, 0, 0.799087, 0, 0.601216, -0.945216, 0, -1.4301)
+visible = false
+
+[node name="KeypadLock_ThreeScratched" parent="Numpad" index="1"]
+visible = true
 
 [node name="Numpad3" parent="Numpad" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0.290835, -0.161277)
 
 [node name="Screen" parent="Numpad/StaticUIContainer/Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_wfkq6")
-surface_material_override/0 = SubResource("StandardMaterial3D_qugdg")
+surface_material_override/0 = SubResource("StandardMaterial3D_0c6x7")
 
 [node name="CollisionShape3D" parent="Numpad/StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_h2kwa")
@@ -226,6 +249,19 @@ shape = SubResource("BoxShape3D_h2kwa")
 [node name="MagicalDistortion" parent="." instance=ExtResource("12_tgcmi")]
 transform = Transform3D(-0.5592, 0, 0.829049, 0, 1, 0, -0.829049, 0, -0.5592, -1.93969, -0.41864, 1.30834)
 script = ExtResource("13_e20nd")
+
+[node name="NumberPad" parent="." instance=ExtResource("15_vpvvo")]
+transform = Transform3D(-0.628819, 0, -0.777553, 0, 1, 0, 0.777553, 0, -0.628819, 2.17251, 2.98023e-08, 2.04765)
+
+[node name="NumpadInterface" parent="NumberPad" index="2"]
+visible = false
+
+[node name="Screen" parent="NumberPad/NumpadInterface/StaticUIContainer/Viewport2Din3D" index="1"]
+mesh = SubResource("QuadMesh_n5p3k")
+surface_material_override/0 = SubResource("StandardMaterial3D_xdgcs")
+
+[node name="CollisionShape3D" parent="NumberPad/NumpadInterface/StaticUIContainer/Viewport2Din3D/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_0tljh")
 
 [connection signal="correct_password_inputted" from="Numpad" to="Events/ActionInputNumberSequence" method="_on_numpad_correct_password_inputted"]
 
@@ -245,3 +281,9 @@ script = ExtResource("13_e20nd")
 [editable path="Numpad/StaticUIContainer/Viewport2Din3D"]
 [editable path="Numpad/StaticUIContainer/Viewport2Din3D/Viewport/NumPadUI"]
 [editable path="MagicalDistortion"]
+[editable path="NumberPad"]
+[editable path="NumberPad/NumpadInterface"]
+[editable path="NumberPad/NumpadInterface/KeypadLock_BodyNineKeys"]
+[editable path="NumberPad/NumpadInterface/StaticUIContainer"]
+[editable path="NumberPad/NumpadInterface/StaticUIContainer/Viewport2Din3D"]
+[editable path="NumberPad/NumpadInterface/StaticUIContainer/Viewport2Din3D/Viewport/NumPadUI"]
