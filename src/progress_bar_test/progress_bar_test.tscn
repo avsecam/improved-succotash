@@ -13,14 +13,14 @@ shader = ExtResource("4_sm8bk")
 resource_local_to_scene = true
 size = Vector2(200, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pk7i1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_di237"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5u3y"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xh6tx"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_pk7i1")
+albedo_texture = SubResource("ViewportTexture_di237")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p435t"]
@@ -52,7 +52,7 @@ use_parent_material = true
 
 [node name="Screen" parent="Viewport2Din3D" index="1"]
 mesh = SubResource("QuadMesh_oigqy")
-surface_material_override/0 = SubResource("StandardMaterial3D_u5u3y")
+surface_material_override/0 = SubResource("StandardMaterial3D_xh6tx")
 
 [node name="StaticBody3D" parent="Viewport2Din3D" index="2"]
 screen_size = Vector2(200, 200)

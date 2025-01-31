@@ -110,7 +110,11 @@ func _on_load_game_pressed():
 func _on_back_pressed():
 	go_to_main()
 
-
+func open_main_menu_nonpaused() -> void:
+	go_to_main()
+	visible = true
+	main_menu_hitbox.disabled = false
+	get_tree().paused = true
 
 func _on_save_game_pressed():
 	go_to_save_files(false, true)

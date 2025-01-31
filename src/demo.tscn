@@ -339,6 +339,22 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0.341176, 0.341176, 0.341176, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ik2j7"]
+resource_name = "circle_fade_in_credits"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.140448, 0.140447, 0.140447, 0.745098)]
+}
+
 [sub_resource type="Animation" id="Animation_eqsai"]
 resource_name = "circle_fade_in_special"
 length = 0.5
@@ -391,6 +407,7 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_sgf26"),
 "circle_fade_in": SubResource("Animation_rlqpg"),
+"circle_fade_in_credits": SubResource("Animation_ik2j7"),
 "circle_fade_in_special": SubResource("Animation_eqsai"),
 "circle_fade_out": SubResource("Animation_1icpb"),
 "circle_fade_out_special": SubResource("Animation_27w15")
@@ -560,6 +577,27 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.
 [node name="FunctionPointer" parent="XRPlayer/XROrigin3D/LeftHand" index="3"]
 transform = Transform3D(0.999936, -0.00898236, 0.0068461, 0.00899957, 0.999956, -0.00248775, -0.00682346, 0.00254919, 0.999973, 0.00693336, 0, 0)
 laser_hit_material = SubResource("StandardMaterial3D_86bea")
+
+[node name="Skeleton3D" parent="XRPlayer/XROrigin3D/RightHand/RightHand/Hand_Nails_low_R/Armature" index="0"]
+bones/1/rotation = Quaternion(0.323537, 2.56577e-05, 0.0272204, 0.945824)
+bones/2/rotation = Quaternion(-0.0904441, 0.0415175, 0.166293, 0.981042)
+bones/3/rotation = Quaternion(-0.0466199, -0.020971, -0.0103276, 0.998639)
+bones/5/rotation = Quaternion(-0.00128455, 0.0116081, 0.0168259, 0.99979)
+bones/6/rotation = Quaternion(0.102925, 0.00993208, 0.00794419, 0.994608)
+bones/7/rotation = Quaternion(-0.012859, 0.0236108, 0.323258, 0.945929)
+bones/8/rotation = Quaternion(0.0120575, 0.00929193, 0.247472, 0.968775)
+bones/10/rotation = Quaternion(-0.0357539, 0.000400032, -0.00636763, 0.99934)
+bones/11/rotation = Quaternion(-0.00264964, 0.00114471, 0.125992, 0.992027)
+bones/12/rotation = Quaternion(0.0394225, -0.00193393, 0.228074, 0.972843)
+bones/13/rotation = Quaternion(-0.0123395, 0.00881294, 0.280669, 0.959685)
+bones/15/rotation = Quaternion(-0.0702656, -0.0101908, 0.0243307, 0.99718)
+bones/16/rotation = Quaternion(-0.0320634, 0.00223624, 0.0686366, 0.997124)
+bones/17/rotation = Quaternion(0.0253452, -0.00812462, 0.249005, 0.968136)
+bones/18/rotation = Quaternion(0.00252233, -0.00788073, 0.243204, 0.96994)
+bones/20/rotation = Quaternion(-0.0917369, -0.0203027, 0.010183, 0.995524)
+bones/21/rotation = Quaternion(-0.0625182, 0.000225721, 0.115393, 0.991351)
+bones/22/rotation = Quaternion(0.0585786, -0.0216483, 0.269905, 0.96086)
+bones/23/rotation = Quaternion(0.00687177, 0.00357275, 0.211953, 0.977249)
 
 [node name="mesh_Hand_Nails_low_R" parent="XRPlayer/XROrigin3D/RightHand/RightHand/Hand_Nails_low_R/Armature/Skeleton3D" index="0"]
 transform = Transform3D(1, 9.44056e-10, 4.65661e-10, 8.40373e-10, 1, -2.32831e-10, 4.65661e-10, -2.32831e-10, 1, 0, 0, 0)
