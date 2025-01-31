@@ -3,6 +3,7 @@ extends Event
 @onready var butterfly_particles = $"../../LookAroundChecker/Marker1/ButterflyParticles"
 
 func _on_event_started() -> void:
+	await get_tree().create_timer(1).timeout
 	clear_event_dialogue()
 	marker_1.screen_entered.connect(_on_marker_1_screen_entered)
 

@@ -1,7 +1,5 @@
 extends Event
 
-
-
 signal secondary_emit
 
 @onready var shelf_reference = get_tree().get_root().get_node("/root/Demo/Shelf/InventoryController")

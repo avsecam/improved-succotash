@@ -5,6 +5,7 @@ extends Event
 
 
 func _on_event_started() -> void:
+	await get_tree().create_timer(1).timeout
 	clear_event_dialogue()
 	marker_2.screen_entered.connect(_on_marker_2_screen_entered)
 
