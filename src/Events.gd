@@ -44,7 +44,7 @@ var locked_teleporters : Dictionary = {
 	"Middle4_jpg" : "WaypointToMid4_Open",
 	"Img2023111609464900044_jpg" : "WaypointToMid8_Open",
 	"Back0_jpg" : "WaypointToB_Open",
-	"Left2_jpg" : "QuestPlaceAllTheCatIcons_Done",
+	"Left2_jpg" : "JournalAssistantPaintings_Read",
 	"RightStairs1_jpg" : "WaypointUpStairs_Open",
 	"Back2_jpg" : "DialoguePaintingsReminder_Done",
 	"2Right3_jpg": "ActionCoinInFrame_Done",

@@ -2,4 +2,5 @@ extends Event
 
 
 func _on_event_started():
-	quests.add_active_quest("QuestPlaceAllTheCatIcons")
+	if "QuestPlaceAllTheCatIcons_Done" not in Events.finished_events:
+		quests.add_active_quest("QuestPlaceAllTheCatIcons")
