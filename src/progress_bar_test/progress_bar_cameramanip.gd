@@ -7,6 +7,7 @@ var image_rotate
 
 @onready var progress_circle_component = $"Viewport2Din3D/Viewport/Progress Circle2/ProgressCircleComponent"
 @onready var animation_player = $"Viewport2Din3D/Viewport/Progress Circle2/AnimationPlayer"
+@onready var screen = $Viewport2Din3D/Screen
 
 
 
@@ -26,6 +27,7 @@ func initialize_progress_bar_position(mode: String) -> void:
 func _ready():
 	initialize_progress_bar_position("VR")
 	progress_circle_component.value = 0
+	screen.get_surface_override_material(0).set_flag(0, true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

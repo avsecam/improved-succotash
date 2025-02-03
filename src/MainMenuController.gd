@@ -6,7 +6,6 @@ var camera
 @export var object_distance := 0.75
 @export var object_height : float 
 var image_rotate
-
 @onready var quest_tracker_ui := $"Viewport2Din3D/Viewport/StaticUI/QuestTrackerUI"
 @onready var dialogue_box := $"Viewport2Din3D/Viewport/StaticUI/Dialogue UI"
 @onready var main_menu := $"../MainMenu"

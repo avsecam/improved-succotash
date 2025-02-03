@@ -9,6 +9,7 @@ signal menu_closed()
 @onready var save_files := $SaveFiles
 @onready var tutorials := $Tutorials
 @onready var confirmation_panel := $ConfirmationPanel
+@onready var credits_animation_player = $Credits/AnimationPlayer
 
 @onready var main_menu_hitbox := get_parent().get_parent().get_node("StaticBody3D/CollisionShape3D")
 
@@ -108,7 +109,11 @@ func _on_load_game_pressed():
 
 
 func _on_back_pressed():
+	if credits.visible:
+		credits_animation_player.play("RESET")
 	go_to_main()
+
+	
 
 func open_main_menu_nonpaused() -> void:
 	go_to_main()

@@ -1,17 +1,94 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3q1e5dyiic5v"]
+[gd_scene load_steps=19 format=3 uid="uid://d3q1e5dyiic5v"]
 
 [ext_resource type="Script" path="res://src/MainMenuUI.gd" id="1_1prhs"]
 [ext_resource type="FontFile" uid="uid://be0wxrjh42okc" path="res://src/assets/Fonts/Poppins/Poppins-Black.ttf" id="1_pfw27"]
 [ext_resource type="FontFile" uid="uid://nrqyq6e4vnlj" path="res://src/assets/Fonts/Poppins/Poppins-Medium.ttf" id="2_bgy54"]
 [ext_resource type="Texture2D" uid="uid://rvp53eu3kxrb" path="res://src/assets/Logo/HHV1.png" id="2_eyrc7"]
 [ext_resource type="Script" path="res://src/TutorialsReviewScreen.gd" id="3_mseuk"]
-[ext_resource type="FontFile" uid="uid://cvpm3sl6dimfg" path="res://src/assets/Fonts/Poppins/Poppins-MediumItalic.ttf" id="3_my10h"]
-[ext_resource type="FontFile" uid="uid://ii2stee4kiwm" path="res://src/assets/Fonts/Poppins/Poppins-BlackItalic.ttf" id="4_oyjvv"]
 [ext_resource type="PackedScene" uid="uid://bebgkxrau10o7" path="res://src/SaveFileUI.tscn" id="5_8hjiv"]
 [ext_resource type="Script" path="res://src/Credits.gd" id="5_afhh0"]
+[ext_resource type="FontFile" uid="uid://cte42piphmlng" path="res://src/assets/Fonts/Pirata_One/PirataOne-Regular.ttf" id="6_2i4t2"]
 [ext_resource type="Script" path="res://src/SaveFiles.gd" id="6_pqrwe"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_aj5rr"]
+
+[sub_resource type="Gradient" id="Gradient_ts6jv"]
+offsets = PackedFloat32Array(0, 0.193093, 0.516484, 0.791209, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0.980392, 0.980392, 0.980392, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1bl1c"]
+gradient = SubResource("Gradient_ts6jv")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m7t1l"]
+
+[sub_resource type="Gradient" id="Gradient_leef4"]
+colors = PackedColorArray(0.490196, 0.490196, 0.490196, 1, 0.490196, 0.490196, 0.490196, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_omb2e"]
+gradient = SubResource("Gradient_leef4")
+
+[sub_resource type="Animation" id="Animation_0k0wd"]
+resource_name = "credits_play"
+length = 35.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30, 35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(216, 625), Vector2(216, -2700), Vector2(216, -2700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect/Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 33, 35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vt6kc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 625)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect/Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wuhys"]
+_data = {
+"RESET": SubResource("Animation_vt6kc"),
+"credits_play": SubResource("Animation_0k0wd")
+}
 
 [node name="MainMenuUI" type="Control"]
 layout_mode = 3
@@ -41,6 +118,7 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.701961)
 
 [node name="Main" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -246,23 +324,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_afhh0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+[node name="TextureRect" type="TextureRect" parent="Credits"]
+self_modulate = Color(0, 0.921569, 0.592157, 1)
+clip_children = 1
+light_mask = 0
+z_index = 185
+clip_contents = true
+custom_minimum_size = Vector2(1152, 559.435)
 layout_mode = 2
+texture = SubResource("GradientTexture2D_1bl1c")
+expand_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer"]
-custom_minimum_size = Vector2(1000, 500)
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_bgy54")
-theme_override_fonts/bold_font = ExtResource("1_pfw27")
-theme_override_fonts/italics_font = ExtResource("3_my10h")
-theme_override_fonts/bold_italics_font = ExtResource("4_oyjvv")
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
-theme_override_font_sizes/italics_font_size = 36
-theme_override_font_sizes/bold_italics_font_size = 36
-theme_override_font_sizes/mono_font_size = 36
+[node name="Credits" type="RichTextLabel" parent="Credits/TextureRect"]
+z_index = 20
+material = SubResource("CanvasItemMaterial_m7t1l")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = 345.283
+offset_right = 350.0
+offset_bottom = 3331.29
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_2i4t2")
+theme_override_fonts/bold_font = ExtResource("2_bgy54")
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 18
 bbcode_enabled = true
-text = "[center][img width=500]res://src/assets/Logo/HHV1.png[/img]
+text = "[b]
+
+[center][img width=500]res://src/assets/Logo/HHV1.png[/img]
 
 A production of the Ateneo Virtual, Augmented and Mixed Reality (VAMR) Laboratory and the Ateneo Laboratory for the Learning Sciences
 
@@ -343,21 +440,52 @@ Ateneo de Manila University
 
 This game is a work of fiction. All likenesses of historical figures explicitly referenced in this work are not intended to be accurately depicted and are strictly for educational purposes only. All other similarities to real persons, living or dead, are purely coincidental.
 
-Game copyright © 2024, Ateneo de Manila University.
-All rights reserved.
 
-"
-scroll_active = false
 
-[node name="CenterContainer" type="CenterContainer" parent="Credits/VBoxContainer"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+Game copyright © 2025, Ateneo de Manila University.
+All rights reserved."
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Credits/TextureRect"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -86.0
+offset_right = 1185.0
+offset_bottom = 666.0
+texture = SubResource("GradientTexture2D_omb2e")
+
+[node name="CenterContainer" type="CenterContainer" parent="Credits/TextureRect"]
+z_index = 50
 layout_mode = 2
+offset_left = 874.0
+offset_top = 475.105
+offset_right = 1135.08
+offset_bottom = 555.105
 
-[node name="Back" type="Button" parent="Credits/VBoxContainer/CenterContainer"]
-custom_minimum_size = Vector2(400, 80)
+[node name="Back" type="Button" parent="Credits/TextureRect/CenterContainer"]
+custom_minimum_size = Vector2(261.085, 80)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_pfw27")
 theme_override_font_sizes/font_size = 48
 text = "BACK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Credits"]
+libraries = {
+"": SubResource("AnimationLibrary_wuhys")
+}
 
 [node name="SaveFiles" type="CenterContainer" parent="."]
 visible = false
@@ -452,7 +580,7 @@ text = "CONFIRM"
 [connection signal="pressed" from="Tutorials/VBoxContainer/StrikeAction" to="Tutorials" method="_on_strike_action_pressed"]
 [connection signal="pressed" from="Tutorials/VBoxContainer/Menu" to="Tutorials" method="_on_menu_pressed"]
 [connection signal="update_line" from="Credits" to="Credits" method="_on_update_line"]
-[connection signal="pressed" from="Credits/VBoxContainer/CenterContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Credits/TextureRect/CenterContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile" to="SaveFiles" method="_on_save_file_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile2" to="SaveFiles" method="_on_save_file_2_pressed"]
 [connection signal="pressed" from="SaveFiles/VBoxContainer/SaveFile3" to="SaveFiles" method="_on_save_file_3_pressed"]

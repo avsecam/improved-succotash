@@ -2684,8 +2684,8 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.362774, 0)
 visible = false
 
 [node name="CatOnScreenNotif" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10433, 0)
-aabb = AABB(-0.119018, -0.280644, -0.249114, 0.238036, 0.561289, 0.498228)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0106413, 0.0269179)
+aabb = AABB(-0.017098, -0.00905956, -0.00850109, 0.0341959, 0.0181201, 0.0170022)
 
 [node name="CatMeow" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_cypjy")

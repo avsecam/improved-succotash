@@ -2,11 +2,14 @@ extends Node3D
 
 var camera
 
-@export var object_follow_speed := 4.0
-@export var object_distance := 0.75
+@export var object_follow_speed := 10
+@export var object_distance := 0.8
 @export var object_height : float 
 var image_rotate
 
+@export var position_ui_offset : Vector3
+
+var rotate_camera_by_controller : bool = false
 @onready var quest_tracker_ui := $"Viewport2Din3D/Viewport/StaticUI/QuestTrackerUI"
 @onready var dialogue_box := $"Viewport2Din3D/Viewport/StaticUI/Dialogue UI"
 @onready var screen := $Viewport2Din3D/Screen
@@ -44,9 +47,20 @@ func _physics_process(delta):
 	
 	var position_x_rotate = object_distance * cos(camera.global_rotation.y - self.get_parent().global_rotation.y)
 	var position_z_rotate = object_distance * sin(camera.global_rotation.y - self.get_parent().global_rotation.y)
-	var position_ui_offset = Vector3(-position_z_rotate,object_height,-position_x_rotate)
-	self.global_transform.origin = self.global_transform.origin.lerp(camera.global_transform.origin + position_ui_offset, delta * object_follow_speed)
+	position_ui_offset = Vector3(-position_z_rotate,object_height/2,-position_x_rotate)
 	
-	self.rotation.y = camera.global_rotation.y - self.get_parent().global_rotation.y
+	if rotate_camera_by_controller:
+		self.global_transform.origin = camera.global_transform.origin + 2*position_ui_offset
+		self.rotation.y = camera.global_rotation.y - self.get_parent().global_rotation.y
+		rotate_camera_by_controller = false
+	else:
+		self.global_transform.origin = self.global_transform.origin.lerp(camera.global_transform.origin + 2*position_ui_offset, delta * object_follow_speed)
+		self.rotation.y = camera.global_rotation.y - self.get_parent().global_rotation.y
+		self.rotation.x = 0
+		self.rotation.z = 0
 	#print("Dialogue UI POSITION:"+str(self.transform.origin))
 	#print("CAMERA GLOBALTRANSFORM:"+str(point))
+
+
+func _on_rotate_camera_rotate_camera_called():
+	rotate_camera_by_controller = true

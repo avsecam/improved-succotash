@@ -51,3 +51,5 @@ func pointer_collision_response(obj) -> void:
 		show_action("strike")
 	else:
 		close_ui()
+
+
