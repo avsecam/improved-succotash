@@ -15,16 +15,16 @@ func _process_camera_rotation():
 	var camera_default_pos = camera.position
 	
 	if absf(dz_input_action.x) >= absf(0.3) and not has_rotated:
-		print("\n======\nCAMERA position before:"+str(camera.global_position))
+		#print("\n======\nCAMERA position before:"+str(camera.global_position))
 		Events.player_rotate_requested.emit()
 		if dz_input_action.x >= 0.3:
 			origin.rotation.y += 5
 		elif dz_input_action.x <= -0.3:
 			origin.rotation.y -= 5
 		has_rotated = true
-		print("\nCAMERA position after:"+str(camera.global_position))
+		#print("\nCAMERA position after:"+str(camera.global_position))
 		camera.position = camera_default_pos
-		print("\nCAMERA position AAAAAafter:"+str(camera.global_position))
+		#print("\nCAMERA position AAAAAafter:"+str(camera.global_position))
 		rotate_camera_called.emit()
 		
 	

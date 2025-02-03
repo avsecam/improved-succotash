@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq46582kommvy"]
+[gd_scene load_steps=17 format=3 uid="uid://bq46582kommvy"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_gv6nh"]
 [ext_resource type="ArrayMesh" uid="uid://dmidj4rpanrjt" path="res://src/assets/A2/Bottle_HolyWater.tres" id="2_0lqo0"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_2xrvk"]
+[ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="4_7hr1y"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_08wjh"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_5ac60"]
 [ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_uoch3"]
+[ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="7_hjn8d"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_rte4t"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="8_mj7qo"]
 [ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="8_scxnr"]
@@ -12,6 +15,16 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6bgc"]
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Resource" id="Resource_7ttpr"]
+script = ExtResource("5_5ac60")
+open_pose = ExtResource("4_7hr1y")
+closed_pose = ExtResource("4_7hr1y")
+
+[sub_resource type="Resource" id="Resource_sr8pb"]
+script = ExtResource("5_5ac60")
+open_pose = ExtResource("7_hjn8d")
+closed_pose = ExtResource("7_hjn8d")
 
 [sub_resource type="Resource" id="Resource_7dhfn"]
 script = ExtResource("7_rte4t")
@@ -56,10 +69,12 @@ transform = Transform3D(-2.18557e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.18557e-0
 mesh = ExtResource("2_0lqo0")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_2xrvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0364313, 0.0507384, -0.113379)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0258685, 0.0507384, -0.0539905)
+hand_pose = SubResource("Resource_7ttpr")
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_08wjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0421172, 0.0375126, -0.128848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0350297, 0.0375126, -0.0694595)
+hand_pose = SubResource("Resource_sr8pb")
 
 [node name="StateManager" parent="." instance=ExtResource("5_uoch3")]
 receiver_group = "holy_water"

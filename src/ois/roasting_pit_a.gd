@@ -1,6 +1,7 @@
 extends StaticBody3D
 
-@onready var pole_visible = $pole_bamboo_chicken_roastpit
+@onready var pole_visible = $MainMesh/Pit/pole_bamboo_chicken_roastpit
+
 var time : float
 var progress_bool : bool
 @onready var progress_view = $"Progress View"
@@ -16,7 +17,6 @@ signal pole_inserted_inventory
 func _ready():
 	snap_zone.enabled = false
 	pole_visible.visible = false
-	pole_visible.global_position = fire_wood.global_position + Vector3(0,0,0.05)
 	animation_player.play("roast_spin")
 	c1 = false
 	c2 = false

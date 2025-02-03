@@ -437,19 +437,19 @@
 			"ActionCoinInFrame_Done"
 		],
 		"Quest_Completion_Tracker": {
-			"Put ingot in crucible": [
+			"Put iron ingot/bar in small container (crucible)": [
 				"ActionPutIngotInCrucible_Done"
 			],
-			"Put crucible in forge": [
+			"Put small container (crucible) in forge": [
 				"ActionPutCrucibleInForge_Done"
 			],
 			"Operate forge bellows": [
 				"ActionForgeOperationIndicator_Done"
 			],
-			"Melt ingot": [
+			"Melt iron ingot": [
 				"ActionIngotFinishedMelt_Done"
 			],
-			"Pour melted ingot on coin mold": [
+			"Pour melted iron ingot on coin mold": [
 				"ActionCoinComplete_Done"
 			],
 			"Put coin on frame": [

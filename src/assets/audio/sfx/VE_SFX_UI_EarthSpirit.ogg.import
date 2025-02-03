@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/VE_SFX_UI_EarthSpirit.ogg-ef2159b2f34a8830bb7
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

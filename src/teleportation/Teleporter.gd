@@ -12,6 +12,7 @@ extends StaticBody3D
 @onready var portal_mesh = $CollisionShape3D2/PortalMesh
 @onready var main_collision_mesh = $CollisionShape3D
 @onready var special_collision_mesh = $SpecialCollisionMesh
+@onready var specialeffectssound = $SpecialCollisionMesh/AudioStreamPlayer3D
 
 func _ready():
 	self.mesh.mesh.resource_local_to_scene = true
@@ -21,6 +22,9 @@ func _ready():
 		main_collision_mesh.visible = false
 		special_collision_mesh.disabled = false
 		special_collision_mesh.visible = true
+		if enabled:
+			specialeffectssound.play()
+		
 	else:
 		main_collision_mesh.disabled = false
 		main_collision_mesh.visible = true
@@ -44,6 +48,7 @@ func enable_teleporter():
 		if special:
 			self.mesh.mesh.material.albedo_color = Color(Color.DARK_SEA_GREEN)
 			special_collision_mesh.visible = true
+			specialeffectssound.play()
 		else:
 			self.mesh.mesh.material.albedo_color = Color(Color.WHITE)
 

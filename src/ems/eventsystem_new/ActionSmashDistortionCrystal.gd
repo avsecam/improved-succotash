@@ -6,7 +6,7 @@ extends Event
 
 func _on_event_started():
 	distortion_crystal.visible = true
-	await get_tree().create_timer(loop_interval).timeout
+	#await get_tree().create_timer(loop_interval).timeout
 	play_event_audio()
 
 func _on_distortion_crystal_action_completed(requirement, total_progress):
