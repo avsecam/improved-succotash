@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bb2op0b3b07lb"]
+[gd_scene load_steps=60 format=3 uid="uid://bb2op0b3b07lb"]
 
 [ext_resource type="PackedScene" uid="uid://u3okxetcvpo4" path="res://src/assets/A1/Table2.tscn" id="1_6subo"]
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_l7fku"]
@@ -42,13 +42,45 @@
 [ext_resource type="PackedScene" uid="uid://cqwgfyorumpev" path="res://src/ois/Saba.tscn" id="25_dpbcj"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCookingFinished.gd" id="26_dlaqn"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/DialogueCalandraOfSanto.gd" id="27_sm54i"]
+[ext_resource type="Script" path="res://src/ois/knife_cleaver.gd" id="32_c5ug5"]
+[ext_resource type="Script" path="res://src/ois/spoon_mix.gd" id="39_t1dkn"]
 [ext_resource type="PackedScene" uid="uid://dcm7wtj5ie8a8" path="res://src/ois/plate_saba.tscn" id="41_em2b0"]
+[ext_resource type="Script" path="res://src/ois/grater.gd" id="41_jrt0w"]
 [ext_resource type="PackedScene" uid="uid://7hrj4owegamd" path="res://src/ois/cooking_vat_long_new.tscn" id="43_2rwgp"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="43_4temx"]
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="46_836et"]
 [ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="47_omwwf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
+
+[sub_resource type="Gradient" id="Gradient_68mfk"]
+offsets = PackedFloat32Array(0, 0.309091, 0.709091, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.671053, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ipxr7"]
+gradient = SubResource("Gradient_68mfk")
+
+[sub_resource type="Curve" id="Curve_mqja3"]
+_data = [Vector2(0, 0), 0.0, 6.63461, 0, 0, Vector2(0.188406, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.919081, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rxjis"]
+curve = SubResource("Curve_mqja3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bkri4"]
+resource_local_to_scene = true
+lifetime_randomness = 0.05
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -360.0
+angle_max = 360.0
+gravity = Vector3(0, 2, 0)
+damping_max = 1.0
+scale_min = 0.2
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_rxjis")
+color = Color(0.12495, 0.0106964, 0.000834139, 0.8)
+color_ramp = SubResource("GradientTexture1D_ipxr7")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gra0n"]
 resource_local_to_scene = true
@@ -283,31 +315,37 @@ collision_mask = 196615
 
 [node name="Onion" parent="." groups=["sliceable"] instance=ExtResource("12_nmkx5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715056, -0.606739, -0.385559)
-collision_layer = 5242884
+visible = false
 
 [node name="Cleaver" parent="." instance=ExtResource("13_sud5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46152, -0.276312, -0.641495)
+visible = false
 collision_layer = 5242884
+script = ExtResource("32_c5ug5")
 
 [node name="Garlic" parent="." groups=["sliceable"] instance=ExtResource("14_phaoi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651081, -0.584891, -0.157762)
-collision_layer = 5242884
+visible = false
 
 [node name="Papaya" parent="." instance=ExtResource("22_w7xq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608172, -0.633548, 0.0792502)
+visible = false
 
 [node name="Kalabasa" parent="." groups=["sliceable"] instance=ExtResource("15_linsv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228431, -0.51773, -0.878162)
-collision_layer = 5242884
+visible = false
 
 [node name="Roasting Pit" parent="." instance=ExtResource("16_vna2s")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.29558, -0.5848, 0.145437)
 
-[node name="Stilts" parent="Roasting Pit/MainMesh/Pit" index="1"]
+[node name="pole_bamboo_chicken_roastpit" parent="Roasting Pit/MainMesh/Pit" index="0"]
+transform = Transform3D(0.000307759, 50, -4.58867e-10, -0.000181, 6.55216e-10, -50, -50, 0.000307759, 0.000181, 0, 25, 0)
+
+[node name="Stilts" parent="Roasting Pit/MainMesh/Pit" index="2"]
 transform = Transform3D(1.231, 0, 0, 0, 12.184, 0, -3.55271e-15, 0, 1.511, 22.8868, 12.2064, 0)
 
-[node name="pole_bamboo_chicken_roastpit" parent="Roasting Pit" index="2"]
-transform = Transform3D(1.37469e-06, 1, -1.17719e-06, -0.464343, 1.68092e-06, 0.885655, 0.885655, -6.70882e-07, 0.464343, 0, 0.5, 0)
+[node name="Smoke" parent="Roasting Pit/Node3D" index="2"]
+process_material = SubResource("ParticleProcessMaterial_bkri4")
 
 [node name="CollisionShape3D" parent="Roasting Pit/SnapZone" index="0"]
 shape = SubResource("SphereShape3D_gra0n")
@@ -327,18 +365,24 @@ transform = Transform3D(-0.749619, 0, 0.0239238, 0, 0.75, 0, -0.0239238, 0, -0.7
 
 [node name="Mixer Spoon" parent="." instance=ExtResource("20_u58be")]
 transform = Transform3D(1, 0, 0, 0, -0.00116937, -0.999999, 0, 0.999999, -0.00116937, 0.104603, -0.558777, -0.738663)
+visible = false
+script = ExtResource("39_t1dkn")
 
 [node name="Grater" parent="." instance=ExtResource("21_0kpst")]
 transform = Transform3D(-0.733208, 0, -0.680004, 0, 1, 0, 0.680004, 0, -0.733208, 0.466246, -0.632294, 0.174008)
+visible = false
+script = ExtResource("41_jrt0w")
 
 [node name="Kawali with Oil" parent="." instance=ExtResource("23_2l0vu")]
 transform = Transform3D(-0.65594, 0, -0.754813, 0, 1, 0, 0.754813, 0, -0.65594, -0.142911, -0.592339, 0.614328)
 
 [node name="Strainer" parent="." instance=ExtResource("24_cpqmc")]
 transform = Transform3D(-0.989298, 0, 0.14591, 0, 1, 0, -0.14591, 0, -0.989298, -0.86113, -0.58849, 0.525626)
+visible = false
 
 [node name="Saba Bananas" parent="." instance=ExtResource("25_dpbcj")]
 transform = Transform3D(0.999984, 0.00561993, 0, -0.00561993, 0.999984, 0, 0, 0, 1, -0.408003, -0.576272, 0.39372)
+visible = false
 
 [node name="Plate" parent="." instance=ExtResource("41_em2b0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577415, -0.640269, 0.741877)
@@ -380,10 +424,19 @@ associated_event = "JournalLunchFoodEnjoy"
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="pole_bamboo_chicken_new" method="_on_associated_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="chicken_raw_new" method="_on_associated_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="chicken_raw_new2" method="_on_associated_event_finished"]
+[connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="Cleaver" method="_on_action_after_chicken_skewer_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="Kalabasa" method="_on_action_after_chicken_skewer_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionAfterChickenSkewer" to="Roasting Pit" method="_on_associated_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionChopKalabasa" to="Kalabasa" method="_on_associated_event_finished"]
+[connection signal="tree_exiting" from="Events/ActionChopKalabasa" to="cooking_vat_long_new" method="_on_action_chop_kalabasa_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutKalabasaInPot" to="Kalabasa" method="_on_kalabasa_add_pot_event_finished"]
+[connection signal="tree_exiting" from="Events/ActionPutKalabasaInPot" to="Mixer Spoon" method="_on_action_put_kalabasa_in_pot_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutKalabasaInPot" to="cooking_vat_long_new" method="_on_kalabasa_added_event_finished"]
+[connection signal="tree_exiting" from="Events/ActionMixKalabasaSoup" to="Onion" method="_on_action_mix_kalabasa_soup_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionMixKalabasaSoup" to="Garlic" method="_on_action_mix_kalabasa_soup_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionMixKalabasaSoup" to="Papaya" method="_on_action_mix_kalabasa_soup_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionMixKalabasaSoup" to="Mixer Spoon" method="_on_action_mix_kalabasa_soup_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionMixKalabasaSoup" to="Grater" method="_on_action_mix_kalabasa_soup_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionMixKalabasaSoup" to="cooking_vat_long_new" method="_on_kalabasa_mixed_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionGratePapaya" to="Papaya" method="_on_associated_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionGratePapaya" to="Atchara Pot" method="_on_papaya_grated_event_finished"]
@@ -397,8 +450,12 @@ associated_event = "JournalLunchFoodEnjoy"
 [connection signal="tree_exiting" from="Events/ActionAddAtcharaIngredientsGarlic" to="Atchara Pot" method="_on_atchara_garlic_added_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionAddAtcharaIngredientsPapaya" to="Papaya" method="_on_atchara_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionAddAtcharaIngredientsPapaya" to="Atchara Pot" method="_on_atchara_papaya_added_event_finished"]
+[connection signal="tree_exiting" from="Events/ActionAllAtcharaIngredients" to="Cleaver" method="_on_action_all_atchara_ingredients_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionAllAtcharaIngredients" to="Atchara Pot" method="_on_atchara_complete_added_event_finished"]
+[connection signal="tree_exiting" from="Events/ActionAllAtcharaIngredients" to="Grater" method="_on_action_all_atchara_ingredients_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionAllAtcharaIngredients" to="Kawali with Oil" method="_on_action_all_atchara_ingredients_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionAllAtcharaIngredients" to="Strainer" method="_on_action_all_atchara_ingredients_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionAllAtcharaIngredients" to="Saba Bananas" method="_on_action_all_atchara_ingredients_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutSabaInPan" to="Kawali with Oil" method="_on_action_put_saba_in_pan_tree_exiting"]
 [connection signal="tree_exiting" from="Events/ActionPutSabaInPan" to="Saba Bananas" method="_on_associated_event_finished"]
 [connection signal="tree_exiting" from="Events/ActionFinishSabaCooking" to="Kawali with Oil" method="_on_action_finish_saba_cooking_tree_exiting"]
@@ -425,6 +482,8 @@ associated_event = "JournalLunchFoodEnjoy"
 [connection signal="kalabasa_soup_complete" from="cooking_vat_long_new" to="Events/ActionMixKalabasaSoup" method="_on_cooking_vat_long_new_kalabasa_soup_complete"]
 [connection signal="pointer_event" from="Journal" to="Events/JournalLunchFoodEnjoy" method="_on_journal_pointer_event"]
 
+[editable path="Cleaver"]
 [editable path="Roasting Pit"]
+[editable path="Roasting Pit/MainMesh/Pit/pole_bamboo_chicken_roastpit"]
 [editable path="Roasting Pit/SnapZone"]
 [editable path="Journal"]

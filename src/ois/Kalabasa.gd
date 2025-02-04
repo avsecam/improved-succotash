@@ -17,3 +17,7 @@ func _on_associated_event_finished() -> void:
 
 func _on_kalabasa_add_pot_event_finished():
 	queue_free()
+
+
+func _on_action_after_chicken_skewer_tree_exiting():
+	self.visible = true

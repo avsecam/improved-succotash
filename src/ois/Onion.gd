@@ -18,3 +18,7 @@ func _on_associated_event_finished() -> void:
 	
 func _on_atchara_event_finished():
 	queue_free()
+
+
+func _on_action_mix_kalabasa_soup_tree_exiting():
+	self.visible = true

@@ -100,6 +100,9 @@ transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0, 0, 0)
 transform = Transform3D(-0.136459, 0, -0.990646, 0, 1, 0, 0.990646, 0, -0.136459, 1.20272, -0.0896844, -2.38281)
 requirement = 0.25
 
+[node name="OiledRagReceiver" parent="dirt2" index="3"]
+requirement = 0.01
+
 [node name="dirt3" parent="." instance=ExtResource("7_y0fml")]
 transform = Transform3D(-0.136459, 0, -0.990646, 0, 1, 0, 0.990646, 0, -0.136459, -1.22031, -0.0896844, -2.38281)
 requirement = 0.25
@@ -121,11 +124,15 @@ disabled = true
 [connection signal="tree_exiting" from="Events/ActionCleanWindow2" to="dirt2" method="_associated_event_done"]
 [connection signal="tree_exiting" from="Events/ActionCleanWindow3" to="dirt3" method="_associated_event_done"]
 [connection signal="action_completed" from="dirt" to="Events/ActionCleanWindow1" method="_on_dirt_action_completed"]
+[connection signal="outside_oil_rag_emit" from="dirt" to="Events/ActionUseOiledRagOnWindow" method="_on_dirt_outside_oil_rag_emit"]
 [connection signal="action_completed" from="dirt/OiledRagReceiver" to="Events/ActionUseOiledRagOnWindow" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="dirt2" to="Events/ActionCleanWindow2" method="_on_dirt_2_action_completed"]
+[connection signal="outside_oil_rag_emit" from="dirt2" to="Events/ActionUseOiledRagOnWindow" method="_on_dirt_outside_oil_rag_emit"]
 [connection signal="action_completed" from="dirt2/OiledRagReceiver" to="Events/ActionUseOiledRagOnWindow" method="_on_oiled_rag_receiver_action_completed"]
 [connection signal="action_completed" from="dirt3" to="Events/ActionCleanWindow3" method="_on_dirt_3_action_completed"]
+[connection signal="outside_oil_rag_emit" from="dirt3" to="Events/ActionUseOiledRagOnWindow" method="_on_dirt_outside_oil_rag_emit"]
 [connection signal="action_completed" from="dirt3/OiledRagReceiver" to="Events/ActionUseOiledRagOnWindow" method="_on_oiled_rag_receiver_action_completed"]
+[connection signal="action_started" from="dirt3/OiledRagReceiver" to="Events/ActionUseOiledRagOnWindow" method="_on_oiled_rag_receiver_action_started"]
 [connection signal="picked_up" from="CubeCatCalico" to="Events/ActionGetCatIcon1" method="_on_cube_cat_calico_picked_up"]
 
 [editable path="Rag"]

@@ -12,20 +12,20 @@
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="10_65sx4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0j2vl"]
-size = Vector3(0.211768, 0.0616692, 0.242407)
+size = Vector3(0.211768, 0.200634, 0.242407)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fpgbw"]
 size = Vector3(0.267541, 0.232471, 0.292047)
 
 [node name="Onion" type="RigidBody3D"]
-collision_layer = 4
+collision_layer = 5242884
 collision_mask = 196615
 mass = 3.0
 freeze_mode = 1
 script = ExtResource("1_yaui0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010498, -0.0719257, -0.000763904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010498, -0.0024431, -0.000763904)
 shape = SubResource("BoxShape3D_0j2vl")
 
 [node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("oniona", "onionb", "onionc", "oniond")]

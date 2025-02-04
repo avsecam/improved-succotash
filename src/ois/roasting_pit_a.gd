@@ -25,6 +25,7 @@ func _physics_process(delta):
 	if c1 and c2:
 		if !Events.finished_events.has("ActionAfterChickenSkewer_Done"):
 			snap_zone.enabled = true
+	#pole_visible.position = fire_wood.position
 	
 
 func _on_associated_event_finished():

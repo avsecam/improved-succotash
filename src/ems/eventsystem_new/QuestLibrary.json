@@ -565,5 +565,23 @@
 		"Quest_Completion_Flags": [
 			"QuestDestroytheCrystalsHowitzer_Done"
 		]
+	},
+	{
+		"Quest_Name": "QuestPetCatTutorial",
+		"Quest_Description": {
+			"Name": "Pet the cat",
+			"Description": "The cat needs some headpats."
+		},
+		"Quest_Completion_Requirements": [
+			"ActionPetTheCat_Done"
+		],
+		"Quest_Completion_Tracker": {
+			"Give the cat some pats on its head": [
+				"ActionPetTheCat_Done"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestPetCatTutorial_Done"
+		]
 	}
 ]

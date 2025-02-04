@@ -23,7 +23,12 @@ func _on_strainer_actor_area_entered(area):
 
 func _on_action_put_cooked_saba_in_plate_tree_exiting():
 	saba_plated_bool = true
+	self.visible = false
 
 
 func _on_action_finish_saba_cooking_tree_exiting():
 	saba_finish_cook = true
+
+
+func _on_action_all_atchara_ingredients_tree_exiting():
+	self.visible = true

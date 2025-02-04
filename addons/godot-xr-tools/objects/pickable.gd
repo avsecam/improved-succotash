@@ -398,6 +398,3 @@ func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
 
-
-func _on_crystal_collider_body_exited(body):
-	pass # Replace with function body.

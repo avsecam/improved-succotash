@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://cicew6koqq028"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_66iak"]
+[ext_resource type="Script" path="res://src/assets/A1/Rag.gd" id="1_cr42d"]
 [ext_resource type="PackedScene" uid="uid://cygfkcuxna1en" path="res://src/assets/A1/Rag.glb" id="2_2n3tu"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_qagp5"]
 [ext_resource type="PackedScene" uid="uid://cyy2j8ioc40oj" path="res://src/assets/A1/rag_oiled.tscn" id="3_i2thj"]
@@ -60,7 +60,7 @@ size = Vector3(0.2, 0.0352539, 0.2)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
-script = ExtResource("1_66iak")
+script = ExtResource("1_cr42d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0178844, 0.0195587, 0)

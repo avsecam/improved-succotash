@@ -13,19 +13,19 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0j2vl"]
 margin = 0.01
-size = Vector3(0.222163, 0.0796996, 0.242407)
+size = Vector3(0.222163, 0.223444, 0.242407)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fpgbw"]
 size = Vector3(0.276603, 0.271533, 0.328437)
 
 [node name="kalabasa" type="RigidBody3D"]
-collision_layer = 4
+collision_layer = 5242884
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("1_3m8f5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00459591, -0.0525468, -0.000763904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00459591, 0.0193252, -0.000763904)
 shape = SubResource("BoxShape3D_0j2vl")
 
 [node name="Feedback" type="Node3D" parent="." node_paths=PackedStringArray("kalabasaa", "kalabasab", "kalabasac", "kalabasad")]

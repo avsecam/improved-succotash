@@ -145,7 +145,84 @@ func set_saveslot_info(slot : SaveFileSlot):
 		var load_file = FileAccess.open(load_path, FileAccess.READ)
 		var data : Dictionary = JSON.parse_string(load_file.get_line())
 		
-		slot.current_location_label.set_text("Current Location: " + data["current_location"])
+		var location_name := {
+		"special_room_forge" : "Special Room - Forge",
+		"special_room_kitchen" : "Special Room - Kitchen",
+		"special_room_powerplant_room" : "Special Room - Powerplant Room",
+		"special_room_weapons" : "Special Room - Weapons Room",
+		"Img2023111609464900044.jpg" : "First Floor - Middle 8 (Windows)",
+		"Middle7.jpg" : "First Floor - Middle 7 (Carossa)",
+		"Middle6.jpg" : "First Floor - Middle 6",
+		"Middle5.jpg" : "First Floor - Middle 5 (Lockbox)",
+		"Middle4.jpg" : "First Floor - Middle 4 (Tabernacle)",
+		"Middle3.jpg" : "First Floor - Middle 3 (Last Supper)",
+		"Middle2.jpg" : "First Floor - Middle 2",
+		"Middle1.jpg" : "First Floor - Middle 1",
+		"Middle0.jpg" : "First Floor - Middle Ingress",
+		"FrontRight.jpg" : "First Floor - Near Entrance, Left Side",
+		"FrontClosedDoors(2).jpg" : "First Floor - Museum Entrance",
+		"Left00.jpg" : "First Floor - Left 0 (Pillar)",
+		"Left1.jpg" : "First Floor - Left 1",
+		"Left2.jpg" : "First Floor - Left 2",
+		"Left3.jpg" : "First Floor - Left 3",
+		"Left4.jpg" : "First Floor - Left 4",
+		"Left5.jpg" : "First Floor - Left 5 (Amphora)",
+		"Left7.jpg" : "First Floor - Left 6",
+		"Left10Cheetah.jpg" : "First Floor - Left 7 (Cheetah)",
+		"Left11.jpg" : "First Floor - Left 8 (Cat Icons)",
+		"Back0.jpg" : "First Floor - Back Ingress",
+		"Back1.jpg" : "First Floor - Back 1",
+		"Back2.jpg" : "First Floor - Back 2 (Painting)",
+		"Rights0.jpg" : "First Floor - Right 0 (Kitchen Portal)",
+		"Rights1.jpg" : "First Floor - Right 1 (Portraits)",
+		"Rights2.jpg" : "First Floor - Right 2",
+		"Right1.jpg" : "First Floor - Right 3 (Powerplant Portal)",
+		"Right3.jpg" : "First Floor - Right 4",
+		"Right4.jpg" : "First Floor - Right 5",
+		"Right5.jpg" : "First Floor - Right 6",
+		"RightStairs0.jpg" : "First Floor - Stairs Entrance (Number Sequence)",
+		"RightStairs1.jpg" : "Stairs to Second Floor",
+		"2Right0.jpg" : "Second Floor - Right Ingress (Black Cat)",
+		"2Right1.jpg" : "Second Floor - Right 1 (Forge Portal)",
+		"2Right3.jpg" : "Second Floor - Right 2",
+		"2Right4.jpg" : "Second Floor - Right 3",
+		"2Right5.jpg" : "Second Floor - Right 4",
+		"Img2023111613065000077.jpg" : "Second Floor - Right 5",
+		"2Right6.jpg" : "Second Floor - Right 6",
+		"2Right7.jpg" : "Second Floor - Right 7",
+		"2Right8.jpg" : "Second Floor - Right 8 (Ceramics)",
+		"2Right10.jpg" : "Second Floor - Right 9",
+		"2Right9.jpg" : "Second Floor - Right 10",
+		"2Back0.jpg" : "Second Floor - Back Ingress",
+		"2Back1.jpg" : "Second Floor - Back 1 (Documents)",
+		"2Back2.jpg" : "Second Floor - Left Ingress",
+		"2Left0.jpg" : "Second Floor - Left 1 (Ship)",
+		"2Left1.jpg" : "Second Floor - Left 2",
+		"2Left2.jpg" : "Second Floor - Left 3",
+		"2Left3.jpg" : "Second Floor - Left 4",
+		"2Left4Puli.jpg" : "Second Floor - Left 5",
+		"2Left5.jpg" : "Second Floor - Left 6",
+		"2Left6.jpg" : "Second Floor - Left 7A (Clothes)",
+		"2Left8.jpg" : "Second Floor - Left 7",
+		"2Left7.jpg" : "Second Floor - Left 7B (Clothes 2)",
+		"2Left9.jpg" : "Second Floor - Left 7C (Clothes 3)",
+		"2Left10.jpg" : "Second Floor - Left 8",
+		"2Left11.jpg" : "Second Floor - Left 9 (Weapons Room Portal)",
+		"2Left12.jpg" : "Second Floor - Left 9A (Weapons Display)",
+		"2Left13.jpg" : "Second Floor - Left 10",
+		"2Left14.jpg" : "Second Floor - Left 11",
+		"2Left17.jpg" : "Second Floor - Left 12",
+		"2Left19.jpg" : "Second Floor - Stairs Egress (Black Cat)",
+		"LeftStairs1.jpg" : "Stairs to First Floor",
+		"Img2023111613014500074.jpg" : "Museum Entrance from Left Stairs",
+		"CatFinish" : "Credits Scene"
+		}
+		
+		if location_name.has(str(data["current_location"])):
+			slot.current_location_label.set_text("Current Location: " + location_name[(str(data["current_location"]))])
+		else:
+			slot.current_location_label.set_text("Current Location: " + data["current_location"])
+		
 		slot.quests_finished_label.set_text("Quests Finished: " + str(data["quests_completed"])) 
 		
 		slot.show_savedata()

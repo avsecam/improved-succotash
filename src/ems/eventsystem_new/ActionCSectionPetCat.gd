@@ -17,5 +17,4 @@ func _on_event_started():
 	cat_animation_player.play("cat_idle")
 	await get_tree().create_timer(1).timeout
 	cat.visible = false
-	await event_audio_done
 	close_event()

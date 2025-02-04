@@ -5,6 +5,7 @@ extends Node3D
 @onready var clean_rag_inv_mesh := $"../InventoryItemComp/ReplacementMesh/MainMesh"
 @onready var oiled_rag_inv_mesh := $"../InventoryItemComp/ReplacementMesh/Rag_Oiled"
 @onready var state_manager := $"../StateManager"
+@onready var rag = $".."
 
 @export var is_oiled = false
 
@@ -21,6 +22,7 @@ func clean_rag() -> void:
 	oiled_rag_mesh.visible = false
 	oiled_rag_inv_mesh.visible = false
 	state_manager.receiver_group = "clean_rag"
+	get_parent().set_oiled_state(false)
 
 func oiled_rag() -> void:
 	clean_rag_mesh.visible = false
@@ -28,10 +30,12 @@ func oiled_rag() -> void:
 	oiled_rag_mesh.visible = true
 	oiled_rag_inv_mesh.visible = true
 	state_manager.receiver_group = "oiled_rag"
+	get_parent().set_oiled_state(true)
 
 
 func _on_wax_receiver_action_completed(requirement, total_progress):
 	if not Events.finished_events.has("ActionOiledRag_Done"):
 		oiled_rag()
 	else:
+		oiled_rag()
 		print("I'm wasting rags")

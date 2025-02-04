@@ -10,8 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="8_vprv8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
-margin = 0.01
-size = Vector3(0.088639, 0.108483, 0.0951984)
+size = Vector3(0.088639, 0.166424, 0.14349)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sahb1"]
 albedo_texture = ExtResource("4_w6g43")
@@ -19,17 +18,18 @@ albedo_texture = ExtResource("4_w6g43")
 [sub_resource type="CylinderMesh" id="CylinderMesh_eetxh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kuwuf"]
-size = Vector3(0.0951911, 0.192407, 0.146167)
+size = Vector3(0.0951911, 0.136481, 0.0793365)
 
 [node name="Papaya" type="RigidBody3D"]
 collision_layer = 5242884
 collision_mask = 196615
+collision_priority = 10.0
 mass = 3.0
 freeze_mode = 1
 script = ExtResource("1_6tdkn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018781, 0.0487474, -0.00337668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018781, 0.077718, -0.00468688)
 shape = SubResource("BoxShape3D_dhox6")
 
 [node name="Feedback" type="Node3D" parent="."]
@@ -54,12 +54,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00205207, 0.0399281, -0.106
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00205207, 0.0399281, -0.106962)
 
 [node name="PapayaReceiver" type="Area3D" parent="." groups=["gratable"]]
-collision_layer = 5242881
 script = ExtResource("7_p866h")
 requirement = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PapayaReceiver"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00412282, 0.0680542, 0.00263655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00412282, 0.0825836, -0.0041765)
 shape = SubResource("BoxShape3D_kuwuf")
 
 [node name="Progress View" parent="." instance=ExtResource("8_vprv8")]
@@ -69,3 +68,5 @@ visible = false
 [connection signal="papaya_grated_workaround" from="Feedback" to="." method="_on_feedback_papaya_grated_workaround"]
 [connection signal="action_completed" from="PapayaReceiver" to="Feedback" method="_on_papaya_receiver_action_completed"]
 [connection signal="action_in_progress" from="PapayaReceiver" to="Feedback" method="_on_papaya_receiver_action_in_progress"]
+
+[editable path="MainMesh/Papaya_Peeled"]

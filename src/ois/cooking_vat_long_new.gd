@@ -10,6 +10,9 @@ signal kalabasa_soup_complete
 @onready var kalabasa_slice_receiver = $KalabasaSliceReceiver
 
 
+func _ready():
+	kalabasa_slice_receiver.set_monitoring(false)
+
 func _on_kalabasa_slice_receiver_area_entered(area):
 	if area.name == "KalabasaReceiver":
 		area.get_parent().queue_free()
@@ -26,6 +29,7 @@ func _on_kalabasa_added_event_finished():
 	water_clear.visible = false
 	kalabasa_soup_unmixed.visible = true
 	kalabasa_soup_mixed.visible = false
+	kalabasa_slice_receiver.set_monitoring(false)
 	
 func _on_kalabasa_mixed_event_finished():
 	water_clear.visible = false
@@ -33,6 +37,5 @@ func _on_kalabasa_mixed_event_finished():
 	kalabasa_soup_mixed.visible = true
 	
 	
-
-
-
+func _on_action_chop_kalabasa_tree_exiting():
+	kalabasa_slice_receiver.set_monitoring(true)
