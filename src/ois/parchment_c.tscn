@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cbsi2j7tqs8dr"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_c7gkw"]
-[ext_resource type="Texture2D" uid="uid://bylw6ni7bexpl" path="res://src/assets/C2/parchment c_compressed.jpg" id="2_pb61v"]
+[ext_resource type="Texture2D" uid="uid://c1xf4hr78psi4" path="res://src/assets/C2/parchment_c.png" id="2_hvjnx"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_0teay"]
 [ext_resource type="Animation" uid="uid://fi23m6i7orhw" path="res://addons/godot-xr-tools/hands/animations/left/Pinch Up.res" id="4_10c1h"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_wrb0y"]
@@ -12,8 +12,9 @@
 size = Vector3(0.229511, 0.292334, 0.0433105)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0hpx"]
+transparency = 1
 cull_mode = 2
-albedo_texture = ExtResource("2_pb61v")
+albedo_texture = ExtResource("2_hvjnx")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qj4mb"]
 material = SubResource("StandardMaterial3D_e0hpx")

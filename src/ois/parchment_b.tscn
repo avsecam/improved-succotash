@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_kkg2x"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_ndqt2"]
-[ext_resource type="Texture2D" uid="uid://nnpra616t7om" path="res://src/assets/C2/parchment_b.jpg" id="2_yk144"]
+[ext_resource type="Texture2D" uid="uid://bolgyipv3pg7x" path="res://src/assets/C2/parchment_b.png" id="2_ndrb5"]
 [ext_resource type="Animation" uid="uid://fi23m6i7orhw" path="res://addons/godot-xr-tools/hands/animations/left/Pinch Up.res" id="4_3abq4"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_gxe3j"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_38c0l"]
@@ -12,8 +12,9 @@
 size = Vector3(0.229511, 0.292334, 0.0433105)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocv62"]
+transparency = 1
 cull_mode = 2
-albedo_texture = ExtResource("2_yk144")
+albedo_texture = ExtResource("2_ndrb5")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qj4mb"]
 material = SubResource("StandardMaterial3D_ocv62")
