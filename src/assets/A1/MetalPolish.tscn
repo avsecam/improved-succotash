@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3foujhryuk5l"]
+[gd_scene load_steps=19 format=3 uid="uid://b3foujhryuk5l"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_1khwu"]
 [ext_resource type="PackedScene" uid="uid://djavywnjh1ved" path="res://src/assets/A1/container_metal_polish_1.tscn" id="2_2ditd"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="10_omg34"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/play_animation.gd" id="10_pgvew"]
 [ext_resource type="Script" path="res://src/assets/A1/MetalPolishControl.gd" id="11_wli4l"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="13_7jnwd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a47f3"]
 height = 0.05
@@ -118,6 +119,8 @@ container_lid = NodePath("../MainMesh/Container_MetalPolishLid")
 container_lid_inv = NodePath("../InventoryItemComp/ReplacementMesh/MainMesh2/Container_MetalPolishLid")
 control_raycast = NodePath("../StateManager/ControlRaycastVisibility")
 animation_player = NodePath("../MainMesh/AnimationPlayer")
+
+[node name="ObjectReturner" parent="." instance=ExtResource("13_7jnwd")]
 
 [connection signal="action_completed" from="ReceiverComp" to="MetalPolishControl" method="_on_receiver_comp_action_completed"]
 [connection signal="action_in_progress" from="ReceiverComp" to="ReceiverComp/Node3D" method="_on_receiver_comp_action_in_progress"]

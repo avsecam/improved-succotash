@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxe46gqchtjoo"]
+[gd_scene load_steps=10 format=3 uid="uid://cxe46gqchtjoo"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_o4yu6"]
-[ext_resource type="PackedScene" path="res://src/assets/B2/Grater_Standing.tscn" id="1_xaq1o"]
+[ext_resource type="PackedScene" uid="uid://3h5i01cvq2hy" path="res://src/assets/B2/Grater_Standing.tscn" id="1_xaq1o"]
 [ext_resource type="PackedScene" uid="uid://ci2ih0equ4uoy" path="res://src/ois/state_managers/one_handed_tool.tscn" id="5_5h3ti"]
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="6_42jah"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="7_0pv43"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="7_xreod"]
 [ext_resource type="PackedScene" uid="uid://cyjdtclqritq0" path="res://src/ois/states/control_raycast_cleaver.tscn" id="8_u1dhl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xr4xy"]
@@ -61,3 +62,5 @@ rate = 2.0
 transform = Transform3D(2.93, 0, 0, 0, -5.10189, -0.0348995, 0, 0.178162, -0.999391, 0.000384241, 0.0913702, 0.0251349)
 raycast_length = 0.1
 laser_thickness = 0.0
+
+[node name="ObjectReturner" parent="." instance=ExtResource("7_xreod")]

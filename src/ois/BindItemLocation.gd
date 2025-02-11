@@ -1,0 +1,23 @@
+extends Node3D
+
+var original_position: Vector3
+@onready var parent
+@export var bounds_y = -1.450
+@export var bounds_x = 3
+@export var bounds_z = 3
+
+func _ready():
+	if get_parent():
+		parent = get_parent()
+		original_position = get_parent().global_transform.origin
+
+func _process(delta):
+	if parent.global_transform.origin.y < bounds_y or abs(parent.global_transform.origin.x) > bounds_x or abs(parent.global_transform.origin.z) > bounds_z:
+		print("I AM OUT PLEASE RETURN ME")
+		parent.linear_velocity = Vector3.ZERO
+		parent.angular_velocity = Vector3.ZERO
+		reset_parent_position()
+
+func reset_parent_position():
+	if get_parent():
+		parent.global_transform.origin = original_position

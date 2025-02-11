@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqwgfyorumpev"]
+[gd_scene load_steps=9 format=3 uid="uid://cqwgfyorumpev"]
 
 [ext_resource type="Script" path="res://src/ois/Saba_Bananas.gd" id="1_57mc3"]
 [ext_resource type="PackedScene" uid="uid://cxve5dk0ns4k7" path="res://src/assets/B2/SabaBananas.glb" id="3_bluxd"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_2ebix"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_cu4ag"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="6_v4uwj"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_bh38d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
@@ -40,3 +41,5 @@ requirement = 1.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SabaReceiver"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0253507, 0.00246286, 0.029994)
 shape = SubResource("BoxShape3D_kuwuf")
+
+[node name="ObjectReturner" parent="." instance=ExtResource("6_v4uwj")]

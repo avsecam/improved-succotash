@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://5dydegdvyud0"]
+[gd_scene load_steps=14 format=3 uid="uid://5dydegdvyud0"]
 
 [ext_resource type="Script" path="res://src/ois/Papaya.gd" id="1_6tdkn"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/grate_papaya.gd" id="2_glyda"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_dhbbc"]
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_p866h"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="8_vprv8"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="9_mhctm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
 size = Vector3(0.088639, 0.166424, 0.14349)
@@ -64,6 +65,8 @@ shape = SubResource("BoxShape3D_kuwuf")
 [node name="Progress View" parent="." instance=ExtResource("8_vprv8")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
 visible = false
+
+[node name="ObjectReturner" parent="." instance=ExtResource("9_mhctm")]
 
 [connection signal="papaya_grated_workaround" from="Feedback" to="." method="_on_feedback_papaya_grated_workaround"]
 [connection signal="action_completed" from="PapayaReceiver" to="Feedback" method="_on_papaya_receiver_action_completed"]

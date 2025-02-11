@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4ankyowlxlkh"]
+[gd_scene load_steps=17 format=3 uid="uid://d4ankyowlxlkh"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_dtxd8"]
 [ext_resource type="PackedScene" uid="uid://eswimsoiq01v" path="res://src/assets/B2/Spoon_Mix.glb" id="2_4hmpw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://src/ois/state_managers/state_manager_settings.gd" id="7_fejjv"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="7_o7hx6"]
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="8_ekg70"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="12_lgyn3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qb08"]
 size = Vector3(0.0820313, 0.1, 0.486084)
@@ -84,3 +85,5 @@ rate = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00293714, -0.00265042, 0.106364)
 raycast_length = 0.3
 laser_thickness = 0.001
+
+[node name="ObjectReturner" parent="." instance=ExtResource("12_lgyn3")]

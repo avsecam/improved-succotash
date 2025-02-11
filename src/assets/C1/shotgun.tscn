@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dwtpqavssopmc"]
+[gd_scene load_steps=28 format=3 uid="uid://dwtpqavssopmc"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_3g00g"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_02u1x"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://src/assets/C1/ShotgunShoot.gd" id="15_dgng7"]
 [ext_resource type="PackedScene" path="res://src/assets/C4/gunshot_particles.tscn" id="16_nhte2"]
 [ext_resource type="Script" path="res://src/assets/C4/gunshot_particles.gd" id="17_4ug1m"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="18_fw6yq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uxta1"]
 size = Vector3(0.126172, 0.0818848, 0.866895)
@@ -184,6 +185,8 @@ light_energy = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_jbykp")
 }
+
+[node name="ObjectReturner" parent="." instance=ExtResource("18_fw6yq")]
 
 [connection signal="picked_up" from="." to="RayCast3D" method="_on_shotgun_picked_up"]
 [connection signal="released" from="." to="RayCast3D" method="_on_shotgun_released"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv5an2ct23mem"]
+[gd_scene load_steps=8 format=3 uid="uid://bv5an2ct23mem"]
 
 [ext_resource type="Script" path="res://src/ois/chicken_raw_new.gd" id="1_8yc85"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_buwsc"]
 [ext_resource type="PackedScene" uid="uid://bng2k0ebnkryu" path="res://src/assets/B2/Chicken_Whole Raw.glb" id="2_epytd"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_jy2ii"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="5_f0kjq"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="6_a772y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87xpu"]
 margin = 0.01
@@ -39,5 +40,7 @@ visible = false
 
 [node name="Chicken_Whole Raw2" parent="InventoryItemComp/ReplacementMesh" index="0" instance=ExtResource("2_epytd")]
 transform = Transform3D(0.25, 0, 0, 0, 0.103673, -0.22749, 0, 0.22749, 0.103673, 0, 0, -0.0583652)
+
+[node name="ObjectReturner" parent="." instance=ExtResource("6_a772y")]
 
 [editable path="InventoryItemComp"]

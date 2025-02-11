@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ch34gbnsyxf34"]
+[gd_scene load_steps=17 format=3 uid="uid://ch34gbnsyxf34"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_c85dj"]
 [ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_e8o43"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/TutorialGrabbing.gd" id="12_8rnoe"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/TutorialInventory.gd" id="13_4awq6"]
 [ext_resource type="PackedScene" uid="uid://dxeebb6cl7moy" path="res://src/assets/TheKey.tscn" id="14_cd1k7"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="16_43qsb"]
 
 [node name="tut2_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -98,4 +99,9 @@ transform = Transform3D(2.00003, 0, 0, 0, 2, 0, 0, 0, 2.00003, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26671, 0.189739, 0.0347564)
 gravity_scale = 0.1
 
+[node name="ObjectReturner" parent="TheKey" instance=ExtResource("16_43qsb")]
+
 [connection signal="picked_up" from="TheKey" to="Events/ActionPickUpKey" method="_on_the_key_picked_up"]
+
+[editable path="TheKey"]
+[editable path="TheKey/InventoryItemComp"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cicew6koqq028"]
+[gd_scene load_steps=20 format=3 uid="uid://cicew6koqq028"]
 
 [ext_resource type="Script" path="res://src/assets/A1/Rag.gd" id="1_cr42d"]
 [ext_resource type="PackedScene" uid="uid://cygfkcuxna1en" path="res://src/assets/A1/Rag.glb" id="2_2n3tu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://src/ois/feedback_components/waxed.gd" id="9_2d4jf"]
 [ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="9_76bp8"]
 [ext_resource type="Script" path="res://src/assets/A1/RagControl.gd" id="13_iwv4s"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="14_nihbd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_07xwo"]
 size = Vector3(0.25, 0.07, 0.25)
@@ -122,6 +123,8 @@ action_completed = true
 
 [node name="RagControl" type="Node3D" parent="."]
 script = ExtResource("13_iwv4s")
+
+[node name="ObjectReturner" parent="." instance=ExtResource("14_nihbd")]
 
 [connection signal="action_completed" from="WaxReceiver" to="RagControl" method="_on_wax_receiver_action_completed"]
 

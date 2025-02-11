@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5iwhqvbbxk1c"]
+
+[ext_resource type="Script" path="res://src/ois/BindItemLocation.gd" id="1_1bsr0"]
+
+[node name="ObjectReturner" type="Node3D"]
+script = ExtResource("1_1bsr0")

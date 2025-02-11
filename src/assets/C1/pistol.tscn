@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://byadhhny3uj5l"]
+[gd_scene load_steps=26 format=3 uid="uid://byadhhny3uj5l"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_tsks7"]
 [ext_resource type="PackedScene" uid="uid://bu7yu2ldpmsox" path="res://src/assets/C1/Pistol_M1911.glb" id="2_1q6qh"]
@@ -15,8 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://cax5ock630vsx" path="res://src/ois/states/control_raycast.tscn" id="12_ldoxt"]
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="13_1rxmm"]
 [ext_resource type="Script" path="res://src/assets/C1/PistolRayCast.gd" id="15_phtnw"]
-[ext_resource type="PackedScene" uid="uid://cyy5yw3gjh2xj" path="res://src/assets/C4/gunshot_particles.tscn" id="16_1io65"]
+[ext_resource type="PackedScene" path="res://src/assets/C4/gunshot_particles.tscn" id="16_1io65"]
 [ext_resource type="Script" path="res://src/assets/C4/gunshot_particles.gd" id="17_i8tpu"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="18_xpkhv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apewi"]
 size = Vector3(0.0334839, 0.0297969, 0.210547)
@@ -140,6 +141,8 @@ light_energy = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_jbykp")
 }
+
+[node name="ObjectReturner" parent="." instance=ExtResource("18_xpkhv")]
 
 [connection signal="picked_up" from="." to="RayCast3D" method="_on_pistol_picked_up"]
 [connection signal="released" from="." to="RayCast3D" method="_on_pistol_released"]

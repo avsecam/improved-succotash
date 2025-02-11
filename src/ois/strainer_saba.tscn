@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cib0ma6a1uck5"]
+[gd_scene load_steps=9 format=3 uid="uid://cib0ma6a1uck5"]
 
 [ext_resource type="Script" path="res://src/ois/strainer_saba.gd" id="1_g13wq"]
 [ext_resource type="PackedScene" uid="uid://cedlls7pxjsp1" path="res://src/assets/B2/Strainer.glb" id="2_hl83o"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_tbh4y"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_o0s00"]
 [ext_resource type="PackedScene" uid="uid://dvwst02stxfna" path="res://src/assets/B2/SabaBananas_Fried.glb" id="5_uf588"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="6_ke1bq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjo1j"]
 size = Vector3(0.0687012, 0.0475586, 0.310321)
@@ -43,5 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 0.25038, 0.968148, 0, -0.968148, 0.25038, -0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StrainerActor"]
 transform = Transform3D(1, 0, 0, 0, 0.587785, -0.809017, 0, 0.809017, 0.587785, -0.000610821, 0.0345361, -0.216276)
 shape = SubResource("CylinderShape3D_7xgi2")
+
+[node name="ObjectReturner" parent="." instance=ExtResource("6_ke1bq")]
 
 [connection signal="area_entered" from="StrainerActor" to="." method="_on_strainer_actor_area_entered"]
