@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://do7rn1ujty3wm"]
+[gd_scene load_steps=41 format=3 uid="uid://do7rn1ujty3wm"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_u6fco"]
 [ext_resource type="PackedScene" uid="uid://bhiwtf8ltne8x" path="res://src/assets/A MAIN/cube_spotted_cat.tscn" id="2_1wvla"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://yvr47ixr1fpm" path="res://src/assets/audio/sfx/VE_SFX_UI_Cat.ogg" id="6_dvagj"]
 [ext_resource type="Texture2D" uid="uid://dqkluhca4r2r8" path="res://src/assets/Fire/Clean.png" id="7_aa7lu"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/CatEffector.gd" id="8_ida8u"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="9_5e3x0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fu5av"]
 size = Vector3(0.15, 0.15, 0.15)
@@ -335,6 +336,8 @@ draw_pass_2 = null
 
 [node name="CatEffector" type="Node3D" parent="."]
 script = ExtResource("8_ida8u")
+
+[node name="ObjectReturner" parent="." instance=ExtResource("9_5e3x0")]
 
 [connection signal="picked_up" from="." to="CatEffector" method="_on_cube_cat_calico_picked_up"]
 
