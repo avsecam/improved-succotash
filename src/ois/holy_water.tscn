@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq46582kommvy"]
+[gd_scene load_steps=18 format=3 uid="uid://bq46582kommvy"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_gv6nh"]
 [ext_resource type="ArrayMesh" uid="uid://dmidj4rpanrjt" path="res://src/assets/A2/Bottle_HolyWater.tres" id="2_0lqo0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="8_mj7qo"]
 [ext_resource type="PackedScene" uid="uid://gs6cceyv2nc6" path="res://src/ois/states/control_raycast_visibility.tscn" id="8_scxnr"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="9_bajfv"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="13_mnlyx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6bgc"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -96,5 +97,8 @@ visible = false
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 mesh = ExtResource("2_0lqo0")
 skeleton = NodePath("../../../MainMesh")
+
+[node name="ObjectReturner" parent="." instance=ExtResource("13_mnlyx")]
+bounds_z = 4
 
 [editable path="InventoryItemComp"]
