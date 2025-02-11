@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
 [ext_resource type="PackedScene" uid="uid://cjw3n3nsxqim3" path="res://src/ems/eventsystem_new/bgm_powerplant.tscn" id="6_1xtuu"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana1.gd" id="6_v38wy"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana2.gd" id="7_imt1y"]
@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="23_l1wwn"]
 [ext_resource type="PackedScene" uid="uid://ddw0je40k5yev" path="res://src/Howitzer_Actual.glb" id="24_r3rtn"]
 [ext_resource type="Script" path="res://src/assets/C1/HowitzerBehavior.gd" id="26_3iux5"]
-[ext_resource type="PackedScene" path="res://src/assets/C1/howitzer_round.tscn" id="28_nfi3r"]
+[ext_resource type="PackedScene" uid="uid://4w08n8847k35" path="res://src/assets/C1/howitzer_round.tscn" id="28_nfi3r"]
 [ext_resource type="PackedScene" uid="uid://cbms6uir76jpa" path="res://src/assets/C1/Howitzer_Round.glb" id="29_vftbf"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="30_gc0hk"]
 [ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="31_4lyah"]
@@ -1943,10 +1943,13 @@ visible = false
 transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0, 1, -0.0167481, 0.0542725, -0.383447)
 
 [node name="katana" parent="." instance=ExtResource("19_8oxyr")]
-transform = Transform3D(0.0373329, 0.610386, 0.791224, 0.998135, -0.0610486, 0, 0.0483031, 0.789748, -0.611527, 0.684961, 0, 1.19507)
+transform = Transform3D(0.0373329, 0.610386, 0.791224, 0.998135, -0.0610486, -4.80998e-08, 0.0483031, 0.789748, -0.611527, 0.684961, 0, 1.19507)
 collision_layer = 5
 script = ExtResource("20_vcw2v")
 picked_up_layer = 65537
+
+[node name="ObjectReturner" parent="katana" index="9"]
+bounds_y = -1.0
 
 [node name="Howitzer" parent="." instance=ExtResource("24_r3rtn")]
 transform = Transform3D(-0.149345, 0.000826551, 0.0139769, 0.00357783, 0.14702, 0.0295354, -0.0135365, 0.0297398, -0.146398, -1.0555, -0.736944, -1.33384)
