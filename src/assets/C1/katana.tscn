@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="14_262pb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vjgy"]
-size = Vector3(0.0380615, 0.1, 1.31244)
+size = Vector3(0.131223, 0.211621, 1.31244)
 
 [sub_resource type="Resource" id="Resource_dqqgo"]
 script = ExtResource("7_gmhwo")
@@ -75,7 +75,7 @@ script = ExtResource("1_xxpyb")
 second_hand_grab = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00343017, 0, -0.365594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000782783, 0, -0.365594)
 shape = SubResource("BoxShape3D_1vjgy")
 
 [node name="MainMesh" type="MeshInstance3D" parent="."]
