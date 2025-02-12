@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b8ns3j4owietc"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_h3x0h"]
-[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7mw8v"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7mw8v"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_4acli"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_veu0d"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="5_to17v"]
@@ -97,4 +97,15 @@ transform = Transform3D(0.25, 0, 5.96046e-08, 0, 0.25, 0, -5.96046e-08, 0, 0.25,
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
+[connection signal="tree_exiting" from="Events/ActionPlaceCatIcon1" to="CatTray" method="_on_act_place_cat_calico"]
+[connection signal="tree_exiting" from="Events/ActionPlaceCatIcon2" to="CatTray" method="_on_act_place_cat_orange"]
+[connection signal="tree_exiting" from="Events/ActionPlaceCatIcon3" to="CatTray" method="_on_act_place_cat_spotted"]
 [connection signal="tree_exiting" from="Events/DialogueFinishCatIconsPlacement" to="CatTray" method="_on_dialogue_finish_cat_icons_placement_tree_exiting"]
+
+[editable path="CatTray"]
+[editable path="CatTray/SlotSpotted"]
+[editable path="CatTray/SlotSpotted/HighlightRing"]
+[editable path="CatTray/SlotOrange"]
+[editable path="CatTray/SlotOrange/HighlightRing"]
+[editable path="CatTray/SlotCalico"]
+[editable path="CatTray/SlotCalico/HighlightRing"]
