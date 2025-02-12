@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="12_b45s7"]
 [ext_resource type="Animation" uid="uid://csp3fdknowmi5" path="res://addons/godot-xr-tools/hands/animations/right/Pistol.res" id="12_g4gfg"]
 [ext_resource type="Script" path="res://src/assets/C1/ShotgunShoot.gd" id="15_dgng7"]
-[ext_resource type="PackedScene" path="res://src/assets/C4/gunshot_particles.tscn" id="16_nhte2"]
+[ext_resource type="PackedScene" uid="uid://cyy5yw3gjh2xj" path="res://src/assets/C4/gunshot_particles.tscn" id="16_nhte2"]
 [ext_resource type="Script" path="res://src/assets/C4/gunshot_particles.gd" id="17_4ug1m"]
 [ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="18_fw6yq"]
 
@@ -188,5 +188,5 @@ libraries = {
 
 [node name="ObjectReturner" parent="." instance=ExtResource("18_fw6yq")]
 
-[connection signal="picked_up" from="." to="RayCast3D" method="_on_shotgun_picked_up"]
+[connection signal="grabbed" from="." to="RayCast3D" method="_on_shotgun_grabbed"]
 [connection signal="released" from="." to="RayCast3D" method="_on_shotgun_released"]

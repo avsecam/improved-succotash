@@ -1,8 +1,8 @@
-[gd_scene load_steps=203 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=205 format=3 uid="uid://cc0nl1olnbtqi"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
-[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="4_p8xjc"]
 [ext_resource type="PackedScene" uid="uid://cjw3n3nsxqim3" path="res://src/ems/eventsystem_new/bgm_powerplant.tscn" id="6_1xtuu"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana1.gd" id="6_v38wy"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionSlashCrystalWithKatana2.gd" id="7_imt1y"]
@@ -42,6 +42,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="35_i5yda"]
 [ext_resource type="Texture2D" uid="uid://c4rgm83altm6d" path="res://src/assets/Fire/distortion.png" id="36_e47lb"]
 [ext_resource type="Texture2D" uid="uid://b4cij3rwar8be" path="res://src/assets/Fire/Voronoi01.png" id="39_whdvv"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="43_0fbfp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
@@ -1695,6 +1696,9 @@ _data = {
 "RESET": SubResource("Animation_hdyr0")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3m5h"]
+albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
+
 [node name="SpecialRoom_PowerPlant" type="Node3D"]
 script = ExtResource("1_k6i48")
 teleporters_data = [{
@@ -1828,18 +1832,6 @@ script = ExtResource("17_iljv1")
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("23_l1wwn")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0.0417523)
 
-[node name="Marble" parent="MarbleSpirit_Normal" index="0"]
-transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
-
-[node name="Plane" parent="MarbleSpirit_Normal" index="1"]
-transform = Transform3D(-0.119496, -1.24276e-06, -0.453, -4.18798e-07, 0.656079, -5.73562e-08, -0.114061, -1.10695e-06, 0.474584, -0.0438846, 0, 0.0168927)
-
-[node name="Sphere" parent="MarbleSpirit_Normal" index="2"]
-transform = Transform3D(-0.0480362, 0, 0.0149037, 0, -0.0502951, 0, -0.0149037, 0, -0.0480362, 0.260299, 0, -0.0531245)
-
-[node name="Sphere_001" parent="MarbleSpirit_Normal" index="3"]
-transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888, 0, -0.0244276, 0.22937, 0, 0.346641)
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
 [node name="DistortionCrystal" parent="." instance=ExtResource("13_rsr3f")]
@@ -1915,13 +1907,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24264, 0, -2.29601)
 visible = false
 
 [node name="Table" parent="." instance=ExtResource("13_wjmqo")]
-transform = Transform3D(0.0353006, 0, -0.999377, 0, 1, 0, 0.999377, 0, 0.0353006, -0.27469, -1.34874, 1.50879)
+transform = Transform3D(0.0353006, 0, -0.429732, 0, 1, 0, 0.999377, 0, 0.0151793, -1.99577, -1.34874, 0.86527)
 
 [node name="CollisionShape3D" parent="Table" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469574, -0.545469)
 
-[node name="pistol" parent="." instance=ExtResource("14_nox3u")]
-transform = Transform3D(0.000662923, -1, 0, 1, 0.000662923, 0, 0, 0, 1, -0.510591, -0.456485, 1.37735)
+[node name="pistol" parent="." groups=["Pistol"] instance=ExtResource("14_nox3u")]
+transform = Transform3D(0.000662923, -1, 0, 1, 0.000662923, 0, 0, 0, 1, -0.781051, 0.211598, 1.0212)
 visible = false
 script = ExtResource("15_u8hp6")
 
@@ -1935,14 +1927,14 @@ receiver_group = "hammer"
 script = ExtResource("17_74cd8")
 raycast_length = 10.0
 
-[node name="shotgun" parent="." instance=ExtResource("15_g0qf5")]
-transform = Transform3D(0.0212066, 0.580827, -0.813751, -0.999334, 0.0364867, 0, 0.0296911, 0.813209, 0.581214, 0.0537372, 0, 1.62911)
+[node name="shotgun" parent="." groups=["shotgun"] instance=ExtResource("15_g0qf5")]
+transform = Transform3D(0.0212066, 0.580827, -0.813751, -0.999334, 0.0364867, 0, 0.0296911, 0.813209, 0.581214, 0.707024, 0.165986, 1.22493)
 visible = false
 
 [node name="CollisionShape3D" parent="shotgun" index="0"]
 transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0, 1, -0.0167481, 0.0542725, -0.383447)
 
-[node name="katana" parent="." instance=ExtResource("19_8oxyr")]
+[node name="katana" parent="." groups=["katana"] instance=ExtResource("19_8oxyr")]
 transform = Transform3D(0.00615135, 0.100573, 0.994911, 0.998135, -0.0610486, -4.84992e-08, 0.0607379, 0.993055, -0.100761, 0.684961, 0, 1.19507)
 collision_layer = 5
 script = ExtResource("20_vcw2v")
@@ -2141,10 +2133,61 @@ stream = ExtResource("33_vea5f")
 stream = ExtResource("34_3xfun")
 
 [node name="howitzer_round" parent="." instance=ExtResource("28_nfi3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02815, 0, 1.64036)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57899, -0.192386, 0.582717)
 visible = false
 collision_layer = 196613
 picked_up_layer = 65537
+
+[node name="KatanaSnapZone" parent="." instance=ExtResource("43_0fbfp")]
+transform = Transform3D(1.31134e-07, -0.999999, 3.82137e-15, 4.37114e-08, 1.91068e-15, -0.999999, 1, 1.31134e-07, 4.37113e-08, 0.0062404, 0.234751, 0.766412)
+grab_distance = 1.0
+snap_mode = 1
+snap_require = "katana"
+initial_object = NodePath("../katana")
+
+[node name="WallKatana" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.00541377, 2.56189, 0.907474)
+mesh = SubResource("BoxMesh_fua6v")
+
+[node name="WallGun4" type="MeshInstance3D" parent="WallKatana"]
+transform = Transform3D(0.775, 0, 0, 0, 1, -5.55112e-17, 0, 5.55112e-17, 1, 0, -0.54, 0)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_q3m5h")
+
+[node name="GunSnapZone" parent="." instance=ExtResource("43_0fbfp")]
+transform = Transform3D(-4.37114e-08, 0.66262, -0.748955, 0, 0.748955, 0.662619, 1, 2.8964e-08, -3.27379e-08, -0.8, 0.095, 0.763)
+grab_distance = 1.0
+snap_mode = 1
+snap_require = "Pistol"
+initial_object = NodePath("../pistol")
+
+[node name="ShotgunSnapZone" parent="." instance=ExtResource("43_0fbfp")]
+transform = Transform3D(1.31134e-07, -0.999999, 3.82137e-15, 4.37114e-08, 1.91068e-15, -0.999999, 0.999999, 1.31134e-07, 4.37113e-08, 0.777534, -0.0328528, 0.766412)
+grab_distance = 1.0
+snap_mode = 1
+snap_require = "shotgun"
+initial_object = NodePath("../shotgun")
+
+[node name="WallGun" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, -0.761325, 2.56189, 0.907474)
+mesh = SubResource("BoxMesh_fua6v")
+
+[node name="WallGun4" type="MeshInstance3D" parent="WallGun"]
+transform = Transform3D(0.775, 0, 0, 0, 1, -5.55112e-17, 0, 5.55112e-17, 1, 0, -0.54, 0)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_q3m5h")
+
+[node name="WallGun2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, -5.24537e-09, -8, 0, 0.12, -3.49691e-07, 0.754, 2.562, 0.907)
+mesh = SubResource("BoxMesh_fua6v")
+
+[node name="WallGun4" type="MeshInstance3D" parent="WallGun2"]
+transform = Transform3D(0.775, 0, 0, 0, 1, -5.55112e-17, 0, 5.55112e-17, 1, 0, -0.54, 0)
+mesh = SubResource("BoxMesh_fua6v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_q3m5h")
 
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
 [connection signal="slash" from="DistortionCrystal/MainMesh/Dark_Crystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_dark_crystal_slash"]

@@ -69,14 +69,15 @@ func _process(delta):
 					crystal.get_parent().get_parent().queue_free()
 
 
-func _on_shotgun_picked_up(pickable):
-	function_pointer_right.visible = false
-	function_pointer_left.visible = false
-	holding = true
-	print("holding shotgun")
-
 func _on_shotgun_released(pickable, by):
 	function_pointer_right.visible = true
 	function_pointer_left.visible = true
 	holding = false
 	print("not holding shotgun")
+
+func _on_shotgun_grabbed(pickable, by):
+	if by.name == "FunctionPickup":
+		function_pointer_right.visible = false
+		function_pointer_left.visible = false
+		holding = true
+		print("holding shotgun")
