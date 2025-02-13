@@ -1832,6 +1832,12 @@ script = ExtResource("17_iljv1")
 [node name="MarbleSpirit_Normal" parent="." instance=ExtResource("23_l1wwn")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0.0417523)
 
+[node name="Marble" parent="MarbleSpirit_Normal" index="0"]
+transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
+
+[node name="Sphere" parent="MarbleSpirit_Normal" index="2"]
+transform = Transform3D(-0.0480362, 0, 0.0149037, 0, -0.0502951, 0, -0.0149037, 0, -0.0480362, 0.260299, 0, -0.0531245)
+
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
 [node name="DistortionCrystal" parent="." instance=ExtResource("13_rsr3f")]
@@ -1907,7 +1913,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24264, 0, -2.29601)
 visible = false
 
 [node name="Table" parent="." instance=ExtResource("13_wjmqo")]
-transform = Transform3D(0.0353006, 0, -0.429732, 0, 1, 0, 0.999377, 0, 0.0151793, -1.99577, -1.34874, 0.86527)
+transform = Transform3D(0.0353006, 0, -0.429732, 0, 1, 0, 0.999377, 0, 0.0151793, 1.52644, -1.34874, 0.86527)
 
 [node name="CollisionShape3D" parent="Table" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469574, -0.545469)
@@ -2133,7 +2139,7 @@ stream = ExtResource("33_vea5f")
 stream = ExtResource("34_3xfun")
 
 [node name="howitzer_round" parent="." instance=ExtResource("28_nfi3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57899, -0.192386, 0.582717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94322, -0.192386, 0.582717)
 visible = false
 collision_layer = 196613
 picked_up_layer = 65537

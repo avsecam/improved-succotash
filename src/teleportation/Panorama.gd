@@ -8,12 +8,16 @@ const IDLE_COLOR := Color("white")
 const ACTIVE_COLOR := Color("red")
 const SPECIAL_IDLE_COLOR := Color(Color.DARK_SEA_GREEN)
 const SPECIAL_ACTIVE_COLOR := Color(Color.GREEN_YELLOW)
+const DISABLED_COLOR := Color(Color.DARK_SLATE_GRAY)
 
 var data: Dictionary
 
 @onready var offset: Vector3 = self.position
 
 @onready var camera: XRCamera3D = XRHelpers.get_xr_camera(self.get_parent())
+# Connect hands to teleporters
+@onready var hand_left = get_tree().get_root().get_node("/root/Demo/XRPlayer/XROrigin3D/LeftHand/FunctionPickup")
+@onready var hand_right = get_tree().get_root().get_node("/root/Demo/XRPlayer/XROrigin3D/RightHand/FunctionPickup")
 
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 @onready var teleporters_container: Node3D = $Teleporters
@@ -54,6 +58,12 @@ func _ready():
 	Events.connect("no_teleporter_hovered", _on_no_teleporter_hovered)
 	Events.connect("non_vr_teleporter_hovered", _on_teleporter_hovered)
 	Events.connect("non_vr_no_teleporter_hovered", _on_no_teleporter_hovered)
+	
+	# Connect hand signals to panorama
+	hand_left.connect("has_picked_up", _on_picked_up)
+	hand_right.connect("has_picked_up",_on_picked_up)
+	hand_left.connect("has_dropped",_on_release)
+	hand_right.connect("has_dropped",_on_release)
 	
 	if camera:
 		self.global_position = camera.global_position
@@ -126,3 +136,22 @@ func _on_no_teleporter_hovered():
 			teleporter.set_color(SPECIAL_IDLE_COLOR)
 		else:
 			teleporter.set_color(IDLE_COLOR)
+
+func _on_picked_up(what):
+	print("===== CURRENTLY PICKED SOMETHING UP: "+what.name)
+	for teleporter in teleporters_container.get_children():
+		if teleporter.special:
+			teleporter.play_special_closing_portal()
+		else:
+			teleporter.set_color(DISABLED_COLOR)
+			teleporter.enabled = false
+		
+func _on_release():
+	print("====== RELEASED GRABBED ITEM")
+	for teleporter in teleporters_container.get_children():
+		if teleporter.special:
+			teleporter.play_special_opening_portal()
+		else:
+			teleporter.set_color(IDLE_COLOR)
+			teleporter.enabled = true
+		
