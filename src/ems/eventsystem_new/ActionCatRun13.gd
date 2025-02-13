@@ -20,7 +20,7 @@ func _on_event_started():
 		await get_tree().create_timer(2).timeout
 		meow_signal_emitted = false
 		if ensure_journal_read: # doublecheck this part
-			close_event()
+			_on_cat_on_screen_notif_screen_entered()
 	
 
 func _on_cat_on_screen_notif_screen_entered():
