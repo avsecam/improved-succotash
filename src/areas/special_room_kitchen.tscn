@@ -324,6 +324,7 @@ collision_layer = 5242884
 script = ExtResource("32_c5ug5")
 
 [node name="ObjectReturner" parent="Cleaver" index="5"]
+bounds_y = -0.5
 bounds_x = 2
 bounds_z = 2
 

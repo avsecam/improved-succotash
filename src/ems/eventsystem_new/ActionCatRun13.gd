@@ -19,6 +19,8 @@ func _on_event_started():
 		cat_meow.play()
 		await get_tree().create_timer(2).timeout
 		meow_signal_emitted = false
+		if ensure_journal_read: # doublecheck this part
+			close_event()
 	
 
 func _on_cat_on_screen_notif_screen_entered():

@@ -62,25 +62,25 @@ func _on_snap_zone_body_entered(body):
 
 func _on_dialogue_finish_cat_icons_placement_tree_exiting():
 	cats.visible = true
-	snap1_zone.enabled = false
-	snap3_zone.enabled = false
-	snap2_zone.enabled = false
-	slot.visible = false
-	slot_3.visible = false
-	slot_2.visible = false
+	#snap1_zone.enabled = false
+	#snap3_zone.enabled = false
+	#snap2_zone.enabled = false
+	#slot.visible = false
+	#slot_3.visible = false
+	#slot_2.visible = false
 	
 func _on_act_place_cat_orange():
 	cube_cat_orange.visible = true
-	snap1_zone.enabled = false
-	slot.visible = false
+	#snap1_zone.enabled = false
+	#slot.visible = false
 	
 func _on_act_place_cat_spotted():
 	cube_cat_spotted.visible = true
-	snap2_zone.enabled = false
-	slot_2.visible = false
+	#snap2_zone.enabled = false
+	#slot_2.visible = false
 	
 func _on_act_place_cat_calico():
 	cube_cat_calico.visible = true
-	snap3_zone.enabled = false
-	slot_3.visible = false
+	#snap3_zone.enabled = false
+	#slot_3.visible = false
 	
