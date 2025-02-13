@@ -123,5 +123,6 @@ script = ExtResource("13_viy4w")
 
 [node name="ObjectReturner" parent="." instance=ExtResource("14_262pb")]
 
+[connection signal="grabbed" from="." to="RayCast3D" method="_on_katana_grabbed"]
 [connection signal="picked_up" from="." to="RayCast3D" method="_on_katana_picked_up"]
 [connection signal="released" from="." to="RayCast3D" method="_on_katana_released"]

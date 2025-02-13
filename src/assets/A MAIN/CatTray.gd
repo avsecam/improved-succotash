@@ -14,12 +14,15 @@ var start_inv_array = []
 @onready var slot_3 = $Slot3
 @onready var slot_2 = $Slot2
 
+@onready var cube_cat_orange = $Cats/CubeCatOrange
+@onready var cube_cat_spotted = $Cats/CubeCatSpotted
+@onready var cube_cat_calico = $Cats/CubeCatCalico
 
 func _ready():
 	start_inv_array = get_tree().get_nodes_in_group("cat_tray_inventory")
 	inventory_size = start_inv_array.size()
 	load_cat_tray()
-	cats.visible = false
+	cats.visible = true
 
 func load_cat_tray():
 	for slot in Events.cat_tray_content:
@@ -65,4 +68,19 @@ func _on_dialogue_finish_cat_icons_placement_tree_exiting():
 	slot.visible = false
 	slot_3.visible = false
 	slot_2.visible = false
+	
+func _on_act_place_cat_orange():
+	cube_cat_orange.visible = true
+	snap1_zone.enabled = false
+	slot.visible = false
+	
+func _on_act_place_cat_spotted():
+	cube_cat_spotted.visible = true
+	snap2_zone.enabled = false
+	slot_2.visible = false
+	
+func _on_act_place_cat_calico():
+	cube_cat_calico.visible = true
+	snap3_zone.enabled = false
+	slot_3.visible = false
 	

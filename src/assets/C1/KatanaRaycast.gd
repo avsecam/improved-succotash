@@ -6,11 +6,6 @@ extends RayCast3D
 @onready var function_pointer_left = get_node("/root/Demo/XRPlayer/XROrigin3D/LeftHand/FunctionPointer")
 var holding = false
 
-func _on_katana_picked_up(pickable):
-	holding = true
-	print("holding katana")
-	function_pointer_right.visible = false
-	function_pointer_left.visible = false
 
 func _on_katana_released(pickable, by):
 	holding = false
@@ -36,3 +31,11 @@ func _process(delta):
 	else:
 		function_pointer_right.visible = true
 		function_pointer_left.visible = true
+
+
+func _on_katana_grabbed(pickable, by):
+	if by.name == "FunctionPickup":
+		holding = true
+		print("holding katana")
+		function_pointer_right.visible = false
+		function_pointer_left.visible = false

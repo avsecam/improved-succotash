@@ -23,20 +23,35 @@ script = ExtResource("1_rx8no")
 [node name="Tray_Cats2" parent="." instance=ExtResource("1_rlwar")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="Slot" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
+[node name="SlotSpotted" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121841, 0)
 
-[node name="Slot3" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
+[node name="SnapZone" parent="SlotSpotted" index="2"]
+snap_require = "CatSpotted"
+
+[node name="SlotOrange" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257465, 0.121841, 0)
 
-[node name="Slot2" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
+[node name="Slot_prototype" parent="SlotOrange" index="1"]
+modulate = Color(0.984314, 0.737255, 0.615686, 0.160784)
+
+[node name="SnapZone" parent="SlotOrange" index="2"]
+snap_require = "CatOrange"
+
+[node name="SlotCalico" parent="." groups=["cat_tray_inventory"] instance=ExtResource("3_i1di4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263741, 0.121841, 0)
 
+[node name="Slot_prototype" parent="SlotCalico" index="1"]
+modulate = Color(0.94902, 0.384314, 0.470588, 0.160784)
+
+[node name="SnapZone" parent="SlotCalico" index="2"]
+snap_require = "CatCalico"
+
 [node name="Cats" type="Node3D" parent="."]
-visible = false
 
 [node name="CubeCatOrange" type="RigidBody3D" parent="Cats"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258, 0.132, 0)
+visible = false
 collision_layer = 4
 collision_mask = 196615
 freeze = true
@@ -53,6 +68,7 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.09, 0)
 
 [node name="CubeCatSpotted" type="RigidBody3D" parent="Cats"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007, 0.13, 0)
+visible = false
 collision_layer = 4
 collision_mask = 196615
 freeze = true
@@ -69,6 +85,7 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.09, 0)
 
 [node name="CubeCatCalico" type="RigidBody3D" parent="Cats"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26269, 0.132, 0)
+visible = false
 collision_layer = 4
 collision_mask = 196615
 freeze = true
@@ -83,13 +100,13 @@ shape = SubResource("BoxShape3D_xnoer")
 [node name="MainMesh" parent="Cats/CubeCatCalico" instance=ExtResource("7_geoa1")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.09, 0)
 
-[connection signal="body_entered" from="Slot/SnapZone" to="." method="_on_snap_zone_body_entered"]
-[connection signal="body_entered" from="Slot3/SnapZone" to="." method="_on_snap_zone_body_entered"]
-[connection signal="body_entered" from="Slot2/SnapZone" to="." method="_on_snap_zone_body_entered"]
+[connection signal="body_entered" from="SlotSpotted/SnapZone" to="." method="_on_snap_zone_body_entered"]
+[connection signal="body_entered" from="SlotOrange/SnapZone" to="." method="_on_snap_zone_body_entered"]
+[connection signal="body_entered" from="SlotCalico/SnapZone" to="." method="_on_snap_zone_body_entered"]
 
-[editable path="Slot"]
-[editable path="Slot/HighlightRing"]
-[editable path="Slot3"]
-[editable path="Slot3/HighlightRing"]
-[editable path="Slot2"]
-[editable path="Slot2/HighlightRing"]
+[editable path="SlotSpotted"]
+[editable path="SlotSpotted/HighlightRing"]
+[editable path="SlotOrange"]
+[editable path="SlotOrange/HighlightRing"]
+[editable path="SlotCalico"]
+[editable path="SlotCalico/HighlightRing"]
