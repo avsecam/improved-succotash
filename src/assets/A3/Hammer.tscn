@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d4e7qlnksmm47"]
+[gd_scene load_steps=21 format=3 uid="uid://d4e7qlnksmm47"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_pieon"]
 [ext_resource type="PackedScene" uid="uid://b4d17e1dw4scb" path="res://src/assets/A3/hammer_mesh.tscn" id="2_5deek"]
@@ -13,6 +13,7 @@
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="12_3ukfi"]
 [ext_resource type="PackedScene" uid="uid://0datjcm1gsqv" path="res://src/inventory/inventory_item_comp.tscn" id="12_o5c2v"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/HammerVisibilityAgent.gd" id="13_0tr4u"]
+[ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="14_44ten"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qli6w"]
 size = Vector3(0.0981885, 0.378034, 0.193597)
@@ -123,5 +124,7 @@ hand_pose = SubResource("Resource_qut4p")
 
 [node name="HammerVisibilityAgent" type="Node3D" parent="."]
 script = ExtResource("13_0tr4u")
+
+[node name="ObjectReturner" parent="." instance=ExtResource("14_44ten")]
 
 [editable path="InventoryItemComp"]

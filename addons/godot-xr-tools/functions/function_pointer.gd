@@ -428,7 +428,7 @@ func _button_pressed() -> void:
 
 # Pointer-activation button released handler
 func _button_released() -> void:
-	if target:
+	if is_instance_valid(target):
 		# Report release
 		XRToolsPointerEvent.released(self, target, last_collided_at)
 		target = null
