@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vv52ccxdhu6h"]
+[gd_scene load_steps=9 format=3 uid="uid://vv52ccxdhu6h"]
 
 [ext_resource type="Script" path="res://src/ois/pole_bamboo_chicken_connect.gd" id="1_gsq50"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_lou4i"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://muoewebdtop4" path="res://src/assets/B3/Pole_Bamboo.glb" id="4_wixbx"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="6_apspg"]
 [ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="6_m05wu"]
+[ext_resource type="Script" path="res://src/ois/Object-Returner-Kitchen.gd" id="7_1vaaj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ck2rs"]
 size = Vector3(0.0983503, 0.896259, 0.1)
@@ -42,9 +43,10 @@ grab_distance = 0.15
 snap_require = "chicken"
 
 [node name="ObjectReturner" parent="." instance=ExtResource("6_m05wu")]
-bounds_y = -0.5
-bounds_x = 2
-bounds_z = 2
+script = ExtResource("7_1vaaj")
+bounds_y = -0.95
+bounds_x = 2.2
+bounds_z = 2.2
 
 [connection signal="has_picked_up" from="Chicken1" to="." method="_on_chicken_1_has_picked_up"]
 [connection signal="has_picked_up" from="Chicken2" to="." method="_on_chicken_2_has_picked_up"]

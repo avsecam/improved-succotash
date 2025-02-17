@@ -93,6 +93,7 @@ func close_event() -> void:
 		queue_free()
 		print(Events.finished_events)
 		await tree_exited
+	clear_event_dialogue()
 	emit_signal("event_ended")
 
 

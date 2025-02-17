@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://86ntuf0j6gis"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_24fbd"]
-[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
+[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="3_btq7u"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_macj4"]
 [ext_resource type="PackedScene" uid="uid://bd7170yeh1357" path="res://src/assets/B1/Nursery_RiceSaplings.glb" id="4_w27sf"]

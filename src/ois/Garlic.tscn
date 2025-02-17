@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://lul7yfj27do8"]
+[gd_scene load_steps=13 format=3 uid="uid://lul7yfj27do8"]
 
 [ext_resource type="Script" path="res://src/ois/Garlic.gd" id="1_d14ck"]
 [ext_resource type="PackedScene" uid="uid://d3ke36fld31pu" path="res://src/assets/B2/Garlic_SmallerPieces.glb" id="2_o7l7w"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_rol5e"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="8_y048e"]
 [ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="9_varlu"]
+[ext_resource type="Script" path="res://src/ois/Object-Returner-Kitchen.gd" id="10_6j3ih"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhox6"]
 margin = 0.01
@@ -62,6 +63,10 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -0.00600046, 0.18371
 visible = false
 
 [node name="ObjectReturner" parent="." instance=ExtResource("9_varlu")]
+script = ExtResource("10_6j3ih")
+bounds_y = -0.95
+bounds_x = 2.2
+bounds_z = 2.2
 
 [connection signal="action_completed" from="GarlicReceiver" to="." method="_on_garlic_receiver_action_completed"]
 [connection signal="action_completed" from="GarlicReceiver" to="Feedback" method="_on_garlic_receiver_action_completed"]

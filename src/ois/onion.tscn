@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b74f8r4tmvgdb"]
+[gd_scene load_steps=15 format=3 uid="uid://b74f8r4tmvgdb"]
 
 [ext_resource type="Script" path="res://src/ois/Onion.gd" id="1_yaui0"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_0c3c4"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="7_rsfia"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="10_65sx4"]
 [ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="11_dptgx"]
+[ext_resource type="Script" path="res://src/ois/Object-Returner-Kitchen.gd" id="12_hw5tt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0j2vl"]
 size = Vector3(0.211768, 0.200634, 0.242407)
@@ -113,6 +114,10 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
 visible = false
 
 [node name="ObjectReturner" parent="." instance=ExtResource("11_dptgx")]
+script = ExtResource("12_hw5tt")
+bounds_y = -0.95
+bounds_x = 2.2
+bounds_z = 2.2
 
 [connection signal="action_completed" from="OnionReceiver" to="." method="_on_onion_receiver_action_completed"]
 [connection signal="action_completed" from="OnionReceiver" to="Feedback" method="_on_onion_receiver_action_completed"]

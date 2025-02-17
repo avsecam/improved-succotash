@@ -2,9 +2,9 @@ extends Node3D
 var original_position: Vector3
 var original_rotation: Quaternion 
 @onready var parent
-@export var bounds_y = -1.450
-@export var bounds_x = 3
-@export var bounds_z = 3
+@export var bounds_y = -0.95
+@export var bounds_x = 2.2
+@export var bounds_z = 2.2
 
 func _ready():
 	if get_parent():

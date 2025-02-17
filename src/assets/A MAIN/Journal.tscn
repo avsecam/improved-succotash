@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://src/assets/A MAIN/Indicator.gd" id="6_nvx1h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_be3ar"]
-size = Vector3(0.3, 0.163867, 0.25)
+size = Vector3(0.3, 0.428613, 0.25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bc5ev"]
 animations = [{
@@ -40,7 +40,7 @@ script = ExtResource("1_3roa7")
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0728111, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.205184, 0)
 shape = SubResource("BoxShape3D_be3ar")
 
 [node name="Indicator" type="AnimatedSprite3D" parent="."]

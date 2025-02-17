@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdsmwcbkg2ua7"]
+[gd_scene load_steps=13 format=3 uid="uid://bdsmwcbkg2ua7"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_st8vk"]
 [ext_resource type="PackedScene" uid="uid://664e45tcal2e" path="res://src/assets/B2/Knife_Cleaver.glb" id="2_0yxet"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cydplmlegksbk" path="res://src/ois/states/interact_receiver.tscn" id="7_ygf7x"]
 [ext_resource type="PackedScene" uid="uid://cyjdtclqritq0" path="res://src/ois/states/control_raycast_cleaver.tscn" id="8_8gnm0"]
 [ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="9_q0ix6"]
+[ext_resource type="Script" path="res://src/ois/Object-Returner-Kitchen.gd" id="10_fkqsi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xr4xy"]
 margin = 0.01
@@ -71,3 +72,7 @@ raycast_length = 0.05
 laser_thickness = 0.0
 
 [node name="ObjectReturner" parent="." instance=ExtResource("9_q0ix6")]
+script = ExtResource("10_fkqsi")
+bounds_y = -0.95
+bounds_x = 2.2
+bounds_z = 2.2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d6m7vthwf6a6"]
+[gd_scene load_steps=15 format=3 uid="uid://d6m7vthwf6a6"]
 
 [ext_resource type="Script" path="res://src/ois/Kalabasa.gd" id="1_3m8f5"]
 [ext_resource type="Script" path="res://src/ois/feedback_components/slice_kalabasa.gd" id="2_ucc1r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://src/ois/action_components/wipe_action.gd" id="9_fm716"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="10_decta"]
 [ext_resource type="PackedScene" uid="uid://b5iwhqvbbxk1c" path="res://src/ois/Object-Returner.tscn" id="11_mt1n0"]
+[ext_resource type="Script" path="res://src/ois/Object-Returner-Kitchen.gd" id="12_l4q0k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0j2vl"]
 margin = 0.01
@@ -125,6 +126,10 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.273143, 0)
 visible = false
 
 [node name="ObjectReturner" parent="." instance=ExtResource("11_mt1n0")]
+script = ExtResource("12_l4q0k")
+bounds_y = -0.95
+bounds_x = 2.2
+bounds_z = 2.2
 
 [connection signal="action_completed" from="KalabasaReceiver" to="." method="_on_kalabasa_receiver_action_completed"]
 [connection signal="action_completed" from="KalabasaReceiver" to="Feedback" method="_on_kalabasa_receiver_action_completed"]
