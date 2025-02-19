@@ -1,13 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://bn1uehuvnbmrj"]
+[gd_scene load_steps=31 format=3 uid="uid://bn1uehuvnbmrj"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_u6q0f"]
-[ext_resource type="SphereMesh" uid="uid://dpeh5ksm83jbm" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sgu81"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_sgu81"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_hnffy"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_qdn7k"]
 [ext_resource type="PackedScene" uid="uid://c3pkwiah1exl8" path="res://src/assets/A1/Table.tscn" id="5_0tyb4"]
 [ext_resource type="PackedScene" uid="uid://6uurg1uwbkwe" path="res://src/assets/C3/Box_ModelShip.glb" id="6_wrlky"]
 [ext_resource type="PackedScene" uid="uid://12acvs62sh6v" path="res://src/ois/ship.tscn" id="7_2hcsq"]
-[ext_resource type="PackedScene" path="res://src/ois/ship_wheel.tscn" id="8_yjgib"]
+[ext_resource type="PackedScene" uid="uid://dd7s4yj8s7klu" path="res://src/ois/ship_wheel.tscn" id="8_yjgib"]
 [ext_resource type="Script" path="res://src/ois/ship_wheel.gd" id="9_5xyar"]
 [ext_resource type="PackedScene" uid="uid://bsono6l7nohab" path="res://src/ois/ship_sail.tscn" id="9_14pt1"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="10_pp3c8"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cm05tsjuxpc7u" path="res://src/assets/Orange_cat-rigged_A_Orange_cat rigged_cat_color_compressed.png" id="24_kt228"]
 [ext_resource type="PackedScene" uid="uid://cp3el5iygvid8" path="res://src/assets/A3/MagicalDistortion.tscn" id="25_2pira"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/MagicalDistortionC0.gd" id="26_1qn40"]
+[ext_resource type="PackedScene" uid="uid://bpgryryxn50e8" path="res://src/ems/eventsystem_new/QuestGiver/journal_quest_giver.tscn" id="27_ivcnf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kx88"]
 resource_name = "hair"
@@ -274,6 +275,9 @@ transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0)
 [node name="MagicalDistortion" parent="Cat" instance=ExtResource("25_2pira")]
 transform = Transform3D(0.82363, 0.0217047, -0.566734, -0.0201687, 0.999756, 0.00897845, 0.566791, 0.00403525, 0.823869, 0, 0, 0)
 script = ExtResource("26_1qn40")
+
+[node name="JournalQuestGiver" parent="." instance=ExtResource("27_ivcnf")]
+questName = "QuestReadtheModelShipJournal"
 
 [connection signal="ship_parts_assembled" from="Ship" to="Events/ActionShipAssemblyComplete" method="_on_ship_ship_parts_assembled"]
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]

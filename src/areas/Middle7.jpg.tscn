@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvgkywh2c18xf"]
+[gd_scene load_steps=19 format=3 uid="uid://dvgkywh2c18xf"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_25di4"]
 [ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_1oa45"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="13_t4dbj"]
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="15_eywd5"]
 [ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="16_ghadr"]
+[ext_resource type="PackedScene" uid="uid://bpgryryxn50e8" path="res://src/ems/eventsystem_new/QuestGiver/journal_quest_giver.tscn" id="18_7j70o"]
 
 [node name="middle7_jpg" type="Node3D"]
 transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 0, 0, 0)
@@ -112,6 +113,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88826, 0.158377, -1.09807)
 
 [node name="Indicator" parent="Journal" index="2"]
 associated_event = "JournalCalandraOfSanto"
+
+[node name="JournalQuestGiver" parent="." instance=ExtResource("18_7j70o")]
+questName = "QuestReadtheCalandraJournal"
 
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="tree_exiting" from="Events/ActionPolishRod1" to="RodSilverTorch" method="_associated_event_finished"]

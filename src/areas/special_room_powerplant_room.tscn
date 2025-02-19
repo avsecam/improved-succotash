@@ -1,7 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://86ntuf0j6gis"]
+[gd_scene load_steps=27 format=3 uid="uid://86ntuf0j6gis"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_24fbd"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_7ohg7"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="3_btq7u"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_macj4"]
 [ext_resource type="PackedScene" uid="uid://bd7170yeh1357" path="res://src/assets/B1/Nursery_RiceSaplings.glb" id="4_w27sf"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="20_8erwo"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionLookAtWaterSpiritB1.gd" id="21_sdpsw"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/ActionInteractPPlantSwitch.gd" id="22_yuvtp"]
+[ext_resource type="PackedScene" uid="uid://bpgryryxn50e8" path="res://src/ems/eventsystem_new/QuestGiver/journal_quest_giver.tscn" id="24_sfmbi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
 
@@ -236,6 +237,9 @@ transform = Transform3D(-0.0480362, 0, 0.0149037, 0, -0.0502951, 0, -0.0149037, 
 transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888, 0, -0.0244276, 0.22937, 0, 0.346641)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
+
+[node name="JournalQuestGiver" parent="." instance=ExtResource("24_sfmbi")]
+questName = "QuestReadthePowerPlantJournal"
 
 [connection signal="pointer_event" from="generator/MainMesh/TopLever_Area" to="Events/ActionInteractPPlantSwitch" method="_on_top_lever_area_pointer_event"]
 [connection signal="pointer_event" from="Journal" to="Events/JournalDonPlacidoEscuderoDam" method="_on_journal_pointer_event"]

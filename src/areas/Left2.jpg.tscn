@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bqnkwa632i3r1"]
+[gd_scene load_steps=47 format=3 uid="uid://bqnkwa632i3r1"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_rvxnt"]
 [ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_36yx7"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="10_hq0js"]
 [ext_resource type="PackedScene" uid="uid://01ckhq2mi3lb" path="res://src/assets/A2/Pillar_Wood.glb" id="11_2ad76"]
 [ext_resource type="Texture2D" uid="uid://cjq8uk34afx23" path="res://src/assets/B4/pngimg.com - butterfly_PNG103822.png" id="11_d1yej"]
+[ext_resource type="PackedScene" uid="uid://bpgryryxn50e8" path="res://src/ems/eventsystem_new/QuestGiver/journal_quest_giver.tscn" id="16_xrur1"]
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_mwttn"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
@@ -425,6 +426,9 @@ associated_event = "JournalLookAtTheButterflies"
 
 [node name="Pillar_Wood" parent="." instance=ExtResource("11_2ad76")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.100763, -4.74456, -2.87798)
+
+[node name="JournalQuestGiver" parent="." instance=ExtResource("16_xrur1")]
+questName = "QuestReadtheButterfliesJournal"
 
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="pointer_event" from="Journal" to="Events/JournalLookAtTheButterflies" method="_on_journal_pointer_event"]

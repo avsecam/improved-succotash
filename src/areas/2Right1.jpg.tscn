@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq7aqgpj12tlc"]
+[gd_scene load_steps=11 format=3 uid="uid://cq7aqgpj12tlc"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_opt1e"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_ivbe4"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_ivbe4"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_jewcr"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_8d67b"]
 [ext_resource type="PackedScene" uid="uid://bfcpm6g53chw4" path="res://src/assets/A MAIN/Journal.tscn" id="5_ncr73"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/EventControl.gd" id="7_f7ybf"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/JournalCoinCollection.gd" id="8_0wnx7"]
 [ext_resource type="PackedScene" uid="uid://c0guesb13x8h4" path="res://src/ems/eventsystem_new/bgm_player_in_a1.tscn" id="9_dac0o"]
+[ext_resource type="PackedScene" uid="uid://bpgryryxn50e8" path="res://src/ems/eventsystem_new/QuestGiver/journal_quest_giver.tscn" id="10_4a204"]
 
 [node name="2 right1_jpg" type="Node3D"]
 transform = Transform3D(-0.634722, 0, 0.772724, 0, 1, 0, -0.772724, 0, -0.634722, 0, 0, 0)
@@ -83,6 +84,9 @@ script = ExtResource("8_0wnx7")
 event_audio_source = NodePath("../../Journal/AudioStreamPlayer3D")
 
 [node name="BGMPlayerInA1" parent="Events" instance=ExtResource("9_dac0o")]
+
+[node name="JournalQuestGiver" parent="." instance=ExtResource("10_4a204")]
+questName = "QuestReadtheCoinsJournal"
 
 [connection signal="pointer_event" from="Journal" to="Events/JournalCoinCollection" method="_on_journal_pointer_event"]
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpgryryxn50e8"]
+
+[ext_resource type="Script" path="res://src/ems/eventsystem_new/QuestGiver/JournalQuestGiver.gd" id="1_848eo"]
+
+[node name="JournalQuestGiver" type="Node3D"]
+script = ExtResource("1_848eo")

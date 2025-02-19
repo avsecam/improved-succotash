@@ -1,7 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://d2dotovac6n64"]
+[gd_scene load_steps=30 format=3 uid="uid://d2dotovac6n64"]
 
 [ext_resource type="Script" path="res://src/teleportation/Panorama.gd" id="1_bo0i1"]
-[ext_resource type="SphereMesh" uid="uid://ddca5no1ubgml" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_yabc8"]
+[ext_resource type="SphereMesh" uid="uid://cue3x82jcn8y6" path="res://src/teleportation/PanoramaSphereMeshBase.tres" id="2_yabc8"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="3_o4px8"]
 [ext_resource type="Script" path="res://src/teleportation/Teleporter.gd" id="4_4lqhb"]
 [ext_resource type="PackedScene" uid="uid://clkms3ef3xwpn" path="res://src/ois/parchment_arrange_panel.tscn" id="5_c4a7b"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cm05tsjuxpc7u" path="res://src/assets/Orange_cat-rigged_A_Orange_cat rigged_cat_color_compressed.png" id="23_c7y55"]
 [ext_resource type="PackedScene" uid="uid://cp3el5iygvid8" path="res://src/assets/A3/MagicalDistortion.tscn" id="24_a1wv4"]
 [ext_resource type="Script" path="res://src/ems/eventsystem_new/MagicalDistortionC0.gd" id="25_oea0s"]
+[ext_resource type="PackedScene" uid="uid://bpgryryxn50e8" path="res://src/ems/eventsystem_new/QuestGiver/journal_quest_giver.tscn" id="26_qwp6d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kx88"]
 resource_name = "hair"
@@ -231,6 +232,9 @@ mesh = SubResource("ArrayMesh_7m8hn")
 [node name="MagicalDistortion" parent="Cat" instance=ExtResource("24_a1wv4")]
 transform = Transform3D(0.82363, 0.0217047, -0.566734, -0.0201687, 0.999756, 0.00897845, 0.566791, 0.00403525, 0.823869, 0, 0, 0)
 script = ExtResource("25_oea0s")
+
+[node name="JournalQuestGiver" parent="." instance=ExtResource("26_qwp6d")]
+questName = "QuestReadtheLettersDocumentsJournal"
 
 [connection signal="rechecking_events" from="Events" to="Journal/Indicator" method="_on_events_rechecking_events"]
 [connection signal="tree_exiting" from="Events/ActionArrangeDocuments" to="Parchment Arrange Panel" method="_on_action_arrange_documents_tree_exiting"]

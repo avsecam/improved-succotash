@@ -4,9 +4,9 @@ signal secondary_emit
 
 @onready var shelf_reference = get_tree().get_root().get_node("/root/Demo/Shelf/InventoryController")
 
-func _ready():
-	if "QuestReadtheLastSupperJournal_Done" not in Events.finished_events:
-		quests.add_active_quest("QuestReadtheLastSupperJournal")
+#func _ready() -> void:
+	#if "QuestReadtheLastSupperJournal_Done" not in Events.finished_events:
+		#quests.add_active_quest("QuestReadtheLastSupperJournal")
 
 func _on_journal_pointer_event(event):
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
