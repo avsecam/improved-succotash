@@ -548,7 +548,7 @@
 		"Quest_Name": "QuestDestroytheCrystalsHowitzer",
 		"Quest_Description": {
 			"Name": "Destroy the Giant Crystal",
-			"Description": "Load up the howitzer with its ammo and fire at the giant crystal"
+			"Description": "Load up the howitzer with its ammo and fire at the giant crystal."
 		},
 		"Quest_Completion_Requirements": [
 			"ActionLoadHowitzer_Done",
@@ -576,12 +576,224 @@
 			"ActionPetTheCat_Done"
 		],
 		"Quest_Completion_Tracker": {
-			"Give the cat some pats on its head": [
+			"Wave your hand to say hi to the cat": [
 				"ActionPetTheCat_Done"
 			]
 		},
 		"Quest_Completion_Flags": [
 			"QuestPetCatTutorial_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheLastSupperJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the Last Supper exhibit."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalTheCarossaLastSupper_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the Last Supper Journal": [
+				"JournalTheCarossaLastSupper_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheLastSupperJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadAmphoraJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the Amphora Jar."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalAmphora_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the Amphora Journal": [
+				"JournalAmphora_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadAmphoraJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadthePaintingJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the paintings."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalAssistantPaintings_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the Paintings Journal": [
+				"JournalAssistantPaintings_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadthePaintingJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheCalandraJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the calandra."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalCalandraOfSanto_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the Calandra Journal": [
+				"JournalCalandraOfSanto_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheCalandraJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadthePowerPlantJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the powerplant."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalDonPlacidoEscuderoDam_Read"
+		],
+		"Quest_Completion_Tracker": "[\"Listen to the Powerplant Journal\" : [\"JournalDonPlacidoEscuderoDam_Read\"]",
+		"Quest_Completion_Flags": [
+			"QuestReadthePowerPlantJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheKitchenJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the food at Villa Escudero."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalLunchFoodEnjoy_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the Kitchen Journal": [
+				"JournalLunchFoodEnjoy_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheKitchenJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheCoinsJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the coin collection."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalCoinCollection_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the coin collection journal": [
+				"JournalCoinCollection_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheCoinsJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheCeramicsJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the ceramics collection."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalChineseCeramics_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the ceramics journal": [
+				"JournalChineseCeramics_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheCeramicsJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheButterfliesJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the history of the butterfly exhibit."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalLookAtTheButterflies_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the butterflies journal": [
+				"JournalLookAtTheButterflies_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheButterfliesJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheLettersDocumentsJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the history of the important documents in the museum."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalHermanoPuleExhibit_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the documents journal": [
+				"JournalHermanoPuleExhibit_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheLettersDocumentsJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheModelShipJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the model ship."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalHermanoPuleShip_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the Model Ship Journal": [
+				"JournalHermanoPuleShip_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheModelShipJournal_Done"
+		]
+	},
+	{
+		"Quest_Name": "QuestReadtheWeaponsJournal",
+		"Quest_Description": {
+			"Name": "Read the Journal",
+			"Description": "Know more about the weapons collection."
+		},
+		"Quest_Completion_Requirements": [
+			"JournalWeaponCollection_Read"
+		],
+		"Quest_Completion_Tracker": {
+			"Listen to the weapons collection journal": [
+				"JournalWeaponCollection_Read"
+			]
+		},
+		"Quest_Completion_Flags": [
+			"QuestReadtheWeaponsJournal_Done"
 		]
 	}
 ]
