@@ -11,3 +11,8 @@ func _on_body_entered(body):
 		print("colliding with 2")
 	if body == distortion_crystal_3:
 		print("colliding with 3")
+
+
+func _on_action_shoot_crystal_with_pistol_1_tree_exiting():
+	if is_instance_valid(self):
+		self.queue_free()

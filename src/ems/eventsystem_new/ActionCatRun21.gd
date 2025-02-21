@@ -1,6 +1,6 @@
 extends Event
 
-@onready var cat := $"../../Cat"
+@onready var catyaw = $"../../Cat"
 @onready var cat_animation_player = $"../../Cat/MainMesh/Ginger Cat (rigged with IK)/Armature/Skeleton3D/AnimationPlayer"
 @onready var cat_on_screen_notif = $"../../Cat/CatOnScreenNotif"
 @onready var cat_meow = $"../../Cat/CatMeow"
@@ -13,7 +13,7 @@ var cat_on_screen : bool = false
 
 func _on_event_started():
 	teleport_mesh = get_parent().get_parent().teleporters_container.get_node("2Left13_jpg")
-	cat.rotation.y = atan2(teleport_mesh.position.x, teleport_mesh.position.z)
+	catyaw.rotation.y = atan2(-3.742, 1.073)
 	
 	while audio_keep_playing_state and !meow_signal_emitted:
 		print("play cat audio =======")
@@ -29,10 +29,10 @@ func _on_cat_on_screen_notif_screen_entered():
 		await get_tree().create_timer(1).timeout
 		audio_keep_playing_state = false
 		var tween = get_tree().create_tween()
-		tween.tween_property(cat, "position", Vector3(teleport_mesh.position.x, teleport_mesh.position.y, teleport_mesh.position.z), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(catyaw, "position", Vector3(-3.742, -2.259, 1.073), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 		cat_animation_player.play("cat_run")
 		await tween.finished
-		cat.visible = false
+		catyaw.visible = false
 		cat_animation_player.play("cat_idle")
 		close_event()
 

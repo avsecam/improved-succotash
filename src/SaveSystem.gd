@@ -215,7 +215,11 @@ func set_saveslot_info(slot : SaveFileSlot):
 		"2Left19.jpg" : "Second Floor - Stairs Egress (Black Cat)",
 		"LeftStairs1.jpg" : "Stairs to First Floor",
 		"Img2023111613014500074.jpg" : "Museum Entrance from Left Stairs",
-		"CatFinish" : "Credits Scene"
+		"CatFinish" : "Credits Scene",
+		"Img2024032114013000113PureShot.jpg" : "Museum Gate",
+		"Tut1.jpg" : "Tutorial 1",
+		"Tut2.jpg" : "Tutorial 2",
+		"Tut3.jpg" : "Tutorial 3"
 		}
 		
 		if location_name.has(str(data["current_location"])):

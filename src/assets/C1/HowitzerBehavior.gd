@@ -19,12 +19,15 @@ var timer_duration_x
 @onready var smoke = $"../../Smoke"
 @onready var howitzer_boom = $"../../HowitzerBoom"
 
+@onready var parent_node = self.get_parent().get_parent()
+
 func _ready():
 	timer_duration_x = timer_duration
 
 func _on_body_entered(body):
 	if body == howitzer_round:
 		howitzer_round.queue_free()
+		parent_node._on_release()
 		round_slot.visible = true
 		loaded_howitzer.emit()
 		loaded = true

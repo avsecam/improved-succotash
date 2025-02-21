@@ -665,7 +665,11 @@
 		"Quest_Completion_Requirements": [
 			"JournalDonPlacidoEscuderoDam_Read"
 		],
-		"Quest_Completion_Tracker": "[\"Listen to the Powerplant Journal\" : [\"JournalDonPlacidoEscuderoDam_Read\"]",
+		"Quest_Completion_Tracker": {
+			"Listen to the Powerplant Journal": [
+				"JournalDonPlacidoEscuderoDam_Read"
+			]
+		},
 		"Quest_Completion_Flags": [
 			"QuestReadthePowerPlantJournal_Done"
 		]

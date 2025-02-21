@@ -13,8 +13,7 @@ func _on_journal_pointer_event(event):
 				AudioHandler.play_sfx("UI_Inventory_Toggle", $"../AudioStreamPlayer3D")
 		else:
 			play_event_audio()
-			shelf_reference.play_close_inventory_anim()
-			AudioHandler.play_sfx("UI_Inventory_Toggle", $"../AudioStreamPlayer3D")
+
 	
 		await event_audio_done
 		secondary_emit.emit()

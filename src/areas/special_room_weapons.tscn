@@ -1,4 +1,4 @@
-[gd_scene load_steps=205 format=3 uid="uid://cc0nl1olnbtqi"]
+[gd_scene load_steps=208 format=3 uid="uid://cc0nl1olnbtqi"]
 
 [ext_resource type="Script" path="res://src/areas/special_room_kitchen_panorama_test.gd" id="1_k6i48"]
 [ext_resource type="PackedScene" uid="uid://5iqynxjjb1jk" path="res://src/teleportation/Teleporter.tscn" id="2_2785x"]
@@ -27,12 +27,14 @@
 [ext_resource type="Script" path="res://src/assets/C1/katana_test_collision.gd" id="20_vcw2v"]
 [ext_resource type="PackedScene" uid="uid://d1hopeq1ke5m4" path="res://src/assets/marble_spirit_normal.tscn" id="23_l1wwn"]
 [ext_resource type="PackedScene" uid="uid://ddw0je40k5yev" path="res://src/Howitzer_Actual.glb" id="24_r3rtn"]
+[ext_resource type="Script" path="res://src/assets/C1/shotgun.gd" id="25_f2son"]
 [ext_resource type="Script" path="res://src/assets/C1/HowitzerBehavior.gd" id="26_3iux5"]
+[ext_resource type="Script" path="res://src/ois/Howitzer_Actual.gd" id="28_kwsas"]
 [ext_resource type="PackedScene" uid="uid://4w08n8847k35" path="res://src/assets/C1/howitzer_round.tscn" id="28_nfi3r"]
 [ext_resource type="PackedScene" uid="uid://cbms6uir76jpa" path="res://src/assets/C1/Howitzer_Round.glb" id="29_vftbf"]
 [ext_resource type="PackedScene" uid="uid://chqn1m2fy1uxr" path="res://src/progress_bar_test/progress_bar_test.tscn" id="30_gc0hk"]
-[ext_resource type="Script" path="res://src/ois/action_components/strike_action.gd" id="31_4lyah"]
 [ext_resource type="Texture2D" uid="uid://kdko7148y7hv" path="res://src/assets/Fire/Flame02.png" id="31_vxygh"]
+[ext_resource type="Script" path="res://src/ois/DistortionCrystalX.gd" id="32_fmtb6"]
 [ext_resource type="Texture2D" uid="uid://cfpqiimjv161b" path="res://src/assets/Fire/Flare00.PNG" id="32_gosc6"]
 [ext_resource type="Script" path="res://src/assets/A3/distortion_crystal_whole.gd" id="32_yqbel"]
 [ext_resource type="AudioStream" uid="uid://c2q0d41tlu1ns" path="res://src/assets/audio/c1/explosion-5981.mp3" id="33_vea5f"]
@@ -42,6 +44,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/interactable_area.gd" id="35_i5yda"]
 [ext_resource type="Texture2D" uid="uid://c4rgm83altm6d" path="res://src/assets/Fire/distortion.png" id="36_e47lb"]
 [ext_resource type="Texture2D" uid="uid://b4cij3rwar8be" path="res://src/assets/Fire/Voronoi01.png" id="39_whdvv"]
+[ext_resource type="Script" path="res://src/ois/DistortionLight.gd" id="41_pnjrn"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="43_0fbfp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fua6v"]
@@ -1835,8 +1838,14 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.246046, 1.74316, 0
 [node name="Marble" parent="MarbleSpirit_Normal" index="0"]
 transform = Transform3D(0.955087, 0, -0.296324, 0, 1, 0, 0.296324, 0, 0.955087, 0, 0, 0)
 
+[node name="Plane" parent="MarbleSpirit_Normal" index="1"]
+transform = Transform3D(-0.119496, -1.24276e-06, -0.453, -4.18798e-07, 0.656079, -5.73562e-08, -0.114061, -1.10695e-06, 0.474584, -0.0438846, 0, 0.0168927)
+
 [node name="Sphere" parent="MarbleSpirit_Normal" index="2"]
 transform = Transform3D(-0.0480362, 0, 0.0149037, 0, -0.0502951, 0, -0.0149037, 0, -0.0480362, 0.260299, 0, -0.0531245)
+
+[node name="Sphere_001" parent="MarbleSpirit_Normal" index="3"]
+transform = Transform3D(-0.0244276, 0, 0.00757888, 0, -0.0255763, 0, -0.00757888, 0, -0.0244276, 0.22937, 0, 0.346641)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MarbleSpirit_Normal"]
 
@@ -1936,6 +1945,7 @@ raycast_length = 10.0
 [node name="shotgun" parent="." groups=["shotgun"] instance=ExtResource("15_g0qf5")]
 transform = Transform3D(0.0212066, 0.580827, -0.813751, -0.999334, 0.0364867, 0, 0.0296911, 0.813209, 0.581214, 0.707024, 0.165986, 1.22493)
 visible = false
+script = ExtResource("25_f2son")
 
 [node name="CollisionShape3D" parent="shotgun" index="0"]
 transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0, 1, -0.0167481, 0.0542725, -0.383447)
@@ -1955,6 +1965,7 @@ bounds_y = -1.0
 [node name="Howitzer" parent="." instance=ExtResource("24_r3rtn")]
 transform = Transform3D(-0.149345, 0.000826551, 0.0139769, 0.00357783, 0.14702, 0.0295354, -0.0135365, 0.0297398, -0.146398, -1.0555, -0.736944, -1.33384)
 visible = false
+script = ExtResource("28_kwsas")
 
 [node name="XRToolsInteractableArea" type="Area3D" parent="Howitzer"]
 collision_layer = 5570561
@@ -1976,7 +1987,7 @@ visible = false
 [node name="DistortionCrystal10" type="StaticBody3D" parent="." groups=["hammer"]]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.62887, -8.28864)
 visible = false
-script = ExtResource("31_4lyah")
+script = ExtResource("32_fmtb6")
 requirement = 1.0
 
 [node name="MainMesh" type="Node3D" parent="DistortionCrystal10"]
@@ -2117,6 +2128,7 @@ visible = false
 light_color = Color(0.784314, 0, 0.811765, 1)
 light_energy = 2.697
 omni_range = 4096.0
+script = ExtResource("41_pnjrn")
 
 [node name="ExplosionAmbientLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56324, -7.74211)
@@ -2195,6 +2207,12 @@ mesh = SubResource("BoxMesh_fua6v")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_q3m5h")
 
+[connection signal="tree_exiting" from="Events/ActionShootCrystalWithPistol1" to="katana" method="_on_action_shoot_crystal_with_pistol_1_tree_exiting"]
+[connection signal="tree_exiting" from="Events/ActionShootCrystalWithShotgun1" to="pistol" method="_on_action_shoot_crystal_with_shotgun_1_tree_exiting"]
+[connection signal="tree_exiting" from="Events/DialogueIRememberThisThing" to="shotgun" method="_on_dialogue_i_remember_this_thing_tree_exiting"]
+[connection signal="tree_exiting" from="Events/DialogueIRememberThisThing" to="Howitzer" method="_on_dialogue_i_remember_this_thing_tree_exiting"]
+[connection signal="tree_exiting" from="Events/DialogueIRememberThisThing" to="DistortionCrystal10" method="_on_dialogue_i_remember_this_thing_tree_exiting"]
+[connection signal="tree_exiting" from="Events/DialogueIRememberThisThing" to="DistortionLight" method="_on_dialogue_i_remember_this_thing_tree_exiting"]
 [connection signal="action_completed" from="DistortionCrystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_distortion_crystal_action_completed"]
 [connection signal="slash" from="DistortionCrystal/MainMesh/Dark_Crystal" to="Events/ActionSlashCrystalWithKatana1" method="_on_dark_crystal_slash"]
 [connection signal="action_completed" from="DistortionCrystal2" to="Events/ActionSlashCrystalWithKatana2" method="_on_distortion_crystal_2_action_completed"]
