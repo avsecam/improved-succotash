@@ -27,6 +27,8 @@ var data: Dictionary
 
 @export var base_rotation: float = 0.0
 
+@onready var events_node = $Events
+
 
 func _ready():
 	mesh_instance.mesh = preload ("res://src/teleportation/PanoramaSphereMeshBase.tres")
@@ -149,9 +151,17 @@ func _on_picked_up(what):
 func _on_release():
 	print("====== RELEASED GRABBED ITEM")
 	for teleporter in teleporters_container.get_children():
-		if teleporter.special:
-			teleporter.play_special_opening_portal()
+		if Events.locked_teleporters.has(teleporter.name):
+			if Events.locked_teleporters[teleporter.name] in Events.finished_events:
+				if teleporter.special:
+					teleporter.play_special_opening_portal()
+				else:
+					teleporter.set_color(IDLE_COLOR)
+					teleporter.enabled = true
 		else:
-			teleporter.set_color(IDLE_COLOR)
-			teleporter.enabled = true
+			if teleporter.special:
+				teleporter.play_special_opening_portal()
+			else:
+				teleporter.set_color(IDLE_COLOR)
+				teleporter.enabled = true
 		

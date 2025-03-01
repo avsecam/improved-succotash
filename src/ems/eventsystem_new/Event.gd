@@ -91,7 +91,7 @@ func close_event() -> void:
 		if play_success_sfx:
 			AudioHandler.play_sfx("UI_Success", null)
 		queue_free()
-		print(Events.finished_events)
+		#print(Events.finished_events)
 		await tree_exited
 	clear_event_dialogue()
 	emit_signal("event_ended")

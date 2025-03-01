@@ -44,9 +44,11 @@ transform = Transform3D(0.25, 0, 0, 0, 0.103673, -0.22749, 0, 0.22749, 0.103673,
 
 [node name="ObjectReturner" parent="." instance=ExtResource("6_a772y")]
 script = ExtResource("7_0u4fg")
-bounds_y = -0.95
+bounds_y = -1.15
 bounds_x = 2.2
 bounds_z = 2.2
+parent_current_pos = Vector3(0, 0, 0)
+parent_local_pos = Vector3(0, 0, 0)
 
 [editable path="InventoryItemComp"]
 [editable path="ObjectReturner"]
